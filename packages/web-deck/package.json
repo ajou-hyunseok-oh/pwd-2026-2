@@ -1,0 +1,30 @@
+{
+  "name": "@pwd/web-deck",
+  "version": "0.2.1",
+  "description": "Build-free, bilingual presentation framework for PWD lecture pages",
+  "main": "web-deck.js",
+  "browser": "web-deck.js",
+  "style": "web-deck.css",
+  "exports": {
+    ".": "./web-deck.js",
+    "./web-deck.css": "./web-deck.css",
+    "./template": "./template/index.html"
+  },
+  "files": [
+    "web-deck.js",
+    "web-deck.css",
+    "fonts",
+    "template",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node tests/validate.cjs"
+  },
+  "keywords": [
+    "slides",
+    "presentation",
+    "i18n",
+    "print"
+  ],
+  "license": "UNLICENSED"
+}
