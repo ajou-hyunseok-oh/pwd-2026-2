@@ -43,7 +43,7 @@
       s06_head_week: '회차',
       s06_head_date: '날짜',
       s06_head_topic: '학습 내용',
-      s06_week_01: '2026 웹서비스 개발 개요',
+      s06_week_01: '웹서비스 개발 개요',
       s06_week_02: 'HTML / CSS / JS / Web 기본',
       s06_week_03: 'JavaScript → TypeScript',
       s06_week_04: 'React + Vite',
@@ -97,7 +97,7 @@
       s08_etc_label: 'Etc',
       s08_etc: 'Git · GitHub · Vite',
       s09_title: '질문과 답변',
-      s10_title: '웹서비스 개요 및 개발 흐름',
+      s10_title: '웹서비스 개발 개요',
       s11_title: '웹서비스란 무엇인가?',
       s11_standard: '기술 표준 정의 (W3C Web Services Architecture, 2004)',
       s11_definition: '네트워크에서 상호운용 가능한 시스템 간 상호작용을 지원하도록 설계된 소프트웨어 시스템',
@@ -299,7 +299,8 @@
       s27_submit: 'LMS에 다음 정보를 제출',
       s27_repo: 'GitHub 저장소 URL',
       s27_pages: 'GitHub Pages URL',
-      s28_title: '질문과 답변'
+      s28_title: '질문과 답변',
+      s28_discord_label: 'Discord 채널 초대'
     },
     en: {
       s01_eyebrow: 'Practical Web Service Development · Fall 2025',
@@ -342,7 +343,7 @@
       s06_head_week: 'Session',
       s06_head_date: 'Date',
       s06_head_topic: 'Topic',
-      s06_week_01: 'Web Service Development Overview for 2026',
+      s06_week_01: 'Web Service Development Overview',
       s06_week_02: 'HTML, CSS, JavaScript & Web Fundamentals',
       s06_week_03: 'JavaScript → TypeScript',
       s06_week_04: 'React + Vite',
@@ -396,7 +397,7 @@
       s08_etc_label: 'Etc',
       s08_etc: 'Git · GitHub · Vite',
       s09_title: 'Questions and Answers',
-      s10_title: 'Web Service Overview and Development Flow',
+      s10_title: 'Web Service Development Overview',
       s11_title: 'What Is a Web Service?',
       s11_standard: 'Technical Standard Definition (W3C Web Services Architecture, 2004)',
       s11_definition: 'A software system designed to support interoperable machine-to-machine interaction over a network',
@@ -598,7 +599,8 @@
       s27_submit: 'Submit the following information through the LMS',
       s27_repo: 'GitHub repository URL',
       s27_pages: 'GitHub Pages URL',
-      s28_title: 'Questions and Answers'
+      s28_title: 'Questions and Answers',
+      s28_discord_label: 'Discord Channel Invitation'
     }
   };
 })();

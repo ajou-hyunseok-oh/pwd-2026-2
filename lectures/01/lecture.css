@@ -18,6 +18,10 @@
 .week1-section { justify-content: center; }
 .week1-section__number { color: var(--wd-muted); font-size: .76rem; font-weight: 750; letter-spacing: .12em; }
 .week1-section h2 { max-width: 18em; margin-top: .8rem !important; font-size: 2.8rem; font-weight: 760; line-height: 1.2; letter-spacing: -.035em; word-break: keep-all; }
+.week1-discord-invite { display: flex; margin-top: 2rem !important; padding-top: 1rem; border-top: 1px solid var(--wd-line); gap: .8rem; align-items: baseline; font-size: .82rem; line-height: 1.4; }
+.week1-discord-invite .week1-discord-icon { color: inherit; font-size: 1.15rem; font-weight: 400; line-height: 1; }
+.week1-discord-invite span { color: var(--wd-muted); font-weight: 700; }
+.week1-discord-invite a { color: #35433b; font-family: var(--wd-font-mono); font-weight: 700; text-underline-offset: .2em; }
 
 .week1-stack { display: grid; margin-top: 1.6rem; gap: 1rem; }
 .week1-stack--compact { gap: 1.3rem; }
