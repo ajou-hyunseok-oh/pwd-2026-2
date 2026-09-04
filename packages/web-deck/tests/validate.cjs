@@ -6,6 +6,10 @@ const vm = require('node:vm');
 const packageRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(packageRoot, '..', '..');
 const WebDeck = require(path.join(packageRoot, 'web-deck.js'));
+const politeKoreanEnding = /(?:니다|세요|십시오)(?:[.!?…]|$)/u;
+
+assert.match('웹 주소를 확인합니다.', politeKoreanEnding);
+assert.doesNotMatch('웹 주소 확인', politeKoreanEnding);
 
 assert.equal(WebDeck.version, '0.2.1');
 assert.equal(typeof WebDeck.create, 'function');
@@ -43,9 +47,18 @@ for (let week = 1; week <= 13; week += 1) {
     document: { body: { getAttribute: () => number } },
     window: {}
   };
-  if (week === 1) {
-    const lectureContent = fs.readFileSync(path.join(repositoryRoot, 'lectures', number, 'lecture-content.js'), 'utf8');
+  const lectureContentPath = path.join(repositoryRoot, 'lectures', number, 'lecture-content.js');
+  if (fs.existsSync(lectureContentPath)) {
+    const lectureContent = fs.readFileSync(lectureContentPath, 'utf8');
     vm.runInNewContext(lectureContent, sandbox);
+    for (const [key, value] of Object.entries(sandbox.window.LECTURE_CONTENT.ko)) {
+      if (typeof value !== 'string') continue;
+      assert.doesNotMatch(
+        value,
+        politeKoreanEnding,
+        `Lecture ${number} ko.${key} uses a polite sentence ending; use the deck's concise declarative or noun-ending style`
+      );
+    }
   }
   vm.runInNewContext(lectureBootstrap, sandbox);
   const messages = sandbox.window.WEB_DECK_CONFIG.messages;
