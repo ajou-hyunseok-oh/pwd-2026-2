@@ -7,9 +7,12 @@ const packageRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(packageRoot, '..', '..');
 const WebDeck = require(path.join(packageRoot, 'web-deck.js'));
 const politeKoreanEnding = /(?:니다|세요|십시오)(?:[.!?…]|$)/u;
+const questionKoreanEnding = /(?:는가|인가|을까|ㄹ까|일까|하면|다면)(?:[.!?…]|$)/u;
 
 assert.match('웹 주소를 확인합니다.', politeKoreanEnding);
 assert.doesNotMatch('웹 주소 확인', politeKoreanEnding);
+assert.match('브라우저는 어떻게 그리는가', questionKoreanEnding);
+assert.doesNotMatch('웹 브라우저 렌더링 과정', questionKoreanEnding);
 
 assert.equal(WebDeck.version, '0.2.1');
 assert.equal(typeof WebDeck.create, 'function');
@@ -58,6 +61,11 @@ for (let week = 1; week <= 13; week += 1) {
         politeKoreanEnding,
         `Lecture ${number} ko.${key} uses a polite sentence ending; use the deck's concise declarative or noun-ending style`
       );
+      assert.doesNotMatch(
+        value,
+        questionKoreanEnding,
+        `Lecture ${number} ko.${key} uses a question or conditional sentence ending; slide text must be a concise noun phrase`
+      );
     }
   }
   vm.runInNewContext(lectureBootstrap, sandbox);
@@ -65,13 +73,15 @@ for (let week = 1; week <= 13; week += 1) {
   const contentKeys = [
     ...html.matchAll(/data-wd-i18n(?:-alt|-aria-label|-title)?="([^"]+)"/g)
   ].map((match) => match[1]);
-  const localAssets = [...html.matchAll(/(?:src|href)="([^"]+)"/g)]
+  // Code samples inside <pre> quote real markup, so their attributes are not deck assets.
+  const markup = html.replace(/<pre\b[\s\S]*?<\/pre>/g, '');
+  const localAssets = [...markup.matchAll(/(?:src|href)="([^"]+)"/g)]
     .map((match) => match[1])
     .filter((reference) => !/^(?:[a-z]+:|#)/i.test(reference));
 
   assert.match(html, /data-web-deck/, `Lecture ${number} is missing the deck root`);
   assert.match(html, /data-wd-slide="cover"/, `Lecture ${number} is missing its cover slide`);
-  const expectedSlideCount = week === 1 ? 28 : 1;
+  const expectedSlideCount = { 1: 28, 2: 28 }[week] || 1;
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);
