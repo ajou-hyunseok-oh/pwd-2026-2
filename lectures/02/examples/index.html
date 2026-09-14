@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Week 2 · 실행 예제</title>
+    <style>
+      body {
+        max-width: 1050px;
+        margin: 40px auto;
+        padding: 0 24px;
+        color: #263a2c;
+        font:
+          16px/1.7 Arial,
+          sans-serif;
+      }
+      h1 {
+        line-height: 1.3;
+      }
+      a {
+        color: #1f6b4a;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      td,
+      th {
+        padding: 16px;
+        text-align: left;
+        border-bottom: 1px solid #d5dfd7;
+      }
+      code,
+      pre {
+        font-family: Consolas, monospace;
+      }
+      pre {
+        padding: 20px;
+        background: #f0f3ef;
+        overflow: auto;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      select {
+        padding: 8px;
+        max-width: 100%;
+        font-size: 16px;
+      }
+      .note {
+        padding: 16px;
+        background: #f0f3ef;
+      }
+      .links {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 600px) {
+        td,
+        th {
+          padding: 8px;
+        }
+        body {
+          margin: 24px auto;
+          padding: 0 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      02회차 · 실행 예제
+      <br />
+      Week 2 · Runnable Examples
+    </h1>
+    <p>
+      슬라이드에 사용한 코드와 실행 화면 / Source code and results used in the
+      slides
+    </p>
+    <p class="links">
+      <a href="./README.md">실행 안내 / Run Guide</a>
+      <a href="../materials/week2-examples.zip" download>
+        ZIP 다운로드 / Download
+      </a>
+      <a href="./source.html">전체 소스 / All Sources</a>
+    </p>
+    <p class="note">
+      SSR은
+      <code>npm run dev</code>
+      실행 후
+      <a href="http://localhost:4183">localhost:4183</a>
+      에서 확인합니다.
+      <br />
+      SSR requires the local server started with
+      <code>npm run dev</code>
+      .
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>예제 / Example</th>
+          <th>실행 / Run</th>
+          <th>코드 / Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            세 페이지 개인 사이트
+            <br />
+            Three-page portfolio
+          </td>
+          <td>
+            <a href="./portfolio/index.html">KO / 실행</a>
+            ·
+            <a href="./portfolio/en/index.html">EN</a>
+          </td>
+          <td><a href="./source.html?file=portfolio/about.html">Source</a></td>
+        </tr>
+        <tr>
+          <td>
+            렌더링 실험
+            <br />
+            Rendering experiments
+          </td>
+          <td>
+            <a href="./rendering/index.html">KO / 실행</a>
+            ·
+            <a href="./rendering/en/index.html">EN</a>
+          </td>
+          <td>
+            <a href="./source.html?file=rendering/rendering.js">Source</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            스타일 규칙과 계산 결과
+            <br />
+            CSS rules and computed styles
+          </td>
+          <td>
+            <a href="./rendering/cascade.html">KO / 실행</a>
+            ·
+            <a href="./rendering/en/cascade.html">EN</a>
+          </td>
+          <td><a href="./source.html?file=rendering/cascade.css">Source</a></td>
+        </tr>
+        <tr>
+          <td>
+            이미지 공간 미지정
+            <br />
+            Unreserved image space
+          </td>
+          <td>
+            <a href="./rendering/image-unreserved.html">KO / 실행</a>
+            ·
+            <a href="./rendering/en/image-unreserved.html">EN</a>
+          </td>
+          <td>
+            <a href="./source.html?file=rendering/image-unreserved.html">
+              Source
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            이미지 공간 예약
+            <br />
+            Reserved image space
+          </td>
+          <td>
+            <a href="./rendering/image-reserved.html">KO / 실행</a>
+            ·
+            <a href="./rendering/en/image-reserved.html">EN</a>
+          </td>
+          <td>
+            <a href="./source.html?file=rendering/image-reserved.html">
+              Source
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            CSR
+            <br />
+            CSR
+          </td>
+          <td>
+            <a href="./generation/csr.html">KO / 실행</a>
+            ·
+            <a href="./generation/en/csr.html">EN</a>
+          </td>
+          <td><a href="./source.html?file=generation/csr.js">Source</a></td>
+        </tr>
+        <tr>
+          <td>
+            SSR · 로컬 서버 필요
+            <br />
+            SSR · local server required
+          </td>
+          <td>
+            <a href="./generation/ssr.html">KO / 실행</a>
+            ·
+            <a href="./generation/en/ssr.html">EN</a>
+          </td>
+          <td><a href="./source.html?file=generation/page.mjs">Source</a></td>
+        </tr>
+        <tr>
+          <td>
+            SSG
+            <br />
+            SSG
+          </td>
+          <td>
+            <a href="./generation/ssg.html">KO / 실행</a>
+            ·
+            <a href="./generation/en/ssg.html">EN</a>
+          </td>
+          <td><a href="./source.html?file=generation/build.mjs">Source</a></td>
+        </tr>
+        <tr>
+          <td>
+            SPA 페이지 이동
+            <br />
+            SPA navigation
+          </td>
+          <td>
+            <a href="./routing/index.html">KO / 실행</a>
+            ·
+            <a href="./routing/en/index.html">EN</a>
+          </td>
+          <td><a href="./source.html?file=routing/router.js">Source</a></td>
+        </tr>
+        <tr>
+          <td>
+            React 카드 두 개
+            <br />
+            Two React cards
+          </td>
+          <td>
+            <a href="./components/dist/index.html">KO / 실행</a>
+            ·
+            <a href="./components/dist/index.html">EN</a>
+          </td>
+          <td>
+            <a href="./source.html?file=components/src/ProjectCard.jsx">
+              Source
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

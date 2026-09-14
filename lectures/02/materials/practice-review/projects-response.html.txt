@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+	<style data-sveltekit>/* src/app.css */
+:root { --brand: #5b3df5; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; color:#222; }
+a { color: var(--brand); text-decoration: none; }
+nav { display:flex; gap:1rem; padding:1rem; border-bottom:1px solid #eee; }
+main { max-width: 880px; margin: 2rem auto; padding: 0 1rem; }
+.card { border:1px solid #eee; border-radius: 12px; padding:1rem; margin:.5rem 0; }
+.s-7IPF32Wcq3s8{}</style><!--[--><meta name="description" content="SvelteKit + Vercel mini portfolio" class="s-7IPF32Wcq3s8"/><!--]--><title>AJOU Mini Portfolio</title>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!----><nav class="s-7IPF32Wcq3s8"><a href="/" class="s-7IPF32Wcq3s8">Home</a> <a href="/about" class="s-7IPF32Wcq3s8">About</a> <a href="/projects" class="s-7IPF32Wcq3s8">Projects</a></nav> <main class="s-7IPF32Wcq3s8"><!----><h2>Projects</h2> <!--[--><article class="card"><h3><a href="/projects/timetable">Timetable Helper</a></h3> <p>수업/일정 정리 도우미</p></article><!----><article class="card"><h3><a href="/projects/gallery">Image Gallery</a></h3> <p>미니 이미지 갤러리</p></article><!----><article class="card"><h3><a href="/projects/memo">Memo Pad</a></h3> <p>로컬에 메모 저장</p></article><!----><!--]--><!----><!----></main><!----><!--]--> <!--[!--><!--]--><!--]-->
+			<script type="application/json" data-sveltekit-fetched data-url="/api/projects">{"status":200,"statusText":"","headers":{},"body":"[{\"slug\":\"timetable\",\"title\":\"Timetable Helper\",\"summary\":\"수업/일정 정리 도우미\"},{\"slug\":\"gallery\",\"title\":\"Image Gallery\",\"summary\":\"미니 이미지 갤러리\"},{\"slug\":\"memo\",\"title\":\"Memo Pad\",\"summary\":\"로컬에 메모 저장\"}]"}</script>
+			<script>
+				{
+					__sveltekit_dev = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("/@fs/C:/Users/hsoh/AppData/Local/Temp/pwd-week2-review-ccro3046/node_modules/@sveltejs/kit/src/runtime/client/entry.js"),
+						import("/@fs/C:/Users/hsoh/AppData/Local/Temp/pwd-week2-review-ccro3046/.svelte-kit/generated/client/app.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 4],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

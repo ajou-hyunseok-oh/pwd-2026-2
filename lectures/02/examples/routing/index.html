@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SPA · 나의 포트폴리오</title>
+    <meta
+      name="description"
+      content="HTML · CSS · JavaScript로 만든 개인 사이트"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./router.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <strong>MY PORTFOLIO · SPA</strong>
+      <nav>
+        <a href="?page=home">홈</a>
+        <a href="?page=about">소개</a>
+        <a href="?page=projects">프로젝트</a>
+      </nav>
+    </header>
+    <main>
+      <h1 id="page-title"></h1>
+      <section class="profile"><p id="page"></p></section>
+    </main>
+    <footer>2026 · 웹서비스개발</footer>
+  </body>
+</html>

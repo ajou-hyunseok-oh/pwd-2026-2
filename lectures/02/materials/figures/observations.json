@@ -1,0 +1,469 @@
+{
+  "browser": "152.0.7977.84",
+  "base": "http://localhost:4183",
+  "capturedAt": "2026-09-11T10:08:51.229Z",
+  "locales": {
+    "ko": {
+      "introBefore": "웹 개발 학습 중",
+      "introAfter": "나의 첫 웹사이트 제작 중",
+      "accessibility": [
+        {
+          "role": "paragraph",
+          "name": "",
+          "properties": [
+            {
+              "name": "live",
+              "value": {
+                "type": "token",
+                "value": "polite"
+              }
+            },
+            {
+              "name": "atomic",
+              "value": {
+                "type": "boolean",
+                "value": false
+              }
+            },
+            {
+              "name": "relevant",
+              "value": {
+                "type": "tokenList",
+                "value": "additions text"
+              }
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "소개 바꾸기",
+          "properties": [
+            {
+              "name": "invalid",
+              "value": {
+                "type": "token",
+                "value": "false"
+              }
+            },
+            {
+              "name": "focusable",
+              "value": {
+                "type": "booleanOrUndefined",
+                "value": true
+              }
+            },
+            {
+              "name": "focused",
+              "value": {
+                "type": "booleanOrUndefined",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "role": "paragraph",
+          "name": "",
+          "properties": []
+        }
+      ],
+      "layout": {
+        "x": 94,
+        "y": 76.390625,
+        "width": 360,
+        "height": 187.578125,
+        "padding": 24,
+        "contentWidth": 312,
+        "button": {
+          "x": 24,
+          "y": 117.984375,
+          "width": 116.453125,
+          "height": 45.59375
+        },
+        "paragraph": {
+          "x": 24,
+          "y": 76.390625,
+          "width": 312,
+          "height": 25.59375
+        }
+      },
+      "narrow": {
+        "width": 220,
+        "buttonY": 143.578125
+      },
+      "rendering": [
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 0.085,
+          "durationMs": 0.023
+        },
+        {
+          "name": "Layout",
+          "change": "width",
+          "startMs": 0.111,
+          "durationMs": 0.084
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 2.563,
+          "durationMs": 0.01
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 2.589,
+          "durationMs": 0.069
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 2.605,
+          "durationMs": 0.051
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 169.227,
+          "durationMs": 0.012
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 169.28,
+          "durationMs": 0.044
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 183.739,
+          "durationMs": 0.012
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 185.947,
+          "durationMs": 0.04
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 199.205,
+          "durationMs": 0.03
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 199.405,
+          "durationMs": 0.011
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 199.493,
+          "durationMs": 0.004
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 199.499,
+          "durationMs": 0.003
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "background",
+          "startMs": 199.682,
+          "durationMs": 0.025
+        },
+        {
+          "name": "Paint",
+          "change": "background",
+          "startMs": 202.916,
+          "durationMs": 0.048
+        },
+        {
+          "name": "Paint",
+          "change": "background",
+          "startMs": 202.932,
+          "durationMs": 0.03
+        }
+      ],
+      "computed": {
+        "color": "rgb(154, 53, 31)",
+        "font": "16px / 25.6px Arial, sans-serif",
+        "html": "<p id=\"intro\" aria-live=\"polite\">웹 개발 학습 중</p>"
+      },
+      "unreserved": {
+        "beforeY": 101.984375,
+        "afterY": 256.390625,
+        "deltaY": 154.40625
+      },
+      "reserved": {
+        "beforeY": 256.390625,
+        "afterY": 256.390625,
+        "deltaY": 0
+      },
+      "generation": {
+        "csr": {
+          "html": "<!doctype html>\n<html lang=\"ko\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>CSR · 자기소개</title>\n    <meta\n      name=\"description\"\n      content=\"HTML · CSS · JavaScript로 만든 개인 사이트\"\n    />\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <script src=\"./csr.js\" defer></script>\n  </head>\n  <body>\n    <main>\n      <section class=\"profile\">\n        <h1>자기소개</h1>\n        <p id=\"intro\"></p>\n      </section>\n    </main>\n  </body>\n</html>\n",
+          "initialIntro": "",
+          "domIntro": "웹 개발 학습 중"
+        },
+        "ssr": {
+          "html": "<!doctype html>\n<html lang=\"ko\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>자기소개</title>\n  <link rel=\"stylesheet\" href=\"./style.css\" />\n</head>\n<body>\n  <main><section class=\"profile\">\n    <h1>자기소개</h1>\n    <p id=\"intro\">웹 개발 학습 중</p>\n  </section></main>\n</body>\n</html>",
+          "initialIntro": "웹 개발 학습 중",
+          "domIntro": "웹 개발 학습 중"
+        },
+        "ssg": {
+          "html": "<!doctype html>\n<html lang=\"ko\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>자기소개</title>\n  <link rel=\"stylesheet\" href=\"./style.css\" />\n</head>\n<body>\n  <main><section class=\"profile\">\n    <h1>자기소개</h1>\n    <p id=\"intro\">웹 개발 학습 중</p>\n  </section></main>\n</body>\n</html>",
+          "initialIntro": "웹 개발 학습 중",
+          "domIntro": "웹 개발 학습 중"
+        }
+      },
+      "mpa": {
+        "documents": [
+          "http://localhost:4183/portfolio/about.html"
+        ],
+        "url": "http://localhost:4183/portfolio/about.html"
+      },
+      "spa": {
+        "documents": [],
+        "url": "http://localhost:4183/routing/index.html?page=about",
+        "content": "웹 개발 학습 중"
+      }
+    },
+    "en": {
+      "introBefore": "Learning web development.",
+      "introAfter": "Building my first website.",
+      "accessibility": [
+        {
+          "role": "paragraph",
+          "name": "",
+          "properties": [
+            {
+              "name": "live",
+              "value": {
+                "type": "token",
+                "value": "polite"
+              }
+            },
+            {
+              "name": "atomic",
+              "value": {
+                "type": "boolean",
+                "value": false
+              }
+            },
+            {
+              "name": "relevant",
+              "value": {
+                "type": "tokenList",
+                "value": "additions text"
+              }
+            }
+          ]
+        },
+        {
+          "role": "button",
+          "name": "Change Introduction",
+          "properties": [
+            {
+              "name": "invalid",
+              "value": {
+                "type": "token",
+                "value": "false"
+              }
+            },
+            {
+              "name": "focusable",
+              "value": {
+                "type": "booleanOrUndefined",
+                "value": true
+              }
+            },
+            {
+              "name": "focused",
+              "value": {
+                "type": "booleanOrUndefined",
+                "value": true
+              }
+            }
+          ]
+        },
+        {
+          "role": "paragraph",
+          "name": "",
+          "properties": []
+        }
+      ],
+      "layout": {
+        "x": 94,
+        "y": 76.390625,
+        "width": 360,
+        "height": 187.578125,
+        "padding": 24,
+        "contentWidth": 312,
+        "button": {
+          "x": 24,
+          "y": 117.984375,
+          "width": 176.109375,
+          "height": 45.59375
+        },
+        "paragraph": {
+          "x": 24,
+          "y": 76.390625,
+          "width": 312,
+          "height": 25.59375
+        }
+      },
+      "narrow": {
+        "width": 220,
+        "buttonY": 143.578125
+      },
+      "rendering": [
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 0.046,
+          "durationMs": 0.029
+        },
+        {
+          "name": "Layout",
+          "change": "width",
+          "startMs": 0.077,
+          "durationMs": 0.084
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 3.343,
+          "durationMs": 0.024
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 3.389,
+          "durationMs": 0.086
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 3.406,
+          "durationMs": 0.066
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 180.795,
+          "durationMs": 0.015
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 180.862,
+          "durationMs": 0.046
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 196.882,
+          "durationMs": 0.022
+        },
+        {
+          "name": "Paint",
+          "change": "width",
+          "startMs": 197.62,
+          "durationMs": 0.045
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 211.068,
+          "durationMs": 0.046
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 211.384,
+          "durationMs": 0.023
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 211.516,
+          "durationMs": 0.012
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "width",
+          "startMs": 211.532,
+          "durationMs": 0.005
+        },
+        {
+          "name": "UpdateLayoutTree",
+          "change": "background",
+          "startMs": 211.842,
+          "durationMs": 0.048
+        },
+        {
+          "name": "Paint",
+          "change": "background",
+          "startMs": 215.92,
+          "durationMs": 0.059
+        },
+        {
+          "name": "Paint",
+          "change": "background",
+          "startMs": 215.937,
+          "durationMs": 0.04
+        }
+      ],
+      "computed": {
+        "color": "rgb(154, 53, 31)",
+        "font": "16px / 25.6px Arial, sans-serif",
+        "html": "<p id=\"intro\" aria-live=\"polite\">Learning web development.</p>"
+      },
+      "unreserved": {
+        "beforeY": 101.984375,
+        "afterY": 256.390625,
+        "deltaY": 154.40625
+      },
+      "reserved": {
+        "beforeY": 256.390625,
+        "afterY": 256.390625,
+        "deltaY": 0
+      },
+      "generation": {
+        "csr": {
+          "html": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n    <title>CSR · About Me</title>\n    <meta\n      name=\"description\"\n      content=\"A personal site built with HTML, CSS and JavaScript\"\n    />\n    <link rel=\"stylesheet\" href=\"./style.css\" />\n    <script src=\"./csr.js\" defer></script>\n  </head>\n  <body>\n    <main>\n      <section class=\"profile\">\n        <h1>About Me</h1>\n        <p id=\"intro\"></p>\n      </section>\n    </main>\n  </body>\n</html>\n",
+          "initialIntro": "",
+          "domIntro": "Learning web development."
+        },
+        "ssr": {
+          "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>About Me</title>\n  <link rel=\"stylesheet\" href=\"./style.css\" />\n</head>\n<body>\n  <main><section class=\"profile\">\n    <h1>About Me</h1>\n    <p id=\"intro\">Learning web development.</p>\n  </section></main>\n</body>\n</html>",
+          "initialIntro": "Learning web development.",
+          "domIntro": "Learning web development."
+        },
+        "ssg": {
+          "html": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>About Me</title>\n  <link rel=\"stylesheet\" href=\"./style.css\" />\n</head>\n<body>\n  <main><section class=\"profile\">\n    <h1>About Me</h1>\n    <p id=\"intro\">Learning web development.</p>\n  </section></main>\n</body>\n</html>",
+          "initialIntro": "Learning web development.",
+          "domIntro": "Learning web development."
+        }
+      },
+      "mpa": {
+        "documents": [
+          "http://localhost:4183/portfolio/en/about.html"
+        ],
+        "url": "http://localhost:4183/portfolio/en/about.html"
+      },
+      "spa": {
+        "documents": [],
+        "url": "http://localhost:4183/routing/en/index.html?page=about",
+        "content": "Learning web development."
+      }
+    }
+  },
+  "nodeOutput": "2",
+  "nodeVersion": "v24.12.0"
+}

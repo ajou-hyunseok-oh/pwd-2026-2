@@ -1,0 +1,55 @@
+{
+  "reviewedAt": "2026-09-11",
+  "execution": "Tracked source files copied to an isolated temporary directory. Original repository unchanged.",
+  "node": "24.12.0",
+  "npm": "11.19.1",
+  "commands": [
+    {
+      "command": "npm.cmd ci --no-audit --no-fund",
+      "exitCode": 0,
+      "result": "206 packages installed"
+    },
+    {
+      "command": "npm.cmd run check",
+      "chunk_id": "610c2a",
+      "wall_time_seconds": 3.038422,
+      "exit_code": 0,
+      "original_token_count": 64,
+      "output": "\n> pwd-week2@0.0.1 check\n> svelte-kit sync && svelte-check --tsconfig ./jsconfig.json\n\nLoading svelte-check in workspace: c:\\Users\\hsoh\\AppData\\Local\\Temp\\pwd-week2-review-ccro3046\nGetting Svelte diagnostics...\n\nsvelte-check found 0 errors and 0 warnings\n"
+    },
+    {
+      "command": "npm.cmd run lint",
+      "chunk_id": "721c24",
+      "wall_time_seconds": 0.996868,
+      "exit_code": 1,
+      "original_token_count": 210,
+      "output": "\n> pwd-week2@0.0.1 lint\n> prettier --check . && eslint .\n\nChecking formatting...\n[warn] .prettierrc\n[warn] e2e/demo.test.js\n[warn] eslint.config.js\n[warn] jsconfig.json\n[warn] package.json\n[warn] playwright.config.js\n[warn] README.md\n[warn] src/app.css\n[warn] src/app.d.ts\n[warn] src/app.html\n[warn] src/demo.spec.js\n[warn] src/lib/Card.svelte\n[warn] src/lib/index.js\n[warn] src/routes/+layout.svelte\n[warn] src/routes/+page.svelte\n[warn] src/routes/about/+page.svelte\n[warn] src/routes/api/projects/+server.js\n[warn] src/routes/projects/[slug]/+page.server.js\n[warn] src/routes/projects/[slug]/+page.svelte\n[warn] src/routes/projects/+page.js\n[warn] src/routes/projects/+page.svelte\n[warn] svelte.config.js\n[warn] vite.config.js\n[warn] vitest-setup-client.js\n[warn] Code style issues found in 24 files. Run Prettier with --write to fix.\n"
+    },
+    {
+      "command": "node node_modules/eslint/bin/eslint.js .",
+      "exitCode": 1,
+      "result": "5 errors: svelte/no-navigation-without-resolve at Card.svelte:7 and +layout.svelte:13-15; svelte/require-each-key at projects/+page.svelte:8"
+    },
+    {
+      "command": "npm.cmd run test:unit -- --run",
+      "chunk_id": "ff9a04",
+      "wall_time_seconds": 2.2050374,
+      "exit_code": 0,
+      "original_token_count": 124,
+      "output": "\n> pwd-week2@0.0.1 test:unit\n> vitest --run\n\nThe following Vite config options will be overridden by SvelteKit:\n  - root\nThe following Vite config options will be overridden by SvelteKit:\n  - root\n\n RUN  v3.2.4 C:/Users/hsoh/AppData/Local/Temp/pwd-week2-review-ccro3046\n\n ✓ |server| src/demo.spec.js (1 test) 1ms\n\n Test Files  1 passed (1)\n      Tests  1 passed (1)\n   Start at  20:21:50\n   Duration  390ms (transform 26ms, setup 0ms, collect 17ms, tests 1ms, environment 0ms, prepare 162ms)\n\n"
+    },
+    {
+      "command": "npm.cmd run build",
+      "exitCode": 0,
+      "result": "SSR and client bundles produced. adapter-auto reported no supported production environment locally."
+    },
+    {
+      "command": "npm.cmd run test:e2e -- --config review-playwright.config.js",
+      "exitCode": 0,
+      "result": "1 passed: home h1 visible",
+      "adjustment": "Temporary config selected installed Chrome, preview on port 4193 and explicit baseURL. Existing e2e/demo.test.js unchanged."
+    }
+  ],
+  "browserVerification": "browser-observations.json",
+  "deploymentVerification": "Not performed"
+}

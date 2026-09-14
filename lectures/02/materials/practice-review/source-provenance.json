@@ -1,0 +1,138 @@
+{
+  "reviewedAt": "2026-09-11",
+  "repository": "C:\\Users\\hsoh\\Workspace\\pwd-2026-practices\\pwd-week2",
+  "commit": "e13f2b6c036eab19fd8247b0c11ec316c424165f",
+  "gitStatus": "",
+  "dependencies": {
+    "svelte": "5.38.7",
+    "@sveltejs/kit": "2.37.1",
+    "@sveltejs/adapter-auto": "6.1.0",
+    "@sveltejs/vite-plugin-svelte": "6.1.4",
+    "vite": "7.1.4",
+    "playwright": "1.55.0",
+    "@playwright/test": "1.55.0",
+    "vitest": "3.2.4"
+  },
+  "trackedFiles": [
+    {
+      "path": ".gitignore",
+      "sha256": "74686cda6f2faa69708149c60313f85dda1271988dc13888bb9834f450cc6ed0"
+    },
+    {
+      "path": ".npmrc",
+      "sha256": "85f476be1a3acba36c6d8ac40ab2943a77867cd18d7159cc5211a80e07eb3a62"
+    },
+    {
+      "path": ".prettierignore",
+      "sha256": "ebeed5d6b95bdce76fd790a959fce02db163052fcc306415c2d477c6eb6c2cfa"
+    },
+    {
+      "path": ".prettierrc",
+      "sha256": "4ce7851910c46876da9ff79f837cd2587b80f84beed013236e73c537bcbb90ae"
+    },
+    {
+      "path": "README.md",
+      "sha256": "51ffa8e7f18d59ea6d82aca57145b46326660853f9fd3dc86a469bfa4e34e679"
+    },
+    {
+      "path": "e2e/demo.test.js",
+      "sha256": "94eccf70f40c680bd7ca5ce22f2374f82c6ae2cb79ccbdca695edeafc904203e"
+    },
+    {
+      "path": "eslint.config.js",
+      "sha256": "03f66e7458bd206e30bbfafd6a31b4e8cf830b52551e8287fbce369bf7762d20"
+    },
+    {
+      "path": "jsconfig.json",
+      "sha256": "5c1e369365fb5292374df9dd0102453268234d0620009bc6cd1ec8718c3454fe"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "bc56f8648e7c9858d540c28796101ca1d7baa63a5645894c0ff08220e6d2f16c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ec445444494871b535c70aa897e345c47adf52fc22e6c20fc73bdea49d9901b7"
+    },
+    {
+      "path": "playwright.config.js",
+      "sha256": "e4f90f735a9d6fbfe7133c0bdf091ef48ff4204234d86662573cf4b34f58ed39"
+    },
+    {
+      "path": "src/app.css",
+      "sha256": "3cd1be62d1330a9639dd64cb5deac0969ad73cb73bad3c38f928af616041032e"
+    },
+    {
+      "path": "src/app.d.ts",
+      "sha256": "92e72e720f3b81e97e32d17986dda1e39601780fb5892a07810a635bb50d55f2"
+    },
+    {
+      "path": "src/app.html",
+      "sha256": "503f16c99d2d9589123e5f53f99639918646f58555ade680756597405fc0c2bd"
+    },
+    {
+      "path": "src/demo.spec.js",
+      "sha256": "66b5282df9180eb025756b3541b669684c1e680d1d5c9573b48e69e3c51bac79"
+    },
+    {
+      "path": "src/lib/Card.svelte",
+      "sha256": "27af5562172a84a5c555001508d56f3d9df6083bfbf8aa9143a2c838c334b53c"
+    },
+    {
+      "path": "src/lib/assets/favicon.svg",
+      "sha256": "d7d9227f0fe5bfb4189fb6ba4dd9e2d524f6a1dfd02bd901c65330987675c0b3"
+    },
+    {
+      "path": "src/lib/index.js",
+      "sha256": "fb9be3c0e6f9626c239979665eb75d2c6d7056a71ec4a8c9368e4b97063df6f9"
+    },
+    {
+      "path": "src/routes/+layout.svelte",
+      "sha256": "606228ff9c2c415e9fc0c68b6ee5c814093a5ca11c7742d3c8b520ab5f635d44"
+    },
+    {
+      "path": "src/routes/+page.svelte",
+      "sha256": "ccffd935d4909d03ff2674ed61bc679baa8276b8450094569e9167f49b406a04"
+    },
+    {
+      "path": "src/routes/about/+page.svelte",
+      "sha256": "7a791b59d52da6ae9dc29b227e3e3618f11f9f57de4c29c23efaea47b8c1aceb"
+    },
+    {
+      "path": "src/routes/api/projects/+server.js",
+      "sha256": "793c454b8d58e4a738160a8a7e4a69d0bf09fdc17e21dc4a94306b4828da2960"
+    },
+    {
+      "path": "src/routes/projects/+page.js",
+      "sha256": "7185d065d47ac78e5ba393206825ab43bc2d943db9b65e81f53ab6b6da0a4aa4"
+    },
+    {
+      "path": "src/routes/projects/+page.svelte",
+      "sha256": "85e7a6989a331d6575cd9307129ce319373ffc8cad821b101b4b52e78b6d626e"
+    },
+    {
+      "path": "src/routes/projects/[slug]/+page.server.js",
+      "sha256": "0584484fefc6d960ad81b139627145f5893fcbb6bc63b209167d561be67f42fd"
+    },
+    {
+      "path": "src/routes/projects/[slug]/+page.svelte",
+      "sha256": "1184f9504d042804e893528f3009308f6c9a141db31f40a9710e4935966c385f"
+    },
+    {
+      "path": "static/robots.txt",
+      "sha256": "5eae60ed129937b16945ab9b22009e4cf363a909fdbdeefd2cdac109a04a9429"
+    },
+    {
+      "path": "svelte.config.js",
+      "sha256": "51990f97925f04cc7704b7b64904531621dfaf25253b86346f798811748bd4ac"
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "bed5549fcc2050bbe71ef965b9a1a4d72f329f868767a7d49c78ea68ef3ebd9f"
+    },
+    {
+      "path": "vitest-setup-client.js",
+      "sha256": "18a4d4452d740e19efb621e57b767a490d2dc44c20d1f143f8c773d70257cf59"
+    }
+  ]
+}

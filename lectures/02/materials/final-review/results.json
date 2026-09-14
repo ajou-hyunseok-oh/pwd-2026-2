@@ -1,0 +1,145 @@
+{
+  "svelte": "5.57.0",
+  "compile": {
+    "state": {
+      "ok": true,
+      "warnings": []
+    },
+    "derived": {
+      "ok": true,
+      "warnings": []
+    },
+    "focus": {
+      "ok": true,
+      "warnings": [
+        {
+          "code": "non_reactive_update",
+          "message": "`el` is updated, but is not declared with `$state(...)`. Changing its value will not correctly trigger updates\nhttps://svelte.dev/e/non_reactive_update"
+        }
+      ]
+    },
+    "todos": {
+      "ok": true,
+      "warnings": []
+    },
+    "mouse": {
+      "ok": true,
+      "warnings": []
+    },
+    "navigation": {
+      "ok": false,
+      "code": "js_parse_error",
+      "message": "Unterminated string constant\nhttps://svelte.dev/e/js_parse_error",
+      "frame": " 7:   beforeNavigate((nav) => {\n 8:     if (!dirty) return;\n 9:     const ok = confirm('변경사항이 저장되지 않았습니다. \n                           ^\n10: 이동하시겠어요?');\n11:     if (!ok) nav.cancel();"
+    },
+    "Child": {
+      "ok": true,
+      "warnings": []
+    },
+    "Parent": {
+      "ok": true,
+      "warnings": []
+    },
+    "Card": {
+      "ok": true,
+      "warnings": []
+    },
+    "Cards": {
+      "ok": true,
+      "warnings": []
+    },
+    "Static": {
+      "ok": true,
+      "warnings": []
+    },
+    "EffectCalc": {
+      "ok": true,
+      "warnings": []
+    },
+    "PropUpdates": {
+      "ok": true,
+      "warnings": []
+    },
+    "todosFixed": {
+      "ok": true,
+      "warnings": []
+    },
+    "navigationJoined": {
+      "ok": true,
+      "warnings": [
+        "element_invalid_self_closing_tag"
+      ]
+    },
+    "focusFixed": {
+      "ok": true,
+      "warnings": []
+    }
+  },
+  "browser": {
+    "state": "name, toggle, array push passed",
+    "derived": "6500 / 6,500원",
+    "focus": "input focused",
+    "todos": {
+      "toggles": [
+        false,
+        false,
+        false
+      ],
+      "expectedToggles": [
+        false,
+        true,
+        false
+      ],
+      "countAfterAdd": 3
+    },
+    "todosFixed": {
+      "toggles": [
+        false,
+        true,
+        false
+      ]
+    },
+    "mouse": "20 x 10",
+    "constProps": "parent state change updates const-destructured prop",
+    "cards": "card data and link passed",
+    "staticListWithoutRunes": "renders normally",
+    "effectCalculation": "pure expression in effect allowed",
+    "errors": []
+  },
+  "layout": {
+    "ko": {
+      "count": 54,
+      "imageSlides": 23,
+      "imageOutside": []
+    },
+    "en": {
+      "count": 54,
+      "imageSlides": 23,
+      "imageOutside": []
+    }
+  },
+  "geometryAndStyles": {
+    "ko": {
+      "width": 360,
+      "padding": "24px",
+      "contentWidth": 312,
+      "button": {
+        "x": 24,
+        "y": 117.984375
+      },
+      "color": "rgb(51, 51, 51)",
+      "hoverColor": "rgb(23, 79, 55)"
+    },
+    "en": {
+      "width": 360,
+      "padding": "24px",
+      "contentWidth": 312,
+      "button": {
+        "x": 24,
+        "y": 117.984375
+      },
+      "color": "rgb(51, 51, 51)",
+      "hoverColor": "rgb(23, 79, 55)"
+    }
+  }
+}

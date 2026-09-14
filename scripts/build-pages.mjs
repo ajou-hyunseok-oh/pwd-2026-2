@@ -24,6 +24,17 @@ if (releasedSet.size !== releasedLectures.length) {
   throw new Error('released-lectures.txt contains duplicate lecture numbers.');
 }
 
+// Keep authoring scripts, review records and the withdrawn practice download out of Pages.
+function publishLectureAsset(source) {
+  const relative = path.relative(path.join(repoRoot, 'lectures'), source);
+  const segments = relative.split(path.sep);
+  const name = path.basename(source);
+  if (segments.some((part) => ['node_modules', '__pycache__', 'scripts', 'final-review', 'practice-review'].includes(part))) return false;
+  if (/\.(?:pyc|trace\.json)$/i.test(name)) return false;
+  if (/\.md$/i.test(name) && !(segments[1] === 'examples' && name === 'README.md')) return false;
+  return name !== 'pwd-week2.zip';
+}
+
 for (const lecture of releasedLectures) {
   if (!/^(0[1-9]|1[0-3])$/.test(lecture)) {
     throw new Error(`Invalid lecture number: ${lecture}`);
@@ -37,6 +48,7 @@ await mkdir(path.join(outputRoot, 'packages', 'web-deck'), { recursive: true });
 await cp(path.join(repoRoot, 'assets'), path.join(outputRoot, 'assets'), { recursive: true });
 await cp(path.join(repoRoot, 'lectures', 'shared'), path.join(outputRoot, 'lectures', 'shared'), { recursive: true });
 await cp(path.join(repoRoot, 'packages', 'web-deck', 'fonts'), path.join(outputRoot, 'packages', 'web-deck', 'fonts'), { recursive: true });
+await cp(path.join(repoRoot, 'packages', 'web-deck', 'vendor'), path.join(outputRoot, 'packages', 'web-deck', 'vendor'), { recursive: true });
 await cp(path.join(repoRoot, 'packages', 'web-deck', 'web-deck.css'), path.join(outputRoot, 'packages', 'web-deck', 'web-deck.css'));
 await cp(path.join(repoRoot, 'packages', 'web-deck', 'web-deck.js'), path.join(outputRoot, 'packages', 'web-deck', 'web-deck.js'));
 
@@ -44,7 +56,7 @@ for (const lecture of releasedLectures) {
   await cp(
     path.join(repoRoot, 'lectures', lecture),
     path.join(outputRoot, 'lectures', lecture),
-    { recursive: true }
+    { recursive: true, filter: publishLectureAsset }
   );
 }
 

@@ -290,6 +290,21 @@
       });
     }
 
+    function renderCodeBlocks() {
+      Array.prototype.forEach.call(root.querySelectorAll('pre[data-wd-code]'), function (pre) {
+        var language = pre.getAttribute('data-wd-code');
+        var code = document.createElement('code');
+        code.className = 'language-' + language;
+        code.textContent = pre.textContent;
+        pre.textContent = '';
+        pre.appendChild(code);
+        pre.setAttribute('tabindex', '0');
+        if (global.Prism && global.Prism.languages[language]) {
+          global.Prism.highlightElement(code);
+        }
+      });
+    }
+
     function applyLocale() {
       document.documentElement.lang = locale;
       Array.prototype.forEach.call(root.querySelectorAll('[data-wd-i18n]'), function (node) {
@@ -301,6 +316,7 @@
       applyAttribute('[data-wd-i18n-alt]', 'alt');
       applyAttribute('[data-wd-i18n-aria-label]', 'aria-label');
       applyAttribute('[data-wd-i18n-title]', 'title');
+      renderCodeBlocks();
 
       chrome.languageGroup.setAttribute('aria-label', translate('ui_language'));
       if (config.brandKey) chrome.brand.textContent = translate(config.brandKey);
@@ -515,6 +531,9 @@
       if (event.metaKey || event.ctrlKey || event.altKey) return;
       var target = event.target;
       if (target && (target.matches('input, textarea, select') || target.isContentEditable)) return;
+      var codeBlock = target && target.closest('pre[data-wd-code]');
+      if (codeBlock && codeBlock.scrollWidth > codeBlock.clientWidth &&
+          (event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Home' || event.key === 'End')) return;
       var onButton = document.activeElement && document.activeElement.tagName === 'BUTTON';
       if (onButton && (event.key === ' ' || event.key === 'Enter')) return;
 
@@ -554,6 +573,11 @@
     });
 
     viewport.addEventListener('touchstart', function (event) {
+      var codeBlock = event.target.closest('pre[data-wd-code]');
+      if (codeBlock && codeBlock.scrollWidth > codeBlock.clientWidth) {
+        trackingTouch = false;
+        return;
+      }
       if (event.touches.length !== 1) {
         trackingTouch = false;
         return;

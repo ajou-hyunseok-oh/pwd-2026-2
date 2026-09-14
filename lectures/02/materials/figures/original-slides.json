@@ -1,0 +1,37 @@
+[
+  {
+    "page": 10,
+    "id": "original-rendering-methods",
+    "title": "웹 브라우저 렌더링 방식",
+    "image": "original-rendering-methods.svg",
+    "text": "웹 브라우저 렌더링 방식\nCSR (Client-Side Rendering)\n●\n빈 HTML → JS 다운로드 → 화면 생성\n●\n장점: 페이지 로드 후 사용자 인터랙션에 빠르게 반응,  자주 업데이트되는 페이지에 유리\n●\n단점: 초기 로딩 느림, 구글 크롤러가 자바스크립트를 실행해야만 페이지 내용을 인식하므로 SEO에 불리\n●\n사례: 소셜 미디어 플랫폼(Facebook, Instagram), 대시보드, 웹 기반 게임\nSSR (Server-Side Rendering)\n●\n서버에서 완성된 HTML → 즉시 표시\n●\n장점: 빠른 초기 로딩, SEO에 유리(검색엔진이 쉽게 페이지를 크롤링)\n●\n단점: 서버 부하(서버 비용이 증가)\n●\n사례: 뉴스 사이트 및 블로그, 전자 상거래 사이트(SEO가 중요)\nSSG (Static Site Generation)\n●\n빌드 시 HTML 생성 → CDN 제공\n●\n장점: 빠른 로딩, SEO에 유리, 서버 부하 적음, 전세계적으로 빠르게 콘텐츠 제공 가능\n●\n단점: 동적인 콘텐츠가 많은 경우 콘텐츠 빌드 배포하는 과정이 필요.\n●\n사례: 개인 블로그 또는 포트폴리오 사이트, 마케팅 랜딩 페이지"
+  },
+  {
+    "page": 11,
+    "id": "original-rendering-performance",
+    "title": "웹 브라우저 렌더링 성능의 중요성",
+    "image": "original-rendering-performance.svg",
+    "text": "웹 브라우저 렌더링 성능의 중요성\n렌더링 최적화는 단순히 속도만의 문제가 아니라 사용자 경험, SEO, 전환율에 직접적인 영향을 미치는 핵심 요소\n성능 지표와 사용자 경험\n●\n로딩 시간별 이탈률: \n○\n1초: 7% 이탈 \n○\n3초: 32% 이탈 \n○\n5초: 90% 이탈 \n○\n7초: 103% 이탈 (경쟁사로 이동) \n●\nGoogle Core Web Vitals \n○\nGoogle이 2020년에 도입한 웹 페이지 사용자 경험을 측정하는 3가지 핵심 지표.\n○\n2021년부터는 검색 순위에도 영향을 미치는 중요한 SEO 요소\n○\nFCP (First Contentful Paint): 첫 번째 텍스트나 이미지가 화면에 그려지는 시간\n○\nLCP (Largest Contentful Paint): 가장 큰 콘텐츠가 화면에 그려지는 시간\n○\nCLS (Cumulative Layout Shift): 페이지 로드 중 발생하는 레이아웃 이동 총합"
+  },
+  {
+    "page": 8,
+    "id": "original-semantic-html",
+    "title": "시맨틱 HTML",
+    "image": "original-semantic-html.svg",
+    "text": "시맨틱 HTML\n<div class=\"header\">\n  <div class=\"nav\">...</div>\n</div>\n<div class=\"content\">\n  <div class=\"article\">...</div>\n  <div class=\"sidebar\">...</div>\n</div>\n<div class=\"footer\">...</div>\n시맨틱 HTML의 중요성\n●\nSEO 최적화\nSEO(Search Engine Optimization)?\n웹페이지의 태그와 링크 구조를 최적화하여  페이지가 검색엔진의 검색 결과 페이지에서 잘 \n노출되도록 최적화하는 과정\n●\n접근성 트리에 올바른 역할(role)로 매핑\n접근성 트리 (Accessibility Tree)\n브라우저가 DOM(+CSS, ARIA)을 해석해 만든 보조기기용 안내도\n●\n코드 가독성 개선\n●\n탄탄한 기본 UX & 내구성\n❌Non-Semantic\n<header>\n  <nav>...</nav>\n</header>\n<main>\n  <article>...</article>\n  <aside>...</aside>\n</main>\n<footer>...</footer>\n✅Semantic\n1. 크롤링 (Crawling) 검색 엔진 봇이 웹사이트 방문\n ↓\n2. 인덱싱 (Indexing) 콘텐츠를 읽고 저장\n↓\n 3. 랭킹 (Ranking) 검색 결과 순위 결정\n검색 엔진 작동 원리"
+  },
+  {
+    "page": 12,
+    "id": "original-routing-url",
+    "title": "라우팅(Routing)",
+    "image": "original-routing-url.svg",
+    "text": "라우팅(Routing)\n사용자가 요청한 URL 주소에 따라 적절한 페이지나 콘텐츠를 보여주는 과정\nURL 구조와 라우팅\nhttps://example.com/blog/2024/ﬁrst-post?sort=date#comments\n│ \n│ \n│    │     │                │                   │\n│ \n│ \n│    │     │                │                   └────\n해시 (페이지 내 위치)\n│ \n│ \n│    │     │                └──────────\n쿼리 파라미터\n│ \n│ \n│    │     └──────────────\n동적 세그먼트\n│ \n│ \n│    └─────────────────\n경로 세그먼트\n│ \n│ \n└───────────────────\n경로 (path)\n│ \n└──────────────────────────\n도메인 \n└──────────────────────────────\n프로토콜\nhttps://mysite.com/about\n ↓ \n라우터가 확인\n↓ \n\"about 페이지를 보여줘!\"\n ↓\n About 페이지 표시\nRouting 개념"
+  },
+  {
+    "page": 13,
+    "id": "original-routing-types",
+    "title": "라우팅(Routing)",
+    "image": "original-routing-types.svg",
+    "text": "라우팅(Routing)\n1. 서버 사이드 라우팅 (MPA 방식)\n매번 새로운 페이지를 서버에서 받아옴\n특징:\n●\n✅ 간단하고 직관적\n●\n✅ SEO에 유리\n●\n❌ 페이지 전환마다 깜빡임\n●\n❌ 느린 페이지 전환\n2. 클라이언트 사이드 라우팅 (SPA 방식)\nJavaScript가 페이지 전환을 처리\n●\n✅ 빠른 페이지 전환\n●\n✅ 부드러운 사용자 경험\n●\n❌ 초기 로딩이 느림\n●\n❌ SEO 대응 필요\nSPA (Single Page Application) : 단일 페이지 애플리케이션\n웹사이트 전체가 하나의 페이지로 구성되어 있고, 사용자가 다른 페이지로 이동할 때 전체 페이지를 새로 불러오지 않고 필요한 부분만 JavaScript로 동적으로 변경\n사용자: \"About 페이지 보여줘\" (클릭)\n ↓\n 브라우저: \"서버야, about.html 전체 파일 줘\" \n↓ \n서버: \"여기 about.html 전체 파일\"\n ↓ \n브라우저: 화면 전체를 다시 그림 (깜빡임)\n사용자: \"About 페이지 보여줘\" (클릭)\n↓\nJavaScript: \"서버야, About 데이터만 줘\"\n↓\n서버: \"여기 About 데이터 (JSON)\"\n↓\n JavaScript: 현재 페이지에서 콘텐츠 부분만 교체\nMPA\nSPA"
+  }
+]

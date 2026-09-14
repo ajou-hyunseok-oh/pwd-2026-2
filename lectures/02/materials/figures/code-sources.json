@@ -1,0 +1,62 @@
+[
+  {
+    "file": "portfolio/about.html",
+    "start": "<section class=\"profile\">",
+    "end": "</section>",
+    "snippet": "<section class=\"profile\">\n        <h1>자기소개</h1>\n        <p id=\"intro\" aria-live=\"polite\">웹 개발 학습 중</p>\n        <button id=\"change\" type=\"button\">소개 바꾸기</button>\n      </section>"
+  },
+  {
+    "file": "portfolio/en/about.html",
+    "start": "<section class=\"profile\">",
+    "end": "</section>",
+    "snippet": "<section class=\"profile\">\n        <h1>About Me</h1>\n        <p id=\"intro\" aria-live=\"polite\">Learning web development.</p>\n        <button id=\"change\" type=\"button\">Change Introduction</button>\n      </section>"
+  },
+  {
+    "file": "portfolio/style.css",
+    "start": "body {",
+    "end": "}",
+    "snippet": "body {\n  margin: 0;\n  color: #333;\n  font:\n    16px/1.6 Arial,\n    sans-serif;\n  background: #fff;\n}"
+  },
+  {
+    "file": "portfolio/style.css",
+    "start": "button {",
+    "end": "}",
+    "snippet": "button {\n  padding: 10px 16px;\n  border: 0;\n  border-radius: 4px;\n  background: #1f6b4a;\n  color: white;\n  font: inherit;\n  cursor: pointer;\n}"
+  },
+  {
+    "file": "portfolio/style.css",
+    "start": "button:hover {",
+    "end": "}",
+    "snippet": "button:hover {\n  background: #174f37;\n}"
+  },
+  {
+    "file": "portfolio/style.css",
+    "start": ".profile {",
+    "end": "}",
+    "snippet": ".profile {\n  width: 360px;\n  max-width: 100%;\n  padding: 24px;\n  background: #f0f3ef;\n  border-radius: 8px;\n}"
+  },
+  {
+    "file": "portfolio/style.css",
+    "start": "h1 {",
+    "end": "}",
+    "snippet": "h1 {\n  margin: 0 0 16px;\n  font-size: 28px;\n  line-height: 1.3;\n}"
+  },
+  {
+    "file": "portfolio/style.css",
+    "start": "button {",
+    "end": "}",
+    "snippet": "button {\n  padding: 10px 16px;\n  border: 0;\n  border-radius: 4px;\n  background: #1f6b4a;\n  color: white;\n  font: inherit;\n  cursor: pointer;\n}"
+  },
+  {
+    "file": "rendering/style.css",
+    "start": "* {",
+    "end": "}",
+    "snippet": "* {\n  box-sizing: border-box;\n}"
+  },
+  {
+    "file": "rendering/style.css",
+    "start": ".profile {",
+    "end": "}",
+    "snippet": ".profile {\n  width: 360px;\n  max-width: 100%;\n  padding: 24px;\n  background: #f0f3ef;\n  border-radius: 8px;\n}"
+  }
+]

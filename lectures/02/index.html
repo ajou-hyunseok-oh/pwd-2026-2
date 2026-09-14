@@ -1,11 +1,13 @@
 <!doctype html>
 <html class="wd-page" lang="ko">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title data-wd-i18n="page_title">02 | HTML / CSS / JS / Web 기본</title>
-    <link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
-    <link rel="stylesheet" href="./lecture.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title data-wd-i18n="page_title">02 | 웹 페이지의 구성 요소와 렌더링 원리</title>
+    <link rel="stylesheet" href="../../packages/web-deck/web-deck.css" />
+    <link rel="stylesheet" href="./lecture.css" />
+    <link rel="stylesheet" href="./lesson.css" />
+    <link rel="stylesheet" href="./code-theme.css" />
   </head>
   <body class="wd-page-body" data-lecture="02">
     <main class="wd-deck" data-web-deck>
@@ -15,160 +17,254 @@
             <div>
               <p class="week2-eyebrow" data-wd-i18n="s01_eyebrow">2026학년도 2학기 실전웹서비스개발</p>
               <h1 data-wd-i18n="s01_title">실전 웹서비스개발 – 2주차</h1>
-              <p class="week2-cover__subtitle" data-wd-i18n="s01_subtitle">웹 페이지의 생성과 렌더링: HTML · CSS · JavaScript</p>
+              <p class="week2-cover__subtitle" data-wd-i18n="s01_subtitle">웹 페이지의 구성 요소와 렌더링 원리</p>
             </div>
             <p class="week2-source">LECTURE 02</p>
           </section>
 
           <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="02" role="region">
             <h2 class="wd-slide-heading" data-wd-i18n="s02_title">학습 목표</h2>
-            <ul class="week2-goals">
-              <li><strong data-wd-i18n="s02_goal_1">웹 리소스</strong><span data-wd-i18n="s02_goal_1_detail">HTML(구조) · CSS(표현) · JavaScript(동작) · DOM · 시맨틱 HTML</span></li>
-              <li><strong data-wd-i18n="s02_goal_2">브라우저 렌더링 과정</strong><span data-wd-i18n="s02_goal_2_detail">HTML 파싱 → DOM · CSS 파싱 → CSSOM · 렌더 트리 → 레이아웃 → 페인트 → 컴포지트</span></li>
-              <li><strong data-wd-i18n="s02_goal_3">HTML 생성 방식</strong><span data-wd-i18n="s02_goal_3_detail">CSR / SSR / SSG · 렌더링 성능</span></li>
-              <li><strong data-wd-i18n="s02_goal_4">라우팅</strong><span data-wd-i18n="s02_goal_4_detail">URL 구조 · 서버 사이드 / 클라이언트 사이드 라우팅</span></li>
-            </ul>
+            <ol class="week2-goals">
+              <li>
+                <strong data-wd-i18n="s02_goal_1">웹 페이지의 구성 요소</strong>
+                <span data-wd-i18n="s02_goal_1_detail">HTML·CSS·JavaScript의 구조·표현·동작 역할 구분</span>
+              </li>
+              <li>
+                <strong data-wd-i18n="s02_goal_2">웹 브라우저 렌더링</strong>
+                <span data-wd-i18n="s02_goal_2_detail"
+                  >DOM부터 페인트까지의 과정과 CSR·SSR·SSG, 성능의 중요성 설명</span
+                >
+              </li>
+              <li>
+                <strong data-wd-i18n="s02_goal_3">시맨틱 HTML과 라우팅</strong>
+                <span data-wd-i18n="s02_goal_3_detail">요소의 의미와 접근성, URL 구조와 페이지 탐색 방식 설명</span>
+              </li>
+              <li>
+                <strong data-wd-i18n="s02_goal_4">웹 브라우저 개발자 도구</strong>
+                <span data-wd-i18n="s02_goal_4_detail">DOM·스타일·메타데이터, 뷰포트와 HTTP 응답 확인</span>
+              </li>
+              <li>
+                <strong data-wd-i18n="s02_goal_5">Svelte·SvelteKit 개발</strong>
+                <span data-wd-i18n="s02_goal_5_detail"
+                  >JavaScript·TypeScript로 컴포넌트·상태·이벤트·라우팅·API 구현</span
+                >
+              </li>
+            </ol>
           </section>
 
-          <section class="wd-slide week2-slide week2-section" data-wd-slide="03" role="region">
+          <section class="wd-slide week2-section week2-slide" data-wd-slide="03" role="region">
             <p class="week2-section__number">01</p>
-            <h2 data-wd-i18n="s03_title">웹 리소스와 브라우저 렌더링</h2>
-            <p class="week2-section__lead" data-wd-i18n="s03_lead">HTML · CSS · JavaScript와 렌더링 파이프라인</p>
+            <h2 data-wd-i18n="s03_title">웹 페이지의 구성 요소와 역할</h2>
+            <p class="week2-section__lead" data-wd-i18n="s03_lead">HTML · CSS · JavaScript</p>
           </section>
 
-          <section class="wd-slide wd-slide--content week2-slide week2-dense" data-wd-slide="47" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s47_title">웹 리소스 <small>Web Resource</small></h2>
-            <p class="wd-slide-lead" data-wd-i18n="s47_lead">URL이 가리키는 대상 · 브라우저의 요청에 서버가 응답으로 돌려주는 모든 것</p>
-            <div class="week2-stack week2-defs">
-              <section class="week2-group">
-                <h3 data-wd-i18n="s47_broad_label">넓은 의미</h3>
-                <p data-wd-i18n="s47_broad">서버가 돌려주는 모든 것 · HTML · CSS · JavaScript · 이미지 · 글꼴 · 영상 · JSON 데이터 · 응답 헤더의 Content-Type으로 종류를 구분</p>
-              </section>
-              <section class="week2-group week2-group--accent">
-                <h3 data-wd-i18n="s47_narrow_label">좁은 의미 · 이 강의의 대상</h3>
-                <p data-wd-i18n="s47_narrow">브라우저가 직접 해석해 페이지를 구성하는 세 가지 텍스트 리소스 · 이미지와 글꼴은 이 셋이 가리키는 부속 리소스</p>
-              </section>
-            </div>
-            <div class="week2-cards">
-              <section class="week2-card">
-                <header><h3>HTML<small>text/html · document</small></h3></header>
-                <p data-wd-i18n="s47_html">문서의 구조와 내용 · 제목, 문단, 이미지, 링크가 어디에 있는지</p>
-                <span class="week2-card__tag"><strong data-wd-i18n="s47_role_label">역할</strong> <span data-wd-i18n="s47_html_role">구조</span></span>
-              </section>
-              <section class="week2-card">
-                <header><h3>CSS<small>text/css · stylesheet</small></h3></header>
-                <p data-wd-i18n="s47_css">문서의 표현 · 색, 크기, 배치, 글꼴을 어떻게 보이게 할지</p>
-                <span class="week2-card__tag"><strong data-wd-i18n="s47_role_label">역할</strong> <span data-wd-i18n="s47_css_role">표현</span></span>
-              </section>
-              <section class="week2-card">
-                <header><h3>JavaScript<small>text/javascript · script</small></h3></header>
-                <p data-wd-i18n="s47_js">문서의 동작 · 클릭과 입력에 반응하고 내용을 바꾸고 서버와 통신</p>
-                <span class="week2-card__tag"><strong data-wd-i18n="s47_role_label">역할</strong> <span data-wd-i18n="s47_js_role">동작</span></span>
-              </section>
-            </div>
-            <p class="week2-note"><strong data-wd-i18n="s47_note_label">확인</strong> <span data-wd-i18n="s47_note">개발자 도구 Network 패널의 Type 열(document · stylesheet · script · image · font)이 리소스 종류 · Response 탭에서 원본 텍스트 확인</span></p>
+          <section class="wd-slide wd-slide--content week2-slide week2-overview" data-wd-slide="47" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="s47_title">HTML · CSS · JavaScript의 역할</h2>
+            <p class="wd-slide-lead" data-wd-i18n="s47_lead">HTML은 구조, CSS는 표현, JavaScript는 동작을 담당</p>
+            <figure class="week2-overview__figure">
+              <figcaption data-wd-i18n="s47_example_label">자기소개 페이지에서 살펴보는 구조 · 표현 · 동작</figcaption>
+              <div class="week2-overview__body">
+                <div class="week2-overview__example" data-week2-demo>
+                  <div class="week2-overview__browser">
+                    <span aria-hidden="true">● ● ●</span>
+                    <code>index.html</code>
+                  </div>
+                  <div class="week2-overview__canvas">
+                    <div class="week2-overview__page">
+                      <h3 data-wd-i18n="s47_preview_title">자기소개</h3>
+                      <p id="week2-demo-intro" data-wd-i18n="s47_preview_before" aria-live="polite">웹 개발 학습 중</p>
+                      <button
+                        type="button"
+                        data-week2-demo-toggle
+                        data-wd-i18n="s47_preview_button"
+                        aria-controls="week2-demo-intro"
+                      >
+                        소개 바꾸기
+                      </button>
+                    </div>
+                  </div>
+                  <p class="week2-overview__hint" data-wd-i18n="s47_preview_hint">버튼 클릭 → 소개 문구 변경</p>
+                </div>
+                <div class="week2-overview__roles">
+                  <section class="week2-overview__role week2-overview__role--html">
+                    <header>
+                      <h3>HTML</h3>
+                      <span class="week2-overview__badge" data-wd-i18n="s47_html_role">구조</span>
+                      <code>index.html</code>
+                    </header>
+                    <p data-wd-i18n="s47_html">제목 · 소개 문단 · 버튼을 HTML 요소로 정의</p>
+                    <p class="week2-overview__detail" data-wd-i18n="s47_html_detail">
+                      h1 · p · button 등의 요소와 속성
+                    </p>
+                  </section>
+                  <section class="week2-overview__role week2-overview__role--css">
+                    <header>
+                      <h3>CSS</h3>
+                      <span class="week2-overview__badge" data-wd-i18n="s47_css_role">표현</span>
+                      <code>style.css</code>
+                    </header>
+                    <p data-wd-i18n="s47_css">같은 요소에 글꼴 · 여백 · 색상 · 버튼 모양 지정</p>
+                    <p class="week2-overview__detail" data-wd-i18n="s47_css_detail">
+                      선택자로 대상 지정 · 속성과 값으로 스타일 선언
+                    </p>
+                  </section>
+                  <section class="week2-overview__role week2-overview__role--js">
+                    <header>
+                      <h3>JavaScript</h3>
+                      <span class="week2-overview__badge" data-wd-i18n="s47_js_role">동작</span>
+                      <code>script.js</code>
+                    </header>
+                    <p data-wd-i18n="s47_js">버튼 클릭에 반응해 표시할 소개 문구 선택</p>
+                    <p class="week2-overview__detail" data-wd-i18n="s47_js_detail">
+                      데이터와 함수로 처리 · 브라우저 API로 화면에 반영
+                    </p>
+                  </section>
+                </div>
+              </div>
+            </figure>
           </section>
 
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="04" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s04_title">HTML5 문서 구조</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s04_lead">HTML = 구조, CSS = 표현(스타일), JS = 동작</p>
+          <section
+            class="wd-slide wd-slide--content week2-slide week2-html week2-slide--reference"
+            data-wd-slide="04"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="s04_title">HTML (HyperText Markup Language)</h2>
+            <p class="wd-slide-lead" data-wd-i18n="s04_lead">웹 문서의 구조와 내용을 기술</p>
             <div class="week2-split week2-split--code">
-              <div class="week2-stack">
-                <section class="week2-group">
-                  <h3>&lt;!DOCTYPE html&gt;</h3>
-                  <p data-wd-i18n="s04_doctype">현재 문서가 HTML5 문서임을 브라우저에 알려주는 선언문</p>
-                </section>
-                <section class="week2-group">
-                  <h3 data-wd-i18n="s04_html_label">&lt;html&gt; 태그</h3>
-                  <p data-wd-i18n="s04_html">웹 문서의 시작과 끝을 감싸는 최상위 루트 요소 · 모든 HTML 요소를 포함</p>
-                </section>
-                <section class="week2-group">
-                  <h3 data-wd-i18n="s04_head_label">&lt;head&gt; 태그</h3>
-                  <p data-wd-i18n="s04_head">HTML 문서의 메타데이터(제목, 인코딩, 스타일, 스크립트 등)를 담는 영역</p>
-                </section>
-                <section class="week2-group">
-                  <h3 data-wd-i18n="s04_meta_label">&lt;meta&gt; 태그</h3>
-                  <p data-wd-i18n="s04_meta">문서의 부가 정보를 정의하는 메타데이터 요소 · viewport는 반응형 디자인의 핵심 · link 태그로 외부 리소스 연결</p>
-                </section>
-                <section class="week2-group">
-                  <h3 data-wd-i18n="s04_body_label">&lt;body&gt; 태그</h3>
-                  <p data-wd-i18n="s04_body">사용자가 실제로 화면에서 보게 되는 모든 콘텐츠(텍스트, 이미지, 링크 등)를 담는 영역</p>
+              <div class="week2-syntax__explanation">
+                <div class="week2-syntax__concepts">
+                  <section class="week2-group week2-group--accent">
+                    <h3 data-wd-i18n="s04_element_label">요소 (Element)</h3>
+                    <p data-wd-i18n="s04_element">태그로 표현하는 문서의 구성 단위</p>
+                  </section>
+                  <section class="week2-group week2-group--accent">
+                    <h3 data-wd-i18n="s04_attribute_label">속성 (Attribute)</h3>
+                    <p data-wd-i18n="s04_attribute">시작 태그에 작성하는 요소의 추가 정보</p>
+                  </section>
+                </div>
+                <section class="week2-syntax__details" aria-labelledby="week2-html-tags">
+                  <h3 id="week2-html-tags" data-wd-i18n="s04_tags_label">문서 선언과 주요 태그</h3>
+                  <dl>
+                    <div>
+                      <dt><code>&lt;!DOCTYPE html&gt;</code></dt>
+                      <dd data-wd-i18n="s04_doctype">브라우저의 표준 모드 사용을 위한 문서 선언</dd>
+                    </div>
+                    <div>
+                      <dt><code>&lt;html&gt;</code></dt>
+                      <dd data-wd-i18n="s04_html">웹 문서 전체를 감싸는 최상위 루트 요소</dd>
+                    </div>
+                    <div>
+                      <dt><code>&lt;head&gt;</code></dt>
+                      <dd data-wd-i18n="s04_head">문서 제목 · 인코딩 · 스타일 등 메타데이터를 담는 영역</dd>
+                    </div>
+                    <div>
+                      <dt><code>&lt;meta&gt;</code></dt>
+                      <dd data-wd-i18n="s04_meta">문자 인코딩 · 뷰포트 등 문서의 부가 정보를 지정</dd>
+                    </div>
+                    <div>
+                      <dt><code>&lt;body&gt;</code></dt>
+                      <dd data-wd-i18n="s04_body">제목 · 문단 · 이미지 등 화면에 표시할 콘텐츠를 담는 영역</dd>
+                    </div>
+                  </dl>
                 </section>
               </div>
               <div class="week2-col">
                 <div>
                   <p class="week2-code-label">index.html</p>
-                  <pre class="week2-code week2-code--sm">&lt;!DOCTYPE html&gt;
+                  <pre class="wd-code" data-wd-i18n="s04_example" data-wd-code="html" data-wd-code-width="80">&lt;!DOCTYPE html&gt;
 &lt;html lang="ko"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-  &lt;title&gt;실전웹서비스개발 2주차&lt;/title&gt;
-  &lt;link rel="stylesheet" href="style.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;header&gt;
-    &lt;h1&gt;환영합니다!&lt;/h1&gt;
-    &lt;p&gt;이것은 나의 첫 번째 웹사이트입니다&lt;/p&gt;
-  &lt;/header&gt;
-
-  &lt;main&gt;
-    &lt;section&gt;
-      &lt;h2&gt;자기소개&lt;/h2&gt;
-      &lt;p id="intro"&gt;안녕하세요. 저는 웹 개발을 공부하고 있습니다.&lt;/p&gt;
-      &lt;button onclick="changeText()"&gt;클릭해보세요&lt;/button&gt;
-    &lt;/section&gt;
-  &lt;/main&gt;
-
-  &lt;footer&gt;
-    &lt;p&gt;&amp;copy; 2025 PWD Week 2&lt;/p&gt;
-  &lt;/footer&gt;
-
-  &lt;script src="script.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;title&gt;자기소개&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css" /&gt;
+    &lt;script src="script.js" defer&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;main&gt;
+      &lt;section&gt;
+        &lt;h1&gt;자기소개&lt;/h1&gt;
+        &lt;p id="intro"&gt;웹 개발 학습 중&lt;/p&gt;
+        &lt;button id="change" type="button"&gt;소개 바꾸기&lt;/button&gt;
+      &lt;/section&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
 &lt;/html&gt;</pre>
                 </div>
-                <p class="week2-reference"><span data-wd-i18n="s04_reference">학습 참고 자료</span>: <a href="https://www.w3schools.com/html/default.asp">w3schools.com/html</a></p>
               </div>
             </div>
+            <p class="week2-reference week2-reference--footer">
+              <span data-wd-i18n="s04_reference">학습 참고 자료</span>
+              :
+              <a href="https://www.w3schools.com/html/default.asp">w3schools.com/html</a>
+            </p>
           </section>
 
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="05" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s05_title">CSS 규칙의 구조</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s05_lead">CSS는 규칙(Selector + Declaration)의 집합</p>
+          <section
+            class="wd-slide wd-slide--content week2-slide week2-css week2-slide--reference"
+            data-wd-slide="05"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="s05_title">CSS (Cascading Style Sheets)</h2>
+            <p class="wd-slide-lead" data-wd-i18n="s05_lead">웹 문서의 색상 · 글꼴 · 배치를 지정</p>
             <div class="week2-split week2-split--code">
-              <div class="week2-stack">
-                <section class="week2-group week2-group--accent">
-                  <h3>Selector</h3>
-                  <p data-wd-i18n="s05_selector">스타일을 적용할 대상을 가리키는 부분</p>
-                  <ul class="week2-list week2-list--compact">
-                    <li><span data-wd-i18n="s05_selector_1">태그 · 클래스 · ID</span> — <code>h1, .btn, #app</code></li>
-                    <li><span data-wd-i18n="s05_selector_2">결합자: 자식, 자손, 형제</span> — <code>&gt;, (공백), +, ~</code></li>
-                    <li><span data-wd-i18n="s05_selector_3">상태 · 의사클래스</span> — <code>:hover, :focus-visible, :disabled</code></li>
-                    <li><span data-wd-i18n="s05_selector_4">의사요소</span> — <code>::before, ::after</code></li>
-                  </ul>
-                </section>
-                <section class="week2-group week2-group--accent">
-                  <h3>Declaration</h3>
-                  <p data-wd-i18n="s05_declaration">중괄호 안에 작성하는 속성과 값의 한 쌍</p>
-                  <ul class="week2-list week2-list--compact">
-                    <li><code>color: #111;</code> · <code>margin-top: 8px;</code></li>
-                    <li data-wd-i18n="s05_declaration_2">여러 선언이 모여 declaration block을 구성</li>
-                  </ul>
+              <div class="week2-syntax__explanation">
+                <div class="week2-syntax__concepts">
+                  <section class="week2-group week2-group--accent">
+                    <h3 data-wd-i18n="s05_selector_label">선택자 (Selector)</h3>
+                    <p data-wd-i18n="s05_selector">스타일을 적용할 대상을 가리키는 부분</p>
+                  </section>
+                  <section class="week2-group week2-group--accent">
+                    <h3 data-wd-i18n="s05_declaration_label">선언 (Declaration)</h3>
+                    <p data-wd-i18n="s05_declaration">중괄호 안에 작성하는 속성과 값의 한 쌍</p>
+                  </section>
+                </div>
+                <section class="week2-syntax__details" aria-labelledby="week2-css-syntax">
+                  <h3 id="week2-css-syntax" data-wd-i18n="s05_details_label">선택자와 선언 예시</h3>
+                  <dl>
+                    <div>
+                      <dt data-wd-i18n="s05_selector_1">태그 · 클래스 · ID</dt>
+                      <dd><code>h1, .btn, #app</code></dd>
+                    </div>
+                    <div>
+                      <dt data-wd-i18n="s05_selector_2">결합자: 자식, 자손, 형제</dt>
+                      <dd>
+                        <code>
+                          &gt;,
+                          <span data-wd-i18n="s05_descendant">(공백)</span>
+                          , +, ~
+                        </code>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt data-wd-i18n="s05_selector_3">상태 · 의사클래스</dt>
+                      <dd><code>:hover, :focus-visible, :disabled</code></dd>
+                    </div>
+                    <div>
+                      <dt data-wd-i18n="s05_selector_4">의사요소</dt>
+                      <dd><code>::before, ::after</code></dd>
+                    </div>
+                    <div>
+                      <dt data-wd-i18n="s05_block_label">선언 블록</dt>
+                      <dd>
+                        <code>{ color: #111; margin-top: 8px; }</code>
+                        <span class="week2-syntax__detail" data-wd-i18n="s05_declaration_2">
+                          여러 선언을 중괄호로 묶어 구성
+                        </span>
+                      </dd>
+                    </div>
+                  </dl>
                 </section>
               </div>
               <div class="week2-col">
-                <div>
-                  <p class="week2-code-label">style.css</p>
-                  <pre class="week2-code week2-code--sm">* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+                <div class="week2-code-pair week2-code-pair--row">
+                  <div>
+                    <p class="week2-code-label">style.css · body / main</p>
+                    <pre class="wd-code" data-wd-code-width="32" data-wd-code="css">body {
+  font:
+    16px/1.6 Arial,
+    sans-serif;
   color: #333;
 }
 
@@ -176,717 +272,2480 @@ main {
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
-}
-
-section {
-  background: #f4f4f4;
+}</pre>
+                  </div>
+                  <div>
+                    <p class="week2-code-label">style.css · section / button</p>
+                    <pre class="wd-code" data-wd-code-width="32" data-wd-code="css">section {
   padding: 2rem;
   border-radius: 8px;
-  margin-bottom: 2rem;
+  background: #f0f3ef;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  border: 0;
+  border-radius: 6px;
+  background: #1f6b4a;
+  color: white;
 }
 
 button:hover {
-  background: #45a049;
+  background: #174f37;
 }</pre>
+                  </div>
                 </div>
-                <p class="week2-reference"><span data-wd-i18n="s05_reference">학습 참고 자료</span>: <a href="https://www.w3schools.com/css/default.asp">w3schools.com/css</a></p>
               </div>
             </div>
+            <p class="week2-reference week2-reference--footer">
+              <span data-wd-i18n="s05_reference">학습 참고 자료</span>
+              :
+              <a href="https://www.w3schools.com/css/default.asp">w3schools.com/css</a>
+            </p>
           </section>
 
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="06" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s06_title">JavaScript와 화면 동작</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s06_lead">사용자 행동과 데이터에 반응해 문서를 바꾸는 재료 · 바뀐 문서는 브라우저가 다시 그림</p>
+          <section
+            class="wd-slide wd-slide--content week2-slide week2-slide--reference"
+            data-wd-slide="components-javascript"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="s51_title">JavaScript</h2>
+            <p class="wd-slide-lead" data-wd-i18n="s51_lead">
+              데이터 처리와 실행 흐름을 표현하는 프로그래밍 언어 · 브라우저 API와 연결해 페이지 기능 구현
+            </p>
             <div class="week2-split week2-split--code">
               <div class="week2-stack">
                 <section class="week2-panel">
-                  <h3 data-wd-i18n="s06_core_label">JS가 화면을 바꾸는 흐름</h3>
-                  <ol class="week2-list">
-                    <li data-wd-i18n="s06_core_1">이벤트 발생 (클릭 · 입력 · 페이지 로드)</li>
-                    <li data-wd-i18n="s06_core_2">JS가 문서에서 요소를 찾아 내용 · 속성 · 스타일을 읽고 수정</li>
-                    <li data-wd-i18n="s06_core_3">브라우저가 변경된 부분을 다시 렌더링</li>
-                    <li>
-                      <span data-wd-i18n="s06_core_4">JS가 다룰 수 있는 것</span>
-                      <ul>
-                        <li data-wd-i18n="s06_core_4_1">문서: 요소 찾기 · 텍스트와 속성 변경 · 요소 생성과 삭제 → DOM</li>
-                        <li data-wd-i18n="s06_core_4_2">스타일: 클래스 토글 · 인라인 스타일 변경</li>
-                        <li data-wd-i18n="s06_core_4_3">데이터: 서버 요청 · 저장 · 계산</li>
-                      </ul>
-                    </li>
-                  </ol>
+                  <h3 data-wd-i18n="s51_data_label">데이터 처리</h3>
+                  <p data-wd-i18n="s51_data">변수에 값 저장 · 조건과 반복으로 처리 · 함수로 작업 재사용</p>
                 </section>
-                <p class="week2-reference"><span data-wd-i18n="s06_reference">학습 참고 자료</span>: <a href="https://www.w3schools.com/js/default.asp">w3schools.com/js</a></p>
+                <section class="week2-panel">
+                  <h3 data-wd-i18n="s51_event_label">이벤트 반응</h3>
+                  <p data-wd-i18n="s51_event">클릭 · 입력 · 페이지 로드 등의 이벤트에 실행할 함수 연결</p>
+                </section>
+                <section class="week2-panel">
+                  <h3 data-wd-i18n="s51_api_label">브라우저 API 활용</h3>
+                  <p data-wd-i18n="s51_api">DOM으로 문서 변경 · fetch로 데이터 요청 · storage로 값 저장</p>
+                </section>
               </div>
               <div class="week2-col">
-                <div>
-                  <p class="week2-code-label">index.html</p>
-                  <pre class="week2-code">&lt;body&gt;
-  …
-  &lt;button onclick="changeText()"&gt;클릭해보세요&lt;/button&gt;
-  &lt;script src="script.js" defer&gt;&lt;/script&gt;
-  …
-&lt;/body&gt;</pre>
-                </div>
-                <div>
-                  <p class="week2-code-label">script.js</p>
-                  <pre class="week2-code week2-code--sm">function changeText() {
-  const intro = document.getElementById('intro');
-  const messages = [
-    '웹 개발은 정말 재미있어요!',
-    'JavaScript로 상호작용을 만들 수 있습니다.',
-    'GitHub Pages로 무료 호스팅이 가능해요!',
-    '계속 공부하면 더 멋진 것을 만들 수 있어요!'
-  ];
+                <p class="week2-code-label" data-wd-i18n="s51_code_label">소개 문구 선택과 함수 호출</p>
+                <pre class="wd-code" data-wd-i18n="s51_example" data-wd-code="javascript">const messages = [
+  '웹 개발 학습 중',
+  'HTML · CSS · JavaScript로 페이지 제작 중'
+];
 
-  const randomMessage =
-    messages[Math.floor(Math.random() * messages.length)];
-
-  intro.textContent = randomMessage;
+function getIntroduction(index) {
+  return messages[index];
 }
 
-// 페이지 로드 시 환영 메시지
-window.addEventListener('load', () =&gt; {
-  console.log('웹사이트가 성공적으로 로드되었습니다!');
-});</pre>
+const introduction = getIntroduction(1);
+console.log(introduction);</pre>
+              </div>
+            </div>
+            <p class="week2-reference week2-reference--footer">
+              <span data-wd-i18n="s51_reference">학습 참고 자료</span>
+              :
+              <a href="https://www.w3schools.com/js/">w3schools.com/js</a>
+            </p>
+          </section>
+          <section class="wd-slide week2-section week2-slide" data-wd-slide="browser-rendering" role="region">
+            <p class="week2-section__number">02</p>
+            <h2 data-wd-i18n="v2_browser-rendering_title">웹 브라우저의 렌더링 원리</h2>
+            <p class="week2-section__lead" data-wd-i18n="v2_browser-rendering_lead">
+              코드의 요소·규칙이 문서 모델과 화면으로 바뀌는 과정
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="source-to-screen"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_source-to-screen_title">웹 브라우저 렌더링 과정</h2>
+            <div class="lesson-browser-rendering">
+              <ol class="lesson-browser-rendering__steps">
+                <li data-wd-i18n="v2_render_html">HTML 파싱 → DOM 트리</li>
+                <li data-wd-i18n="v2_render_css">CSS 파싱 → CSSOM 트리</li>
+                <li data-wd-i18n="v2_render_tree">DOM + CSSOM → Render Tree</li>
+                <li data-wd-i18n="v2_render_layout">Layout (위치, 크기 계산)</li>
+                <li data-wd-i18n="v2_render_paint">Paint (픽셀로 그리기)</li>
+              </ol>
+              <figure class="lesson-browser-rendering__diagram">
+                <img
+                  src="./materials/figures/browser-rendering-original.jpeg"
+                  width="1700"
+                  height="712"
+                  alt="HTML → DOM, CSS → CSSOM, JavaScript의 DOM·CSSOM 변경, DOM·CSSOM → Render Tree → Layout → Paint"
+                  data-wd-i18n-alt="v2_render_diagram_alt"
+                  loading="eager"
+                />
+              </figure>
+            </div>
+          </section>
+          <section class="wd-slide wd-slide--content week2-slide lesson-slide" data-wd-slide="dom-nodes" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_dom-nodes_title">DOM (Document Object Model)</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_dom-nodes_lead">
+              HTML 문서를 객체 트리로 표현하고, 프로그램이 문서의 구조와 내용을 읽고 변경할 수 있게 하는 인터페이스
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">portfolio/about.html · section</div>
+                  <div class="lesson-code__body">
+                    <pre
+                      class="wd-code"
+                      data-wd-code="html"
+                      data-wd-code-width="64"
+                      data-wd-i18n="v2_dom_html"
+                      data-lesson-marks='[[1,"&lt;section"],[2,"id=\"intro\""],[3,"id=\"change\""]]'
+                    >&lt;section class="profile"&gt;
+  &lt;h1&gt;자기소개&lt;/h1&gt;
+  &lt;p id="intro" aria-live="polite"&gt;웹 개발 학습 중&lt;/p&gt;
+  &lt;button id="change" type="button"&gt;소개 바꾸기&lt;/button&gt;
+&lt;/section&gt;</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-tree">
+                  <div>
+                    <div class="lesson-node"><code>main</code></div>
+                  </div>
+                  <div class="lesson-tree__stem"></div>
+                  <div>
+                    <div class="lesson-node">
+                      <b class="lesson-tag lesson-tag--1" aria-hidden="true">1</b><code>section</code>
+                    </div>
+                  </div>
+                  <div class="lesson-tree__branches">
+                    <div>
+                      <div class="lesson-node"><code>h1</code></div>
+                      <p class="lesson-tree__text" data-wd-i18n="v2_dom_h1">자기소개</p>
+                    </div>
+                    <div class="">
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--2" aria-hidden="true">2</b><code>p</code
+                        ><small>id=&quot;intro&quot;</small>
+                      </div>
+                      <p class="lesson-tree__text" data-wd-i18n="v2_dom_text">#text: 웹 개발 학습 중</p>
+                    </div>
+                    <div>
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--3" aria-hidden="true">3</b><code>button</code
+                        ><small>id=&quot;change&quot;</small>
+                      </div>
+                      <p class="lesson-tree__text" data-wd-i18n="v2_dom_button">#text: 소개 바꾸기</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-inline-result">
+              <b class="lesson-tag lesson-tag--2" aria-hidden="true">2</b
+              ><span data-wd-i18n="v2_dom_target">p#intro가 화면의 소개 문단에 대응</span>
+              <figure class="lesson-shot lesson-shot--tiny">
+                <img
+                  src="./materials/figures/ko-intro-before.png"
+                  data-lesson-image="intro-before"
+                  alt="화면의 문단"
+                  data-wd-i18n-alt="v2_dom_visible_alt"
+                  loading="eager"
+                />
+                <figcaption data-wd-i18n="v2_dom_visible">화면의 문단</figcaption>
+              </figure>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="css-rule-objects"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_css-rule-objects_title">CSSOM (CSS Object Model)</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_css-rule-objects_lead">
+              CSS 스타일시트와 규칙을 객체로 표현하고, 프로그램이 이를 읽고 변경할 수 있게 하는 인터페이스
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">portfolio/style.css · color declarations</div>
+                  <div class="lesson-code__body">
+                    <pre
+                      class="wd-code"
+                      data-wd-code="css"
+                      data-wd-code-width="56"
+                      data-wd-i18n="v2_css_rules"
+                      data-lesson-marks='[[1,"body {"],[2,"button {"],[3,"button:hover {"]]'
+                    >body {
+  color: #333;
+}
+button {
+  background: #1f6b4a;
+}
+button:hover {
+  background: #174f37;
+}</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-cssom-rules">
+                  <p class="lesson-label" data-wd-i18n="v2_css_sheet">CSSOM · style.css</p>
+                  <p class="lesson-caption" data-wd-i18n="v2_css_rule_fields">
+                    선택자와 선언(속성·값)으로 구성된 규칙 객체
+                  </p>
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--1" aria-hidden="true">1</b><code>body</code
+                    ><small>color: #333</small>
+                  </div>
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--2" aria-hidden="true">2</b><code>button</code
+                    ><small>background: #1f6b4a</small>
+                  </div>
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--3" aria-hidden="true">3</b><code>button:hover</code
+                    ><small>background: #174f37</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-css-concepts">
+              <section>
+                <h3 data-wd-i18n="v2_css_matching_title">매칭 (Matching)</h3>
+                <p data-wd-i18n="v2_css_matching_definition">선택자 조건을 만족하는 요소를 찾는 과정</p>
+                <p class="lesson-css-concepts__example" data-wd-i18n="v2_css_matching_example">
+                  마우스를 올린 버튼 → button · button:hover 모두 해당
+                </p>
+              </section>
+              <section>
+                <h3 data-wd-i18n="v2_css_cascade_title">캐스케이드 (Cascade)</h3>
+                <p data-wd-i18n="v2_css_cascade_definition">같은 요소·속성에 겹치는 선언 중 우선순위로 적용값 결정</p>
+                <p class="lesson-css-concepts__example" data-wd-i18n="v2_css_cascade_example">
+                  이 예제에서는 더 구체적인 button:hover의 배경색 #174f37 적용
+                </p>
+              </section>
+              <section>
+                <h3 data-wd-i18n="v2_css_inheritance_title">상속 (Inheritance)</h3>
+                <p data-wd-i18n="v2_css_inheritance_definition">
+                  color처럼 상속되는 속성에 선언이 없으면 부모 요소의 값 사용
+                </p>
+                <p class="lesson-css-concepts__example" data-wd-i18n="v2_css_inheritance_example">
+                  color를 지정하지 않은 p → body의 글자색 #333 상속
+                </p>
+              </section>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="rendering-box-tree"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_rendering-box-tree_title">렌더 트리 (Render Tree)</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_rendering-box-tree_lead">
+              DOM의 요소에 CSSOM의 스타일을 반영해, 화면에 그릴 대상을 구성한 트리
+            </p>
+            <div class="lesson-render-flow">
+              <section>
+                <h3 data-wd-i18n="v2_render_dom_title">DOM · 요소와 내용</h3>
+                <div class="lesson-render-branch">
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--1" aria-hidden="true">1</b><code>section.profile</code>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--2" aria-hidden="true">2</b><code>h1</code>
+                      </div>
+                      <p class="lesson-render-branch__text" data-wd-i18n="v2_render_heading_text">자기소개</p>
+                    </li>
+                    <li>
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--3" aria-hidden="true">3</b><code>p#intro</code>
+                      </div>
+                      <p class="lesson-render-branch__text" data-wd-i18n="v2_render_paragraph_text">웹 개발 학습 중</p>
+                    </li>
+                    <li>
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--4" aria-hidden="true">4</b><code>button#change</code>
+                      </div>
+                      <p class="lesson-render-branch__text" data-wd-i18n="v2_render_button_text">소개 바꾸기</p>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+              <span class="lesson-render-flow__operator" aria-hidden="true">+</span>
+              <section>
+                <h3 data-wd-i18n="v2_render_cssom_title">CSSOM · 스타일 규칙</h3>
+                <div class="lesson-render-rules">
+                  <div class="lesson-node"><code>style.css</code></div>
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--1" aria-hidden="true">1</b><code>.profile</code
+                    ><small>background: #f0f3ef</small>
+                  </div>
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--2" aria-hidden="true">2</b><code>h1</code
+                    ><small>font-size: 28px</small>
+                  </div>
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--4" aria-hidden="true">4</b><code>button</code
+                    ><small>background: #1f6b4a · color: white</small>
+                  </div>
+                </div>
+              </section>
+              <span class="lesson-render-flow__operator" aria-hidden="true">→</span>
+              <section class="lesson-render-flow__result">
+                <h3 data-wd-i18n="v2_render_result_title">Render Tree</h3>
+                <div class="lesson-render-branch">
+                  <div class="lesson-node">
+                    <b class="lesson-tag lesson-tag--1" aria-hidden="true">1</b><code>section.profile</code
+                    ><small>background: #f0f3ef</small>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--2" aria-hidden="true">2</b><code>h1</code
+                        ><small>font-size: 28px</small>
+                      </div>
+                      <p class="lesson-render-branch__text" data-wd-i18n="v2_render_heading_text">자기소개</p>
+                    </li>
+                    <li>
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--3" aria-hidden="true">3</b><code>p#intro</code>
+                      </div>
+                      <p class="lesson-render-branch__text" data-wd-i18n="v2_render_paragraph_text">웹 개발 학습 중</p>
+                    </li>
+                    <li>
+                      <div class="lesson-node">
+                        <b class="lesson-tag lesson-tag--4" aria-hidden="true">4</b><code>button#change</code
+                        ><small>background: #1f6b4a · color: white</small>
+                      </div>
+                      <p class="lesson-render-branch__text" data-wd-i18n="v2_render_button_text">소개 바꾸기</p>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <p class="lesson-caption" data-wd-i18n="v2_render_scope">
+              portfolio/about.html · portfolio/style.css — 자기소개 영역의 주요 요소·스타일
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="layout-geometry"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_layout-geometry_title">레이아웃: 위치와 크기 계산</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_layout-geometry_lead">
+              CSS 값이 실제 박스의 치수와 자식 요소의 위치를 결정
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">rendering/style.css</div>
+                  <div class="lesson-code__body">
+                    <pre
+                      class="wd-code"
+                      data-wd-code="css"
+                      data-wd-code-width="56"
+                      data-wd-i18n="v2_layout_css"
+                      data-lesson-marks='[[1,"width: 360px"],[2,"padding: 24px"]]'
+                    >* {
+  box-sizing: border-box;
+}
+
+.profile {
+  width: 360px;
+  max-width: 100%;
+  padding: 24px;
+  background: #f0f3ef;
+  border-radius: 8px;
+}</pre>
+                  </div>
+                </div>
+                <p class="lesson-caption" data-wd-i18n="v2_layout_measure">
+                  실측: 카드 안의 버튼 위치 · 좌표 원점은 카드의 왼쪽 위
+                </p>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-dimensions">
+                  <div class="lesson-dimensions__width">① width: 360px</div>
+                  <div class="lesson-dimensions__box">
+                    <div class="lesson-dimensions__padding">② padding: 24px</div>
+                    <div class="lesson-dimensions__content">
+                      <strong data-wd-i18n="v2_layout_heading">자기소개</strong>
+                      <p data-wd-i18n="v2_layout_text">나의 첫 웹사이트 제작 중</p>
+                      <div class="lesson-dimensions__button">
+                        ③ button · x: 24px<br />y: <span data-lesson-measure="buttonY">118.0</span>px
+                      </div>
+                    </div>
+                    <div class="lesson-dimensions__inner">content: 312px</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="lesson-takeaway" data-wd-i18n="v2_layout_equation">
+              border-box · 360 − 24 − 24 = 콘텐츠 폭 312px · 테두리 없음
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="paint-composite"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_paint-composite_title">페인트</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_paint-composite_lead">
+              레이아웃에서 계산한 위치와 크기에 따라 요소의 배경·글자·테두리를 그리는 과정
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">portfolio/style.css · relevant declarations</div>
+                  <div class="lesson-code__body">
+                    <pre
+                      class="wd-code"
+                      data-wd-code="css"
+                      data-wd-code-width="40"
+                      data-wd-i18n="v2_paint_css"
+                      data-lesson-marks='[[1,"background: #f0f3ef"],[2,"background: #1f6b4a"],[3,"color: white"]]'
+                    >.profile {
+  background: #f0f3ef;
+}
+
+button {
+  background: #1f6b4a;
+  color: white;
+}</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <figure class="lesson-shot">
+                  <img
+                    src="./materials/figures/ko-intro-before.png"
+                    data-lesson-image="intro-before"
+                    alt="① 카드 배경 · ② 버튼 배경 · ③ 버튼 글자"
+                    data-wd-i18n-alt="v2_paint_screen_alt"
+                    loading="eager"
+                  />
+                  <figcaption data-wd-i18n="v2_paint_screen">① 카드 배경 · ② 버튼 배경 · ③ 버튼 글자</figcaption>
+                </figure>
+                <div class="lesson-layers">
+                  <div class="lesson-paint-stack">
+                    <div class="lesson-paint-stack__back"><span>#f0f3ef</span></div>
+                    <div class="lesson-paint-stack__front">
+                      <strong data-wd-i18n="v2_layer_heading">자기소개</strong
+                      ><span data-wd-i18n="v2_layer_text">웹 개발 학습 중</span
+                      ><b data-wd-i18n="v2_layer_button">소개 바꾸기</b>
+                    </div>
+                  </div>
+                  <span class="lesson-arrow" aria-hidden="true">→</span>
+                  <div><span data-wd-i18n="v2_paint_frame">합성된 최종 화면</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="lesson-takeaway" data-wd-i18n="v2_paint_note">
+              레이어 경계는 DOM 태그와 1:1 관계가 아님 · 아래 레이어 표현은 개념도
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-rendering-methods"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-rendering-methods_title">웹 브라우저 렌더링 방식</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-rendering-methods_lead">
+              주요 콘텐츠를 생성하는 위치와 시점의 차이
+            </p>
+            <div class="lesson-grid lesson-grid--three">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_original_rendering_methods_csr">CSR · 클라이언트 렌더링</h3>
+                  <p data-wd-i18n="w2_original_rendering_methods_csr_flow">
+                    HTML 골격 → JavaScript → 브라우저에서 UI 생성
+                  </p>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_original_rendering_methods_csr_points0">실행 후 상태 변경에 따라 화면 갱신</li>
+                    <li data-wd-i18n="w2_original_rendering_methods_csr_points1">
+                      초기 콘텐츠 표시에 JavaScript 다운로드·실행 필요
+                    </li>
+                    <li data-wd-i18n="w2_original_rendering_methods_csr_points2">
+                      검색 처리 시 JavaScript 렌더링 지원·실행 비용 고려
+                    </li>
+                  </ul>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_original_rendering_methods_csr_use">
+                    용례: 상호작용이 많은 피드·대시보드
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_original_rendering_methods_ssr">SSR · 서버 렌더링</h3>
+                  <p data-wd-i18n="w2_original_rendering_methods_ssr_flow">
+                    요청 → 서버에서 HTML 생성 → 브라우저에 제공
+                  </p>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_original_rendering_methods_ssr_points0">초기 응답에 주요 콘텐츠 포함</li>
+                    <li data-wd-i18n="w2_original_rendering_methods_ssr_points1">서버 처리 시간·부하·캐시 전략 고려</li>
+                    <li data-wd-i18n="w2_original_rendering_methods_ssr_points2">
+                      화면 표시와 상호작용 준비 시점은 다를 수 있음
+                    </li>
+                  </ul>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_original_rendering_methods_ssr_use">
+                    용례: 요청 시점의 데이터가 필요한 페이지
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_original_rendering_methods_ssg">SSG · 정적 사이트 생성</h3>
+                  <p data-wd-i18n="w2_original_rendering_methods_ssg_flow">빌드 시 HTML 생성 → 정적 파일 제공</p>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_original_rendering_methods_ssg_points0">요청마다 HTML을 생성할 필요 없음</li>
+                    <li data-wd-i18n="w2_original_rendering_methods_ssg_points1">
+                      CDN 캐싱에 적합 · CDN은 필수 조건이 아님
+                    </li>
+                    <li data-wd-i18n="w2_original_rendering_methods_ssg_points2">
+                      미리 생성한 콘텐츠 변경에는 재생성 필요
+                    </li>
+                  </ul>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_original_rendering_methods_ssg_use">
+                    용례: 문서·블로그·마케팅 페이지
+                  </p>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_original_rendering_methods_combine">
+              SSR·SSG의 초기 HTML과 클라이언트 갱신을 조합 가능 · 속도와 SEO는 코드·콘텐츠·네트워크·캐시에도 좌우됨
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-rendering-performance"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-rendering-performance_title">
+              웹 브라우저 렌더링 성능
+            </h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-rendering-performance_lead">
+              로딩·상호작용·화면 안정성이 사용자 경험에 미치는 영향
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_original_rendering_performance_vitals">Core Web Vitals · LCP / INP / CLS</h3>
+                  <h3 data-wd-i18n="w2_original_rendering_performance_lcp">LCP · Largest Contentful Paint</h3>
+                  <p data-wd-i18n="w2_original_rendering_performance_lcp_body">
+                    뷰포트 안의 가장 큰 이미지·텍스트 콘텐츠가 표시되는 시점 · 로딩 성능
+                  </p>
+                  <h3 data-wd-i18n="w2_original_rendering_performance_inp">INP · Interaction to Next Paint</h3>
+                  <p data-wd-i18n="w2_original_rendering_performance_inp_body">
+                    클릭·탭·키보드 입력부터 다음 화면 표시까지의 지연을 바탕으로 상호작용 응답성 평가
+                  </p>
+                  <h3 data-wd-i18n="w2_original_rendering_performance_cls">CLS · Cumulative Layout Shift</h3>
+                  <p data-wd-i18n="w2_original_rendering_performance_cls_body">
+                    페이지 이용 중 예기치 않은 레이아웃 이동 점수 · 세션 윈도 합계 중 최댓값
+                  </p>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_original_rendering_performance_fcp">
+                    FCP는 첫 텍스트·이미지 등의 표시 시점인 보조 로딩 지표
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_original_rendering_performance_bounce">로딩 지연과 이탈 확률</h3>
+                  <p data-wd-i18n="w2_original_rendering_performance_study">
+                    Google/SOASTA 모바일 연구 · 2017년 · 1초 로딩 대비 상대 증가
+                  </p>
+                  <table class="lesson-table">
+                    <thead>
+                      <tr>
+                        <th><span data-wd-i18n="w2_original_rendering_performance_load">로딩 시간 변화</span></th>
+                        <th><span data-wd-i18n="w2_original_rendering_performance_increase">이탈 확률 증가</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1s → 3s</td>
+                        <td>+32%</td>
+                      </tr>
+                      <tr>
+                        <td>1s → 5s</td>
+                        <td>+90%</td>
+                      </tr>
+                      <tr>
+                        <td>1s → 6s</td>
+                        <td>+106%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_original_rendering_performance_relative">
+                    절대 이탈률이 아닌 상대 증가율 · 모든 사이트에 같은 값이 적용되는 법칙이 아님
+                  </p>
+                  <p data-wd-i18n="w2_original_rendering_performance_seo">
+                    성능 개선은 사용자 경험과 검색 품질에 도움 · 특정 검색 순위나 전환율을 보장하지 않음
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section class="wd-slide week2-section week2-slide" data-wd-slide="routing-semantic-html" role="region">
+            <p class="week2-section__number">03</p>
+            <h2 data-wd-i18n="v2_routing-semantic-html_title">시맨틱 HTML과 라우팅</h2>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-semantic-html"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-semantic-html_title">시맨틱 HTML</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-semantic-html_lead">
+              콘텐츠의 의미와 역할에 맞는 HTML 요소로 문서 구조를 표현하는 방식
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c3_sem_structure">요소가 전달하는 문서의 역할</h3>
+                  <div class="lesson-semantic-map">
+                    <div><code>&lt;header&gt;</code><span data-wd-i18n="c3_tag_header">문서·구역의 소개</span></div>
+                    <div><code>&lt;nav&gt;</code><span data-wd-i18n="c3_tag_nav">주요 탐색 링크</span></div>
+                    <div><code>&lt;main&gt;</code><span data-wd-i18n="c3_tag_main">페이지의 주요 콘텐츠</span></div>
+                    <div>
+                      <code>&lt;article&gt;</code
+                      ><span data-wd-i18n="c3_tag_article">독립적으로 이해할 수 있는 콘텐츠</span>
+                    </div>
+                    <div>
+                      <code>&lt;aside&gt;</code
+                      ><span data-wd-i18n="c3_tag_aside">주변 콘텐츠에 부수적으로 관련된 내용</span>
+                    </div>
+                    <div>
+                      <code>&lt;footer&gt;</code><span data-wd-i18n="c3_tag_footer">문서·구역의 작성자·저작권 등</span>
+                    </div>
+                  </div>
+                  <p class="lesson-concept-note" data-wd-i18n="c3_div">
+                    div는 의미가 정해지지 않은 컨테이너다. class=&quot;nav&quot;만으로 탐색 영역의 의미가 생기지는
+                    않는다.
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c3_search_understanding">검색엔진의 콘텐츠 이해</h3>
+                  <p data-wd-i18n="c3_search_semantics">
+                    검색엔진은 콘텐츠와 HTML 구조를 분석하며, 의미에 맞는 요소는 문서의 역할을 전달하는 데 도움을 준다.
+                  </p>
+                  <div class="lesson-concept-flow">
+                    <div><span data-wd-i18n="c3_crawl">크롤링 페이지 수집</span></div>
+                    <span aria-hidden="true">→</span>
+                    <div><span data-wd-i18n="c3_index">인덱싱 분석·색인 저장</span></div>
+                    <span aria-hidden="true">→</span>
+                    <div><span data-wd-i18n="c3_rank">검색 요청 결과 선택·순위 결정</span></div>
+                  </div>
+                  <h3 data-wd-i18n="c3_ax_title">접근성 트리</h3>
+                  <p data-wd-i18n="c3_ax_definition">
+                    브라우저가 DOM과 CSS·ARIA 정보를 바탕으로 요소의 역할·이름·상태 등을 구성해 보조 기술에 제공하는
+                    트리
+                  </p>
+                  <p class="lesson-concept-note" data-wd-i18n="c3_ax_effect">
+                    콘텐츠에 맞는 요소 사용 → 문서 영역 탐색 지원 · 코드의 의미와 가독성 개선
+                  </p>
+                </section>
+              </div>
+            </div>
+            <div class="lesson-optimization-glossary">
+              <section>
+                <h3>SEO <small>Search Engine Optimization</small></h3>
+                <p data-wd-i18n="c3_glossary_seo">
+                  검색엔진이 콘텐츠를 발견·이해해 관련 검색 결과에 제공할 수 있도록 개선하는 과정.
+                </p>
+              </section>
+              <section>
+                <h3>AEO <small>Answer Engine Optimization</small></h3>
+                <p data-wd-i18n="c3_glossary_aeo">
+                  질문에 직접 답하는 검색·응답 시스템이 콘텐츠를 답변으로 활용하기 쉽도록 정리하는 과정.
+                </p>
+              </section>
+              <section>
+                <h3>GEO <small>Generative Engine Optimization</small></h3>
+                <p data-wd-i18n="c3_glossary_geo">
+                  생성형 AI의 답변에서 콘텐츠가 활용·인용될 수 있도록 내용과 구조를 개선하는 과정.
+                </p>
+              </section>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-routing-url"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-routing-url_title">라우팅과 URL 구조</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-routing-url_lead">
+              라우팅은 URL 경로에 맞는 페이지나 요청 처리 코드를 선택하는 과정
+            </p>
+            <div class="lesson-url-parts">
+              <div><code>https</code><span data-wd-i18n="c3_scheme">스킴</span></div>
+              <b>://</b>
+              <div><code>example.com</code><span data-wd-i18n="c3_host">호스트</span></div>
+              <div class="lesson-url-parts__path">
+                <code>/blog/2024/first-post</code><span data-wd-i18n="c3_path">경로 전체 (path)</span>
+              </div>
+              <div><code>?sort=date</code><span data-wd-i18n="c3_query">쿼리 · sort의 값은 date</span></div>
+              <div><code>#comments</code><span data-wd-i18n="c3_fragment">프래그먼트</span></div>
+            </div>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c3_segments_title">경로 세그먼트와 라우트 매개변수</h3>
+                  <p data-wd-i18n="c3_segments">blog · 2024 · first-post는 각각 /로 구분된 경로 세그먼트</p>
+                  <div class="lesson-route-example">
+                    <div><span data-wd-i18n="c3_pattern">라우트 정의</span><code>/blog/[year]/[slug]</code></div>
+                    <span aria-hidden="true">↓</span>
+                    <div><span data-wd-i18n="c3_actual">실제 경로</span><code>/blog/2024/first-post</code></div>
+                    <div>
+                      <code>year = "2024"<br />slug = "first-post"</code>
+                    </div>
+                  </div>
+                  <p class="lesson-concept-note" data-wd-i18n="c3_dynamic">
+                    [year]·[slug]처럼 매개변수로 정의한 부분이 동적 세그먼트다. URL의 값만 보고 동적 여부를 판단할 수는
+                    없다.
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c3_url_route_title">URL에 맞는 페이지 선택</h3>
+                  <div class="lesson-concept-flow">
+                    <div><code>/about</code></div>
+                    <span aria-hidden="true">→</span>
+                    <div><span data-wd-i18n="c3_match">라우터 경로 매칭</span></div>
+                    <span aria-hidden="true">→</span>
+                    <div><span data-wd-i18n="c3_about">About 페이지</span></div>
+                  </div>
+                  <h3 data-wd-i18n="c3_fragment_title">쿼리와 프래그먼트</h3>
+                  <p data-wd-i18n="c3_query_detail">
+                    ?sort=date: 요청에 포함되는 쿼리. 정렬 등 추가 조건을 전달하는 데 사용할 수 있다.
+                  </p>
+                  <p data-wd-i18n="c3_fragment_detail">
+                    #comments: 예를 들어 id=&quot;comments&quot;인 요소로 이동한다. 프래그먼트는 HTTP 요청에 포함되지
+                    않으며 브라우저에서 처리한다.
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-routing-types"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-routing-types_title">
+              서버 라우팅과 클라이언트 라우팅
+            </h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-routing-types_lead">
+              페이지 이동 시 새 HTML 문서를 로드하거나, 기존 문서를 유지하며 화면을 전환
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c3_mpa">새 문서로 이동 · 전형적인 MPA</h3>
+                  <ol class="lesson-navigation-flow">
+                    <li><span data-wd-i18n="c3_mpa1">링크 선택 → /about 요청</span></li>
+                    <li><span data-wd-i18n="c3_mpa2">서버가 경로에 맞는 HTML 응답 제공</span></li>
+                    <li><span data-wd-i18n="c3_mpa3">브라우저가 새 문서를 로드하여 표시</span></li>
+                    <li><span data-wd-i18n="c3_mpa4">브라우저가 URL·방문 기록 관리</span></li>
+                  </ol>
+                  <p class="lesson-concept-note" data-wd-i18n="c3_mpa_note">
+                    HTML은 정적 파일이거나 서버가 생성한 결과일 수 있다. 새 문서 탐색이 항상 깜빡임이나 느린 전환을
+                    뜻하지 않는다.
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c3_spa">기존 문서에서 전환 · SPA 방식</h3>
+                  <ol class="lesson-navigation-flow">
+                    <li><span data-wd-i18n="c3_spa1">링크 선택 → 클라이언트 라우터가 경로 처리</span></li>
+                    <li><span data-wd-i18n="c3_spa2">필요한 데이터·코드 준비 (기존 자료 재사용 가능)</span></li>
+                    <li><span data-wd-i18n="c3_spa3">기존 문서에서 해당 화면으로 전환</span></li>
+                    <li><span data-wd-i18n="c3_spa4">라우터가 URL·방문 기록 갱신 및 뒤로 가기 처리</span></li>
+                  </ol>
+                  <p class="lesson-concept-note" data-wd-i18n="c3_spa_note">
+                    SPA는 하나의 HTML 문서를 유지하며 여러 URL의 화면을 전환한다. JSON 요청은 매번 필요한 조건이 아님.
+                  </p>
+                </section>
+              </div>
+            </div>
+            <div class="lesson-routing-factors">
+              <section class="lesson-concept-box">
+                <h3 data-wd-i18n="c3_rendering">렌더링과의 관계</h3>
+                <p data-wd-i18n="c3_rendering_detail">
+                  SSR·CSR은 콘텐츠 생성 위치의 구분이다. 첫 요청은 SSR, 이후 이동은 클라이언트 라우팅으로 조합할 수
+                  있다.
+                </p>
+              </section>
+              <section class="lesson-concept-box">
+                <h3 data-wd-i18n="c3_speed">속도</h3>
+                <p data-wd-i18n="c3_speed_detail">
+                  문서·UI 재사용은 빠른 전환에 유리하다. 실제 속도는 JavaScript 양·데이터 요청·캐시 등에 따라 달라진다.
+                </p>
+              </section>
+              <section class="lesson-concept-box">
+                <h3 data-wd-i18n="c3_search">SEO</h3>
+                <p data-wd-i18n="c3_search_detail">
+                  라우팅 방식만으로 결정되지 않는다. 각 URL의 콘텐츠·링크·메타데이터를 검색엔진이 읽을 수 있어야 한다.
+                </p>
+              </section>
+            </div>
+          </section>
+          <section
+            class="wd-slide week2-section week2-slide week2-devtools-chapter"
+            data-wd-slide="browser-devtools"
+            role="region"
+          >
+            <div>
+              <p class="week2-section__number">04</p>
+              <h2 data-wd-i18n="c4_chapter_title">웹 브라우저 개발자 도구</h2>
+            </div>
+            <img
+              src="./materials/figures/devtools-original.jpeg"
+              data-lesson-src-ko="./materials/figures/devtools-original.jpeg"
+              data-lesson-src-en="./materials/figures/en-devtools-elements.png"
+              alt="Chrome DevTools: Elements and Styles"
+              loading="eager"
+            />
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="devtools-elements"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_devtools-elements_title">문서 요소와 메타데이터</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_devtools-elements_lead">
+              Elements 패널에서 현재 DOM의 구조·속성과 요소에 적용된 스타일 확인
+            </p>
+            <p class="lesson-devtools-shortcut" data-wd-i18n="c4_open">
+              Chrome 개발자 도구 열기 · Windows: F12 / Ctrl+Shift+I · macOS: ⌥⌘I
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c4_elements_steps">Elements에서 확인</h3>
+                  <ol class="lesson-navigation-flow">
+                    <li data-wd-i18n="c4_inspect">화면의 요소를 우클릭 → 검사(Inspect)</li>
+                    <li data-wd-i18n="c4_dom">선택된 DOM 노드의 태그·속성·부모와 자식 확인</li>
+                    <li data-wd-i18n="c4_semantic">header · nav · main · footer의 문서 역할 확인</li>
+                    <li data-wd-i18n="c4_styles">Styles: 적용 규칙 · Computed: 계산된 스타일 확인</li>
+                  </ol>
+                  <p class="lesson-concept-note" data-wd-i18n="c4_live_dom">
+                    Elements는 JavaScript 변경이 반영된 현재 DOM을 표시한다. 서버가 보낸 HTML과 다를 수 있다.
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c4_dom_map">문서 구조와 확인 위치</h3>
+                  <div class="lesson-devtools-tree">
+                    <code>html</code>
+                    <section>
+                      <code>head</code>
+                      <p data-wd-i18n="c4_head">
+                        title → 문서 제목 meta[name=&quot;description&quot;] → 페이지 설명
+                        meta[name=&quot;viewport&quot;] → 모바일 뷰포트 설정
+                      </p>
+                    </section>
+                    <section>
+                      <code>body</code>
+                      <p data-wd-i18n="c4_body">
+                        header · nav → 소개·탐색 영역 main → 주요 콘텐츠 footer → 문서 관련 정보
+                      </p>
+                    </section>
+                  </div>
+                  <p class="lesson-concept-note" data-wd-i18n="c4_metadata">
+                    head를 펼쳐 title·meta의 내용을 확인한다. 요소의 존재만으로 검색 노출이나 순위가 보장되지는 않는다.
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="devtools-viewport"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_devtools-viewport_title">반응형 레이아웃과 뷰포트</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_devtools-viewport_lead">
+              Device Toolbar에서 뷰포트의 너비·높이를 바꾸며 배치와 넘침 확인
+            </p>
+            <p class="lesson-devtools-shortcut" data-wd-i18n="c4_device_toggle">
+              개발자 도구에서 Device Toolbar 전환 · Windows: Ctrl+Shift+M · macOS: ⇧⌘M
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c4_device_steps">뷰포트별 확인</h3>
+                  <ol class="lesson-navigation-flow">
+                    <li data-wd-i18n="c4_responsive">Dimensions에서 Responsive 또는 기기 프리셋 선택</li>
+                    <li data-wd-i18n="c4_dimensions">너비·높이 변경 · 회전 버튼으로 세로/가로 전환</li>
+                    <li data-wd-i18n="c4_wrap">메뉴·문단의 줄바꿈과 이미지 크기 확인</li>
+                    <li data-wd-i18n="c4_overflow">가로 스크롤·콘텐츠 잘림·요소 겹침 확인</li>
+                  </ol>
+                  <p class="lesson-concept-note" data-wd-i18n="c4_css_pixels">
+                    너비·높이는 CSS 픽셀 기준이다. 실제 기기의 물리 픽셀 해상도와 구분한다.
+                  </p>
+                  <p class="lesson-concept-note" data-wd-i18n="c4_device_limit">
+                    Device Mode는 화면과 입력 환경의 시뮬레이션이다. 실제 모바일 브라우저에서도 확인이 필요하다.
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-viewport-examples">
+                  <figure class="lesson-viewport-example">
+                    <figcaption>390 CSS px</figcaption>
+                    <img
+                      src="./materials/figures/ko-devtools-viewport-mobile.png"
+                      data-lesson-image="devtools-viewport-mobile"
+                      width="390"
+                      height="660"
+                      alt="390 CSS px에서 표시한 자기소개 페이지"
+                      data-wd-i18n-alt="c4_mobile_alt"
+                    />
+                  </figure>
+                  <figure class="lesson-viewport-example">
+                    <figcaption>820 CSS px</figcaption>
+                    <img
+                      src="./materials/figures/ko-devtools-viewport-tablet.png"
+                      data-lesson-image="devtools-viewport-tablet"
+                      width="820"
+                      height="660"
+                      alt="820 CSS px에서 표시한 자기소개 페이지"
+                      data-wd-i18n-alt="c4_tablet_alt"
+                    />
+                  </figure>
+                  <p class="lesson-caption" data-wd-i18n="c4_viewport_caption">
+                    같은 자기소개 페이지 · 뷰포트 너비 390 / 820 CSS px
+                  </p>
                 </div>
               </div>
             </div>
           </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="07" role="region">
-            <h2 class="wd-slide-heading">DOM <small>Document Object Model</small></h2>
-            <p class="wd-slide-lead" data-wd-i18n="s07_lead">HTML 문서를 파싱하여 메모리 안의 객체 트리로 변환한 결과</p>
-            <div class="week2-split week2-split--code">
-              <div class="week2-stack">
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s07_features_label">특징</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li data-wd-i18n="s07_feature_1">JavaScript가 읽고 변경하는 대상</li>
-                    <li data-wd-i18n="s07_feature_2">트리 구조(부모 · 자식 · 형제)</li>
-                    <li data-wd-i18n="s07_feature_3">HTML을 파싱하면서 DOM 트리가 생성</li>
-                  </ul>
-                </section>
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s07_parts_label">구성</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li><strong>Node</strong> — <span data-wd-i18n="s07_part_node">모든 구성 요소의 상위 개념</span></li>
-                    <li><strong>Element</strong> — <span data-wd-i18n="s07_part_element">태그</span></li>
-                    <li><strong>Text</strong> — <span data-wd-i18n="s07_part_text">텍스트</span></li>
-                    <li><strong>Attribute</strong> — <span data-wd-i18n="s07_part_attribute">속성</span></li>
-                  </ul>
-                </section>
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s07_tasks_label">주요 작업</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li data-wd-i18n="s07_task_1">찾기</li>
-                    <li data-wd-i18n="s07_task_2">읽기 · 쓰기</li>
-                    <li data-wd-i18n="s07_task_3">생성 · 삭제</li>
-                  </ul>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="devtools-network"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_devtools-network_title">원본 HTML과 응답 헤더</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_devtools-network_lead">
+              Network 패널에서 문서 요청을 선택해 응답의 형식과 HTML 본문 확인
+            </p>
+            <p class="lesson-devtools-shortcut" data-wd-i18n="c4_network_path">
+              Network → 페이지 새로고침 → Doc 필터 → 현재 페이지 URL의 문서 요청 선택
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c4_headers">Headers · 응답 정보</h3>
+                  <div class="lesson-response-fields">
+                    <div>
+                      <b>General</b><code>Request URL<br />Status Code</code>
+                    </div>
+                    <div><b>Response Headers</b><code>Content-Type: text/html; charset=utf-8</code></div>
+                  </div>
+                  <p class="lesson-caption" data-wd-i18n="c4_headers_example">HTML 응답 헤더의 예시</p>
+                  <ol class="lesson-navigation-flow">
+                    <li data-wd-i18n="c4_request_url">Request URL: 확인하려는 문서의 주소인지 확인</li>
+                    <li data-wd-i18n="c4_status">Status Code: 응답 상태 확인 (예: 200 OK)</li>
+                    <li data-wd-i18n="c4_content_type">
+                      Content-Type: text/html은 HTML 형식, charset=utf-8은 문자 인코딩 선언
+                    </li>
+                  </ol>
+                  <p class="lesson-concept-note" data-wd-i18n="c4_charset">
+                    charset이 헤더에 없을 수도 있다. HTML의 meta charset 등 인코딩 선언도 함께 확인한다.
+                  </p>
                 </section>
               </div>
-              <div class="week2-col">
-                <div>
-                  <p class="week2-code-label" data-wd-i18n="s07_tree_label">HTML 텍스트 → 파싱 → DOM 트리(객체)</p>
-                  <pre class="week2-tree">document
-└── html
-    └── body
-        ├── h1
-        └── p</pre>
-                </div>
-                <div>
-                  <p class="week2-code-label">script.js</p>
-                  <pre class="week2-code">// 요소 찾기
-const title = document.querySelector('h1');
-
-// 내용 변경
-title.textContent = '새로운 제목';
-
-// 스타일 변경
-title.style.color = 'red';
-
-// 새 요소 추가
-const newP = document.createElement('p');
-newP.textContent = '추가된 단락';
-document.body.appendChild(newP);</pre>
-                </div>
-                <p class="week2-reference"><span data-wd-i18n="s07_reference">학습 참고 자료</span>: <a href="https://www.w3schools.com/jsref/dom_obj_document.asp">w3schools.com/jsref</a></p>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="c4_response">Response · HTML 본문</h3>
+                  <div class="lesson-concept-flow">
+                    <div>
+                      Response
+                      <p data-wd-i18n="c4_response_html">응답으로 받은 HTML</p>
+                    </div>
+                    <span aria-hidden="true">→</span>
+                    <div>
+                      Elements
+                      <p data-wd-i18n="c4_response_dom">파싱·변경 후 현재 DOM</p>
+                    </div>
+                  </div>
+                  <ol class="lesson-navigation-flow">
+                    <li data-wd-i18n="c4_response_tab">Response 탭에서 문서 응답의 HTML 확인</li>
+                    <li data-wd-i18n="c4_response_content">title·meta·본문 콘텐츠가 응답에 포함되는지 확인</li>
+                    <li data-wd-i18n="c4_response_compare">Elements와 비교해 응답 HTML과 현재 DOM의 차이 확인</li>
+                  </ol>
+                  <p class="lesson-concept-note" data-wd-i18n="c4_doc_select">
+                    Doc 목록의 첫 항목으로 단정하지 않고 URL로 선택한다. 클라이언트 라우팅은 새 문서 요청 없이 동작할 수
+                    있다.
+                  </p>
+                </section>
               </div>
             </div>
           </section>
+          <section class="wd-slide week2-section week2-slide" data-wd-slide="original-framework-15" role="region">
+            <p class="week2-section__number">05</p>
+            <h2 data-wd-i18n="v2_original-framework-15_title">웹 프레임워크를 활용한 개발</h2>
+            <p class="week2-section__lead" data-wd-i18n="v2_original-framework-15_lead">
+              Svelte · SvelteKit · 컴포넌트 · 데이터
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-16"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-16_title">웹 개발 프레임워크</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-16_lead">
+              반복 작업과 프로젝트 구조를 위한 규칙·도구
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_16_parts">제공 기능의 예</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_16_parts_items0">구조: 폴더·파일 규칙, 역할별 코드 분리</li>
+                    <li data-wd-i18n="w2_16_parts_items1">요청 처리: 라우터·미들웨어·입력 검증·인증 연동</li>
+                    <li data-wd-i18n="w2_16_parts_items2">데이터: 로드 함수·데이터베이스 접근 도구</li>
+                    <li data-wd-i18n="w2_16_parts_items3">빌드·실행: 번들링·코드 분할·렌더링·배포</li>
+                  </ul>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_16_parts_note">
+                    기능은 프레임워크마다 다르며 추가 라이브러리가 필요할 수 있음
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_16_types">개발 영역별 도구</h3>
+                  <h3 data-wd-i18n="w2_16_ui">UI 라이브러리·프레임워크</h3>
+                  <p data-wd-i18n="w2_16_ui_names">React · Vue · Angular · Svelte</p>
+                  <h3 data-wd-i18n="w2_16_backend">백엔드 프레임워크</h3>
+                  <p data-wd-i18n="w2_16_backend_names">Express · NestJS · Django · FastAPI · Spring Boot</p>
+                  <h3 data-wd-i18n="w2_16_full">풀스택 프레임워크</h3>
+                  <p data-wd-i18n="w2_16_full_names">Next.js · Nuxt · SvelteKit</p>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_16_choose">
+              선택 기준: 팀의 언어·경험, 필요한 렌더링·서버 기능, 호스팅 환경, 문서·생태계·유지보수
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-17"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-17_title">Node.js 실행 환경</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-17_lead">
+              V8 엔진을 사용해 브라우저 밖에서 JavaScript 실행
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_17_runtime">실행 환경과 용도</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_17_runtime_items0">개발 서버·빌드 도구·CLI·서버 프로그램 실행</li>
+                    <li data-wd-i18n="w2_17_runtime_items1">
+                      브라우저의 document·window 대신 파일·프로세스 등 서버 API 사용
+                    </li>
+                    <li data-wd-i18n="w2_17_runtime_items2">npm으로 프로젝트 의존성과 실행 명령 관리</li>
+                  </ul>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">hello.js</div>
+                    <div class="lesson-code__body">
+                      <pre
+                        class="wd-code"
+                        data-wd-code="javascript"
+                        data-wd-code-width="56"
+                        data-wd-i18n="w2_17_node_code"
+                      >console.log('Hello from Node.js');</pre>
+                    </div>
+                  </div>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">Terminal</div>
+                    <div class="lesson-code__body">
+                      <pre class="wd-code" data-wd-code="bash" data-wd-code-width="56" data-wd-i18n="w2_17_node_cmd">node hello.js</pre>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_17_io">비동기 I/O와 이벤트 루프</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_17_io_items0">I/O 완료를 기다리는 동안 다른 요청의 작업 진행 가능</li>
+                    <li data-wd-i18n="w2_17_io_items1">JavaScript 콜백은 주로 하나의 이벤트 루프에서 처리</li>
+                    <li data-wd-i18n="w2_17_io_items2">일부 I/O·연산은 운영체제와 worker pool 등이 처리</li>
+                    <li data-wd-i18n="w2_17_io_items3">긴 동기 연산은 이벤트 루프를 막아 다른 요청도 지연</li>
+                  </ul>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_17_io_note">
+                    비동기 구조만으로 높은 성능·적은 메모리가 보장되지는 않음
+                  </p>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-devtools-shortcut" data-wd-i18n="w2_17_version">
+              실습 환경: Node.js 24 · node -v / npm -v로 확인
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-18"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-18_title">CLI · 명령줄 인터페이스</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-18_lead">
+              텍스트 명령으로 도구를 실행하고 작업을 자동화하는 인터페이스
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_18_terms">터미널·셸·경로</h3>
+                  <h3 data-wd-i18n="w2_18_terminal">터미널</h3>
+                  <p data-wd-i18n="w2_18_terminal_body">
+                    입력·출력을 표시하는 프로그램 · Windows Terminal, macOS Terminal
+                  </p>
+                  <h3 data-wd-i18n="w2_18_shell">셸</h3>
+                  <p data-wd-i18n="w2_18_shell_body">명령을 해석·실행하는 프로그램 · PowerShell, bash, zsh</p>
+                  <h3 data-wd-i18n="w2_18_path">경로와 현재 작업 디렉터리</h3>
+                  <p data-wd-i18n="w2_18_path_body">Path: 파일·폴더의 위치 표기 · cwd: 상대 경로 해석의 기준 폴더</p>
+                  <p data-wd-i18n="w2_18_prompt">프롬프트: 입력 대기 표시 · . 현재 폴더 · .. 상위 폴더 · ~ 홈 폴더</p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_18_commands">프로젝트에서 명령 실행</h3>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">Terminal</div>
+                    <div class="lesson-code__body">
+                      <pre class="wd-code" data-wd-code="bash" data-wd-code-width="56" data-wd-i18n="w2_18_cli">cd pwd-week2
+node -v
+npm -v
+npm run dev</pre>
+                    </div>
+                  </div>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_18_cli_items0">같은 절차를 스크립트로 반복·자동화</li>
+                    <li data-wd-i18n="w2_18_cli_items1">버전·입력·환경을 고정해 재현성 향상</li>
+                    <li data-wd-i18n="w2_18_cli_items2">같은 명령도 작업 폴더·설정·버전에 따라 결과가 달라짐</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-19"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-19_title">npm과 npx</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-19_lead">
+              프로젝트 의존성 관리와 패키지 명령 실행
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_19_npm">npm · 패키지와 스크립트 관리</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_19_npm_points0">package.json: 의존성과 scripts 정의</li>
+                    <li data-wd-i18n="w2_19_npm_points1">package-lock.json: 재현 가능한 설치를 위한 버전 기록</li>
+                    <li data-wd-i18n="w2_19_npm_points2">npm install: 의존성 설치 · npm run dev: dev 스크립트 실행</li>
+                  </ul>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">Terminal · npm</div>
+                    <div class="lesson-code__body">
+                      <pre
+                        class="wd-code"
+                        data-wd-code="bash"
+                        data-wd-code-width="56"
+                        data-wd-i18n="w2_19_npm_commands"
+                      >npm --version
+npm install
+npm run dev</pre>
+                    </div>
+                  </div>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_19_ci">
+                    받은 실습 소스는 npm ci로 잠금 파일에 맞춰 설치
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_19_npx">npx · 패키지 명령 실행</h3>
+                  <p data-wd-i18n="w2_19_npx_body">
+                    별도의 전역 설치 없이 명령 실행 · 로컬 패키지를 사용하거나 필요 시 npm 캐시에 설치
+                  </p>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">Terminal · SvelteKit</div>
+                    <div class="lesson-code__body">
+                      <pre
+                        class="wd-code"
+                        data-wd-code="bash"
+                        data-wd-code-width="56"
+                        data-wd-i18n="w2_19_npx_commands"
+                      >npx sv@0.17.0 create pwd-week2
+cd pwd-week2
+npm run dev</pre>
+                    </div>
+                  </div>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_19_npx_scope">
+                    새 프로젝트 생성 명령 · 이미 받은 프로젝트에서 다시 실행하지 않음
+                  </p>
+                  <p data-wd-i18n="w2_19_windows">PowerShell 실행 정책 오류 시 npm.cmd·npx.cmd 사용</p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-20"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-20_title">Svelte와 SvelteKit</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-20_lead">
+              HTML·CSS와 JavaScript 또는 TypeScript로 UI와 웹 애플리케이션 개발
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_svelte">Svelte · UI 프레임워크</h3>
+                  <p data-wd-i18n="sv_compiler">컴파일러가 컴포넌트를 브라우저에서 실행할 JavaScript·CSS로 변환</p>
+                  <p data-wd-i18n="sv_dom">Virtual DOM 비교 대신 컴파일된 코드와 런타임으로 DOM 갱신</p>
+                  <p data-wd-i18n="sv_ui">컴포넌트·반응형 상태·이벤트·스타일 제공</p>
+                  <p class="lesson-concept-note" data-wd-i18n="sv_runtime">
+                    컴파일러 기반이어도 런타임 코드가 존재하며, 번들 크기와 성능은 앱에 따라 달라짐
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_kit">SvelteKit · 웹 애플리케이션 프레임워크</h3>
+                  <p data-wd-i18n="sv_kit_features">파일 기반 라우팅·데이터 로드·서버 API·배포 기능 제공</p>
+                  <p data-wd-i18n="sv_kit_render">SSR·사전 렌더링(SSG)·클라이언트 탐색 지원</p>
+                  <p class="lesson-concept-note" data-wd-i18n="sv_languages">
+                    Svelte와 SvelteKit 모두 JavaScript·TypeScript 지원 · TypeScript는 선택 사항
+                  </p>
+                </section>
+              </div>
+            </div>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_js">JavaScript</h3>
+                  <code>&lt;script&gt; … &lt;/script&gt;</code>
+                  <p data-wd-i18n="sv_js_file">컴포넌트는 .svelte · 로드·API 파일은 .js</p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_ts">TypeScript</h3>
+                  <code>&lt;script lang="ts"&gt; … &lt;/script&gt;</code>
+                  <p data-wd-i18n="sv_ts_file">컴포넌트는 동일하게 .svelte · 로드·API 파일은 .ts도 지원</p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-21"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-21_title">프론트엔드 UI 개발 방식 비교</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-21_lead">문법·반응성·DOM 갱신 방식의 차이</p>
+            <table class="lesson-table">
+              <thead>
+                <tr>
+                  <th><span data-wd-i18n="sv_compare_dimension">비교 항목</span></th>
+                  <th>React</th>
+                  <th>Vue</th>
+                  <th>Svelte</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th><span data-wd-i18n="sv_compare_syntax">UI 작성</span></th>
+                  <td><span data-wd-i18n="sv_compare_syntax0">JSX</span></td>
+                  <td><span data-wd-i18n="sv_compare_syntax1">Template / JSX</span></td>
+                  <td><span data-wd-i18n="sv_compare_syntax2">.svelte</span></td>
+                </tr>
+                <tr>
+                  <th><span data-wd-i18n="sv_compare_reactivity">상태·반응성</span></th>
+                  <td><span data-wd-i18n="sv_compare_reactivity0">useState / useReducer</span></td>
+                  <td><span data-wd-i18n="sv_compare_reactivity1">ref / reactive</span></td>
+                  <td><span data-wd-i18n="sv_compare_reactivity2">$state / $derived</span></td>
+                </tr>
+                <tr>
+                  <th><span data-wd-i18n="sv_compare_updates">DOM 갱신</span></th>
+                  <td><span data-wd-i18n="sv_compare_updates0">렌더 결과 재조정</span></td>
+                  <td><span data-wd-i18n="sv_compare_updates1">반응성·컴파일된 렌더 함수</span></td>
+                  <td><span data-wd-i18n="sv_compare_updates2">컴파일된 갱신 코드</span></td>
+                </tr>
+                <tr>
+                  <th><span data-wd-i18n="sv_compare_language">개발 언어</span></th>
+                  <td><span data-wd-i18n="sv_compare_language0">JavaScript / TypeScript</span></td>
+                  <td><span data-wd-i18n="sv_compare_language1">JavaScript / TypeScript</span></td>
+                  <td><span data-wd-i18n="sv_compare_language2">JavaScript / TypeScript</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_size">번들 크기와 실행 성능</h3>
+                  <p data-wd-i18n="sv_size_conditions">
+                    앱 기능·의존성·빌드 설정·측정 환경을 맞춰 비교해야 하며, 프레임워크 이름만으로 우열을 결정할 수 없음
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_choice">학습·유지보수 관점</h3>
+                  <p data-wd-i18n="sv_choice_conditions">
+                    팀의 언어·도구 경험, 필요한 라이브러리, 문서와 장기 유지보수 요구를 함께 고려
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-22"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-22_title">Svelte 파일 구조와 개발 언어</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-22_lead">
+              같은 .svelte 컴포넌트를 JavaScript 또는 TypeScript로 작성
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Counter.svelte · JavaScript</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_counterJS">&lt;script&gt;
+  let name = $state('world');
+  let count = $state(0);
+&lt;/script&gt;
 
-          <section class="wd-slide wd-slide--content week2-slide week2-dense" data-wd-slide="08" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s08_title">시맨틱 HTML</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s08_lead">태그의 의미를 살려 문서를 작성하면 검색엔진과 보조기기가 구조를 정확히 해석</p>
-            <div class="week2-split week2-split--even">
-              <div class="week2-stack">
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s08_seo_label">SEO (Search Engine Optimization)</h3>
-                  <p data-wd-i18n="s08_seo">웹페이지의 태그와 링크 구조를 개선하여 검색엔진의 검색 결과 페이지에 잘 노출되도록 최적화하는 과정</p>
-                  <ol class="week2-steps">
-                    <li><strong data-wd-i18n="s08_seo_step_1">크롤링 (Crawling)</strong><span data-wd-i18n="s08_seo_step_1_detail">검색 엔진 봇이 웹사이트 방문</span></li>
-                    <li><strong data-wd-i18n="s08_seo_step_2">인덱싱 (Indexing)</strong><span data-wd-i18n="s08_seo_step_2_detail">콘텐츠를 읽고 저장</span></li>
-                    <li><strong data-wd-i18n="s08_seo_step_3">랭킹 (Ranking)</strong><span data-wd-i18n="s08_seo_step_3_detail">검색 결과 순위 결정</span></li>
+&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+&lt;input aria-label="Name" bind:value={name} /&gt;
+&lt;button onclick={() =&gt; count += 1}&gt;
+  clicks: {count}
+&lt;/button&gt;
+
+&lt;style&gt;
+  h1 { color: #5b3df5; }
+&lt;/style&gt;</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Counter.svelte · TypeScript</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_counterTS">&lt;script lang="ts"&gt;
+  let name: string = $state('world');
+  let count: number = $state(0);
+&lt;/script&gt;
+
+&lt;h1&gt;Hello {name}!&lt;/h1&gt;
+&lt;input aria-label="Name" bind:value={name} /&gt;
+&lt;button onclick={() =&gt; count += 1}&gt;
+  clicks: {count}
+&lt;/button&gt;
+
+&lt;style&gt;
+  h1 { color: #5b3df5; }
+&lt;/style&gt;</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p data-wd-i18n="sv_file_parts">script: 상태·함수 · 마크업: 화면 구조 · style: 컴포넌트 범위 CSS</p>
+            <p class="lesson-concept-note" data-wd-i18n="sv_module">
+              공유 모듈 코드는 &lt;script module&gt;에 작성하며 모듈 평가 시 실행 · onclick에는 두 언어 모두 함수를 전달
+            </p>
+            <p class="lesson-caption" data-wd-i18n="sv_ts_scope">
+              Svelte 5는 타입 표기·interface를 지원하며, enum 등 실행 코드가 필요한 TS 문법에는 전처리 설정 필요
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-23"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-23_title">SvelteKit 프로젝트 구조</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-23_lead">
+              파일의 위치와 이름으로 페이지·공유 코드·설정의 역할 구분
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Project Files</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="52" data-wd-i18n="w2_23_tree">pwd-week2/
+├─ src/
+│  ├─ routes/
+│  ├─ lib/
+│  ├─ app.html
+│  └─ app.css
+├─ static/
+├─ package.json
+├─ package-lock.json
+├─ svelte.config.js
+├─ vite.config.js
+├─ .gitignore
+└─ README.md</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_23_roles">주요 파일과 폴더</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_23_roles_list0">src/routes: 페이지·레이아웃·load·API 라우트</li>
+                    <li data-wd-i18n="w2_23_roles_list1">src/lib: 재사용 코드 · $lib 별칭으로 import</li>
+                    <li data-wd-i18n="w2_23_roles_list2">
+                      src/app.html: HTML 바깥 틀 · app.css: 가져와 적용할 전역 스타일
+                    </li>
+                    <li data-wd-i18n="w2_23_roles_list3">static: 변환 없이 제공할 정적 파일</li>
+                    <li data-wd-i18n="w2_23_roles_list4">설정 파일: 패키지·SvelteKit·Vite의 동작 구성</li>
+                  </ul>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_23_installed">
+                    node_modules는 설치 시 생성 · Git에 추가하지 않음
+                  </p>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_23_options">
+              실습 프로젝트의 구조 예시 · 생성 옵션과 사용하는 도구에 따라 파일 구성은 달라질 수 있음
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-24"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-24_title">파일 기반 라우팅</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-24_lead">
+              정적 경로는 폴더명으로, 동적 경로는 [매개변수]로 정의
+            </p>
+            <p class="lesson-devtools-shortcut" data-wd-i18n="sv_static_route">
+              src/routes/about/+page.svelte → /about
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/routes/blog/[id]/+page.js</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_routeLoad">export function load({ params }) {
+  return { id: params.id };
+}</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/routes/blog/[id]/+page.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_routePage">&lt;script&gt;
+  let { data } = $props();
+&lt;/script&gt;
+
+&lt;h1&gt;Blog post #{data.id}&lt;/h1&gt;</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-concept-flow">
+              <div><code>/blog/42</code></div>
+              <span>→</span>
+              <div><code>params.id = "42"</code></div>
+              <span>→</span>
+              <div><code>return { id: params.id }</code></div>
+              <span>→</span>
+              <div><code>data.id = "42"</code></div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="sv_route_data">
+              [id]는 경로 매개변수를 정의 · data는 load 반환값으로 전달되므로 params와 data를 구분
+            </p>
+            <p data-wd-i18n="sv_nested_path">
+              중첩 경로: src/routes/dashboard/reports/[id]/+page.svelte → /dashboard/reports/42
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-25"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-25_title">중첩 라우팅과 공유 레이아웃</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-25_lead">
+              폴더 계층으로 URL을 구성하고 공통 UI와 데이터를 재사용
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Route Files</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="52" data-wd-i18n="w2_25_nested_tree">src/routes/
+├─ +layout.svelte
+├─ +layout.js
+├─ +page.svelte
+└─ dashboard/
+   ├─ +layout.svelte
+   ├─ +layout.js
+   ├─ +page.svelte
+   └─ reports/
+      ├─ +page.svelte
+      └─ [id]/
+         └─ +page.svelte</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_25_nested">경로와 파일의 대응</h3>
+                  <p data-wd-i18n="w2_25_root_page">routes/+page.svelte → /</p>
+                  <p data-wd-i18n="w2_25_dashboard_page">dashboard/+page.svelte → /dashboard</p>
+                  <p data-wd-i18n="w2_25_report_page">reports/+page.svelte → /dashboard/reports</p>
+                  <p data-wd-i18n="w2_25_id_page">reports/[id]/+page.svelte → /dashboard/reports/42</p>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_25_layout_scope">
+                    +layout.svelte: 해당 경로와 하위 페이지의 공통 UI · children을 렌더링해 페이지 표시
+                  </p>
+                  <p data-wd-i18n="w2_25_parent">하위 load에서 await parent()로 상위 레이아웃의 load 결과 재사용</p>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_25_optional">
+              모든 폴더에 +page·+layout이 필요한 것은 아님 · +layout.js는 공유 데이터가 필요할 때 추가
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-26"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-26_title">상태·파생값·반응형 효과</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-26_lead">
+              let·const 선언과 Svelte의 반응성 관련 runes
+            </p>
+            <div class="lesson-grid lesson-grid--three">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_26_state">$state · 변경되는 상태</h3>
+                  <p data-wd-i18n="w2_26_state_body">입력·토글·배열 변경을 화면에 반영</p>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">State.svelte</div>
+                    <div class="lesson-code__body">
+                      <pre class="wd-code" data-wd-code="text" data-wd-code-width="44" data-wd-i18n="w2_26_code_state">&lt;script&gt;
+  let name = $state('world');
+  let on = $state(false);
+  let list = $state(['a']);
+&lt;/script&gt;
+
+&lt;input aria-label="Name"
+  bind:value={name} /&gt;
+&lt;button onclick={() =&gt; on = !on}&gt;
+  {on ? 'ON' : 'OFF'}
+&lt;/button&gt;
+&lt;button
+  onclick={() =&gt; list.push('item')}&gt;
+  추가
+&lt;/button&gt;
+&lt;p&gt;{name} / {list.length}&lt;/p&gt;</pre>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_26_derived">$derived · 계산된 값</h3>
+                  <p data-wd-i18n="w2_26_derived_body">의존성이 바뀌면 무효화 · 값을 읽을 때 재계산</p>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">Total.svelte</div>
+                    <div class="lesson-code__body">
+                      <pre
+                        class="wd-code"
+                        data-wd-code="text"
+                        data-wd-code-width="44"
+                        data-wd-i18n="w2_26_code_derived"
+                      >&lt;script&gt;
+  let prices = $state(
+    [1000, 2500, 3000]
+  );
+  let total = $derived(
+    prices.reduce((s, p) =&gt; s + p, 0)
+  );
+  let label = $derived(
+    total.toLocaleString('ko-KR') +
+      '원'
+  );
+&lt;/script&gt;
+
+&lt;p&gt;{total} / {label}&lt;/p&gt;</pre>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_26_effect">$effect · 외부 동작 동기화</h3>
+                  <p data-wd-i18n="w2_26_effect_body">
+                    브라우저에서 최초 실행 · 동기적으로 읽은 반응형 의존성 변경 시 재실행
+                  </p>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">Focus.svelte</div>
+                    <div class="lesson-code__body">
+                      <pre class="wd-code" data-wd-code="text" data-wd-code-width="44" data-wd-i18n="w2_26_code_focus">&lt;script&gt;
+  let open = $state(false);
+  let el = $state();
+  $effect(() =&gt; {
+    if (open &amp;&amp; el) el.focus();
+  });
+&lt;/script&gt;
+
+&lt;button onclick={() =&gt; open = !open}&gt;
+  {open ? '닫기' : '열기'}
+&lt;/button&gt;
+{#if open}
+  &lt;input aria-label="메모"
+    bind:this={el} /&gt;
+{/if}</pre>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_26_effect_purpose">
+              표시용 파생값에는 $derived 사용 · $effect 안의 계산 자체가 금지되는 것은 아님
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-27"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-27_title">조건문</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-27_lead">
+              상태에서 등급을 계산하고, 등급에 맞는 UI를 선택
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Grade.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_grade">&lt;script&gt;
+  let score = $state(0);
+  let grade = $derived.by(() =&gt; {
+    if (score &gt;= 90) return 'A';
+    if (score &gt;= 60) return 'B';
+    return 'C';
+  });
+&lt;/script&gt;
+
+&lt;input type="number" min="0" max="100"
+  aria-label="Score" bind:value={score} /&gt;
+{#if grade === 'A'}
+  &lt;p&gt;Excellent! (A)&lt;/p&gt;
+{:else if grade === 'B'}
+  &lt;p&gt;Good (B)&lt;/p&gt;
+{:else}
+  &lt;p&gt;Keep practicing (C)&lt;/p&gt;
+{/if}</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_derived">계산된 값 · $derived.by</h3>
+                  <p data-wd-i18n="sv_grade_flow">score 변경 → grade 재계산 → 조건에 맞는 문단 표시</p>
+                  <p data-wd-i18n="sv_derived_pure">
+                    if / else로 값을 계산하고 반환 · 다른 상태를 변경하지 않는 순수 계산
+                  </p>
+                  <h3 data-wd-i18n="sv_if">템플릿 조건 블록</h3>
+                  <p data-wd-i18n="sv_if_syntax">{#if} · {:else if} · {:else}로 화면 분기</p>
+                  <p class="lesson-concept-note" data-wd-i18n="sv_no_effect">
+                    다른 상태로부터 계산할 수 있는 값은 $derived 사용 · $effect는 DOM·외부 시스템과의 동기화 등에 사용
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-28"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-28_title">반복문과 목록 렌더링</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-28_lead">
+              배열 항목을 반복 표시하고 각 항목의 상태를 갱신
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_28_each">템플릿 반복 블록 · {#each}</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_28_each_points0">as todo: 항목 · as todo, i: 항목과 인덱스</li>
+                    <li data-wd-i18n="w2_28_each_points1">(todo.id): 항목을 추적하는 고유하고 안정적인 key</li>
+                    <li data-wd-i18n="w2_28_each_points2">추가 버튼: 배열에 새 항목 삽입 → 목록 갱신</li>
+                    <li data-wd-i18n="w2_28_each_points3">bind:checked: 체크박스와 done을 연결</li>
+                  </ul>
+                  <h3 data-wd-i18n="w2_28_js">스크립트의 반복·계산</h3>
+                  <p data-wd-i18n="w2_28_js_body">
+                    for·for…of·map·forEach 등 사용 가능 · 변경에 따라 UI를 갱신할 값에 반응형 상태·파생값 사용
+                  </p>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_28_static">
+                    고정 배열도 {#each}로 표시 가능 · 모든 UI 데이터에 runes가 필수인 것은 아님
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Todos.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="w2_28_code_todos">&lt;script&gt;
+  let nextId = 3;
+  let todos = $state([
+    { id: 1, text: 'Svelte 학습', done: false },
+    { id: 2, text: 'Runes 연습', done: true }
+  ]);
+  function add() {
+    todos.push({
+      id: nextId++, text: '새 할 일', done: false
+    });
+  }
+&lt;/script&gt;
+
+&lt;button onclick={add}&gt;추가&lt;/button&gt;
+&lt;ul&gt;
+  {#each todos as todo (todo.id)}
+    &lt;li&gt;&lt;label&gt;
+      &lt;input type="checkbox" bind:checked={todo.done} /&gt;
+      {todo.text}
+    &lt;/label&gt;&lt;/li&gt;
+  {/each}
+&lt;/ul&gt;</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-29"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-29_title">이벤트와 처리 함수</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-29_lead">
+              사용자 입력과 브라우저의 이벤트에 함수를 연결
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_29_events">이벤트 속성</h3>
+                  <p data-wd-i18n="w2_29_syntax">onclick={handler} · oninput={handler} · onmousemove={handler}</p>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_29_event_points0">click: 클릭 · input: 입력 변화 · submit: 폼 제출</li>
+                    <li data-wd-i18n="w2_29_event_points1">keydown: 키 입력 · mousemove: 마우스 이동</li>
+                    <li data-wd-i18n="w2_29_event_points2">event 객체로 입력 값·좌표 등 이벤트 정보 확인</li>
+                  </ul>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_29_window">
+                    svelte:window는 브라우저 창의 이벤트에 연결 · 해제 시 리스너 정리
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Mouse.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="w2_29_code_mouse">&lt;script&gt;
+  let m = $state({ x: 0, y: 0 });
+  function handleMousemove(event) {
+    m.x = event.clientX;
+    m.y = event.clientY;
+  }
+&lt;/script&gt;
+
+&lt;svelte:window onmousemove={handleMousemove} /&gt;
+&lt;p&gt;마우스: {m.x} × {m.y}&lt;/p&gt;</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-concept-flow">
+              <div><span data-wd-i18n="w2_29_mouse_flow0">마우스 이동</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_29_mouse_flow1">event.clientX / clientY</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_29_mouse_flow2">m.x / m.y 갱신</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_29_mouse_flow3">좌표 표시</span></div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_29_coords">clientX·clientY는 뷰포트 기준 CSS 픽셀 좌표</p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-30"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-30_title">라이프사이클과 반응형 효과</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-30_lead">
+              마운트·해제 시 리소스를 관리하고 DOM 갱신 전후의 작업을 구분
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Timer.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_lifecycle">&lt;script&gt;
+  import { onMount } from 'svelte';
+  let count = $state(0);
+
+  onMount(() =&gt; {
+    const timer = setInterval(() =&gt; count++, 1000);
+    return () =&gt; clearInterval(timer);
+  });
+
+  $effect.pre(() =&gt; {
+    console.log('Before DOM update:', count);
+  });
+  $effect(() =&gt; {
+    console.log('After DOM update:', count);
+  });
+&lt;/script&gt;
+
+&lt;h1&gt;{count}&lt;/h1&gt;</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_mount">onMount · 마운트 이후</h3>
+                  <p data-wd-i18n="sv_mount_note">브라우저에서 마운트 후 실행 · SSR에서는 실행되지 않음</p>
+                  <p data-wd-i18n="sv_cleanup">동기 onMount 콜백이 반환한 함수는 해제 시 실행 → 타이머 정리</p>
+                  <h3 data-wd-i18n="sv_effects">$effect.pre / $effect</h3>
+                  <p data-wd-i18n="sv_effects_note">
+                    브라우저에서 최초 실행 후, 동기적으로 읽은 반응형 의존성이 변경되면 재실행
+                  </p>
+                  <p data-wd-i18n="sv_effects_timing">$effect.pre: DOM 갱신 전 · $effect: DOM 갱신 후</p>
+                  <p class="lesson-concept-note" data-wd-i18n="sv_destroy">
+                    onDestroy도 해제 작업 등록에 사용 가능하며 SSR에서도 실행 · count는 $state로 선언해야 화면과 효과가
+                    변경을 추적
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-31"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-31_title">훅과 페이지 탐색 제어</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-31_lead">
+              정해진 실행 시점에 콜백을 등록해 동작 확장·제어
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/routes/+layout.svelte · script</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="w2_31_guard_script">&lt;script&gt;
+  import { beforeNavigate } from '$app/navigation';
+  let { children } = $props();
+  let dirty = $state(false);
+
+  beforeNavigate((nav) =&gt; {
+    if (!dirty) return;
+    if (nav.type === 'leave' ||
+        !confirm('저장하지 않고 이동?')) {
+      nav.cancel();
+    }
+  });
+&lt;/script&gt;</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_31_hooks">주요 실행 지점</h3>
+                  <p data-wd-i18n="w2_31_life">onMount·onDestroy: 컴포넌트 생성 후·해제 시 리소스 관리</p>
+                  <p data-wd-i18n="w2_31_before">beforeNavigate: 탐색 전 검사·취소</p>
+                  <p data-wd-i18n="w2_31_on">onNavigate: 탐색 전 실행 · 반환한 함수는 DOM 갱신 후 실행</p>
+                  <p data-wd-i18n="w2_31_after">afterNavigate: 최초 마운트·탐색 완료 후 실행</p>
+                  <p data-wd-i18n="w2_31_load">load: 페이지·레이아웃의 데이터 준비</p>
+                  <div class="lesson-code">
+                    <div class="lesson-code__label">src/routes/+layout.svelte · markup</div>
+                    <div class="lesson-code__body">
+                      <pre
+                        class="wd-code"
+                        data-wd-code="text"
+                        data-wd-code-width="58"
+                        data-wd-i18n="w2_31_guard_markup"
+                      >&lt;label&gt;작성 중인 내용
+  &lt;textarea oninput={() =&gt; dirty = true}&gt;&lt;/textarea&gt;
+&lt;/label&gt;
+&lt;main&gt;{@render children()}&lt;/main&gt;</pre>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_31_leave">
+              앱 내부 이동: confirm 결과로 취소 · 탭 닫기 등 leave 탐색: cancel()로 브라우저 기본 이탈 확인 요청
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-32"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-32_title">
+              Props · 부모에서 자식으로 전달하는 값
+            </h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-32_lead">
+              컴포넌트의 입력값을 $props()로 받아 화면에 사용
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Parent.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="w2_32_code_Parent">&lt;script&gt;
+  import Child from './Child.svelte';
+  let message = $state('안녕!');
+&lt;/script&gt;
+
+&lt;button onclick={() =&gt; message = '변경된 인사말'}&gt;
+  변경
+&lt;/button&gt;
+&lt;Child msg={message} /&gt;</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Child.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="w2_32_code_Child">&lt;script&gt;
+  const { msg } = $props();
+&lt;/script&gt;
+
+&lt;p&gt;{msg}&lt;/p&gt;</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-concept-flow">
+              <div><span data-wd-i18n="w2_32_prop_flow0">부모의 message</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_32_prop_flow1">&lt;Child msg={message} /&gt;</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_32_prop_flow2">$props()의 msg</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_32_prop_flow3">자식의 문단 갱신</span></div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_32_prop_rules">
+              부모의 값 변경은 자식에 반영 · props는 읽기 전용 입력으로 사용 · 자식에서 변경을 요청할 때 콜백 활용
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-33"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-33_title">양방향 바인딩</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-33_lead">
+              입력이 상태를 변경하고, 상태 변경이 연결된 입력과 화면에 반영
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Bindings.svelte · script / name / checkbox</div>
+                  <div class="lesson-code__body">
+                    <pre
+                      class="wd-code"
+                      data-wd-code="text"
+                      data-wd-code-width="58"
+                      data-wd-i18n="sv_code_binding_start"
+                    >&lt;script&gt;
+  let name = $state('');
+  let agree = $state(false);
+  let color = $state('red');
+  let level = $state(50);
+  let files = $state();
+&lt;/script&gt;
+
+&lt;label&gt;Name: &lt;input bind:value={name} /&gt;&lt;/label&gt;
+&lt;p&gt;{name || '(empty)'}&lt;/p&gt;
+&lt;label&gt;
+  &lt;input type="checkbox" bind:checked={agree} /&gt;
+  I agree
+&lt;/label&gt;
+&lt;p&gt;{agree ? 'Yes' : 'No'}&lt;/p&gt;</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">Bindings.svelte · select / range / files</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_binding_end">&lt;label&gt;Color:
+  &lt;select bind:value={color}&gt;
+    &lt;option&gt;red&lt;/option&gt;&lt;option&gt;green&lt;/option&gt;
+    &lt;option&gt;blue&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/label&gt;
+&lt;p&gt;{color}&lt;/p&gt;
+&lt;label&gt;Level: {level}
+  &lt;input type="range" min="0" max="100"
+    bind:value={level} /&gt;
+&lt;/label&gt;
+&lt;label&gt;Files:
+  &lt;input type="file" multiple bind:files={files} /&gt;
+&lt;/label&gt;
+{#if files}&lt;p&gt;{files.length} files&lt;/p&gt;{/if}</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="sv_binding_runes">
+              Svelte 5 runes 모드: 변경되는 값은 $state · value는 입력값, checked는 체크 여부, files는 FileList와 연결
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-34"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-34_title">컴포넌트와 UI 재사용</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-34_lead">
+              마크업·동작·상태·스타일을 묶는 재사용 가능한 UI 단위
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/lib/Card.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="w2_34_code_Card">&lt;script&gt;
+  let { title, summary, href } = $props();
+&lt;/script&gt;
+
+&lt;article class="card"&gt;
+  &lt;h3&gt;&lt;a href={href}&gt;{title}&lt;/a&gt;&lt;/h3&gt;
+  &lt;p&gt;{summary}&lt;/p&gt;
+&lt;/article&gt;</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/routes/projects/+page.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="w2_34_code_Cards">&lt;script&gt;
+  import Card from '$lib/Card.svelte';
+  let { data } = $props();
+&lt;/script&gt;
+
+&lt;h2&gt;Projects&lt;/h2&gt;
+{#each data.projects as p (p.slug)}
+  &lt;Card title={p.title} summary={p.summary}
+    href={'/projects/' + p.slug} /&gt;
+{:else}
+  &lt;p&gt;등록된 프로젝트 없음&lt;/p&gt;
+{/each}</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_34_inputs">입력과 합성</h3>
+                  <p data-wd-i18n="w2_34_inputs_body">
+                    각 카드에 title·summary·href 전달 · 페이지에서 Card를 반복 사용
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_34_value">유지보수와 협업</h3>
+                  <p data-wd-i18n="w2_34_value_body">공통 UI의 변경 위치 통합 · 독립적 테스트·역할별 코드 관리</p>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_34_data">
+              data.projects는 페이지 load의 반환값 · 컴포넌트는 작은 버튼부터 큰 페이지까지 구성 가능
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-35"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-35_title">API 라우트와 요청 처리</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-35_lead">
+              +server.js의 HTTP 메서드 함수가 요청을 처리하고 Response를 반환
+            </p>
+            <div class="lesson-concept-flow">
+              <div><code>GET /api/projects</code></div>
+              <span>→</span>
+              <div><code>src/routes/api/projects/+server.js</code></div>
+              <span>→</span>
+              <div><code>export function GET()</code></div>
+            </div>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_server">서버 전용 실행</h3>
+                  <p data-wd-i18n="sv_server_only">
+                    +server.js 코드는 브라우저 번들에 포함되지 않음 · DB·비밀키는 서버에서 사용
+                  </p>
+                  <p class="lesson-concept-note" data-wd-i18n="sv_secrets">
+                    응답으로 반환한 데이터는 클라이언트에 전달되므로 인증·권한 확인과 비밀정보 제외는 별도로 구현
+                  </p>
+                  <h3 data-wd-i18n="sv_method">메서드와 응답</h3>
+                  <p data-wd-i18n="sv_method_response">
+                    GET·POST 등 메서드명으로 함수 export · Response 또는 json(data) 반환 · error(status, message)는 예외
+                    발생
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="sv_context">요청 컨텍스트</h3>
+                  <p data-wd-i18n="sv_request_context">
+                    request: 요청 · url: URL·쿼리 · params: 경로 매개변수 · cookies: 쿠키
+                  </p>
+                  <p data-wd-i18n="sv_locals">locals: 인증 사용자 등 요청별로 공유하는 서버 측 정보</p>
+                  <h3 data-wd-i18n="sv_load_kind">페이지 데이터 로드</h3>
+                  <p data-wd-i18n="sv_load_kind_detail">
+                    +page.js: 서버·브라우저에서 실행 가능한 universal load +page.server.js: 서버에서만 실행되는 load
+                  </p>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-36"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-36_title">API 응답과 페이지 데이터</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-36_lead">
+              API 응답을 load에서 받아 페이지 컴포넌트에 전달
+            </p>
+            <div class="lesson-grid lesson-grid--three">
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/routes/api/projects/+server.js</div>
+                  <div class="lesson-code__body">
+                    <pre class="wd-code" data-wd-code="text" data-wd-code-width="58" data-wd-i18n="sv_code_api">import { json } from '@sveltejs/kit';
+
+const projects = [
+  { slug: 'timetable',
+    title: 'Timetable Helper',
+    summary: 'Classes and schedules' },
+  { slug: 'gallery',
+    title: 'Image Gallery',
+    summary: 'A small image gallery' },
+  { slug: 'memo',
+    title: 'Memo Pad',
+    summary: 'Local notes' }
+];
+
+export function GET() {
+  return json(projects);
+}</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/routes/projects/+page.js</div>
+                  <div class="lesson-code__body">
+                    <pre
+                      class="wd-code"
+                      data-wd-code="text"
+                      data-wd-code-width="58"
+                      data-wd-i18n="sv_code_projectsLoad"
+                    >import { error } from '@sveltejs/kit';
+
+export async function load({ fetch }) {
+  const res = await fetch('/api/projects');
+  if (!res.ok) {
+    error(res.status, 'Load failed');
+  }
+  return { projects: await res.json() };
+}</pre>
+                  </div>
+                </div>
+              </div>
+              <div class="lesson-col">
+                <div class="lesson-code">
+                  <div class="lesson-code__label">src/routes/projects/+page.svelte</div>
+                  <div class="lesson-code__body">
+                    <pre
+                      class="wd-code"
+                      data-wd-code="text"
+                      data-wd-code-width="58"
+                      data-wd-i18n="sv_code_projectsPage"
+                    >&lt;script&gt;
+  import Card from '$lib/Card.svelte';
+  let { data } = $props();
+&lt;/script&gt;
+
+&lt;h2&gt;Projects&lt;/h2&gt;
+{#each data.projects as p (p.slug)}
+  &lt;Card title={p.title}
+    summary={p.summary}
+    href={'/projects/' + p.slug} /&gt;
+{:else}
+  &lt;p&gt;No projects yet.&lt;/p&gt;
+{/each}</pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-concept-flow">
+              <div><code>GET /api/projects</code></div>
+              <span>→</span>
+              <div><code>load → { projects }</code></div>
+              <span>→</span>
+              <div><code>data.projects → Card</code></div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="sv_api_card">
+              Card는 앞서 정의한 src/lib/Card.svelte를 재사용 · API 처리, 데이터 로드, 화면 마크업은 서로 다른 파일
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-37"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-37_title">Svelte Playground</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-37_lead">
+              브라우저에서 컴포넌트 코드와 실행 결과 확인
+            </p>
+            <div class="lesson-playground">
+              <a href="https://svelte.dev/playground/" target="_blank" rel="noopener">svelte.dev/playground</a>
+              <ol class="lesson-navigation-flow">
+                <li data-wd-i18n="w2_37_steps0">.svelte 컴포넌트의 script·마크업·style 입력</li>
+                <li data-wd-i18n="w2_37_steps1">상태·이벤트·바인딩을 바꾸며 출력과 비교</li>
+                <li data-wd-i18n="w2_37_steps2">컴파일 오류·경고 메시지와 해당 코드 위치 확인</li>
+              </ol>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_37_kit_limit">
+              SvelteKit의 +page·+layout·API·$app 모듈 예제는 로컬 SvelteKit 프로젝트에서 실행
+            </p>
+          </section>
+          <section class="wd-slide week2-section week2-slide" data-wd-slide="original-framework-38" role="region">
+            <p class="week2-section__number">06</p>
+            <h2 data-wd-i18n="v2_original-framework-38_title">웹 서비스 배포 자동화</h2>
+            <p class="week2-section__lead" data-wd-i18n="v2_original-framework-38_lead">GitHub · 빌드·검증 · Vercel</p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-39"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-39_title">CI/CD와 DevOps</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-39_lead">
+              코드 통합·검증·배포를 반복 가능한 과정으로 구성
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_39_ci">CI · Continuous Integration</h3>
+                  <p data-wd-i18n="w2_39_ci_def">작은 변경을 공유 코드에 자주 통합하고 자동 빌드·테스트로 검증</p>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_39_ci_goals0">통합 오류와 회귀 문제의 조기 발견</li>
+                    <li data-wd-i18n="w2_39_ci_goals1">변경 검증·릴리스 준비 시간 단축</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_39_cd">CD · Delivery / Deployment</h3>
+                  <h3 data-wd-i18n="w2_39_delivery">Continuous Delivery</h3>
+                  <p data-wd-i18n="w2_39_delivery_def">
+                    변경을 항상 배포 가능한 상태로 준비 · 운영 배포에는 사람의 결정이 남을 수 있음
+                  </p>
+                  <h3 data-wd-i18n="w2_39_deployment">Continuous Deployment</h3>
+                  <p data-wd-i18n="w2_39_deployment_def">검증을 통과한 변경을 운영 환경까지 자동 배포</p>
+                </section>
+              </div>
+            </div>
+            <div class="lesson-concept-flow">
+              <div><span data-wd-i18n="w2_39_pipeline0">코드 변경</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_39_pipeline1">빌드·테스트</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_39_pipeline2">배포 가능한 결과물</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_39_pipeline3">운영 배포</span></div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_39_devops">
+              DevOps: 개발과 운영의 협업·자동화·피드백 문화와 실천 · 특정 직무나 도구 하나로 한정되지 않음
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-40"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-40_title">Vercel</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-40_lead">
+              웹 애플리케이션의 빌드·미리보기·배포를 위한 클라우드 플랫폼
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_40_platform">플랫폼과 프레임워크</h3>
+                  <p data-wd-i18n="w2_40_next">Next.js 개발 · SvelteKit 등 여러 프레임워크 지원</p>
+                  <p data-wd-i18n="w2_40_rich">2021년 11월 Svelte 창시자 Rich Harris 합류 · Svelte 개발 지원</p>
+                  <p class="lesson-concept-note" data-wd-i18n="w2_40_support">
+                    프레임워크 preset과 adapter가 빌드 결과를 배포 환경에 연결
+                  </p>
+                </section>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_40_features">주요 기능</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_40_features_list0">정적 파일 전송·CDN·서버 함수 실행</li>
+                    <li data-wd-i18n="w2_40_features_list1">Git 연동에 따른 자동 빌드·배포</li>
+                    <li data-wd-i18n="w2_40_features_list2">변경 사항별 Preview 배포 URL</li>
+                    <li data-wd-i18n="w2_40_features_list3">HTTPS 인증서·사용자 도메인·관측 도구</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_40_tests">
+              자동 배포가 테스트의 자동 작성을 뜻하지는 않음 · 테스트 명령과 배포 조건은 프로젝트에 설정
+            </p>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-41"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-41_title">Vercel 프로젝트 연결과 배포</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-41_lead">
+              GitHub 저장소를 연결하고 배포 결과와 후속 변경을 확인
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_41_setup">계정·저장소 연결</h3>
+                  <ol class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_41_setup_steps0">Vercel 계정 생성·로그인</li>
+                    <li data-wd-i18n="w2_41_setup_steps1">새 프로젝트에서 GitHub 연동과 저장소 권한 부여</li>
+                    <li data-wd-i18n="w2_41_setup_steps2">배포할 저장소 Import · 프로젝트 폴더 선택</li>
+                    <li data-wd-i18n="w2_41_setup_steps3">SvelteKit 프레임워크 자동 감지 확인</li>
                   </ol>
                 </section>
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s08_a11y_label">접근성 트리 (Accessibility Tree)</h3>
-                  <p data-wd-i18n="s08_a11y">브라우저가 DOM(+CSS, ARIA)을 해석해 만든 보조기기용 안내도 · 시맨틱 태그는 올바른 역할(role)로 매핑</p>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_41_deploy">설정·검증·배포</h3>
+                  <ol class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_41_deploy_steps0">Node.js 24.x · 필요한 환경 변수 설정</li>
+                    <li data-wd-i18n="w2_41_deploy_steps1">Output Directory는 SvelteKit 자동 설정 유지</li>
+                    <li data-wd-i18n="w2_41_deploy_steps2">Deploy 실행 · 빌드 로그와 배포 URL 확인</li>
+                    <li data-wd-i18n="w2_41_deploy_steps3">Home·About·Projects·상세·메모 동작 확인</li>
+                  </ol>
                 </section>
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s08_benefit_label">그 밖의 이점</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li data-wd-i18n="s08_benefit_1">코드 가독성 개선</li>
-                    <li data-wd-i18n="s08_benefit_2">기본 UX와 내구성 확보</li>
+              </div>
+            </div>
+            <div class="lesson-concept-flow">
+              <div><span data-wd-i18n="w2_41_push_flow0">코드 변경·커밋</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_41_push_flow1">GitHub에 push</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_41_push_flow2">Vercel 재빌드</span></div>
+              <span aria-hidden="true">→</span>
+              <div><span data-wd-i18n="w2_41_push_flow3">배포 결과 확인</span></div>
+            </div>
+            <p class="lesson-concept-note" data-wd-i18n="w2_41_url">
+              제출에는 대시보드의 실제 Production URL 사용 · 브랜치·설정에 따라 Preview와 Production 배포 구분
+            </p>
+          </section>
+          <section class="wd-slide week2-section week2-slide" data-wd-slide="original-framework-42" role="region">
+            <p class="week2-section__number">07</p>
+            <h2 data-wd-i18n="v2_original-framework-42_title">실습: SvelteKit을 이용한 웹사이트 제작과 Vercel 배포</h2>
+          </section>
+          <section
+            class="wd-slide wd-slide--content week2-slide lesson-slide"
+            data-wd-slide="original-framework-43"
+            role="region"
+          >
+            <h2 class="wd-slide-heading" data-wd-i18n="v2_original-framework-43_title">실습 개요</h2>
+            <p class="wd-slide-lead" data-wd-i18n="v2_original-framework-43_lead">
+              SvelteKit을 이용한 웹사이트 제작과 Vercel 배포
+            </p>
+            <div class="lesson-grid">
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_43_goals">학습 목표</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_43_goals_items0">Node.js와 npm 환경 구축</li>
+                    <li data-wd-i18n="w2_43_goals_items1">SvelteKit 프레임워크로 정적 사이트 제작</li>
+                    <li data-wd-i18n="w2_43_goals_items2">Git/GitHub를 활용한 버전 관리</li>
+                    <li data-wd-i18n="w2_43_goals_items3">Vercel을 통한 자동 배포 파이프라인 구축</li>
                   </ul>
-                </section>
-              </div>
-              <div class="week2-code-pair">
-                <div>
-                  <h3 data-wd-i18n="s08_bad_label">✕ Non-Semantic</h3>
-                  <pre class="week2-code week2-code--bad week2-code--lg">&lt;div class="header"&gt;
-  &lt;div class="nav"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="content"&gt;
-  &lt;div class="article"&gt;...&lt;/div&gt;
-  &lt;div class="sidebar"&gt;...&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="footer"&gt;...&lt;/div&gt;</pre>
-                </div>
-                <div>
-                  <h3 data-wd-i18n="s08_good_label">✓ Semantic</h3>
-                  <pre class="week2-code week2-code--good week2-code--lg">&lt;header&gt;
-  &lt;nav&gt;...&lt;/nav&gt;
-&lt;/header&gt;
-&lt;main&gt;
-  &lt;article&gt;...&lt;/article&gt;
-  &lt;aside&gt;...&lt;/aside&gt;
-&lt;/main&gt;
-&lt;footer&gt;...&lt;/footer&gt;</pre>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="09" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s09_title">웹 브라우저 렌더링 과정</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s09_lead">브라우저는 전달받은 HTML과 CSS를 해석하여 화면의 픽셀로 표시</p>
-            <div class="week2-pipeline">
-              <section>
-                <p class="week2-pipeline__index">STEP 01</p>
-                <h3 data-wd-i18n="s09_step_1">HTML 파싱</h3>
-                <p data-wd-i18n="s09_step_1_detail">문서를 해석해 DOM 트리 생성</p>
-                <code>DOM</code>
-              </section>
-              <section>
-                <p class="week2-pipeline__index">STEP 02</p>
-                <h3 data-wd-i18n="s09_step_2">CSS 파싱</h3>
-                <p data-wd-i18n="s09_step_2_detail">스타일을 해석해 CSSOM 트리 생성</p>
-                <code>CSSOM</code>
-              </section>
-              <section>
-                <p class="week2-pipeline__index">STEP 03</p>
-                <h3 data-wd-i18n="s09_step_3">Render Tree</h3>
-                <p data-wd-i18n="s09_step_3_detail">DOM과 CSSOM을 결합해 화면에 그릴 트리 구성</p>
-                <code>DOM + CSSOM</code>
-              </section>
-              <section>
-                <p class="week2-pipeline__index">STEP 04</p>
-                <h3 data-wd-i18n="s09_step_4">Layout</h3>
-                <p data-wd-i18n="s09_step_4_detail">각 요소의 위치와 크기 계산</p>
-                <code>Reflow</code>
-              </section>
-              <section>
-                <p class="week2-pipeline__index">STEP 05</p>
-                <h3 data-wd-i18n="s09_step_5">Paint</h3>
-                <p data-wd-i18n="s09_step_5_detail">계산된 결과를 픽셀로 그리기</p>
-                <code>Pixels</code>
-              </section>
-              <section>
-                <p class="week2-pipeline__index">STEP 06</p>
-                <h3 data-wd-i18n="s09_step_6">Composite</h3>
-                <p data-wd-i18n="s09_step_6_detail">레이어를 합쳐 최종 화면 출력</p>
-                <code>Layers</code>
-              </section>
-            </div>
-            <p class="week2-note"><strong data-wd-i18n="s09_note_label">JS 변경 시 재실행 범위</strong> <span data-wd-i18n="s09_note">변경된 단계부터 다시 실행 · 텍스트 · 구조 · 크기 변경 → Layout부터 · 색상 · 배경 변경 → Paint부터 · transform · opacity 변경 → Composite만</span></p>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide week2-dense" data-wd-slide="11" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s11_title">웹 브라우저 렌더링 성능의 중요성</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s11_lead">렌더링 최적화는 단순히 속도만의 문제가 아니라 사용자 경험, SEO, 전환율에 직접적인 영향을 미치는 핵심 요소</p>
-            <div class="week2-split week2-split--even">
-              <section class="week2-panel">
-                <h3 data-wd-i18n="s11_bounce_label">로딩 시간별 이탈률</h3>
-                <dl class="week2-bounce">
-                  <div><dt>1s</dt><dd>7%</dd></div>
-                  <div><dt>3s</dt><dd>32%</dd></div>
-                  <div><dt>5s</dt><dd>90%</dd></div>
-                  <div><dt>7s</dt><dd>103%<small data-wd-i18n="s11_bounce_note">경쟁사로 이동</small></dd></div>
-                </dl>
-                <p class="week2-example" data-wd-i18n="s11_bounce_detail">초기 로딩이 1초 늘어날 때마다 이탈률이 급격히 증가</p>
-              </section>
-              <section class="week2-panel">
-                <h3>Google Core Web Vitals</h3>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s11_cwv_1">Google이 2020년에 도입한, 웹 페이지 사용자 경험을 측정하는 3가지 핵심 지표</li>
-                  <li data-wd-i18n="s11_cwv_2">2021년부터는 검색 순위에도 영향을 미치는 중요한 SEO 요소</li>
-                </ul>
-                <div class="week2-metrics">
-                  <section>
-                    <h3>FCP</h3>
-                    <small>First Contentful Paint</small>
-                    <p data-wd-i18n="s11_fcp">첫 번째 텍스트나 이미지가 화면에 그려지는 시간</p>
-                  </section>
-                  <section>
-                    <h3>LCP</h3>
-                    <small>Largest Contentful Paint</small>
-                    <p data-wd-i18n="s11_lcp">가장 큰 콘텐츠가 화면에 그려지는 시간</p>
-                  </section>
-                  <section>
-                    <h3>CLS</h3>
-                    <small>Cumulative Layout Shift</small>
-                    <p data-wd-i18n="s11_cls">페이지 로드 중 발생하는 레이아웃 이동 총합</p>
-                  </section>
-                </div>
-              </section>
-            </div>
-          </section>
-
-          <section class="wd-slide week2-slide week2-section" data-wd-slide="45" role="region">
-            <p class="week2-section__number">02</p>
-            <h2 data-wd-i18n="s45_title">HTML 생성 방식과 라우팅</h2>
-            <p class="week2-section__lead" data-wd-i18n="s45_lead">CSR · SSR · SSG · URL과 라우터</p>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide week2-dense" data-wd-slide="10" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s10_title">웹 브라우저 렌더링 방식</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s10_lead">HTML을 누가, 언제 생성하는가에 따라 세 가지 방식으로 구분</p>
-            <div class="week2-cards">
-              <section class="week2-card">
-                <header><h3>CSR<small>Client-Side Rendering</small></h3></header>
-                <p data-wd-i18n="s10_csr">빈 HTML → JS 다운로드 → 화면 생성</p>
-                <div class="week2-verdict">
-                  <span class="is-pro"><b data-wd-i18n="s10_pro_label">장점</b><span data-wd-i18n="s10_csr_pro">페이지 로드 후 사용자 인터랙션에 빠르게 반응 · 자주 업데이트되는 페이지에 유리</span></span>
-                  <span class="is-con"><b data-wd-i18n="s10_con_label">단점</b><span data-wd-i18n="s10_csr_con">초기 로딩이 느리고, 크롤러가 자바스크립트를 실행해야 내용을 인식하므로 SEO에 불리</span></span>
-                </div>
-                <span class="week2-card__tag"><strong data-wd-i18n="s10_case_label">사례</strong> <span data-wd-i18n="s10_csr_case">소셜 미디어 플랫폼(Facebook, Instagram), 대시보드, 웹 기반 게임</span></span>
-              </section>
-              <section class="week2-card">
-                <header><h3>SSR<small>Server-Side Rendering</small></h3></header>
-                <p data-wd-i18n="s10_ssr">서버에서 완성된 HTML → 즉시 표시</p>
-                <div class="week2-verdict">
-                  <span class="is-pro"><b data-wd-i18n="s10_pro_label">장점</b><span data-wd-i18n="s10_ssr_pro">빠른 초기 로딩 · 검색엔진이 쉽게 크롤링하므로 SEO에 유리</span></span>
-                  <span class="is-con"><b data-wd-i18n="s10_con_label">단점</b><span data-wd-i18n="s10_ssr_con">서버 부하로 인한 서버 비용 증가</span></span>
-                </div>
-                <span class="week2-card__tag"><strong data-wd-i18n="s10_case_label">사례</strong> <span data-wd-i18n="s10_ssr_case">뉴스 사이트와 블로그, SEO가 중요한 전자 상거래 사이트</span></span>
-              </section>
-              <section class="week2-card week2-card--accent">
-                <header><h3>SSG<small>Static Site Generation</small></h3></header>
-                <p data-wd-i18n="s10_ssg">빌드 시 HTML 생성 → CDN 제공</p>
-                <div class="week2-verdict">
-                  <span class="is-pro"><b data-wd-i18n="s10_pro_label">장점</b><span data-wd-i18n="s10_ssg_pro">빠른 로딩 · SEO에 유리 · 서버 부하가 적고 전 세계에 빠르게 콘텐츠 제공</span></span>
-                  <span class="is-con"><b data-wd-i18n="s10_con_label">단점</b><span data-wd-i18n="s10_ssg_con">동적인 콘텐츠가 많으면 빌드와 배포 과정이 반복적으로 필요</span></span>
-                </div>
-                <span class="week2-card__tag"><strong data-wd-i18n="s10_case_label">사례</strong> <span data-wd-i18n="s10_ssg_case">개인 블로그 또는 포트폴리오 사이트, 마케팅 랜딩 페이지</span></span>
-              </section>
-            </div>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="12" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s12_title">라우팅(Routing)</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s12_lead">사용자가 요청한 URL 주소에 따라 적절한 페이지나 콘텐츠를 보여주는 과정</p>
-            <div class="week2-split week2-split--text">
-              <div class="week2-col">
-                <p class="week2-url"><span class="is-1">https</span>://<span class="is-2">example.com</span><span class="is-3">/blog</span><span class="is-4">/2024</span><span class="is-4">/first-post</span><span class="is-5">?sort=date</span><span class="is-6">#comments</span></p>
-                <dl class="week2-url-legend">
-                  <div class="is-1"><dt data-wd-i18n="s12_part_1_label">프로토콜</dt><dd><span data-wd-i18n="s12_part_1">통신 방식</span> · <b>https</b></dd></div>
-                  <div class="is-2"><dt data-wd-i18n="s12_part_2_label">도메인</dt><dd><span data-wd-i18n="s12_part_2">서비스 주소</span> · <b>example.com</b></dd></div>
-                  <div class="is-3"><dt data-wd-i18n="s12_part_3_label">경로 세그먼트</dt><dd><span data-wd-i18n="s12_part_3">자원의 위치</span> · <b>/blog</b></dd></div>
-                  <div class="is-4"><dt data-wd-i18n="s12_part_4_label">동적 세그먼트</dt><dd><span data-wd-i18n="s12_part_4">값에 따라 달라지는 경로</span> · <b>/2024/first-post</b></dd></div>
-                  <div class="is-5"><dt data-wd-i18n="s12_part_5_label">쿼리 파라미터</dt><dd><span data-wd-i18n="s12_part_5">추가 조건 전달</span> · <b>?sort=date</b></dd></div>
-                  <div class="is-6"><dt data-wd-i18n="s12_part_6_label">해시</dt><dd><span data-wd-i18n="s12_part_6">페이지 내 위치</span> · <b>#comments</b></dd></div>
-                </dl>
-              </div>
-              <div class="week2-flow week2-flow--accent">
-                <h3>ROUTING</h3>
-                <p><strong data-wd-i18n="s12_flow_1_label">요청</strong><span>https://mysite.com/about</span></p>
-                <span aria-hidden="true">↓</span>
-                <p><strong data-wd-i18n="s12_flow_2_label">라우터</strong><span data-wd-i18n="s12_flow_2">요청한 주소를 확인</span></p>
-                <span aria-hidden="true">↓</span>
-                <p><strong data-wd-i18n="s12_flow_3_label">매칭</strong><span data-wd-i18n="s12_flow_3">/about 경로에 해당하는 페이지 선택</span></p>
-                <span aria-hidden="true">↓</span>
-                <p><strong data-wd-i18n="s12_flow_4_label">표시</strong><span data-wd-i18n="s12_flow_4">About 페이지 표시</span></p>
-              </div>
-            </div>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide week2-dense" data-wd-slide="13" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s13_title">서버 사이드 라우팅과 클라이언트 사이드 라우팅</h2>
-            <div class="week2-cards week2-cards--two">
-              <section class="week2-card">
-                <header><h3><span data-wd-i18n="s13_mpa_title">1. 서버 사이드 라우팅</span><small>MPA</small></h3></header>
-                <p data-wd-i18n="s13_mpa_lead">페이지를 이동할 때마다 서버에서 새로운 문서를 전달받는 방식</p>
-                <div class="week2-verdict">
-                  <span class="is-pro"><b>✓</b><span data-wd-i18n="s13_mpa_pro_1">간단하고 직관적</span></span>
-                  <span class="is-pro"><b>✓</b><span data-wd-i18n="s13_mpa_pro_2">SEO에 유리</span></span>
-                  <span class="is-con"><b>✕</b><span data-wd-i18n="s13_mpa_con_1">페이지 전환마다 깜빡임</span></span>
-                  <span class="is-con"><b>✕</b><span data-wd-i18n="s13_mpa_con_2">느린 페이지 전환</span></span>
-                </div>
-                <div class="week2-flow">
-                  <h3>MPA</h3>
-                  <p><strong data-wd-i18n="s13_actor_user">사용자</strong><span data-wd-i18n="s13_mpa_1">About 링크 클릭</span></p>
-                  <p><strong data-wd-i18n="s13_actor_browser">브라우저</strong><span data-wd-i18n="s13_mpa_2">about.html 전체 문서를 서버에 요청</span></p>
-                  <p><strong data-wd-i18n="s13_actor_server">서버</strong><span data-wd-i18n="s13_mpa_3">about.html 전체 문서를 응답</span></p>
-                  <p><strong data-wd-i18n="s13_actor_browser">브라우저</strong><span data-wd-i18n="s13_mpa_4">화면 전체를 다시 렌더링 (깜빡임 발생)</span></p>
-                </div>
-              </section>
-              <section class="week2-card week2-card--accent">
-                <header><h3><span data-wd-i18n="s13_spa_title">2. 클라이언트 사이드 라우팅</span><small>SPA</small></h3></header>
-                <p data-wd-i18n="s13_spa_lead">JavaScript가 페이지 전환을 처리</p>
-                <div class="week2-verdict">
-                  <span class="is-pro"><b>✓</b><span data-wd-i18n="s13_spa_pro_1">빠른 페이지 전환</span></span>
-                  <span class="is-pro"><b>✓</b><span data-wd-i18n="s13_spa_pro_2">부드러운 사용자 경험</span></span>
-                  <span class="is-con"><b>✕</b><span data-wd-i18n="s13_spa_con_1">느린 초기 로딩</span></span>
-                  <span class="is-con"><b>✕</b><span data-wd-i18n="s13_spa_con_2">SEO 대응 필요</span></span>
-                </div>
-                <div class="week2-flow week2-flow--accent">
-                  <h3>SPA</h3>
-                  <p><strong data-wd-i18n="s13_actor_user">사용자</strong><span data-wd-i18n="s13_spa_1">About 링크 클릭</span></p>
-                  <p><strong>JavaScript</strong><span data-wd-i18n="s13_spa_2">About 페이지에 필요한 데이터만 서버에 요청</span></p>
-                  <p><strong data-wd-i18n="s13_actor_server">서버</strong><span data-wd-i18n="s13_spa_3">요청한 데이터를 JSON으로 응답</span></p>
-                  <p><strong>JavaScript</strong><span data-wd-i18n="s13_spa_4">현재 페이지에서 콘텐츠 영역만 교체</span></p>
-                </div>
-              </section>
-            </div>
-            <p class="week2-note"><strong data-wd-i18n="s13_spa_def_label">SPA (Single Page Application)</strong> <span data-wd-i18n="s13_spa_def">웹사이트 전체가 하나의 페이지로 구성되어 있고, 사용자가 다른 페이지로 이동할 때 전체 페이지를 새로 불러오지 않고 필요한 부분만 JavaScript로 동적으로 변경</span></p>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="14" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s14_title">웹 브라우저에서 확인</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s14_lead">크롬 브라우저 개발자 도구로 지금까지 배운 개념을 직접 확인</p>
-            <div class="week2-cards">
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s14_devtools_label">개발자 도구</h3></header>
-                <p class="week2-example"><strong data-wd-i18n="s14_shortcut_label">단축키</strong> F12 · Ctrl+Shift+I (Win) · ⌥⌘I (Mac)</p>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s14_devtools_1">문서 요소들 확인</li>
-                  <li data-wd-i18n="s14_devtools_2">시맨틱 레이아웃 확인</li>
-                  <li data-wd-i18n="s14_devtools_3">SEO · 메타 정보 확인</li>
-                </ul>
-              </section>
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s14_viewport_label">반응형 · 뷰포트 확인</h3></header>
-                <p class="week2-example"><strong data-wd-i18n="s14_toggle_label">디바이스 툴바</strong> Ctrl+Shift+M · ⌘Shift+M</p>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s14_viewport_1">다양한 뷰포트(모바일 · 태블릿)로 레이아웃 결과 확인</li>
-                  <li data-wd-i18n="s14_viewport_2">상단 Device 해상도와 회전(rotate) 테스트</li>
-                </ul>
-              </section>
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s14_network_label">원본 HTML · 응답 헤더 확인</h3></header>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s14_network_1">Network 패널 → Doc 타입(첫 항목) 클릭</li>
-                  <li><strong>Headers</strong> — <code>Content-Type: text/html; charset=utf-8</code></li>
-                  <li data-wd-i18n="s14_network_3">Response 탭에서 서버가 보낸 원본 HTML 확인</li>
-                </ul>
-              </section>
-            </div>
-          </section>
-
-          <section class="wd-slide week2-slide week2-section" data-wd-slide="15" role="region">
-            <p class="week2-section__number">03</p>
-            <h2 data-wd-i18n="s15_title">다음 단계: 웹 프레임워크</h2>
-            <p class="week2-section__lead" data-wd-i18n="s15_lead">직접 작성의 한계와 프레임워크의 등장 · 이후 주차에서 사용하는 도구 소개</p>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="48" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s48_title">직접 작성한 웹페이지의 한계</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s48_lead">1주차 과제처럼 HTML · CSS · JavaScript 파일을 직접 작성하는 방식은 화면과 기능이 늘어날수록 반복 작업도 함께 증가</p>
-            <div class="week2-cards week2-cards--four week2-cards--compact">
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s48_item_1_label">반복되는 마크업</h3></header>
-                <p data-wd-i18n="s48_item_1">헤더 · 내비게이션 · 푸터를 페이지마다 복사 · 한 곳을 고치면 모든 파일을 다시 수정</p>
-              </section>
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s48_item_2_label">흩어지는 상태</h3></header>
-                <p data-wd-i18n="s48_item_2">화면과 데이터를 DOM에서 직접 동기화 · 화면이 늘어날수록 변경 추적이 어려운 구조</p>
-              </section>
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s48_item_3_label">수작업 최적화</h3></header>
-                <p data-wd-i18n="s48_item_3">번들링 · 압축 · 캐싱 · 코드 분할을 직접 처리 · 렌더링 성능 관리의 부담</p>
-              </section>
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s48_item_4_label">반복되는 배포</h3></header>
-                <p data-wd-i18n="s48_item_4">변경할 때마다 결과물을 직접 올리고 동작을 다시 확인</p>
-              </section>
-            </div>
-            <p class="week2-note"><strong data-wd-i18n="s48_note_label">해결 방향</strong> <span data-wd-i18n="s48_note">프레임워크와 빌드 도구가 이 반복 작업을 표준 방식으로 처리 · 개발자는 화면 구성과 기능 구현에 집중</span></p>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide week2-dense" data-wd-slide="16" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s16_title">웹 개발 프레임워크</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s16_lead">웹서비스를 더 빠르고 안전하게 만들 수 있게 미리 준비된 설계도와 도구 묶음 · 개발과 관련된 반복 작업을 표준 방식으로 제공해 개발자의 시행착오를 줄이는 것이 목적</p>
-            <div class="week2-split week2-split--even">
-              <div class="week2-stack">
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s16_parts_label">구성요소</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li><strong data-wd-i18n="s16_part_1_label">구조</strong> — <span data-wd-i18n="s16_part_1">폴더 · 파일 규칙, 레이어드 아키텍처(컨트롤러 · 서비스 · 모델 등)</span></li>
-                    <li><strong data-wd-i18n="s16_part_2_label">러닝키트</strong> — <span data-wd-i18n="s16_part_2">라우터, 미들웨어, ORM · 쿼리 도구, 폼 · 검증, 인증, 국제화, 테스트</span></li>
-                    <li><strong data-wd-i18n="s16_part_3_label">빌드 · 런타임</strong> — <span data-wd-i18n="s16_part_3">번들링, 트랜스파일(예: TypeScript), 코드 스플리팅, SSR · SSG 지원</span></li>
-                    <li><strong data-wd-i18n="s16_part_4_label">생태계</strong> — <span data-wd-i18n="s16_part_4">플러그인, CLI, 베스트 프랙티스 문서</span></li>
+                  <h3 data-wd-i18n="w2_43_requirements">요구사항</h3>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_43_requirements_items0">
+                      GitHub 저장소에 프로젝트 버전 관리가 바르게 되고 있는가?
+                    </li>
+                    <li data-wd-i18n="w2_43_requirements_items1">
+                      Vercel에 GitHub 저장소가 연결되어 자동 배포가 이루어 지고 있는가?
+                    </li>
+                    <li data-wd-i18n="w2_43_requirements_items2">
+                      Vercel 배포한 웹서비스에서 제시한 프로젝트 코드가 모두 바르게 동작하는가? (Home, About, Projects)
+                    </li>
                   </ul>
+                  <p>
+                    <span data-wd-i18n="w2_43_reference">참고</span>:
+                    <a href="https://github.com/ajou-hyunseok-oh/pwd-week2" target="_blank" rel="noopener"
+                      >https://github.com/ajou-hyunseok-oh/pwd-week2</a
+                    >
+                  </p>
                 </section>
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s16_kinds_label">종류</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li><strong data-wd-i18n="s16_kind_1_label">프론트엔드(UI)</strong> — React, Vue, Angular, Svelte</li>
-                    <li><strong data-wd-i18n="s16_kind_2_label">백엔드(API)</strong> — Express / NestJS(Node), Django / FastAPI(Python), Spring Boot(Java), Laravel(PHP), Rails(Ruby)</li>
-                    <li><strong data-wd-i18n="s16_kind_3_label">풀스택(프론트 + 백엔드)</strong> — Next.js, Nuxt, SvelteKit, Remix</li>
+              </div>
+              <div class="lesson-col">
+                <section class="lesson-concept-box">
+                  <h3 data-wd-i18n="w2_43_submit">과제 마감일</h3>
+                  <p class="lesson-deadline-value" data-wd-i18n="w2_43_deadline_value">9월 20일 23:59</p>
+                  <ul class="lesson-navigation-flow">
+                    <li data-wd-i18n="w2_43_deliverables0">GitHub 저장소 URL</li>
+                    <li data-wd-i18n="w2_43_deliverables1">Vercel App URL</li>
                   </ul>
+                  <p data-wd-i18n="w2_43_github_example">(예: https://github.com/username/pwd-week2)</p>
+                  <p data-wd-i18n="w2_43_vercel_example">(예: https://pwd-week2-[random].vercel.app)</p>
                 </section>
               </div>
-              <section class="week2-panel">
-                <h3 data-wd-i18n="s16_choice_label">선택 기준</h3>
-                <ul class="week2-list">
-                  <li><strong data-wd-i18n="s16_choice_1_label">팀 역량 · 언어</strong> — <span data-wd-i18n="s16_choice_1">JS / TS는 Next.js · NestJS, Python은 Django / FastAPI</span></li>
-                  <li><strong data-wd-i18n="s16_choice_2_label">렌더링 방식</strong> — <span data-wd-i18n="s16_choice_2">CSR / SSR / SSG / ISR 필요 여부 (SEO, 초기 로드 속도 요구)</span></li>
-                  <li><strong data-wd-i18n="s16_choice_3_label">호스팅 · 배포</strong> — <span data-wd-i18n="s16_choice_3">Vercel · Netlify(서버리스)와 컨테이너 · 쿠버네티스 중 선택</span></li>
-                  <li><strong data-wd-i18n="s16_choice_4_label">생태계</strong> — <span data-wd-i18n="s16_choice_4">문서 · 커뮤니티 · 플러그인의 풍부함</span></li>
-                </ul>
-              </section>
-            </div>
-            <p class="week2-note"><strong data-wd-i18n="s16_course_label">이 강의의 선택</strong> <span data-wd-i18n="s16_course">프론트엔드 React + Vite(4주차) · 백엔드 Node.js + Express(6주차) · 데이터베이스 PostgreSQL + Supabase(7주차) · 배포 Vercel(9주차)</span></p>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="21" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s21_title">주요 프론트엔드 프레임워크 비교</h2>
-            <div class="week2-split week2-split--even">
-              <section class="week2-panel">
-                <h3 data-wd-i18n="s21_features_label">이 강의에서 React를 사용하는 이유</h3>
-                <ul class="week2-list">
-                  <li data-wd-i18n="s21_feature_1">가장 큰 생태계와 풍부한 학습 자료 · 문제 해결 정보 확보가 용이</li>
-                  <li data-wd-i18n="s21_feature_2">컴포넌트 단위 개발 방식이 이후 주차의 프론트엔드 구조와 연결</li>
-                  <li data-wd-i18n="s21_feature_3">채용 시장과 실무 프로젝트에서의 높은 사용 비율</li>
-                  <li data-wd-i18n="s21_feature_4">Vite와 함께 사용할 때 빠른 개발 서버와 빌드 속도 확보</li>
-                  <li data-wd-i18n="s21_feature_5">성숙한 TypeScript 지원 · 3주차 학습 내용과 바로 연결</li>
-                </ul>
-              </section>
-              <div>
-                <table class="week2-table">
-                  <thead>
-                    <tr>
-                      <th data-wd-i18n="s21_head_feature">특징</th>
-                      <th>React</th>
-                      <th>Vue.js</th>
-                      <th>Svelte</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr><th>Virtual DOM</th><td data-wd-i18n="s21_vdom_react">사용</td><td data-wd-i18n="s21_vdom_vue">사용</td><td data-wd-i18n="s21_vdom_svelte">미사용</td></tr>
-                    <tr><th data-wd-i18n="s21_row_bundle">번들 크기</th><td>~45KB</td><td>~34KB</td><td>~10KB</td></tr>
-                    <tr><th data-wd-i18n="s21_row_curve">학습 곡선</th><td data-wd-i18n="s21_curve_react">중간 ~ 높음</td><td data-wd-i18n="s21_curve_vue">낮음 ~ 중간</td><td data-wd-i18n="s21_curve_svelte">낮음</td></tr>
-                    <tr><th data-wd-i18n="s21_row_perf">성능</th><td data-wd-i18n="s21_perf_react">좋음</td><td data-wd-i18n="s21_perf_vue">좋음</td><td data-wd-i18n="s21_perf_svelte">매우 좋음</td></tr>
-                    <tr><th data-wd-i18n="s21_row_eco">생태계</th><td data-wd-i18n="s21_eco_react">매우 큼</td><td data-wd-i18n="s21_eco_vue">큼</td><td data-wd-i18n="s21_eco_svelte">성장 중</td></tr>
-                  </tbody>
-                </table>
-                <p class="week2-example"><strong data-wd-i18n="s21_note_label">참고</strong> <span data-wd-i18n="s21_note">번들 크기는 런타임 기준의 대략적인 값 · 실제 크기는 버전과 빌드 설정에 따라 변동</span></p>
-              </div>
             </div>
           </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="17" role="region">
-            <h2 class="wd-slide-heading">Node.js</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s17_lead">Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임 환경 · 웹 브라우저 밖에서도 JavaScript를 실행할 수 있도록 하는 프로그램</p>
-            <div class="week2-cards week2-cards--four">
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s17_feature_1_label">1. JavaScript 런타임</h3></header>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s17_feature_1_1">브라우저가 없어도 컴퓨터에서 JavaScript 실행 가능</li>
-                  <li data-wd-i18n="s17_feature_1_2">서버 프로그래밍, 데스크톱 앱, 명령줄 도구 개발 가능</li>
-                </ul>
-              </section>
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s17_feature_2_label">2. 비동기 I/O</h3></header>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s17_feature_2_1">동시에 여러 작업 처리 가능</li>
-                  <li data-wd-i18n="s17_feature_2_2">한 작업이 끝날 때까지 기다리지 않고 다른 작업 진행</li>
-                  <li data-wd-i18n="s17_feature_2_3">높은 성능과 효율성</li>
-                </ul>
-              </section>
-              <section class="week2-card">
-                <header><h3 data-wd-i18n="s17_feature_3_label">3. 단일 스레드 이벤트 루프</h3></header>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s17_feature_3_1">하나의 스레드로 많은 연결을 효율적으로 처리</li>
-                  <li data-wd-i18n="s17_feature_3_2">적은 메모리 사용량</li>
-                </ul>
-              </section>
-              <section class="week2-card week2-card--accent">
-                <header><h3 data-wd-i18n="s17_feature_4_label">4. NPM 생태계</h3></header>
-                <ul class="week2-list week2-list--compact">
-                  <li data-wd-i18n="s17_feature_4_1">세계 최대 오픈소스 라이브러리 생태계</li>
-                  <li data-wd-i18n="s17_feature_4_2">100만개 이상의 패키지 사용 가능</li>
-                </ul>
-              </section>
-            </div>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="18" role="region">
-            <h2 class="wd-slide-heading">CLI <small>Command Line Interface</small></h2>
-            <p class="wd-slide-lead" data-wd-i18n="s18_lead">키보드로 명령어를 입력하여 컴퓨터와 상호작용하는 방식 · 짧은 텍스트 명령으로 파일 관리, 개발 도구 실행, 서버 작업 등을 빠르고 정확하게 자동화</p>
-            <div class="week2-split week2-split--even">
-              <section class="week2-panel">
-                <h3 data-wd-i18n="s18_why_label">CLI를 사용하는 이유</h3>
-                <ul class="week2-list">
-                  <li><strong data-wd-i18n="s18_why_1_label">속도 · 자동화</strong> — <span data-wd-i18n="s18_why_1">반복 작업을 스크립트 한 줄로 처리</span></li>
-                  <li><strong data-wd-i18n="s18_why_2_label">재현성</strong> — <span data-wd-i18n="s18_why_2">같은 명령을 실행하면 항상 같은 결과</span></li>
-                  <li><strong data-wd-i18n="s18_why_3_label">원격 작업</strong> — <span data-wd-i18n="s18_why_3">클라우드 · 서버 관리의 표준 도구</span></li>
-                  <li><strong data-wd-i18n="s18_why_4_label">개발 생태계</strong> — <span data-wd-i18n="s18_why_4">Node / npm, Git, React, Express, Codex, Claude, Gemini 등 대부분 CLI로 구동</span></li>
-                </ul>
-              </section>
-              <section class="week2-panel">
-                <h3 data-wd-i18n="s18_terms_label">기본 용어</h3>
-                <ul class="week2-list">
-                  <li><strong data-wd-i18n="s18_term_1_label">터미널(Terminal)</strong> — <span data-wd-i18n="s18_term_1">명령을 입력하는 프로그램 (예: macOS Terminal, Windows PowerShell)</span></li>
-                  <li><strong data-wd-i18n="s18_term_2_label">셸(Shell)</strong> — <span data-wd-i18n="s18_term_2">명령을 해석하고 실행하는 엔진 (bash, zsh, PowerShell 등)</span></li>
-                  <li><strong data-wd-i18n="s18_term_3_label">프롬프트(Prompt)</strong> — <span data-wd-i18n="s18_term_3">입력 대기 표시</span></li>
-                  <li><strong data-wd-i18n="s18_term_4_label">경로(Path)</strong> — <span data-wd-i18n="s18_term_4">현재 위치(작업 디렉토리) · ~는 홈, .은 현재, ..은 상위</span></li>
-                </ul>
-              </section>
-            </div>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="19" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s19_title">NPM과 NPX</h2>
-            <div class="week2-split week2-split--even">
-              <div class="week2-col">
-                <section class="week2-panel">
-                  <h3>NPM <small>Node Package Manager</small></h3>
-                  <p data-wd-i18n="s19_npm_lead">JavaScript 프로그래밍 언어를 위한 패키지 관리자 · 다른 개발자들이 만든 코드 조각(패키지)을 쉽게 내려받고 관리할 수 있도록 지원하는 도구</p>
-                  <ul class="week2-list week2-list--compact">
-                    <li><strong data-wd-i18n="s19_npm_1_label">패키지 설치</strong> — <span data-wd-i18n="s19_npm_1">필요한 라이브러리나 도구를 쉽게 설치</span></li>
-                    <li><strong data-wd-i18n="s19_npm_2_label">의존성 관리</strong> — <span data-wd-i18n="s19_npm_2">프로젝트에 필요한 모든 패키지를 자동으로 관리</span></li>
-                    <li><strong data-wd-i18n="s19_npm_3_label">스크립트 실행</strong> — <span data-wd-i18n="s19_npm_3">프로젝트 실행, 빌드 등의 명령어 관리</span></li>
-                    <li><strong data-wd-i18n="s19_npm_4_label">패키지 공유</strong> — <span data-wd-i18n="s19_npm_4">자신이 만든 코드를 다른 개발자와 공유</span></li>
-                  </ul>
-                </section>
-                <pre class="week2-code week2-code--lg">npm --version
-npm install [패키지명]</pre>
-              </div>
-              <div class="week2-col">
-                <section class="week2-panel">
-                  <h3>NPX <small>Node Package eXecutor</small></h3>
-                  <p data-wd-i18n="s19_npx_lead">패키지를 설치하지 않고 실행할 수 있도록 하는 npm 패키지 실행 도구</p>
-                </section>
-                <pre class="week2-code week2-code--lg"># Vite 프로젝트 생성 (4주차 실습)
-npm create vite@latest my-project
-
-# 설치 없이 일회성 실행
-npx serve .</pre>
-              </div>
-            </div>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="49" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s49_title">오늘의 개념이 이어지는 곳</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s49_lead">2주차에서 직접 작성한 구조 · 표현 · 동작이 이후 주차에서 도구와 프레임워크로 확장</p>
-            <div class="week2-split week2-split--text">
-              <ol class="week2-steps week2-steps--pipeline">
-                <li><strong data-wd-i18n="s49_step_1_label">2주차 · 오늘</strong><span data-wd-i18n="s49_step_1">HTML · CSS · JavaScript · DOM · 렌더링 · 라우팅을 직접 작성</span></li>
-                <li><strong data-wd-i18n="s49_step_2_label">3주차 · JavaScript → TypeScript</strong><span data-wd-i18n="s49_step_2">타입을 적용하여 실행 전에 오류를 확인</span></li>
-                <li><strong data-wd-i18n="s49_step_3_label">4주차 · React + Vite</strong><span data-wd-i18n="s49_step_3">컴포넌트와 빌드 도구로 화면을 구성하고 CSR 방식으로 렌더링</span></li>
-                <li><strong data-wd-i18n="s49_step_4_label">9주차 · Deployment</strong><span data-wd-i18n="s49_step_4">빌드 결과물을 자동으로 배포하고 운영</span></li>
-              </ol>
-              <div class="week2-col">
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s49_setup_label">다음 주차 준비</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li data-wd-i18n="s49_setup_1">Node.js LTS 버전 설치</li>
-                    <li data-wd-i18n="s49_setup_2">터미널에서 설치 버전 확인</li>
-                  </ul>
-                </section>
-                <pre class="week2-code week2-code--lg">node -v
-npm -v</pre>
-                <p class="week2-reference"><a href="https://nodejs.org/">nodejs.org</a></p>
-              </div>
-            </div>
-          </section>
-
-          <section class="wd-slide week2-slide week2-section" data-wd-slide="42" role="region">
-            <p class="week2-section__number">ASSIGNMENT</p>
-            <h2 data-wd-i18n="s42_title">과제: 시맨틱 HTML · CSS · DOM으로 만드는 다중 페이지 사이트</h2>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide week2-dense" data-wd-slide="43" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s43_title">과제 개요</h2>
-            <div class="week2-split week2-split--text">
-              <div class="week2-stack">
-                <p class="wd-slide-lead" data-wd-i18n="s43_overview">1주차 과제를 확장하여 세 개의 페이지로 구성한 개인 사이트를 제작하고 GitHub Pages에 배포</p>
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s43_learning_label">학습 목표</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li data-wd-i18n="s43_learning_1">시맨틱 태그로 문서 구조 작성</li>
-                    <li data-wd-i18n="s43_learning_2">외부 CSS로 공통 스타일 분리와 레이아웃 구성</li>
-                    <li data-wd-i18n="s43_learning_3">DOM 조작으로 사용자 상호작용 구현</li>
-                    <li data-wd-i18n="s43_learning_4">개발자 도구로 문서 구조와 응답 확인</li>
-                  </ul>
-                </section>
-                <section class="week2-panel">
-                  <h3 data-wd-i18n="s43_requirements_label">요구사항</h3>
-                  <ul class="week2-list week2-list--compact">
-                    <li data-wd-i18n="s43_req_1">index.html, about.html, projects.html 세 페이지가 작성되고 서로 링크로 연결됨</li>
-                    <li data-wd-i18n="s43_req_2">header, nav, main, section, article, footer 등 시맨틱 태그로 문서 구조가 작성됨</li>
-                    <li data-wd-i18n="s43_req_3">외부 style.css로 공통 스타일이 분리되고 모든 페이지에 연결됨</li>
-                    <li data-wd-i18n="s43_req_4">script.js에서 DOM을 변경하는 상호작용이 1개 이상 구현됨</li>
-                    <li data-wd-i18n="s43_req_5">GitHub Pages에 배포되어 세 페이지가 모두 정상 표시됨</li>
-                  </ul>
-                </section>
-                <p class="week2-reference"><strong data-wd-i18n="s43_reference">참고</strong>: <a href="https://github.com/ajou-hyunseok-oh/pwd-week2">github.com/ajou-hyunseok-oh/pwd-week2</a></p>
-              </div>
-              <aside class="week2-deadline">
-                <h3 data-wd-i18n="s43_deadline_label">마감일</h3>
-                <p class="week2-due" data-wd-i18n="s43_due">9월 20일 23:59까지</p>
-                <ul class="week2-list week2-list--compact"><li data-wd-i18n="s43_submit_note">LMS에 다음 정보를 제출</li></ul>
-                <ol>
-                  <li><strong data-wd-i18n="s43_submit_1">GitHub 저장소 URL</strong><code>https://github.com/username/pwd-week2</code></li>
-                  <li><strong data-wd-i18n="s43_submit_2">GitHub Pages URL</strong><code>https://username.github.io/pwd-week2</code></li>
-                </ol>
-              </aside>
-            </div>
-          </section>
-
-          <section class="wd-slide wd-slide--content week2-slide" data-wd-slide="50" role="region">
-            <h2 class="wd-slide-heading" data-wd-i18n="s50_title">더 알아보기</h2>
-            <p class="wd-slide-lead" data-wd-i18n="s50_lead">오늘 다룬 개념을 확인하고 확장할 때 사용하는 자료</p>
-            <div class="week2-split week2-split--even">
-              <section class="week2-panel">
-                <h3 data-wd-i18n="s50_docs_label">문서와 표준</h3>
-                <ul class="week2-links">
-                  <li><a href="https://developer.mozilla.org/ko/">MDN Web Docs</a><span data-wd-i18n="s50_docs_1">HTML · CSS · JavaScript · DOM 표준 문서</span></li>
-                  <li><a href="https://html.spec.whatwg.org/">HTML Living Standard</a><span data-wd-i18n="s50_docs_2">HTML 표준 원문</span></li>
-                  <li><a href="https://www.w3schools.com/">W3Schools</a><span data-wd-i18n="s50_docs_3">예제 중심의 기초 학습 자료</span></li>
-                </ul>
-              </section>
-              <section class="week2-panel">
-                <h3 data-wd-i18n="s50_tools_label">성능과 호환성</h3>
-                <ul class="week2-links">
-                  <li><a href="https://web.dev/articles/vitals">web.dev · Core Web Vitals</a><span data-wd-i18n="s50_tools_1">FCP · LCP · CLS 측정과 개선 방법</span></li>
-                  <li><a href="https://pagespeed.web.dev/">PageSpeed Insights</a><span data-wd-i18n="s50_tools_2">배포한 페이지의 성능 점수 확인</span></li>
-                  <li><a href="https://caniuse.com/">Can I use</a><span data-wd-i18n="s50_tools_3">브라우저별 기능 지원 범위 확인</span></li>
-                </ul>
-              </section>
-            </div>
-          </section>
-
-          <section class="wd-slide week2-slide week2-section" data-wd-slide="44" role="region">
-            <h2>Q&amp;A</h2>
-            <p class="week2-discord-invite"><span class="week2-discord-icon" aria-hidden="true">💬</span><span data-wd-i18n="s44_discord_label">Discord 채널 초대</span><a href="https://discord.gg/VkPe92g7f">discord.gg/VkPe92g7f</a></p>
+          <section class="wd-slide week2-section week2-slide" data-wd-slide="original-framework-44" role="region">
+            <p class="week2-section__number">Q&A</p>
+            <h2 data-wd-i18n="v2_original-framework-44_title">질의응답</h2>
+            <p class="week2-section__lead" data-wd-i18n="v2_original-framework-44_lead">
+              웹 페이지 · 렌더링 · SvelteKit · 배포
+            </p>
           </section>
         </div>
       </div>
     </main>
     <script src="./lecture-content.js"></script>
+    <script src="./lecture-demo.js"></script>
     <script src="../shared/lecture-deck.js"></script>
+    <script src="../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
     <script src="../../packages/web-deck/web-deck.js"></script>
   </body>
 </html>

@@ -1,0 +1,331 @@
+[
+  {
+    "number": 8,
+    "id": "browser-rendering",
+    "previous": 8,
+    "title": "웹 브라우저의 렌더링 원리",
+    "appendix": false
+  },
+  {
+    "number": 9,
+    "id": "source-to-screen",
+    "previous": 9,
+    "title": "웹 브라우저 렌더링 과정",
+    "appendix": false
+  },
+  {
+    "number": 10,
+    "id": "dom-nodes",
+    "previous": 10,
+    "title": "DOM (Document Object Model)",
+    "appendix": false
+  },
+  {
+    "number": 11,
+    "id": "css-rule-objects",
+    "previous": 11,
+    "title": "CSSOM (CSS Object Model)",
+    "appendix": false
+  },
+  {
+    "number": 12,
+    "id": "rendering-box-tree",
+    "previous": 12,
+    "title": "렌더 트리 (Render Tree)",
+    "appendix": false
+  },
+  {
+    "number": 13,
+    "id": "layout-geometry",
+    "previous": 13,
+    "title": "레이아웃: 위치와 크기 계산",
+    "appendix": false
+  },
+  {
+    "number": 14,
+    "id": "paint-composite",
+    "previous": 13,
+    "title": "페인트",
+    "appendix": false
+  },
+  {
+    "number": 15,
+    "id": "original-rendering-methods",
+    "previous": 10,
+    "title": "웹 브라우저 렌더링 방식",
+    "appendix": false
+  },
+  {
+    "number": 16,
+    "id": "original-rendering-performance",
+    "previous": 11,
+    "title": "웹 브라우저 렌더링 성능",
+    "appendix": false
+  },
+  {
+    "number": 17,
+    "id": "routing-semantic-html",
+    "previous": null,
+    "title": "시맨틱 HTML과 라우팅",
+    "appendix": false
+  },
+  {
+    "number": 18,
+    "id": "original-semantic-html",
+    "previous": 8,
+    "title": "시맨틱 HTML",
+    "appendix": false
+  },
+  {
+    "number": 19,
+    "id": "original-routing-url",
+    "previous": 12,
+    "title": "라우팅과 URL 구조",
+    "appendix": false
+  },
+  {
+    "number": 20,
+    "id": "original-routing-types",
+    "previous": 13,
+    "title": "서버 라우팅과 클라이언트 라우팅",
+    "appendix": false
+  },
+  {
+    "number": 21,
+    "id": "browser-devtools",
+    "previous": null,
+    "title": "웹 브라우저 개발자 도구",
+    "appendix": false
+  },
+  {
+    "number": 22,
+    "id": "devtools-elements",
+    "previous": 14,
+    "title": "문서 요소와 메타데이터",
+    "appendix": false
+  },
+  {
+    "number": 23,
+    "id": "devtools-viewport",
+    "previous": 14,
+    "title": "반응형 레이아웃과 뷰포트",
+    "appendix": false
+  },
+  {
+    "number": 24,
+    "id": "devtools-network",
+    "previous": 14,
+    "title": "원본 HTML과 응답 헤더",
+    "appendix": false
+  },
+  {
+    "number": 25,
+    "id": "original-framework-15",
+    "previous": 15,
+    "title": "웹 프레임워크를 활용한 개발",
+    "appendix": false
+  },
+  {
+    "number": 26,
+    "id": "original-framework-16",
+    "previous": 16,
+    "title": "웹 개발 프레임워크",
+    "appendix": false
+  },
+  {
+    "number": 27,
+    "id": "original-framework-17",
+    "previous": 17,
+    "title": "Node.js 실행 환경",
+    "appendix": false
+  },
+  {
+    "number": 28,
+    "id": "original-framework-18",
+    "previous": 18,
+    "title": "CLI · 명령줄 인터페이스",
+    "appendix": false
+  },
+  {
+    "number": 29,
+    "id": "original-framework-19",
+    "previous": 19,
+    "title": "npm과 npx",
+    "appendix": false
+  },
+  {
+    "number": 30,
+    "id": "original-framework-20",
+    "previous": 20,
+    "title": "Svelte와 SvelteKit",
+    "appendix": false
+  },
+  {
+    "number": 31,
+    "id": "original-framework-21",
+    "previous": 21,
+    "title": "프론트엔드 UI 개발 방식 비교",
+    "appendix": false
+  },
+  {
+    "number": 32,
+    "id": "original-framework-22",
+    "previous": 22,
+    "title": "Svelte 파일 구조와 개발 언어",
+    "appendix": false
+  },
+  {
+    "number": 33,
+    "id": "original-framework-23",
+    "previous": 23,
+    "title": "SvelteKit 프로젝트 구조",
+    "appendix": false
+  },
+  {
+    "number": 34,
+    "id": "original-framework-24",
+    "previous": 24,
+    "title": "파일 기반 라우팅",
+    "appendix": false
+  },
+  {
+    "number": 35,
+    "id": "original-framework-25",
+    "previous": 25,
+    "title": "중첩 라우팅과 공유 레이아웃",
+    "appendix": false
+  },
+  {
+    "number": 36,
+    "id": "original-framework-26",
+    "previous": 26,
+    "title": "상태·파생값·반응형 효과",
+    "appendix": false
+  },
+  {
+    "number": 37,
+    "id": "original-framework-27",
+    "previous": 27,
+    "title": "조건문",
+    "appendix": false
+  },
+  {
+    "number": 38,
+    "id": "original-framework-28",
+    "previous": 28,
+    "title": "반복문과 목록 렌더링",
+    "appendix": false
+  },
+  {
+    "number": 39,
+    "id": "original-framework-29",
+    "previous": 29,
+    "title": "이벤트와 처리 함수",
+    "appendix": false
+  },
+  {
+    "number": 40,
+    "id": "original-framework-30",
+    "previous": 30,
+    "title": "라이프사이클과 반응형 효과",
+    "appendix": false
+  },
+  {
+    "number": 41,
+    "id": "original-framework-31",
+    "previous": 31,
+    "title": "훅과 페이지 탐색 제어",
+    "appendix": false
+  },
+  {
+    "number": 42,
+    "id": "original-framework-32",
+    "previous": 32,
+    "title": "Props · 부모에서 자식으로 전달하는 값",
+    "appendix": false
+  },
+  {
+    "number": 43,
+    "id": "original-framework-33",
+    "previous": 33,
+    "title": "양방향 바인딩",
+    "appendix": false
+  },
+  {
+    "number": 44,
+    "id": "original-framework-34",
+    "previous": 34,
+    "title": "컴포넌트와 UI 재사용",
+    "appendix": false
+  },
+  {
+    "number": 45,
+    "id": "original-framework-35",
+    "previous": 35,
+    "title": "API 라우트와 요청 처리",
+    "appendix": false
+  },
+  {
+    "number": 46,
+    "id": "original-framework-36",
+    "previous": 36,
+    "title": "API 응답과 페이지 데이터",
+    "appendix": false
+  },
+  {
+    "number": 47,
+    "id": "original-framework-37",
+    "previous": 37,
+    "title": "Svelte Playground",
+    "appendix": false
+  },
+  {
+    "number": 48,
+    "id": "original-framework-38",
+    "previous": 38,
+    "title": "웹 서비스 배포 자동화",
+    "appendix": false
+  },
+  {
+    "number": 49,
+    "id": "original-framework-39",
+    "previous": 39,
+    "title": "CI/CD와 DevOps",
+    "appendix": false
+  },
+  {
+    "number": 50,
+    "id": "original-framework-40",
+    "previous": 40,
+    "title": "Vercel",
+    "appendix": false
+  },
+  {
+    "number": 51,
+    "id": "original-framework-41",
+    "previous": 41,
+    "title": "Vercel 프로젝트 연결과 배포",
+    "appendix": false
+  },
+  {
+    "number": 52,
+    "id": "original-framework-42",
+    "previous": 42,
+    "title": "실습: SvelteKit을 이용한 웹사이트 제작과 Vercel 배포",
+    "appendix": false
+  },
+  {
+    "number": 53,
+    "id": "original-framework-43",
+    "previous": 43,
+    "title": "실습 개요",
+    "appendix": false
+  },
+  {
+    "number": 54,
+    "id": "original-framework-44",
+    "previous": 44,
+    "title": "질의응답",
+    "appendix": false
+  }
+]

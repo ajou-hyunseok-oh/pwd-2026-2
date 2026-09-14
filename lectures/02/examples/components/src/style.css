@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  color: #333;
+  font:
+    16px/1.6 Arial,
+    sans-serif;
+}
+main {
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 24px;
+}
+h1 {
+  font-size: 28px;
+}
+.card {
+  padding: 24px;
+  margin: 16px 0;
+  border-left: 4px solid #1f6b4a;
+  border-radius: 8px;
+  background: #f0f3ef;
+}
+.card h2 {
+  margin: 0;
+  font-size: 22px;
+}

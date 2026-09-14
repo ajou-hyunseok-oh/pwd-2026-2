@@ -1,0 +1,127 @@
+{
+  "reviewedAt": "2026-09-11T11:30:36.568Z",
+  "browser": "152.0.7977.84",
+  "base": "http://127.0.0.1:4192",
+  "assertions": [
+    "Home: input -> state -> derived heading and preview; random-message alert",
+    "Projects: 3 API cards and detail links; Memo: explicit save, refresh restoration, no auto-save, isolated browser storage",
+    "All page URLs: initial HTML renders without JavaScript; unknown slug returns 404"
+  ],
+  "requests": {
+    "aboutToProjects": [
+      {
+        "type": "fetch",
+        "path": "/api/projects"
+      }
+    ],
+    "projectsToTimetable": [
+      {
+        "type": "fetch",
+        "path": "/projects/timetable/__data.json"
+      }
+    ],
+    "timetableToMemoViaProjects": [
+      {
+        "type": "fetch",
+        "path": "/api/projects"
+      },
+      {
+        "type": "fetch",
+        "path": "/projects/memo/__data.json"
+      }
+    ]
+  },
+  "pages": {
+    "/": {
+      "status": 200,
+      "title": "AJOU Mini Portfolio",
+      "text": "Welcome!\nYour name: \n\n미리보기: (입력 대기)\n\nRandom Message",
+      "h1Count": 1,
+      "articleCount": 0
+    },
+    "/about": {
+      "status": 200,
+      "title": "AJOU Mini Portfolio",
+      "text": "About this site\n\n이 사이트는 SvelteKit 기본기와 배포를 연습하기 위한 미니 포트폴리오입니다.\n\nSemantic HTML\nRouting(정적/동적)\nState / Derived / Effects\nAPI Route",
+      "h1Count": 0,
+      "articleCount": 0
+    },
+    "/projects": {
+      "status": 200,
+      "title": "AJOU Mini Portfolio",
+      "text": "Projects\nTimetable Helper\n\n수업/일정 정리 도우미\n\nImage Gallery\n\n미니 이미지 갤러리\n\nMemo Pad\n\n로컬에 메모 저장",
+      "h1Count": 0,
+      "articleCount": 3
+    },
+    "/projects/timetable": {
+      "status": 200,
+      "title": "AJOU Mini Portfolio",
+      "text": "Timetable Helper\n\n나만의 시간표를 정리하는 도구입니다.",
+      "h1Count": 0,
+      "articleCount": 0
+    },
+    "/projects/gallery": {
+      "status": 200,
+      "title": "AJOU Mini Portfolio",
+      "text": "Image Gallery\n\n미니 갤러리 예시입니다.",
+      "h1Count": 0,
+      "articleCount": 0
+    },
+    "/projects/memo": {
+      "status": 200,
+      "title": "AJOU Mini Portfolio",
+      "text": "Memo Pad\n\n브라우저 로컬에 메모를 저장/복원합니다.\n\n 메모 저장\n\n브라우저 로컬에만 저장됩니다.",
+      "h1Count": 0,
+      "articleCount": 0
+    }
+  },
+  "randomMessage": "SvelteKit 금방 익힘",
+  "about": "About this site\n\n이 사이트는 SvelteKit 기본기와 배포를 연습하기 위한 미니 포트폴리오입니다.\n\nSemantic HTML\nRouting(정적/동적)\nState / Derived / Effects\nAPI Route",
+  "aboutAX": [
+    {
+      "role": "navigation",
+      "name": ""
+    },
+    {
+      "role": "main",
+      "name": ""
+    },
+    {
+      "role": "heading",
+      "name": "About this site"
+    },
+    {
+      "role": "list",
+      "name": ""
+    }
+  ],
+  "cards": [
+    {
+      "title": "Timetable Helper",
+      "summary": "수업/일정 정리 도우미",
+      "href": "/projects/timetable"
+    },
+    {
+      "title": "Image Gallery",
+      "summary": "미니 이미지 갤러리",
+      "href": "/projects/gallery"
+    },
+    {
+      "title": "Memo Pad",
+      "summary": "로컬에 메모 저장",
+      "href": "/projects/memo"
+    }
+  ],
+  "timetableText": "Timetable Helper\n\n나만의 시간표를 정리하는 도구입니다.",
+  "memoSaveMessage": "저장 완료!",
+  "memoStored": "Week 2 review memo",
+  "memoRestored": "Week 2 review memo",
+  "memoUnsavedReload": "Week 2 review memo",
+  "memoSeparateContext": "",
+  "apiContentType": "application/json",
+  "unknownRoute": {
+    "status": 404,
+    "text": "404\n\nNot found"
+  },
+  "clientErrors": []
+}

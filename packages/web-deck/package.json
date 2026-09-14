@@ -15,10 +15,14 @@
     "web-deck.css",
     "fonts",
     "template",
-    "README.md"
+    "README.md",
+    "vendor"
   ],
   "scripts": {
-    "test": "node tests/validate.cjs"
+    "test": "node tests/validate.cjs && node scripts/code-examples.cjs --check",
+    "format:code": "node scripts/code-examples.cjs --write",
+    "check:code": "node scripts/code-examples.cjs --check",
+    "vendor:code": "node scripts/vendor-code.cjs"
   },
   "keywords": [
     "slides",
@@ -26,5 +30,10 @@
     "i18n",
     "print"
   ],
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "htmlhint": "1.9.2",
+    "prettier": "3.9.6",
+    "prismjs": "1.30.0"
+  }
 }

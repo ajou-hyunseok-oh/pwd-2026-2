@@ -44,6 +44,7 @@ window.WEB_DECK_CONFIG = {
   }
 };
 </script>
+<script src="/packages/web-deck/vendor/prism/prism.js" data-manual></script>
 <script src="/packages/web-deck/web-deck.js"></script>
 ```
 
@@ -56,7 +57,20 @@ window.WEB_DECK_CONFIG = {
 - `data-wd-i18n-aria-label="key"`: 접근성 라벨
 - `data-wd-i18n-title="key"`: title 속성
 
-번역 문자열은 `textContent`로 적용하므로 HTML을 삽입하지 않습니다.
+번역 문자열은 `textContent`로 적용하므로 HTML을 삽입하지 않습니다. `pre[data-wd-code]`는 번역 후 로컬 Prism으로 구문 강조를 다시 적용하며, 복사되는 코드 원문은 유지합니다.
+
+## 코드 예시
+
+공용 `wd-code`와 언어 지정 속성을 사용합니다. 상세한 [코드 예시 가독성 규칙](../../lectures/README.md#코드-예시-가독성-규칙)은 전체 강의에 적용합니다.
+
+구문 강조기를 공용 런타임보다 먼저 불러옵니다. 기본 템플릿과 모든 강의에는 이미 포함되어 있습니다.
+
+```html
+<script src="/packages/web-deck/vendor/prism/prism.js" data-manual></script>
+<script src="/packages/web-deck/web-deck.js"></script>
+```
+
+`npm run format:code`로 코드 예시를 정리하고 `npm test`로 서식·문법·번역을 검증합니다. 개발 도구는 `npm ci`로 설치하며, 슬라이드 실행에는 설치나 빌드가 필요하지 않습니다.
 
 ## 조작
 

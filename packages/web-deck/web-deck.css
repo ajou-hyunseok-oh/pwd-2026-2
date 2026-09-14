@@ -102,7 +102,19 @@ html.wd-page.wd-single-slide { --wd-chrome: 44px; }
 .wd-content li + li { margin-top: .42em; }
 .wd-content li::marker { color: var(--wd-muted); font-weight: 700; }
 .wd-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
-.wd-code { margin: 1rem 0 0; padding: 1rem 1.1rem; border: 1px solid var(--wd-line); background: #f6f8f6; font: 500 .82rem/1.55 var(--wd-font-mono); tab-size: 2; white-space: pre-wrap; }
+.wd-code { min-width: 0; max-width: 100%; margin: 1rem 0 0; padding: .65rem .8rem; border: 1px solid var(--wd-line); border-radius: .2rem; background: #f6f8f6; color: #26332c; font: 500 .7rem/1.45 var(--wd-font-mono); font-variant-ligatures: none; tab-size: 2; white-space: pre; overflow-wrap: normal; word-break: normal; overflow-x: auto; }
+.wd-code > code { display: block; font: inherit; color: inherit; white-space: inherit; }
+.wd-code--bad { border-color: #c9a79c; background: #faf3f1; }
+.wd-code--good { border-color: #81958a; background: #eef3ef; }
+.wd-code :is(.comment, .prolog, .doctype, .cdata) { color: #58676d; }
+.wd-code :is(.tag, .deleted) { color: #8f2c24; }
+.wd-code :is(.attr-name, .property, .boolean, .number, .constant) { color: #805000; }
+.wd-code :is(.string, .attr-value, .selector, .inserted) { color: #216548; }
+.wd-code :is(.keyword, .atrule) { color: #644399; }
+.wd-code :is(.function, .class-name, .builtin) { color: #175985; }
+.wd-code :is(.operator, .punctuation) { color: #43525a; }
+.wd-code .important { font-weight: 700; }
+.wd-code:focus-visible { outline: 2px solid var(--wd-accent); outline-offset: 2px; }
 .wd-table { width: 100%; margin-top: 1rem; border-collapse: collapse; font-size: .88rem; line-height: 1.45; }
 .wd-table th, .wd-table td { padding: .65rem .75rem; border-bottom: 1px solid var(--wd-line); text-align: left; vertical-align: top; }
 .wd-table th { background: #f6f8f6; font-weight: 700; }
@@ -158,6 +170,7 @@ html.wd-page.wd-is-fullscreen { --wd-chrome: 0px; --wd-gutter: 0px; --wd-scale-m
   .wd-slide-footer { flex-wrap: wrap; }
   .wd-columns { grid-template-columns: 1fr; gap: 1.2rem; }
   .wd-slide-heading { font-size: 1.85rem; }
+  .wd-code { font-size: 14px; }
   .wd-deck.is-fullscreen .wd-rail, .wd-deck.is-fullscreen .wd-bar { position: static; background: #f8faf8; }
   .wd-deck.is-fullscreen.is-idle .wd-rail, .wd-deck.is-fullscreen.is-idle .wd-bar { opacity: 1; pointer-events: auto; }
   .wd-deck.is-fullscreen.is-idle { cursor: auto; }

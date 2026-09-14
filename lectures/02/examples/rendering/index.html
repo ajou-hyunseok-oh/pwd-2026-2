@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>렌더링 실험</title>
+    <meta
+      name="description"
+      content="HTML · CSS · JavaScript로 만든 개인 사이트"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./rendering.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>렌더링 실험</h1>
+      <section class="profile">
+        <h1>자기소개</h1>
+        <p id="intro" aria-live="polite">나의 첫 웹사이트 제작 중</p>
+        <button id="change" type="button">소개 바꾸기</button>
+      </section>
+      <div class="tools">
+        <button id="width" type="button">너비 변경</button>
+        <button id="color" type="button">배경색 변경</button>
+        <button id="hide" type="button">문단 숨김</button>
+        <button id="reset" type="button">초기화</button>
+      </div>
+      <p class="note">
+        width: 360px → 220px · background-color: #f0f3ef → #dceaf5
+      </p>
+    </main>
+  </body>
+</html>

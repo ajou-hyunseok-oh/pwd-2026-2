@@ -61,11 +61,15 @@ for (let week = 1; week <= 13; week += 1) {
         politeKoreanEnding,
         `Lecture ${number} ko.${key} uses a polite sentence ending; use the deck's concise declarative or noun-ending style`
       );
-      assert.doesNotMatch(
-        value,
-        questionKoreanEnding,
-        `Lecture ${number} ko.${key} uses a question or conditional sentence ending; slide text must be a concise noun phrase`
-      );
+      // The instructor explicitly requested the original Week 2 assignment questions.
+      const preservedAssignmentQuestion = number === '02' && /^w2_43_requirements_items[0-2]$/.test(key);
+      if (!preservedAssignmentQuestion) {
+        assert.doesNotMatch(
+          value,
+          questionKoreanEnding,
+          `Lecture ${number} ko.${key} uses a question or conditional sentence ending; slide text must be a concise noun phrase`
+        );
+      }
     }
   }
   vm.runInNewContext(lectureBootstrap, sandbox);
@@ -81,7 +85,7 @@ for (let week = 1; week <= 13; week += 1) {
 
   assert.match(html, /data-web-deck/, `Lecture ${number} is missing the deck root`);
   assert.match(html, /data-wd-slide="cover"/, `Lecture ${number} is missing its cover slide`);
-  const expectedSlideCount = { 1: 28, 2: 28 }[week] || 1;
+  const expectedSlideCount = { 1: 28, 2: 54 }[week] || 1;
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);

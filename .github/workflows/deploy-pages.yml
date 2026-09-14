@@ -27,8 +27,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-      - name: Validate lecture decks
-        run: node packages/web-deck/tests/validate.cjs
+      - name: Install validation tools
+        run: npm ci --prefix packages/web-deck
+      - name: Validate lecture decks and code examples
+        run: npm test --prefix packages/web-deck
       - name: Build released lectures
         run: node scripts/build-pages.mjs
       - name: Configure Pages

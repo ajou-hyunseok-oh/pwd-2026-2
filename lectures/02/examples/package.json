@@ -1,0 +1,14 @@
+{
+  "name": "pwd-week2-examples",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "node generation/build.mjs",
+    "demo": "node portfolio/demo.js",
+    "static": "serve . --listen 4174"
+  },
+  "devDependencies": {
+    "serve": "14.2.6"
+  }
+}

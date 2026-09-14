@@ -1,0 +1,24 @@
+{
+  "archive": "pwd-week2.zip",
+  "sha256": "39a32a1b9c54250e17b681a8846517d59cca80982e92114e93d1c75e08a487e4",
+  "sourceCommit": "5f4456240702bc6b599b83e91f9ecd816f90a1fb",
+  "trackedFilesMatched": 30,
+  "englishReadmeMatched": true,
+  "zipIntegrity": "passed",
+  "isolatedWorkspace": "week2-package-check-dhkh6sh1/pwd-week2",
+  "dependencies": "existing practice node_modules through a junction; no fresh npm ci",
+  "commands": [
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "adapter": "adapter-auto; local environment not detected as production"
+    }
+  ],
+  "remoteDeploymentTested": false
+}
