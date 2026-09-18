@@ -9,7 +9,7 @@ const options = require('../code-format.json');
 const packageRoot = path.resolve(__dirname, '..');
 const lectureRoot = path.resolve(packageRoot, '..', '..', 'lectures');
 const write = process.argv.includes('--write');
-const parsers = { html: 'html', css: 'css', javascript: 'babel', jsx: 'babel', json: 'json' };
+const parsers = { html: 'html', css: 'css', javascript: 'babel', jsx: 'babel', typescript: 'typescript', tsx: 'typescript', json: 'json' };
 const supported = [...Object.keys(parsers), 'bash', 'text'];
 const errors = [];
 let blocks = 0;
@@ -101,8 +101,18 @@ async function processDeck(htmlPath) {
   for (const { start, end, value } of replacements.reverse()) html = html.slice(0, start) + value + html.slice(end);
   if (html !== fs.readFileSync(htmlPath, 'utf8')) fs.writeFileSync(htmlPath, html);
   let content = contentSource;
+  // Generated decks may use JSON-serialized keys and values.
+  let jsonMessages;
+  const assignment = /^window\.LECTURE_CONTENT\s*=\s*([\s\S]*?);?\s*$/.exec(contentSource);
+  if (assignment) {
+    try { jsonMessages = JSON.parse(assignment[1]); } catch { /* Hand-authored JavaScript below. */ }
+  }
   for (const [key, localized] of translated) {
     assert.match(key, /^\w+$/);
+    if (jsonMessages) {
+      for (const locale of ['ko', 'en']) jsonMessages[locale][key] = localized[locale];
+      continue;
+    }
     let count = 0;
     const pattern = new RegExp("(^[ \\t]*" + key + ":\\s*)'(?:\\\\.|[^'\\\\])*'", 'gm');
     content = content.replace(pattern, (_, prefix) => {
@@ -112,6 +122,7 @@ async function processDeck(htmlPath) {
     });
     assert.equal(count, 2, 'Expected KO/EN strings for ' + key);
   }
+  if (jsonMessages && translated.size) content = 'window.LECTURE_CONTENT = ' + JSON.stringify(jsonMessages, null, 2) + ';\n';
   if (content !== contentSource) fs.writeFileSync(contentPath, content);
 }
 

@@ -1,16 +1,739 @@
 <!doctype html>
 <html class="wd-page" lang="ko">
   <head>
-    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title data-wd-i18n="page_title">03 | JavaScript → TypeScript</title><link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title data-wd-i18n="page_title">03 | JavaScript → TypeScript</title>
+    <link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
+    <link rel="stylesheet" href="./lecture.css">
+    <link rel="stylesheet" href="./code-theme.css">
   </head>
   <body class="wd-page-body" data-lecture="03">
-    <main class="wd-deck" data-web-deck><div class="wd-viewport" data-wd-viewport><div class="wd-stage" data-wd-stage>
-      <section class="wd-slide wd-slide--cover is-active" data-wd-slide="cover" role="region">
-        <div class="wd-cover-grid"><div><p class="wd-cover-kicker">LECTURE 03</p><h1 class="wd-cover-title" data-wd-i18n="lecture_title">JavaScript → TypeScript</h1><p class="wd-cover-course" data-wd-i18n="course">실전 웹서비스 개발 · 2026년 2학기</p></div><aside class="wd-placeholder"><strong class="wd-placeholder__label" data-wd-i18n="status">강의 자료 준비 중</strong><p data-wd-i18n="status_detail">자료 수집이 완료되면 이 골격에 슬라이드를 추가합니다.</p></aside></div>
-        <footer class="wd-slide-footer"><span data-wd-i18n="lecture_date">2026. 09. 21. 월요일</span><span>16:30–19:30</span><span>03 / 13</span></footer>
-      </section>
-    </div></div></main>
+    <main class="wd-deck" data-web-deck>
+      <div class="wd-viewport" data-wd-viewport>
+        <div class="wd-stage" data-wd-stage>
+          <section class="wd-slide week3-slide week3-cover is-active" data-wd-slide="cover" role="region">
+            <div>
+              <p class="week3-eyebrow" data-wd-i18n="cover_eyebrow">2026학년도 2학기 실전웹서비스개발</p>
+              <h1 data-wd-i18n="cover_title">실전 웹서비스개발 – 3주차</h1>
+              <p class="week3-cover__subtitle" data-wd-i18n="cover_subtitle">JavaScript와 TypeScript · 문법과 코드 구조</p>
+            </div>
+            <p class="week3-source">LECTURE 03</p>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-01" role="region">
+            <p class="week3-section__number">01</p>
+            <h2 data-wd-i18n="chapter_01_title">웹 프로그래밍 언어의 역사</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_01_subtitle">웹의 변화 · JavaScript의 등장과 표준화</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-01" data-chapter="01" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_01_title">웹 문서와 프로그램의 역할</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_01_subtitle">문서 전달 → 서버의 데이터 처리 · 브라우저의 상호작용</p>
+            <div class="week3-body week3-body--single"><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_01_panel_0_label">문서 · 서버 · 브라우저</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_01_panel_0_head_0">구성</th><th scope="col" data-wd-i18n="topic_01_panel_0_head_1">역할</th><th scope="col" data-wd-i18n="topic_01_panel_0_head_2">주문 서비스</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_01_panel_0_cell_0_0">HTML</td><td  data-wd-i18n="topic_01_panel_0_cell_0_1">문서 구조</td><td  data-wd-i18n="topic_01_panel_0_cell_0_2">상품명 · 가격 표시</td></tr><tr><td  data-wd-i18n="topic_01_panel_0_cell_1_0">서버 프로그램</td><td  data-wd-i18n="topic_01_panel_0_cell_1_1">데이터 처리</td><td  data-wd-i18n="topic_01_panel_0_cell_1_2">상품 조회 · 주문 저장</td></tr><tr><td  data-wd-i18n="topic_01_panel_0_cell_2_0">브라우저 프로그램</td><td  data-wd-i18n="topic_01_panel_0_cell_2_1">사용자 상호작용</td><td  data-wd-i18n="topic_01_panel_0_cell_2_2">수량 입력 · 결과 갱신</td></tr></tbody></table></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types" target="_blank" rel="noopener noreferrer">MDN · Grammar and Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-02" data-chapter="01" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_02_title">JavaScript의 탄생</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_02_subtitle">1995년 Netscape의 브라우저 스크립트 언어</p>
+            <div class="week3-body week3-body--single"><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_02_panel_0_label">1995 · Netscape</h3><ol class="week3-flow"><li  data-wd-i18n="topic_02_panel_0_item_0">Brendan Eich의 브라우저 언어 설계</li><li  data-wd-i18n="topic_02_panel_0_item_1">Mocha → LiveScript → JavaScript</li><li  data-wd-i18n="topic_02_panel_0_item_2">웹페이지의 입력 처리와 상호작용</li></ol></div></div><footer class="week3-references"><a href="https://www.cs.tufts.edu/comp/150FP/archive/brendan-eich/js-hopl.pdf" target="_blank" rel="noopener noreferrer">JavaScript: The First 20 Years</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-03" data-chapter="01" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_03_title">ECMAScript 표준화</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_03_subtitle">공통 언어 규칙과 ES2015 이후의 문법</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_03_panel_0_label">표준화의 주요 시점</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_03_panel_0_head_0">시점</th><th scope="col" data-wd-i18n="topic_03_panel_0_head_1">의미</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_03_panel_0_cell_0_0">1997</td><td  data-wd-i18n="topic_03_panel_0_cell_0_1">ECMA-262 초판 · 공통 언어 규칙</td></tr><tr><td  data-wd-i18n="topic_03_panel_0_cell_1_0">2015</td><td  data-wd-i18n="topic_03_panel_0_cell_1_1">ES2015 · let, const, 화살표 함수, 모듈</td></tr><tr><td  data-wd-i18n="topic_03_panel_0_cell_2_0">TC39</td><td  data-wd-i18n="topic_03_panel_0_cell_2_1">언어 사양의 제안과 검토</td></tr></tbody></table></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_03_panel_1_label">현대 JavaScript · ES2015 문법</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_03_panel_1_code">const price = 3000;
+let quantity = 2;
+const lineTotal = (price, quantity) =&gt; price * quantity;
+console.log(lineTotal(price, quantity));</pre><p class="week3-output-label" data-wd-i18n="topic_03_panel_1_output_label">실행 결과</p><samp class="week3-output">6000</samp></div></div><footer class="week3-references"><a href="https://ecma-international.org/publications-and-standards/standards/ecma-262/" target="_blank" rel="noopener noreferrer">Ecma · ECMA-262</a></footer>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-02" role="region">
+            <p class="week3-section__number">02</p>
+            <h2 data-wd-i18n="chapter_02_title">JavaScript의 기본 문법과 특징</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_02_subtitle">값과 연산 · 함수와 객체 · 이벤트와 비동기</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-04" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_04_title">값 · 타입 · 변수</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_04_subtitle">값의 타입과 let · const의 재할당 규칙</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_04_panel_0_label">값과 변수 · JavaScript</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_04_panel_0_code">const price = 3000;
+let quantity = 2;
+quantity = 3;
+const name = &#x27;Notebook&#x27;;
+const available = true;
+let selected;
+console.log(typeof price, typeof name);
+console.log(selected, null);</pre><p class="week3-output-label" data-wd-i18n="topic_04_panel_0_output_label">실행 결과</p><samp class="week3-output">number string
+undefined null</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_04_panel_1_label">선언과 값</h3><ul class="week3-points"><li  data-wd-i18n="topic_04_panel_1_item_0">let · 재할당 가능 / const · 재할당 불가</li><li  data-wd-i18n="topic_04_panel_1_item_1">number · string · boolean</li><li  data-wd-i18n="topic_04_panel_1_item_2">undefined · 미지정 값 / null · 명시적 빈 값</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types" target="_blank" rel="noopener noreferrer">MDN · Grammar and Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-05" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_05_title">연산자와 형 변환</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_05_subtitle">명시적 · 암묵적 변환에 따른 연산 결과</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_05_panel_0_label">같은 입력, 다른 연산</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_05_panel_0_code">const raw = &#x27;2&#x27;;
+console.log(raw + 1);
+console.log(raw - 1);
+console.log(Number(raw) + 1);
+console.log(Number(&#x27;&#x27;));
+console.log(Number(&#x27;two&#x27;));</pre><p class="week3-output-label" data-wd-i18n="topic_05_panel_0_output_label">실행 결과</p><samp class="week3-output">21
+1
+3
+0
+NaN</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_05_panel_1_label">연산 결과 읽기</h3><ul class="week3-points"><li  data-wd-i18n="topic_05_panel_1_item_0">문자열 + 숫자 → 문자열 연결</li><li  data-wd-i18n="topic_05_panel_1_item_1">뺄셈 → 암묵적 숫자 변환</li><li  data-wd-i18n="topic_05_panel_1_item_2">Number() → 명시적 숫자 변환</li><li  data-wd-i18n="topic_05_panel_1_item_3">변환 불가 → NaN</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types" target="_blank" rel="noopener noreferrer">MDN · Grammar and Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-06" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_06_title">조건문과 입력 검증</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_06_subtitle">비교 · 논리 연산으로 수량과 재고 조건 검사</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_06_panel_0_label">수량과 재고 검사</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_06_panel_0_code">const quantity = Number(&#x27;3&#x27;);
+const stock = 5;
+const valid =
+  Number.isInteger(quantity) &amp;&amp;
+  quantity &gt; 0 &amp;&amp;
+  quantity &lt;= stock;
+if (valid) {
+  console.log(&#x27;ready&#x27;);
+} else {
+  console.log(&#x27;invalid&#x27;);
+}</pre><p class="week3-output-label" data-wd-i18n="topic_06_panel_0_output_label">실행 결과</p><samp class="week3-output">ready</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_06_panel_1_label">조건의 의미</h3><ul class="week3-points"><li  data-wd-i18n="topic_06_panel_1_item_0">Number.isInteger · 정수 검사</li><li  data-wd-i18n="topic_06_panel_1_item_1">quantity &gt; 0 · 양수 검사</li><li  data-wd-i18n="topic_06_panel_1_item_2">quantity &lt;= stock · 재고 검사</li><li  data-wd-i18n="topic_06_panel_1_item_3">&amp;&amp; · 모든 조건 충족</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" target="_blank" rel="noopener noreferrer">MDN · Control Flow</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-07" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_07_title">배열과 반복문</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_07_subtitle">배열 순회와 누적 변수로 주문 금액 합산</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_07_panel_0_label">주문 항목의 금액 합산</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_07_panel_0_code">const amounts = [3000, 1500, 6000];
+let total = 0;
+for (const amount of amounts) {
+  total = total + amount;
+}
+console.log(total);</pre><p class="week3-output-label" data-wd-i18n="topic_07_panel_0_output_label">실행 결과</p><samp class="week3-output">10500</samp></div><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_07_panel_1_label">반복별 값 변화</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_07_panel_1_head_0">amount</th><th scope="col" data-wd-i18n="topic_07_panel_1_head_1">total</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_07_panel_1_cell_0_0">3000</td><td  data-wd-i18n="topic_07_panel_1_cell_0_1">0 → 3000</td></tr><tr><td  data-wd-i18n="topic_07_panel_1_cell_1_0">1500</td><td  data-wd-i18n="topic_07_panel_1_cell_1_1">3000 → 4500</td></tr><tr><td  data-wd-i18n="topic_07_panel_1_cell_2_0">6000</td><td  data-wd-i18n="topic_07_panel_1_cell_2_1">4500 → 10500</td></tr></tbody></table></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank" rel="noopener noreferrer">MDN · Loops and Iteration</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-08" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_08_title">함수와 블록 스코프</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_08_subtitle">매개변수 · 반환값 · 변수 접근 범위</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_08_panel_0_label">입력 · 반환 · 접근 범위</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_08_panel_0_code">function calculateLineTotal(price, quantity) {
+  const total = price * quantity;
+  return total;
+}
+console.log(calculateLineTotal(3000, 2));
+if (true) {
+  let message = &#x27;ready&#x27;;
+  console.log(message);
+}</pre><p class="week3-output-label" data-wd-i18n="topic_08_panel_0_output_label">실행 결과</p><samp class="week3-output">6000
+ready</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_08_panel_1_label">함수 호출 읽기</h3><ul class="week3-points"><li  data-wd-i18n="topic_08_panel_1_item_0">인수 3000, 2 → 매개변수 price, quantity</li><li  data-wd-i18n="topic_08_panel_1_item_1">return · 결과 반환과 함수 종료</li><li  data-wd-i18n="topic_08_panel_1_item_2">total · 함수 내부 / message · if 블록 내부</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener noreferrer">MDN · Functions</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types" target="_blank" rel="noopener noreferrer">MDN · Grammar and Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-09" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_09_title">일급 함수 · 콜백 · 클로저</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_09_subtitle">함수 전달과 반환 · 바깥 범위의 변수 접근</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_09_panel_0_label">할인 함수를 반환하는 함수</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_09_panel_0_code">function makeDiscount(rate) {
+  return (amount) =&gt; amount * (1 - rate);
+}
+const memberPrice = makeDiscount(0.1);
+const totals = [3000, 6000].map(memberPrice);
+console.log(totals);</pre><p class="week3-output-label" data-wd-i18n="topic_09_panel_0_output_label">실행 결과</p><samp class="week3-output">[2700, 5400]</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_09_panel_1_label">함수의 세 가지 사용</h3><ul class="week3-points"><li  data-wd-i18n="topic_09_panel_1_item_0">일급 함수 · 변수 저장, 인수 전달, 반환</li><li  data-wd-i18n="topic_09_panel_1_item_1">콜백 · map에 전달한 memberPrice</li><li  data-wd-i18n="topic_09_panel_1_item_2">클로저 · makeDiscount 종료 후에도 rate에 접근</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener noreferrer">MDN · Functions</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-10" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_10_title">객체 리터럴과 멤버</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_10_subtitle">프로퍼티와 메서드로 상품 속성과 동작 표현</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_10_panel_0_label">상품 객체와 메서드</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_10_panel_0_code">const product = {
+  name: &#x27;Notebook&#x27;,
+  price: 3000,
+  stock: 5,
+  inStock() {
+    return this.stock &gt; 0;
+  }
+};
+console.log(product.name, product.inStock());</pre><p class="week3-output-label" data-wd-i18n="topic_10_panel_0_output_label">실행 결과</p><samp class="week3-output">Notebook true</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_10_panel_1_label">객체의 멤버</h3><ul class="week3-points"><li  data-wd-i18n="topic_10_panel_1_item_0">프로퍼티 · name, price, stock</li><li  data-wd-i18n="topic_10_panel_1_item_1">메서드 · inStock()</li><li  data-wd-i18n="topic_10_panel_1_item_2">product.inStock()의 this → product</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects" target="_blank" rel="noopener noreferrer">MDN · Working with Objects</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-11" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_11_title">객체 참조와 얕은 복사</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_11_subtitle">대입의 참조 공유 · 스프레드의 중첩 참조 유지</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_11_panel_0_label">공유 참조와 중첩 객체</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_11_panel_0_code">const product = { stock: { count: 5 } };
+const shared = product;
+const copied = { ...product };
+shared.stock.count = 4;
+copied.stock.count = 0;
+console.log(product.stock.count);
+console.log(copied === product);
+console.log(copied.stock === product.stock);</pre><p class="week3-output-label" data-wd-i18n="topic_11_panel_0_output_label">실행 결과</p><samp class="week3-output">0
+false
+true</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_11_panel_1_label">복사의 깊이</h3><ul class="week3-points"><li  data-wd-i18n="topic_11_panel_1_item_0">대입 · 같은 객체의 참조 공유</li><li  data-wd-i18n="topic_11_panel_1_item_1">스프레드 · 바깥 객체만 복사</li><li  data-wd-i18n="topic_11_panel_1_item_2">중첩 stock · 참조 공유</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="noopener noreferrer">MDN · Spread Syntax</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-12" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_12_title">filter · map의 목록 변환</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_12_subtitle">조건에 맞는 상품 선택 · 필요한 값 추출</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_12_panel_0_label">상품 배열 → 상품명 배열</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_12_panel_0_code">const products = [
+  { name: &#x27;Notebook&#x27;, stock: 5 },
+  { name: &#x27;Case&#x27;, stock: 0 }
+];
+const names = products
+  .filter((product) =&gt; product.stock &gt; 0)
+  .map((product) =&gt; product.name);
+console.log(names);</pre><p class="week3-output-label" data-wd-i18n="topic_12_panel_0_output_label">실행 결과</p><samp class="week3-output">[&#x27;Notebook&#x27;]</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_12_panel_1_label">두 콜백의 역할</h3><ul class="week3-points"><li  data-wd-i18n="topic_12_panel_1_item_0">filter · stock &gt; 0인 상품 선택</li><li  data-wd-i18n="topic_12_panel_1_item_1">map · 상품 객체를 name으로 변환</li><li  data-wd-i18n="topic_12_panel_1_item_2">원본 2개 → 결과 1개 · 새 배열 생성</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="noopener noreferrer">MDN · Array.filter</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener noreferrer">MDN · Array.map</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-13" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_13_title">DOM 이벤트와 입력 처리</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_13_subtitle">처리 함수 등록 → 입력값 변환 → 주문 호출</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_13_panel_0_label">DOM 이벤트 등록</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_13_panel_0_code">const input = document.querySelector(&#x27;#quantity&#x27;);
+const button = document.querySelector(&#x27;#submit&#x27;);
+button.addEventListener(&#x27;click&#x27;, () =&gt; {
+  const quantity = Number(input.value);
+  console.log(quantity);
+});</pre></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_13_panel_1_label">등록과 실행</h3><ul class="week3-points"><li  data-wd-i18n="topic_13_panel_1_item_0">초기화 · 콜백 등록</li><li  data-wd-i18n="topic_13_panel_1_item_1">클릭 · 콜백 실행</li><li  data-wd-i18n="topic_13_panel_1_item_2">input.value: &quot;2&quot; → quantity: 2</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">MDN · addEventListener</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-14" data-chapter="02" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_14_title">Promise와 async/await</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_14_subtitle">요청 완료 대기 · try/catch로 성공과 실패 처리</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_14_panel_0_label">HTTP 상태 확인과 예외 처리</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_14_panel_0_code">async function loadProducts() {
+  const response = await fetch(&#x27;/products.json&#x27;);
+  if (!response.ok) throw new Error(&#x27;HTTP error&#x27;);
+  return response.json();
+}
+try {
+  const products = await loadProducts();
+  console.log(products.length);
+} catch (error) {
+  console.log(&#x27;load failed&#x27;);
+}</pre></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_14_panel_1_label">비동기 실행의 경계</h3><ul class="week3-points"><li  data-wd-i18n="topic_14_panel_1_item_0">await · 요청 완료까지 현재 실행 흐름 대기</li><li  data-wd-i18n="topic_14_panel_1_item_1">response.ok · HTTP 성공 상태 확인</li><li  data-wd-i18n="topic_14_panel_1_item_2">catch · 요청 · JSON 해석 · throw 오류 처리</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN · Using Fetch</a></footer>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-03" role="region">
+            <p class="week3-section__number">03</p>
+            <h2 data-wd-i18n="chapter_03_title">JavaScript의 장점과 오류 위험</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_03_subtitle">유연한 코드 조합 · 형 변환과 공유 상태의 오류</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-15" data-chapter="03" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_15_title">동적 타입과 코드 조합</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_15_subtitle">다양한 값 · 함수 · 객체의 유연한 조합</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_15_panel_0_label">필터 함수의 교체</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_15_panel_0_code">const products = [
+  { name: &#x27;Notebook&#x27;, price: 3000, stock: 5 },
+  { name: &#x27;Case&#x27;, price: 8000, stock: 0 }
+];
+const inStock = (p) =&gt; p.stock &gt; 0;
+const affordable = (p) =&gt; p.price &lt; 5000;
+console.log(products.filter(inStock).length);
+console.log(products.filter(affordable).length);</pre><p class="week3-output-label" data-wd-i18n="topic_15_panel_0_output_label">실행 결과</p><samp class="week3-output">1
+1</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_15_panel_1_label">유연성의 이점</h3><ul class="week3-points"><li  data-wd-i18n="topic_15_panel_1_item_0">객체 · 데이터 속성의 묶음</li><li  data-wd-i18n="topic_15_panel_1_item_1">함수 · 선택 조건의 교체</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="noopener noreferrer">MDN · Array.filter</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noopener noreferrer">MDN · Functions</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-16" data-chapter="03" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_16_title">형 변환 · 오타 · 공유 상태 오류</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_16_subtitle">잘못된 값 전달과 객체 변경으로 생기는 오류</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_16_panel_0_label">잘못된 실행 결과</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_16_panel_0_code">const product = { price: 3000, stock: 5 };
+const alias = product;
+console.log(2 + &#x27;3&#x27;);
+console.log(product.prcie * 2);
+alias.stock = 0;
+console.log(product.stock);</pre><p class="week3-output-label" data-wd-i18n="topic_16_panel_0_output_label">실행 결과</p><samp class="week3-output">23
+NaN
+0</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_16_panel_1_label">서로 다른 오류 원인</h3><ul class="week3-points"><li  data-wd-i18n="topic_16_panel_1_item_0">23 · 숫자 덧셈 대신 문자열 연결</li><li  data-wd-i18n="topic_16_panel_1_item_1">NaN · 없는 속성 prcie의 undefined로 계산</li><li  data-wd-i18n="topic_16_panel_1_item_2">0 · alias와 product의 참조 공유</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/basic-types.html" target="_blank" rel="noopener noreferrer">TypeScript · The Basics</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="noopener noreferrer">MDN · Spread Syntax</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-17" data-chapter="03" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_17_title">타입 검사와 실행 시 검증</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_17_subtitle">타입 사용 오류 검사 · 실제 입력과 업무 규칙 검증</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_17_panel_0_label">오류와 검사 위치</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_17_panel_0_head_0">상황</th><th scope="col" data-wd-i18n="topic_17_panel_0_head_1">주요 검사</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_17_panel_0_cell_0_0">숫자 매개변수에 문자열</td><td  data-wd-i18n="topic_17_panel_0_cell_0_1">타입 검사</td></tr><tr><td  data-wd-i18n="topic_17_panel_0_cell_1_0">product.prcie 오타</td><td  data-wd-i18n="topic_17_panel_0_cell_1_1">타입 검사</td></tr><tr><td  data-wd-i18n="topic_17_panel_0_cell_2_0">수량 -1 · 재고 초과</td><td  data-wd-i18n="topic_17_panel_0_cell_2_1">실행 시 업무 규칙 검증</td></tr><tr><td  data-wd-i18n="topic_17_panel_0_cell_3_0">외부 JSON의 누락 필드</td><td  data-wd-i18n="topic_17_panel_0_cell_3_1">실행 시 데이터 검증</td></tr></tbody></table></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_17_panel_1_label">검사의 한계</h3><ul class="week3-points"><li  data-wd-i18n="topic_17_panel_1_item_0">number는 양의 정수를 보장하지 않음</li><li  data-wd-i18n="topic_17_panel_1_item_1">외부 응답은 실행 중 구조와 값 확인</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/basic-types.html" target="_blank" rel="noopener noreferrer">TypeScript · The Basics</a></footer>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-04" role="region">
+            <p class="week3-section__number">04</p>
+            <h2 data-wd-i18n="chapter_04_title">TypeScript의 등장과 역할</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_04_subtitle">JavaScript 확장 · 타입 검사와 코드 변환</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-18" data-chapter="04" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_18_title">TypeScript의 등장 배경</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_18_subtitle">2012년 공개 · 대규모 JavaScript의 구조화와 오류 발견 지원</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_18_panel_0_label">2012 · Microsoft</h3><ol class="week3-flow"><li  data-wd-i18n="topic_18_panel_0_item_0">대규모 JavaScript 코드의 변경과 협업</li><li  data-wd-i18n="topic_18_panel_0_item_1">2012년 10월 1일 TypeScript 공개</li><li  data-wd-i18n="topic_18_panel_0_item_2">타입 계약 · 편집기 지원 · 오류 조기 발견</li></ol></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_18_panel_1_label">JavaScript와의 관계</h3><ul class="week3-points"><li  data-wd-i18n="topic_18_panel_1_item_0">기존 JavaScript 문법과 실행 환경 활용</li><li  data-wd-i18n="topic_18_panel_1_item_1">타입으로 코드 구조와 사용법 표현</li></ul></div></div><footer class="week3-references"><a href="https://devblogs.microsoft.com/typescript/ten-years-of-typescript/" target="_blank" rel="noopener noreferrer">Microsoft · Ten Years of TypeScript</a> · <a href="https://www.typescriptlang.org/docs/handbook/2/basic-types.html" target="_blank" rel="noopener noreferrer">TypeScript · The Basics</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-19" data-chapter="04" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_19_title">정적 타입 검사와 코드 변환</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_19_subtitle">실행 전 타입 검사 · 타입 표기 없는 JavaScript 출력</p>
+            <div class="week3-body week3-body--equal"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_19_panel_0_label">TypeScript · 타입 표기</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_19_panel_0_code">function lineTotal(
+  price: number,
+  quantity: number
+): number {
+  return price * quantity;
+}
+console.log(lineTotal(3000, 2));</pre><p class="week3-output-label" data-wd-i18n="topic_19_panel_0_output_label">실행 결과</p><samp class="week3-output">6000</samp></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_19_panel_1_label">JavaScript · 타입 제거</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_19_panel_1_code">function lineTotal(price, quantity) {
+  return price * quantity;
+}
+console.log(lineTotal(3000, 2));</pre><p class="week3-output-label" data-wd-i18n="topic_19_panel_1_output_label">실행 결과</p><samp class="week3-output">6000</samp></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/basic-types.html" target="_blank" rel="noopener noreferrer">TypeScript · The Basics</a></footer>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-05" role="region">
+            <p class="week3-section__number">05</p>
+            <h2 data-wd-i18n="chapter_05_title">TypeScript의 기본 문법과 특징</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_05_subtitle">타입 계약 · 타입 좁히기 · 외부 데이터 검증</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-20" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_20_title">타입 표기와 추론</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_20_subtitle">타입의 명시적 선언 · 초기값에 따른 추론</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_20_panel_0_label">타입 추론과 표기</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_20_panel_0_code">let quantity = 2;
+const price: number = 3000;
+const name: string = &#x27;Notebook&#x27;;
+const available: boolean = true;
+const amounts: number[] = [3000, 6000];
+quantity = &#x27;2&#x27;;</pre><p class="week3-diagnostic" data-wd-i18n="topic_20_panel_0_diagnostic">타입 오류: TS2322</p></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_20_panel_1_label">컴파일러의 판단</h3><ul class="week3-points"><li  data-wd-i18n="topic_20_panel_1_item_0">quantity = 2 → number 추론</li><li  data-wd-i18n="topic_20_panel_1_item_1">price: number → 타입 명시</li><li  data-wd-i18n="topic_20_panel_1_item_2">quantity = &quot;2&quot; → 타입 불일치</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript · Everyday Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-21" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_21_title">함수의 매개변수 · 반환 타입</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_21_subtitle">함수 입력과 출력의 타입 계약</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_21_panel_0_label">함수 계약</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_21_panel_0_code">function calculateLineTotal(
+  price: number,
+  quantity: number
+): number {
+  return price * quantity;
+}
+calculateLineTotal(3000, 2);
+calculateLineTotal(3000, &#x27;2&#x27;);</pre><p class="week3-diagnostic" data-wd-i18n="topic_21_panel_0_diagnostic">타입 오류: TS2345</p></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_21_panel_1_label">입력과 반환</h3><ul class="week3-points"><li  data-wd-i18n="topic_21_panel_1_item_0">price · quantity → number 인수</li><li  data-wd-i18n="topic_21_panel_1_item_1">반환값 → number</li><li  data-wd-i18n="topic_21_panel_1_item_2">문자열 &quot;2&quot; 전달 → 타입 오류</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html" target="_blank" rel="noopener noreferrer">TypeScript · More on Functions</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-22" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_22_title">객체 타입: type · interface</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_22_subtitle">필수 속성과 각 속성의 타입 정의</p>
+            <div class="week3-body week3-body--equal"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_22_panel_0_label">type으로 상품 구조 정의</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_22_panel_0_code">type Product = {
+  id: string;
+  name: string;
+  price: number;
+  stock: number;
+};
+const product: Product = {
+  id: &#x27;note&#x27;,
+  name: &#x27;Notebook&#x27;,
+  price: 3000,
+  stock: 5
+};</pre></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_22_panel_1_label">interface로 상품 구조 정의</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_22_panel_1_code">interface Product {
+  id: string;
+  name: string;
+  price: number;
+  stock: number;
+}
+const product: Product = {
+  id: &#x27;note&#x27;,
+  name: &#x27;Notebook&#x27;,
+  price: 3000,
+  stock: 5
+};</pre></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript · Everyday Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-23" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_23_title">리터럴 타입과 유니온</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_23_subtitle">주문 상태를 정해진 값의 집합으로 제한</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_23_panel_0_label">주문 상태 유니온</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_23_panel_0_code">type OrderStatus =
+  &#x27;idle&#x27; | &#x27;submitting&#x27; | &#x27;success&#x27; | &#x27;error&#x27;;
+let status: OrderStatus = &#x27;idle&#x27;;
+status = &#x27;submitting&#x27;;
+status = &#x27;done&#x27;;</pre><p class="week3-diagnostic" data-wd-i18n="topic_23_panel_0_diagnostic">타입 오류: TS2322</p></div><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_23_panel_1_label">허용 상태와 전환</h3><ol class="week3-flow"><li  data-wd-i18n="topic_23_panel_1_item_0">idle · 입력 대기</li><li  data-wd-i18n="topic_23_panel_1_item_1">submitting · 요청 진행</li><li  data-wd-i18n="topic_23_panel_1_item_2">success 또는 error · 요청 결과</li></ol></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript · Everyday Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-24" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_24_title">선택적 속성과 undefined</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_24_subtitle">속성이나 검색 결과의 존재 여부 확인</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_24_panel_0_label">선택적 값과 검색 결과</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_24_panel_0_code">type Product = {
+  id: string;
+  price: number;
+  discountPrice?: number;
+};
+const products: Product[] = [
+  { id: &#x27;note&#x27;, price: 3000 }
+];
+const found = products.find((p) =&gt; p.id === &#x27;note&#x27;);
+if (found !== undefined) {
+  console.log(found.discountPrice ?? found.price);
+}</pre><p class="week3-output-label" data-wd-i18n="topic_24_panel_0_output_label">실행 결과</p><samp class="week3-output">3000</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_24_panel_1_label">두 가지 빈 값</h3><ul class="week3-points"><li  data-wd-i18n="topic_24_panel_1_item_0">find 결과 → Product 또는 undefined</li><li  data-wd-i18n="topic_24_panel_1_item_1">discountPrice → number 또는 undefined</li><li  data-wd-i18n="topic_24_panel_1_item_2">존재 확인 후 속성 접근</li><li  data-wd-i18n="topic_24_panel_1_item_3">?? · null과 undefined에 대체값 적용</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript · Narrowing</a> · <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript · Everyday Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-25" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_25_title">조건문과 타입 좁히기</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_25_subtitle">조건과 판별 속성으로 사용 가능한 타입 구분</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_25_panel_0_label">판별 속성 ok로 결과 분기</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_25_panel_0_code">type Result =
+  | { ok: true; data: number }
+  | { ok: false; message: string };
+function describe(result: Result): string {
+  if (result.ok) {
+    return `quantity: ${result.data}`;
+  }
+  return result.message;
+}
+console.log(describe({ ok: true, data: 2 }));</pre><p class="week3-output-label" data-wd-i18n="topic_25_panel_0_output_label">실행 결과</p><samp class="week3-output">quantity: 2</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_25_panel_1_label">분기 안의 타입</h3><ul class="week3-points"><li  data-wd-i18n="topic_25_panel_1_item_0">ok: true → data 사용</li><li  data-wd-i18n="topic_25_panel_1_item_1">ok: false → message 사용</li><li  data-wd-i18n="topic_25_panel_1_item_2">조건 검사 전 data 접근 → 타입 오류</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript · Narrowing</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-26" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_26_title">any와 unknown</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_26_subtitle">검사를 우회하는 any · 확인 후 사용하는 unknown</p>
+            <div class="week3-body week3-body--equal"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_26_panel_0_label">any · 검사 우회</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_26_panel_0_code">const raw: any = 3000;
+raw.toUpperCase();</pre><p class="week3-diagnostic" data-wd-i18n="topic_26_panel_0_runtime">실행 시 TypeError</p></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_26_panel_1_label">unknown · 검사 후 사용</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_26_panel_1_code">function normalize(raw: unknown): string {
+  if (typeof raw === &#x27;string&#x27;) {
+    return raw.toUpperCase();
+  }
+  return &#x27;not a string&#x27;;
+}
+console.log(normalize(3000));</pre><p class="week3-output-label" data-wd-i18n="topic_26_panel_1_output_label">실행 결과</p><samp class="week3-output">not a string</samp></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html" target="_blank" rel="noopener noreferrer">TypeScript · More on Functions</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-27" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_27_title">타입 단언과 데이터 검증</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_27_subtitle">컴파일러의 타입 판단 변경과 실제 값 검증의 차이</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_27_panel_0_label">as는 값 검사나 변환이 아님</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_27_panel_0_code">const raw: unknown = { price: &#x27;3000&#x27; };
+const claimed = raw as { price: number };
+console.log(claimed.price + 1);
+if (
+  typeof raw === &#x27;object&#x27; &amp;&amp;
+  raw !== null &amp;&amp;
+  &#x27;price&#x27; in raw &amp;&amp;
+  typeof raw.price === &#x27;number&#x27;
+) {
+  console.log(raw.price + 1);
+} else {
+  console.log(&#x27;invalid price&#x27;);
+}</pre><p class="week3-output-label" data-wd-i18n="topic_27_panel_0_output_label">실행 결과</p><samp class="week3-output">30001
+invalid price</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_27_panel_1_label">단언과 검증의 결과</h3><ul class="week3-points"><li  data-wd-i18n="topic_27_panel_1_item_0">as 이후에도 price는 문자열</li><li  data-wd-i18n="topic_27_panel_1_item_1">컴파일러의 판단만 number로 변경</li><li  data-wd-i18n="topic_27_panel_1_item_2">typeof 검사 → 문자열 가격 거부</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript · Narrowing</a> · <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript · Everyday Types</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-28" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_28_title">제네릭과 타입 관계</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_28_subtitle">구체 타입이 달라도 입력 · 출력의 타입 관계 유지</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_28_panel_0_label">첫 원소의 타입 관계</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_28_panel_0_code">function first&lt;T&gt;(items: T[]): T | undefined {
+  return items[0];
+}
+const amount = first([3000, 1500]);
+const product = first([{ id: &#x27;note&#x27;, price: 3000 }]);
+console.log(amount);
+console.log(product?.id);
+console.log(first&lt;number&gt;([]));</pre><p class="week3-output-label" data-wd-i18n="topic_28_panel_0_output_label">실행 결과</p><samp class="week3-output">3000
+note
+undefined</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_28_panel_1_label">T의 의미</h3><ul class="week3-points"><li  data-wd-i18n="topic_28_panel_1_item_0">숫자 배열 → number 또는 undefined</li><li  data-wd-i18n="topic_28_panel_1_item_1">상품 배열 → 상품 타입 또는 undefined</li><li  data-wd-i18n="topic_28_panel_1_item_2">빈 배열 → undefined</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/generics.html" target="_blank" rel="noopener noreferrer">TypeScript · Generics</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-29" data-chapter="05" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_29_title">모듈과 구조적 타입</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_29_subtitle">import · export로 역할 분리 · 필요한 멤버로 호환성 판단</p>
+            <div class="week3-body week3-body--equal"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_29_panel_0_label">types.ts · 필요한 구조 내보내기</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_29_panel_0_code">export type Named = { name: string };
+export function label(item: Named): string {
+  return item.name;
+}</pre></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_29_panel_1_label">main.ts · 모듈 사용과 구조적 호환</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_29_panel_1_code">import { label } from &#x27;./types.js&#x27;;
+import type { Named } from &#x27;./types.js&#x27;;
+const product = { name: &#x27;Notebook&#x27;, price: 3000 };
+const named: Named = product;
+console.log(label(named));</pre><p class="week3-output-label" data-wd-i18n="topic_29_panel_1_output_label">실행 결과</p><samp class="week3-output">Notebook</samp></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/modules.html" target="_blank" rel="noopener noreferrer">TypeScript · Modules</a> · <a href="https://www.typescriptlang.org/docs/handbook/type-compatibility.html" target="_blank" rel="noopener noreferrer">TypeScript · Type Compatibility</a></footer>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-06" role="region">
+            <p class="week3-section__number">06</p>
+            <h2 data-wd-i18n="chapter_06_title">웹 프로그래밍 패러다임</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_06_subtitle">실행 순서 · 계산과 상태 · 이벤트와 화면</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-30" data-chapter="06" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_30_title">명령형 · 절차적 주문 처리</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_30_subtitle">검증 → 계산 → 저장 요청 → 결과 반환</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_30_panel_0_label">주문 처리 절차</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_30_panel_0_code">async function submitOrder(raw: string) {
+  const quantity = Number(raw);
+  if (!Number.isInteger(quantity) || quantity &lt;= 0) {
+    throw new Error(&#x27;invalid quantity&#x27;);
+  }
+  const total = 3000 * quantity;
+  await saveOrder(total);
+  return { status: &#x27;success&#x27;, total };
+}</pre></div><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_30_panel_1_label">절차와 실패 경로</h3><ol class="week3-flow"><li  data-wd-i18n="topic_30_panel_1_item_0">수량 검증 → 실패하면 종료</li><li  data-wd-i18n="topic_30_panel_1_item_1">금액 계산 → 저장 요청</li><li  data-wd-i18n="topic_30_panel_1_item_2">요청 완료 → 성공 결과 반환</li></ol></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html" target="_blank" rel="noopener noreferrer">TypeScript · More on Functions</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN · Using Fetch</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-31" data-chapter="06" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_31_title">순수 함수와 불변성</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_31_subtitle">입력과 외부 상태를 바꾸지 않는 계산</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_31_panel_0_label">지역 변수로 계산하는 순수 함수</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_31_panel_0_code">function calculateTotal(amounts: number[]): number {
+  let total = 0;
+  for (const amount of amounts) {
+    total += amount;
+  }
+  return total;
+}
+const amounts = [3000, 1500];
+console.log(calculateTotal(amounts));
+console.log(amounts.length);</pre><p class="week3-output-label" data-wd-i18n="topic_31_panel_0_output_label">실행 결과</p><samp class="week3-output">4500
+2</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_31_panel_1_label">순수성의 기준</h3><ul class="week3-points"><li  data-wd-i18n="topic_31_panel_1_item_0">같은 입력 → 같은 결과</li><li  data-wd-i18n="topic_31_panel_1_item_1">입력 배열과 외부 상태 유지</li><li  data-wd-i18n="topic_31_panel_1_item_2">지역 변수 total만 변경</li></ul></div></div><footer class="week3-references"><a href="https://react.dev/learn/keeping-components-pure" target="_blank" rel="noopener noreferrer">React · Keeping Components Pure</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-32" data-chapter="06" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_32_title">캡슐화와 장바구니 상태</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_32_subtitle">상태와 동작을 묶고 메서드로 변경 제어</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_32_panel_0_label">상태 접근을 제한하는 Cart</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_32_panel_0_code">class Cart {
+  private items: string[] = [];
+  add(productId: string): void {
+    this.items.push(productId);
+  }
+  get count(): number {
+    return this.items.length;
+  }
+}
+const cart = new Cart();
+cart.add(&#x27;note&#x27;);
+console.log(cart.count);</pre><p class="week3-output-label" data-wd-i18n="topic_32_panel_0_output_label">실행 결과</p><samp class="week3-output">1</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_32_panel_1_label">상태와 동작의 책임</h3><ul class="week3-points"><li  data-wd-i18n="topic_32_panel_1_item_0">private items · 외부 접근 제한</li><li  data-wd-i18n="topic_32_panel_1_item_1">add() · 내부 배열 변경</li><li  data-wd-i18n="topic_32_panel_1_item_2">count · 배열의 개수 공개</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/classes.html" target="_blank" rel="noopener noreferrer">TypeScript · Classes</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-33" data-chapter="06" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_33_title">이벤트와 비동기 실행</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_33_subtitle">사용자 행동에 따른 실행 · 요청 완료 순서 관리</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_33_panel_0_label">늦게 끝난 이전 요청 무시</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_33_panel_0_code">let latestRequest = 0;
+async function search(query: string): Promise&lt;void&gt; {
+  const requestId = ++latestRequest;
+  const products = await loadProducts(query);
+  if (requestId !== latestRequest) return;
+  renderProducts(products);
+}</pre></div><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_33_panel_1_label">응답 순서의 역전</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_33_panel_1_head_0">시간</th><th scope="col" data-wd-i18n="topic_33_panel_1_head_1">실행</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_33_panel_1_cell_0_0">1</td><td  data-wd-i18n="topic_33_panel_1_cell_0_1">검색 A 시작 · 요청 번호 1</td></tr><tr><td  data-wd-i18n="topic_33_panel_1_cell_1_0">2</td><td  data-wd-i18n="topic_33_panel_1_cell_1_1">검색 B 시작 · 요청 번호 2</td></tr><tr><td  data-wd-i18n="topic_33_panel_1_cell_2_0">3</td><td  data-wd-i18n="topic_33_panel_1_cell_2_1">B 완료 → 화면 갱신</td></tr><tr><td  data-wd-i18n="topic_33_panel_1_cell_3_0">4</td><td  data-wd-i18n="topic_33_panel_1_cell_3_1">A 완료 → 번호 불일치로 무시</td></tr></tbody></table></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener" target="_blank" rel="noopener noreferrer">MDN · addEventListener</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN · Using Fetch</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-34" data-chapter="06" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_34_title">선언형 UI와 반응형 계산</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_34_subtitle">상태로 화면 표현 · 의존 값 변화로 파생 값 갱신</p>
+            <div class="week3-body week3-body--equal"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_34_panel_0_label">React TSX · 상태에 따른 버튼</h3><pre class="wd-code" data-wd-code="tsx" data-wd-code-width="56" data-wd-i18n="topic_34_panel_0_code">function OrderButton({ busy }: { busy: boolean }) {
+  return (
+    &lt;button disabled={busy}&gt;
+      {busy ? &#x27;Sending&#x27; : &#x27;Order&#x27;}
+    &lt;/button&gt;
+  );
+}</pre></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_34_panel_1_label">Vue · 반응형 합계</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_34_panel_1_code">import { computed, ref } from &#x27;vue&#x27;;
+const quantity = ref(2);
+const total = computed(() =&gt; 3000 * quantity.value);
+console.log(total.value);
+quantity.value = 3;
+console.log(total.value);</pre><p class="week3-output-label" data-wd-i18n="topic_34_panel_1_output_label">실행 결과</p><samp class="week3-output">6000
+9000</samp></div></div><footer class="week3-references"><a href="https://react.dev/learn/reacting-to-input-with-state" target="_blank" rel="noopener noreferrer">React · Reacting to Input with State</a> · <a href="https://vuejs.org/guide/essentials/computed.html" target="_blank" rel="noopener noreferrer">Vue · Computed Properties</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-35" data-chapter="06" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_35_title">패러다임 조합과 책임 분리</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_35_subtitle">주문 기능의 이벤트 · 절차 · 계산 · 상태 · 화면 역할</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_35_panel_0_label">하나의 주문 기능</h3><ol class="week3-flow"><li  data-wd-i18n="topic_35_panel_0_item_0">입력 → 이벤트 처리</li><li  data-wd-i18n="topic_35_panel_0_item_1">검증 → 순수 계산 → 저장 요청</li><li  data-wd-i18n="topic_35_panel_0_item_2">결과 상태 → 화면 갱신</li></ol></div><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_35_panel_1_label">실습 파일의 책임</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_35_panel_1_head_0">파일</th><th scope="col" data-wd-i18n="topic_35_panel_1_head_1">역할</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_35_panel_1_cell_0_0">main.ts</td><td  data-wd-i18n="topic_35_panel_1_cell_0_1">이벤트와 절차 조정</td></tr><tr><td  data-wd-i18n="topic_35_panel_1_cell_1_0">order.ts · policies.ts</td><td  data-wd-i18n="topic_35_panel_1_cell_1_1">계산과 검증</td></tr><tr><td  data-wd-i18n="topic_35_panel_1_cell_2_0">api.ts</td><td  data-wd-i18n="topic_35_panel_1_cell_2_1">외부 데이터와 모의 요청</td></tr><tr><td  data-wd-i18n="topic_35_panel_1_cell_3_0">ui.ts</td><td  data-wd-i18n="topic_35_panel_1_cell_3_1">명령형 DOM 갱신</td></tr></tbody></table></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_35_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-07" role="region">
+            <p class="week3-section__number">07</p>
+            <h2 data-wd-i18n="chapter_07_title">TypeScript의 디자인 패턴</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_07_subtitle">Strategy의 정책 교체 · Adapter의 형식 변환</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-36" data-chapter="07" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_36_title">할인 정책과 Strategy 패턴</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_36_subtitle">계산 방식을 분리해 정책 변경 범위 축소</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_36_panel_0_label">정책 이름으로 분기</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_36_panel_0_code">function checkout(amount: number, kind: string) {
+  if (kind === &#x27;member&#x27;) {
+    return Math.floor(amount * 0.9);
+  }
+  return amount;
+}</pre></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_36_panel_1_label">교체 지점의 분리</h3><ul class="week3-points"><li  data-wd-i18n="topic_36_panel_1_item_0">정책 추가 → checkout 분기 증가</li><li  data-wd-i18n="topic_36_panel_1_item_1">Strategy · 계산 함수를 별도로 정의</li><li  data-wd-i18n="topic_36_panel_1_item_2">주문 함수 · 전달받은 정책 호출</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html" target="_blank" rel="noopener noreferrer">TypeScript · More on Functions</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-37" data-chapter="07" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_37_title">함수 타입과 정책 교체</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_37_subtitle">공통 함수 타입으로 일반 · 회원 가격 정책 전달</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_37_panel_0_label">공통 함수 타입과 정책 전달</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_37_panel_0_code">type DiscountPolicy = (amount: number) =&gt; number;
+const regularPrice: DiscountPolicy = (amount) =&gt; amount;
+const memberPrice: DiscountPolicy = (amount) =&gt;
+  Math.floor(amount * 0.9);
+function checkout(
+  amount: number,
+  policy: DiscountPolicy
+) {
+  return policy(amount);
+}
+console.log(checkout(6000, regularPrice));
+console.log(checkout(6000, memberPrice));</pre><p class="week3-output-label" data-wd-i18n="topic_37_panel_0_output_label">실행 결과</p><samp class="week3-output">6000
+5400</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_37_panel_1_label">계약과 변경</h3><ul class="week3-points"><li  data-wd-i18n="topic_37_panel_1_item_0">입력 · 할인 전 금액</li><li  data-wd-i18n="topic_37_panel_1_item_1">반환 · 결제 금액</li><li  data-wd-i18n="topic_37_panel_1_item_2">회원 정책 · 10% 할인, 원 미만 버림</li><li  data-wd-i18n="topic_37_panel_1_item_3">checkout · 전달받은 policy 호출</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html" target="_blank" rel="noopener noreferrer">TypeScript · More on Functions</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-38" data-chapter="07" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_38_title">상품 형식과 Adapter 패턴</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_38_subtitle">외부 상품 필드를 내부 Product 형식으로 변환</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_38_panel_0_label">검증된 외부 값의 변환</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_38_panel_0_code">type ApiProduct = {
+  product_name: string;
+  unit_price: number;
+};
+type Product = { name: string; price: number };
+function toProduct(raw: ApiProduct): Product {
+  return {
+    name: raw.product_name,
+    price: raw.unit_price
+  };
+}</pre></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_38_panel_1_label">Adapter의 경계</h3><ul class="week3-points"><li  data-wd-i18n="topic_38_panel_1_item_0">product_name → name</li><li  data-wd-i18n="topic_38_panel_1_item_1">unit_price → price</li><li  data-wd-i18n="topic_38_panel_1_item_2">입력 · 검증된 ApiProduct</li><li  data-wd-i18n="topic_38_panel_1_item_3">반환 · 새로운 Product 객체</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank" rel="noopener noreferrer">TypeScript · Everyday Types</a> · <a href="./practice/README.md" data-wd-i18n="topic_38_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-39" data-chapter="07" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_39_title">입력 검증과 형식 변환</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_39_subtitle">unknown → 검증된 외부 데이터 → 내부 상품 → 주문 계산</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_39_panel_0_label">외부 데이터의 입력 경계</h3><ol class="week3-flow"><li  data-wd-i18n="topic_39_panel_0_item_0">unknown · 아직 확인하지 않은 값</li><li  data-wd-i18n="topic_39_panel_0_item_1">검증기 · 필드 존재와 실제 타입 확인</li><li  data-wd-i18n="topic_39_panel_0_item_2">ApiProduct → Adapter → Product</li><li  data-wd-i18n="topic_39_panel_0_item_3">주문 계산 · 내부 계약만 사용</li></ol></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_39_panel_1_label">각 단계의 실패 원인</h3><ul class="week3-points"><li  data-wd-i18n="topic_39_panel_1_item_0">필드 누락 · 문자열 가격 → 검증 실패</li><li  data-wd-i18n="topic_39_panel_1_item_1">잘못된 필드 매핑 → 변환 오류</li></ul></div></div><footer class="week3-references"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN · Using Fetch</a> · <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript · Narrowing</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-40" data-chapter="07" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_40_title">Strategy · Adapter 적용 기준</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_40_subtitle">변경 지점 · 데이터 경계 · 구현 비용에 따른 선택</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_40_panel_0_label">요구사항에 따른 선택</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_40_panel_0_head_0">변경 요구</th><th scope="col" data-wd-i18n="topic_40_panel_0_head_1">적용</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_40_panel_0_cell_0_0">일반 · 회원 · 쿠폰 정책 교체</td><td  data-wd-i18n="topic_40_panel_0_cell_0_1">Strategy · 계산 함수 교체</td></tr><tr><td  data-wd-i18n="topic_40_panel_0_cell_1_0">외부 API의 상품 필드 변경</td><td  data-wd-i18n="topic_40_panel_0_cell_1_1">Adapter · 내부 형식으로 매핑</td></tr><tr><td  data-wd-i18n="topic_40_panel_0_cell_2_0">고정된 단가 × 수량 계산</td><td  data-wd-i18n="topic_40_panel_0_cell_2_1">단순 함수 유지</td></tr></tbody></table></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_40_panel_1_label">추상화 비용</h3><ul class="week3-points"><li  data-wd-i18n="topic_40_panel_1_item_0">함수 · 파일 증가 → 코드 탐색 비용 증가</li><li  data-wd-i18n="topic_40_panel_1_item_1">계약 추가 → 호출 관계의 복잡도 증가</li></ul></div></div><footer class="week3-references"><a href="https://www.typescriptlang.org/docs/handbook/2/functions.html" target="_blank" rel="noopener noreferrer">TypeScript · More on Functions</a> · <a href="./practice/README.md" data-wd-i18n="topic_40_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-08" role="region">
+            <p class="week3-section__number">08</p>
+            <h2 data-wd-i18n="chapter_08_title">실습: TypeScript 상품 주문 기능</h2>
+            <p class="week3-section__lead" data-wd-i18n="chapter_08_subtitle">기능 구현 · 코드 읽기 · 실행 검증</p>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-41" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_41_title">실습 화면과 요구사항</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_41_subtitle">HTML · CSS 제공 · 상품 선택 · 수량 검증 · 할인 구현</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_41_panel_0_label">모의 주문서</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_41_panel_0_head_0">입력</th><th scope="col" data-wd-i18n="topic_41_panel_0_head_1">선택값</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_41_panel_0_cell_0_0">상품</td><td  data-wd-i18n="topic_41_panel_0_cell_0_1">노트 · 단가 3,000원</td></tr><tr><td  data-wd-i18n="topic_41_panel_0_cell_1_0">수량</td><td  data-wd-i18n="topic_41_panel_0_cell_1_1">2</td></tr><tr><td  data-wd-i18n="topic_41_panel_0_cell_2_0">할인</td><td  data-wd-i18n="topic_41_panel_0_cell_2_1">회원 · 10%</td></tr><tr><td  data-wd-i18n="topic_41_panel_0_cell_3_0">결과</td><td  data-wd-i18n="topic_41_panel_0_cell_3_1">6,000원 → 5,400원</td></tr></tbody></table></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_41_panel_1_label">구현 범위</h3><ul class="week3-points"><li  data-wd-i18n="topic_41_panel_1_item_0">제공 · HTML · CSS · 이벤트 골격</li><li  data-wd-i18n="topic_41_panel_1_item_1">필수 · 수량 검증 · 주문 계산 · 회원 정책</li><li  data-wd-i18n="topic_41_panel_1_item_2">선택 · 외부 데이터 Adapter</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_41_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-42" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_42_title">실습 데이터와 주문 흐름</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_42_subtitle">상품과 입력값 → 검증과 계산 → 주문 결과</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_42_panel_0_label">노트 2개 · 회원 주문</h3><ol class="week3-flow"><li  data-wd-i18n="topic_42_panel_0_item_0">Product · price: 3000, stock: 5</li><li  data-wd-i18n="topic_42_panel_0_item_1">입력 &quot;2&quot; → 수량 2 → 검증 통과</li><li  data-wd-i18n="topic_42_panel_0_item_2">상품 금액 6000 → 회원 정책 → 5400</li><li  data-wd-i18n="topic_42_panel_0_item_3">Result&lt;Order&gt; → 모의 요청 → 화면</li></ol></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_42_panel_1_label">주문 데이터</h3><ul class="week3-points"><li  data-wd-i18n="topic_42_panel_1_item_0">productId · 상품 검색 키</li><li  data-wd-i18n="topic_42_panel_1_item_1">quantity · 검증된 수량</li><li  data-wd-i18n="topic_42_panel_1_item_2">subtotal · 할인 전 금액</li><li  data-wd-i18n="topic_42_panel_1_item_3">total · 정책 적용 금액</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_42_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-43" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_43_title">프로젝트 구조와 실행</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_43_subtitle">제공 코드 · 수정 대상 · 실행과 타입 검사</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_43_panel_0_label">practice · localhost:4303</h3><pre class="wd-code" data-wd-code="bash" data-wd-code-width="56" data-wd-i18n="topic_43_panel_0_code">npm ci
+npm start
+
+# Second terminal
+npm run watch
+npm run check
+npm test</pre></div><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_43_panel_1_label">파일과 작업</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_43_panel_1_head_0">파일</th><th scope="col" data-wd-i18n="topic_43_panel_1_head_1">작업</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_43_panel_1_cell_0_0">src/order.ts</td><td  data-wd-i18n="topic_43_panel_1_cell_0_1">TODO 1–3 · 필수 구현</td></tr><tr><td  data-wd-i18n="topic_43_panel_1_cell_1_0">src/policies.ts</td><td  data-wd-i18n="topic_43_panel_1_cell_1_1">TODO 4 · 회원 정책</td></tr><tr><td  data-wd-i18n="topic_43_panel_1_cell_2_0">src/adapters.ts</td><td  data-wd-i18n="topic_43_panel_1_cell_2_1">TODO 5 · 선택 구현</td></tr><tr><td  data-wd-i18n="topic_43_panel_1_cell_3_0">main.ts · ui.ts · api.ts</td><td  data-wd-i18n="topic_43_panel_1_cell_3_1">제공 코드 읽기</td></tr></tbody></table></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_43_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-44" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_44_title">JavaScript 오류 재현</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_44_subtitle">문자열 연산 · 속성 오타 · 없는 상품 접근의 결과 비교</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_44_panel_0_label">reading/bugs.js · 실행 전 예측</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_44_panel_0_code">const product = { price: 3000, stock: 5 };
+console.log(&#x27;3&#x27; + 1);
+console.log(product.prcie * 2);
+const found = [product].find((p) =&gt; p.price === 0);
+console.log(found.price);</pre><p class="week3-output-label" data-wd-i18n="topic_44_panel_0_output_label">실행 결과</p><samp class="week3-output">31
+NaN
+TypeError</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_44_panel_1_label">오류 원인</h3><ul class="week3-points"><li  data-wd-i18n="topic_44_panel_1_item_0">&quot;3&quot; + 1 · 문자열 연결</li><li  data-wd-i18n="topic_44_panel_1_item_1">product.prcie · 없는 속성</li><li  data-wd-i18n="topic_44_panel_1_item_2">found.price · undefined의 속성 접근</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_44_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-45" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_45_title">수량 변환과 검증</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_45_subtitle">빈 입력 거부 · 유한한 양의 정수와 재고 범위 확인</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_45_panel_0_label">order.ts · 수량 검증</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_45_panel_0_code">function parseQuantity(raw: string, stock: number) {
+  if (raw.trim() === &#x27;&#x27;) {
+    return { ok: false, message: &#x27;empty&#x27; };
+  }
+  const quantity = Number(raw);
+  if (
+    !Number.isFinite(quantity) ||
+    !Number.isInteger(quantity) ||
+    quantity &lt;= 0
+  ) {
+    return { ok: false, message: &#x27;invalid&#x27; };
+  }
+  if (quantity &gt; stock) {
+    return { ok: false, message: &#x27;over stock&#x27; };
+  }
+  return { ok: true, data: quantity };
+}</pre></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_45_panel_1_label">확인할 입력</h3><ul class="week3-points"><li  data-wd-i18n="topic_45_panel_1_item_0">빈 값 · 공백 · abc · Infinity → 실패</li><li  data-wd-i18n="topic_45_panel_1_item_1">0 · -1 · 1.5 → 실패</li><li  data-wd-i18n="topic_45_panel_1_item_2">재고 5: 수량 5 → 성공 / 6 → 실패</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_45_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-46" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_46_title">주문 코드의 TypeScript 전환</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_46_subtitle">상품 구조와 함수 입력 · 출력에 타입 추가</p>
+            <div class="week3-body week3-body--equal"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_46_panel_0_label">전환 전 · JavaScript</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="56" data-wd-i18n="topic_46_panel_0_code">function calculateLineTotal(price, quantity) {
+  return price * quantity;
+}
+const product = {
+  id: &#x27;note&#x27;,
+  name: &#x27;Notebook&#x27;,
+  price: 3000,
+  stock: 5
+};</pre></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_46_panel_1_label">전환 후 · TypeScript</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_46_panel_1_code">function calculateLineTotal(
+  price: number,
+  quantity: number
+): number {
+  return price * quantity;
+}
+const product: Product = {
+  id: &#x27;note&#x27;,
+  name: &#x27;Notebook&#x27;,
+  price: 3000,
+  stock: 5
+};</pre></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_46_practice_link">실습 README</a> · <a href="https://www.typescriptlang.org/docs/handbook/2/basic-types.html" target="_blank" rel="noopener noreferrer">TypeScript · The Basics</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-47" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_47_title">타입 오류와 undefined 처리</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_47_subtitle">잘못된 인수 · 속성 오타 · 값이 없는 경로 수정</p>
+            <div class="week3-body week3-body--equal"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_47_panel_0_label">존재 검사 전</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_47_panel_0_code">const products = [{ id: &#x27;note&#x27;, price: 3000 }];
+const found = products.find((p) =&gt; p.id === &#x27;missing&#x27;);
+console.log(found.price);</pre><p class="week3-diagnostic" data-wd-i18n="topic_47_panel_0_diagnostic">타입 오류: TS18048</p></div><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_47_panel_1_label">존재 검사 후</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_47_panel_1_code">const products = [{ id: &#x27;note&#x27;, price: 3000 }];
+const found = products.find((p) =&gt; p.id === &#x27;missing&#x27;);
+if (found === undefined) {
+  console.log(&#x27;product not found&#x27;);
+} else {
+  console.log(found.price);
+}</pre><p class="week3-output-label" data-wd-i18n="topic_47_panel_1_output_label">실행 결과</p><samp class="week3-output">product not found</samp></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_47_practice_link">실습 README</a> · <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank" rel="noopener noreferrer">TypeScript · Narrowing</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-48" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_48_title">할인 정책 분리 실습</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_48_subtitle">일반 · 회원 가격 함수 구현과 주문 함수에 전달</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_48_panel_0_label">policies.ts · 공통 정책 계약</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_48_panel_0_code">type DiscountPolicy = (amount: number) =&gt; number;
+const regularPrice: DiscountPolicy = (amount) =&gt; amount;
+const memberPrice: DiscountPolicy = (amount) =&gt;
+  Math.floor(amount * 0.9);
+console.log(regularPrice(6000));
+console.log(memberPrice(6000));
+console.log(memberPrice(3001));</pre><p class="week3-output-label" data-wd-i18n="topic_48_panel_0_output_label">실행 결과</p><samp class="week3-output">6000
+5400
+2700</samp></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_48_panel_1_label">정책 전달</h3><ul class="week3-points"><li  data-wd-i18n="topic_48_panel_1_item_0">main.ts · 일반 또는 회원 정책 선택</li><li  data-wd-i18n="topic_48_panel_1_item_1">createOrder · 정책 함수 전달</li><li  data-wd-i18n="topic_48_panel_1_item_2">policy(subtotal) · 결제 금액 반환</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_48_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-49" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_49_title">Adapter 확장 실습</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_49_subtitle">제공 검증기와 상품 형식 변환 연결</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--code"><h3  data-wd-i18n="topic_49_panel_0_label">adapters.ts · 검증 이후의 변환</h3><pre class="wd-code" data-wd-code="typescript" data-wd-code-width="56" data-wd-i18n="topic_49_panel_0_code">function toProduct(raw: ApiProduct): Product {
+  return {
+    id: raw.id,
+    name: raw.product_name,
+    price: raw.unit_price,
+    stock: raw.stock
+  };
+}</pre></div><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_49_panel_1_label">fixture와 기대 결과</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_49_panel_1_head_0">주소의 쿼리</th><th scope="col" data-wd-i18n="topic_49_panel_1_head_1">기대 결과</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_49_panel_1_cell_0_0">?fixture=valid</td><td  data-wd-i18n="topic_49_panel_1_cell_0_1">검증 → 변환 → 상품 표시</td></tr><tr><td  data-wd-i18n="topic_49_panel_1_cell_1_0">?fixture=missing</td><td  data-wd-i18n="topic_49_panel_1_cell_1_1">필드 누락으로 검증 실패</td></tr><tr><td  data-wd-i18n="topic_49_panel_1_cell_2_0">?fixture=wrong</td><td  data-wd-i18n="topic_49_panel_1_cell_2_1">문자열 가격으로 검증 실패</td></tr></tbody></table></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_49_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-50" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_50_title">정상 · 실패 · 경계 검증</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_50_subtitle">주문 금액 · 잘못된 수량 · 상품 없음 · 요청 실패 확인</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_50_panel_0_label">검증 시나리오</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_50_panel_0_head_0">시나리오</th><th scope="col" data-wd-i18n="topic_50_panel_0_head_1">기대 결과</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_50_panel_0_cell_0_0">노트 2개 · 일반 / 회원</td><td  data-wd-i18n="topic_50_panel_0_cell_0_1">6,000원 / 5,400원</td></tr><tr><td  data-wd-i18n="topic_50_panel_0_cell_1_0">0 · 음수 · 소수 · 재고 초과</td><td  data-wd-i18n="topic_50_panel_0_cell_1_1">주문 요청 전 거부</td></tr><tr><td  data-wd-i18n="topic_50_panel_0_cell_2_0">없는 상품 ID · 품절 상품</td><td  data-wd-i18n="topic_50_panel_0_cell_2_1">실패 결과 반환</td></tr><tr><td  data-wd-i18n="topic_50_panel_0_cell_3_0">요청 실패 → 체크 해제 → 재시도</td><td  data-wd-i18n="topic_50_panel_0_cell_3_1">오류 표시 → 버튼 복구 → 성공</td></tr></tbody></table></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_50_panel_1_label">자동 검사와 화면 검사</h3><ul class="week3-points"><li  data-wd-i18n="topic_50_panel_1_item_0">npm run check · 타입 검사</li><li  data-wd-i18n="topic_50_panel_1_item_1">npm test · 계산과 경계값 검사</li><li  data-wd-i18n="topic_50_panel_1_item_2">브라우저 · 중복 제출 방지와 실패 후 복구</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_50_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-51" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_51_title">AI 코드 예측과 검토</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_51_subtitle">결과 예측 → 제안 검토 → 코드 수정 → 반례 실행</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--flow"><h3  data-wd-i18n="topic_51_panel_0_label">AI 코드 검토 절차</h3><ol class="week3-flow"><li  data-wd-i18n="topic_51_panel_0_item_0">실행 전 결과와 타입 예측</li><li  data-wd-i18n="topic_51_panel_0_item_1">특정 줄의 설명과 반례 요청</li><li  data-wd-i18n="topic_51_panel_0_item_2">변경 전후 비교와 직접 수정</li><li  data-wd-i18n="topic_51_panel_0_item_3">반례 실행과 결과 기록</li></ol></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_51_panel_1_label">검토 예시 · 수량 변환</h3><ul class="week3-points"><li  data-wd-i18n="topic_51_panel_1_item_0">제안 · Number 대신 parseInt 사용</li><li  data-wd-i18n="topic_51_panel_1_item_1">반례 · parseInt(&quot;2abc&quot;) → 2</li><li  data-wd-i18n="topic_51_panel_1_item_2">판단 · 잘못된 수량 문자열 허용으로 제안 거절</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_51_practice_link">실습 README</a></footer>
+          </section>
+
+          <section class="wd-slide wd-slide--content week3-slide" data-wd-slide="topic-52" data-chapter="08" role="region">
+            <h2 class="wd-slide-heading" data-wd-i18n="topic_52_title">제출물과 코드 설명</h2>
+            <p class="wd-slide-lead" data-wd-i18n="topic_52_subtitle">동작 코드 · 오류 기록 · 타입 검사와 실행 검증의 역할</p>
+            <div class="week3-body week3-body--split"><div class="week3-panel week3-panel--table"><h3  data-wd-i18n="topic_52_panel_0_label">제출물</h3><table class="week3-table"><thead><tr><th scope="col" data-wd-i18n="topic_52_panel_0_head_0">자료</th><th scope="col" data-wd-i18n="topic_52_panel_0_head_1">내용</th></tr></thead><tbody><tr><td  data-wd-i18n="topic_52_panel_0_cell_0_0">소스 코드</td><td  data-wd-i18n="topic_52_panel_0_cell_0_1">필수 TODO 구현 · 실행 안내 · 잠금 파일</td></tr><tr><td  data-wd-i18n="topic_52_panel_0_cell_1_0">review.md</td><td  data-wd-i18n="topic_52_panel_0_cell_1_1">예측 · 실제 결과 · 수정 원인</td></tr><tr><td  data-wd-i18n="topic_52_panel_0_cell_2_0">검증 결과</td><td  data-wd-i18n="topic_52_panel_0_cell_2_1">타입 검사 · 기능 검사 · 브라우저 실패 시나리오</td></tr></tbody></table></div><div class="week3-panel week3-panel--points"><h3  data-wd-i18n="topic_52_panel_1_label">코드 설명 기준</h3><ul class="week3-points"><li  data-wd-i18n="topic_52_panel_1_item_0">입력 → 검증 → 계산 → 요청 → 화면 추적</li><li  data-wd-i18n="topic_52_panel_1_item_1">타입 검사로 찾은 오류 설명</li><li  data-wd-i18n="topic_52_panel_1_item_2">실행 검증이 필요한 오류 설명</li></ul></div></div><footer class="week3-references"><a href="./practice/README.md" data-wd-i18n="topic_52_practice_link">실습 README</a></footer>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="lecture-content.js"></script>
     <script src="../shared/lecture-deck.js"></script>
     <script src="../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
     <script src="../../packages/web-deck/web-deck.js"></script>

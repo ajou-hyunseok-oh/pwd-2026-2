@@ -1,0 +1,438 @@
+[
+  {
+    "title": "웹 프로그래밍 언어의 역사",
+    "titleEn": "History of Web Programming Languages",
+    "subtitle": "웹의 변화 · JavaScript의 등장과 표준화",
+    "subtitleEn": "The Evolving Web · JavaScript Origins and Standardization",
+    "number": 1,
+    "topics": [
+      {
+        "title": "웹 문서와 프로그램의 역할",
+        "titleEn": "Roles of Web Documents and Programs",
+        "subtitle": "문서 전달 → 서버의 데이터 처리 · 브라우저의 상호작용",
+        "subtitleEn": "Document Delivery → Server Data Processing · Browser Interaction",
+        "sourcePage": 1
+      },
+      {
+        "title": "JavaScript의 탄생",
+        "titleEn": "JavaScript Origins",
+        "subtitle": "1995년 Netscape의 브라우저 스크립트 언어",
+        "subtitleEn": "Netscape’s Browser Scripting Language, 1995",
+        "sourcePage": 2
+      },
+      {
+        "title": "ECMAScript 표준화",
+        "titleEn": "ECMAScript Standardization",
+        "subtitle": "공통 언어 규칙과 ES2015 이후의 문법",
+        "subtitleEn": "Shared Language Rules and Syntax from ES2015 Onward",
+        "sourcePage": 3
+      }
+    ]
+  },
+  {
+    "title": "JavaScript의 기본 문법과 특징",
+    "titleEn": "JavaScript Syntax and Features",
+    "subtitle": "값과 연산 · 함수와 객체 · 이벤트와 비동기",
+    "subtitleEn": "Values and Operations · Functions and Objects · Events and Async Operations",
+    "number": 2,
+    "topics": [
+      {
+        "title": "값 · 타입 · 변수",
+        "titleEn": "Values, Types, and Variables",
+        "subtitle": "값의 타입과 let · const의 재할당 규칙",
+        "subtitleEn": "Value Types and Reassignment Rules for let and const",
+        "sourcePage": 4
+      },
+      {
+        "title": "연산자와 형 변환",
+        "titleEn": "Operators and Type Conversion",
+        "subtitle": "명시적 · 암묵적 변환에 따른 연산 결과",
+        "subtitleEn": "Operation Results with Explicit and Implicit Conversion",
+        "sourcePage": 5
+      },
+      {
+        "title": "조건문과 입력 검증",
+        "titleEn": "Conditions and Input Validation",
+        "subtitle": "비교 · 논리 연산으로 수량과 재고 조건 검사",
+        "subtitleEn": "Quantity and Stock Checks with Comparison and Logical Operators",
+        "sourcePage": 6
+      },
+      {
+        "title": "배열과 반복문",
+        "titleEn": "Arrays and Loops",
+        "subtitle": "배열 순회와 누적 변수로 주문 금액 합산",
+        "subtitleEn": "Order Totals from Array Iteration and an Accumulator",
+        "sourcePage": 7
+      },
+      {
+        "title": "함수와 블록 스코프",
+        "titleEn": "Functions and Block Scope",
+        "subtitle": "매개변수 · 반환값 · 변수 접근 범위",
+        "subtitleEn": "Parameters · Return Values · Variable Scope",
+        "sourcePage": 8
+      },
+      {
+        "title": "일급 함수 · 콜백 · 클로저",
+        "titleEn": "First-Class Functions, Callbacks, and Closures",
+        "subtitle": "함수 전달과 반환 · 바깥 범위의 변수 접근",
+        "subtitleEn": "Passing and Returning Functions · Access to Enclosing Variables",
+        "sourcePage": 9
+      },
+      {
+        "title": "객체 리터럴과 멤버",
+        "titleEn": "Object Literals and Members",
+        "subtitle": "프로퍼티와 메서드로 상품 속성과 동작 표현",
+        "subtitleEn": "Product Data and Behavior as Properties and Methods",
+        "sourcePage": 10
+      },
+      {
+        "title": "객체 참조와 얕은 복사",
+        "titleEn": "Object References and Shallow Copies",
+        "subtitle": "대입의 참조 공유 · 스프레드의 중첩 참조 유지",
+        "subtitleEn": "Shared References in Assignment · Nested References Retained by Spread",
+        "sourcePage": 11
+      },
+      {
+        "title": "filter · map의 목록 변환",
+        "titleEn": "List Transformation with filter and map",
+        "subtitle": "조건에 맞는 상품 선택 · 필요한 값 추출",
+        "subtitleEn": "Selecting Matching Products · Extracting Required Values",
+        "sourcePage": 12
+      },
+      {
+        "title": "DOM 이벤트와 입력 처리",
+        "titleEn": "DOM Events and Input Handling",
+        "subtitle": "처리 함수 등록 → 입력값 변환 → 주문 호출",
+        "subtitleEn": "Handler Registration → Input Conversion → Order Call",
+        "sourcePage": 13
+      },
+      {
+        "title": "Promise와 async/await",
+        "titleEn": "Promise and async/await",
+        "subtitle": "요청 완료 대기 · try/catch로 성공과 실패 처리",
+        "subtitleEn": "Waiting for Requests · Handling Success and Failure with try/catch",
+        "sourcePage": 14
+      }
+    ]
+  },
+  {
+    "title": "JavaScript의 장점과 오류 위험",
+    "titleEn": "JavaScript Strengths and Error Risks",
+    "subtitle": "유연한 코드 조합 · 형 변환과 공유 상태의 오류",
+    "subtitleEn": "Flexible Code Composition · Conversion and Shared State Errors",
+    "number": 3,
+    "topics": [
+      {
+        "title": "동적 타입과 코드 조합",
+        "titleEn": "Dynamic Typing and Code Composition",
+        "subtitle": "다양한 값 · 함수 · 객체의 유연한 조합",
+        "subtitleEn": "Flexible Combinations of Values, Functions, and Objects",
+        "sourcePage": 15
+      },
+      {
+        "title": "형 변환 · 오타 · 공유 상태 오류",
+        "titleEn": "Conversion, Typo, and Shared State Errors",
+        "subtitle": "잘못된 값 전달과 객체 변경으로 생기는 오류",
+        "subtitleEn": "Errors from Incorrect Values and Object Mutations",
+        "sourcePage": 16
+      },
+      {
+        "title": "타입 검사와 실행 시 검증",
+        "titleEn": "Type Checking and Runtime Validation",
+        "subtitle": "타입 사용 오류 검사 · 실제 입력과 업무 규칙 검증",
+        "subtitleEn": "Type Usage Checks · Input and Business Rule Validation",
+        "sourcePage": 17
+      }
+    ]
+  },
+  {
+    "title": "TypeScript의 등장과 역할",
+    "titleEn": "TypeScript Origins and Role",
+    "subtitle": "JavaScript 확장 · 타입 검사와 코드 변환",
+    "subtitleEn": "Extending JavaScript · Type Checking and Code Transformation",
+    "number": 4,
+    "topics": [
+      {
+        "title": "TypeScript의 등장 배경",
+        "titleEn": "TypeScript Origins",
+        "subtitle": "2012년 공개 · 대규모 JavaScript의 구조화와 오류 발견 지원",
+        "subtitleEn": "Introduced in 2012 · Structure and Error Detection for Large JavaScript Projects",
+        "sourcePage": 18
+      },
+      {
+        "title": "정적 타입 검사와 코드 변환",
+        "titleEn": "Static Type Checking and Code Transformation",
+        "subtitle": "실행 전 타입 검사 · 타입 표기 없는 JavaScript 출력",
+        "subtitleEn": "Pre-Execution Type Checking · JavaScript Output Without Type Annotations",
+        "sourcePage": 19
+      }
+    ]
+  },
+  {
+    "title": "TypeScript의 기본 문법과 특징",
+    "titleEn": "TypeScript Syntax and Features",
+    "subtitle": "타입 계약 · 타입 좁히기 · 외부 데이터 검증",
+    "subtitleEn": "Type Contracts · Narrowing · External Data Validation",
+    "number": 5,
+    "topics": [
+      {
+        "title": "타입 표기와 추론",
+        "titleEn": "Type Annotations and Inference",
+        "subtitle": "타입의 명시적 선언 · 초기값에 따른 추론",
+        "subtitleEn": "Explicit Type Annotations · Inference from Initial Values",
+        "sourcePage": 20
+      },
+      {
+        "title": "함수의 매개변수 · 반환 타입",
+        "titleEn": "Function Parameter and Return Types",
+        "subtitle": "함수 입력과 출력의 타입 계약",
+        "subtitleEn": "Type Contracts for Function Inputs and Outputs",
+        "sourcePage": 21
+      },
+      {
+        "title": "객체 타입: type · interface",
+        "titleEn": "Object Types: type and interface",
+        "subtitle": "필수 속성과 각 속성의 타입 정의",
+        "subtitleEn": "Required Properties and Their Types",
+        "sourcePage": 22
+      },
+      {
+        "title": "리터럴 타입과 유니온",
+        "titleEn": "Literal Types and Unions",
+        "subtitle": "주문 상태를 정해진 값의 집합으로 제한",
+        "subtitleEn": "Order Status Restricted to a Defined Set of Values",
+        "sourcePage": 23
+      },
+      {
+        "title": "선택적 속성과 undefined",
+        "titleEn": "Optional Properties and undefined",
+        "subtitle": "속성이나 검색 결과의 존재 여부 확인",
+        "subtitleEn": "Existence Checks for Properties and Search Results",
+        "sourcePage": 24
+      },
+      {
+        "title": "조건문과 타입 좁히기",
+        "titleEn": "Conditions and Type Narrowing",
+        "subtitle": "조건과 판별 속성으로 사용 가능한 타입 구분",
+        "subtitleEn": "Type Refinement with Conditions and Discriminants",
+        "sourcePage": 25
+      },
+      {
+        "title": "any와 unknown",
+        "titleEn": "any and unknown",
+        "subtitle": "검사를 우회하는 any · 확인 후 사용하는 unknown",
+        "subtitleEn": "any Bypasses Checks · unknown Requires Checks Before Use",
+        "sourcePage": 26
+      },
+      {
+        "title": "타입 단언과 데이터 검증",
+        "titleEn": "Type Assertions and Data Validation",
+        "subtitle": "컴파일러의 타입 판단 변경과 실제 값 검증의 차이",
+        "subtitleEn": "Compiler Type Assumptions Versus Actual Value Checks",
+        "sourcePage": 27
+      },
+      {
+        "title": "제네릭과 타입 관계",
+        "titleEn": "Generics and Type Relationships",
+        "subtitle": "구체 타입이 달라도 입력 · 출력의 타입 관계 유지",
+        "subtitleEn": "Input–Output Type Relationships Preserved Across Concrete Types",
+        "sourcePage": 28
+      },
+      {
+        "title": "모듈과 구조적 타입",
+        "titleEn": "Modules and Structural Types",
+        "subtitle": "import · export로 역할 분리 · 필요한 멤버로 호환성 판단",
+        "subtitleEn": "Roles Separated by Imports and Exports · Compatibility by Required Members",
+        "sourcePage": 29
+      }
+    ]
+  },
+  {
+    "title": "웹 프로그래밍 패러다임",
+    "titleEn": "Web Programming Paradigms",
+    "subtitle": "실행 순서 · 계산과 상태 · 이벤트와 화면",
+    "subtitleEn": "Execution Order · Computation and State · Events and UI",
+    "number": 6,
+    "topics": [
+      {
+        "title": "명령형 · 절차적 주문 처리",
+        "titleEn": "Imperative and Procedural Order Processing",
+        "subtitle": "검증 → 계산 → 저장 요청 → 결과 반환",
+        "subtitleEn": "Validation → Calculation → Save Request → Result",
+        "sourcePage": 30
+      },
+      {
+        "title": "순수 함수와 불변성",
+        "titleEn": "Pure Functions and Immutability",
+        "subtitle": "입력과 외부 상태를 바꾸지 않는 계산",
+        "subtitleEn": "Computation Without Mutating Inputs or External State",
+        "sourcePage": 31
+      },
+      {
+        "title": "캡슐화와 장바구니 상태",
+        "titleEn": "Encapsulation and Cart State",
+        "subtitle": "상태와 동작을 묶고 메서드로 변경 제어",
+        "subtitleEn": "State and Behavior Combined · Changes Controlled Through Methods",
+        "sourcePage": 32
+      },
+      {
+        "title": "이벤트와 비동기 실행",
+        "titleEn": "Events and Async Execution",
+        "subtitle": "사용자 행동에 따른 실행 · 요청 완료 순서 관리",
+        "subtitleEn": "Execution on User Actions · Request Completion Order Management",
+        "sourcePage": 33
+      },
+      {
+        "title": "선언형 UI와 반응형 계산",
+        "titleEn": "Declarative UI and Reactive Computation",
+        "subtitle": "상태로 화면 표현 · 의존 값 변화로 파생 값 갱신",
+        "subtitleEn": "UI Defined by State · Derived Values Updated by Dependency Changes",
+        "sourcePage": 34
+      },
+      {
+        "title": "패러다임 조합과 책임 분리",
+        "titleEn": "Paradigm Composition and Responsibility Separation",
+        "subtitle": "주문 기능의 이벤트 · 절차 · 계산 · 상태 · 화면 역할",
+        "subtitleEn": "Roles of Events, Procedures, Computation, State, and UI in Orders",
+        "sourcePage": 35
+      }
+    ]
+  },
+  {
+    "title": "TypeScript의 디자인 패턴",
+    "titleEn": "Design Patterns in TypeScript",
+    "subtitle": "Strategy의 정책 교체 · Adapter의 형식 변환",
+    "subtitleEn": "Policy Replacement with Strategy · Format Conversion with Adapter",
+    "number": 7,
+    "topics": [
+      {
+        "title": "할인 정책과 Strategy 패턴",
+        "titleEn": "Discount Policies and the Strategy Pattern",
+        "subtitle": "계산 방식을 분리해 정책 변경 범위 축소",
+        "subtitleEn": "Calculations Separated to Limit the Scope of Policy Changes",
+        "sourcePage": 36
+      },
+      {
+        "title": "함수 타입과 정책 교체",
+        "titleEn": "Function Types and Policy Replacement",
+        "subtitle": "공통 함수 타입으로 일반 · 회원 가격 정책 전달",
+        "subtitleEn": "Regular and Member Pricing Policies Passed with a Shared Function Type",
+        "sourcePage": 37
+      },
+      {
+        "title": "상품 형식과 Adapter 패턴",
+        "titleEn": "Product Formats and the Adapter Pattern",
+        "subtitle": "외부 상품 필드를 내부 Product 형식으로 변환",
+        "subtitleEn": "External Product Fields Converted to the Internal Product Format",
+        "sourcePage": 38
+      },
+      {
+        "title": "입력 검증과 형식 변환",
+        "titleEn": "Input Validation and Format Conversion",
+        "subtitle": "unknown → 검증된 외부 데이터 → 내부 상품 → 주문 계산",
+        "subtitleEn": "unknown → Validated External Data → Internal Product → Order Calculation",
+        "sourcePage": 39
+      },
+      {
+        "title": "Strategy · Adapter 적용 기준",
+        "titleEn": "Strategy and Adapter Selection Criteria",
+        "subtitle": "변경 지점 · 데이터 경계 · 구현 비용에 따른 선택",
+        "subtitleEn": "Selection Based on Change Points, Data Boundaries, and Implementation Cost",
+        "sourcePage": 40
+      }
+    ]
+  },
+  {
+    "title": "실습: TypeScript 상품 주문 기능",
+    "titleEn": "Lab: Product Ordering with TypeScript",
+    "subtitle": "기능 구현 · 코드 읽기 · 실행 검증",
+    "subtitleEn": "Implementation · Code Reading · Runtime Verification",
+    "number": 8,
+    "topics": [
+      {
+        "title": "실습 화면과 요구사항",
+        "titleEn": "Lab UI and Requirements",
+        "subtitle": "HTML · CSS 제공 · 상품 선택 · 수량 검증 · 할인 구현",
+        "subtitleEn": "Provided HTML and CSS · Product Selection, Validation, and Discounts",
+        "sourcePage": 41
+      },
+      {
+        "title": "실습 데이터와 주문 흐름",
+        "titleEn": "Lab Data and Order Flow",
+        "subtitle": "상품과 입력값 → 검증과 계산 → 주문 결과",
+        "subtitleEn": "Products and Input → Validation and Calculation → Order Result",
+        "sourcePage": 42
+      },
+      {
+        "title": "프로젝트 구조와 실행",
+        "titleEn": "Project Structure and Execution",
+        "subtitle": "제공 코드 · 수정 대상 · 실행과 타입 검사",
+        "subtitleEn": "Provided Code · Student Changes · Execution and Type Checking",
+        "sourcePage": 43
+      },
+      {
+        "title": "JavaScript 오류 재현",
+        "titleEn": "JavaScript Error Reproduction",
+        "subtitle": "문자열 연산 · 속성 오타 · 없는 상품 접근의 결과 비교",
+        "subtitleEn": "Result Comparison for String Operations, Property Typos, and Missing Products",
+        "sourcePage": 44
+      },
+      {
+        "title": "수량 변환과 검증",
+        "titleEn": "Quantity Conversion and Validation",
+        "subtitle": "빈 입력 거부 · 유한한 양의 정수와 재고 범위 확인",
+        "subtitleEn": "Empty Input Rejection · Finite Positive Integer and Stock Checks",
+        "sourcePage": 45
+      },
+      {
+        "title": "주문 코드의 TypeScript 전환",
+        "titleEn": "Order Code Conversion to TypeScript",
+        "subtitle": "상품 구조와 함수 입력 · 출력에 타입 추가",
+        "subtitleEn": "Types Added to Products and Function Inputs and Outputs",
+        "sourcePage": 46
+      },
+      {
+        "title": "타입 오류와 undefined 처리",
+        "titleEn": "Type Errors and undefined Handling",
+        "subtitle": "잘못된 인수 · 속성 오타 · 값이 없는 경로 수정",
+        "subtitleEn": "Corrections for Invalid Arguments, Property Typos, and Missing Values",
+        "sourcePage": 47
+      },
+      {
+        "title": "할인 정책 분리 실습",
+        "titleEn": "Discount Policy Separation Lab",
+        "subtitle": "일반 · 회원 가격 함수 구현과 주문 함수에 전달",
+        "subtitleEn": "Regular and Member Pricing Functions Implemented and Passed to Order Logic",
+        "sourcePage": 48
+      },
+      {
+        "title": "Adapter 확장 실습",
+        "titleEn": "Adapter Extension Lab",
+        "subtitle": "제공 검증기와 상품 형식 변환 연결",
+        "subtitleEn": "Provided Validator Connected to Product Format Conversion",
+        "sourcePage": 49
+      },
+      {
+        "title": "정상 · 실패 · 경계 검증",
+        "titleEn": "Normal, Failure, and Boundary Checks",
+        "subtitle": "주문 금액 · 잘못된 수량 · 상품 없음 · 요청 실패 확인",
+        "subtitleEn": "Checks for Totals, Invalid Quantities, Missing Products, and Request Failures",
+        "sourcePage": 50
+      },
+      {
+        "title": "AI 코드 예측과 검토",
+        "titleEn": "AI Code Prediction and Review",
+        "subtitle": "결과 예측 → 제안 검토 → 코드 수정 → 반례 실행",
+        "subtitleEn": "Result Prediction → Suggestion Review → Code Changes → Counterexamples",
+        "sourcePage": 51
+      },
+      {
+        "title": "제출물과 코드 설명",
+        "titleEn": "Deliverables and Code Explanation",
+        "subtitle": "동작 코드 · 오류 기록 · 타입 검사와 실행 검증의 역할",
+        "subtitleEn": "Working Code · Error Records · Roles of Type Checking and Runtime Validation",
+        "sourcePage": 52
+      }
+    ]
+  }
+]

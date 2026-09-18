@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3주차 · 공학용 계산기</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">WEEK 03 / TYPESCRIPT</p>
+          <h1>공학용 계산기</h1>
+        </div>
+        <span class="version">학생용 시작 코드</span>
+      </header>
+      <div class="workspace">
+        <form id="calculator" novalidate>
+          <div class="panel-heading">
+            <h2>계산</h2>
+            <span id="selection">x + y</span>
+          </div>
+          <div class="screen" aria-labelledby="result-heading">
+            <h3 id="result-heading">RESULT</h3>
+            <p id="expression"></p>
+            <output id="result" aria-live="polite">—</output>
+            <p id="status" role="status">숫자와 연산을 선택하세요.</p>
+          </div>
+          <fieldset>
+            <legend>연산</legend>
+            <div class="operations">
+              <button
+                type="button"
+                data-operation="add"
+                aria-pressed="true"
+                aria-label="덧셈"
+              >
+                +
+              </button>
+              <button
+                type="button"
+                data-operation="subtract"
+                aria-pressed="false"
+                aria-label="뺄셈"
+              >
+                −
+              </button>
+              <button
+                type="button"
+                data-operation="multiply"
+                aria-pressed="false"
+                aria-label="곱셈"
+              >
+                ×
+              </button>
+              <button
+                type="button"
+                data-operation="divide"
+                aria-pressed="false"
+                aria-label="나눗셈"
+              >
+                ÷
+              </button>
+              <button
+                type="button"
+                data-operation="square"
+                aria-pressed="false"
+                aria-label="제곱"
+              >
+                x²
+              </button>
+              <button
+                type="button"
+                data-operation="sqrt"
+                aria-pressed="false"
+                aria-label="제곱근"
+              >
+                √x
+              </button>
+              <button type="button" data-operation="sin" aria-pressed="false">
+                sin
+              </button>
+              <button type="button" data-operation="cos" aria-pressed="false">
+                cos
+              </button>
+              <button type="button" data-operation="tan" aria-pressed="false">
+                tan
+              </button>
+              <button
+                type="button"
+                data-operation="ln"
+                aria-pressed="false"
+                aria-label="자연로그"
+              >
+                ln
+              </button>
+              <button
+                type="button"
+                data-operation="log10"
+                aria-pressed="false"
+                aria-label="상용로그"
+              >
+                log₁₀
+              </button>
+            </div>
+          </fieldset>
+          <div class="inputs">
+            <div>
+              <label for="x">첫 번째 수 · x</label
+              ><input
+                id="x"
+                type="text"
+                inputmode="decimal"
+                value="12"
+                autocomplete="off"
+                aria-describedby="input-hint"
+              />
+            </div>
+            <div id="y-field">
+              <label for="y">두 번째 수 · y</label
+              ><input
+                id="y"
+                type="text"
+                inputmode="decimal"
+                value="3"
+                autocomplete="off"
+                aria-describedby="input-hint"
+              />
+            </div>
+          </div>
+          <div class="unit-row">
+            <label for="unit">각도 단위</label
+            ><select id="unit" disabled>
+              <option value="deg">DEG · 도</option>
+              <option value="rad">RAD · 라디안</option>
+            </select>
+          </div>
+          <p id="input-hint" class="hint">
+            음수·소수·지수 표기 입력 가능 · 예: -2.5, 1e3
+          </p>
+          <div class="actions">
+            <button id="clear" type="button">입력 지우기</button
+            ><button id="calculate" type="submit">계산 =</button>
+          </div>
+        </form>
+        <aside class="history-panel" aria-labelledby="history-heading">
+          <div class="panel-heading">
+            <h2 id="history-heading">계산 이력</h2>
+            <span>최근 5개</span>
+          </div>
+          <p id="empty-history" class="empty">완료한 계산이 여기에 표시됩니다.</p>
+          <ol id="history"></ol>
+          <button id="clear-history" type="button" disabled>이력 지우기</button>
+        </aside>
+      </div>
+      <footer>
+        실수 범위 · 결과는 최대 12자리 유효숫자로 표시 · 새로고침하면 이력 초기화
+      </footer>
+    </main>
+    <script type="module" src="dist/src/main.js"></script>
+  </body>
+</html>

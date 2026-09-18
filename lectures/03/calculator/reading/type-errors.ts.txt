@@ -1,0 +1,13 @@
+// src/type-experiment.ts로 복사한 다음 npm run check를 실행합니다.
+// 타입 오류를 하나씩 설명하고 수정합니다. any, as, !로 우회하지 않습니다.
+import type { OperationId, Result } from './types.js';
+import { add } from './operations.js';
+
+const operation: OperationId = 'plus';
+add('2', 3);
+
+function show(result: Result<number>): string {
+  return result.data.toFixed(2);
+}
+
+console.log(operation, show(add(2, 3)));

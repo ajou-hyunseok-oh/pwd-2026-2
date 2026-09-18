@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3주차 · 작은 문구점</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">WEEK 03 · TYPESCRIPT LAB</p><h1>작은 문구점</h1><p>상품을 고르고 수량과 할인을 적용해 주문하세요.</p></header>
+    <section aria-labelledby="catalog-title">
+      <h2 id="catalog-title">상품 목록</h2>
+      <ul id="products"></ul>
+      <button id="reload" type="button">상품 다시 불러오기</button>
+      <label><input id="load-failure" type="checkbox"> 상품 조회 실패 재현</label>
+    </section>
+    <form id="order-form" novalidate>
+      <h2>주문서</h2>
+      <label for="product">상품</label><select id="product" name="product"></select>
+      <label for="quantity">수량</label><input id="quantity" name="quantity" type="text" inputmode="decimal" value="2" autocomplete="off">
+      <label for="policy">할인</label><select id="policy" name="policy"><option value="regular">일반 · 할인 없음</option><option value="member">회원 · 10% 할인</option></select>
+      <label><input id="save-failure" type="checkbox"> 주문 요청 실패 재현</label>
+      <button id="submit" type="submit" disabled>주문하기</button>
+    </form>
+    <section aria-labelledby="result-title"><h2 id="result-title">주문 결과</h2><p id="status" role="status" aria-live="polite">상품을 불러오는 중입니다.</p><p id="result"></p></section>
+    <footer>학습용 모의 주문입니다. 결제와 재고 차감은 수행하지 않습니다.</footer>
+  </main>
+  <script type="module" src="dist/src/main.js"></script>
+</body>
+</html>

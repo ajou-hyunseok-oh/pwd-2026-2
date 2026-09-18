@@ -1,0 +1,17 @@
+{
+  "name": "pwd-week3-typescript-calculator",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "start": "npm run build && node server.mjs",
+    "watch": "tsc --watch",
+    "test": "npm run build && node tests/calculator.test.mjs",
+    "test:solution": "npm run build && node tests/calculator.test.mjs --solution",
+    "trace": "npm run build && node dist/reading/runtime-review.js"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

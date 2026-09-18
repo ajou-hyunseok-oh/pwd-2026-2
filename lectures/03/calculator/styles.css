@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  color-scheme: light;
+  font-family: 'Malgun Gothic', system-ui, sans-serif;
+  color: #172d29;
+  background: #eef3f1;
+}
+body {
+  margin: 0;
+  line-height: 1.6;
+}
+main {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0 24px;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: 2.15rem;
+  letter-spacing: -0.05em;
+}
+h2 {
+  font-size: 1rem;
+}
+.page-header,
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.page-header {
+  margin-bottom: 28px;
+}
+.eyebrow {
+  font:
+    700 0.73rem/1.5 Consolas,
+    monospace;
+  color: #496c61;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+.version {
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  border: 1px solid #aac1b6;
+  border-radius: 20px;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(240px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+form,
+.history-panel {
+  background: white;
+  padding: 24px;
+  border: 1px solid #d3dfd9;
+  border-radius: 18px;
+  min-width: 0;
+}
+.panel-heading {
+  margin-bottom: 18px;
+}
+.panel-heading span {
+  color: #5b7369;
+  font-size: 0.83rem;
+}
+#selection {
+  font-family: Consolas, monospace;
+  font-size: 1rem;
+}
+.screen {
+  background: #172f29;
+  color: #d6f3c7;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.screen h3 {
+  font:
+    700 0.68rem Consolas,
+    monospace;
+  letter-spacing: 0.18em;
+  color: #a6c6b2;
+}
+#expression {
+  min-height: 24px;
+  margin-top: 16px;
+  overflow-wrap: anywhere;
+  font:
+    0.9rem/1.6 Consolas,
+    monospace;
+}
+#result {
+  display: block;
+  min-height: 62px;
+  font:
+    2.45rem/1.5 Consolas,
+    monospace;
+  overflow-wrap: anywhere;
+}
+#status {
+  min-height: 22px;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #d1e0d5;
+}
+#status[data-state='error'] {
+  color: #ffd0b3;
+}
+fieldset {
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+}
+legend {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.operations {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  border: 1px solid #b8cdc2;
+  background: #f7faf8;
+  color: #173d2d;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+button:hover {
+  background: #e7f0ea;
+}
+.operations button {
+  font:
+    1.1rem/1.4 Consolas,
+    monospace;
+  min-height: 48px;
+}
+button[aria-pressed='true'],
+#calculate {
+  background: #246744;
+  color: white;
+  border-color: #246744;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #91ae9d;
+  border-radius: 7px;
+  background: white;
+  min-width: 0;
+}
+input {
+  font-family: Consolas, monospace;
+  font-size: 1.1rem;
+}
+select:disabled {
+  color: #77827b;
+  border-color: #d0d9d3;
+}
+.unit-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+.unit-row label {
+  margin: 0;
+  flex: 1;
+}
+.unit-row select {
+  width: 180px;
+}
+.hint {
+  font-size: 0.75rem;
+  color: #5b7369;
+  margin-top: 12px;
+}
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+#history {
+  padding: 0;
+  list-style: none;
+  margin: 0 0 18px;
+}
+#history li {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom: 1px solid #dce5df;
+  padding: 16px 0;
+  overflow-wrap: anywhere;
+}
+#history span {
+  font:
+    0.85rem/1.5 Consolas,
+    monospace;
+  color: #5b7369;
+}
+#history strong {
+  font:
+    1.3rem/1.5 Consolas,
+    monospace;
+}
+.empty {
+  font-size: 0.85rem;
+  color: #5b7369;
+  padding: 28px 0;
+}
+#clear-history {
+  width: 100%;
+  font-size: 0.8rem;
+}
+footer {
+  margin-top: 24px;
+  color: #597166;
+  font-size: 0.75rem;
+}
+:focus-visible {
+  outline: 3px solid #c07e28;
+  outline-offset: 3px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 740px) {
+  main {
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  form,
+  .history-panel {
+    padding: 20px;
+  }
+  .unit-row {
+    flex-wrap: wrap;
+  }
+}

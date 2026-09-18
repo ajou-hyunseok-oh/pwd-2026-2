@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const prismRoot = path.dirname(require.resolve('prismjs/package.json'));
 const output = path.join(__dirname, '..', 'vendor', 'prism');
-const languages = ['core', 'markup', 'css', 'clike', 'javascript', 'jsx', 'bash', 'json'];
+const languages = ['core', 'markup', 'css', 'clike', 'javascript', 'jsx', 'typescript', 'tsx', 'bash', 'json'];
 const version = require('prismjs/package.json').version;
 const source = languages.map((language) =>
   fs.readFileSync(path.join(prismRoot, 'components', 'prism-' + language + '.min.js'), 'utf8')

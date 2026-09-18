@@ -1,0 +1,53 @@
+.week3-slide {
+  padding: 2.2rem 3rem 1.8rem;
+  background: var(--wd-paper);
+}
+
+.week3-slide :is(h1, h2, h3, h4, p, ul, ol, dl, pre, blockquote, figure) { margin-top: 0; margin-bottom: 0; }
+.week3-slide > * { min-width: 0; }
+.week3-slide .wd-slide-heading { flex: 0 0 auto; max-width: 28em; }
+.week3-slide .wd-slide-heading small { margin-left: .5em; color: var(--wd-muted); font: 600 .38em/1.3 var(--wd-font-mono); letter-spacing: .04em; white-space: nowrap; }
+.week3-slide .wd-slide-lead { max-width: 52em; margin-top: .7rem !important; }
+
+/* Cover and section dividers */
+.week3-cover { justify-content: center; }
+.week3-cover > div { max-width: 52rem; }
+.week3-eyebrow { color: var(--wd-muted); font-size: .72rem; font-weight: 700; letter-spacing: .06em; }
+.week3-cover h1 { margin-top: 1rem !important; font-size: 3rem; font-weight: 760; line-height: 1.14; letter-spacing: -.03em; word-break: keep-all; }
+.week3-cover__subtitle { margin-top: 1.2rem !important; color: var(--wd-muted); font-size: 1.32rem; font-weight: 650; line-height: 1.45; word-break: keep-all; }
+.week3-source { position: absolute; right: 3rem; bottom: 1.8rem; color: var(--wd-muted); font-size: .7rem; font-weight: 700; letter-spacing: .1em; }
+
+.week3-section { justify-content: center; }
+.week3-section__number { color: var(--wd-muted); font-size: .76rem; font-weight: 750; letter-spacing: .12em; }
+.week3-section h2 { max-width: 18em; margin-top: .8rem !important; font-size: 2.8rem; font-weight: 760; line-height: 1.2; letter-spacing: -.035em; word-break: keep-all; }
+.week3-section__lead { max-width: 34em; margin-top: 1.1rem !important; color: var(--wd-muted); font-size: 1.05rem; line-height: 1.5; word-break: keep-all; }
+
+/* Content layouts: shared code size remains 0.7rem / 14px in print. */
+.week3-body { display: grid; flex: 1; min-height: 0; margin-top: 1.15rem; gap: 1.6rem; align-items: start; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+.week3-body--single { grid-template-columns: minmax(0, 1fr); }
+.week3-body--equal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.week3-panel { min-width: 0; }
+.week3-panel h3 { margin-bottom: .6rem !important; color: #355241; font-size: .83rem; font-weight: 700; line-height: 1.4; }
+.week3-panel .wd-code { margin: 0; font-size: .7rem; line-height: 1.45; padding: .75rem .85rem; max-height: none; white-space: pre; }
+.week3-points { display: grid; padding-left: 1.05rem; gap: .85rem; font-size: .9rem; line-height: 1.65; word-break: keep-all; }
+.week3-points li::marker { color: #256747; }
+.week3-flow { display: grid; padding: 0; gap: .8rem; list-style: none; counter-reset: step; }
+.week3-flow li { position: relative; padding: .8rem .8rem .8rem 2.5rem; background: #f0f4f1; border-left: 3px solid #81998b; font-size: .92rem; line-height: 1.5; word-break: keep-all; counter-increment: step; }
+.week3-flow li::before { content: counter(step, decimal-leading-zero); position: absolute; left: .6rem; top: .9rem; color: #536159; font-size: .65rem; font-weight: 700; }
+.week3-table { width: 100%; border-collapse: collapse; font-size: .83rem; line-height: 1.55; word-break: keep-all; }
+.week3-table th { background: #edf3ef; text-align: left; font-weight: 700; }
+.week3-table td, .week3-table th { padding: .7rem .65rem; border-bottom: 1px solid var(--wd-line); vertical-align: top; }
+.week3-table td:first-child { width: 40%; font-weight: 600; }
+.week3-references { flex: 0 0 auto; margin-top: .45rem; color: var(--wd-muted); font-size: .6rem; line-height: 1.3; }
+.week3-references a { color: inherit; text-underline-offset: .15em; }
+.week3-output-label { margin-top: .55rem !important; font-size: .65rem; color: var(--wd-muted); }
+.week3-output { display: block; margin-top: .2rem; padding: .4rem .85rem; white-space: pre; font-size: .7rem; line-height: 1.45; }
+.week3-diagnostic { margin-top: .55rem !important; font-size: .75rem; line-height: 1.4; color: #983827; }
+@media screen and (max-width: 767px) {
+  .week3-slide { padding: 1.5rem 1rem; }
+  .week3-cover h1, .week3-section h2 { font-size: 2.2rem; }
+  .week3-body, .week3-body--equal, .week3-body--single { display: grid; flex: 0 0 auto; grid-template-columns: 1fr; gap: 1.4rem; }
+  .week3-panel .wd-code, .week3-output { font-size: 14px; overflow-x: auto; }
+  .week3-source { right: 1rem; bottom: 1rem; }
+  .week3-table { overflow-wrap: anywhere; }
+}

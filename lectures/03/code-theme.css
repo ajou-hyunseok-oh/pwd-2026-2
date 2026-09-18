@@ -1,0 +1,33 @@
+/* Lecture 03: match the original PDF's black / green Consolas code samples. */
+:root {
+  --wd-font-mono: Consolas, "Liberation Mono", "Malgun Gothic", monospace;
+  --lesson-code-green: #00ff00;
+}
+.wd-slide :is(pre.wd-code, pre.wd-code code, samp) {
+  font-family: var(--wd-font-mono);
+  font-variant-ligatures: none;
+  background: #000;
+  color: var(--lesson-code-green);
+  text-shadow: none;
+}
+.wd-slide .wd-code {
+  background: #000;
+  color: var(--lesson-code-green);
+  border-color: #263b26;
+  font-weight: 400;
+}
+.wd-slide .wd-code :is(code, .token) {
+  color: var(--lesson-code-green);
+  background: transparent;
+  text-shadow: none;
+}
+.wd-slide .lesson-terminal {
+  background: #000;
+  color: var(--lesson-code-green);
+}
+@media print {
+  .wd-slide :is(pre.wd-code, samp) {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

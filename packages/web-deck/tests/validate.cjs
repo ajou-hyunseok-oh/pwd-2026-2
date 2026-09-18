@@ -85,7 +85,7 @@ for (let week = 1; week <= 13; week += 1) {
 
   assert.match(html, /data-web-deck/, `Lecture ${number} is missing the deck root`);
   assert.match(html, /data-wd-slide="cover"/, `Lecture ${number} is missing its cover slide`);
-  const expectedSlideCount = { 1: 28, 2: 54 }[week] || 1;
+  const expectedSlideCount = { 1: 28, 2: 54, 3: 61 }[week] || 1;
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);

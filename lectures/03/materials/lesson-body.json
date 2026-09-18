@@ -1,0 +1,2596 @@
+{
+  "sources": {
+    "js-history": [
+      "JavaScript: The First 20 Years",
+      "https://www.cs.tufts.edu/comp/150FP/archive/brendan-eich/js-hopl.pdf"
+    ],
+    "ecma": [
+      "Ecma · ECMA-262",
+      "https://ecma-international.org/publications-and-standards/standards/ecma-262/"
+    ],
+    "grammar": [
+      "MDN · Grammar and Types",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
+    ],
+    "control": [
+      "MDN · Control Flow",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+    ],
+    "loops": [
+      "MDN · Loops and Iteration",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+    ],
+    "functions": [
+      "MDN · Functions",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+    ],
+    "objects": [
+      "MDN · Working with Objects",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects"
+    ],
+    "spread": [
+      "MDN · Spread Syntax",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax"
+    ],
+    "filter": [
+      "MDN · Array.filter",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"
+    ],
+    "map": [
+      "MDN · Array.map",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map"
+    ],
+    "events": [
+      "MDN · addEventListener",
+      "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"
+    ],
+    "fetch": [
+      "MDN · Using Fetch",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    ],
+    "ts-history": [
+      "Microsoft · Ten Years of TypeScript",
+      "https://devblogs.microsoft.com/typescript/ten-years-of-typescript/"
+    ],
+    "basics": [
+      "TypeScript · The Basics",
+      "https://www.typescriptlang.org/docs/handbook/2/basic-types.html"
+    ],
+    "types": [
+      "TypeScript · Everyday Types",
+      "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html"
+    ],
+    "narrow": [
+      "TypeScript · Narrowing",
+      "https://www.typescriptlang.org/docs/handbook/2/narrowing.html"
+    ],
+    "ts-functions": [
+      "TypeScript · More on Functions",
+      "https://www.typescriptlang.org/docs/handbook/2/functions.html"
+    ],
+    "generic": [
+      "TypeScript · Generics",
+      "https://www.typescriptlang.org/docs/handbook/2/generics.html"
+    ],
+    "modules": [
+      "TypeScript · Modules",
+      "https://www.typescriptlang.org/docs/handbook/2/modules.html"
+    ],
+    "compat": [
+      "TypeScript · Type Compatibility",
+      "https://www.typescriptlang.org/docs/handbook/type-compatibility.html"
+    ],
+    "classes": [
+      "TypeScript · Classes",
+      "https://www.typescriptlang.org/docs/handbook/2/classes.html"
+    ],
+    "pure": [
+      "React · Keeping Components Pure",
+      "https://react.dev/learn/keeping-components-pure"
+    ],
+    "react": [
+      "React · Reacting to Input with State",
+      "https://react.dev/learn/reacting-to-input-with-state"
+    ],
+    "vue": [
+      "Vue · Computed Properties",
+      "https://vuejs.org/guide/essentials/computed.html"
+    ],
+    "practice": [
+      "실습 README / Lab README",
+      "./practice/README.md"
+    ]
+  },
+  "slides": {
+    "1": {
+      "panels": [
+        {
+          "kind": "table",
+          "label": {
+            "ko": "문서 · 서버 · 브라우저",
+            "en": "Document, Server, and Browser"
+          },
+          "headers": [
+            {
+              "ko": "구성",
+              "en": "Component"
+            },
+            {
+              "ko": "역할",
+              "en": "Role"
+            },
+            {
+              "ko": "주문 서비스",
+              "en": "Order Service"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "HTML",
+                "en": "HTML"
+              },
+              {
+                "ko": "문서 구조",
+                "en": "Document structure"
+              },
+              {
+                "ko": "상품명 · 가격 표시",
+                "en": "Product name and price"
+              }
+            ],
+            [
+              {
+                "ko": "서버 프로그램",
+                "en": "Server program"
+              },
+              {
+                "ko": "데이터 처리",
+                "en": "Data processing"
+              },
+              {
+                "ko": "상품 조회 · 주문 저장",
+                "en": "Product queries and order storage"
+              }
+            ],
+            [
+              {
+                "ko": "브라우저 프로그램",
+                "en": "Browser program"
+              },
+              {
+                "ko": "사용자 상호작용",
+                "en": "User interaction"
+              },
+              {
+                "ko": "수량 입력 · 결과 갱신",
+                "en": "Quantity input and result updates"
+              }
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "grammar"
+      ],
+      "layout": "single"
+    },
+    "2": {
+      "panels": [
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "1995 · Netscape",
+            "en": "1995 · Netscape"
+          },
+          "items": [
+            {
+              "ko": "Brendan Eich의 브라우저 언어 설계",
+              "en": "Browser language designed by Brendan Eich"
+            },
+            {
+              "ko": "Mocha → LiveScript → JavaScript",
+              "en": "Mocha → LiveScript → JavaScript"
+            },
+            {
+              "ko": "웹페이지의 입력 처리와 상호작용",
+              "en": "Input handling and interaction on web pages"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "js-history"
+      ],
+      "layout": "single"
+    },
+    "3": {
+      "panels": [
+        {
+          "kind": "table",
+          "label": {
+            "ko": "표준화의 주요 시점",
+            "en": "Standardization Milestones"
+          },
+          "headers": [
+            {
+              "ko": "시점",
+              "en": "Date"
+            },
+            {
+              "ko": "의미",
+              "en": "Significance"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "1997",
+                "en": "1997"
+              },
+              {
+                "ko": "ECMA-262 초판 · 공통 언어 규칙",
+                "en": "First ECMA-262 edition · Shared language rules"
+              }
+            ],
+            [
+              {
+                "ko": "2015",
+                "en": "2015"
+              },
+              {
+                "ko": "ES2015 · let, const, 화살표 함수, 모듈",
+                "en": "ES2015 · let, const, arrow functions, modules"
+              }
+            ],
+            [
+              {
+                "ko": "TC39",
+                "en": "TC39"
+              },
+              {
+                "ko": "언어 사양의 제안과 검토",
+                "en": "Language specification proposals and review"
+              }
+            ]
+          ]
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "현대 JavaScript · ES2015 문법",
+            "en": "Modern JavaScript · ES2015 Syntax"
+          },
+          "language": "javascript",
+          "code": "const price = 3000;\nlet quantity = 2;\nconst lineTotal = (price, quantity) => price * quantity;\nconsole.log(lineTotal(price, quantity));",
+          "output": "6000"
+        }
+      ],
+      "sources": [
+        "ecma"
+      ],
+      "layout": "split"
+    },
+    "4": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "값과 변수 · JavaScript",
+            "en": "Values and Variables · JavaScript"
+          },
+          "language": "javascript",
+          "code": "const price = 3000;\nlet quantity = 2;\nquantity = 3;\nconst name = 'Notebook';\nconst available = true;\nlet selected;\nconsole.log(typeof price, typeof name);\nconsole.log(selected, null);",
+          "output": "number string\nundefined null"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "선언과 값",
+            "en": "Declarations and Values"
+          },
+          "items": [
+            {
+              "ko": "let · 재할당 가능 / const · 재할당 불가",
+              "en": "let · Reassignment allowed / const · Reassignment blocked"
+            },
+            {
+              "ko": "number · string · boolean",
+              "en": "number · string · boolean"
+            },
+            {
+              "ko": "undefined · 미지정 값 / null · 명시적 빈 값",
+              "en": "undefined · Unset value / null · Explicit empty value"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "grammar"
+      ],
+      "layout": "split"
+    },
+    "5": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "같은 입력, 다른 연산",
+            "en": "Same Input, Different Operations"
+          },
+          "language": "javascript",
+          "code": "const raw = '2';\nconsole.log(raw + 1);\nconsole.log(raw - 1);\nconsole.log(Number(raw) + 1);\nconsole.log(Number(''));\nconsole.log(Number('two'));",
+          "output": "21\n1\n3\n0\nNaN"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "연산 결과 읽기",
+            "en": "Reading the Results"
+          },
+          "items": [
+            {
+              "ko": "문자열 + 숫자 → 문자열 연결",
+              "en": "String + number → String concatenation"
+            },
+            {
+              "ko": "뺄셈 → 암묵적 숫자 변환",
+              "en": "Subtraction → Implicit numeric conversion"
+            },
+            {
+              "ko": "Number() → 명시적 숫자 변환",
+              "en": "Number() → Explicit numeric conversion"
+            },
+            {
+              "ko": "변환 불가 → NaN",
+              "en": "Failed conversion → NaN"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "grammar"
+      ],
+      "layout": "split"
+    },
+    "6": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "수량과 재고 검사",
+            "en": "Quantity and Stock Checks"
+          },
+          "language": "javascript",
+          "code": "const quantity = Number('3');\nconst stock = 5;\nconst valid =\n  Number.isInteger(quantity) &&\n  quantity > 0 &&\n  quantity <= stock;\nif (valid) {\n  console.log('ready');\n} else {\n  console.log('invalid');\n}",
+          "output": "ready"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "조건의 의미",
+            "en": "Conditions"
+          },
+          "items": [
+            {
+              "ko": "Number.isInteger · 정수 검사",
+              "en": "Number.isInteger · Integer check"
+            },
+            {
+              "ko": "quantity > 0 · 양수 검사",
+              "en": "quantity > 0 · Positive value check"
+            },
+            {
+              "ko": "quantity <= stock · 재고 검사",
+              "en": "quantity <= stock · Stock check"
+            },
+            {
+              "ko": "&& · 모든 조건 충족",
+              "en": "&& · All conditions required"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "control"
+      ],
+      "layout": "split"
+    },
+    "7": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "주문 항목의 금액 합산",
+            "en": "Summing Order Amounts"
+          },
+          "language": "javascript",
+          "code": "const amounts = [3000, 1500, 6000];\nlet total = 0;\nfor (const amount of amounts) {\n  total = total + amount;\n}\nconsole.log(total);",
+          "output": "10500"
+        },
+        {
+          "kind": "table",
+          "label": {
+            "ko": "반복별 값 변화",
+            "en": "Values on Each Iteration"
+          },
+          "headers": [
+            {
+              "ko": "amount",
+              "en": "amount"
+            },
+            {
+              "ko": "total",
+              "en": "total"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "3000",
+                "en": "3000"
+              },
+              {
+                "ko": "0 → 3000",
+                "en": "0 → 3000"
+              }
+            ],
+            [
+              {
+                "ko": "1500",
+                "en": "1500"
+              },
+              {
+                "ko": "3000 → 4500",
+                "en": "3000 → 4500"
+              }
+            ],
+            [
+              {
+                "ko": "6000",
+                "en": "6000"
+              },
+              {
+                "ko": "4500 → 10500",
+                "en": "4500 → 10500"
+              }
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "loops"
+      ],
+      "layout": "split"
+    },
+    "8": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "입력 · 반환 · 접근 범위",
+            "en": "Inputs, Return Values, and Scope"
+          },
+          "language": "javascript",
+          "code": "function calculateLineTotal(price, quantity) {\n  const total = price * quantity;\n  return total;\n}\nconsole.log(calculateLineTotal(3000, 2));\nif (true) {\n  let message = 'ready';\n  console.log(message);\n}",
+          "output": "6000\nready"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "함수 호출 읽기",
+            "en": "Reading a Function Call"
+          },
+          "items": [
+            {
+              "ko": "인수 3000, 2 → 매개변수 price, quantity",
+              "en": "Arguments 3000, 2 → Parameters price, quantity"
+            },
+            {
+              "ko": "return · 결과 반환과 함수 종료",
+              "en": "return · Returns a result and ends the call"
+            },
+            {
+              "ko": "total · 함수 내부 / message · if 블록 내부",
+              "en": "total · Function scope / message · if block scope"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "functions",
+        "grammar"
+      ],
+      "layout": "split"
+    },
+    "9": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "할인 함수를 반환하는 함수",
+            "en": "A Function Returning a Discount Function"
+          },
+          "language": "javascript",
+          "code": "function makeDiscount(rate) {\n  return (amount) => amount * (1 - rate);\n}\nconst memberPrice = makeDiscount(0.1);\nconst totals = [3000, 6000].map(memberPrice);\nconsole.log(totals);",
+          "output": "[2700, 5400]"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "함수의 세 가지 사용",
+            "en": "Three Uses of Functions"
+          },
+          "items": [
+            {
+              "ko": "일급 함수 · 변수 저장, 인수 전달, 반환",
+              "en": "First-class functions · Stored, passed, and returned"
+            },
+            {
+              "ko": "콜백 · map에 전달한 memberPrice",
+              "en": "Callback · memberPrice passed to map"
+            },
+            {
+              "ko": "클로저 · makeDiscount 종료 후에도 rate에 접근",
+              "en": "Closure · Access to rate after makeDiscount returns"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "functions"
+      ],
+      "layout": "split"
+    },
+    "10": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "상품 객체와 메서드",
+            "en": "Product Object and Method"
+          },
+          "language": "javascript",
+          "code": "const product = {\n  name: 'Notebook',\n  price: 3000,\n  stock: 5,\n  inStock() {\n    return this.stock > 0;\n  }\n};\nconsole.log(product.name, product.inStock());",
+          "output": "Notebook true"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "객체의 멤버",
+            "en": "Object Members"
+          },
+          "items": [
+            {
+              "ko": "프로퍼티 · name, price, stock",
+              "en": "Properties · name, price, stock"
+            },
+            {
+              "ko": "메서드 · inStock()",
+              "en": "Method · inStock()"
+            },
+            {
+              "ko": "product.inStock()의 this → product",
+              "en": "this in product.inStock() → product"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "objects"
+      ],
+      "layout": "split"
+    },
+    "11": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "공유 참조와 중첩 객체",
+            "en": "Shared References and Nested Objects"
+          },
+          "language": "javascript",
+          "code": "const product = { stock: { count: 5 } };\nconst shared = product;\nconst copied = { ...product };\nshared.stock.count = 4;\ncopied.stock.count = 0;\nconsole.log(product.stock.count);\nconsole.log(copied === product);\nconsole.log(copied.stock === product.stock);",
+          "output": "0\nfalse\ntrue"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "복사의 깊이",
+            "en": "Copy Depth"
+          },
+          "items": [
+            {
+              "ko": "대입 · 같은 객체의 참조 공유",
+              "en": "Assignment · Shared reference to one object"
+            },
+            {
+              "ko": "스프레드 · 바깥 객체만 복사",
+              "en": "Spread · Copies the outer object"
+            },
+            {
+              "ko": "중첩 stock · 참조 공유",
+              "en": "Nested stock · Shared reference"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "spread"
+      ],
+      "layout": "split"
+    },
+    "12": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "상품 배열 → 상품명 배열",
+            "en": "Products → Product Names"
+          },
+          "language": "javascript",
+          "code": "const products = [\n  { name: 'Notebook', stock: 5 },\n  { name: 'Case', stock: 0 }\n];\nconst names = products\n  .filter((product) => product.stock > 0)\n  .map((product) => product.name);\nconsole.log(names);",
+          "output": "['Notebook']"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "두 콜백의 역할",
+            "en": "Roles of the Two Callbacks"
+          },
+          "items": [
+            {
+              "ko": "filter · stock > 0인 상품 선택",
+              "en": "filter · Selects products with stock > 0"
+            },
+            {
+              "ko": "map · 상품 객체를 name으로 변환",
+              "en": "map · Converts each product to its name"
+            },
+            {
+              "ko": "원본 2개 → 결과 1개 · 새 배열 생성",
+              "en": "2 original items → 1 result · New array"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "filter",
+        "map"
+      ],
+      "layout": "split"
+    },
+    "13": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "DOM 이벤트 등록",
+            "en": "DOM Event Registration"
+          },
+          "language": "javascript",
+          "code": "const input = document.querySelector('#quantity');\nconst button = document.querySelector('#submit');\nbutton.addEventListener('click', () => {\n  const quantity = Number(input.value);\n  console.log(quantity);\n});",
+          "context": "dom"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "등록과 실행",
+            "en": "Registration and Execution"
+          },
+          "items": [
+            {
+              "ko": "초기화 · 콜백 등록",
+              "en": "Initialization · Callback registration"
+            },
+            {
+              "ko": "클릭 · 콜백 실행",
+              "en": "Click · Callback execution"
+            },
+            {
+              "ko": "input.value: \"2\" → quantity: 2",
+              "en": "input.value: \"2\" → quantity: 2"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "events"
+      ],
+      "layout": "split"
+    },
+    "14": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "HTTP 상태 확인과 예외 처리",
+            "en": "HTTP Checks and Error Handling"
+          },
+          "language": "javascript",
+          "code": "async function loadProducts() {\n  const response = await fetch('/products.json');\n  if (!response.ok) throw new Error('HTTP error');\n  return response.json();\n}\ntry {\n  const products = await loadProducts();\n  console.log(products.length);\n} catch (error) {\n  console.log('load failed');\n}",
+          "context": "fetch"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "비동기 실행의 경계",
+            "en": "Async Boundaries"
+          },
+          "items": [
+            {
+              "ko": "await · 요청 완료까지 현재 실행 흐름 대기",
+              "en": "await · Pauses the current flow until completion"
+            },
+            {
+              "ko": "response.ok · HTTP 성공 상태 확인",
+              "en": "response.ok · Checks HTTP success status"
+            },
+            {
+              "ko": "catch · 요청 · JSON 해석 · throw 오류 처리",
+              "en": "catch · Handles request, JSON parsing, and thrown errors"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "fetch"
+      ],
+      "layout": "split"
+    },
+    "15": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "필터 함수의 교체",
+            "en": "Replacing a Filter Function"
+          },
+          "language": "javascript",
+          "code": "const products = [\n  { name: 'Notebook', price: 3000, stock: 5 },\n  { name: 'Case', price: 8000, stock: 0 }\n];\nconst inStock = (p) => p.stock > 0;\nconst affordable = (p) => p.price < 5000;\nconsole.log(products.filter(inStock).length);\nconsole.log(products.filter(affordable).length);",
+          "output": "1\n1"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "유연성의 이점",
+            "en": "Benefits of Flexibility"
+          },
+          "items": [
+            {
+              "ko": "객체 · 데이터 속성의 묶음",
+              "en": "Objects · Grouped data properties"
+            },
+            {
+              "ko": "함수 · 선택 조건의 교체",
+              "en": "Functions · Replaceable selection conditions"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "filter",
+        "functions"
+      ],
+      "layout": "split"
+    },
+    "16": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "잘못된 실행 결과",
+            "en": "Incorrect Results"
+          },
+          "language": "javascript",
+          "code": "const product = { price: 3000, stock: 5 };\nconst alias = product;\nconsole.log(2 + '3');\nconsole.log(product.prcie * 2);\nalias.stock = 0;\nconsole.log(product.stock);",
+          "output": "23\nNaN\n0"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "서로 다른 오류 원인",
+            "en": "Different Error Causes"
+          },
+          "items": [
+            {
+              "ko": "23 · 숫자 덧셈 대신 문자열 연결",
+              "en": "23 · String concatenation instead of numeric addition"
+            },
+            {
+              "ko": "NaN · 없는 속성 prcie의 undefined로 계산",
+              "en": "NaN · Arithmetic with undefined from missing prcie"
+            },
+            {
+              "ko": "0 · alias와 product의 참조 공유",
+              "en": "0 · Shared reference between alias and product"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "basics",
+        "spread"
+      ],
+      "layout": "split"
+    },
+    "17": {
+      "panels": [
+        {
+          "kind": "table",
+          "label": {
+            "ko": "오류와 검사 위치",
+            "en": "Errors and Where to Check Them"
+          },
+          "headers": [
+            {
+              "ko": "상황",
+              "en": "Situation"
+            },
+            {
+              "ko": "주요 검사",
+              "en": "Primary Check"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "숫자 매개변수에 문자열",
+                "en": "String passed to a number parameter"
+              },
+              {
+                "ko": "타입 검사",
+                "en": "Type checking"
+              }
+            ],
+            [
+              {
+                "ko": "product.prcie 오타",
+                "en": "product.prcie typo"
+              },
+              {
+                "ko": "타입 검사",
+                "en": "Type checking"
+              }
+            ],
+            [
+              {
+                "ko": "수량 -1 · 재고 초과",
+                "en": "Quantity -1 · Over stock"
+              },
+              {
+                "ko": "실행 시 업무 규칙 검증",
+                "en": "Runtime business validation"
+              }
+            ],
+            [
+              {
+                "ko": "외부 JSON의 누락 필드",
+                "en": "Missing field in external JSON"
+              },
+              {
+                "ko": "실행 시 데이터 검증",
+                "en": "Runtime data validation"
+              }
+            ]
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "검사의 한계",
+            "en": "Limits of Checking"
+          },
+          "items": [
+            {
+              "ko": "number는 양의 정수를 보장하지 않음",
+              "en": "number does not guarantee a positive integer"
+            },
+            {
+              "ko": "외부 응답은 실행 중 구조와 값 확인",
+              "en": "External responses need runtime shape and value checks"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "basics"
+      ],
+      "layout": "split"
+    },
+    "18": {
+      "panels": [
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "2012 · Microsoft",
+            "en": "2012 · Microsoft"
+          },
+          "items": [
+            {
+              "ko": "대규모 JavaScript 코드의 변경과 협업",
+              "en": "Changes and collaboration in large JavaScript projects"
+            },
+            {
+              "ko": "2012년 10월 1일 TypeScript 공개",
+              "en": "TypeScript publicly unveiled on October 1, 2012"
+            },
+            {
+              "ko": "타입 계약 · 편집기 지원 · 오류 조기 발견",
+              "en": "Type contracts · Editor support · Earlier error detection"
+            }
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "JavaScript와의 관계",
+            "en": "Relationship to JavaScript"
+          },
+          "items": [
+            {
+              "ko": "기존 JavaScript 문법과 실행 환경 활용",
+              "en": "Existing JavaScript syntax and runtimes"
+            },
+            {
+              "ko": "타입으로 코드 구조와 사용법 표현",
+              "en": "Types express code structure and expected usage"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ts-history",
+        "basics"
+      ],
+      "layout": "split"
+    },
+    "19": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "TypeScript · 타입 표기",
+            "en": "TypeScript · Type Annotations"
+          },
+          "language": "typescript",
+          "code": "function lineTotal(\n  price: number,\n  quantity: number\n): number {\n  return price * quantity;\n}\nconsole.log(lineTotal(3000, 2));",
+          "output": "6000"
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "JavaScript · 타입 제거",
+            "en": "JavaScript · Type Erasure"
+          },
+          "language": "javascript",
+          "code": "function lineTotal(price, quantity) {\n  return price * quantity;\n}\nconsole.log(lineTotal(3000, 2));",
+          "output": "6000"
+        }
+      ],
+      "sources": [
+        "basics"
+      ],
+      "layout": "equal"
+    },
+    "20": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "타입 추론과 표기",
+            "en": "Inference and Annotations"
+          },
+          "language": "typescript",
+          "code": "let quantity = 2;\nconst price: number = 3000;\nconst name: string = 'Notebook';\nconst available: boolean = true;\nconst amounts: number[] = [3000, 6000];\nquantity = '2';",
+          "errors": [
+            2322
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "컴파일러의 판단",
+            "en": "Compiler Reasoning"
+          },
+          "items": [
+            {
+              "ko": "quantity = 2 → number 추론",
+              "en": "quantity = 2 → number inferred"
+            },
+            {
+              "ko": "price: number → 타입 명시",
+              "en": "price: number → Explicit annotation"
+            },
+            {
+              "ko": "quantity = \"2\" → 타입 불일치",
+              "en": "quantity = \"2\" → Type mismatch"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "types"
+      ],
+      "layout": "split"
+    },
+    "21": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "함수 계약",
+            "en": "Function Contract"
+          },
+          "language": "typescript",
+          "code": "function calculateLineTotal(\n  price: number,\n  quantity: number\n): number {\n  return price * quantity;\n}\ncalculateLineTotal(3000, 2);\ncalculateLineTotal(3000, '2');",
+          "errors": [
+            2345
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "입력과 반환",
+            "en": "Arguments and Return Values"
+          },
+          "items": [
+            {
+              "ko": "price · quantity → number 인수",
+              "en": "price · quantity → number arguments"
+            },
+            {
+              "ko": "반환값 → number",
+              "en": "Return value → number"
+            },
+            {
+              "ko": "문자열 \"2\" 전달 → 타입 오류",
+              "en": "Passing string \"2\" → Type error"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ts-functions"
+      ],
+      "layout": "split"
+    },
+    "22": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "type으로 상품 구조 정의",
+            "en": "Product Shape with type"
+          },
+          "language": "typescript",
+          "code": "type Product = {\n  id: string;\n  name: string;\n  price: number;\n  stock: number;\n};\nconst product: Product = {\n  id: 'note',\n  name: 'Notebook',\n  price: 3000,\n  stock: 5\n};"
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "interface로 상품 구조 정의",
+            "en": "Product Shape with interface"
+          },
+          "language": "typescript",
+          "code": "interface Product {\n  id: string;\n  name: string;\n  price: number;\n  stock: number;\n}\nconst product: Product = {\n  id: 'note',\n  name: 'Notebook',\n  price: 3000,\n  stock: 5\n};"
+        }
+      ],
+      "sources": [
+        "types"
+      ],
+      "layout": "equal"
+    },
+    "23": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "주문 상태 유니온",
+            "en": "Order Status Union"
+          },
+          "language": "typescript",
+          "code": "type OrderStatus =\n  'idle' | 'submitting' | 'success' | 'error';\nlet status: OrderStatus = 'idle';\nstatus = 'submitting';\nstatus = 'done';",
+          "errors": [
+            2322
+          ]
+        },
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "허용 상태와 전환",
+            "en": "Allowed States and Transitions"
+          },
+          "items": [
+            {
+              "ko": "idle · 입력 대기",
+              "en": "idle · Waiting for input"
+            },
+            {
+              "ko": "submitting · 요청 진행",
+              "en": "submitting · Request in progress"
+            },
+            {
+              "ko": "success 또는 error · 요청 결과",
+              "en": "success or error · Request result"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "types"
+      ],
+      "layout": "split"
+    },
+    "24": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "선택적 값과 검색 결과",
+            "en": "Optional Values and Search Results"
+          },
+          "language": "typescript",
+          "code": "type Product = {\n  id: string;\n  price: number;\n  discountPrice?: number;\n};\nconst products: Product[] = [\n  { id: 'note', price: 3000 }\n];\nconst found = products.find((p) => p.id === 'note');\nif (found !== undefined) {\n  console.log(found.discountPrice ?? found.price);\n}",
+          "output": "3000"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "두 가지 빈 값",
+            "en": "Two Missing-Value Cases"
+          },
+          "items": [
+            {
+              "ko": "find 결과 → Product 또는 undefined",
+              "en": "find result → Product or undefined"
+            },
+            {
+              "ko": "discountPrice → number 또는 undefined",
+              "en": "discountPrice → number or undefined"
+            },
+            {
+              "ko": "존재 확인 후 속성 접근",
+              "en": "Property access after an existence check"
+            },
+            {
+              "ko": "?? · null과 undefined에 대체값 적용",
+              "en": "?? · Fallback for null and undefined"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "narrow",
+        "types"
+      ],
+      "layout": "split"
+    },
+    "25": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "판별 속성 ok로 결과 분기",
+            "en": "Branching on the ok Discriminant"
+          },
+          "language": "typescript",
+          "code": "type Result =\n  | { ok: true; data: number }\n  | { ok: false; message: string };\nfunction describe(result: Result): string {\n  if (result.ok) {\n    return `quantity: ${result.data}`;\n  }\n  return result.message;\n}\nconsole.log(describe({ ok: true, data: 2 }));",
+          "output": "quantity: 2"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "분기 안의 타입",
+            "en": "Types Inside Each Branch"
+          },
+          "items": [
+            {
+              "ko": "ok: true → data 사용",
+              "en": "ok: true → Access data"
+            },
+            {
+              "ko": "ok: false → message 사용",
+              "en": "ok: false → Access message"
+            },
+            {
+              "ko": "조건 검사 전 data 접근 → 타입 오류",
+              "en": "Access to data before narrowing → Type error"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "narrow"
+      ],
+      "layout": "split"
+    },
+    "26": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "any · 검사 우회",
+            "en": "any · Bypassing Checks"
+          },
+          "language": "typescript",
+          "code": "const raw: any = 3000;\nraw.toUpperCase();",
+          "runtimeError": "TypeError"
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "unknown · 검사 후 사용",
+            "en": "unknown · Check Before Use"
+          },
+          "language": "typescript",
+          "code": "function normalize(raw: unknown): string {\n  if (typeof raw === 'string') {\n    return raw.toUpperCase();\n  }\n  return 'not a string';\n}\nconsole.log(normalize(3000));",
+          "output": "not a string"
+        }
+      ],
+      "sources": [
+        "ts-functions"
+      ],
+      "layout": "equal"
+    },
+    "27": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "as는 값 검사나 변환이 아님",
+            "en": "as Does Not Validate or Convert Values"
+          },
+          "language": "typescript",
+          "code": "const raw: unknown = { price: '3000' };\nconst claimed = raw as { price: number };\nconsole.log(claimed.price + 1);\nif (\n  typeof raw === 'object' &&\n  raw !== null &&\n  'price' in raw &&\n  typeof raw.price === 'number'\n) {\n  console.log(raw.price + 1);\n} else {\n  console.log('invalid price');\n}",
+          "output": "30001\ninvalid price"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "단언과 검증의 결과",
+            "en": "Assertion Versus Validation"
+          },
+          "items": [
+            {
+              "ko": "as 이후에도 price는 문자열",
+              "en": "price remains a string after as"
+            },
+            {
+              "ko": "컴파일러의 판단만 number로 변경",
+              "en": "Only the compiler’s assumption changes to number"
+            },
+            {
+              "ko": "typeof 검사 → 문자열 가격 거부",
+              "en": "typeof check → Rejects the string price"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "narrow",
+        "types"
+      ],
+      "layout": "split"
+    },
+    "28": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "첫 원소의 타입 관계",
+            "en": "The Type Relationship of a First Element"
+          },
+          "language": "typescript",
+          "code": "function first<T>(items: T[]): T | undefined {\n  return items[0];\n}\nconst amount = first([3000, 1500]);\nconst product = first([{ id: 'note', price: 3000 }]);\nconsole.log(amount);\nconsole.log(product?.id);\nconsole.log(first<number>([]));",
+          "output": "3000\nnote\nundefined"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "T의 의미",
+            "en": "Meaning of T"
+          },
+          "items": [
+            {
+              "ko": "숫자 배열 → number 또는 undefined",
+              "en": "Number array → number or undefined"
+            },
+            {
+              "ko": "상품 배열 → 상품 타입 또는 undefined",
+              "en": "Product array → Product type or undefined"
+            },
+            {
+              "ko": "빈 배열 → undefined",
+              "en": "Empty array → undefined"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "generic"
+      ],
+      "layout": "split"
+    },
+    "29": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "types.ts · 필요한 구조 내보내기",
+            "en": "types.ts · Exporting a Required Shape"
+          },
+          "language": "typescript",
+          "code": "export type Named = { name: string };\nexport function label(item: Named): string {\n  return item.name;\n}",
+          "file": "types.ts"
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "main.ts · 모듈 사용과 구조적 호환",
+            "en": "main.ts · Modules and Structural Compatibility"
+          },
+          "language": "typescript",
+          "code": "import { label } from './types.js';\nimport type { Named } from './types.js';\nconst product = { name: 'Notebook', price: 3000 };\nconst named: Named = product;\nconsole.log(label(named));",
+          "file": "main.ts",
+          "context": "modules",
+          "output": "Notebook"
+        }
+      ],
+      "sources": [
+        "modules",
+        "compat"
+      ],
+      "layout": "equal"
+    },
+    "30": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "주문 처리 절차",
+            "en": "Order Procedure"
+          },
+          "language": "typescript",
+          "code": "async function submitOrder(raw: string) {\n  const quantity = Number(raw);\n  if (!Number.isInteger(quantity) || quantity <= 0) {\n    throw new Error('invalid quantity');\n  }\n  const total = 3000 * quantity;\n  await saveOrder(total);\n  return { status: 'success', total };\n}",
+          "prelude": "declare function saveOrder(total: number): Promise<void>;"
+        },
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "절차와 실패 경로",
+            "en": "Procedure and Failure Paths"
+          },
+          "items": [
+            {
+              "ko": "수량 검증 → 실패하면 종료",
+              "en": "Validate quantity → Stop on failure"
+            },
+            {
+              "ko": "금액 계산 → 저장 요청",
+              "en": "Calculate amount → Request storage"
+            },
+            {
+              "ko": "요청 완료 → 성공 결과 반환",
+              "en": "Await completion → Return success"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ts-functions",
+        "fetch"
+      ],
+      "layout": "split"
+    },
+    "31": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "지역 변수로 계산하는 순수 함수",
+            "en": "A Pure Function with Local Variables"
+          },
+          "language": "typescript",
+          "code": "function calculateTotal(amounts: number[]): number {\n  let total = 0;\n  for (const amount of amounts) {\n    total += amount;\n  }\n  return total;\n}\nconst amounts = [3000, 1500];\nconsole.log(calculateTotal(amounts));\nconsole.log(amounts.length);",
+          "output": "4500\n2"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "순수성의 기준",
+            "en": "Criteria for Purity"
+          },
+          "items": [
+            {
+              "ko": "같은 입력 → 같은 결과",
+              "en": "Same input → Same result"
+            },
+            {
+              "ko": "입력 배열과 외부 상태 유지",
+              "en": "Input array and external state unchanged"
+            },
+            {
+              "ko": "지역 변수 total만 변경",
+              "en": "Only the local variable total changes"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "pure"
+      ],
+      "layout": "split"
+    },
+    "32": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "상태 접근을 제한하는 Cart",
+            "en": "Cart with Controlled State Access"
+          },
+          "language": "typescript",
+          "code": "class Cart {\n  private items: string[] = [];\n  add(productId: string): void {\n    this.items.push(productId);\n  }\n  get count(): number {\n    return this.items.length;\n  }\n}\nconst cart = new Cart();\ncart.add('note');\nconsole.log(cart.count);",
+          "output": "1"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "상태와 동작의 책임",
+            "en": "Responsibility for State and Behavior"
+          },
+          "items": [
+            {
+              "ko": "private items · 외부 접근 제한",
+              "en": "private items · Restricted external access"
+            },
+            {
+              "ko": "add() · 내부 배열 변경",
+              "en": "add() · Changes the internal array"
+            },
+            {
+              "ko": "count · 배열의 개수 공개",
+              "en": "count · Exposes the array length"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "classes"
+      ],
+      "layout": "split"
+    },
+    "33": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "늦게 끝난 이전 요청 무시",
+            "en": "Ignoring a Stale Response"
+          },
+          "language": "typescript",
+          "code": "let latestRequest = 0;\nasync function search(query: string): Promise<void> {\n  const requestId = ++latestRequest;\n  const products = await loadProducts(query);\n  if (requestId !== latestRequest) return;\n  renderProducts(products);\n}",
+          "prelude": "declare function loadProducts(query: string): Promise<string[]>;\ndeclare function renderProducts(products: string[]): void;"
+        },
+        {
+          "kind": "table",
+          "label": {
+            "ko": "응답 순서의 역전",
+            "en": "Responses Arriving Out of Order"
+          },
+          "headers": [
+            {
+              "ko": "시간",
+              "en": "Time"
+            },
+            {
+              "ko": "실행",
+              "en": "Action"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "1",
+                "en": "1"
+              },
+              {
+                "ko": "검색 A 시작 · 요청 번호 1",
+                "en": "Search A starts · Request 1"
+              }
+            ],
+            [
+              {
+                "ko": "2",
+                "en": "2"
+              },
+              {
+                "ko": "검색 B 시작 · 요청 번호 2",
+                "en": "Search B starts · Request 2"
+              }
+            ],
+            [
+              {
+                "ko": "3",
+                "en": "3"
+              },
+              {
+                "ko": "B 완료 → 화면 갱신",
+                "en": "B completes → Update UI"
+              }
+            ],
+            [
+              {
+                "ko": "4",
+                "en": "4"
+              },
+              {
+                "ko": "A 완료 → 번호 불일치로 무시",
+                "en": "A completes → Ignore stale request"
+              }
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "events",
+        "fetch"
+      ],
+      "layout": "split"
+    },
+    "34": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "React TSX · 상태에 따른 버튼",
+            "en": "React TSX · Button Based on State"
+          },
+          "language": "tsx",
+          "code": "function OrderButton({ busy }: { busy: boolean }) {\n  return (\n    <button disabled={busy}>\n      {busy ? 'Sending' : 'Order'}\n    </button>\n  );\n}",
+          "context": "react"
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "Vue · 반응형 합계",
+            "en": "Vue · Reactive Total"
+          },
+          "language": "typescript",
+          "code": "import { computed, ref } from 'vue';\nconst quantity = ref(2);\nconst total = computed(() => 3000 * quantity.value);\nconsole.log(total.value);\nquantity.value = 3;\nconsole.log(total.value);",
+          "context": "vue",
+          "output": "6000\n9000"
+        }
+      ],
+      "sources": [
+        "react",
+        "vue"
+      ],
+      "layout": "equal"
+    },
+    "35": {
+      "panels": [
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "하나의 주문 기능",
+            "en": "One Order Feature"
+          },
+          "items": [
+            {
+              "ko": "입력 → 이벤트 처리",
+              "en": "Input → Event handling"
+            },
+            {
+              "ko": "검증 → 순수 계산 → 저장 요청",
+              "en": "Validation → Pure calculation → Storage"
+            },
+            {
+              "ko": "결과 상태 → 화면 갱신",
+              "en": "Result state → UI update"
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "label": {
+            "ko": "실습 파일의 책임",
+            "en": "Responsibilities in Lab Files"
+          },
+          "headers": [
+            {
+              "ko": "파일",
+              "en": "File"
+            },
+            {
+              "ko": "역할",
+              "en": "Role"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "main.ts",
+                "en": "main.ts"
+              },
+              {
+                "ko": "이벤트와 절차 조정",
+                "en": "Events and procedure coordination"
+              }
+            ],
+            [
+              {
+                "ko": "order.ts · policies.ts",
+                "en": "order.ts · policies.ts"
+              },
+              {
+                "ko": "계산과 검증",
+                "en": "Calculation and validation"
+              }
+            ],
+            [
+              {
+                "ko": "api.ts",
+                "en": "api.ts"
+              },
+              {
+                "ko": "외부 데이터와 모의 요청",
+                "en": "External data and mock requests"
+              }
+            ],
+            [
+              {
+                "ko": "ui.ts",
+                "en": "ui.ts"
+              },
+              {
+                "ko": "명령형 DOM 갱신",
+                "en": "Imperative DOM updates"
+              }
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "36": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "정책 이름으로 분기",
+            "en": "Branching on Policy Names"
+          },
+          "language": "typescript",
+          "code": "function checkout(amount: number, kind: string) {\n  if (kind === 'member') {\n    return Math.floor(amount * 0.9);\n  }\n  return amount;\n}"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "교체 지점의 분리",
+            "en": "Separating a Replacement Point"
+          },
+          "items": [
+            {
+              "ko": "정책 추가 → checkout 분기 증가",
+              "en": "New policy → More checkout branches"
+            },
+            {
+              "ko": "Strategy · 계산 함수를 별도로 정의",
+              "en": "Strategy · Separately defined calculation functions"
+            },
+            {
+              "ko": "주문 함수 · 전달받은 정책 호출",
+              "en": "Order function · Calls the supplied policy"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ts-functions"
+      ],
+      "layout": "split"
+    },
+    "37": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "공통 함수 타입과 정책 전달",
+            "en": "Shared Function Type and Policy Passing"
+          },
+          "language": "typescript",
+          "code": "type DiscountPolicy = (amount: number) => number;\nconst regularPrice: DiscountPolicy = (amount) => amount;\nconst memberPrice: DiscountPolicy = (amount) =>\n  Math.floor(amount * 0.9);\nfunction checkout(\n  amount: number,\n  policy: DiscountPolicy\n) {\n  return policy(amount);\n}\nconsole.log(checkout(6000, regularPrice));\nconsole.log(checkout(6000, memberPrice));",
+          "output": "6000\n5400"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "계약과 변경",
+            "en": "Contract and Change"
+          },
+          "items": [
+            {
+              "ko": "입력 · 할인 전 금액",
+              "en": "Input · Amount before discount"
+            },
+            {
+              "ko": "반환 · 결제 금액",
+              "en": "Return · Payable amount"
+            },
+            {
+              "ko": "회원 정책 · 10% 할인, 원 미만 버림",
+              "en": "Member policy · 10% discount, rounded down"
+            },
+            {
+              "ko": "checkout · 전달받은 policy 호출",
+              "en": "checkout · Calls the supplied policy"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ts-functions"
+      ],
+      "layout": "split"
+    },
+    "38": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "검증된 외부 값의 변환",
+            "en": "Converting Validated External Values"
+          },
+          "language": "typescript",
+          "code": "type ApiProduct = {\n  product_name: string;\n  unit_price: number;\n};\ntype Product = { name: string; price: number };\nfunction toProduct(raw: ApiProduct): Product {\n  return {\n    name: raw.product_name,\n    price: raw.unit_price\n  };\n}"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "Adapter의 경계",
+            "en": "Adapter Boundary"
+          },
+          "items": [
+            {
+              "ko": "product_name → name",
+              "en": "product_name → name"
+            },
+            {
+              "ko": "unit_price → price",
+              "en": "unit_price → price"
+            },
+            {
+              "ko": "입력 · 검증된 ApiProduct",
+              "en": "Input · Validated ApiProduct"
+            },
+            {
+              "ko": "반환 · 새로운 Product 객체",
+              "en": "Return · New Product object"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "types",
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "39": {
+      "panels": [
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "외부 데이터의 입력 경계",
+            "en": "External Data Boundary"
+          },
+          "items": [
+            {
+              "ko": "unknown · 아직 확인하지 않은 값",
+              "en": "unknown · An unchecked value"
+            },
+            {
+              "ko": "검증기 · 필드 존재와 실제 타입 확인",
+              "en": "Validator · Checks fields and actual types"
+            },
+            {
+              "ko": "ApiProduct → Adapter → Product",
+              "en": "ApiProduct → Adapter → Product"
+            },
+            {
+              "ko": "주문 계산 · 내부 계약만 사용",
+              "en": "Order calculation · Uses only the internal contract"
+            }
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "각 단계의 실패 원인",
+            "en": "Failure Causes by Stage"
+          },
+          "items": [
+            {
+              "ko": "필드 누락 · 문자열 가격 → 검증 실패",
+              "en": "Missing fields or string prices → Validation failure"
+            },
+            {
+              "ko": "잘못된 필드 매핑 → 변환 오류",
+              "en": "Incorrect field mapping → Conversion error"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "fetch",
+        "narrow"
+      ],
+      "layout": "split"
+    },
+    "40": {
+      "panels": [
+        {
+          "kind": "table",
+          "label": {
+            "ko": "요구사항에 따른 선택",
+            "en": "Selection by Requirement"
+          },
+          "headers": [
+            {
+              "ko": "변경 요구",
+              "en": "Change"
+            },
+            {
+              "ko": "적용",
+              "en": "Choice"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "일반 · 회원 · 쿠폰 정책 교체",
+                "en": "Regular, member, or coupon pricing"
+              },
+              {
+                "ko": "Strategy · 계산 함수 교체",
+                "en": "Strategy · Replace calculation functions"
+              }
+            ],
+            [
+              {
+                "ko": "외부 API의 상품 필드 변경",
+                "en": "External API product fields change"
+              },
+              {
+                "ko": "Adapter · 내부 형식으로 매핑",
+                "en": "Adapter · Map to the internal format"
+              }
+            ],
+            [
+              {
+                "ko": "고정된 단가 × 수량 계산",
+                "en": "Fixed unit price × quantity"
+              },
+              {
+                "ko": "단순 함수 유지",
+                "en": "Keep a simple function"
+              }
+            ]
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "추상화 비용",
+            "en": "Abstraction Cost"
+          },
+          "items": [
+            {
+              "ko": "함수 · 파일 증가 → 코드 탐색 비용 증가",
+              "en": "More functions and files → Higher navigation cost"
+            },
+            {
+              "ko": "계약 추가 → 호출 관계의 복잡도 증가",
+              "en": "More contracts → More complex call relationships"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "ts-functions",
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "41": {
+      "panels": [
+        {
+          "kind": "table",
+          "label": {
+            "ko": "모의 주문서",
+            "en": "Mock Order Form"
+          },
+          "headers": [
+            {
+              "ko": "입력",
+              "en": "Input"
+            },
+            {
+              "ko": "선택값",
+              "en": "Value"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "상품",
+                "en": "Product"
+              },
+              {
+                "ko": "노트 · 단가 3,000원",
+                "en": "Notebook · 3,000 won each"
+              }
+            ],
+            [
+              {
+                "ko": "수량",
+                "en": "Quantity"
+              },
+              {
+                "ko": "2",
+                "en": "2"
+              }
+            ],
+            [
+              {
+                "ko": "할인",
+                "en": "Discount"
+              },
+              {
+                "ko": "회원 · 10%",
+                "en": "Member · 10%"
+              }
+            ],
+            [
+              {
+                "ko": "결과",
+                "en": "Result"
+              },
+              {
+                "ko": "6,000원 → 5,400원",
+                "en": "6,000 won → 5,400 won"
+              }
+            ]
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "구현 범위",
+            "en": "Implementation Scope"
+          },
+          "items": [
+            {
+              "ko": "제공 · HTML · CSS · 이벤트 골격",
+              "en": "Provided · HTML, CSS, event scaffolding"
+            },
+            {
+              "ko": "필수 · 수량 검증 · 주문 계산 · 회원 정책",
+              "en": "Required · Quantity validation, order calculation, member policy"
+            },
+            {
+              "ko": "선택 · 외부 데이터 Adapter",
+              "en": "Optional · External data Adapter"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "42": {
+      "panels": [
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "노트 2개 · 회원 주문",
+            "en": "Two Notebooks · Member Order"
+          },
+          "items": [
+            {
+              "ko": "Product · price: 3000, stock: 5",
+              "en": "Product · price: 3000, stock: 5"
+            },
+            {
+              "ko": "입력 \"2\" → 수량 2 → 검증 통과",
+              "en": "Input \"2\" → Quantity 2 → Valid"
+            },
+            {
+              "ko": "상품 금액 6000 → 회원 정책 → 5400",
+              "en": "Subtotal 6000 → Member policy → 5400"
+            },
+            {
+              "ko": "Result<Order> → 모의 요청 → 화면",
+              "en": "Result<Order> → Mock request → UI"
+            }
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "주문 데이터",
+            "en": "Order Data"
+          },
+          "items": [
+            {
+              "ko": "productId · 상품 검색 키",
+              "en": "productId · Product lookup key"
+            },
+            {
+              "ko": "quantity · 검증된 수량",
+              "en": "quantity · Validated quantity"
+            },
+            {
+              "ko": "subtotal · 할인 전 금액",
+              "en": "subtotal · Amount before discount"
+            },
+            {
+              "ko": "total · 정책 적용 금액",
+              "en": "total · Amount after the policy"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "43": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "practice · localhost:4303",
+            "en": "practice · localhost:4303"
+          },
+          "language": "bash",
+          "code": "npm ci\nnpm start\n\n# Second terminal\nnpm run watch\nnpm run check\nnpm test"
+        },
+        {
+          "kind": "table",
+          "label": {
+            "ko": "파일과 작업",
+            "en": "Files and Tasks"
+          },
+          "headers": [
+            {
+              "ko": "파일",
+              "en": "File"
+            },
+            {
+              "ko": "작업",
+              "en": "Task"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "src/order.ts",
+                "en": "src/order.ts"
+              },
+              {
+                "ko": "TODO 1–3 · 필수 구현",
+                "en": "TODO 1–3 · Required"
+              }
+            ],
+            [
+              {
+                "ko": "src/policies.ts",
+                "en": "src/policies.ts"
+              },
+              {
+                "ko": "TODO 4 · 회원 정책",
+                "en": "TODO 4 · Member policy"
+              }
+            ],
+            [
+              {
+                "ko": "src/adapters.ts",
+                "en": "src/adapters.ts"
+              },
+              {
+                "ko": "TODO 5 · 선택 구현",
+                "en": "TODO 5 · Optional"
+              }
+            ],
+            [
+              {
+                "ko": "main.ts · ui.ts · api.ts",
+                "en": "main.ts · ui.ts · api.ts"
+              },
+              {
+                "ko": "제공 코드 읽기",
+                "en": "Read provided code"
+              }
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "44": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "reading/bugs.js · 실행 전 예측",
+            "en": "reading/bugs.js · Predict Before Running"
+          },
+          "language": "javascript",
+          "code": "const product = { price: 3000, stock: 5 };\nconsole.log('3' + 1);\nconsole.log(product.prcie * 2);\nconst found = [product].find((p) => p.price === 0);\nconsole.log(found.price);",
+          "runtimeError": "TypeError",
+          "output": "31\nNaN\nTypeError"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "오류 원인",
+            "en": "Error Causes"
+          },
+          "items": [
+            {
+              "ko": "\"3\" + 1 · 문자열 연결",
+              "en": "\"3\" + 1 · String concatenation"
+            },
+            {
+              "ko": "product.prcie · 없는 속성",
+              "en": "product.prcie · Missing property"
+            },
+            {
+              "ko": "found.price · undefined의 속성 접근",
+              "en": "found.price · Property access on undefined"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "45": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "order.ts · 수량 검증",
+            "en": "order.ts · Quantity Validation"
+          },
+          "language": "typescript",
+          "code": "function parseQuantity(raw: string, stock: number) {\n  if (raw.trim() === '') {\n    return { ok: false, message: 'empty' };\n  }\n  const quantity = Number(raw);\n  if (\n    !Number.isFinite(quantity) ||\n    !Number.isInteger(quantity) ||\n    quantity <= 0\n  ) {\n    return { ok: false, message: 'invalid' };\n  }\n  if (quantity > stock) {\n    return { ok: false, message: 'over stock' };\n  }\n  return { ok: true, data: quantity };\n}"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "확인할 입력",
+            "en": "Inputs to Check"
+          },
+          "items": [
+            {
+              "ko": "빈 값 · 공백 · abc · Infinity → 실패",
+              "en": "Empty, whitespace, abc, Infinity → Failure"
+            },
+            {
+              "ko": "0 · -1 · 1.5 → 실패",
+              "en": "0, -1, 1.5 → Failure"
+            },
+            {
+              "ko": "재고 5: 수량 5 → 성공 / 6 → 실패",
+              "en": "Stock 5: quantity 5 → Success / 6 → Failure"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "46": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "전환 전 · JavaScript",
+            "en": "Before · JavaScript"
+          },
+          "language": "javascript",
+          "code": "function calculateLineTotal(price, quantity) {\n  return price * quantity;\n}\nconst product = {\n  id: 'note',\n  name: 'Notebook',\n  price: 3000,\n  stock: 5\n};"
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "전환 후 · TypeScript",
+            "en": "After · TypeScript"
+          },
+          "language": "typescript",
+          "code": "function calculateLineTotal(\n  price: number,\n  quantity: number\n): number {\n  return price * quantity;\n}\nconst product: Product = {\n  id: 'note',\n  name: 'Notebook',\n  price: 3000,\n  stock: 5\n};",
+          "prelude": "type Product = { id: string; name: string; price: number; stock: number };"
+        }
+      ],
+      "sources": [
+        "practice",
+        "basics"
+      ],
+      "layout": "equal"
+    },
+    "47": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "존재 검사 전",
+            "en": "Before an Existence Check"
+          },
+          "language": "typescript",
+          "code": "const products = [{ id: 'note', price: 3000 }];\nconst found = products.find((p) => p.id === 'missing');\nconsole.log(found.price);",
+          "errors": [
+            18048
+          ]
+        },
+        {
+          "kind": "code",
+          "label": {
+            "ko": "존재 검사 후",
+            "en": "After an Existence Check"
+          },
+          "language": "typescript",
+          "code": "const products = [{ id: 'note', price: 3000 }];\nconst found = products.find((p) => p.id === 'missing');\nif (found === undefined) {\n  console.log('product not found');\n} else {\n  console.log(found.price);\n}",
+          "output": "product not found"
+        }
+      ],
+      "sources": [
+        "practice",
+        "narrow"
+      ],
+      "layout": "equal"
+    },
+    "48": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "policies.ts · 공통 정책 계약",
+            "en": "policies.ts · Shared Policy Contract"
+          },
+          "language": "typescript",
+          "code": "type DiscountPolicy = (amount: number) => number;\nconst regularPrice: DiscountPolicy = (amount) => amount;\nconst memberPrice: DiscountPolicy = (amount) =>\n  Math.floor(amount * 0.9);\nconsole.log(regularPrice(6000));\nconsole.log(memberPrice(6000));\nconsole.log(memberPrice(3001));",
+          "output": "6000\n5400\n2700"
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "정책 전달",
+            "en": "Policy Passing"
+          },
+          "items": [
+            {
+              "ko": "main.ts · 일반 또는 회원 정책 선택",
+              "en": "main.ts · Selects the regular or member policy"
+            },
+            {
+              "ko": "createOrder · 정책 함수 전달",
+              "en": "createOrder · Receives the policy function"
+            },
+            {
+              "ko": "policy(subtotal) · 결제 금액 반환",
+              "en": "policy(subtotal) · Returns the payable amount"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "49": {
+      "panels": [
+        {
+          "kind": "code",
+          "label": {
+            "ko": "adapters.ts · 검증 이후의 변환",
+            "en": "adapters.ts · Conversion After Validation"
+          },
+          "language": "typescript",
+          "code": "function toProduct(raw: ApiProduct): Product {\n  return {\n    id: raw.id,\n    name: raw.product_name,\n    price: raw.unit_price,\n    stock: raw.stock\n  };\n}",
+          "prelude": "type ApiProduct = { id: string; product_name: string; unit_price: number; stock: number };\ntype Product = { id: string; name: string; price: number; stock: number };"
+        },
+        {
+          "kind": "table",
+          "label": {
+            "ko": "fixture와 기대 결과",
+            "en": "Fixtures and Expected Results"
+          },
+          "headers": [
+            {
+              "ko": "주소의 쿼리",
+              "en": "URL Query"
+            },
+            {
+              "ko": "기대 결과",
+              "en": "Expected Result"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "?fixture=valid",
+                "en": "?fixture=valid"
+              },
+              {
+                "ko": "검증 → 변환 → 상품 표시",
+                "en": "Validate → Adapt → Display"
+              }
+            ],
+            [
+              {
+                "ko": "?fixture=missing",
+                "en": "?fixture=missing"
+              },
+              {
+                "ko": "필드 누락으로 검증 실패",
+                "en": "Validation fails: missing field"
+              }
+            ],
+            [
+              {
+                "ko": "?fixture=wrong",
+                "en": "?fixture=wrong"
+              },
+              {
+                "ko": "문자열 가격으로 검증 실패",
+                "en": "Validation fails: string price"
+              }
+            ]
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "50": {
+      "panels": [
+        {
+          "kind": "table",
+          "label": {
+            "ko": "검증 시나리오",
+            "en": "Verification Scenarios"
+          },
+          "headers": [
+            {
+              "ko": "시나리오",
+              "en": "Scenario"
+            },
+            {
+              "ko": "기대 결과",
+              "en": "Expected Result"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "노트 2개 · 일반 / 회원",
+                "en": "Two notebooks · Regular / Member"
+              },
+              {
+                "ko": "6,000원 / 5,400원",
+                "en": "6,000 / 5,400 won"
+              }
+            ],
+            [
+              {
+                "ko": "0 · 음수 · 소수 · 재고 초과",
+                "en": "Zero · Negative · Fraction · Over stock"
+              },
+              {
+                "ko": "주문 요청 전 거부",
+                "en": "Reject before sending an order"
+              }
+            ],
+            [
+              {
+                "ko": "없는 상품 ID · 품절 상품",
+                "en": "Unknown product ID · Out of stock"
+              },
+              {
+                "ko": "실패 결과 반환",
+                "en": "Return a failure result"
+              }
+            ],
+            [
+              {
+                "ko": "요청 실패 → 체크 해제 → 재시도",
+                "en": "Request failure → Uncheck → Retry"
+              },
+              {
+                "ko": "오류 표시 → 버튼 복구 → 성공",
+                "en": "Error → Button restored → Success"
+              }
+            ]
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "자동 검사와 화면 검사",
+            "en": "Automated and UI Checks"
+          },
+          "items": [
+            {
+              "ko": "npm run check · 타입 검사",
+              "en": "npm run check · Type checking"
+            },
+            {
+              "ko": "npm test · 계산과 경계값 검사",
+              "en": "npm test · Calculation and boundary checks"
+            },
+            {
+              "ko": "브라우저 · 중복 제출 방지와 실패 후 복구",
+              "en": "Browser · Duplicate prevention and failure recovery"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "51": {
+      "panels": [
+        {
+          "kind": "flow",
+          "label": {
+            "ko": "AI 코드 검토 절차",
+            "en": "AI Code Review Procedure"
+          },
+          "items": [
+            {
+              "ko": "실행 전 결과와 타입 예측",
+              "en": "Predict results and types before execution"
+            },
+            {
+              "ko": "특정 줄의 설명과 반례 요청",
+              "en": "Request an explanation and counterexamples"
+            },
+            {
+              "ko": "변경 전후 비교와 직접 수정",
+              "en": "Compare changes and edit deliberately"
+            },
+            {
+              "ko": "반례 실행과 결과 기록",
+              "en": "Run counterexamples and record results"
+            }
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "검토 예시 · 수량 변환",
+            "en": "Review Example · Quantity Conversion"
+          },
+          "items": [
+            {
+              "ko": "제안 · Number 대신 parseInt 사용",
+              "en": "Suggestion · Use parseInt instead of Number"
+            },
+            {
+              "ko": "반례 · parseInt(\"2abc\") → 2",
+              "en": "Counterexample · parseInt(\"2abc\") → 2"
+            },
+            {
+              "ko": "판단 · 잘못된 수량 문자열 허용으로 제안 거절",
+              "en": "Decision · Reject because invalid quantity strings are accepted"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    },
+    "52": {
+      "panels": [
+        {
+          "kind": "table",
+          "label": {
+            "ko": "제출물",
+            "en": "Deliverables"
+          },
+          "headers": [
+            {
+              "ko": "자료",
+              "en": "Item"
+            },
+            {
+              "ko": "내용",
+              "en": "Contents"
+            }
+          ],
+          "rows": [
+            [
+              {
+                "ko": "소스 코드",
+                "en": "Source code"
+              },
+              {
+                "ko": "필수 TODO 구현 · 실행 안내 · 잠금 파일",
+                "en": "Required TODOs · Run instructions · Lockfile"
+              }
+            ],
+            [
+              {
+                "ko": "review.md",
+                "en": "review.md"
+              },
+              {
+                "ko": "예측 · 실제 결과 · 수정 원인",
+                "en": "Predictions · Observations · Reasons for changes"
+              }
+            ],
+            [
+              {
+                "ko": "검증 결과",
+                "en": "Verification results"
+              },
+              {
+                "ko": "타입 검사 · 기능 검사 · 브라우저 실패 시나리오",
+                "en": "Type checks · Behavior tests · Browser failures"
+              }
+            ]
+          ]
+        },
+        {
+          "kind": "points",
+          "label": {
+            "ko": "코드 설명 기준",
+            "en": "Code Explanation Criteria"
+          },
+          "items": [
+            {
+              "ko": "입력 → 검증 → 계산 → 요청 → 화면 추적",
+              "en": "Trace input → Validation → Calculation → Request → UI"
+            },
+            {
+              "ko": "타입 검사로 찾은 오류 설명",
+              "en": "Explain an error caught by type checking"
+            },
+            {
+              "ko": "실행 검증이 필요한 오류 설명",
+              "en": "Explain an error requiring runtime validation"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        "practice"
+      ],
+      "layout": "split"
+    }
+  }
+}
