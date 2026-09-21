@@ -137,9 +137,9 @@ npm test --prefix packages/web-deck
 
 ## 03회차 코드 기반 강의
 
-현재 실습 기준은 [TypeScript 공학용 계산기](03/calculator/README.md)입니다. 제공 HTML·CSS에 숫자 검증과 계산 함수를 구현하고, [계산기 기반 강의 구성안](03/materials/calculator-lecture-map.ko.md)에 따라 코드의 실행 흐름·순수 함수·캡슐화·Strategy를 연결합니다. 아래 61장 슬라이드 본문은 기존 상품 주문 예제 기준이며 계산기 예제의 슬라이드 통합은 별도 단계입니다.
+현재 실습은 [pwd-week3 기본 계산기](https://github.com/ajou-hyunseok-oh/pwd-week3)입니다. HTML·CSS와 TypeScript 세 파일을 직접 작성하며, 강의에서 실제 `operations.ts`·`calculator.ts`·`app.ts` 코드를 읽고 실습으로 이어집니다. [강의·코드 연결표](03/materials/calculator-lecture-map.ko.md)에 개념별 파일과 실행 흐름을 정리했습니다.
 
-3주차는 확정된 제목·서브타이틀을 유지한 61장(표지 1 + 챕터 8 + 주제 52)입니다. 제목 원본은 `03/materials/slide-draft.json`, 본문 작성 원본은 `03/scripts/lesson-body.py`입니다. 본문은 공식 문서의 개념·예제를 상품 주문 맥락으로 재구성했으며 [출처와 검증 기록](03/materials/content-review.ko.md)에 적용 범위와 검증 결과를 기록합니다.
+3주차는 61장(표지 1 + 챕터 8 + 주제 52)이며, 2026-09-19 기본 계산기에 맞춰 관련 제목과 본문을 갱신했습니다. 제목 원본은 `03/materials/slide-draft.json`, 본문 원본은 `03/scripts/lesson-body.py`입니다. 실제 소스 발췌와 별도 개념 예제를 구분하며 [출처와 검증 기록](03/materials/content-review.ko.md)에 기준 커밋과 검사 결과를 기록합니다.
 
 코드는 2주차와 같은 검정 배경·녹색 Consolas이며 1280×720 인쇄에서 14px을 유지합니다. 역사·구조·실습 안내는 필요에 따라 표와 흐름도로 구성합니다. TypeScript·TSX는 공용 포매터와 로컬 Prism의 지원 언어에 포함됩니다.
 
@@ -147,6 +147,7 @@ npm test --prefix packages/web-deck
 node lectures/03/scripts/build-slides.cjs
 npm test --prefix packages/web-deck
 node lectures/03/scripts/check-examples.cjs
+node lectures/03/scripts/check-practice.cjs
 node lectures/03/scripts/check-slides.cjs
 ```
 

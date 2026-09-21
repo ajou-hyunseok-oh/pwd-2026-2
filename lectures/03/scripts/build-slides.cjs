@@ -5,7 +5,8 @@ const prettier = require('../../../packages/web-deck/node_modules/prettier');
 const options = require('../../../packages/web-deck/code-format.json');
 const root = path.resolve(__dirname, '..');
 (async () => {
-  execFileSync('python', [path.join(__dirname, 'lesson-body.py')], { stdio: 'inherit' });
+  const python = process.env.PYTHON || 'python3';
+  execFileSync(python, [path.join(__dirname, 'lesson-body.py')], { stdio: 'inherit' });
   const filename = path.join(root, 'materials/lesson-body.json');
   const body = JSON.parse(fs.readFileSync(filename, 'utf8'));
   const parsers = { javascript: 'babel', typescript: 'typescript', tsx: 'typescript', html: 'html', json: 'json' };
@@ -15,8 +16,27 @@ const root = path.resolve(__dirname, '..');
       if (parsers[panel.language]) {
         panel.code = (await prettier.format(panel.code, { ...options, parser: parsers[panel.language], printWidth: 56 })).trimEnd();
       }
+      if (panel.annotations?.length) {
+        panel.displayCode = {};
+        for (const locale of ['ko', 'en']) {
+          const lines = [];
+          for (const line of panel.code.split('\n')) {
+            let suffix = '';
+            for (const annotation of panel.annotations) {
+              if (!line.trimStart().startsWith(annotation.before)) continue;
+              if (annotation.inline) suffix += ' // ' + annotation[locale];
+              else lines.push(line.match(/^\s*/)[0] + '// ' + annotation[locale]);
+            }
+            lines.push(line + suffix);
+          }
+          const annotated = lines.join('\n');
+          panel.displayCode[locale] = parsers[panel.language]
+            ? (await prettier.format(annotated, { ...options, parser: parsers[panel.language], printWidth: 56 })).trimEnd()
+            : annotated;
+        }
+      }
     }
   }
   fs.writeFileSync(filename, JSON.stringify(body, null, 2) + '\n');
-  execFileSync('python', [path.join(__dirname, 'build-draft.py')], { stdio: 'inherit' });
+  execFileSync(python, [path.join(__dirname, 'build-draft.py')], { stdio: 'inherit' });
 })().catch((error) => { console.error(error); process.exitCode = 1; });

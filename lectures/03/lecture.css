@@ -31,6 +31,10 @@
 .week3-panel .wd-code { margin: 0; font-size: .7rem; line-height: 1.45; padding: .75rem .85rem; max-height: none; white-space: pre; }
 .week3-points { display: grid; padding-left: 1.05rem; gap: .85rem; font-size: .9rem; line-height: 1.65; word-break: keep-all; }
 .week3-points li::marker { color: #256747; }
+.week3-point-group > strong { font-weight: 650; }
+.week3-point-details { margin-top: .3rem; padding-left: .65rem; color: var(--wd-muted); font-size: .82rem; line-height: 1.55; }
+.week3-point-details p + p { margin-top: .12rem !important; }
+.week3-code-concepts { margin-top: .8rem !important; }
 .week3-flow { display: grid; padding: 0; gap: .8rem; list-style: none; counter-reset: step; }
 .week3-flow li { position: relative; padding: .8rem .8rem .8rem 2.5rem; background: #f0f4f1; border-left: 3px solid #81998b; font-size: .92rem; line-height: 1.5; word-break: keep-all; counter-increment: step; }
 .week3-flow li::before { content: counter(step, decimal-leading-zero); position: absolute; left: .6rem; top: .9rem; color: #536159; font-size: .65rem; font-weight: 700; }
@@ -38,11 +42,12 @@
 .week3-table th { background: #edf3ef; text-align: left; font-weight: 700; }
 .week3-table td, .week3-table th { padding: .7rem .65rem; border-bottom: 1px solid var(--wd-line); vertical-align: top; }
 .week3-table td:first-child { width: 40%; font-weight: 600; }
-.week3-references { flex: 0 0 auto; margin-top: .45rem; color: var(--wd-muted); font-size: .6rem; line-height: 1.3; }
-.week3-references a { color: inherit; text-underline-offset: .15em; }
 .week3-output-label { margin-top: .55rem !important; font-size: .65rem; color: var(--wd-muted); }
 .week3-output { display: block; margin-top: .2rem; padding: .4rem .85rem; white-space: pre; font-size: .7rem; line-height: 1.45; }
 .week3-diagnostic { margin-top: .55rem !important; font-size: .75rem; line-height: 1.4; color: #983827; }
+.week3-explanation { margin-top: .8rem !important; font-size: .85rem; line-height: 1.6; word-break: keep-all; }
+.week3-takeaway { flex: 0 0 auto; margin-top: .8rem !important; padding-top: .6rem; border-top: 1px solid var(--wd-line); font-size: .85rem; font-weight: 650; line-height: 1.5; word-break: keep-all; }
+.week3-body--async-example .week3-table :is(th, td) { padding: .35rem .65rem; }
 @media screen and (max-width: 767px) {
   .week3-slide { padding: 1.5rem 1rem; }
   .week3-cover h1, .week3-section h2 { font-size: 2.2rem; }
@@ -51,3 +56,30 @@
   .week3-source { right: 1rem; bottom: 1rem; }
   .week3-table { overflow-wrap: anywhere; }
 }
+
+/* Place supporting examples and comparisons below the main code panel. */
+@media print, screen and (min-width: 768px) {
+  :is(.week3-body--object-example, .week3-body--async-example) { grid-template-rows: auto auto; align-content: start; row-gap: 1rem; }
+  :is(.week3-body--object-example, .week3-body--async-example) > :nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+  :is(.week3-body--object-example, .week3-body--async-example) > :nth-child(3) { grid-column: 1; grid-row: 2; }
+}
+
+/* Chapter 07: reserve readable columns for problems, patterns, and file roles. */
+.week3-slide[data-chapter="07"] .week3-table { table-layout: fixed; }
+.week3-slide[data-chapter="07"] .week3-table :is(th, td):first-child { width: 40%; }
+.week3-slide[data-wd-slide="topic-38"] .week3-table :is(th, td):first-child { width: 18%; }
+
+/* Unnumbered practice overview follows the Week 2 two-column layout. */
+.week3-practice .week3-body { gap: 1.2rem; }
+.week3-practice-box { min-width: 0; padding: .8rem; border: 1px solid #c5d4c7; background: #f8faf5; display: grid; gap: .55rem; align-content: start; font-size: .8rem; line-height: 1.5; }
+.week3-practice-box h3 { color: #1f6b4a; font-size: .9rem; }
+.week3-practice-box ul { display: grid; gap: .45rem; padding-left: 1.35rem; }
+.week3-practice-box li { padding-left: .2rem; word-break: keep-all; }
+.week3-practice-box p { word-break: keep-all; overflow-wrap: anywhere; }
+.week3-practice-box a { overflow-wrap: anywhere; }
+.week3-practice-box .week3-practice-deadline { font-size: 1.1rem; font-weight: 700; color: #9a351f; }
+
+.week3-practice-result { min-width: 0; display: grid; gap: .7rem; }
+.week3-practice-preview { display: grid; justify-items: center; gap: .3rem; }
+.week3-practice-preview img { display: block; width: auto; height: 13rem; max-width: 100%; object-fit: contain; }
+.week3-practice-preview figcaption { color: var(--wd-muted); font-size: .7rem; line-height: 1.4; }

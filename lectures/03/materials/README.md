@@ -1,60 +1,62 @@
 # 03회차 자료
 
-## 공학용 계산기 실습
+## 현재 강의와 실습
 
-현재 실습 기준은 TypeScript 공학용 계산기입니다. 실행 예제를 먼저 완성하고 코드의 실제 구조를 패러다임·디자인 패턴과 연결합니다.
+[3주차 HTML 강의](../index.html)는 [pwd-week3 기본 계산기](https://github.com/ajou-hyunseok-oh/pwd-week3)의 실제 코드를 사용합니다. 학생은 HTML·CSS와 TypeScript 세 파일을 직접 작성하고, 컴파일한 JavaScript를 브라우저에서 실행한 뒤 GitHub Pages로 배포합니다.
 
-- [실습 안내](calculator-practice-guide.ko.md) · [프로젝트와 실행 방법](../calculator/README.md)
-- [계산기 기반 강의 구성안](calculator-lecture-map.ko.md): 코드 읽기 순서, 기존 주제 대응, 패러다임·Strategy 연결
-- [리뷰 기록지](../calculator/review.md) · [강사용 해설](../calculator/instructor.md)
+- [계산기 실습 안내](calculator-practice-guide.ko.md): 공개 저장소의 단계별 README와 완료 기준
+- [강의와 실습 코드 연결](calculator-lecture-map.ko.md): 개념별 파일·함수와 읽기 순서
+- [제목·서브타이틀 목록](week-03-slide-draft.ko.md): 50장 실제 번호와 주제 번호
+- [출처와 검증 기록](content-review.ko.md): 소스 기준, 발췌, 검사 결과
 
-## 기존 슬라이드와 주문 예제
-
-현재 슬라이드 본문은 상품 주문 예제 기준입니다. 계산기 기반 강의 구성안은 별도 문서이며 슬라이드에 아직 통합하지 않았습니다.
-
-- [브라우저 슬라이드](../index.html): 확정 제목을 유지한 61장 한·영 강의
-- [제목·서브타이틀 목록](week-03-slide-draft.ko.md): 실제 번호와 기존 구성안 번호의 대응
-- [출처와 검증 기록](content-review.ko.md): 공식 자료, 코드 재구성, 검증 결과
-- [기존 강의 구성안](week-03-slide-outline.ko.md): 주제별 상세 설계와 수업 시간 배정
-- [기존 주문 실습 안내](practice-guide.ko.md) · [주문 프로젝트](../practice/README.md) · [주문 리뷰 기록지](../practice/review.md)
-- [기존 주문 강사용 해설](../practice/instructor.md): 완성 예제와 운영 안내
+계산기 실습은 챕터 번호 없이 마지막 한 장의 실습 개요로 안내합니다. 학습 목표·요구사항·참고 저장소와 마감일·제출물을 2주차 실습 개요 형식으로 배치합니다.
 
 ## 작성 원본
 
-- `slide-draft.json`: 사용자 확정 제목·서브타이틀. `approved-headings.sha256`으로 변경 여부 확인.
-- `../scripts/lesson-body.py`: 한·영 본문, 코드, 출력, 표, 흐름도, 출처와 검증 메타데이터.
+- `slide-draft.json`: 제목·서브타이틀. 2026-09-21 최종 검토에서 고차 함수 부제와 영문 용어를 보완했고 `approved-headings.sha256`에 현재 기준을 기록했습니다.
+- `../scripts/lesson-body.py`: 한·영 본문, 예제, 출력과 검증 메타데이터.
+- `practice-source/`: 공개 실습의 TypeScript 세 파일 스냅샷. [기준 커밋](https://github.com/ajou-hyunseok-oh/pwd-week3/tree/a321051435d95970ac6e082b933fd49464b7e974)과 동일합니다.
 - `lesson-body.json`: 생성·포맷된 중간 데이터.
 - `../scripts/build-slides.cjs`: 본문 생성 → 코드 포맷 → HTML·번역·제목 목록 생성.
-- `../lecture.css`, `../code-theme.css`: 본문 배치와 2주차 기준 코드 테마.
 
-강의 화면에는 주제별 핵심 설명과 예제만 표시하며 하단 보충 설명 영역을 사용하지 않습니다. 제작 메모와 상세한 검증 맥락은 별도 검토 문서에 기록합니다.
+실제 코드는 슬라이드 안에 검은 배경·녹색 Consolas 코드 블록으로 표시합니다. 코드 제목과 설명은 개념 중심으로 작성하고, 출처를 강조하는 문구와 링크는 화면에 표시하지 않습니다. 독립된 줄 주석은 생략하고 실행 구문은 유지합니다. 근거 확인용 파일·줄 메타데이터와 출처는 작성 원본과 검토 문서에 보관합니다. 강의를 다시 빌드할 때 형제 폴더의 실습 저장소가 필요하지 않습니다. 소스가 변경되면 스냅샷과 발췌 범위, 기준 커밋, 검증 시나리오를 함께 검토합니다.
+
+## 생성과 검증
+
+Node.js, npm, Python 3가 필요합니다. 생성기는 기본적으로 `python3`를 사용하며 `PYTHON` 환경변수로 실행 파일을 바꿀 수 있습니다.
 
 ```sh
 npm ci --prefix packages/web-deck
 node lectures/03/scripts/build-slides.cjs
+node lectures/03/scripts/check-practice.cjs
 npm test --prefix packages/web-deck
 ```
 
-루트에서 실행합니다. `build-draft.py`는 생성된 본문을 조립하는 내부 단계이므로 전체 변경 반영에는 `build-slides.cjs`를 사용합니다. 공용 `format:code`는 생성 결과를 포맷할 수 있지만, 영구 수정은 작성 원본에 반영합니다.
+강의 검증 도구는 `packages/web-deck`의 TypeScript 5.9.3을 사용합니다. 학생이 실행할 프로젝트는 외부 `pwd-week3`입니다. 학생 명령은 `npm run check`, `npm run build`, `npm run watch`입니다.
 
-## 예제 검증
+실제 실습 저장소와 스냅샷까지 비교하려면:
 
-`npm ci --prefix lectures/03/practice`로 TypeScript 5.9.3을 설치합니다. React·Vue 예제 검증에는 별도의 검증 폴더가 필요합니다. 아래는 PowerShell 기준이며 `$env:WEEK3_CHECK_ROOT`를 지정하면 기본 임시 폴더 대신 해당 경로를 사용합니다.
-
-```powershell
-$reviewDir = Join-Path $env:TEMP 'week3-code-review'
-npm install --prefix $reviewDir vue@3.5.21 react@19.1.1 @types/react@19.1.13 --ignore-scripts --no-audit --no-fund
-node lectures/03/scripts/check-examples.cjs
+```sh
+WEEK3_PRACTICE_ROOT=/path/to/pwd-week3 node lectures/03/scripts/check-practice.cjs
 ```
 
-예제는 표시 코드 그대로 타입 검사하며 의도된 오류만 허용합니다. 발췌 코드의 `declare` 보조 선언은 해당 슬라이드의 제공 함수·타입 계약을 나타냅니다. 원래 인수가 필요한 함수를 무조건 실행하지 않고 별도 검증 입력을 사용합니다. 터미널 안내 명령은 자동 실행하지 않습니다.
+독립 예제의 일반 스크립트·모듈 문법과 선언형 화면 비교의 React TSX를 검증합니다. 임시 검증 폴더에 React와 타입 선언이 필요하며 Vue는 사용하지 않습니다.
+
+```sh
+npm install --prefix /tmp/pwd-week3-code-review react@19.1.1 @types/react@19.1.13 --ignore-scripts --no-audit --no-fund
+WEEK3_CHECK_ROOT=/tmp/pwd-week3-code-review node lectures/03/scripts/check-examples.cjs
+```
 
 ## 브라우저 검증
 
-루트에서 `python -m http.server 4304 --bind 127.0.0.1`로 서버를 실행합니다. Chrome과 Playwright가 필요합니다. `PLAYWRIGHT_PATH`는 Playwright 패키지 경로, `DECK_URL`은 기본 `http://127.0.0.1:4304`를 대체하는 서버 주소입니다.
+저장소 루트에서 `python3 -m http.server 4304 --bind 127.0.0.1`을 실행합니다. 별도 터미널에서 Chrome과 설치된 Playwright를 사용합니다.
 
 ```sh
-node lectures/03/scripts/check-slides.cjs
+PLAYWRIGHT_PATH=/path/to/playwright node lectures/03/scripts/check-slides.cjs
 ```
 
-한·영 화면과 인쇄 244개 상태, 모바일 한·영 122개 페이지 이동, 코드 테마, 미처리 예외를 확인합니다. `%TEMP%/week3-slide-review`에 audit.json과 대표 캡처를 저장합니다. 서버는 검증 후 종료합니다.
+`DECK_URL`로 서버 주소를 바꿀 수 있습니다. 한·영 50장씩 화면·인쇄 총 200개 상태, 모바일 100개 이동, 코드 테마와 미처리 예외를 검사합니다. 캡처와 `audit.json`은 OS 임시 폴더의 `week3-slide-review`에 저장합니다.
+
+## 실습 기준
+
+학생 실습과 실행·제출 기준은 공개 `pwd-week3` README를 따릅니다. 폐기된 실습 프로젝트는 강의 예제나 검증 도구의 의존성으로 사용하지 않습니다.

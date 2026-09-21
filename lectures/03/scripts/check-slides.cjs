@@ -1,8 +1,8 @@
-﻿const fs = require('node:fs');
+const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const assert = require('node:assert/strict');
-const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'C:/Users/hsoh/AppData/Local/npm-cache/_npx/e41f203b7505f1fb/node_modules/playwright');
+const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
 const output = path.join(os.tmpdir(), 'week3-slide-review');
 fs.mkdirSync(output, { recursive: true });
 (async () => {
@@ -15,7 +15,9 @@ fs.mkdirSync(output, { recursive: true });
     page.on('console', message => { if (message.type() === 'error' && message.text().includes('[WebDeck]')) errors.push(message.text()); });
     await page.goto((process.env.DECK_URL || 'http://127.0.0.1:4304') + '/lectures/03/');
     await page.evaluate(() => document.fonts.ready);
-    assert.equal(await page.locator('[data-wd-slide]').count(), 61);
+    assert.equal(await page.locator('[data-wd-slide]').count(), 50);
+    assert.equal(await page.locator('[data-wd-slide="chapter-08"], [data-chapter="08"]').count(), 0);
+    assert.equal(await page.locator('[data-wd-slide="practice-overview"]').count(), 1);
     for (const locale of ['ko', 'en']) {
       await page.click(`[data-locale="${locale}"]`);
       for (const mode of ['screen', 'print']) {
@@ -47,7 +49,7 @@ fs.mkdirSync(output, { recursive: true });
         issues.push(...result.map(issue => ({ locale, mode, ...issue })));
       }
       await page.emulateMedia({ media: 'screen' });
-      for (const topic of ['topic-07', 'topic-22', 'topic-34', 'topic-45', 'topic-50']) {
+      for (const topic of ['topic-09', 'topic-14', 'topic-27', 'topic-28', 'topic-29', 'chapter-06', 'topic-30', 'topic-31', 'topic-32', 'topic-33', 'topic-38', 'topic-39', 'practice-overview']) {
         await page.evaluate(topic => {
           const slides = [...document.querySelectorAll('[data-wd-slide]')];
           document.querySelector('[data-web-deck]').__webDeck.goTo(slides.findIndex(s => s.dataset.wdSlide === topic));
@@ -67,7 +69,7 @@ fs.mkdirSync(output, { recursive: true });
     await page.setViewportSize({ width: 375, height: 812 });
     for (const locale of ['ko', 'en']) {
       await page.click(`[data-locale="${locale}"]`);
-      for (let index = 0; index < 61; index++) {
+      for (let index = 0; index < 50; index++) {
         const ok = await page.evaluate(index => {
           document.querySelector('[data-web-deck]').__webDeck.goTo(index);
           return document.documentElement.scrollWidth <= innerWidth;

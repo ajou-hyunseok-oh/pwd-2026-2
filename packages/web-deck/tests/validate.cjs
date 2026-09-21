@@ -46,6 +46,9 @@ for (let week = 1; week <= 13; week += 1) {
   const number = String(week).padStart(2, '0');
   const lecturePath = path.join(repositoryRoot, 'lectures', number, 'index.html');
   const html = fs.readFileSync(lecturePath, 'utf8');
+  // Source code preserves application messages and comments verbatim.
+  // Deck prose style rules apply outside the actual <pre> code blocks.
+  const codeKeys = new Set([...html.matchAll(/<pre\b[^>]*data-wd-i18n="([^"]+)"/g)].map(match => match[1]));
   const sandbox = {
     document: { body: { getAttribute: () => number } },
     window: {}
@@ -55,7 +58,7 @@ for (let week = 1; week <= 13; week += 1) {
     const lectureContent = fs.readFileSync(lectureContentPath, 'utf8');
     vm.runInNewContext(lectureContent, sandbox);
     for (const [key, value] of Object.entries(sandbox.window.LECTURE_CONTENT.ko)) {
-      if (typeof value !== 'string') continue;
+      if (typeof value !== 'string' || codeKeys.has(key)) continue;
       assert.doesNotMatch(
         value,
         politeKoreanEnding,
@@ -85,7 +88,7 @@ for (let week = 1; week <= 13; week += 1) {
 
   assert.match(html, /data-web-deck/, `Lecture ${number} is missing the deck root`);
   assert.match(html, /data-wd-slide="cover"/, `Lecture ${number} is missing its cover slide`);
-  const expectedSlideCount = { 1: 28, 2: 54, 3: 61 }[week] || 1;
+  const expectedSlideCount = { 1: 28, 2: 54, 3: 50 }[week] || 1;
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);

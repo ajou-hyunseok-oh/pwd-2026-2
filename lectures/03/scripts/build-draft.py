@@ -17,6 +17,17 @@ def text(key, ko, en):
 def localized(tag, key, value, attrs=""):
     return f'<{tag} {attrs} {text(key, value["ko"], value["en"])}</{tag}>'
 
+def render_concepts(items, key):
+    result = '<ul class="week3-points week3-code-concepts">'
+    for n, item in enumerate(items):
+        ik = f"{key}_concept_{n}"
+        result += '<li class="week3-point-group">' + localized("strong", ik, item)
+        result += '<div class="week3-point-details">'
+        for d, detail in enumerate(item["details"]):
+            result += localized("p", f"{ik}_detail_{d}", detail)
+        result += '</div></li>'
+    return result + '</ul>'
+
 def render_body(source, key):
     body = body_data["slides"][str(int(source))]
     panels = []
@@ -26,7 +37,8 @@ def render_body(source, key):
         kind = panel["kind"]
         if kind == "code":
             value = panel["code"]
-            content += localized("pre", pk + "_code", {"ko": value, "en": value},
+            displayed = panel.get("displayCode", {"ko": value, "en": value})
+            content += localized("pre", pk + "_code", displayed,
                 f'class="wd-code" data-wd-code="{panel["language"]}" data-wd-code-width="56"')
             if panel.get("errors"):
                 message = " · ".join("TS" + str(n) for n in panel["errors"])
@@ -41,7 +53,15 @@ def render_body(source, key):
             tag = "ol" if kind == "flow" else "ul"
             content += f'<{tag} class="week3-{kind}">'
             for n, item in enumerate(panel["items"]):
-                content += localized("li", f"{pk}_item_{n}", item)
+                if item.get("details"):
+                    content += '<li class="week3-point-group">'
+                    content += localized("strong", f"{pk}_item_{n}", item)
+                    content += '<div class="week3-point-details">'
+                    for d, detail in enumerate(item["details"]):
+                        content += localized("p", f"{pk}_item_{n}_detail_{d}", detail)
+                    content += '</div></li>'
+                else:
+                    content += localized("li", f"{pk}_item_{n}", item)
             content += f'</{tag}>'
         elif kind == "table":
             content += '<table class="week3-table"><thead><tr>'
@@ -54,17 +74,16 @@ def render_body(source, key):
                     content += localized("td", f"{pk}_cell_{r}_{c}", item)
                 content += '</tr>'
             content += '</tbody></table>'
+        if panel.get("explanation"):
+            content += localized("p", pk + "_explanation", panel["explanation"], 'class="week3-explanation"')
+        if panel.get("concepts"):
+            content += render_concepts(panel["concepts"], pk)
         panels.append(f'<div class="week3-panel week3-panel--{kind}">{content}</div>')
     result = f'<div class="week3-body week3-body--{body["layout"]}">' + ''.join(panels) + '</div>'
-    links = []
-    for ref in body["sources"]:
-        label, url = body_data["sources"][ref]
-        if ref == "practice":
-            link = localized("a", key + "_practice_link", {"ko": "실습 README", "en": "Lab README"}, f'href="{url}"')
-        else:
-            link = f'<a href="{html.escape(url, quote=True)}" target="_blank" rel="noopener noreferrer">{html.escape(label)}</a>'
-        links.append(link)
-    result += '<footer class="week3-references">' + ' · '.join(links) + '</footer>'
+    if body.get("takeaway"):
+        result += localized("p", key + "_takeaway", body["takeaway"], 'class="week3-takeaway"')
+    # Source references stay in authoring metadata and the instructor review.
+    # Student slides display the actual code, without reference-link footers.
     return result
 
 slides = []
@@ -73,23 +92,59 @@ slides.append(f'''          <section class="wd-slide week3-slide week3-cover is-
             <div>
               <p class="week3-eyebrow" {text("cover_eyebrow", "2026학년도 2학기 실전웹서비스개발", "Practical Web Service Development · Fall 2026")}</p>
               <h1 {text("cover_title", "실전 웹서비스개발 – 3주차", "Practical Web Service Development – Week 3")}</h1>
-              <p class="week3-cover__subtitle" {text("cover_subtitle", "JavaScript와 TypeScript · 문법과 코드 구조", "JavaScript and TypeScript · Syntax and Code Structure")}</p>
+              <p class="week3-cover__subtitle" {text("cover_subtitle", "JavaScript와 TypeScript의 문법을 통한 실행 흐름과 코드 구조 이해", "Learn JavaScript and TypeScript syntax and understand code flow and structure.")}</p>
             </div>
             <p class="week3-source">LECTURE 03</p>
           </section>''')
 outline = ["# 3주차 슬라이드 초안: 타이틀 · 서브타이틀 · 챕터 구분", "",
     "확정된 타이틀, 서브타이틀, 챕터 구분의 목록. 본문·코드·도식은 index.html에 작성.", "",
     "## 적용 규칙", "",
-    "- 1·2주차와 공통 작성 가이드 기준: 구체적인 명사구 제목, 경어체 없는 짧은 서브타이틀.",
+    "- 제목은 가르칠 핵심 개념을 명확히 나타내는 명사구. 예제의 용도를 개념과 동등하게 나열하지 않음.",
+    "- 서브타이틀은 학습 내용을 설명하는 한 줄 명사형 표현. '~한다.' 종결과 문장 끝 마침표는 사용하지 않음. 키워드 나열이나 제목 반복 대신 배울 관계·동작을 구체적으로 기술.",
     "- 설명에는 실제 개념·처리 과정·인과관계 사용. 의문형 제목, 제작 메모, 다음 내용 예고 제외.",
     "- 나열은 ` · `, 처리 흐름은 ` → `로 표기. 한·영에 동일한 문체와 구조 적용.",
     "- 1·2주차의 독립 챕터 표지 형식 적용. 기존 구성안의 상단 챕터 표식 방식 대신 번호·제목·서브타이틀로 챕터 구분.",
-    "- 원안의 52개 주제와 순서 유지. 강의 표지 1장 + 챕터 표지 8장 + 주제 52장 = 총 61장.",
-    "- 원안 번호는 기존 구성안 및 실습 안내의 참조 번호. 실제 슬라이드 번호와 구분.",
+    "- 기존 주제 사이에 배열과 객체 개념 추가. 강의 표지 1장 + 챕터 표지 7장 + 주제 41장 + 번호 없는 실습 개요 1장 = 총 50장.",
+    "- 주제 번호(sourcePage)는 본문 검증용 식별자. 실제 슬라이드 번호와 구분.",
+    "- 2026-09-19: pwd-week3 기본 계산기에 맞춰 예제와 관련 제목·서브타이틀 갱신.",
     "- 초안 원본: `slide-draft.json`. 전체 재생성: `node lectures/03/scripts/build-slides.cjs`.", "",
     "## 강의 표지", "", "| 슬라이드 | 타이틀 | 서브타이틀 |", "|---|---|---|",
-    "| 01 | 실전 웹서비스개발 – 3주차 | JavaScript와 TypeScript · 문법과 코드 구조 |"]
+    "| 01 | 실전 웹서비스개발 – 3주차 | JavaScript와 TypeScript의 문법을 통한 실행 흐름과 코드 구조 이해 |"]
 for chapter in chapters:
+    if chapter.get("kind") == "practice":
+        key = "practice"
+        def practice_list(field):
+            return '<ul>' + ''.join(localized("li", f"{key}_{field}_{i}", value) for i, value in enumerate(chapter[field])) + '</ul>'
+        reference = html.escape(chapter["referenceUrl"], quote=True)
+        slides.append(f'''          <section class="wd-slide wd-slide--content week3-slide week3-practice" data-wd-slide="practice-overview" role="region">
+            <h2 class="wd-slide-heading" {text(key + "_title", chapter["title"], chapter["titleEn"])}</h2>
+            <p class="wd-slide-lead" {text(key + "_subtitle", chapter["subtitle"], chapter["subtitleEn"])}</p>
+            <div class="week3-body week3-body--equal">
+              <div class="week3-practice-box">
+                <h3 {text(key + "_goals", "학습 목표", "Learning Goals")}</h3>
+                {practice_list("goals")}
+                <h3 {text(key + "_requirements", "요구사항", "Requirements")}</h3>
+                {practice_list("requirements")}
+                <p><span {text(key + "_reference", "참고", "Reference")}</span>: <a href="{reference}" target="_blank" rel="noopener">{reference}</a></p>
+              </div>
+              <div class="week3-practice-result">
+              <div class="week3-practice-box">
+                <h3 {text(key + "_deadline_label", "과제 마감일", "Assignment Deadline")}</h3>
+                {localized("p", key + "_deadline", chapter["deadline"], 'class="week3-practice-deadline"')}
+                {practice_list("deliverables")}
+                {localized("p", key + "_submission", chapter["submissionNote"])}
+              </div>
+              <figure class="week3-practice-preview">
+                <img src="./materials/week3_result.png" alt="48 + 19 = 67" width="1038" height="1552">
+                {localized("figcaption", key + "_result_caption", {"ko": "계산기 실행 결과", "en": "Calculator Result"})}
+              </figure>
+              </div>
+            </div>
+          </section>''')
+        outline.extend(["", "## 실습 개요 (챕터 번호 없음)", "",
+            "| 슬라이드 | 타이틀 | 서브타이틀 |", "|---|---|---|",
+            f'| {len(slides):02} | {chapter["title"]} | {chapter["subtitle"]} |'])
+        continue
     number = f'{chapter["number"]:02}'
     key = f"chapter_{number}"
     slides.append(f'''          <section class="wd-slide week3-slide week3-section" data-wd-slide="chapter-{number}" role="region">
@@ -109,7 +164,7 @@ for chapter in chapters:
             {render_body(source, key)}
           </section>''')
         outline.append(f'| {len(slides):02} | {source} | {topic["title"]} | {topic["subtitle"]} |')
-assert len(slides) == 61
+assert len(slides) == 50
 markup = '''<!doctype html>
 <html class="wd-page" lang="ko">
   <head>

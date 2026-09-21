@@ -34,6 +34,7 @@
   "devDependencies": {
     "htmlhint": "1.9.2",
     "prettier": "3.9.6",
-    "prismjs": "1.30.0"
+    "prismjs": "1.30.0",
+    "typescript": "5.9.3"
   }
 }
