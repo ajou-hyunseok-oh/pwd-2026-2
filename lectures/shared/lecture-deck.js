@@ -4,9 +4,9 @@
   var lectures = {
     '01': { ko: '2026 웹서비스 개발 개요', en: 'Web Service Development in 2026', dateKo: '2026. 09. 07. 월요일', dateEn: 'Monday, September 7, 2026' },
     '02': { ko: '웹 페이지의 구성 요소와 렌더링 원리', en: 'Web Page Components and Rendering Principles', dateKo: '2026. 09. 14. 월요일', dateEn: 'Monday, September 14, 2026' },
-    '03': { ko: 'JavaScript → TypeScript', en: 'JavaScript → TypeScript', dateKo: '2026. 09. 21. 월요일', dateEn: 'Monday, September 21, 2026' },
-    '04': { ko: 'React + Vite', en: 'React + Vite', dateKo: '2026. 09. 28. 월요일', dateEn: 'Monday, September 28, 2026' },
-    '05': { ko: 'UI/UX + Responsive', en: 'UI/UX & Responsive Design', dateKo: '2026. 10. 12. 월요일', dateEn: 'Monday, October 12, 2026' },
+    '03': { ko: 'JavaScript / TypeScript 기초', en: 'JavaScript / TypeScript Basics', dateKo: '2026. 09. 21. 월요일', dateEn: 'Monday, September 21, 2026' },
+    '04': { ko: 'React 기초 / 웹 서비스 기획', en: 'React Basics / Web Service Planning', dateKo: '2026. 09. 28. 월요일', dateEn: 'Monday, September 28, 2026' },
+    '05': { ko: 'React 심화', en: 'Advanced React', dateKo: '2026. 10. 12. 월요일', dateEn: 'Monday, October 12, 2026' },
     '06': { ko: 'Backend + REST API', en: 'Backend & REST APIs', dateKo: '2026. 10. 19. 월요일', dateEn: 'Monday, October 19, 2026' },
     '07': { ko: 'Database + Authentication', en: 'Database & Authentication', dateKo: '2026. 11. 02. 월요일', dateEn: 'Monday, November 2, 2026' },
     '08': { ko: 'Full Stack Integration', en: 'Full Stack Integration', dateKo: '2026. 11. 09. 월요일', dateEn: 'Monday, November 9, 2026' },

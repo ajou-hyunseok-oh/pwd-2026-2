@@ -1,6 +1,6 @@
 window.LECTURE_CONTENT = {
   "ko": {
-    "page_title": "03 | JavaScript → TypeScript",
+    "page_title": "03 | JavaScript / TypeScript 기초",
     "cover_eyebrow": "2026학년도 2학기 실전웹서비스개발",
     "cover_title": "실전 웹서비스개발 – 3주차",
     "cover_subtitle": "JavaScript와 TypeScript의 문법을 통한 실행 흐름과 코드 구조 이해",
@@ -660,7 +660,7 @@ window.LECTURE_CONTENT = {
     "practice_result_caption": "계산기 실행 결과"
   },
   "en": {
-    "page_title": "03 | JavaScript → TypeScript",
+    "page_title": "03 | JavaScript / TypeScript Basics",
     "cover_eyebrow": "Practical Web Service Development · Fall 2026",
     "cover_title": "Practical Web Service Development – Week 3",
     "cover_subtitle": "Learn JavaScript and TypeScript syntax and understand code flow and structure.",

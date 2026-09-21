@@ -87,7 +87,7 @@ def render_body(source, key):
     return result
 
 slides = []
-text("page_title", "03 | JavaScript → TypeScript", "03 | JavaScript → TypeScript")
+text("page_title", "03 | JavaScript / TypeScript 기초", "03 | JavaScript / TypeScript Basics")
 slides.append(f'''          <section class="wd-slide week3-slide week3-cover is-active" data-wd-slide="cover" role="region">
             <div>
               <p class="week3-eyebrow" {text("cover_eyebrow", "2026학년도 2학기 실전웹서비스개발", "Practical Web Service Development · Fall 2026")}</p>
@@ -170,7 +170,7 @@ markup = '''<!doctype html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title data-wd-i18n="page_title">03 | JavaScript → TypeScript</title>
+    <title data-wd-i18n="page_title">03 | JavaScript / TypeScript 기초</title>
     <link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
     <link rel="stylesheet" href="./lecture.css">
     <link rel="stylesheet" href="./code-theme.css">
