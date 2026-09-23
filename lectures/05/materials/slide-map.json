@@ -1,0 +1,993 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "title": "React 심화 · 캠퍼스 푸드맵",
+    "sources": []
+  },
+  {
+    "number": 2,
+    "id": "review-react",
+    "title": "React와 개발 도구의 역할",
+    "sources": [
+      [
+        "../04 · React 기초",
+        "../04/index.html#/22"
+      ],
+      [
+        "package.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/package.json"
+      ]
+    ]
+  },
+  {
+    "number": 3,
+    "id": "review-ui",
+    "title": "컴포넌트와 선언형 UI",
+    "sources": [
+      [
+        "../04 · 컴포넌트와 선언형 UI",
+        "../04/index.html#/9"
+      ],
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 4,
+    "id": "review-render",
+    "title": "상태 변경과 화면 갱신",
+    "sources": [
+      [
+        "React PDF · p.7",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=7"
+      ],
+      [
+        "React · Render and Commit",
+        "https://react.dev/learn/render-and-commit"
+      ]
+    ]
+  },
+  {
+    "number": 5,
+    "id": "review-planning",
+    "title": "서비스 기획과 구현 단위",
+    "sources": [
+      [
+        "../04 · 웹 서비스 기획",
+        "../04/ai-design.html"
+      ],
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 6,
+    "id": "practice-target",
+    "title": "캠퍼스 푸드맵의 실습 목표",
+    "sources": [
+      [
+        "README.md",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/README.md"
+      ]
+    ]
+  },
+  {
+    "number": 7,
+    "id": "practice-data",
+    "title": "실습 데이터와 저장 범위",
+    "sources": [
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ],
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 8,
+    "id": "setup-clone",
+    "title": "완성 실습 저장소의 실행",
+    "sources": [
+      [
+        "README.md",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/README.md"
+      ],
+      [
+        "package.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/package.json"
+      ]
+    ]
+  },
+  {
+    "number": 9,
+    "id": "setup-new",
+    "title": "빈 프로젝트 생성과 파일 적용",
+    "sources": [
+      [
+        "README.md",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/README.md"
+      ],
+      [
+        "package.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/package.json"
+      ]
+    ]
+  },
+  {
+    "number": 10,
+    "id": "project-files",
+    "title": "프로젝트 폴더와 역할",
+    "sources": [
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 11,
+    "id": "entry",
+    "title": "index.html과 React 진입점",
+    "sources": [
+      [
+        "src/main.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/main.jsx"
+      ],
+      [
+        "React · StrictMode",
+        "https://react.dev/reference/react/StrictMode"
+      ]
+    ]
+  },
+  {
+    "number": 12,
+    "id": "component-types",
+    "title": "클래스형과 함수형 컴포넌트",
+    "sources": [
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Components",
+        "https://react.dev/learn/your-first-component"
+      ],
+      [
+        "React · Component",
+        "https://react.dev/reference/react/Component"
+      ]
+    ]
+  },
+  {
+    "number": 13,
+    "id": "function-component",
+    "title": "함수형 컴포넌트의 구조",
+    "sources": [
+      [
+        "React PDF · p.11",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=11"
+      ],
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Components",
+        "https://react.dev/learn/your-first-component"
+      ]
+    ]
+  },
+  {
+    "number": 14,
+    "id": "jsx-rules",
+    "title": "JSX 작성 규칙",
+    "sources": [
+      [
+        "React PDF · p.9",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=9"
+      ],
+      [
+        "React PDF · p.10",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=10"
+      ],
+      [
+        "React · JSX",
+        "https://react.dev/learn/writing-markup-with-jsx"
+      ]
+    ]
+  },
+  {
+    "number": 15,
+    "id": "jsx-values",
+    "title": "JSX의 값과 조건 표현",
+    "sources": [
+      [
+        "React · JSX",
+        "https://react.dev/learn/writing-markup-with-jsx"
+      ],
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 16,
+    "id": "props",
+    "title": "Props 전달과 구조 분해",
+    "sources": [
+      [
+        "React PDF · p.14",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=14"
+      ],
+      [
+        "React · Props",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "src/components/RestaurantList.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantList.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 17,
+    "id": "composition",
+    "title": "페이지와 컴포넌트의 조합",
+    "sources": [
+      [
+        "React PDF · p.12",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=12"
+      ],
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ],
+      [
+        "src/components/RestaurantList.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantList.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 18,
+    "id": "map-key",
+    "title": "목록 렌더링과 key",
+    "sources": [
+      [
+        "React · Lists",
+        "https://react.dev/learn/rendering-lists"
+      ],
+      [
+        "src/components/RestaurantList.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantList.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 19,
+    "id": "practice-card",
+    "title": "실습 1 · 카드의 표시 정보 수정",
+    "sources": [
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 20,
+    "id": "state-props",
+    "title": "Props · State · 파생값의 구분",
+    "sources": [
+      [
+        "React PDF · p.14",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=14"
+      ],
+      [
+        "React · State",
+        "https://react.dev/learn/state-as-a-snapshot"
+      ],
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 21,
+    "id": "use-state",
+    "title": "useState의 반환값과 갱신",
+    "sources": [
+      [
+        "React · State",
+        "https://react.dev/learn/state-as-a-snapshot"
+      ],
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 22,
+    "id": "state-snapshot",
+    "title": "상태 스냅샷과 연속 갱신",
+    "sources": [
+      [
+        "React · State",
+        "https://react.dev/learn/state-as-a-snapshot"
+      ],
+      [
+        "React · Queued Updates",
+        "https://react.dev/learn/queueing-a-series-of-state-updates"
+      ]
+    ]
+  },
+  {
+    "number": 23,
+    "id": "events",
+    "title": "이벤트 핸들러의 전달",
+    "sources": [
+      [
+        "React PDF · p.15",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=15"
+      ],
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 24,
+    "id": "filter",
+    "title": "카테고리 선택과 파생 목록",
+    "sources": [
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ],
+      [
+        "React · Derived Values",
+        "https://react.dev/learn/you-might-not-need-an-effect"
+      ]
+    ]
+  },
+  {
+    "number": 25,
+    "id": "like-state",
+    "title": "좋아요 상태와 개수의 계산",
+    "sources": [
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 26,
+    "id": "immutable-state",
+    "title": "객체와 배열 상태의 갱신",
+    "sources": [
+      [
+        "React · Updating Arrays",
+        "https://react.dev/learn/updating-arrays-in-state"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 27,
+    "id": "practice-state",
+    "title": "실습 2 · 필터와 좋아요 확인",
+    "sources": [
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ],
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 28,
+    "id": "hook-rules",
+    "title": "Hooks의 역할과 호출 규칙",
+    "sources": [
+      [
+        "React PDF · p.16",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=16"
+      ],
+      [
+        "React · Hook Rules",
+        "https://react.dev/reference/rules/rules-of-hooks"
+      ]
+    ]
+  },
+  {
+    "number": 29,
+    "id": "effects",
+    "title": "useEffect와 의존성 배열",
+    "sources": [
+      [
+        "React PDF · p.17",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=17"
+      ],
+      [
+        "React · useEffect",
+        "https://react.dev/reference/react/useEffect"
+      ]
+    ]
+  },
+  {
+    "number": 30,
+    "id": "effect-cleanup",
+    "title": "Effect의 정리와 실행 순서",
+    "sources": [
+      [
+        "React PDF · p.17",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=17"
+      ],
+      [
+        "React · useEffect",
+        "https://react.dev/reference/react/useEffect"
+      ]
+    ]
+  },
+  {
+    "number": 31,
+    "id": "storage-api",
+    "title": "localStorage와 JSON 변환",
+    "sources": [
+      [
+        "MDN · localStorage",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 32,
+    "id": "hook-selection",
+    "title": "Hooks의 선택 기준",
+    "sources": [
+      [
+        "React PDF · p.16",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=16"
+      ],
+      [
+        "React · Hooks",
+        "https://react.dev/reference/react/hooks"
+      ],
+      [
+        "src/pages/AdminPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/AdminPage.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 33,
+    "id": "restore-likes",
+    "title": "좋아요 저장값의 복원",
+    "sources": [
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ],
+      [
+        "React · useEffect",
+        "https://react.dev/reference/react/useEffect"
+      ]
+    ]
+  },
+  {
+    "number": 34,
+    "id": "storage-keys",
+    "title": "저장 키와 사이트 주소의 관계",
+    "sources": [
+      [
+        "MDN · localStorage",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 35,
+    "id": "practice-storage",
+    "title": "실습 3 · 저장과 새로고침 확인",
+    "sources": [
+      [
+        "MDN · localStorage",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 36,
+    "id": "ecosystem",
+    "title": "실습 라이브러리의 역할",
+    "sources": [
+      [
+        "React PDF · p.18",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=18"
+      ],
+      [
+        "package.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/package.json"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 37,
+    "id": "app-providers",
+    "title": "App의 Provider와 공통 화면",
+    "sources": [
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 38,
+    "id": "service-layer",
+    "title": "가상 API의 비동기 인터페이스",
+    "sources": [
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 39,
+    "id": "use-query",
+    "title": "useQuery의 조회와 캐시 키",
+    "sources": [
+      [
+        "TanStack · Query Keys",
+        "https://tanstack.com/query/latest/docs/framework/react/guides/query-keys"
+      ],
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 40,
+    "id": "query-states",
+    "title": "로딩 · 오류 · 빈 목록의 구분",
+    "sources": [
+      [
+        "src/pages/ListPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/ListPage.jsx"
+      ],
+      [
+        "src/components/RestaurantList.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantList.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 41,
+    "id": "query-settings",
+    "title": "캐시의 유효 시간과 재조회",
+    "sources": [
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ],
+      [
+        "TanStack · Invalidation",
+        "https://tanstack.com/query/latest/docs/framework/react/guides/query-invalidation"
+      ]
+    ]
+  },
+  {
+    "number": 42,
+    "id": "routes",
+    "title": "HashRouter와 페이지 경로",
+    "sources": [
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ],
+      [
+        "React Router · HashRouter",
+        "https://reactrouter.com/api/declarative-routers/HashRouter"
+      ]
+    ]
+  },
+  {
+    "number": 43,
+    "id": "links-detail",
+    "title": "Link와 동적 경로의 id",
+    "sources": [
+      [
+        "src/pages/DetailPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/DetailPage.jsx"
+      ],
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ],
+      [
+        "TanStack · Query Keys",
+        "https://tanstack.com/query/latest/docs/framework/react/guides/query-keys"
+      ]
+    ]
+  },
+  {
+    "number": 44,
+    "id": "practice-routing",
+    "title": "실습 4 · 상세와 인기 화면 확인",
+    "sources": [
+      [
+        "src/pages/DetailPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/DetailPage.jsx"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 45,
+    "id": "form-flow",
+    "title": "제보 폼의 처리 단계",
+    "sources": [
+      [
+        "src/components/SubmitRestaurant.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/SubmitRestaurant.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 46,
+    "id": "register",
+    "title": "useForm과 입력 등록",
+    "sources": [
+      [
+        "src/components/SubmitRestaurant.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/SubmitRestaurant.jsx"
+      ],
+      [
+        "React Hook Form · Source",
+        "https://github.com/react-hook-form/react-hook-form"
+      ]
+    ]
+  },
+  {
+    "number": 47,
+    "id": "form-submit",
+    "title": "폼 제출과 중복 클릭 처리",
+    "sources": [
+      [
+        "src/components/SubmitRestaurant.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/SubmitRestaurant.jsx"
+      ],
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 48,
+    "id": "normalization",
+    "title": "입력 문자열과 저장 데이터",
+    "sources": [
+      [
+        "src/components/SubmitRestaurant.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/SubmitRestaurant.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 49,
+    "id": "save-submission",
+    "title": "제보 저장과 성공·실패 처리",
+    "sources": [
+      [
+        "src/components/SubmitRestaurant.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/SubmitRestaurant.jsx"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 50,
+    "id": "submission-record",
+    "title": "제보 객체와 저장 키",
+    "sources": [
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 51,
+    "id": "practice-form",
+    "title": "실습 5 · 제보 검증과 저장 확인",
+    "sources": [
+      [
+        "src/components/SubmitRestaurant.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/SubmitRestaurant.jsx"
+      ],
+      [
+        "src/pages/SubmissionsPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/SubmissionsPage.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 52,
+    "id": "mutation",
+    "title": "관리 기능과 useMutation",
+    "sources": [
+      [
+        "src/pages/AdminPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/AdminPage.jsx"
+      ],
+      [
+        "TanStack · Invalidation",
+        "https://tanstack.com/query/latest/docs/framework/react/guides/query-invalidation"
+      ]
+    ]
+  },
+  {
+    "number": 53,
+    "id": "approve-flow",
+    "title": "제보 승인과 맛집 데이터 변환",
+    "sources": [
+      [
+        "src/pages/SubmissionsPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/SubmissionsPage.jsx"
+      ],
+      [
+        "src/services/api.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/services/api.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 54,
+    "id": "styling",
+    "title": "Emotion과 화면 피드백",
+    "sources": [
+      [
+        "src/components/RestaurantCard.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantCard.jsx"
+      ],
+      [
+        "src/components/RestaurantList.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/components/RestaurantList.jsx"
+      ]
+    ]
+  },
+  {
+    "number": 55,
+    "id": "serverless",
+    "title": "정적 호스팅과 서버리스 기능",
+    "sources": [
+      [
+        "React PDF · p.21",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=21"
+      ],
+      [
+        "Vercel · Vite",
+        "https://vercel.com/docs/frameworks/frontend/vite"
+      ]
+    ]
+  },
+  {
+    "number": 56,
+    "id": "pdf-deployment",
+    "title": "원본 PDF와 현재 실습의 배포",
+    "sources": [
+      [
+        "React PDF · p.20",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=20"
+      ],
+      [
+        "React PDF · p.21",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=21"
+      ],
+      [
+        "React PDF · p.22",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=22"
+      ],
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ],
+      [
+        "Vercel · Vite",
+        "https://vercel.com/docs/frameworks/frontend/vite"
+      ]
+    ]
+  },
+  {
+    "number": 57,
+    "id": "build-preview",
+    "title": "빌드와 배포 전 미리보기",
+    "sources": [
+      [
+        "package.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/package.json"
+      ],
+      [
+        "Vite · Static Deploy",
+        "https://vite.dev/guide/static-deploy.html"
+      ]
+    ]
+  },
+  {
+    "number": 58,
+    "id": "git-own-repo",
+    "title": "개인 GitHub 저장소 연결",
+    "sources": [
+      [
+        "README.md",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/README.md"
+      ]
+    ]
+  },
+  {
+    "number": 59,
+    "id": "vercel-settings",
+    "title": "Vercel 프로젝트와 빌드 설정",
+    "sources": [
+      [
+        "vercel.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/vercel.json"
+      ],
+      [
+        "package.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/package.json"
+      ],
+      [
+        "Vercel · Vite",
+        "https://vercel.com/docs/frameworks/frontend/vite"
+      ]
+    ]
+  },
+  {
+    "number": 60,
+    "id": "vercel-deploy",
+    "title": "Vercel 배포와 변경 반영",
+    "sources": [
+      [
+        "README.md",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/README.md"
+      ],
+      [
+        "package.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/package.json"
+      ],
+      [
+        "Vercel · Vite",
+        "https://vercel.com/docs/frameworks/frontend/vite"
+      ]
+    ]
+  },
+  {
+    "number": 61,
+    "id": "routing-deploy",
+    "title": "배포 주소와 새로고침 처리",
+    "sources": [
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ],
+      [
+        "vercel.json",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/vercel.json"
+      ],
+      [
+        "React Router · HashRouter",
+        "https://reactrouter.com/api/declarative-routers/HashRouter"
+      ],
+      [
+        "Vercel · Vite",
+        "https://vercel.com/docs/frameworks/frontend/vite"
+      ]
+    ]
+  },
+  {
+    "number": 62,
+    "id": "troubleshooting",
+    "title": "실습 오류와 확인 순서",
+    "sources": [
+      [
+        "src/App.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/App.jsx"
+      ],
+      [
+        "src/pages/SubmissionsPage.jsx",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/src/pages/SubmissionsPage.jsx"
+      ],
+      [
+        "README.md",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/README.md"
+      ]
+    ]
+  },
+  {
+    "number": 63,
+    "id": "completion",
+    "title": "실습 완료 기준",
+    "sources": [
+      [
+        "README.md",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5/blob/9d12cebf32d6e333e8cd69faa4a7c9c721e4be00/README.md"
+      ]
+    ]
+  },
+  {
+    "number": 64,
+    "id": "resources",
+    "title": "실습 코드와 복습 자료",
+    "sources": [
+      [
+        "pwd-week5",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5"
+      ],
+      [
+        "React · Learn",
+        "https://react.dev/learn"
+      ],
+      [
+        "Vercel · Vite",
+        "https://vercel.com/docs/frameworks/frontend/vite"
+      ],
+      [
+        "Original PDF",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf"
+      ]
+    ]
+  }
+]

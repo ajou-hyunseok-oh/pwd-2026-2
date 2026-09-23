@@ -202,7 +202,7 @@ assert len(slides)==19
 research=(ROOT/'materials/week-04-react-research.ko.txt').read_text()
 sources={m[0]:[m[1],m[2],'2026-09-23 확인'] for m in re.findall(r'### (R\d+)\. ([^\n]+).*?링크: (\S+)',research,re.S)}
 from urllib.parse import quote as urlquote
-pdf_path='materials/'+urlquote('[PWD Week 3] React 프레임워크를 이용한 웹 프론트엔드 개발.pdf')
+pdf_path='../05/materials/'+urlquote('[PWD Week 3] React 프레임워크를 이용한 웹 프론트엔드 개발.pdf')
 for number in range(4,9):
     sources[f'P{number:02}']=[f'2025 React PDF · p.{number}',pdf_path+f'#page={number}','2026-09-23 원본 확인']
 sources.update({

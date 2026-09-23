@@ -1,0 +1,53 @@
+.w5-slide { padding: 2rem 3rem 3rem; background: var(--wd-paper); }
+.w5-slide > * { min-width: 0; }
+.w5-slide :is(h1,h2,h3,p) { margin: 0; }
+.w5-eyebrow { color: #256747; font-size: .68rem; font-weight: 750; letter-spacing: .08em; margin-bottom: .65rem !important; }
+.w5-slide .wd-slide-heading { max-width: none; font-size: 2.05rem; line-height: 1.22; text-wrap: nowrap; }
+.w5-slide .wd-slide-lead { margin-top: .65rem; font-size: 1.05rem; line-height: 1.5; color: #536159; max-width: none; }
+.w5-body { display: grid; gap: 2rem; margin-top: 1.35rem; min-height: 0; }
+.w5-body--split { grid-template-columns: 1fr 1fr; }
+.w5-body--code { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); }
+.w5-body--visual { grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); }
+.w5-body--single { grid-template-columns: 1fr; }
+.w5-block { min-width: 0; }
+.w5-concepts { margin: 0; font-size: .94rem; line-height: 1.55; word-break: keep-all; }
+.w5-concepts > div + div { margin-top: 1.05rem; }
+.w5-concepts dt { font-weight: 750; color: #263e30; }
+.w5-concepts dd { margin: .32rem 0 0 .6rem; }
+.w5-concepts ul { margin: 0; padding-left: 1rem; display: grid; gap: .22rem; }
+.w5-concepts li { font-size: .9rem; }
+.w5-concepts li::marker { color: #85968b; }
+.w5-code-label { font-size: .7rem; font-weight: 650; color: #536159; line-height: 1.4; margin-bottom: .4rem !important; overflow-wrap: anywhere; }
+.w5-slide .wd-code { margin: 0; font-size: .7rem; line-height: 1.45; padding: .75rem .8rem; max-height: none; font-family: Consolas, 'Liberation Mono', Menlo, 'SFMono-Regular', monospace; background: #000; color: #00ff00; border: 0; border-radius: 0; }
+.w5-slide .wd-code :is(code,.token) { color: #00ff00; background: transparent; text-shadow: none; }
+.w5-table { width: 100%; border-collapse: collapse; font-size: .88rem; line-height: 1.55; word-break: keep-all; table-layout: fixed; }
+.w5-table th, .w5-table td { padding: .65rem .8rem; border-bottom: 1px solid #d7ddd9; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.w5-table thead th { background: #edf3ef; color: #263e30; }
+.w5-table tbody th { width: 26%; font-weight: 700; }
+.w5-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 1.1rem; }
+.w5-steps li { counter-increment: step; padding-left: 2.2rem; position: relative; font-size: .94rem; line-height: 1.5; word-break: keep-all; }
+.w5-steps li::before { content: counter(step,decimal-leading-zero); position: absolute; left: 0; color: #256747; font-size: .85rem; font-weight: 750; top: .08rem; }
+.w5-steps p { margin-top: .2rem; color: #536159; font-size: .9rem; }
+.w5-figure { margin: 0; }
+.w5-figure img { display: block; width: 100%; max-height: 20rem; object-fit: contain; object-position: top; border: 1px solid #d7ddd9; }
+.w5-figure figcaption { margin-top: .55rem; font-size: .73rem; color: #536159; line-height: 1.4; }
+.w5-references { position: absolute; bottom: .8rem; left: 3rem; right: 7rem; font-size: .57rem; line-height: 1.4; color: #536159; }
+.w5-references a { color: inherit; text-underline-offset: 2px; }
+.w5-page { position: absolute; right: 3rem; bottom: .8rem; font-size: .6rem; color: #536159; font-variant-numeric: tabular-nums; }
+.w5-cover { justify-content: center; padding-bottom: 5rem; }
+.w5-title { font-size: 3rem; line-height: 1.2; font-weight: 750; letter-spacing: -.035em; }
+.w5-cover .wd-slide-lead { margin-top: 1.3rem; font-size: 1.25rem; max-width: 43em; }
+.w5-cover .wd-slide-footer { position: absolute; bottom: 2rem; right: 3rem; left: 3rem; }
+@media screen and (max-width: 767px) {
+  .w5-slide { padding: 1.5rem 1.2rem; }
+  .w5-slide > * { flex-shrink: 0; }
+  .w5-slide .wd-slide-heading { font-size: 1.85rem; text-wrap: wrap; word-break: keep-all; }
+  .w5-body { grid-template-columns: 1fr; gap: 1.5rem; min-height: auto; }
+  .w5-slide .wd-code { font-size: 14px; overflow-x: auto; }
+  .w5-table { font-size: .8rem; word-break: normal; }
+  .w5-table th, .w5-table td { padding: .5rem .3rem; }
+  .w5-references { position: static; margin-top: 1.5rem; overflow-wrap: anywhere; }
+  .w5-page { position: static; align-self: flex-end; margin-top: .8rem; }
+  .w5-title { font-size: 2.5rem; }
+  .w5-cover .wd-slide-footer { position: static; margin-top: 3rem; }
+}

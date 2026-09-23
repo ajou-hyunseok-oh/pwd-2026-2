@@ -1,0 +1,42 @@
+5주차 강의 자료 검토 기록
+검토일: 2026-09-24
+
+검토 범위
+- 원본 PDF 26쪽과 4주차 강의의 복습 항목 대조
+- pwd-week5 커밋 9d12cebf32d6e333e8cd69faa4a7c9c721e4be00의 실제 코드 대조
+- 한국어 64장, 영어 64장 개별 화면 검토
+- 화면·인쇄 레이아웃과 모바일 390×844 환경 검사
+
+주요 보강
+- 개념 정의 → 실제 코드 → 실행 작업 → 예상 결과 순서로 학습 연결
+- JSX와 목록 렌더링, State 스냅샷과 함수형 갱신, Effect 의존성과 정리 설명
+- 좋아요의 화면 상태와 localStorage 저장값, Query 캐시를 구분
+- 서비스 응답의 data 필드, queryKey, staleTime, 무효화 동작 설명
+- 폼 등록·검증·정규화·비동기 저장·실패 처리와 제보 승인 흐름 설명
+- Node 24.x 기준 실행, 개인 Git 저장소 연결, Vercel 설정과 배포 확인 절차
+- 5개 단계별 실습과 완료 기준, 오류 증상별 확인 위치 제공
+
+실습 코드와 원본 자료의 차이 반영
+- 현재 App.jsx는 HashRouter 사용
+- services/api.jsx는 localStorage 기반 mock API이며 HTTP 통신 없음
+- 초기 인기 목록은 평점 내림차순이며 좋아요 수나 실제 주간 집계와 무관
+- 제보 저장 후 pending 상태 유지, 승인 과정에서 맛집을 별도로 생성
+- 승인 시 submissions와 restaurants 쿼리 무효화; 상세·인기는 별도 캐시 키
+- 맛집 생성과 제보 상태 갱신은 두 번의 저장이며 원자적 트랜잭션 없음
+- 관리 화면에 인증 없음
+- 원본 Netlify/Netlify Forms를 현재 Vercel/브라우저 저장 방식과 비교
+- npm run deploy는 GitHub Pages용; Vercel은 Git 연동 배포 절차로 안내
+- 제출 기한은 실습 README에 기록된 2026-10-18 23:59 KST를 출처와 함께 표기
+
+검증 결과
+- packages/web-deck npm test 통과: 13개 덱 및 코드 예제 검증
+- check-slides.cjs: 64장, 한·영 화면·인쇄·모바일 레이아웃 오류 0, 브라우저 오류 0
+- 한·영 인쇄 확인용 PDF: 각각 64쪽
+- capture-practice.cjs: 화면 3개 촬영 및 필터·빈 목록·없는 ID·검증·저장·메뉴 변환·재로드 확인 통과
+- 실습 저장소 npm run lint, npm run build 통과
+- 실제 검증 런타임: Node 26.8.2, Vite 7.1.5. 강의의 Node 24.x 안내는 실습 package.json과 README 기준
+- 실습 앱 소스 파일 변경 없음. Vercel 실제 배포는 수행 범위에 포함하지 않음
+
+출처
+- 원본 PDF 페이지, 실습 코드 커밋, React·React Router·TanStack Query·React Hook Form·MDN·Vite·Vercel 공식 자료를 슬라이드별 링크와 slide-map.json에 기록
+- 검증용 PNG/PDF는 시스템 임시 폴더에 생성하며 강의 배포 자산에 포함하지 않음

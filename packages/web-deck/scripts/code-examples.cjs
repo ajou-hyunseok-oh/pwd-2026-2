@@ -127,9 +127,13 @@ async function processDeck(htmlPath) {
 }
 
 (async () => {
-  const folders = fs.readdirSync(lectureRoot).filter((name) => /^\d{2}$/.test(name)).sort();
+  const targetIndex = process.argv.indexOf('--lecture');
+  const target = targetIndex < 0 ? null : process.argv[targetIndex + 1];
+  if (targetIndex >= 0) assert.match(target || '', /^\d{2}$/, '--lecture requires a two-digit lecture number');
+  const folders = fs.readdirSync(lectureRoot).filter((name) => /^\d{2}$/.test(name) && (!target || name === target)).sort();
+  assert.ok(folders.length, 'No matching lecture folder');
   for (const folder of folders) await processDeck(path.join(lectureRoot, folder, 'index.html'));
-  await processDeck(path.join(packageRoot, 'template', 'index.html'));
+  if (!target) await processDeck(path.join(packageRoot, 'template', 'index.html'));
   if (errors.length) throw new Error(errors.join('\n'));
   console.log('Code examples: ' + blocks + ' blocks / ' + variants + ' language variants ' + (write ? 'formatted' : 'checked') + '; syntax checks passed');
 })().catch((error) => { console.error(error.message); process.exitCode = 1; });
