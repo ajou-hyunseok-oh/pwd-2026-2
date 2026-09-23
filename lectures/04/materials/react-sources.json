@@ -1,0 +1,167 @@
+{
+  "R01": [
+    "Why did we build React?",
+    "https://legacy.reactjs.org/blog/2013/06/05/why-react.html",
+    "2026-09-23 확인"
+  ],
+  "R02": [
+    "React Versions",
+    "https://react.dev/versions",
+    "2026-09-23 확인"
+  ],
+  "R03": [
+    "React v16.8: The One With Hooks",
+    "https://legacy.reactjs.org/blog/2019/02/06/react-v16.8.0.html",
+    "2026-09-23 확인"
+  ],
+  "R04": [
+    "Introducing react.dev",
+    "https://react.dev/blog/2023/03/16/introducing-react-dev",
+    "2026-09-23 확인"
+  ],
+  "R05": [
+    "Stack Overflow Developer Survey 2025 — Technology",
+    "https://survey.stackoverflow.co/2025/technology/",
+    "2026-09-23 확인"
+  ],
+  "R06": [
+    "Stack Overflow Developer Survey 2025 — Methodology",
+    "https://survey.stackoverflow.co/2025/methodology",
+    "2026-09-23 확인"
+  ],
+  "R07": [
+    "Tech stack rebuild for a new Facebook.com",
+    "https://engineering.fb.com/2020/05/08/web/facebook-redesign/",
+    "2026-09-23 확인"
+  ],
+  "R08": [
+    "Five years of React Native at Shopify",
+    "https://shopify.engineering/five-years-of-react-native-at-shopify",
+    "2026-09-23 확인"
+  ],
+  "R09": [
+    "Design Principles",
+    "https://legacy.reactjs.org/docs/design-principles.html",
+    "2026-09-23 확인"
+  ],
+  "R10": [
+    "Thinking in React",
+    "https://react.dev/learn/thinking-in-react",
+    "2026-09-23 확인"
+  ],
+  "R11": [
+    "Writing Markup with JSX",
+    "https://react.dev/learn/writing-markup-with-jsx",
+    "2026-09-23 확인"
+  ],
+  "R12": [
+    "State as a Snapshot",
+    "https://react.dev/learn/state-as-a-snapshot",
+    "2026-09-23 확인"
+  ],
+  "R13": [
+    "Render and Commit",
+    "https://react.dev/learn/render-and-commit",
+    "2026-09-23 확인"
+  ],
+  "R14": [
+    "Preserving and Resetting State",
+    "https://react.dev/learn/preserving-and-resetting-state",
+    "2026-09-23 확인"
+  ],
+  "R15": [
+    "Keeping Components Pure",
+    "https://react.dev/learn/keeping-components-pure",
+    "2026-09-23 확인"
+  ],
+  "R16": [
+    "Build a React App from Scratch",
+    "https://react.dev/learn/build-a-react-app-from-scratch",
+    "2026-09-23 확인"
+  ],
+  "R17": [
+    "Vite Getting Started",
+    "https://vite.dev/guide/",
+    "2026-09-23 확인"
+  ],
+  "P04": [
+    "2025 React PDF · p.4",
+    "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=4",
+    "2026-09-23 원본 확인"
+  ],
+  "P05": [
+    "2025 React PDF · p.5",
+    "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=5",
+    "2026-09-23 원본 확인"
+  ],
+  "P06": [
+    "2025 React PDF · p.6",
+    "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=6",
+    "2026-09-23 원본 확인"
+  ],
+  "P07": [
+    "2025 React PDF · p.7",
+    "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=7",
+    "2026-09-23 원본 확인"
+  ],
+  "P08": [
+    "2025 React PDF · p.8",
+    "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=8",
+    "2026-09-23 원본 확인"
+  ],
+  "J01": [
+    "jQuery Overview",
+    "https://jquery.com/",
+    "2026-09-23 확인"
+  ],
+  "J02": [
+    "jQuery .text()",
+    "https://api.jquery.com/text/",
+    "2026-09-23 확인"
+  ],
+  "J03": [
+    "jQuery .on()",
+    "https://api.jquery.com/on/",
+    "2026-09-23 확인"
+  ],
+  "R18": [
+    "React useState",
+    "https://react.dev/reference/react/useState",
+    "2026-09-23 확인"
+  ],
+  "R19": [
+    "MDN · DOM",
+    "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+    "2026-09-23 확인"
+  ],
+  "S01": [
+    "React · Instagram",
+    "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
+    "2024-02-15 발행 · 2026-09-23 확인"
+  ],
+  "S02": [
+    "React · Facebook",
+    "https://react.dev/blog/2024/10/21/react-compiler-beta-release",
+    "2024-10-21 발행 · 2026-09-23 확인"
+  ],
+  "S03": [
+    "Netflix Engineering",
+    "https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0",
+    "2018-12-12 발행 · 2026-09-23 확인"
+  ],
+  "S04": [
+    "Spotify Engineering",
+    "https://engineering.atspotify.com/2021/4/building-the-future-of-our-desktop-apps",
+    "2021-04 발행 · 2026-09-23 확인"
+  ],
+  "S05": [
+    "Airbnb Engineering",
+    "https://airbnb.tech/infrastructure/accelerating-large-scale-test-migration-with-llms/",
+    "2025 발행 · 2026-09-23 확인"
+  ],
+  "S06": [
+    "Microsoft Teams",
+    "https://techcommunity.microsoft.com/blog/microsoftteamsblog/making-microsoft-teams-more-responsive-reliable-and-ready-for-work/4526527",
+    "2026-06-10 발행 · 2026-09-23 확인"
+  ]
+}

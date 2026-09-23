@@ -1,0 +1,73 @@
+4주차 React 강의 이미지 · 2026-09-23
+
+facebook-2020-light.png
+원문: Engineering at Meta, Rebuilding our tech stack for the new Facebook.com, 2020-05-08
+https://engineering.fb.com/2020/05/08/web/facebook-redesign/
+이미지 원본:
+https://engineering.fb.com/wp-content/uploads/2020/05/1.-Home-Setting-Light-Mode.png
+2020년 기술 회고에서 제공한 화면 그대로 사용. 현재 Facebook UI로 표기하지 않음.
+
+vite-start.png
+실제 npm create vite@latest -- --template react-ts로 생성한 초기 화면.
+Node 26.8.2 · npm 12.0.2 · React 19.3.0 · Vite 8.3.0 · TypeScript 6.0.3.
+기본 템플릿 App.tsx·CSS·이미지 사용, Chrome 1000×640 light 모드 캡처.
+실행: npm run dev -- --host 127.0.0.1 --port 4320 --strictPort
+실제 출력: VITE v8.3.0 ready in 110 ms / Local: http://127.0.0.1:4320/
+해당 Local 주소에서 Get started 초기 화면 표시 확인 후 캡처.
+https://vite.dev/guide/
+
+hello-world.png / hello-react.png
+같은 Vite 프로젝트의 App.tsx를 최소 함수 컴포넌트로 교체한 실제 화면.
+return <h1>Hello, World!</h1>; 저장 후 첫 캡처.
+return <h1>Hello, React!</h1>; 저장 후 브라우저 자동 변경을 확인하고 두 번째 캡처.
+Chrome 1000×270 light 모드, 별도 편집·합성 없음.
+기본 src/index.css 유지. 컴포넌트·CSS 편집 후 개발 서버의 HMR 동작 검증.
+https://react.dev/learn/build-a-react-app-from-scratch
+https://vite.dev/guide/
+
+슬라이드 내 상품 검색·시계는 이미지가 아니라 로컬 React 번들로 렌더한 실제 UI.
+상품 데이터: https://react.dev/learn/thinking-in-react
+시계·입력 유지의 근거: https://react.dev/learn/render-and-commit
+브라우저 런타임: React / React DOM / scheduler, MIT License (../../assets/react-LICENSE.txt).
+
+원본 PDF 보강 · 2026-09-23
+4–8쪽의 비교 코드·VDOM 흐름은 원본 내용과 공식 문서를 대조해 HTML로 재작성.
+원본 이미지를 캡처하여 텍스트를 대체하지 않음. 로고/우열 아이콘 재사용 없음.
+코드 비교와 DOM 관찰은 실제 jQuery 4.0.0 + React 19.3.0으로 실행.
+jQuery 라이선스: ../../assets/jquery-LICENSE.txt. 상세 대응: ../react-pdf-enrichment.ko.txt.
+
+
+20번 · React 활용 서비스 아이콘 (2026-09-23)
+각 서비스 공식 사이트의 icon/apple-touch-icon 또는 웹 앱 manifest에서 수집.
+공식 이미지 파일을 편집 없이 로컬 assets/services에 저장. 각 아이콘과 이름은 서비스로 연결.
+Teams는 공식 사이트에서 현재 제공하는 v2025 아이콘 사용.
+
+assets/services/instagram.webp
+서비스: https://www.instagram.com/
+아이콘 원본: https://static.cdninstagram.com/rsrc.php/yw/r/icwX0xAk0pz.webp
+React 근거 (2024-02-15): https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024
+
+assets/services/facebook.png
+서비스: https://www.facebook.com/
+아이콘 원본: https://www.facebook.com/images/fb_icon_325x325.png
+React 근거 (2024-10-21): https://react.dev/blog/2024/10/21/react-compiler-beta-release
+
+assets/services/netflix.png
+서비스: https://www.netflix.com/kr/
+아이콘 원본: https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.png
+React 근거 (2018-12-12): https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0
+
+assets/services/spotify.png
+서비스: https://open.spotify.com/
+아이콘 원본: https://open.spotifycdn.com/cdn/images/icons/Spotify_MWP_512.50dd387d.png
+React 근거 (2021-04): https://engineering.atspotify.com/2021/4/building-the-future-of-our-desktop-apps
+
+assets/services/airbnb.png
+서비스: https://www.airbnb.co.kr/
+아이콘 원본: https://a0.muscache.com/im/pictures/AirbnbPlatformAssets/AirbnbPlatformAssets-Favicons/original/d1fcc0b3-865f-485a-b28b-43ca0bf7c891.png?im_w=240
+React 근거 (2025): https://airbnb.tech/infrastructure/accelerating-large-scale-test-migration-with-llms/
+
+assets/services/teams.ico
+서비스: https://teams.microsoft.com/
+아이콘 원본: https://teams.public.onecdn.static.microsoft/evergreen-assets/icons/microsoft_teams_logo_refresh_v2025.ico
+React 근거 (2026-06-10): https://techcommunity.microsoft.com/blog/microsoftteamsblog/making-microsoft-teams-more-responsive-reliable-and-ready-for-work/4526527

@@ -63,13 +63,16 @@ for (const lecture of releasedLectures) {
 const sourceIndex = await readFile(path.join(repoRoot, 'index.html'), 'utf8');
 let cardCount = 0;
 const publishedIndex = sourceIndex.replace(
-  /<li data-lecture="(\d{2})">(?:<a\b[^>]*>|<div class="lecture-grid__item is-disabled" aria-disabled="true">)([\s\S]*?)(?:<\/a>|<\/div>)<\/li>/g,
-  (_, lecture, content) => {
+  /<li data-lecture="(\d{2})">([\s\S]*?)<\/li>/g,
+  (_, lecture, inner) => {
     cardCount += 1;
+    if (lecture === '04' && releasedSet.has(lecture)) return `<li data-lecture="${lecture}">${inner}</li>`;
+    const content = inner.replace(/^<(?:a\b[^>]*|div\b[^>]*)>/, '').replace(/<\/(?:a|div)>$/, '');
     if (releasedSet.has(lecture)) {
       return `<li data-lecture="${lecture}"><a href="lectures/${lecture}/index.html">${content}</a></li>`;
     }
-    return `<li data-lecture="${lecture}"><div class="lecture-grid__item is-disabled" aria-disabled="true">${content}</div></li>`;
+    const disabledContent = content.replace(/<a\b[^>]*>([\s\S]*?)<\/a>/g, '<strong>$1</strong>');
+    return `<li data-lecture="${lecture}"><div class="lecture-grid__item is-disabled" aria-disabled="true">${disabledContent}</div></li>`;
   }
 );
 

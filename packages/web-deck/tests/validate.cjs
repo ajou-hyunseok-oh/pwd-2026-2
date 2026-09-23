@@ -88,7 +88,7 @@ for (let week = 1; week <= 13; week += 1) {
 
   assert.match(html, /data-web-deck/, `Lecture ${number} is missing the deck root`);
   assert.match(html, /data-wd-slide="cover"/, `Lecture ${number} is missing its cover slide`);
-  const expectedSlideCount = { 1: 28, 2: 54, 3: 50 }[week] || 1;
+  const expectedSlideCount = { 1: 28, 2: 54, 3: 50, 4: 24 }[week] || 1;
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);
@@ -96,7 +96,7 @@ for (let week = 1; week <= 13; week += 1) {
   assert.match(html, new RegExp(`data-lecture="${number}"`), `Lecture ${number} has the wrong lecture number`);
   assert.ok(contentKeys.length > 0, `Lecture ${number} has no translated content`);
   for (const reference of localAssets) {
-    const assetPath = path.resolve(path.dirname(lecturePath), reference.split(/[?#]/, 1)[0]);
+    const assetPath = path.resolve(path.dirname(lecturePath), decodeURIComponent(reference.split(/[?#]/, 1)[0]));
     assert.ok(fs.existsSync(assetPath), `Lecture ${number} has a missing asset: ${reference}`);
   }
   for (const locale of ['ko', 'en']) {

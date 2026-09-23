@@ -1,0 +1,248 @@
+# 4주차 React 강의 근거 자료와 설명 소재
+
+확인일: 2026-09-23
+목적: 역사·통계·활용 사례·철학·VDOM을 쉽게 설명하기 위한 1차 자료 수집과 슬라이드 재설계.
+연결 문서: week-04-lecture-plan.ko.txt의 본문 01~20.
+선정 자료: 17건. React 개발팀의 원문·공식 문서, 조사기관 원자료, 서비스를 만든 기업의 기술 회고.
+자료의 전문·이미지를 복제하지 않고 링크와 필요한 사실·수업 적용안을 기록.
+
+## 1. 자료 선정과 해석 원칙
+
+- 역사: 당시 개발자가 쓴 글과 정식 출시 공지를 우선. 과거 구현 설명은 현재 구현의 근거와 구분.
+- 통계: 조사 연도·질문·응답 집단·문항 응답자 수를 함께 기록. 다른 집단의 비율을 같은 그래프로 섞지 않음.
+- 기업 사례: 도입한 사실과 도입 이유는 해당 기업의 회고로 확인. 성과는 자기 보고이며 React의 일반적인 인과 효과로 확대하지 않음.
+- 철학·VDOM: 공식 설명과 실행 가능한 예제를 우선. 기술 용어보다 관찰 가능한 변화부터 소개.
+- 교육용 스터디 서비스 화면은 이해를 돕는 재구성이며 Facebook·Shopify의 실제 구현을 복원한 것이 아님.
+- 본문의 질문은 강사용 발문. 학생에게 보이는 슬라이드 제목은 저장소 규칙에 맞춘 구체적 명사구.
+
+## 2. 역사와 등장 배경
+
+### R01. Why did we build React?
+기관·작성자: React 팀, Pete Hunt
+발행: 2013-06-05
+링크: https://legacy.reactjs.org/blog/2013/06/05/why-react.html
+확인 위치: React isn’t an MVC framework / React doesn’t use templates / Reactive updates are dead simple / HTML is just the beginning.
+확인 사실: 시간에 따라 변하는 데이터를 UI 컴포넌트로 표현하는 목적, 마크업과 표시 로직을 함께 두는 이유, 이전·새 렌더 결과 비교를 설명. 당시 Instagram 웹 적용도 명시.
+흥미 소재: 사용자에게는 버튼 하나의 변화지만 개발자는 여러 표시를 맞춰야 한다는 문제.
+사용: 01~02번에서 교육용 신청 화면과 연결. 2013년 문서에 Instagram 사례가 있었다는 사실은 역사 보조 설명.
+해석 한계: 당시의 문자열 마크업 주입·IE8·TodoMVC 약 1ms 설명은 현재 설치·렌더링·성능 주장에 사용하지 않음. ‘React는 최초의 VDOM’ 등의 주장은 이 글로 입증되지 않음.
+
+### R02. React Versions
+기관: React 팀
+발행: 지속 갱신 문서, 2026-09-23 확인
+링크: https://react.dev/versions
+확인 위치: Latest version / React 19 / Initial Commit.
+확인 사실: 2013-05-29 공개, React 19.0은 2024년 12월, 확인일 페이지는 19.3을 최신으로 표시.
+사용: 03번 역사 타임라인의 날짜 검증. 최신 번호는 작은 기준일 표기로 처리.
+해석 한계: 버전 번호만으로 학습 난도·성능·점유율을 설명하지 않음.
+
+### R03. React v16.8: The One With Hooks
+기관·작성자: React 팀, Dan Abramov
+발행: 2019-02-06
+링크: https://legacy.reactjs.org/blog/2019/02/06/react-v16.8.0.html
+확인 위치: What Are Hooks? / No Big Rewrites.
+확인 사실: Hooks 정식 출시로 클래스를 작성하지 않고 상태 등 React 기능 사용 및 상태 로직 공유 가능.
+사용: 03번에서 ‘함수로 상태 있는 UI를 작성하는 방식의 확장’으로 설명.
+해석 한계: 함수 컴포넌트 자체가 2019년에 처음 생긴 것으로 설명하지 않음. 2018년 소개와 2019년 정식 출시 구분.
+
+### R04. Introducing react.dev
+기관·작성자: React 팀, Dan Abramov·Rachel Nabors
+발행: 2023-03-16
+링크: https://react.dev/blog/2023/03/16/introducing-react-dev
+확인 위치: Going all-in on modern React with Hooks.
+확인 사실: 새 공식 학습 문서는 함수 컴포넌트와 Hooks부터 가르치도록 구성.
+사용: 03번에서 ‘지금은 함수 컴포넌트로 시작’하는 수업 방향의 근거.
+흥미 소재: 옛 자료와 새 자료의 코드 모양이 달라도 서로 다른 라이브러리를 배우는 것은 아니라는 설명.
+
+## 3. 사용 통계
+
+### R05. Stack Overflow Developer Survey 2025 — Technology
+기관: Stack Overflow
+조사 연도: 2025
+링크: https://survey.stackoverflow.co/2025/technology/
+확인 위치: Web frameworks and technologies → Professional Developers → Have Used.
+확인 방법: 공식 페이지 HTML의 해당 탭 그래프 값과 Responses 값을 직접 대조.
+질문 의미: 지난 1년간 상당한 개발 작업에 사용한 웹 프레임워크·기술, 복수 기술 선택 가능.
+문항 응답자: 전문 개발자 19,460명.
+선택 항목 수치: React 46.9%, jQuery 24.1%, Next.js 21.5%, Angular 19.8%, Vue.js 18.4%, Svelte 6.9%.
+사용: 04번에 React·jQuery·Angular·Vue·Svelte를 같은 축으로 표시. Next.js는 React와 조합 가능하므로 경쟁 점유율로 합산하지 않음.
+흥미 소재: ‘이 응답 집단 100명으로 환산하면 약 47명이 React 사용 경험’이라는 비율 해석.
+해석 한계: 세계 전체 개발자의 무작위 표본·사이트 점유율·채용 확률이 아님. 모든 웹 기술의 순위표가 아닌 선택 항목 비교. 전체 응답자 React 44.7%와 집단 혼합 금지.
+현재성: 2026년 결과를 검색했으나 검증 가능한 공식 결과를 확보하지 못함. 2025 조사임을 명시해 사용하며 ‘2026 통계’로 표기하지 않음.
+
+### R06. Stack Overflow Developer Survey 2025 — Methodology
+기관: Stack Overflow
+링크: https://survey.stackoverflow.co/2025/methodology
+확인 위치: General.
+확인 사실: 전체 분석 응답 49,009건·177개국, 수집 기간 2025-05-29~06-23. 주로 Stack Overflow 자체 채널에서 모집, 활동적인 이용자가 참여 안내를 볼 가능성이 높음.
+사용: 04번 차트 하단에 연도·집단·문항 n·복수 응답을 표시하고 강사 노트에 모집 방식 설명.
+해석 한계: 전체 표본 49,009를 React 전문 개발자 문항의 분모로 쓰지 않음.
+
+## 4. 실제 활용 사례
+
+### R07. Tech stack rebuild for a new Facebook.com
+기관: Engineering at Meta (발행 당시 Facebook Engineering)
+발행: 2020-05-08
+링크: https://engineering.fb.com/2020/05/08/web/facebook-redesign/
+확인 위치: 도입부 / Code-splitting JavaScript for faster performance / Incremental code download.
+확인 사실: React·Relay를 활용한 Facebook.com 재설계와 단계별 코드 로딩을 설명. 초기 화면 뼈대를 먼저 보여주고 필요한 내용을 채우는 화면 사례 포함.
+흥미 소재: 학생이 익숙한 ‘회색 자리 표시자가 먼저 보이는 화면’을 실제 기업의 설계 문제로 연결.
+사용: 05번에 원문 Tier 1·Tier 2 그림을 참고한 로딩 전후 설명. 이미지 사용 시 원문과 캡션 출처 표시.
+해석 한계: 로딩 속도 개선은 코드·데이터·스타일 등 복합 설계 결과. React 설치나 VDOM만으로 생기는 효과라고 설명하지 않음. 2020 사례임을 명시.
+
+### R08. Five years of React Native at Shopify
+기관·작성자: Shopify Engineering, Mustafa Ali
+발행: 2025-01-13
+링크: https://shopify.engineering/five-years-of-react-native-at-shopify
+확인 위치: 도입부의 도입 이유 / What did we learn? / React Native apps are fast.
+확인 사실: iOS·Android 중복 개발 감소, 개발자의 플랫폼 간 이동, 기능 제공에 집중하려는 목적. 기업은 5년간 자사 앱들을 React Native로 이전했다고 보고.
+흥미 소재: ‘같은 기능을 iOS·Android에서 각각 구현할 때 생기는 일’을 두 화면으로 비교.
+사용: 06번에서 React의 컴포넌트 사고가 모바일로 이어지는 사례. 웹 DOM과 네이티브 UI의 차이도 설명.
+해석 한계: 웹 코드를 그대로 모든 앱에서 실행한다는 뜻이 아님. 기업 자체 성과를 일반적인 속도·비용 절감률로 제시하지 않음. 네이티브 코드도 함께 활용.
+
+## 5. React의 철학
+
+### R09. Design Principles
+기관: React 팀
+발행: 게시일 미표시, legacy 문서
+링크: https://legacy.reactjs.org/docs/design-principles.html
+확인 위치: Composition / Escape Hatches / Interoperability.
+확인 사실: 컴포넌트 조합·기존 시스템과의 공존·실제 제품 요구를 중시하는 설계 관점.
+사용: 07번 ‘작은 UI를 조합’하는 철학의 역사적 근거. 현재 적용 방식은 R10~R12로 보완.
+해석 한계: 문서는 React 자체의 설계 원칙. 오래된 Scheduling 절의 당시 구현·미래 계획을 현재 구현처럼 인용하지 않음.
+
+### R10. Thinking in React
+기관: React 팀
+발행: 지속 갱신 학습 문서
+링크: https://react.dev/learn/thinking-in-react
+확인 위치: Step 1 / Step 3 / Step 4 / Step 5.
+확인 사실: UI를 컴포넌트로 나누고 최소 상태를 선택한 뒤 상태 소유자를 정하는 과정.
+사용: 07·09~11번. 공식 상품 검색 예제의 설계 원리를 교육용 스터디 목록으로 재구성.
+흥미 소재: 검색어가 바뀌면 목록과 검색 결과 개수가 함께 달라지는 화면.
+해석 한계: 검색 결과·개수를 모두 별도 state로 저장하도록 가르치지 않음. 컴포넌트 분해도는 교육용 설계안.
+
+### R11. Writing Markup with JSX
+기관: React 팀
+발행: 지속 갱신 학습 문서
+링크: https://react.dev/learn/writing-markup-with-jsx
+확인 위치: JSX: Putting markup into JavaScript / The Rules of JSX.
+확인 사실: 관련 마크업과 렌더링 로직을 컴포넌트에 함께 두는 이유, JSX와 React의 구분.
+흥미 소재: 익숙한 HTML과 닮은 코드가 JavaScript 함수 안에 들어 있는 장면.
+사용: 08번. 학생이 배운 HTML·JavaScript를 새로운 단위로 묶는다는 설명. 19번 최소 JSX로 연결.
+해석 한계: JSX를 HTML 문자열·브라우저 기본 문법으로 설명하지 않음. 관심사 분리를 무시한다는 이분법도 피함.
+
+### R12. State as a Snapshot
+기관: React 팀
+발행: 지속 갱신 학습 문서
+링크: https://react.dev/learn/state-as-a-snapshot
+확인 위치: Setting state triggers renders / Rendering takes a snapshot in time.
+확인 사실: 상태 갱신은 새 렌더를 요청하며, 각 렌더의 화면과 이벤트 처리에는 그 렌더의 값이 사용됨.
+사용: 09~11번에서 ‘일반 변수 대입만 하면 자동으로 화면이 갱신’되는 오해 예방.
+범위: +3 버튼·타이머 클로저 문제까지 늘리지 않고 입력→상태 갱신→새 화면 흐름만 사용.
+
+## 6. VDOM과 화면 갱신
+
+### R13. Render and Commit
+기관: React 팀
+발행: 지속 갱신 학습 문서
+링크: https://react.dev/learn/render-and-commit
+확인 위치: Step 2 / Step 3의 Clock.js / Epilogue: Browser paint.
+확인 사실: Render는 컴포넌트 호출로 UI를 계산하는 과정, Commit은 DOM 반영. 공식 시계 예제는 같은 위치의 입력 DOM을 유지해 타이핑한 값이 남는 모습을 설명.
+핵심 흥미 소재: 시계가 매초 바뀌어도 옆 입력창의 글자는 유지되는 관찰.
+사용: 12~16번의 중심 근거. 12번 결과 예측 → 13~15번 원리 → 16번 현상 재해석.
+해석 한계: 입력의 타입·위치 등 유지 조건을 명시. 모든 입력이 항상 보존되는 것은 아님. React render와 브라우저 paint를 같은 단계로 부르지 않음.
+
+### R14. Preserving and Resetting State
+기관: React 팀
+발행: 지속 갱신 학습 문서
+링크: https://react.dev/learn/preserving-and-resetting-state
+확인 위치: State is tied to a position in the render tree / Same component at the same position preserves state.
+확인 사실: React는 트리에서의 위치·타입·key 등의 정체성을 기준으로 상태를 유지하거나 초기화.
+사용: 14·16번 강사 설명의 정확성 보완. 입력창 구조를 바꾸면 같은 결과를 보장할 수 없다는 경계 확인.
+범위: key 변경·폼 리셋을 별도 실습이나 고급 주제로 확장하지 않음.
+
+### R15. Keeping Components Pure
+기관: React 팀
+발행: 지속 갱신 학습 문서
+링크: https://react.dev/learn/keeping-components-pure
+확인 위치: Purity: Components as formulas / Side Effects / Where you can cause side effects.
+확인 사실: 같은 입력에 일관된 UI를 반환하고 렌더 중 기존 외부 값을 변경하지 않는 원칙.
+사용: 15번에서 ‘계산’과 ‘변경’을 구분하는 보충 설명. 화면 계산 자체가 신청·결제 같은 행동을 수행하지 않도록 설명.
+범위: Strict Mode 이중 호출·Effect·최적화 API 강의로 확대하지 않음.
+
+## 7. 설치·실행 보조 근거
+
+### R16. Build a React App from Scratch
+기관: React 팀
+링크: https://react.dev/learn/build-a-react-app-from-scratch
+확인 사실: 기초 학습 등 목적에 따른 직접 구성과 Vite의 react-ts 명령 안내.
+사용: 17~19번의 짧은 설치·실행 경로. 완성 서비스의 라우팅·데이터 처리까지 제공되는 것으로 설명하지 않음.
+
+### R17. Vite Getting Started
+기관: Vite 팀
+링크: https://vite.dev/guide/
+확인 사실: 프로젝트 생성·템플릿·개발 서버와 Node 호환 조건.
+사용: 17~20번. 실행 위치·명령·성공 화면·재실행 절차를 남겨 재현 가능성 확보.
+해석 한계: Node 호환 하한과 현재 지원되는 권장 버전은 구분. 실제 제작 시 사용할 버전·설치 화면을 확정하고 검증.
+
+## 8. 자료 종합에 따른 구성 결정
+
+1. 도입은 교육용 화면 하나: 스터디 신청 결과로 여러 표시가 함께 바뀌는 상황. R01의 동기화 문제를 학생 경험에 연결.
+2. 역사는 공개→Hooks 정식 출시→새 학습 문서의 변화로 설명. 연도 암기보다 코드 작성 방식의 변화 강조.
+3. 통계는 React 사용 경험 비율 한 장. 조사 조건을 함께 읽고 ‘많이 쓰임’과 ‘언제나 최선’을 구분.
+4. 사례는 Facebook 웹 1장·Shopify 모바일 1장. 회사 로고 모음 대신 해결하려던 구체적인 개발 문제를 설명.
+5. 철학은 스터디 목록을 분해하고 검색해 보는 한 흐름. JSX를 문법 암기보다 관련 UI와 로직을 묶는 선택으로 소개.
+6. VDOM은 시계·입력창 관찰로 시작. DOM/VDOM→비교→Render/Commit→입력 보존의 해석으로 순환.
+7. 설치는 끝의 4장·10분으로 압축. 명령·파일 전체 코드·예상 출력·기본 오류 확인은 유지.
+
+채택하지 않은 주장·소재:
+- ‘출시 당시 모두가 싫어했다’ 등 반응을 일반화한 일화: 본문 채택에 충분한 1차 근거 미확보.
+- ‘VDOM이 직접 DOM보다 항상 빠름’: 작업·구현 조건을 무시하는 주장.
+- ‘React 도입만으로 Facebook이 빨라짐’: 여러 최적화를 단일 기술 효과로 오인.
+- ‘React 웹 코드를 그대로 iOS·Android에서 실행’: 플랫폼 차이 누락.
+- 출처 불명 2026 점유율·npm 다운로드 수를 사용자 수로 환산한 통계: 분모·측정 의미 불명확.
+
+강사 관찰·발문 계획(별도 학생 실습 없음):
+- 01: 신청 버튼을 누른 뒤 함께 달라져야 할 표시를 찾아보게 하는 짧은 발문.
+- 07: 카드 3개에서 공통 구조와 달라지는 값을 구분.
+- 12: 시계가 바뀔 때 입력창 내용도 사라질지 결과 예측.
+- 16: 실제 관찰을 Render·Commit으로 설명해 보도록 정리.
+실제 브라우저 시연·영상·캡처는 후속 제작에서 검증. 이번 산출물은 자료 수집과 슬라이드 설계이며 실행 검증 결과가 아님.
+
+## 9. 재설계 제목과 근거 연결
+
+최신 제목·서브타이틀: week-04-react-titles.ko.txt
+
+| 번호 | 제목 | 근거 |
+|---|---|---|
+| 01 | 동적 웹 화면과 데이터 변화 | R01 |
+| 02 | React의 등장 배경 | R01, R02 |
+| 03 | React의 주요 발전 과정 | R02, R03, R04 |
+| 04 | 개발자 설문으로 보는 React 사용 현황 | R05, R06 |
+| 05 | Facebook 웹의 React 활용 사례 | R07 |
+| 06 | Shopify의 React Native 도입 사례 | R08 |
+| 07 | 컴포넌트 기반 화면 구성 | R09, R10 |
+| 08 | 컴포넌트의 재사용과 일관성 | R01, R11 |
+| 09 | 선언형 UI의 설계 관점 | R01, R10, R12 |
+| 10 | 데이터와 화면의 관계 | R10, R12 |
+| 11 | React와 주변 개발 도구의 역할 | R16, R17; React 공식 소개 https://react.dev/ |
+| 12 | 시계 갱신과 입력 내용 유지 | R13 |
+| 13 | DOM과 Virtual DOM의 역할 | R01, R13 |
+| 14 | 이전 UI와 새 UI의 비교 | R13, R14 |
+| 15 | 화면 계산과 변경 사항 반영 | R13, R15 |
+| 16 | 화면 갱신과 UI 요소의 유지 | R13, R14 |
+| 17 | React 개발 환경 준비 | R16, R17 |
+| 18 | React 프로젝트 생성과 실행 | R16, R17 |
+| 19 | Hello World 첫 화면 | R11, R16 |
+| 20 | Hello World 실행 확인 | R16, R17 |
+
+## 10. 수업 범위 조정
+
+사용자 확정 원칙: 이번 주는 개념·배경·사례 중심, 코드 수준의 개발 방법은 다음 강의.
+앞 절의 자료별 활용안 중 코드 비교·JSX 해설·Props·State·이벤트 처리 제안은 다음 강의용 후보로 이관. 최신 제목안과 이 범위 조정을 우선 적용.
+- R10: 컴포넌트로 화면을 나누는 관점만 이번 주에 사용. 상태 선택·소유자·콜백 설명은 다음 강의.
+- R11·R12: JSX·상태의 상세 근거로 보관. 이번 주 별도 코드 해설에 사용하지 않음.
+- R13: 시계·입력창의 관찰 결과와 화면 계산·DOM 반영 구분만 사용. 시계 예제 코드를 분석하지 않음.
+- R14·R15: 설명의 정확성을 확인하는 강사용 근거. key·상태 보존 규칙·순수 함수 코딩은 다음 강의.
+- R16·R17: 설치 명령·최소 Hello World·결과 확인에 사용. 상세 설정·프로젝트 구조·API 해설은 다음 강의.
+- 실제 슬라이드 제작 없이 제목·서브타이틀만 갱신.

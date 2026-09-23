@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "instagram",
+    "name": [
+      "인스타그램",
+      "Instagram"
+    ],
+    "url": "https://www.instagram.com/",
+    "domain": "instagram.com",
+    "icon": "assets/services/instagram.webp",
+    "icon_source": "https://static.cdninstagram.com/rsrc.php/yw/r/icwX0xAk0pz.webp",
+    "source_title": "React · Instagram",
+    "source_url": "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",
+    "published": "2024-02-15",
+    "checked": "2026-09-23"
+  },
+  {
+    "slug": "facebook",
+    "name": [
+      "페이스북",
+      "Facebook"
+    ],
+    "url": "https://www.facebook.com/",
+    "domain": "facebook.com",
+    "icon": "assets/services/facebook.png",
+    "icon_source": "https://www.facebook.com/images/fb_icon_325x325.png",
+    "source_title": "React · Facebook",
+    "source_url": "https://react.dev/blog/2024/10/21/react-compiler-beta-release",
+    "published": "2024-10-21",
+    "checked": "2026-09-23"
+  },
+  {
+    "slug": "netflix",
+    "name": [
+      "넷플릭스",
+      "Netflix"
+    ],
+    "url": "https://www.netflix.com/kr/",
+    "domain": "netflix.com",
+    "icon": "assets/services/netflix.png",
+    "icon_source": "https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.png",
+    "source_title": "Netflix Engineering",
+    "source_url": "https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0",
+    "published": "2018-12-12",
+    "checked": "2026-09-23"
+  },
+  {
+    "slug": "spotify",
+    "name": [
+      "스포티파이",
+      "Spotify"
+    ],
+    "url": "https://open.spotify.com/",
+    "domain": "open.spotify.com",
+    "icon": "assets/services/spotify.png",
+    "icon_source": "https://open.spotifycdn.com/cdn/images/icons/Spotify_MWP_512.50dd387d.png",
+    "source_title": "Spotify Engineering",
+    "source_url": "https://engineering.atspotify.com/2021/4/building-the-future-of-our-desktop-apps",
+    "published": "2021-04",
+    "checked": "2026-09-23"
+  },
+  {
+    "slug": "airbnb",
+    "name": [
+      "에어비앤비",
+      "Airbnb"
+    ],
+    "url": "https://www.airbnb.co.kr/",
+    "domain": "airbnb.co.kr",
+    "icon": "assets/services/airbnb.png",
+    "icon_source": "https://a0.muscache.com/im/pictures/AirbnbPlatformAssets/AirbnbPlatformAssets-Favicons/original/d1fcc0b3-865f-485a-b28b-43ca0bf7c891.png?im_w=240",
+    "source_title": "Airbnb Engineering",
+    "source_url": "https://airbnb.tech/infrastructure/accelerating-large-scale-test-migration-with-llms/",
+    "published": "2025",
+    "checked": "2026-09-23"
+  },
+  {
+    "slug": "teams",
+    "name": [
+      "Microsoft Teams",
+      "Microsoft Teams"
+    ],
+    "url": "https://teams.microsoft.com/",
+    "domain": "teams.microsoft.com",
+    "icon": "assets/services/teams.ico",
+    "icon_source": "https://teams.public.onecdn.static.microsoft/evergreen-assets/icons/microsoft_teams_logo_refresh_v2025.ico",
+    "source_title": "Microsoft Teams",
+    "source_url": "https://techcommunity.microsoft.com/blog/microsoftteamsblog/making-microsoft-teams-more-responsive-reliable-and-ready-for-work/4526527",
+    "published": "2026-06-10",
+    "checked": "2026-09-23"
+  }
+]

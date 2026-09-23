@@ -1,0 +1,54 @@
+4주차 1교시 · 원본 React PDF 보강 기록
+2026-09-23
+
+검토 범위
+[PWD Week 3] React 프레임워크를 이용한 웹 프론트엔드 개발.pdf 4–8쪽.
+26쪽 전체의 목차·텍스트 확인 후 등장 배경~Virtual DOM 구간의 모든 페이지 시각 검토.
+기존 21장 구조와 상품 검색·시계·Hello World 예제를 유지하면서 코드 비교/DOM 비교 2장 추가.
+최종 23장 = 표지 1 + 챕터 4 + 본문 18. 2교시 24장 유지.
+
+원본 대응
+4쪽 React 정의·발전·사용 조사 → 현재 03·06·07번. 2025 설문 수치와 조사 범위 유지.
+5쪽 등장 배경 → 04번 웹 UI 개발 방식·관리 부담, 12번 명령형/선언형의 정의와 UI 갱신 책임.
+6쪽 명령형/선언형 코드 → 13번 동일 카운터의 실제 jQuery·React 코드/실행 화면.
+7쪽 Virtual DOM → 16번 JavaScript 객체로 표현한 UI 구조, 17번 이전/새 UI 비교와 처리 단계, 18번 입력 유지 관찰.
+8쪽 직접 DOM vs VDOM → 19번 실제 DOM 관찰·갱신 책임·성능에 영향을 주는 작업.
+
+정확성 보정
+- 원본 6쪽의 명령형 코드는 jQuery가 아닌 document.createElement 등의 DOM API. 실제 jQuery의 .appendTo/.text/.on으로 교체.
+- 원본 parseInt('Click me') + 1은 NaN. 별도 숫자 count를 0으로 초기화하고 매 클릭 1 증가.
+- 반대편 React도 count=0에서 시작하고 같은 문구·동작을 제공. 명령형/선언형을 오답/정답으로 표시하지 않음.
+- 표시 코드는 comparison-examples.jsx의 마커 구간에서 추출. 실제 버튼도 그 모듈을 실행하여 코드/결과 불일치 방지.
+- host·useState(0)·JSX는 코드를 읽는 데 필요한 뜻만 캡션으로 설명. API 상세 실습 없음.
+- 1/2/3세대의 배타적 교체 모델 대신 공존하는 개발 방식의 확장으로 정리.
+- Virtual DOM은 브라우저 DOM의 전체 복제본이 아니라 메모리의 UI 표현. 구조는 설명에 필요한 하위 트리.
+- 17번의 출력 DOM은 그림의 section → p/ul → li 구조와 실제로 일치. 품절 두 행 삭제, 6→4 변경, 나머지 행 유지 표시.
+- 비교는 Render 작업의 일부. Commit의 DOM 변경과 브라우저 스타일/레이아웃/페인트를 구분.
+- jQuery가 전체 DOM을 반드시 다시 만들거나 React가 항상 더 빠르다는 단정 제거.
+- 19번은 MutationObserver로 텍스트 변화와 버튼 노드 유지 관찰. 벤치마크나 속도 수치를 제시하지 않음.
+- 배치 업데이트는 여러 상태 갱신을 다루는 후속 주제로 남겨, 단일 클릭 예시의 성능 근거로 확대하지 않음.
+
+자료 활용
+원본의 설명·코드 비교 구도·VDOM 흐름을 기존 HTML 형식으로 재작성. 불필요한 대학 로고·정답/오답·거북이/로켓 아이콘은 재사용하지 않음.
+원본 PDF는 보존하고, 각 보강 장 하단에 PDF의 해당 페이지 링크 및 공식 문서 링크 추가.
+기존 Facebook 원문 화면·실제 Vite 캡처 유지. 추가 HTML 생성 없음.
+
+공식 근거
+https://legacy.reactjs.org/blog/2013/06/05/why-react.html
+https://react.dev/learn/thinking-in-react
+https://react.dev/learn/render-and-commit
+https://react.dev/reference/react/useState
+https://jquery.com/
+https://api.jquery.com/text/
+https://api.jquery.com/on/
+https://blog.jquery.com/2026/01/17/jquery-4-0-0/
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+
+구현
+React/React DOM 19.3.0, jQuery 4.0.0, Vite 8.3.0. 모두 로컬 번들에 포함해 오프라인 사용 가능.
+React·jQuery MIT 라이선스 파일은 assets/에 동봉. 새 라이브러리를 사용하지 않는 2교시 파일은 동일 해시 유지.
+
+12–13번 개념 설명 순서 교정
+12번은 명령형/선언형의 정의 → UI 개발에서의 책임 순서로 구성. 상품 검색 사례 풀이와 단방향 데이터 흐름 부연을 첫 정의에서 분리.
+13번 제목은 jQuery와 React의 코드 비교로 변경하고 동일 카운터의 코드/실행 예제 유지.
+11번 화면 관찰 → 12번 개념 정의 → 13번 코드 적용의 구분. 전체 23장 유지.

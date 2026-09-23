@@ -24,3 +24,7 @@ footer { border-top: 1px solid var(--line); border-bottom: 0; color: #5b655e; }
 .lecture-page { max-width: 860px; }.back { display: inline-block; margin: 2.5rem 0 5rem; font-size: .8rem; text-decoration: none; }.back:hover { text-decoration: underline; }
 .lecture-meta { display: flex; gap: 1.5rem; margin: 1.5rem 0 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); font-size: .85rem; }.lecture-meta span { color: #5b655e; }.content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }.content-grid h2 { font-size: 1.4rem; margin-bottom: .8rem; }.card { padding: 1.25rem; background: #e7e9df; }.card p:last-child { margin-bottom: 0; }
 @media (max-width: 700px) { .lecture-grid { grid-template-columns: repeat(2, 1fr); }.notice, .lecture-meta, .content-grid { display: block; }.notice p + p { margin-top: .5rem; }.lecture-meta span { display: block; margin: .5rem 0; }.content-grid > * + * { margin-top: 2rem; } }
+
+.lecture-grid__links { display: grid; gap: .5rem; margin-top: .6rem; }
+.lecture-grid .lecture-grid__links a { display: block; min-height: 0; padding: .35rem 0; border: 0; font-size: .85rem; font-weight: 700; }
+.lecture-grid .lecture-grid__links a:hover, .lecture-grid .lecture-grid__links a:focus-visible { text-decoration: underline; }

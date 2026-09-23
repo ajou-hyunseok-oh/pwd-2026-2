@@ -1,0 +1,23 @@
+/* First-period explanation hierarchy; loaded only by the React lecture. */
+.react-concepts { display: grid; gap: .9rem; margin: 0; }
+.react-concept dt { font-size: .95rem; line-height: 1.5; word-break: keep-all; }
+.react-concept dt strong { font-weight: 700; }
+.react-concept dd { margin: .28rem 0 0 1rem; }
+.react-concept-details { display: grid; gap: .18rem; list-style: none; margin: 0; padding: 0; color: #43564a; font-size: .88rem; line-height: 1.55; word-break: keep-all; }
+.week4-panel--concepts { align-self: start; }
+.react-concepts--caption { margin-top: .6rem; gap: .6rem; }
+.react-concepts--caption .react-concept dt,
+.react-concepts--caption .react-concept-details { font-size: .8rem; line-height: 1.5; }
+.week4-table [role="row"] { grid-template-columns: var(--design-columns,24% repeat(calc(var(--table-columns) - 1),minmax(0,1fr))); }
+.week4-table [role="cell"] { white-space: pre-line; }
+.react-dom-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
+.react-phase-flow { grid-template-columns: .8fr 1.2fr 1fr 1fr; }
+.react-phase-flow li > span { margin-left: .7rem; }
+@media screen and (max-width:767px) {
+  .week4-slide > * { flex-shrink: 0; }
+  .react-concept dt { overflow-wrap: anywhere; word-break: normal; }
+  .react-concept-details { word-break: normal; }
+  .react-dom-summary { grid-template-columns: 1fr; }
+  .react-phase-flow { grid-template-columns: 1fr; }
+  .week4-table [role="row"] { grid-template-columns: 24% repeat(calc(var(--table-columns) - 1),minmax(0,1fr)); }
+}

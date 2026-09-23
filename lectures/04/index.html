@@ -1,18 +1,274 @@
 <!doctype html>
-<html class="wd-page" lang="ko">
-  <head>
-    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title data-wd-i18n="page_title">04 | React 기초 / 웹 서비스 기획</title><link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
-  </head>
-  <body class="wd-page-body" data-lecture="04">
-    <main class="wd-deck" data-web-deck><div class="wd-viewport" data-wd-viewport><div class="wd-stage" data-wd-stage>
-      <section class="wd-slide wd-slide--cover is-active" data-wd-slide="cover" role="region">
-        <div class="wd-cover-grid"><div><p class="wd-cover-kicker">LECTURE 04</p><h1 class="wd-cover-title" data-wd-i18n="lecture_title">React 기초 / 웹 서비스 기획</h1><p class="wd-cover-course" data-wd-i18n="course">실전 웹서비스 개발 · 2026년 2학기</p></div><aside class="wd-placeholder"><strong class="wd-placeholder__label" data-wd-i18n="status">강의 자료 준비 중</strong><p data-wd-i18n="status_detail">자료 수집이 완료되면 이 골격에 슬라이드를 추가합니다.</p></aside></div>
-        <footer class="wd-slide-footer"><span data-wd-i18n="lecture_date">2026. 09. 28. 월요일</span><span>16:30–19:30</span><span>04 / 13</span></footer>
-      </section>
-    </div></div></main>
-    <script src="../shared/lecture-deck.js"></script>
-    <script src="../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
-    <script src="../../packages/web-deck/web-deck.js"></script>
-  </body>
-</html>
+    <html class="wd-page" lang="ko">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title data-wd-i18n="page_title">04 | React 기초</title>
+        <link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
+        <link rel="stylesheet" href="lecture.css">
+        <link rel="stylesheet" href="react-cleanup.css">
+
+      </head>
+      <body class="wd-page-body" data-lecture="04">
+        <main class="wd-deck" data-web-deck>
+          <div class="wd-viewport" data-wd-viewport>
+            <div class="wd-stage" data-wd-stage>
+              <section class="wd-slide week4-slide week4-cover is-active" data-wd-slide="cover" role="region">
+                <h1 class="" data-wd-i18n="slide_01_title">React 기초</h1>
+                <p class="week4-subtitle" data-wd-i18n="slide_01_subtitle">React의 등장 배경·UI 설계 철학·화면 갱신과 첫 실행</p>
+                <p class="week4-source">LECTURE 04</p>
+              </section>
+
+          <section class="wd-slide week4-slide week4-chapter" data-wd-slide="slide-02" role="region">
+                <h2 class="" data-wd-i18n="slide_02_title">React의 소개와 등장 배경</h2>
+                <p class="week4-subtitle" data-wd-i18n="slide_02_subtitle">React의 역할·탄생 배경·실제 활용</p>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-03" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_03_title">React의 역할과 적용 범위</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_03_subtitle">웹 서비스의 사용자 인터페이스를 구성하는 JavaScript 라이브러리</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_03_b0_definition0">React - 데이터를 화면으로 표현하는 UI 라이브러리</strong></dt></div></dl></div><div class="week4-panel week4-panel--table"><h3  data-wd-i18n="slide_03_b1_heading">웹 서비스 안에서의 위치</h3><div role="table" class="week4-table" style="--table-columns: 2"><div role="row" class="week4-table__header"><div role="columnheader" data-wd-i18n="slide_03_b1_head0">구성</div><div role="columnheader" data-wd-i18n="slide_03_b1_head1">담당 역할</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_03_b1_cell0_0">React</div><div role="cell" data-wd-i18n="slide_03_b1_cell0_1">화면 구성 · 사용자 동작에 따른 UI 갱신</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_03_b1_cell1_0">HTML · CSS · 브라우저</div><div role="cell" data-wd-i18n="slide_03_b1_cell1_1">문서 구조 · 스타일 · 실제 화면 표시</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_03_b1_cell2_0">서버 · 데이터베이스</div><div role="cell" data-wd-i18n="slide_03_b1_cell2_1">요청 처리 · 공유 데이터 저장</div></div></div></div></div><div class="week4-references"><a href="https://react.dev/learn/thinking-in-react" target="_blank" rel="noopener noreferrer">Thinking in React</a> · <a href="https://react.dev/learn/build-a-react-app-from-scratch" target="_blank" rel="noopener noreferrer">Build a React App from Scratch</a></div><aside hidden class="week4-notes">React는 UI 라이브러리. React 기반 프레임워크와 React 자체의 범위를 구분. 라우팅·서버·빌드 도구 상세는 생략.
+[Sources]
+https://react.dev/learn/thinking-in-react
+https://react.dev/learn/build-a-react-app-from-scratch
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-04" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_04_title">React의 등장 배경</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_04_subtitle">복잡해진 웹 화면과 데이터 변화 관리의 어려움</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--table"><h3  data-wd-i18n="slide_04_b0_heading">웹 UI 개발 방식의 확장</h3><div role="table" class="week4-table" style="--table-columns: 2"><div role="row" class="week4-table__header"><div role="columnheader" data-wd-i18n="slide_04_b0_head0">방식</div><div role="columnheader" data-wd-i18n="slide_04_b0_head1">개발의 중심</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_04_b0_cell0_0">HTML · CSS</div><div role="cell" data-wd-i18n="slide_04_b0_cell0_1">문서 구조와 스타일로 콘텐츠 표현</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_04_b0_cell1_0">JavaScript · jQuery</div><div role="cell" data-wd-i18n="slide_04_b0_cell1_1">DOM 요소 선택 · 이벤트 연결 · 화면 직접 수정</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_04_b0_cell2_0">React의 컴포넌트</div><div role="cell" data-wd-i18n="slide_04_b0_cell2_1">현재 데이터에 맞는 UI 정의와 조합</div></div></div></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_04_b1_definition0">UI 관리 - 데이터와 DOM의 일치 유지</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_04_b1_detail0_0">이벤트별 갱신 코드의 분산 → 관리 부담 증가</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_04_b1_definition1">React의 접근(2013) - 컴포넌트 중심의 UI 구성</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_04_b1_detail1_0">화면 구조와 표시 로직의 결합</li><li  data-wd-i18n="slide_04_b1_detail1_1">데이터 변화에 따른 갱신 계산</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=5" target="_blank" rel="noopener noreferrer">2025 React PDF · p.5</a> · <a href="https://legacy.reactjs.org/blog/2013/06/05/why-react.html" target="_blank" rel="noopener noreferrer">Why did we build React?</a> · <a href="https://jquery.com/" target="_blank" rel="noopener noreferrer">jQuery Overview</a></div><aside hidden class="week4-notes">원본 PDF 5쪽의 웹 개발 변화·jQuery 관리 부담·React 접근을 재구성. 세 방식이 교체되는 엄밀한 1·2·3세대 구분이 아니라 공존하는 개발 관점. jQuery 자체가 상태 불일치나 성능 저하를 필연적으로 유발한다는 주장 제외.
+[Sources]
+materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=5
+https://legacy.reactjs.org/blog/2013/06/05/why-react.html
+https://jquery.com/
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-05" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_05_title">Facebook 웹의 React 활용</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_05_subtitle">2020년 Facebook.com 재설계에 적용한 UI 구성</p>
+                <div class="week4-body week4-body--visual"><div class="week4-panel week4-panel--figure"><figure class="react-figure"><img src="materials/images/facebook-2020-light.png" alt="Facebook.com의 탐색·스토리·피드·설정 화면" data-react-alt="slide_05_b0_alt" loading="eager"><figcaption  data-wd-i18n="slide_05_b0_caption">Facebook.com · 2020년 기술 회고의 화면</figcaption></figure></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_05_b1_definition0">화면 영역 - 역할별 UI 구성</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_05_b1_detail0_0">왼쪽 - 탐색</li><li  data-wd-i18n="slide_05_b1_detail0_1">가운데 - 스토리 · 피드</li><li  data-wd-i18n="slide_05_b1_detail0_2">오른쪽 - 설정 메뉴</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_05_b1_definition1">React 적용 - 영역 조합과 상호작용</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_05_b1_detail1_0">사용자 동작에 반응하는 웹 UI</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_05_b1_definition2">기술 구성 - UI와 기반 구조의 재설계</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_05_b1_detail2_0">React · Relay · CSS</li><li  data-wd-i18n="slide_05_b1_detail2_1">데이터 · 탐색 구조</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="https://engineering.fb.com/2020/05/08/web/facebook-redesign/" target="_blank" rel="noopener noreferrer">Tech stack rebuild for a new Facebook.com</a></div><aside hidden class="week4-notes">원문 이미지: https://engineering.fb.com/wp-content/uploads/2020/05/1.-Home-Setting-Light-Mode.png
+Meta의 2020-05-08 기술 회고. 현재 Facebook 화면으로 표기하지 않음. 로딩 개선을 React 단독 효과로 해석하지 않음.
+[Sources]
+https://engineering.fb.com/2020/05/08/web/facebook-redesign/
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-06" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_06_title">React의 주요 발전 과정</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_06_subtitle">공개 이후 이어진 개발 방식과 학습 환경의 변화</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--table"><h3  data-wd-i18n="slide_06_b0_heading">주요 전환점</h3><div role="table" class="week4-table" style="--table-columns: 3"><div role="row" class="week4-table__header"><div role="columnheader" data-wd-i18n="slide_06_b0_head0">시기</div><div role="columnheader" data-wd-i18n="slide_06_b0_head1">변화</div><div role="columnheader" data-wd-i18n="slide_06_b0_head2">의미</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_06_b0_cell0_0">2013.05</div><div role="cell" data-wd-i18n="slide_06_b0_cell0_1">React 공개</div><div role="cell" data-wd-i18n="slide_06_b0_cell0_2">Facebook에서 발전한 UI 도구의 공개</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_06_b0_cell1_0">2019.02</div><div role="cell" data-wd-i18n="slide_06_b0_cell1_1">React 16.8 · Hooks 도입</div><div role="cell" data-wd-i18n="slide_06_b0_cell1_2">함수 중심 작성 방식의 확대</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_06_b0_cell2_0">2023.03</div><div role="cell" data-wd-i18n="slide_06_b0_cell2_1">react.dev 학습 문서 공개</div><div role="cell" data-wd-i18n="slide_06_b0_cell2_2">함수 컴포넌트 중심의 학습 체계</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_06_b0_cell3_0">2024.12</div><div role="cell" data-wd-i18n="slide_06_b0_cell3_1">React 19 정식 출시</div><div role="cell" data-wd-i18n="slide_06_b0_cell3_2">UI와 데이터 처리 기능의 확장</div></div></div></div><div class="week4-panel week4-panel--points"><h3  data-wd-i18n="slide_06_b1_heading">학습의 기준</h3><ul class="week4-points"><li  data-wd-i18n="slide_06_b1_item0">작성 문법의 변화에도 이어지는 컴포넌트 · 데이터 · 화면의 관계</li></ul></div></div><div class="week4-references"><a href="https://react.dev/versions" target="_blank" rel="noopener noreferrer">React Versions</a> · <a href="https://legacy.reactjs.org/blog/2019/02/06/react-v16.8.0.html" target="_blank" rel="noopener noreferrer">React v16.8: The One With Hooks</a> · <a href="https://react.dev/blog/2023/03/16/introducing-react-dev" target="_blank" rel="noopener noreferrer">Introducing react.dev</a></div><aside hidden class="week4-notes">전환점을 고른 연혁이며 최신 버전 목록이 아님. Hooks API·클래스 문법 해설 제외.
+[Sources]
+https://react.dev/versions
+https://legacy.reactjs.org/blog/2019/02/06/react-v16.8.0.html
+https://react.dev/blog/2023/03/16/introducing-react-dev
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-07" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_07_title">개발자 설문으로 보는 React 사용 현황</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_07_subtitle">2025년 전문 개발자 응답자의 사용 경험과 조사 해석</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--table"><h3  data-wd-i18n="slide_07_b0_heading">2025 Stack Overflow · 전문 개발자</h3><div role="table" class="week4-table" style="--table-columns: 2"><div role="row" class="week4-table__header"><div role="columnheader" data-wd-i18n="slide_07_b0_head0">선택 기술</div><div role="columnheader" data-wd-i18n="slide_07_b0_head1">지난 1년 사용 경험</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_07_b0_cell0_0">React</div><div role="cell" data-wd-i18n="slide_07_b0_cell0_1">46.9%</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_07_b0_cell1_0">jQuery</div><div role="cell" data-wd-i18n="slide_07_b0_cell1_1">24.1%</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_07_b0_cell2_0">Angular</div><div role="cell" data-wd-i18n="slide_07_b0_cell2_1">19.8%</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_07_b0_cell3_0">Vue.js</div><div role="cell" data-wd-i18n="slide_07_b0_cell3_1">18.4%</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_07_b0_cell4_0">Svelte</div><div role="cell" data-wd-i18n="slide_07_b0_cell4_1">6.9%</div></div></div></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_07_b1_definition0">조사 범위 - 문항 응답자의 기술 사용 경험</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_07_b1_detail0_0">해당 문항 응답자 19,460명</li><li  data-wd-i18n="slide_07_b1_detail0_1">여러 기술 선택 가능</li><li  data-wd-i18n="slide_07_b1_detail0_2">전체 웹사이트 점유율 · 품질 순위와 구분</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=4" target="_blank" rel="noopener noreferrer">2025 React PDF · p.4</a> · <a href="https://survey.stackoverflow.co/2025/technology/" target="_blank" rel="noopener noreferrer">Stack Overflow Developer Survey 2025 — Technology</a> · <a href="https://survey.stackoverflow.co/2025/methodology" target="_blank" rel="noopener noreferrer">Stack Overflow Developer Survey 2025 — Methodology</a></div><aside hidden class="week4-notes">공식 HTML Professional Developers / Have Used 탭. 선택 기술 5개만 비교. 2025년 조사로 명시.
+[Sources]
+materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=4
+https://survey.stackoverflow.co/2025/technology/
+https://survey.stackoverflow.co/2025/methodology
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-chapter" data-wd-slide="slide-08" role="region">
+                <h2 class="" data-wd-i18n="slide_08_title">React의 UI 설계 철학</h2>
+                <p class="week4-subtitle" data-wd-i18n="slide_08_subtitle">화면의 구성 요소·재사용·데이터와 표현의 관계</p>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-09" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_09_title">컴포넌트 기반 화면 구성</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_09_subtitle">상품 검색 화면을 역할별 요소로 나누고 조합하는 방식</p>
+                <div class="week4-body week4-body--split"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="components"></div></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_09_b1_definition0">컴포넌트 - 역할을 가진 UI 단위</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_09_b1_detail0_0">검색 영역 · 결과 목록 · 상품 행으로 구성</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_09_b1_definition1">SearchBar - 검색 조건 입력</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_09_b1_detail1_0">상품명 입력 · 재고 조건 선택</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_09_b1_definition2">ProductTable - 결과 목록 표시</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_09_b1_detail2_0">분류별 상품 · 검색 결과 개수</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_09_b1_definition3">ProductRow - 상품 한 행의 표현</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_09_b1_detail3_0">상품명 · 가격 · 재고 여부</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="https://react.dev/learn/thinking-in-react" target="_blank" rel="noopener noreferrer">Thinking in React</a></div><aside hidden class="week4-notes">공식 Thinking in React의 6개 상품을 한글화. 원본 분류/가격/재고를 유지하고 수업용 결과 개수·재고 문구 추가. 장에서 실제 React로 전체 화면을 렌더. 버튼으로 컴포넌트 경계를 표시. 컴포넌트 분리의 유일한 정답을 주장하지 않음.
+[Sources]
+https://react.dev/learn/thinking-in-react
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-10" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_10_title">컴포넌트의 재사용과 일관성</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_10_subtitle">같은 상품 행에 서로 다른 데이터를 표시하는 방식</p>
+                <div class="week4-body week4-body--split"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="reuse"></div></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_10_b1_definition0">컴포넌트 재사용 - 같은 UI 정의에 다른 데이터 적용</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_10_b1_detail0_0">사과 $1 · 용과 $1 · 패션프루트 $2</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_10_b1_definition1">공통 표현 규칙 - 모든 상품 행의 표시 방식</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_10_b1_detail1_0">상품명 - 왼쪽</li><li  data-wd-i18n="slide_10_b1_detail1_1">가격 - 오른쪽</li><li  data-wd-i18n="slide_10_b1_detail1_2">품절 - 색상 · 문구로 구분</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_10_b1_definition2">일관성 - 같은 표시 규칙을 모든 행에 반영</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_10_b1_detail2_0">표시 규칙 수정 → 모든 상품 행에 반영</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="https://react.dev/learn/thinking-in-react" target="_blank" rel="noopener noreferrer">Thinking in React</a></div><aside hidden class="week4-notes">09번과 같은 상품 화면·데이터. 다른 서비스나 미제시 화면을 새로 가정하지 않음. Props 문법은 다루지 않음.
+[Sources]
+https://react.dev/learn/thinking-in-react
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-11" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_11_title">데이터 변화와 화면 표현</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_11_subtitle">검색 조건에 따라 달라지는 상품 목록과 결과 표시</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="filter"></div></div></div><div class="week4-references"><a href="https://react.dev/learn/thinking-in-react" target="_blank" rel="noopener noreferrer">Thinking in React</a></div><aside hidden class="week4-notes">왼쪽 전체 6개와 오른쪽 재고 있는 4개를 동시 표시. 오른쪽 검색창·재고 필터 조작 가능. 이름/가격/재고 원본은 동일하며 결과 개수는 필터 결과에서 계산. Print에서도 두 화면 보존.
+[Sources]
+https://react.dev/learn/thinking-in-react
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-12" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_12_title">명령형과 선언형 프로그래밍</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_12_subtitle">React에서는 현재 상태에 맞는 UI를 선언형으로 정의</p>
+                <div class="week4-body week4-body--split"><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_12_b0_definition0">명령형 - 작업의 순서와 방법을 직접 지정</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_12_b0_detail0_0">UI 개발 - 변경할 DOM 요소와 수정 명령 지정</li><li  data-wd-i18n="slide_12_b0_detail0_1">요소 선택 · 이벤트 처리 · 텍스트와 속성 수정</li></ul></dd></div></dl></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_12_b1_definition0">선언형 - 원하는 결과의 조건이나 형태를 정의</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_12_b1_detail0_0">React - 현재 상태에 맞는 UI 선언</li><li  data-wd-i18n="slide_12_b1_detail0_1">상태 변경 → UI 재계산 → 필요한 DOM 변경 반영</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=6" target="_blank" rel="noopener noreferrer">2025 React PDF · p.6</a> · <a href="https://legacy.reactjs.org/blog/2013/06/05/why-react.html" target="_blank" rel="noopener noreferrer">Why did we build React?</a> · <a href="https://react.dev/learn/thinking-in-react" target="_blank" rel="noopener noreferrer">Thinking in React</a></div><aside hidden class="week4-notes">11번은 화면의 변화를 관찰하는 장, 12번은 명령형/선언형의 뜻과 UI 개발의 책임을 정의하는 장, 13번은 코드/실행으로 그 차이를 확인하는 장. 명령형/선언형은 일반적인 프로그래밍 접근이고 jQuery/React는 여기서 비교하는 UI 구현 사례. 단방향 데이터 흐름은 선언형의 정의와 구분되는 별도 개념으로 본 장의 정의에 섞지 않음.
+[Sources]
+materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=6
+https://legacy.reactjs.org/blog/2013/06/05/why-react.html
+https://react.dev/learn/thinking-in-react
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-13" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_13_title">jQuery와 React의 코드 비교</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_13_subtitle">같은 클릭 카운터로 비교하는 DOM 수정 명령과 UI 선언</p>
+                <div class="week4-body week4-body--programming"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="programming"></div></div><div class="week4-panel week4-panel--code"><h3  data-wd-i18n="slide_13_b1_heading">명령형(jQuery)</h3><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="64" data-wd-i18n="slide_13_b1_code">let count = 0;
+const button = $(&#x27;&lt;button&gt;&#x27;).appendTo(host);
+button.text(`Clicked ${count} times`);
+button.on(&#x27;click&#x27;, () =&gt; {
+  count += 1;
+  button.text(`Clicked ${count} times`);
+});</pre><dl class="react-concepts react-concepts--caption"><div class="react-concept"><dt><strong  data-wd-i18n="slide_13_b1_explanation_definition0">DOM 갱신 - 수정 순서의 직접 지정</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_13_b1_explanation_detail0_0">버튼 생성 → 이벤트 연결 → 텍스트 수정</li><li  data-wd-i18n="slide_13_b1_explanation_detail0_1">host - 버튼을 추가할 DOM 요소</li></ul></dd></div></dl></div><div class="week4-panel week4-panel--code"><h3  data-wd-i18n="slide_13_b2_heading">선언형(React)</h3><pre class="wd-code" data-wd-code="jsx" data-wd-code-width="64" data-wd-i18n="slide_13_b2_code">function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+      Clicked {count} times
+    &lt;/button&gt;
+  );
+}</pre><dl class="react-concepts react-concepts--caption"><div class="react-concept"><dt><strong  data-wd-i18n="slide_13_b2_explanation_definition0">JSX - JavaScript 안의 UI 표현</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_13_b2_explanation_detail0_0">현재 count에 맞는 버튼 UI 선언</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_13_b2_explanation_definition1">useState(0) - 상태 초기값 0</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_13_b2_explanation_detail1_0">setCount → 상태 변경 → React의 버튼 텍스트 갱신</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=6" target="_blank" rel="noopener noreferrer">2025 React PDF · p.6</a> · <a href="https://api.jquery.com/text/" target="_blank" rel="noopener noreferrer">jQuery .text()</a> · <a href="https://api.jquery.com/on/" target="_blank" rel="noopener noreferrer">jQuery .on()</a> · <a href="https://react.dev/reference/react/useState" target="_blank" rel="noopener noreferrer">React useState</a></div><aside hidden class="week4-notes">PDF 6쪽의 동일 클릭 카운터 비교를 재사용. 기존 명령형 코드는 jQuery가 아닌 일반 DOM API이며 parseInt(&#x27;Click me&#x27;)에서 NaN 발생. 실제 jQuery 코드와 별도 숫자 변수로 교정. 양쪽 count=0에서 시작, 클릭마다 1 증가. 위 버튼은 아래 표시 코드와 같은 모듈을 실행. 전제: jQuery의 $와 React의 useState import, host는 jQuery 출력 DOM 영역, React는 Counter를 마운트. Hooks/JSX는 읽는 데 필요한 뜻만 설명하며 실습·API 상세 수업으로 확장하지 않음.
+[Sources]
+materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=6
+https://api.jquery.com/text/
+https://api.jquery.com/on/
+https://react.dev/reference/react/useState
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-14" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_14_title">React Native와 UI 설계 방식의 확장</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_14_subtitle">Shopify 사례로 보는 웹·모바일의 공통 관점과 차이</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--quote"><h3  data-wd-i18n="slide_14_b0_heading">Shopify · 2025년 기술 회고</h3><blockquote class="week4-quote" data-wd-i18n="slide_14_b0_text">iOS·Android에서 반복되는 개발을 줄이기 위한 React Native 활용</blockquote></div><div class="week4-panel week4-panel--table"><h3  data-wd-i18n="slide_14_b1_heading">공유하는 관점과 달라지는 대상</h3><div role="table" class="week4-table" style="--table-columns: 3"><div role="row" class="week4-table__header"><div role="columnheader" data-wd-i18n="slide_14_b1_head0">관점</div><div role="columnheader" data-wd-i18n="slide_14_b1_head1">웹 · React + React DOM</div><div role="columnheader" data-wd-i18n="slide_14_b1_head2">모바일 · React Native</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_14_b1_cell0_0">설계 방식</div><div role="cell" data-wd-i18n="slide_14_b1_cell0_1">컴포넌트 조합 · 데이터에 따른 UI</div><div role="cell" data-wd-i18n="slide_14_b1_cell0_2">컴포넌트 조합 · 데이터에 따른 UI</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_14_b1_cell1_0">표시 대상</div><div role="cell" data-wd-i18n="slide_14_b1_cell1_1">브라우저의 DOM</div><div role="cell" data-wd-i18n="slide_14_b1_cell1_2">플랫폼의 네이티브 UI</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_14_b1_cell2_0">플랫폼 연결</div><div role="cell" data-wd-i18n="slide_14_b1_cell2_1">웹 API와 HTML 요소</div><div role="cell" data-wd-i18n="slide_14_b1_cell2_2">기기 기능 · 플랫폼별 처리</div></div></div></div></div><div class="week4-references"><a href="https://shopify.engineering/five-years-of-react-native-at-shopify" target="_blank" rel="noopener noreferrer">Five years of React Native at Shopify</a></div><aside hidden class="week4-notes">Shopify 자체 회고를 도입 맥락으로 사용. 웹 HTML/CSS 코드를 변경 없이 모바일에서 실행한다는 의미가 아님. 생산성 수치로 일반화하지 않음.
+[Sources]
+https://shopify.engineering/five-years-of-react-native-at-shopify
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-chapter" data-wd-slide="slide-15" role="region">
+                <h2 class="" data-wd-i18n="slide_15_title">React의 화면 갱신</h2>
+                <p class="week4-subtitle" data-wd-i18n="slide_15_subtitle">UI 계산·DOM 반영·입력 요소의 유지</p>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-16" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_16_title">DOM과 Virtual DOM의 역할</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_16_subtitle">실제 문서 구조와 메모리에서 표현하는 UI 구조</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="dom"></div></div></div><div class="week4-references"><a href="materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=7" target="_blank" rel="noopener noreferrer">2025 React PDF · p.7</a> · <a href="https://react.dev/learn/render-and-commit" target="_blank" rel="noopener noreferrer">Render and Commit</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener noreferrer">MDN · DOM</a></div><aside hidden class="week4-notes">상품 검색 결과의 일부를 화면·DOM·메모리 UI 표현으로 대응. UI 구조는 강의용 축약이며 React 내부 객체의 실제 필드 형식이 아님. 원본 PDF 7쪽의 JavaScript 객체로 표현하는 UI 트리 설명을 보강. Virtual DOM은 별도 브라우저 화면이나 실제 DOM 전체의 복제본이 아님.
+[Sources]
+materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=7
+https://react.dev/learn/render-and-commit
+https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-17" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_17_title">React의 화면 갱신 과정</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_17_subtitle">데이터 변화에 따른 UI 계산·비교와 DOM 반영</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="commit"></div></div></div><div class="week4-references"><a href="materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=7" target="_blank" rel="noopener noreferrer">2025 React PDF · p.7</a> · <a href="https://react.dev/learn/render-and-commit" target="_blank" rel="noopener noreferrer">Render and Commit</a></div><aside hidden class="week4-notes">같은 상품 데이터의 이전 UI와 새 UI에서 6→4와 품절 행 제거를 표시. Trigger → Render(컴포넌트 실행·새 UI 계산/비교) → Commit(DOM 반영) → Browser(필요한 스타일·레이아웃·페인트) 구분. 원본의 Commit과 레이아웃/페인트 혼합을 교정. 비교는 Render 작업의 일부로 설명. 모든 렌더가 DOM 변경을 일으키거나 Virtual DOM이 항상 더 빠르다는 주장 제외.
+[Sources]
+materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=7
+https://react.dev/learn/render-and-commit
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-18" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_18_title">화면 갱신과 입력 요소의 유지</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_18_subtitle">시계가 갱신되는 동안 유지되는 입력창의 내용</p>
+                <div class="week4-body week4-body--split"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="clock"></div></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_18_b1_definition0">UI 재계산 - 새 시간 데이터에 맞는 화면 계산</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_18_b1_detail0_0">1초마다 바뀌는 시간</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_18_b1_definition1">DOM 반영 - 변경된 시간 텍스트의 갱신</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_18_b1_detail1_0">동일한 입력 요소 유지</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_18_b1_definition2">입력 보존 - 작성 중인 내용과 위치의 유지</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_18_b1_detail2_0">문자열 · 포커스 · 커서 위치 유지</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="https://react.dev/learn/render-and-commit" target="_blank" rel="noopener noreferrer">Render and Commit</a></div><aside hidden class="week4-notes">실제 React 컴포넌트가 1초마다 다시 렌더. 입력창은 uncontrolled input이며 동일 위치의 동일 DOM 노드 유지. 강사는 입력 후 시계 갱신과 커서 유지를 관찰. key·재마운트·상태 초기화 API 해설 제외.
+[Sources]
+https://react.dev/learn/render-and-commit
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-19" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_19_title">DOM 갱신 방식과 성능</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_19_subtitle">직접 조작과 React의 갱신 책임·실제 변경 범위</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="dom-updates"></div></div><div class="week4-panel week4-panel--table"><h3  data-wd-i18n="slide_19_b1_heading">같은 결과에 도달하는 서로 다른 책임</h3><div role="table" class="week4-table" style="--table-columns: 3; --design-columns: 16% 38% 46%"><div role="row" class="week4-table__header"><div role="columnheader" data-wd-i18n="slide_19_b1_head0">관점</div><div role="columnheader" data-wd-i18n="slide_19_b1_head1">jQuery</div><div role="columnheader" data-wd-i18n="slide_19_b1_head2">React</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_19_b1_cell0_0">갱신 지시</div><div role="cell" data-wd-i18n="slide_19_b1_cell0_1">개발자가 button.text(...) 호출</div><div role="cell" data-wd-i18n="slide_19_b1_cell0_2">개발자는 UI 정의 · React가 DOM 변경 계산</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_19_b1_cell1_0">이 버튼의 변경</div><div role="cell" data-wd-i18n="slide_19_b1_cell1_1">버튼 노드 유지 · 안의 텍스트 교체</div><div role="cell" data-wd-i18n="slide_19_b1_cell1_2">버튼 노드 유지 · 숫자 텍스트 갱신</div></div></div></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_19_b2_definition0">갱신 비용 - 화면 갱신에 필요한 작업량</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_19_b2_detail0_0">UI 계산 · 비교 · DOM 변경 · 브라우저의 레이아웃 · 페인트</li></ul></dd></div><div class="react-concept"><dt><strong  data-wd-i18n="slide_19_b2_definition1">VDOM - UI 갱신을 관리하는 방법</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_19_b2_detail1_0">실제 속도 - 구현과 측정으로 판단</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=8" target="_blank" rel="noopener noreferrer">2025 React PDF · p.8</a> · <a href="https://api.jquery.com/text/" target="_blank" rel="noopener noreferrer">jQuery .text()</a> · <a href="https://react.dev/learn/render-and-commit" target="_blank" rel="noopener noreferrer">Render and Commit</a></div><aside hidden class="week4-notes">PDF 8쪽의 직접 DOM 조작 vs VDOM 구도를 유지하면서 jQuery=전체 재렌더링/느림, React=항상 빠름이라는 단정 제거. 두 실제 라이브러리의 동일 카운터에 MutationObserver를 연결해 버튼 노드 정체성과 텍스트 변화를 관찰. 수치는 성능 벤치마크가 아니며 속도 측정을 시도하지 않음. 자동 배치는 여러 상태 갱신에 관한 후속 주제로 본 장의 단일 클릭 예시에서 성능 근거로 확대하지 않음.
+[Sources]
+materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=8
+https://api.jquery.com/text/
+https://react.dev/learn/render-and-commit
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-20" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_20_title">React를 사용하는 서비스</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_20_subtitle">아이콘을 선택해 새 탭에서 실제 서비스 화면 살펴보기</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--services"><ul class="react-service-grid"><li><a class="react-service-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="인스타그램 사이트 열기 (새 탭)" data-wd-i18n-aria-label="slide_20_b0_service0_label"><img class="react-service-icon" src="assets/services/instagram.webp" alt="" width="88" height="88" loading="eager"><span class="react-service-name" data-wd-i18n="slide_20_b0_service0_name">인스타그램</span><span class="react-service-domain">instagram.com <span aria-hidden="true">↗</span></span></a></li><li><a class="react-service-link" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="페이스북 사이트 열기 (새 탭)" data-wd-i18n-aria-label="slide_20_b0_service1_label"><img class="react-service-icon" src="assets/services/facebook.png" alt="" width="88" height="88" loading="eager"><span class="react-service-name" data-wd-i18n="slide_20_b0_service1_name">페이스북</span><span class="react-service-domain">facebook.com <span aria-hidden="true">↗</span></span></a></li><li><a class="react-service-link" href="https://www.netflix.com/kr/" target="_blank" rel="noopener noreferrer" aria-label="넷플릭스 사이트 열기 (새 탭)" data-wd-i18n-aria-label="slide_20_b0_service2_label"><img class="react-service-icon" src="assets/services/netflix.png" alt="" width="88" height="88" loading="eager"><span class="react-service-name" data-wd-i18n="slide_20_b0_service2_name">넷플릭스</span><span class="react-service-domain">netflix.com <span aria-hidden="true">↗</span></span></a></li><li><a class="react-service-link" href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer" aria-label="스포티파이 사이트 열기 (새 탭)" data-wd-i18n-aria-label="slide_20_b0_service3_label"><img class="react-service-icon" src="assets/services/spotify.png" alt="" width="88" height="88" loading="eager"><span class="react-service-name" data-wd-i18n="slide_20_b0_service3_name">스포티파이</span><span class="react-service-domain">open.spotify.com <span aria-hidden="true">↗</span></span></a></li><li><a class="react-service-link" href="https://www.airbnb.co.kr/" target="_blank" rel="noopener noreferrer" aria-label="에어비앤비 사이트 열기 (새 탭)" data-wd-i18n-aria-label="slide_20_b0_service4_label"><img class="react-service-icon" src="assets/services/airbnb.png" alt="" width="88" height="88" loading="eager"><span class="react-service-name" data-wd-i18n="slide_20_b0_service4_name">에어비앤비</span><span class="react-service-domain">airbnb.co.kr <span aria-hidden="true">↗</span></span></a></li><li><a class="react-service-link" href="https://teams.microsoft.com/" target="_blank" rel="noopener noreferrer" aria-label="Microsoft Teams 사이트 열기 (새 탭)" data-wd-i18n-aria-label="slide_20_b0_service5_label"><img class="react-service-icon" src="assets/services/teams.ico" alt="" width="88" height="88" loading="eager"><span class="react-service-name" data-wd-i18n="slide_20_b0_service5_name">Microsoft Teams</span><span class="react-service-domain">teams.microsoft.com <span aria-hidden="true">↗</span></span></a></li></ul></div></div><div class="week4-references"><a href="https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024" target="_blank" rel="noopener noreferrer">React · Instagram</a> · <a href="https://react.dev/blog/2024/10/21/react-compiler-beta-release" target="_blank" rel="noopener noreferrer">React · Facebook</a> · <a href="https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0" target="_blank" rel="noopener noreferrer">Netflix Engineering</a> · <a href="https://engineering.atspotify.com/2021/4/building-the-future-of-our-desktop-apps" target="_blank" rel="noopener noreferrer">Spotify Engineering</a> · <a href="https://airbnb.tech/infrastructure/accelerating-large-scale-test-migration-with-llms/" target="_blank" rel="noopener noreferrer">Airbnb Engineering</a> · <a href="https://techcommunity.microsoft.com/blog/microsoftteamsblog/making-microsoft-teams-more-responsive-reliable-and-ready-for-work/4526527" target="_blank" rel="noopener noreferrer">Microsoft Teams</a></div><aside hidden class="week4-notes">실습 챕터 앞의 서비스 탐색 장. 여섯 서비스의 공식 아이콘과 서비스명으로 3×2 링크 그리드 구성. 링크는 새 탭에서 서비스 자체로 이동. 공식 기술 자료는 React 활용의 근거이며 발행 시점은 react-services.json에 별도 기록. 사이트 전체와 모든 모바일 앱이 동일 기술로 구현됐다는 주장은 하지 않음.
+[Sources]
+https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024
+https://react.dev/blog/2024/10/21/react-compiler-beta-release
+https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0
+https://engineering.atspotify.com/2021/4/building-the-future-of-our-desktop-apps
+https://airbnb.tech/infrastructure/accelerating-large-scale-test-migration-with-llms/
+https://techcommunity.microsoft.com/blog/microsoftteamsblog/making-microsoft-teams-more-responsive-reliable-and-ready-for-work/4526527
+https://static.cdninstagram.com/rsrc.php/yw/r/icwX0xAk0pz.webp
+https://www.facebook.com/images/fb_icon_325x325.png
+https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.png
+https://open.spotifycdn.com/cdn/images/icons/Spotify_MWP_512.50dd387d.png
+https://a0.muscache.com/im/pictures/AirbnbPlatformAssets/AirbnbPlatformAssets-Favicons/original/d1fcc0b3-865f-485a-b28b-43ca0bf7c891.png?im_w=240
+https://teams.public.onecdn.static.microsoft/evergreen-assets/icons/microsoft_teams_logo_refresh_v2025.ico
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-chapter" data-wd-slide="slide-21" role="region">
+                <h2 class="" data-wd-i18n="slide_21_title">프로젝트 셋업과 Hello World</h2>
+                <p class="week4-subtitle" data-wd-i18n="slide_21_subtitle">개발 환경에서 첫 React 화면까지의 실행 흐름</p>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-22" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_22_title">React 개발 환경과 도구</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_22_subtitle">Node.js·npm·Vite의 역할과 실행 환경 확인</p>
+                <div class="week4-body week4-body--stack"><div class="week4-panel week4-panel--table"><h3  data-wd-i18n="slide_22_b0_heading">개발 도구의 역할</h3><div role="table" class="week4-table" style="--table-columns: 2"><div role="row" class="week4-table__header"><div role="columnheader" data-wd-i18n="slide_22_b0_head0">도구</div><div role="columnheader" data-wd-i18n="slide_22_b0_head1">역할</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_22_b0_cell0_0">Node.js</div><div role="cell" data-wd-i18n="slide_22_b0_cell0_1">개발 도구를 컴퓨터에서 실행하는 환경</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_22_b0_cell1_0">npm</div><div role="cell" data-wd-i18n="slide_22_b0_cell1_1">프로젝트 생성 도구 실행 · 패키지 설치</div></div><div role="row"><div role="rowheader" data-wd-i18n="slide_22_b0_cell2_0">Vite</div><div role="cell" data-wd-i18n="slide_22_b0_cell2_1">개발 서버 · 변경 반영 · 배포용 빌드</div></div></div></div><div class="week4-panel week4-panel--code"><h3  data-wd-i18n="slide_22_b1_heading">터미널 · 설치 확인</h3><pre class="wd-code" data-wd-code="bash" data-wd-code-width="80" data-wd-i18n="slide_22_b1_code">node -v
+npm -v</pre></div><div class="week4-panel week4-panel--concepts"><dl class="react-concepts"><div class="react-concept"><dt><strong  data-wd-i18n="slide_22_b2_definition0">실행 조건 - Vite 가이드의 Node.js 버전 요구사항</strong></dt><dd><ul class="react-concept-details"><li  data-wd-i18n="slide_22_b2_detail0_0">Node.js 20.19+ 또는 22.12+</li><li  data-wd-i18n="slide_22_b2_detail0_1">템플릿의 추가 버전 조건 확인</li></ul></dd></div></dl></div></div><div class="week4-references"><a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer">Vite Getting Started</a></div><aside hidden class="week4-notes">강사 시연. 수업 직전 실제 Node/Vite 템플릿 지원 버전 재확인. npm은 Node 설치 환경에 함께 제공. 학생 실습 지시나 새 과제 없음.
+[Sources]
+https://vite.dev/guide/
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-23" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_23_title">React 프로젝트 생성과 실행</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_23_subtitle">프로젝트 생성·패키지 설치·개발 서버 접속</p>
+                <div class="week4-body week4-body--setup"><div class="week4-panel week4-panel--code"><h3  data-wd-i18n="slide_23_b0_heading">터미널 · 생성 → 설치 → 실행</h3><pre class="wd-code" data-wd-code="bash" data-wd-code-width="80" data-wd-i18n="slide_23_b0_code">npm create vite@latest pwd-week4-demo -- --template react-ts
+cd pwd-week4-demo
+npm install
+npm run dev</pre></div><div class="week4-panel week4-panel--code"><h3  data-wd-i18n="slide_23_b1_heading">터미널 · 실행 출력</h3><pre class="wd-code" data-wd-code="text" data-wd-code-width="80" data-wd-i18n="slide_23_b1_code">VITE v8.3.0  ready in 110 ms
+➜  Local:   http://127.0.0.1:4320/</pre></div><div class="week4-panel week4-panel--figure"><figure class="react-figure"><img src="materials/images/vite-start.png" alt="Vite React TypeScript 프로젝트의 초기 브라우저 화면" data-react-alt="slide_23_b2_alt" loading="eager"><figcaption  data-wd-i18n="slide_23_b2_caption">Local 주소 접속 · React + TypeScript 템플릿</figcaption></figure></div></div><div class="week4-references"><a href="https://react.dev/learn/build-a-react-app-from-scratch" target="_blank" rel="noopener noreferrer">Build a React App from Scratch</a> · <a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer">Vite Getting Started</a></div><aside hidden class="week4-notes">강사 시연. 출력은 제작 시 실제 실행 기록이며 촬영용 --host 127.0.0.1 --port 4320 옵션 사용. 자료 제작 환경에서 실제 create-vite react-ts 생성·npm install·개발 서버 실행·브라우저 접속 검증. 그림은 실제 실행 화면 캡처. 포트 번호는 터미널 Local 출력 사용.
+[Sources]
+https://react.dev/learn/build-a-react-app-from-scratch
+https://vite.dev/guide/
+[/Sources]</aside>
+              </section>
+
+          <section class="wd-slide week4-slide week4-topic wd-slide--content" data-wd-slide="slide-24" role="region">
+                <h2 class="wd-slide-heading" data-wd-i18n="slide_24_title">Hello World와 화면 변경 확인</h2>
+                <p class="wd-slide-lead" data-wd-i18n="slide_24_subtitle">App.tsx의 문구 수정이 브라우저에 반영되는 과정</p>
+                <div class="week4-body week4-body--hello"><div class="week4-panel week4-panel--code"><h3  data-wd-i18n="slide_24_b0_heading">src/App.tsx · 최초 화면</h3><pre class="wd-code" data-wd-code="tsx" data-wd-code-width="80" data-wd-i18n="slide_24_b0_code">export default function App() {
+  return &lt;h1&gt;Hello, World!&lt;/h1&gt;;
+}</pre></div><div class="week4-panel week4-panel--code"><h3  data-wd-i18n="slide_24_b1_heading">src/App.tsx · 문구 변경 후 저장</h3><pre class="wd-code" data-wd-code="tsx" data-wd-code-width="80" data-wd-i18n="slide_24_b1_code">export default function App() {
+  return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+}</pre></div><div class="week4-panel week4-panel--demo"><div class="react-demo" data-react-demo="hello"></div></div></div><div class="week4-references"><a href="https://react.dev/learn/build-a-react-app-from-scratch" target="_blank" rel="noopener noreferrer">Build a React App from Scratch</a> · <a href="https://vite.dev/guide/" target="_blank" rel="noopener noreferrer">Vite Getting Started</a></div><aside hidden class="week4-notes">실제 Vite react-ts 프로젝트에서 App.tsx의 Hello, World! → Hello, React! 저장 후 HMR 검증. 두 이미지는 각 상태의 실제 브라우저 캡처. 슬라이드에는 실제 캡처된 두 결과를 함께 표시. src/index.css의 기본 스타일 유지. JSX는 화면 구조를 적는 문법 수준으로만 소개.
+[Sources]
+https://react.dev/learn/build-a-react-app-from-scratch
+https://vite.dev/guide/
+[/Sources]</aside>
+              </section>
+            </div>
+          </div>
+        </main>
+        <script src="lecture-content.js"></script>
+        <script src="../shared/lecture-deck.js"></script>
+        <script src="../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
+        <script src="../../packages/web-deck/web-deck.js"></script>
+        <script src="assets/react-demos.js"></script>
+      </body>
+    </html>

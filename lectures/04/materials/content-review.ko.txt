@@ -1,0 +1,106 @@
+4주차 본문 작성·검증 기록
+확인일: 2026-09-23
+
+현재 산출물: index.html 23장 / ai-design.html 24장. 21장 재구성 이후 원본 PDF 보강 기록은 문서 하단.
+최초 본문 작성 당시: index.html 25장 / ai-design.html 24장. 아래 최초 검토 기록 보존.
+React 본문: scripts/react-body.py → materials/react-body.json
+설계 본문: scripts/build-design.py → materials/design-slides.json
+공통 생성: scripts/build-outline.py, scripts/slide_body.py
+추가 HTML 없음. 상단 교시·학기·챕터 번호 레이블 없음.
+
+근거
+React 원문 17건의 링크는 react-sources.json 및 week-04-react-research.ko.txt.
+현재 구현 설명: React 공식 Thinking in React, Render and Commit, Preserving and Resetting State.
+역사: 2013 React 공개, 2019 Hooks 출시, 2023 react.dev, 2024 React 19 출시.
+사용 통계: 2025 Stack Overflow 전문 개발자 웹 기술 문항, 19,460명. 공식 HTML의 React 46.9% 및 응답 수 확인.
+기업 사례: Meta 2020 Facebook.com 재설계, Shopify 2025 React Native 회고. 일반적인 성능·비용 우위로 확장하지 않음.
+설계: OpenAI Codex Best Practices, Anthropic Claude Code Best Practices 및 설계·평가·맥락·장기 작업 원문 4건.
+출처별 상세 링크: design-sources.json. 학생용 요구사항·와이어프레임·프롬프트·가상 오류는 교육적 적용.
+
+예제 실행
+임시 폴더에서 npm create vite@latest actual-demo -- --template react-ts 실행.
+생성된 템플릿에서 npm install 후 App.tsx를 슬라이드의 Hello World 코드로 교체.
+npm run build 성공. 브라우저에서 Hello, World! 확인 및 Hello, React!로 수정·저장 후 자동 반영 확인.
+검증 환경: Node 26.8.2, npm 12.0.2, React/React DOM 19.3.0, Vite 8.3.0, TypeScript 6.0.3.
+@latest는 확인 시점 값. 강의에서는 공식 Node 호환 조건과 실제 터미널 주소를 확인하도록 안내.
+
+검사 범위
+공용 코드 형식·구문·13회차 강의 구조 검증.
+양쪽 언어의 모든 슬라이드 화면·인쇄 넘침, 모바일 가로 넘침, 브라우저 실행 오류 확인.
+표는 접근성 역할을 유지한 명시적 행·열 배치 사용. 화면 캡처와 PDF를 원본 해상도로 대조.
+실제 화면 캡처는 1280×720, PDF는 브라우저 print 출력으로 별도 검증.
+
+재구성 전 결과: 두 강의 한·영 화면·인쇄·모바일 검사 오류 0건. 한·영 PDF 각각 25/24페이지 확인. 공용 npm test와 Pages 빌드 통과.
+
+
+2026-09-23 · 승인된 21장 구성 반영
+
+1교시: 표지 1 + 챕터 4 + 본문 16 = 21장.
+React의 역할 → 등장 배경과 활용 → 상품 화면의 구성·재사용·변화 → 선언형 UI → 갱신 과정 → 첫 실행.
+보이지 않는 스터디 화면을 가정하던 첫 장 삭제. React의 정의를 첫 본문으로 이동.
+Shopify 사례를 컴포넌트·재사용 뒤로 이동. 시계 설명 3개 장을 실제 시계와 입력창 1개 장으로 통합.
+Hello World는 변경 전후 최소 코드와 실제 실행 캡처를 나란히 표시.
+기업 화면은 2020년 원문 이미지를 사용하고 출처·시점 표시. 자료별 provenance는 images/source-notes.txt.
+
+실제 동작 검사
+로컬 React 19.3.0 / React DOM 19.3.0 사용, 외부 CDN 의존 없음.
+상품 6개 → 재고 조건 4개 → 검색 1개 → 빈 결과, 필터 해제와 한·영 전환 검증.
+결과 개수와 실제 행 개수 일치, 기존 상품 행의 DOM 유지 확인.
+시계 갱신 후 입력 문자열·DOM 노드·포커스·커서 위치 유지 확인.
+입력창 방향키가 슬라이드 이동을 일으키지 않는 것 확인.
+Vite 초기 화면·문구 수정 후 HMR 반영 및 브라우저 오류 없음 확인.
+
+배치·통합 검사
+1교시 21장·2교시 24장 한·영 화면/인쇄/390px 모바일 검사 오류 0건.
+1교시 한·영 PDF 각각 21페이지, 2교시 각각 24페이지.
+모든 1교시 슬라이드를 1280×720 화면 캡처로 확인, 주요 시연은 PDF 렌더와 대조.
+공용 npm test: 13개 강의 구조, 코드 84블록/166개 언어 변형 형식·구문 통과.
+Pages 빌드 및 두 HTML 연결 확인. 04회차 HTML은 index.html·ai-design.html 두 파일 유지.
+2교시 HTML·번역 JS·구성 JSON은 수정 전후 SHA-256 동일.
+검증 명령: scripts/check-outline.cjs / scripts/check-react-demos.cjs / npm test --prefix packages/web-deck / node scripts/build-pages.mjs.
+
+
+2026-09-23 · 원본 PDF 4–8쪽 보강
+
+최종 1교시 23장. 04번 등장 배경, 12번 단방향 데이터 흐름, 13번 명령형/선언형 코드 비교, 16–17번 VDOM 구조/처리 단계, 19번 DOM 갱신 책임/성능 보강.
+원본과 페이지별 대응, 오류 수정 근거: react-pdf-enrichment.ko.txt.
+
+확인 결과
+- 코드에 사용한 실제 jQuery 4.0.0·React 19.3.0 버튼의 0→1→2→3 증가 및 키보드 클릭 확인.
+- 19번 DOM 관찰: 두 구현의 버튼 노드 유지와 텍스트 변경, 한·영 전환 확인.
+- 표시 코드는 실행 모듈에서 추출. 형식/구문 검사 통과.
+- 17번 이전 UI의 삭제 대상 2행, 새 UI/실제 출력의 4행 일치 확인.
+- 기존 검색·시계 입력 유지·Hello World 캡처 검사 통과.
+- 1교시 KO/EN 23장, 2교시 KO/EN 24장: 화면·인쇄·390px 모바일 오류/넘침 0건.
+- PDF 페이지 수 각각 23/24장 확인. 보강한 모든 페이지를 화면/인쇄 캡처로 시각 확인.
+- npm test: 13개 강의 구조, 코드 86블록 / 170언어 변형 검사 통과.
+- 원본 PDF의 퍼센트 인코딩된 한글 파일명도 검사하도록 자산 경로 디코딩 보정. PDF 페이지 링크의 로컬 파일 존재 확인.
+- Pages 빌드 및 git diff --check 통과. HTML은 기존 2개만 유지.
+- 2교시 HTML·번역·구성 JSON의 SHA-256은 보강 이전과 동일.
+
+
+2026-09-23 · 12–13번 개념 선행 구조 교정
+12번: 명령형과 선언형 프로그래밍 — 먼저 용어를 정의하고 UI 작성 책임을 비교.
+13번: jQuery와 React의 코드 비교 — 동일 카운터의 코드·실행 예제에 개념 적용.
+기존 12번의 상품 검색 사례 풀이와 단방향 데이터 흐름 부연을 정의 장에서 분리.
+KO/EN 제목·서브타이틀·본문·생성 원본 동기화. 23장 및 기존 예제 코드 유지.
+검증: 공용 npm test(86 코드 블록/170 언어 변형), KO/EN 화면·인쇄·모바일 검사 오류 0건.
+12–13번 실제 화면 시각 확인. 2교시 HTML·번역·구성 JSON 해시 동일.
+
+
+2026-09-23 · 마지막 서비스 탐색 장 추가
+1교시 24장(표지 1 + 챕터 4 + 본문 19).
+24번: Instagram·Facebook·Netflix·Spotify·Airbnb·Microsoft Teams의 공식 사이트 아이콘, 3×2 링크 그리드. 모바일 2열.
+아이콘 원본은 로컬에 저장. 링크 목적지·React 활용 근거·이미지 출처는 react-services.json과 숨김 Sources에 기록.
+검증: 24장 KO/EN 화면·인쇄·모바일 오류 0건, 공용 구조/코드 검사 통과.
+6개 아이콘 로딩 및 새 탭 클릭 목적지, Enter 키 이동, 양 언어의 접근성 이름 확인. 외부 사이트 인증 흐름 대신 탐색 요청 URL을 가로채 확인.
+마지막 장 KO/EN 화면과 PDF 렌더 확인. Instagram은 180px 공식 touch icon 사용.
+Pages 빌드 및 git diff --check 통과. 2교시 생성 결과 해시 동일.
+
+
+2026-09-23 · 서비스 사례를 실습 챕터 앞으로 이동
+기존 24번 서비스 탐색 → 20번. 기존 20–23번 셋업 챕터·도구·생성·Hello World → 21–24번.
+한·영 제목·본문 순서를 함께 이동하고 작성 원본과 페이지 참조를 동기화.
+전체 24장 유지. 재정렬 이전과 제목·본문·아이콘·링크 데이터 일치 확인(위치 설명 노트만 교정).
+공용 구조·코드 검사 및 24장 KO/EN 화면·인쇄·모바일 검사 통과. 이동한 서비스 장의 KO/EN 렌더 확인.
+Pages 빌드 통과. 2교시 생성 결과는 SHA-256 동일.
