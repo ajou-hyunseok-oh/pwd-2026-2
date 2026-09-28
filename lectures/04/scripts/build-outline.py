@@ -15,26 +15,26 @@ design_sources=json.loads((root/'materials/design-sources.json').read_text())
 # The approved title table includes covers and chapters in their actual order.
 rows = re.findall(r'^\| (\d{2}) \| (표지|챕터|본문) \| (.*?) \| (.*?) \|$', (root/'materials/week-04-react-titles.ko.txt').read_text(), re.M)
 en = [
-('React Fundamentals','Origins, UI Design Philosophy, Screen Updates, and First Run'),
-('Introducing React and Its Origins','The Role, Background, and Adoption of React'),
-('The Role and Scope of React','A JavaScript Library for Building Web User Interfaces'),
-('The Origins of React','Growing Interface Complexity and Changing Data'),
-('React at Facebook','UI Composition in the 2020 Facebook.com Redesign'),
-('Key Milestones in React','Changes in Development and Learning Since Its Public Release'),
-('React Usage in Developer Surveys','Professional Developer Responses in 2025 and Survey Interpretation'),
-('React UI Design Philosophy','UI Elements, Reuse, and the Relationship Between Data and Presentation'),
-('Component-Based UI Composition','Dividing a Product Search Interface by Responsibility'),
-('Component Reuse and Consistency','Different Product Data Displayed with the Same Row Component'),
-('Data Changes and UI Output','Product Lists and Result Counts That Follow Search Criteria'),
-('Imperative and Declarative Programming','React Declaratively Describes the UI for the Current State'),
-('jQuery and React Code Comparison','DOM Update Commands and UI Declarations for the Same Counter'),
-('Extending React UI Design with React Native','Shared Concepts and Platform Differences at Shopify'),
-('UI Updates in React','UI Calculation, DOM Updates, and Input Preservation'),
-('DOM and Virtual DOM','The Browser Document and an In-Memory UI Representation'),
-('The React UI Update Process','Calculating, Comparing, and Applying UI Changes'),
-('UI Updates and Input Preservation','Typed Text Retained While a Clock Updates'),
-('DOM Updates and Performance','Update Responsibilities and Actual Changes in jQuery and React'),
+('React Fundamentals','Origins and UI Design Philosophy'),
+('React Origins',''),
+('The Origins of React','The Challenge of Keeping the UI in Sync with Changing Data'),
+('The Role of React','A JavaScript library for building web interfaces that reflect data'),
+('Facebook.com Redesign','React UI · CSS · JS · Data · Navigation'),
+('The Evolution of React',''),
+('React Usage',''),
 ('Web Services Using React','Select an Icon to Explore the Service in a New Tab'),
+('React UI Design Philosophy','UI Elements, Reuse, and the Relationship Between Data and Presentation'),
+('React UI Design Philosophy','Compose the UI from components and describe its appearance for the current data and state'),
+('Component-Based UI Composition','Component boundaries and nesting in a product search screen'),
+('Component Reuse and Consistency','One ProductRow component displays six products'),
+('Data Changes and UI Output','Stock filter selected → Two unavailable products removed → Results 6 → 4'),
+('Imperative and Declarative Programming','Two Ways to Update the Same Counter'),
+('Extending React UI Design Across Environments',''),
+('UI Updates in React','Virtual DOM Concepts and the UI Update Process'),
+('What Is the Virtual DOM?','An In-Memory UI Representation Distinct from the Real DOM'),
+('Direct DOM Updates and React','Stock Filter Changes the Result Count from 6 to 4'),
+('The React UI Update Process','State Change → UI Calculation and Comparison → DOM Commit'),
+('Virtual DOM Benefits and Limits','Update Responsibility and the Cost of UI Calculation'),
 ('Project Setup and Hello World','From a Development Environment to the First React Screen'),
 ('React Development Tools','Node.js, npm, Vite, and Environment Checks'),
 ('Creating and Running a React Project','Project Scaffolding, Package Installation, and the Dev Server'),
@@ -81,11 +81,12 @@ for filename, content_file, deck_slides in decks:
         tag='h1' if s['kind']=='cover' else 'h2'
         heading_class='wd-slide-heading' if s['kind']=='topic' else ''
         lead_class='wd-slide-lead' if s['kind']=='topic' else 'week4-subtitle'
+        lead_markup=f'<p class="{lead_class}" data-wd-i18n="{keys["subtitle"]}">{escape(s["subtitle"][0])}</p>' if s['subtitle'][0] else ''
         body=render_body(s.get('body',{}),f'slide_{i+1:02}',messages,react_sources if filename=='index.html' else design_sources)
         suffix='<p class="week4-source">LECTURE 04</p>' if s['kind']=='cover' else ''
         parts.append(f'''          <section class="wd-slide week4-slide week4-{s['kind']}{' design-slide' if filename=='ai-design.html' else ''}{' wd-slide--content' if s['kind']=='topic' else ''}{' is-active' if i==0 else ''}" data-wd-slide="{'cover' if i==0 else f'slide-{i+1:02}'}" role="region">
                 <{tag} class="{heading_class}" data-wd-i18n="{keys['title']}">{escape(s['title'][0])}</{tag}>
-                <p class="{lead_class}" data-wd-i18n="{keys['subtitle']}">{escape(s['subtitle'][0])}</p>
+                {lead_markup}
                 {body}
                 {suffix}
               </section>''')

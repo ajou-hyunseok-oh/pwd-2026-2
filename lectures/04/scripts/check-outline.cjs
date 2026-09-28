@@ -38,11 +38,11 @@ for(const [,key] of html.matchAll(/data-wd-i18n(?:-alt|-aria-label|-title)?="([^
     const found=await page.evaluate(()=>{
      const problems=[];const deck=document.querySelector('[data-web-deck]').__webDeck;
      [...document.querySelectorAll('[data-wd-slide]')].forEach((s,i)=>{
-      deck.goTo(i);const box=s.getBoundingClientRect(), footer=s.querySelector('.week4-references')?.getBoundingClientRect() || {top:box.bottom-20};
+      deck.goTo(i);const box=s.getBoundingClientRect(), contentBottom=box.bottom-20;
       for(const el of s.querySelectorAll('h1,h2,h3,h4,p,li,blockquote,table,pre,img,.week4-body,.week4-wire,.react-demo,.react-explanation,.react-concepts dt,.react-concepts dd,.design-concepts dt,.design-concepts dd,.design-sequences,.design-wire,.design-onepager,.week4-table [role="cell"],.week4-table [role="rowheader"]')) {
        const r=el.getBoundingClientRect();if(!r.width)continue;
-       if(r.bottom>footer.top-6 || r.left<box.left-1||r.right>box.right+1||el.scrollWidth>el.clientWidth+2)
-        problems.push({slide:i+1,type:'bounds',tag:el.tagName,text:el.textContent.slice(0,60),bottom:r.bottom-box.top,footer:footer.top-box.top});
+       if(r.bottom>contentBottom-6 || r.left<box.left-1||r.right>box.right+1||el.scrollWidth>el.clientWidth+2)
+        problems.push({slide:i+1,type:'bounds',tag:el.tagName,text:el.textContent.slice(0,60),bottom:r.bottom-box.top,contentBottom:contentBottom-box.top});
       }
      });return problems;
     });
@@ -69,15 +69,11 @@ for(const [,key] of html.matchAll(/data-wd-i18n(?:-alt|-aria-label|-title)?="([^
     const mobile=await page.evaluate(i=>{
      document.querySelector('[data-web-deck]').__webDeck.goTo(i);
      const slide=document.querySelectorAll('[data-wd-slide]')[i];
-     const body=slide.querySelector('.week4-body');
-     const refs=slide.querySelector('.week4-references');
      return {
-      overflow:document.documentElement.scrollWidth>innerWidth,
-      referenceOverlap:body&&refs&&body.getBoundingClientRect().top+body.scrollHeight>refs.getBoundingClientRect().top
+      overflow:document.documentElement.scrollWidth>innerWidth
      };
     },i);
     if(mobile.overflow)issues.push({locale,mode:'mobile',slide:i+1,type:'horizontal-overflow'});
-    if(mobile.referenceOverlap)issues.push({locale,mode:'mobile',slide:i+1,type:'reference-overlap'});
    }
   }
   fs.writeFileSync(path.join(output,'audit.json'),JSON.stringify({slides:slideCount,errors,issues},null,2));

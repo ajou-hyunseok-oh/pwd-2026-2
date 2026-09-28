@@ -134,6 +134,61 @@
     "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
     "2026-09-23 확인"
   ],
+  "R20": [
+    "Our First 50,000 Stars",
+    "https://legacy.reactjs.org/blog/2016/09/28/our-first-50000-stars.html",
+    "2026-09-28 확인"
+  ],
+  "R21": [
+    "React 16 release",
+    "https://legacy.reactjs.org/blog/2017/09/26/react-v16.0.html",
+    "2026-09-28 확인"
+  ],
+  "R22": [
+    "React 18 release",
+    "https://react.dev/blog/2022/03/29/react-v18",
+    "2026-09-28 확인"
+  ],
+  "R23": [
+    "React 19 release",
+    "https://react.dev/blog/2024/12/05/react-19",
+    "2026-09-28 확인"
+  ],
+  "R24": [
+    "State: A Component's Memory",
+    "https://react.dev/learn/state-a-components-memory",
+    "2026-09-28 확인"
+  ],
+  "R25": [
+    "React Native · Learn once, write anywhere",
+    "https://reactnative.dev/",
+    "2026-09-28 확인"
+  ],
+  "R26": [
+    "React Native · Learn the Basics",
+    "https://reactnative.dev/docs/tutorial",
+    "2026-09-28 확인"
+  ],
+  "R27": [
+    "React DOM APIs",
+    "https://react.dev/reference/react-dom",
+    "2026-09-28 확인"
+  ],
+  "R29": [
+    "Flutter · Building user interfaces",
+    "https://docs.flutter.dev/ui",
+    "2026-09-28 확인"
+  ],
+  "R30": [
+    "React · Virtual DOM and Internals",
+    "https://legacy.reactjs.org/docs/faq-internals.html",
+    "2026-09-28 확인"
+  ],
+  "R31": [
+    "React · memo",
+    "https://react.dev/reference/react/memo",
+    "2026-09-28 확인"
+  ],
   "S01": [
     "React · Instagram",
     "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024",

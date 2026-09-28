@@ -40,6 +40,20 @@ def render_body(slide, key, messages, sources):
             if 'explanation' in b: content+=concepts(b['explanation'],ident+'_explanation',compact=True)
         elif kind=='concepts':
             content=concepts(b['sections'],ident)
+        elif kind=='update_flow':
+            content='<ol class="react-update-flow">'
+            for j,(name,detail) in enumerate(b['steps']):
+                content+='<li>'+tr(name,f'{ident}_name{j}','strong')+tr(detail,f'{ident}_detail{j}','span')+'</li>'
+            content+='</ol>'
+        elif kind=='role_diagram':
+            content='<div class="react-role-diagram">'
+            content+='<div class="react-role-diagram__server">'+tr(b['server'],ident+'_server','h4')+tr(b['server_role'],ident+'_server_role','p')+'</div>'
+            content+='<div class="react-role-diagram__exchange"><span aria-hidden="true">↔</span>'+tr(b['exchange'],ident+'_exchange','span')+'</div>'
+            content+='<div class="react-role-diagram__browser">'+tr(b['browser'],ident+'_browser','h4')+'<div class="react-role-diagram__browser-flow">'
+            content+='<div class="react-role-diagram__react">'+tr(b['react'],ident+'_react','h5')+tr(b['react_role'],ident+'_react_role','p')+'</div>'
+            content+='<span class="react-role-diagram__arrow" aria-hidden="true">→</span>'
+            content+='<div class="react-role-diagram__display">'+tr(b['display'],ident+'_display','h5')+tr(b['display_role'],ident+'_display_role','p')+'</div>'
+            content+='</div></div></div>'
         elif kind=='explain':
             content='<dl class="react-explanation">'
             for j,section in enumerate(b['sections']):
@@ -89,8 +103,6 @@ def render_body(slide, key, messages, sources):
     layout='split' if any(b['type']=='wireframe' for b in slide['blocks']) else slide.get('layout','stack')
     body=f'<div class="week4-body week4-body--{layout}">'+''.join(blocks)+'</div>'
     refs=slide.get('refs',[])
-    if refs:
-        body+='<div class="week4-references">'+ ' · '.join(f'<a href="{escape(sources[r][1])}" target="_blank" rel="noopener noreferrer">{escape(sources[r][0])}</a>' for r in refs)+'</div>'
     asset_sources=[item['icon_source'] for block in slide.get('blocks',[]) if block['type']=='services' for item in block['items']]
     note=slide.get('note','')+'\n[Sources]\n'+'\n'.join([sources[r][1] for r in refs+slide.get('note_refs',[])]+asset_sources)+'\n[/Sources]'
     body+='<aside hidden class="week4-notes">'+escape(note)+'</aside>'

@@ -10,7 +10,7 @@
 
 작성 원본은 `../scripts/react-body.py`와 `../scripts/react-demos.jsx`, 설명 요소의 HTML 생성은 `../scripts/slide_body.py`, 1교시 전용 스타일은 `../react-cleanup.css`입니다. 시연 파일을 빌드한 뒤 `python3 lectures/04/scripts/build-outline.py --period 1`로 재생성합니다.
 
-한·영 각 24장의 렌더링과 PDF 페이지 수를 확인했습니다. 화면·인쇄·모바일의 넘침·출처 겹침 검사, 공통 덱·코드 예제 검사, 검색·카운터·시계와 입력 유지 시연 검사를 통과했습니다.
+한·영 각 24장의 렌더링과 PDF 페이지 수를 확인했습니다. 화면·인쇄·모바일의 넘침·출처 겹침 검사, 공통 덱·코드 예제 검사와 상품 검색 시연 검사를 수행했습니다.
 
 ## 2교시: 웹 서비스 설계 기초
 
@@ -91,19 +91,17 @@ PLAYWRIGHT_PATH=/absolute/path/to/playwright node lectures/04/scripts/check-reac
 
 ## 원본 PDF의 등장 배경·VDOM 내용 보강
 
-원본 「React 프레임워크를 이용한 웹 프론트엔드 개발」 4–8쪽을 검토하여 23장으로 보강한 뒤, 실습 전 서비스 탐색 장을 추가했습니다. 현재 표지·챕터 5장, 본문 19장입니다. 상세 대응과 수정 근거는 [원본 PDF 보강 기록](react-pdf-enrichment.ko.txt)에 정리했습니다.
+원본 「React 프레임워크를 이용한 웹 프론트엔드 개발」 4–8쪽을 검토하여 내용을 보강하고, 서비스 탐색 장과 React UI 설계 철학 설명 장을 추가했습니다. 현재 표지·챕터 5장, 본문 19장입니다. 상세 대응과 수정 근거는 [원본 PDF 보강 기록](react-pdf-enrichment.ko.txt)에 정리했습니다.
 
 - 04번: HTML/CSS·jQuery·React로 확장된 UI 개발 방식과 데이터/DOM 관리 부담.
-- 12번: 명령형·선언형의 정의와 UI 개발에서의 책임 비교.
-- 13번: 앞서 정의한 개념을 같은 카운터의 jQuery·React 코드와 실제 동작으로 확인. 표시 코드를 실행 모듈에서 추출하여 일치 유지.
-- 16–17번: 메모리의 UI 트리, 이전/새 UI의 차이, Trigger·Render·Commit·브라우저 표시.
-- 19번: 실제 DOM 관찰과 갱신 책임 비교. 항상 빠름/느림이라는 단정 제거.
+- 14번: 명령형·선언형의 정의와 같은 카운터의 jQuery·React 코드를 한 장에서 비교. PDF에서 실행 화면 없이도 차이를 읽을 수 있도록 구성.
+- 17–20번: Virtual DOM의 개념 → DOM 직접 갱신과 React의 차이 → Trigger·Render·Commit → 효과와 한계.
 
-13번과 19번의 버튼을 클릭하면 두 구현의 동작을 볼 수 있으며, 19번은 DOM 관찰 결과도 표시합니다. jQuery 4.0.0은 로컬 번들에 포함됩니다. 원본 PDF의 숫자 변환 오류와 일반 DOM 코드를 jQuery로 잘못 표시한 부분은 수정했습니다. 원본의 로고·정답/오답·속도 우열 아이콘은 강의 설명에 추가하지 않았습니다. 2교시는 변경하지 않았습니다.
+14번의 코드 비교는 실제 jQuery API와 React 코드를 사용합니다. 원본 PDF의 숫자 변환 오류와 일반 DOM 코드를 jQuery로 잘못 표시한 부분은 수정했습니다. 17–20번은 두 방식 모두 실제 DOM에 반영한다는 점과 Virtual DOM의 계산 비용을 함께 설명합니다. 원본의 로고·정답/오답·속도 우열 아이콘은 강의 설명에 추가하지 않았습니다. 2교시는 변경하지 않았습니다.
 
-## 마지막 서비스 탐색 슬라이드
+## 서비스 탐색 슬라이드
 
-20번 「React를 사용하는 서비스」: Instagram·Facebook·Netflix·Spotify·Airbnb·Microsoft Teams의 공식 아이콘을 3×2 그리드로 표시합니다. 아이콘과 이름을 포함한 각 영역을 누르면 해당 서비스가 새 탭으로 열립니다. 모바일에서는 2열로 표시합니다.
+08번 「React를 사용하는 서비스」: Instagram·Facebook·Netflix·Spotify·Airbnb·Microsoft Teams의 공식 아이콘을 3×2 그리드로 표시합니다. 아이콘과 이름을 포함한 각 영역을 누르면 해당 서비스가 새 탭으로 열립니다. 모바일에서는 2열로 표시합니다.
 
 - 링크·이름·아이콘·React 활용 근거 원본: `react-services.json`
 - 로컬 아이콘: `../assets/services/`

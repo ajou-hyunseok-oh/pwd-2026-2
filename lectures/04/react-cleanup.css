@@ -5,18 +5,59 @@
 .react-concept dd { margin: .28rem 0 0 1rem; }
 .react-concept-details { display: grid; gap: .18rem; list-style: none; margin: 0; padding: 0; color: #43564a; font-size: .88rem; line-height: 1.55; word-break: keep-all; }
 .week4-panel--concepts { align-self: start; }
+.week4-slide[data-wd-slide="slide-11"] .react-concepts { gap: .7rem; }
+.week4-slide[data-wd-slide="slide-11"] .react-concept { border-left: 3px solid #9aada1; padding-left: .65rem; }
+.week4-slide[data-wd-slide="slide-11"] .react-concept:nth-child(2) { margin-left: 1rem; border-color: #357497; }
+.week4-slide[data-wd-slide="slide-11"] .react-concept:nth-child(3) { margin-left: 1rem; border-color: #8b7240; }
+.week4-slide[data-wd-slide="slide-11"] .react-concept:nth-child(4) { margin-left: 2rem; border-color: #739f84; }
 .react-concepts--caption { margin-top: .6rem; gap: .6rem; }
 .react-concepts--caption .react-concept dt,
 .react-concepts--caption .react-concept-details { font-size: .8rem; line-height: 1.5; }
+.react-update-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.react-update-flow li { position: relative; display: grid; gap: .2rem; align-content: center; min-height: 4.8rem; box-sizing: border-box; padding: .6rem .5rem; border: 1px solid #a6b9ad; background: #f5f8f6; text-align: center; }
+.react-update-flow li strong { color: #244a36; font-size: .92rem; }
+.react-update-flow li span { font-size: .8rem; line-height: 1.35; }
+.react-update-flow li:not(:last-child)::after { content: '→'; position: absolute; top: 50%; right: -.83rem; transform: translate(50%, -50%); z-index: 1; color: #356b4d; background: var(--wd-paper); font-size: 1.25rem; line-height: 1; }
+.week4-slide[data-wd-slide="slide-19"] .react-concepts { gap: .65rem; }
+.week4-panel--role_diagram { margin-top: 2.5rem; }
+.react-role-diagram { display: grid; grid-template-columns: minmax(0, .8fr) auto minmax(0, 1.6fr); align-items: center; gap: 1rem; }
+.react-role-diagram__server, .react-role-diagram__browser { min-width: 0; min-height: 10rem; border: 1px solid #a6b9ad; border-radius: .45rem; padding: 1.25rem; box-sizing: border-box; }
+.react-role-diagram__server { display: flex; flex-direction: column; justify-content: center; background: #f5f8f6; }
+.react-role-diagram__browser { background: #edf3ef; }
+.react-role-diagram :is(h4, h5) { margin: 0 0 .5rem; color: #244a36; font-size: 1.1rem; line-height: 1.4; }
+.react-role-diagram h5 { font-size: 1rem; }
+.react-role-diagram p { margin: 0; font-size: .88rem; line-height: 1.5; word-break: keep-all; }
+.react-role-diagram__exchange { display: grid; justify-items: center; gap: .25rem; color: #355e45; font-size: .75rem; white-space: nowrap; }
+.react-role-diagram__exchange > span:first-child { font-size: 2rem; line-height: 1; }
+.react-role-diagram__browser-flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .7rem; }
+.react-role-diagram__react, .react-role-diagram__display { min-height: 6rem; padding: .9rem; border-radius: .35rem; box-sizing: border-box; }
+.react-role-diagram__react { color: #fff; background: #356b4d; }
+.react-role-diagram__react h5 { color: #fff; }
+.react-role-diagram__display { border: 1px solid #b9c8be; background: #fff; }
+.react-role-diagram__arrow { color: #355e45; font-size: 1.7rem; }
 .week4-table [role="row"] { grid-template-columns: var(--design-columns,24% repeat(calc(var(--table-columns) - 1),minmax(0,1fr))); }
 .week4-table [role="cell"] { white-space: pre-line; }
 .react-dom-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 1.3rem; }
 .react-phase-flow { grid-template-columns: .8fr 1.2fr 1fr 1fr; }
 .react-phase-flow li > span { margin-left: .7rem; }
 @media screen and (max-width:767px) {
+  .week4-slide[data-wd-slide="slide-23"] .week4-panel--code:first-child .wd-code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .react-update-flow { grid-template-columns: 1fr; gap: .7rem; }
+  .react-update-flow li { min-height: 3.5rem; }
+  .react-update-flow li:not(:last-child)::after { content: '↓'; top: auto; right: 50%; bottom: -.83rem; transform: translate(50%, 50%); }
   .week4-slide > * { flex-shrink: 0; }
   .react-concept dt { overflow-wrap: anywhere; word-break: normal; }
   .react-concept-details { word-break: normal; }
+  .week4-slide[data-wd-slide="slide-05"] .week4-body { gap: .7rem; }
+  .week4-slide[data-wd-slide="slide-05"] .react-concepts { gap: .5rem; }
+  .week4-slide[data-wd-slide="slide-05"] .react-figure figcaption { margin-top: .3rem; }
+  .week4-panel--role_diagram { margin-top: 1rem; }
+  .react-role-diagram { grid-template-columns: minmax(0, 1fr); gap: .6rem; }
+  .react-role-diagram__server, .react-role-diagram__browser { min-height: 0; padding: .9rem; }
+  .react-role-diagram__exchange > span:first-child { transform: rotate(90deg); }
+  .react-role-diagram__browser-flow { grid-template-columns: minmax(0, 1fr); justify-items: stretch; }
+  .react-role-diagram__react, .react-role-diagram__display { min-height: 0; }
+  .react-role-diagram__arrow { text-align: center; transform: rotate(90deg); }
   .react-dom-summary { grid-template-columns: 1fr; }
   .react-phase-flow { grid-template-columns: 1fr; }
   .week4-table [role="row"] { grid-template-columns: 24% repeat(calc(var(--table-columns) - 1),minmax(0,1fr)); }

@@ -9,7 +9,8 @@ def prose(s):
     return [re.sub(r'[ \t]*·[ \t]*',' · ',value) for value in p(s)]
 def points(title,*items): return dict(type='points',title=prose(title),items=[prose(x) for x in items])
 def table(title,heads,*rows,widths=None):
-    block=dict(type='table',title=prose(title),heads=[prose(x) for x in heads],rows=[[prose(x) for x in r] for r in rows])
+    block=dict(type='table',heads=[prose(x) for x in heads],rows=[[prose(x) for x in r] for r in rows])
+    if title: block['title']=prose(title)
     if widths: block['widths']=widths
     return block
 def quote(title,text): return dict(type='quote',title=p(title),text=p(text))
@@ -30,159 +31,190 @@ def figure(src,alt,caption): return dict(type='figure',src=src,alt=p(alt),captio
 slides=[]
 def add(*blocks,refs=(),layout='stack',note=''):
     slides.append(dict(blocks=blocks,refs=refs,layout=layout,note=note))
-# 03 · Establish the subject before introducing a problem or an example.
+# React's role in a web service.
 add(
-    concepts(
-        ('React - 데이터를 화면으로 표현하는 UI 라이브러리||React - A UI library for presenting data',)),
-    table('웹 서비스 안에서의 위치||Its Place in a Web Service', ['구성||Part','담당 역할||Responsibility'],
-        ['React','화면 구성 · 사용자 동작에 따른 UI 갱신||UI composition · Updates following user actions'],
-        ['HTML · CSS · 브라우저||HTML · CSS · Browser','문서 구조 · 스타일 · 실제 화면 표시||Document structure · Styling · Display'],
-        ['서버 · 데이터베이스||Server · Database','요청 처리 · 공유 데이터 저장||Request processing · Shared data storage']),
-    refs=('R10','R16'),
-    note='React는 UI 라이브러리. React 기반 프레임워크와 React 자체의 범위를 구분. 라우팅·서버·빌드 도구 상세는 생략.')
-# 04 · Source PDF p.5: the problem that shifted UI design toward data.
+    dict(type='role_diagram',
+         title=p('웹 서비스 안에서의 위치||Its Place in a Web Service'),
+         server=p('서버 · 데이터베이스||Server · Database'),
+         server_role=p('요청 처리 · 공유 데이터 저장||Process requests · Store shared data'),
+         exchange=p('요청 · 데이터||Requests · Data'),
+         browser=p('브라우저||Browser'),
+         react=p('React'),
+         react_role=p('컴포넌트로 UI 계산 · 변경 반영||Compute UI with components · Apply updates'),
+         display=p('DOM · CSS'),
+         display_role=p('문서 구조 · 스타일 · 화면 표시||Document structure · Styling · Display')),
+    refs=('R10','R13'),
+    note='React는 브라우저 안에서 UI를 구성하고 갱신하는 라이브러리. 서버·데이터베이스는 요청 처리와 공유 데이터 저장을 담당. 화살표는 요청·데이터 흐름과 UI 변경 반영을 개략적으로 나타내며, React가 CSS를 생성하거나 서버 역할을 맡는다는 뜻은 아님.')
+# React's origins: the burden of manual DOM updates and React's response.
 add(
-    table('웹 UI 개발 방식의 확장||Expanding Approaches to Web UI', ['방식||Approach','개발의 중심||Development Focus'],
-        ['HTML · CSS','문서 구조와 스타일로 콘텐츠 표현||Content expressed through document structure and styling'],
-        ['JavaScript · jQuery','DOM 요소 선택 · 이벤트 연결 · 화면 직접 수정||DOM selection · Event handling · Direct UI updates'],
-        ['React의 컴포넌트||React Components','현재 데이터에 맞는 UI 정의와 조합||UI definition and composition for current data']),
+    table('기존의 DOM 직접 수정 방식||Direct DOM Updates', ['상황||Situation','개발자가 관리하던 일||What the Developer Managed'],
+        ['데이터 변경||Data changed','변경된 값과 영향을 받는 화면 요소 확인||Find changed values and affected UI elements'],
+        ['화면 갱신||UI update','DOM 요소를 찾아 텍스트·속성·목록을 직접 수정||Select DOM nodes and update text, attributes, and lists'],
+        ['화면 복잡화||Growing UI complexity','여러 갱신 코드가 데이터와 화면을 일치시키도록 관리||Keep scattered update code and displayed data in sync']),
     concepts(
-        ('UI 관리 - 데이터와 DOM의 일치 유지||UI Management - Keeping data and DOM in sync',
-         '이벤트별 갱신 코드의 분산 → 관리 부담 증가||Scattered update logic → Greater maintenance effort'),
-        ('React의 접근(2013) - 컴포넌트 중심의 UI 구성||React’s Approach (2013) - UI composition with components',
-         '화면 구조와 표시 로직의 결합||UI structure and display logic in the same component',
-         '데이터 변화에 따른 갱신 계산||Updates calculated as data changes')),
-    refs=('P05','R01','J01'),
-    note='원본 PDF 5쪽의 웹 개발 변화·jQuery 관리 부담·React 접근을 재구성. 세 방식이 교체되는 엄밀한 1·2·3세대 구분이 아니라 공존하는 개발 관점. jQuery 자체가 상태 불일치나 성능 저하를 필연적으로 유발한다는 주장 제외.')
-# 05 · A real, dated company screenshot.
+        ('문제 - 화면 수정 책임이 개발 코드 곳곳에 분산||Problem - UI update logic spread across the code',
+         '데이터가 바뀔 때마다 DOM과의 일치를 직접 유지||Manually keep the DOM in sync as data changes'),
+        ('React의 제안(2013) - 현재 데이터에 맞는 화면을 기술||React’s Proposal (2013) - Describe the UI for current data',
+         'React = re(다시) + act(작동): 바뀐 데이터에 맞는 화면을 다시 기술||React = re (again) + act: describe the UI again for the changed data',
+         '컴포넌트가 데이터에 따른 화면을 반환||Components return a UI description from the data',
+         'React가 이전 결과와 비교해 필요한 DOM 변경을 반영||React compares results and applies the needed DOM changes')),
+    refs=('R01','R20'),
+    note='Pete Hunt의 2013년 첫 블로그 글을 바탕으로 직접 DOM 갱신의 부담과 React의 접근을 설명. re + act 분해는 이름과 작동 방식을 연결하는 강의용 풀이이며, 이름에 관한 2016년 개발 회고는 상태·속성 변화에 반응한다는 Jordan Walke의 설명을 기록. React 이전의 모든 도구가 DOM을 직접 수정해야 했다는 뜻은 아님. jQuery 자체가 상태 불일치를 일으킨다는 주장도 아님.')
+# 05 · The 2020 Facebook.com redesign used React alongside CSS, code, data, and navigation changes.
 add(
     figure('materials/images/facebook-2020-light.png',
-        'Facebook.com의 탐색·스토리·피드·설정 화면||Facebook.com navigation, stories, feed, and settings',
-        'Facebook.com · 2020년 기술 회고의 화면||Facebook.com · Image from the 2020 engineering report'),
+        '2020년 재설계된 Facebook.com의 탐색·피드·설정 화면||Navigation, feed, and settings in the redesigned 2020 Facebook.com',
+        'PHP 서버 화면 → React 기반 브라우저 앱 · 2020년||PHP server pages → React client app · 2020'),
     concepts(
-        ('화면 영역 - 역할별 UI 구성||UI Areas - Composition by role',
-         '왼쪽 - 탐색||Left - Navigation',
-         '가운데 - 스토리 · 피드||Center - Stories · Feed',
-         '오른쪽 - 설정 메뉴||Right - Settings'),
-        ('React 적용 - 영역 조합과 상호작용||React’s Role - Composition and interaction',
-         '사용자 동작에 반응하는 웹 UI||Web UI responding to user actions'),
-        ('기술 구성 - UI와 기반 구조의 재설계||System - UI and infrastructure redesign',
-         'React · Relay · CSS',
-         '데이터 · 탐색 구조||Data · Navigation structure')),
+        ('CSS - 스타일과 다크 모드||CSS - Styles and Dark Mode',
+         '원자적 CSS로 홈 화면 CSS 80% 축소 · 변수로 테마 전환||Atomic CSS cut homepage CSS by 80%; variables switch themes'),
+        ('JavaScript - 필요한 코드부터||JavaScript - Load What Is Needed First',
+         '첫 화면 표시와 이후 기능에 맞춰 코드를 3단계로 분리||Code split into three tiers for first paint and later features'),
+        ('데이터 - Relay·GraphQL||Data - Relay and GraphQL',
+         '필요한 데이터를 미리 요청 · 피드 항목을 순차 전달||Preload needed data and stream feed stories as they arrive'),
+        ('탐색 - 다음 화면 준비||Navigation - Prepare the Next Screen',
+         '이동할 화면의 코드·데이터를 미리 가져와 전환 지연 감소||Prefetch code and data for the destination to reduce delays')),
     refs=('R07',),
     layout='visual',
-    note='원문 이미지: https://engineering.fb.com/wp-content/uploads/2020/05/1.-Home-Setting-Light-Mode.png\nMeta의 2020-05-08 기술 회고. 현재 Facebook 화면으로 표기하지 않음. 로딩 개선을 React 단독 효과로 해석하지 않음.')
+    note='원문 이미지: https://engineering.fb.com/wp-content/uploads/2020/05/1.-Home-Setting-Light-Mode.png\nMeta의 2020-05-08 기술 회고. React 기반 클라이언트 앱으로 재설계하면서 CSS·JavaScript·데이터·탐색을 함께 개선. CSS 80% 감소는 기사에서 밝힌 새 홈 화면의 CSS 전송량 비교. 3단계는 JavaScript Loading Tiers. 데이터는 Relay·GraphQL의 선요청과 피드 스트리밍, 탐색은 경로 정의와 다음 화면 자원의 미리 가져오기를 요약. 성능 변화를 React 단독 효과로 해석하지 않음.')
 # 06
-add(table('주요 전환점||Key Milestones',['시기||Date','변화||Change','의미||Significance'],['2013.05','React 공개||React released publicly','Facebook에서 발전한 UI 도구의 공개||Public release of the UI tool developed at Facebook'],['2019.02','React 16.8 · Hooks 도입||React 16.8 · Hooks introduced','함수 중심 작성 방식의 확대||Broader use of function-based components'],['2023.03','react.dev 학습 문서 공개||New react.dev learning docs','함수 컴포넌트 중심의 학습 체계||Learning organized around function components'],['2024.12','React 19 정식 출시||React 19 released','UI와 데이터 처리 기능의 확장||Expanded UI and data-handling features']),points('학습의 기준||Learning Focus','작성 문법의 변화에도 이어지는 컴포넌트·데이터·화면의 관계||Components, data, and UI across changes in syntax'),refs=('R02','R03','R04'),note='전환점을 고른 연혁이며 최신 버전 목록이 아님. Hooks API·클래스 문법 해설 제외.')
+add(
+    table('', ['시기||Date','변화||Change','의미||Significance'],
+        ['2013.05','React 오픈소스 공개||React open-sourced','데이터에 맞는 UI를 컴포넌트로 기술||Describe data-driven UI with components'],
+        ['2017.09','React 16 · Fiber 도입||React 16 · Fiber','렌더링 코어 재작성 · 후속 비동기 기능의 기반||Rebuilt rendering core · Foundation for later async features'],
+        ['2019.02','React 16.8 · Hooks 도입||React 16.8 · Hooks','함수 컴포넌트에서 상태와 로직 재사용||State and reusable logic in function components'],
+        ['2022.03','React 18 · 동시성 렌더러||React 18 · Concurrent renderer','긴급도에 따른 화면 갱신 · 자동 배칭||Prioritized UI updates · Automatic batching'],
+        ['2024.12','React 19 · Actions · 서버 컴포넌트||React 19 · Actions and Server Components','폼 작업 상태 관리 · 서버에서 컴포넌트 실행||Form action state · Components run on the server']),
+    refs=('R02','R01','R21','R03','R22','R23'),
+    note='기술의 설계·작성·렌더링 방식이 달라진 시점을 공식 릴리스 자료에서 선별. 2013년 공개 날짜는 React Versions의 최초 커밋 기준. React 16의 Fiber는 새 렌더링 코어였지만 16.0에서 비동기 렌더링 기능은 아직 활성화되지 않음. React 18의 동시성 기능은 해당 기능을 사용할 때 활성화. React 19의 서버 컴포넌트는 지원 프레임워크가 필요. react.dev 문서 공개는 기술 변곡점이 아니므로 제외.')
 # 07
 add(
     table('2025 Stack Overflow · 전문 개발자||2025 Stack Overflow · Professional Developers',
         ['선택 기술||Selected Technology','지난 1년 사용 경험||Used in the Past Year'],
         ['React','46.9%'], ['jQuery','24.1%'], ['Angular','19.8%'], ['Vue.js','18.4%'], ['Svelte','6.9%']),
-    concepts(
-        ('조사 범위 - 문항 응답자의 기술 사용 경험||Survey Scope - Technology use among respondents',
-         '해당 문항 응답자 19,460명||19,460 responses to this question',
-         '여러 기술 선택 가능||Multiple selections allowed',
-         '전체 웹사이트 점유율 · 품질 순위와 구분||Distinct from website market share or quality rankings')),
     refs=('P04','R05','R06'),
-    note='공식 HTML Professional Developers / Have Used 탭. 선택 기술 5개만 비교. 2025년 조사로 명시.')
-# 09–12 · The same complete product UI and data throughout.
+    note='공식 HTML Professional Developers / Have Used 탭. 해당 문항 응답자 19,460명. 여러 기술 선택 가능. 선택 기술 5개만 비교. 전체 웹사이트 점유율 또는 품질 순위가 아님. 2025년 조사로 명시.')
+# 10 · A compact definition before the component examples.
+add(
+    concepts(
+        ('컴포넌트 - 화면을 나누어 조합하는 UI 단위||Component - A UI unit composed with others',
+         '예 - 검색창 · 상품 목록 · 상품 행||Examples - Search field · Product list · Product row'),
+        ('상태 - 컴포넌트가 기억하고 갱신하는 값||State - A value a component remembers and updates',
+         '예 - 검색어 · 재고만 보기 선택 여부||Examples - Search query · In-stock-only selection')),
+    dict(type='quote',text=p('상태 변경 → 관련 컴포넌트의 UI 재계산 → 조합된 페이지에 반영||State change → UI recalculated for affected components → Composed page updated')),
+    refs=('R10','R24'),
+    note='React 공식 Thinking in React의 컴포넌트 분해·시각적 상태·데이터 흐름과 State: A Component\'s Memory의 상태 정의를 강의용으로 요약. 마지막 흐름은 이 자료들에 근거한 설명이며 React 공식 문구를 그대로 인용한 것은 아님.')
+# 11–13 · The same complete product UI and data throughout.
 add(
     demo('components'),
     concepts(
-        ('컴포넌트 - 역할을 가진 UI 단위||Component - A UI unit with a role',
-         '검색 영역 · 결과 목록 · 상품 행으로 구성||Search area · Results · Product rows'),
+        ('ProductApp - 상품 검색 화면 전체||ProductApp - The complete product search screen',
+         'SearchBar와 ProductTable을 조합||Combines SearchBar and ProductTable'),
         ('SearchBar - 검색 조건 입력||SearchBar - Search criteria input',
          '상품명 입력 · 재고 조건 선택||Product-name input · Stock selection'),
         ('ProductTable - 결과 목록 표시||ProductTable - Results display',
          '분류별 상품 · 검색 결과 개수||Products by category · Result count'),
-        ('ProductRow - 상품 한 행의 표현||ProductRow - A single product row',
-         '상품명 · 가격 · 재고 여부||Name · Price · Stock status')),
+        ('ProductRow ×6 - 상품 한 행의 반복||ProductRow ×6 - Repeated product row',
+         '각 행에 상품명 · 가격 · 재고 여부 표시||Each row shows name · price · availability')),
     refs=('R10',),
     layout='split',
-    note='공식 Thinking in React의 6개 상품을 한글화. 원본 분류/가격/재고를 유지하고 수업용 결과 개수·재고 문구 추가. 장에서 실제 React로 전체 화면을 렌더. 버튼으로 컴포넌트 경계를 표시. 컴포넌트 분리의 유일한 정답을 주장하지 않음.')
+    note='공식 Thinking in React의 6개 상품을 한글화. 원본 분류/가격/재고를 유지하고 수업용 결과 개수·재고 문구 추가. 실제 React로 전체 화면을 렌더. 컴포넌트 경계와 이름을 처음부터 표시하고 버튼으로 실제 UI와 비교 가능. ProductApp 아래 SearchBar와 ProductTable, 그 안의 ProductRow 반복을 설명. 분류 제목은 이 구현에서 별도 컴포넌트가 아님. 컴포넌트 분리의 유일한 정답을 주장하지 않음.')
 add(
     demo('reuse'),
     concepts(
-        ('컴포넌트 재사용 - 같은 UI 정의에 다른 데이터 적용||Component Reuse - One UI definition with different data',
-         '사과 $1 · 용과 $1 · 패션프루트 $2||Apple $1 · Dragonfruit $1 · Passionfruit $2'),
-        ('공통 표현 규칙 - 모든 상품 행의 표시 방식||Shared Rules - Presentation of every product row',
+        ('ProductRow - 같은 UI 정의를 여섯 번 사용||ProductRow - One UI definition used six times',
+         '사과 $1 · 용과 $1 · 패션프루트 $2 등 서로 다른 상품 데이터||Different product data such as Apple $1 · Dragonfruit $1 · Passionfruit $2'),
+        ('표시 규칙 - 모든 상품 행에 공통 적용||Display rules - Shared by every product row',
          '상품명 - 왼쪽||Name - Left',
          '가격 - 오른쪽||Price - Right',
          '품절 - 색상 · 문구로 구분||Out of stock - Color · Text'),
-        ('일관성 - 같은 표시 규칙을 모든 행에 반영||Consistency - Shared rules across all rows',
-         '표시 규칙 수정 → 모든 상품 행에 반영||Row rule change → All product rows updated')),
+        ('재사용의 효과 - 한 곳의 표시 규칙을 모든 행에 적용||Benefit of reuse - One set of display rules across all rows',
+         'ProductRow 수정 → 여섯 상품 행에 함께 반영||Edit ProductRow → Apply to all six product rows')),
     refs=('R10',),
     layout='split',
-    note='09번과 같은 상품 화면·데이터. 다른 서비스나 미제시 화면을 새로 가정하지 않음. Props 문법은 다루지 않음.')
-add(demo('filter'),refs=('R10',),note='왼쪽 전체 6개와 오른쪽 재고 있는 4개를 동시 표시. 오른쪽 검색창·재고 필터 조작 가능. 이름/가격/재고 원본은 동일하며 결과 개수는 필터 결과에서 계산. Print에서도 두 화면 보존.')
-# 12 · Definitions before application: the two approaches, then their UI responsibilities.
+    note='11번과 같은 상품 화면·데이터. 다른 서비스나 미제시 화면을 새로 가정하지 않음. Props 문법은 다루지 않음.')
+add(demo('filter'),refs=('R10',),note='왼쪽 전체 6개와 오른쪽 재고 있는 4개를 동시 표시. 오른쪽 검색창·재고 필터 조작 가능. 재고 조건 선택으로 품절 2개가 목록에서 제외되고 결과 개수가 6→4로 바뀌는 초기 화면. 이름/가격/재고 원본은 동일하며 결과 개수는 필터 결과에서 계산. Print에서도 두 화면 보존.')
+# 14 · Definitions and matching counter code on one print-friendly slide.
 add(
     concepts(
         ('명령형 - 작업의 순서와 방법을 직접 지정||Imperative - Explicit steps and operations',
-         'UI 개발 - 변경할 DOM 요소와 수정 명령 지정||UI development - DOM targets and update commands',
-         '요소 선택 · 이벤트 처리 · 텍스트와 속성 수정||Element selection · Events · Text and attribute updates')),
+         'jQuery - 버튼을 만들고 클릭 이벤트를 연결||jQuery - Create the button and attach a click handler',
+         '클릭 후 button.text(...)로 화면의 텍스트를 직접 수정||After a click, update the displayed text with button.text(...)')),
     concepts(
         ('선언형 - 원하는 결과의 조건이나 형태를 정의||Declarative - Conditions or form of the desired result',
-         'React - 현재 상태에 맞는 UI 선언||React - UI declared for the current state',
-         '상태 변경 → UI 재계산 → 필요한 DOM 변경 반영||State change → UI recalculation → Required DOM updates')),
-    refs=('P06','R01','R10'),
-    layout='split',
-    note='11번은 화면의 변화를 관찰하는 장, 12번은 명령형/선언형의 뜻과 UI 개발의 책임을 정의하는 장, 13번은 코드/실행으로 그 차이를 확인하는 장. 명령형/선언형은 일반적인 프로그래밍 접근이고 jQuery/React는 여기서 비교하는 UI 구현 사례. 단방향 데이터 흐름은 선언형의 정의와 구분되는 별도 개념으로 본 장의 정의에 섞지 않음.')
-
-# 13 · Source PDF p.6, corrected and executed with real jQuery and React.
-add(
-    demo('programming'),
-    code('명령형(jQuery)||Imperative (jQuery)', example('jquery'), 'javascript', width=64,
-        explanation=concepts(
-            ('DOM 갱신 - 수정 순서의 직접 지정||DOM Updates - Explicit update steps',
-             '버튼 생성 → 이벤트 연결 → 텍스트 수정||Button creation → Event handling → Text updates',
-             'host - 버튼을 추가할 DOM 요소||host - The DOM element receiving the button'))),
-    code('선언형(React)||Declarative (React)', example('react'), 'jsx', width=64,
-        explanation=concepts(
-            ('JSX - JavaScript 안의 UI 표현||JSX - UI expressed within JavaScript',
-             '현재 count에 맞는 버튼 UI 선언||Button UI declared for the current count'),
-            ('useState(0) - 상태 초기값 0||useState(0) - Initial state value 0',
-             'setCount → 상태 변경 → React의 버튼 텍스트 갱신||setCount → State change → React updates the button text'))),
+         'React - 현재 count에 맞는 버튼 UI를 기술||React - Describe the button UI for the current count',
+         '클릭 후 setCount(...)로 상태 변경 · React가 화면 갱신||After a click, setCount(...) changes state and React updates the UI')),
+    code('jQuery · DOM 직접 수정||jQuery · Direct DOM Update', example('jquery'), 'javascript', width=64,
+         caption='count 증가 → button.text(...) 호출||Increment count → Call button.text(...)'),
+    code('React · 상태에 따른 UI||React · UI from State', example('react'), 'jsx', width=64,
+         caption='setCount(...) 호출 → 현재 count에 맞는 버튼 UI||Call setCount(...) → Button UI for the current count'),
     layout='programming',
-    refs=('P06','J02','J03','R18'),
-    note='PDF 6쪽의 동일 클릭 카운터 비교를 재사용. 기존 명령형 코드는 jQuery가 아닌 일반 DOM API이며 parseInt(\'Click me\')에서 NaN 발생. 실제 jQuery 코드와 별도 숫자 변수로 교정. 양쪽 count=0에서 시작, 클릭마다 1 증가. 위 버튼은 아래 표시 코드와 같은 모듈을 실행. 전제: jQuery의 $와 React의 useState import, host는 jQuery 출력 DOM 영역, React는 Counter를 마운트. Hooks/JSX는 읽는 데 필요한 뜻만 설명하며 실습·API 상세 수업으로 확장하지 않음.')
-# 14 · Expansion only after the core concepts have been introduced.
-add(quote('Shopify · 2025년 기술 회고||Shopify · 2025 Engineering Retrospective','iOS·Android에서 반복되는 개발을 줄이기 위한 React Native 활용||React Native to reduce duplicated development across iOS and Android'),table('공유하는 관점과 달라지는 대상||Shared Concepts and Different Targets',['관점||Aspect','웹 · React + React DOM||Web · React + React DOM','모바일 · React Native||Mobile · React Native'],['설계 방식||Design','컴포넌트 조합·데이터에 따른 UI||Component composition and data-driven UI','컴포넌트 조합·데이터에 따른 UI||Component composition and data-driven UI'],['표시 대상||Render target','브라우저의 DOM||Browser DOM','플랫폼의 네이티브 UI||Platform-native UI'],['플랫폼 연결||Platform integration','웹 API와 HTML 요소||Web APIs and HTML elements','기기 기능·플랫폼별 처리||Device features and platform-specific behavior']),refs=('R08',),note='Shopify 자체 회고를 도입 맥락으로 사용. 웹 HTML/CSS 코드를 변경 없이 모바일에서 실행한다는 의미가 아님. 생산성 수치로 일반화하지 않음.')
-# 15–17 · Concrete correspondence, one process, one live observation.
-add(demo('dom'),refs=('P07','R13','R19'),note='상품 검색 결과의 일부를 화면·DOM·메모리 UI 표현으로 대응. UI 구조는 강의용 축약이며 React 내부 객체의 실제 필드 형식이 아님. 원본 PDF 7쪽의 JavaScript 객체로 표현하는 UI 트리 설명을 보강. Virtual DOM은 별도 브라우저 화면이나 실제 DOM 전체의 복제본이 아님.')
-add(demo('commit'),refs=('P07','R13'),note='같은 상품 데이터의 이전 UI와 새 UI에서 6→4와 품절 행 제거를 표시. Trigger → Render(컴포넌트 실행·새 UI 계산/비교) → Commit(DOM 반영) → Browser(필요한 스타일·레이아웃·페인트) 구분. 원본의 Commit과 레이아웃/페인트 혼합을 교정. 비교는 Render 작업의 일부로 설명. 모든 렌더가 DOM 변경을 일으키거나 Virtual DOM이 항상 더 빠르다는 주장 제외.')
+    refs=('P06','R01','R10','J02','J03','R18'),
+    note='13번의 재고 필터 변화를 본 뒤, 같은 클릭 카운터를 jQuery와 React로 비교. 명령형·선언형의 일반적 정의와 각 UI 구현 사례를 한 장에서 연결. 두 코드는 모두 0에서 시작해 클릭마다 1 증가하며, PDF에서도 코드와 설명만으로 차이를 읽을 수 있도록 실행 화면을 제거. 표시 코드는 실행 모듈에서 추출. 전제: jQuery의 $와 React의 useState import, host는 jQuery 출력 DOM 영역, React는 Counter를 마운트. JSX와 useState는 현재 count에 맞는 화면을 기술하는 데 필요한 범위만 설명. 단방향 데이터 흐름은 선언형의 정의에 섞지 않음.')
+# 15 · React's influence on later UI frameworks.
 add(
-    demo('clock'),
+    dict(type='quote',text=p('React의 컴포넌트 기반·선언형 UI 접근은 다른 UI 프레임워크 설계에도 영향||React’s component-based, declarative approach also influenced other UI frameworks')),
     concepts(
-        ('UI 재계산 - 새 시간 데이터에 맞는 화면 계산||UI Recalculation - UI calculated from new time data',
-         '1초마다 바뀌는 시간||Time updated every second'),
-        ('DOM 반영 - 변경된 시간 텍스트의 갱신||DOM Updates - Changes to the time text',
-         '동일한 입력 요소 유지||The same input element retained'),
-        ('입력 보존 - 작성 중인 내용과 위치의 유지||Input Preservation - Retained text and editing position',
-         '문자열 · 포커스 · 커서 위치 유지||Typed text · Focus · Caret position')),
-    refs=('R13',),
-    layout='split',
-    note='실제 React 컴포넌트가 1초마다 다시 렌더. 입력창은 uncontrolled input이며 동일 위치의 동일 DOM 노드 유지. 강사는 입력 후 시계 갱신과 커서 유지를 관찰. key·재마운트·상태 초기화 API 해설 제외.')
-# 19 · Source PDF p.8: actual updates instead of a blanket speed ranking.
+        ('React Native - React의 UI 모델을 모바일 앱에 적용||React Native - React’s UI model applied to mobile apps',
+         '컴포넌트와 상태 개념을 iOS·Android 개발에 활용||Components and state used to build iOS and Android apps'),
+        ('Flutter - React에서 영감을 받은 UI 설계||Flutter - UI design inspired by React',
+         '공식 문서에서 위젯·상태에 따른 선언형 화면 구성을 설명||Its official documentation describes declarative screens built from widgets and state')),
+    refs=('R25','R26','R29'),
+    note='React Native 공식 문서는 React의 핵심 개념인 컴포넌트·상태를 모바일 개발에 적용한다고 설명. Flutter 공식 UI 소개와 아키텍처 문서는 React에서 영감을 받은 설계라고 명시. 두 사례를 통해 React의 설계 접근이 다른 UI 프레임워크에 미친 영향을 소개하되, 모든 선언형 UI가 React에서 처음 나왔거나 모든 프레임워크가 동일하게 구현된다는 뜻은 아님.')
+# 17–20 · Virtual DOM: concept, comparison, update process, and tradeoffs.
 add(
-    demo('dom-updates'),
-    table('같은 결과에 도달하는 서로 다른 책임||Different Responsibilities for the Same Result',
-        ['관점||Aspect','jQuery','React'],
-        ['갱신 지시||Update logic','개발자가 button.text(...) 호출||Developer calls button.text(...)','개발자는 UI 정의 · React가 DOM 변경 계산||Developer defines UI · React calculates DOM changes'],
-        ['이 버튼의 변경||Observed changes','버튼 노드 유지 · 안의 텍스트 교체||Button retained · Its text replaced','버튼 노드 유지 · 숫자 텍스트 갱신||Button retained · Number text updated'], widths='16% 38% 46%'),
     concepts(
-        ('갱신 비용 - 화면 갱신에 필요한 작업량||Update Cost - The work needed to update the screen',
-         'UI 계산 · 비교 · DOM 변경 · 브라우저의 레이아웃 · 페인트||UI calculation · Comparison · DOM changes · Browser layout · Paint'),
-        ('VDOM - UI 갱신을 관리하는 방법||VDOM - A way to manage UI updates',
-         '실제 속도 - 구현과 측정으로 판단||Actual speed - Judged through implementation and measurement')),
-    refs=('P08','J02','R13'),
-    note='PDF 8쪽의 직접 DOM 조작 vs VDOM 구도를 유지하면서 jQuery=전체 재렌더링/느림, React=항상 빠름이라는 단정 제거. 두 실제 라이브러리의 동일 카운터에 MutationObserver를 연결해 버튼 노드 정체성과 텍스트 변화를 관찰. 수치는 성능 벤치마크가 아니며 속도 측정을 시도하지 않음. 자동 배치는 여러 상태 갱신에 관한 후속 주제로 본 장의 단일 클릭 예시에서 성능 근거로 확대하지 않음.')
-# 20 · Explore familiar React services before the setup chapter.
+        ('DOM - 브라우저가 관리하는 실제 문서 구조||DOM - The document structure managed by the browser',
+         '화면의 요소·텍스트·속성을 담는 노드||Nodes containing screen elements, text, and attributes'),
+        ('Virtual DOM - 원하는 UI를 나타내는 메모리의 표현||Virtual DOM - An in-memory representation of the desired UI',
+         'React가 현재 UI와 다음 UI를 대조할 때 사용하는 개념적 모델||A conceptual model React uses to compare the current and next UI'),
+        ('화면 표시 - 최종 변경은 실제 DOM에 반영||Display - Final changes are applied to the real DOM',
+         '브라우저는 갱신된 DOM을 바탕으로 화면 표시||The browser displays the updated DOM')),
+    refs=('R30','R13','R19'),
+    note='React 구 공식 FAQ의 VDOM 정의와 최신 Render and Commit 문서로 확인. Virtual DOM은 별도 브라우저 화면이나 실제 DOM 전체의 복제본이 아님. React elements와 내부 Fiber를 모두 포함해 넓게 쓰이는 개념이므로 특정 JavaScript 객체 구조라고 단정하지 않음.')
+add(
+    table('같은 재고 필터 변경 · 검색 결과 6개 → 4개||Same Stock Filter Change · Results 6 → 4',
+        ['비교||Comparison','DOM 직접 갱신||Direct DOM Updates','React · Virtual DOM 활용||React · Virtual DOM'],
+        ['개발자가 작성||Developer writes','품절 행 제거 · 결과 개수 수정 명령||Commands to remove unavailable rows and change the count','재고 조건 상태와 그 상태에 맞는 UI||Stock-filter state and the UI for that state'],
+        ['변경할 요소 결정||Who selects changes','개발 코드가 DOM 노드를 찾아 지정||Application code finds and selects DOM nodes','React가 이전·새 UI를 대조해 결정||React compares previous and next UI'],
+        ['최종 화면||Final output','실제 DOM 갱신||Real DOM updated','실제 DOM 갱신||Real DOM updated'], widths='18% 41% 41%'),
+    dict(type='quote',text=p('차이 - 실제 DOM 사용 여부가 아니라 변경할 요소를 결정하는 책임||Difference - Who decides which DOM nodes to change')),
+    refs=('R30','R13','J02'),
+    note='13번과 같은 재고 필터 6→4 사례를 사용. 직접 DOM 갱신도 필요한 노드만 수정할 수 있으므로 전체 화면 재생성 또는 느림으로 단정하지 않음. React 역시 최종적으로 실제 DOM을 바꾼다는 점을 표의 마지막 행에서 강조. VDOM은 React 내부 UI 표현을 설명하기 위한 강의용 용어.')
+add(
+    dict(type='update_flow',steps=[
+        (p('Trigger'),p('상태 변경||State change')),
+        (p('Render'),p('UI 계산·대조||Calculate · Compare UI')),
+        (p('Commit'),p('DOM 변경||Update DOM')),
+        (p('Browser'),p('화면 표시||Display screen'))]),
+    concepts(
+        ('① Trigger - 재고 조건 상태 변경||① Trigger - Stock-filter state changes',
+         '「재고 있는 상품만」 선택||Select “Only products in stock”'),
+        ('② Render - 새 UI 계산과 이전 결과 대조||② Render - Calculate and compare the next UI',
+         '컴포넌트 실행 · 결과 4개와 상품 행 구성 계산||Run components · Calculate four results and their rows'),
+        ('③ Commit - 필요한 DOM 변경 반영||③ Commit - Apply necessary DOM changes',
+         '품절 행 2개 제거 · 결과 개수 6 → 4||Remove two unavailable rows · Change result count 6 → 4'),
+        ('④ Browser - 갱신된 화면 표시||④ Browser - Display the updated screen',
+         'DOM 변경 후 브라우저가 화면을 그림||The browser paints after DOM changes')),
+    refs=('R13','R30'),
+    note='React 공식 Render and Commit의 Trigger·Render·Commit과 Browser paint를 13번 상품 필터 사례에 적용. Render에서는 새 UI 계산과 이전 결과에 따른 변경 판단, Commit에서는 실제 DOM 반영. 단순화된 설명이며 모든 렌더가 DOM 변경을 만드는 것은 아님. 브라우저의 스타일·레이아웃·페인트는 DOM 반영 뒤 필요한 범위에서 수행.')
+add(
+    concepts(
+        ('효과 - UI 정의와 DOM 갱신 책임 분리||Effect - Separate UI definition from DOM update decisions',
+         '개발자는 상태에 맞는 화면을 기술 · React가 필요한 변경을 반영||Developers describe the UI for state · React applies required changes'),
+        ('장점 - 변경 범위 관리와 기존 요소 유지||Benefit - Manage updates and preserve existing elements',
+         '차이가 없는 DOM 노드는 유지 · 복잡한 화면의 갱신 코드 감소||Unchanged DOM nodes remain · Less manual update code for complex screens'),
+        ('비용 - UI 계산과 대조 작업||Cost - UI calculation and comparison',
+         '메모리의 UI 표현 · 컴포넌트 재실행에 필요한 작업량||In-memory UI representation · Work to re-run components'),
+        ('한계 - 성능 우위는 자동으로 보장되지 않음||Limit - Performance is not automatically better',
+         '단순한 직접 갱신이 더 적은 작업일 수 있음 · 실제 속도는 측정으로 판단||A simple direct update may do less work · Measure actual performance')),
+    refs=('R30','R13','R31'),
+    note='VDOM의 핵심 효과는 선언형 UI와 변경 결정의 자동화. DOM을 적게 수정하는 결과를 얻을 수 있으나 직접 DOM 코드도 필요한 부분만 수정 가능. React Render and Commit은 상위 컴포넌트 갱신 시 하위 컴포넌트 재실행 비용을 설명하고, memo 문서는 비교가 렌더보다 빠른지 실제 측정을 권함. VDOM 자체가 항상 빠르다는 주장은 피함.')
+# Service examples appear immediately after the React usage survey.
 services=json.loads((ROOT/'materials/react-services.json').read_text())
 service_refs=tuple(f'S{i+1:02}' for i in range(len(services)))
 add(dict(type='services',items=services),refs=service_refs,
-    note='실습 챕터 앞의 서비스 탐색 장. 여섯 서비스의 공식 아이콘과 서비스명으로 3×2 링크 그리드 구성. 링크는 새 탭에서 서비스 자체로 이동. 공식 기술 자료는 React 활용의 근거이며 발행 시점은 react-services.json에 별도 기록. 사이트 전체와 모든 모바일 앱이 동일 기술로 구현됐다는 주장은 하지 않음.')
+    note='React 사용 현황 다음의 서비스 탐색 장. 여섯 서비스의 공식 아이콘과 서비스명으로 3×2 링크 그리드 구성. 링크는 새 탭에서 서비스 자체로 이동. 공식 기술 자료는 React 활용의 근거이며 발행 시점은 react-services.json에 별도 기록. 사이트 전체와 모든 모바일 앱이 동일 기술로 구현됐다는 주장은 하지 않음.')
 # 22–24 · Instructor demonstration, not a student lab.
 add(
     table('개발 도구의 역할||Development Tool Roles', ['도구||Tool','역할||Role'],
@@ -196,9 +228,22 @@ add(
          '템플릿의 추가 버전 조건 확인||Check for higher version requirements in the template')),
     refs=('R17',),
     note='강사 시연. 수업 직전 실제 Node/Vite 템플릿 지원 버전 재확인. npm은 Node 설치 환경에 함께 제공. 학생 실습 지시나 새 과제 없음.')
-add(code('터미널 · 생성 → 설치 → 실행||Terminal · Scaffold → Install → Run','npm create vite@latest pwd-week4-demo -- --template react-ts\ncd pwd-week4-demo\nnpm install\nnpm run dev'),code('터미널 · 실행 출력||Terminal · Run Output','VITE v8.3.0  ready in 110 ms\n➜  Local:   http://127.0.0.1:4320/', 'text'),figure('materials/images/vite-start.png','Vite React TypeScript 프로젝트의 초기 브라우저 화면||Initial browser screen of a Vite React TypeScript project','Local 주소 접속 · React + TypeScript 템플릿||Open the Local URL · React + TypeScript template'),layout='setup',refs=('R16','R17'),note='강사 시연. 출력은 제작 시 실제 실행 기록이며 촬영용 --host 127.0.0.1 --port 4320 옵션 사용. 자료 제작 환경에서 실제 create-vite react-ts 생성·npm install·개발 서버 실행·브라우저 접속 검증. 그림은 실제 실행 화면 캡처. 포트 번호는 터미널 Local 출력 사용.')
+add(
+    code('터미널 · 생성 → 설치 → 실행||Terminal · Scaffold → Install → Run',
+         'npm create vite@latest pwd-week4-demo -- --template react-ts\ncd pwd-week4-demo\nnpm install\nnpm run dev',
+         caption='첫 명령은 한 줄로 입력 · 설치 확인 메시지가 나오면 y 선택||Enter the first command on one line · If npm asks to install, enter y'),
+    code('터미널 · 실행 출력 예시||Terminal · Example Output',
+         'VITE v8.x.x  ready\n➜  Local:   http://localhost:5173/', 'text',
+         caption='실제 접속 주소는 터미널의 Local 출력 확인||Use the Local URL shown in your terminal'),
+    figure('materials/images/vite-start.png',
+           'Vite React TypeScript 프로젝트의 초기 브라우저 화면||Initial browser screen of a Vite React TypeScript project',
+           'Local 주소 접속 · React + TypeScript 템플릿||Open the Local URL · React + TypeScript template'),
+    layout='setup',refs=('R16','R17'),
+    note='강사 시연. 표시한 명령을 임시 폴더에서 2026-09-28에 다시 실행해 create-vite react-ts 생성·npm install·기본 개발 서버 localhost:5173 접속·App.tsx 변경·npm run build 검증. 출력의 버전과 포트는 예시이며 다른 포트가 할당될 수 있으므로 터미널 Local 주소 사용. 그림은 과거 실제 실행 화면 캡처로 촬영 시 --host 127.0.0.1 --port 4320 옵션 사용.')
 add(code('src/App.tsx · 최초 화면||src/App.tsx · First Screen','export default function App() {\n  return <h1>Hello, World!</h1>;\n}', 'tsx'),code('src/App.tsx · 문구 변경 후 저장||src/App.tsx · Text Changed and Saved','export default function App() {\n  return <h1>Hello, React!</h1>;\n}', 'tsx'),demo('hello'),layout='hello',refs=('R16','R17'),note='실제 Vite react-ts 프로젝트에서 App.tsx의 Hello, World! → Hello, React! 저장 후 HMR 검증. 두 이미지는 각 상태의 실제 브라우저 캡처. 슬라이드에는 실제 캡처된 두 결과를 함께 표시. src/index.css의 기본 스타일 유지. JSX는 화면 구조를 적는 문법 수준으로만 소개.')
 assert len(slides)==19
+slides[0], slides[1] = slides[1], slides[0]
+slides.insert(5, slides.pop(15))  # Service examples become slide 08, after the usage survey.
 research=(ROOT/'materials/week-04-react-research.ko.txt').read_text()
 sources={m[0]:[m[1],m[2],'2026-09-23 확인'] for m in re.findall(r'### (R\d+)\. ([^\n]+).*?링크: (\S+)',research,re.S)}
 from urllib.parse import quote as urlquote
@@ -211,9 +256,20 @@ sources.update({
     'J03':['jQuery .on()','https://api.jquery.com/on/','2026-09-23 확인'],
     'R18':['React useState','https://react.dev/reference/react/useState','2026-09-23 확인'],
     'R19':['MDN · DOM','https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model','2026-09-23 확인'],
+    'R20':['Our First 50,000 Stars','https://legacy.reactjs.org/blog/2016/09/28/our-first-50000-stars.html','2026-09-28 확인'],
+    'R21':['React 16 release','https://legacy.reactjs.org/blog/2017/09/26/react-v16.0.html','2026-09-28 확인'],
+    'R22':['React 18 release','https://react.dev/blog/2022/03/29/react-v18','2026-09-28 확인'],
+    'R23':['React 19 release','https://react.dev/blog/2024/12/05/react-19','2026-09-28 확인'],
+    'R24':["State: A Component's Memory",'https://react.dev/learn/state-a-components-memory','2026-09-28 확인'],
+    'R25':['React Native · Learn once, write anywhere','https://reactnative.dev/','2026-09-28 확인'],
+    'R26':['React Native · Learn the Basics','https://reactnative.dev/docs/tutorial','2026-09-28 확인'],
+    'R27':['React DOM APIs','https://react.dev/reference/react-dom','2026-09-28 확인'],
+    'R29':['Flutter · Building user interfaces','https://docs.flutter.dev/ui','2026-09-28 확인'],
+    'R30':['React · Virtual DOM and Internals','https://legacy.reactjs.org/docs/faq-internals.html','2026-09-28 확인'],
+    'R31':['React · memo','https://react.dev/reference/react/memo','2026-09-28 확인'],
 })
 for ref,service in zip(service_refs,services):
     sources[ref]=[service['source_title'],service['source_url'],service['published']+' 발행 · '+service['checked']+' 확인']
 (ROOT/'materials/react-body.json').write_text(json.dumps(slides,ensure_ascii=False,indent=2)+'\n')
 (ROOT/'materials/react-sources.json').write_text(json.dumps(sources,ensure_ascii=False,indent=2)+'\n')
-print('Built content for 19 React topics')
+print(f'Built content for {len(slides)} React topics')
