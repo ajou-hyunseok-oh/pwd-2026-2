@@ -50,6 +50,19 @@
 .design-onepager-grid p { font-size: .88rem; line-height: 1.55; white-space: pre-line; word-break: keep-all; }
 .design-onepager-features, .design-onepager-flow { grid-column: 1 / -1; }
 .design-onepager-grid .design-onepager-flow { border-bottom: none; padding-bottom: 0; }
+.design-submission { border: 1px solid #b9c9bd; background: #f8faf8; }
+.design-submission-deadline { display: flex; align-items: baseline; gap: 1.1rem; padding: .55rem 1rem; background: #284b38; color: #fff; }
+.design-submission-deadline span { font-size: .95rem; font-weight: 700; }
+.design-submission-deadline strong { color: #ffe19a; font-size: 1.85rem; line-height: 1.2; letter-spacing: -.025em; }
+.design-submission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding: .8rem 1rem; }
+.design-submission h4 { margin: 0 0 .45rem; color: #355241; font-size: .95rem; }
+.design-submission ul { margin: 0; padding-left: 1.15rem; font-size: .9rem; line-height: 1.55; }
+.design-submission li + li { margin-top: .25rem; }
+.design-submission li::marker { color: #355241; }
+.design-submission dl { display: grid; gap: .3rem; margin: 0; font-size: .9rem; line-height: 1.45; }
+.design-submission dl > div { display: grid; grid-template-columns: 4.5rem 1fr; gap: .4rem; }
+.design-submission dt { font-weight: 750; color: #284b38; }
+.design-submission dd { margin: 0; }
 @media screen and (max-width: 767px) {
   .design-slide > * { flex-shrink: 0; }
   .design-concept dt { overflow-wrap: anywhere; word-break: normal; }
@@ -69,4 +82,8 @@
   .design-onepager header { display: block; }
   .design-onepager header p { margin-top: .4rem; }
   .design-onepager-grid { grid-template-columns: 1fr; }
+  .design-submission-deadline { display: block; }
+  .design-submission-deadline span { display: block; }
+  .design-submission-deadline strong { font-size: 1.55rem; }
+  .design-submission-grid { grid-template-columns: 1fr; gap: .8rem; }
 }

@@ -5,7 +5,7 @@ const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const {chromium} = require(process.env.PLAYWRIGHT_PATH || 'playwright');
 const second = process.env.PERIOD === '2';
-const slideCount = second ? 30 : 24;
+const slideCount = second ? 19 : 24;
 const deckFile = second ? 'ai-design.html' : 'index.html';
 const contentFile = second ? 'period-2-content.js' : 'lecture-content.js';
 const root = path.resolve(__dirname, '..');

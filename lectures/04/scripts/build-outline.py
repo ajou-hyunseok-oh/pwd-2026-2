@@ -62,7 +62,7 @@ for s in design[1:]:
         previous=c
     add('topic',s['title'],s['lead'],['2교시','Period 2'])
     slides[-1]['body']=s
-assert len(slides)==30
+assert len(slides)==19
 decks = [('index.html', 'lecture-content.js', react_slides), ('ai-design.html', 'period-2-content.js', slides)]
 if args.period!='all': decks=[decks[int(args.period)-1]]
 for filename, content_file, deck_slides in decks:

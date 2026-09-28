@@ -33,6 +33,16 @@ def render_design_block(block, ident, tr):
         for i,(label,text) in enumerate(block['steps']):
             html+='<li>'+tr(label,f'{ident}_label{i}','h3')+tr(text,f'{ident}_text{i}','p')+'</li>'
         return html+'</ol>'
+    if kind=='design_submission':
+        html='<section class="design-submission">'
+        html+='<div class="design-submission-deadline">'+tr(block['deadline_label'],f'{ident}_deadline_label','span')+tr(block['deadline'],f'{ident}_deadline','strong')+'</div>'
+        html+='<div class="design-submission-grid"><div class="design-submission-items">'+tr(block['items_label'],f'{ident}_items_label','h4')+'<ul>'
+        for i,item in enumerate(block['items']):
+            html+=tr(item,f'{ident}_item{i}','li')
+        html+='</ul></div><div class="design-submission-places">'+tr(block['places_label'],f'{ident}_places_label','h4')+'<dl>'
+        for i,(place,detail) in enumerate(block['places']):
+            html+='<div>'+tr(place,f'{ident}_place{i}','dt')+tr(detail,f'{ident}_place_detail{i}','dd')+'</div>'
+        return html+'</dl></div></div></section>'
     if kind=='design_wire':
         html='<div class="design-wire">'
         if block['mode']=='application':
