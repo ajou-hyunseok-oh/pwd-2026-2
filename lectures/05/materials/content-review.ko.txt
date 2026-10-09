@@ -1,42 +1,52 @@
-5주차 강의 자료 검토 기록
-검토일: 2026-09-24
+Lecture 05 검토 기록 — 2026-10-03
 
-검토 범위
-- 원본 PDF 26쪽과 4주차 강의의 복습 항목 대조
-- pwd-week5 커밋 9d12cebf32d6e333e8cd69faa4a7c9c721e4be00의 실제 코드 대조
-- 한국어 64장, 영어 64장 개별 화면 검토
-- 화면·인쇄 레이아웃과 모바일 390×844 환경 검사
+구성
+- 이전 37장 본문을 확정한 Chapter 01~07의 흐름으로 교체.
+- 표지 1장 + 챕터 표지 7장 + 주제 32장 = 총 40장.
+- 챕터·주제의 확정 타이틀 및 서브타이틀을 유지. 표지 서브타이틀은 현재 범위(서버 데이터·비동기 UI)에 맞춤.
+- 한·영 번역, 슬라이드 이동, 인쇄와 모바일 기능 유지.
+- 화면 번호와 주제 번호를 slide-map.json에서 구분. 안정적인 ID는 chapter-01~07, topic-01~32.
 
-주요 보강
-- 개념 정의 → 실제 코드 → 실행 작업 → 예상 결과 순서로 학습 연결
-- JSX와 목록 렌더링, State 스냅샷과 함수형 갱신, Effect 의존성과 정리 설명
-- 좋아요의 화면 상태와 localStorage 저장값, Query 캐시를 구분
-- 서비스 응답의 data 필드, queryKey, staleTime, 무효화 동작 설명
-- 폼 등록·검증·정규화·비동기 저장·실패 처리와 제보 승인 흐름 설명
-- Node 24.x 기준 실행, 개인 Git 저장소 연결, Vercel 설정과 배포 확인 절차
-- 5개 단계별 실습과 완료 기준, 오류 증상별 확인 위치 제공
+학습 흐름
+1. Lecture 04의 컴포넌트·데이터·선언형 UI 요약 → React와 프레임워크 책임.
+2. JSX → Props → children을 통한 조합 → 조건·목록.
+3. 이벤트·상태 → Render/Commit → 스냅샷 → 불변성 → 상태 설계·공유 → key와 상태 보존.
+4. Hooks 규칙 → State/Ref → 이벤트/Effect → 의존성·cleanup → 독립 커스텀 Hook.
+5. URL → 중첩 layout → UI 상태/서버 데이터 → 페이지 조회 → 변경 후 재검증.
+6. CSR/SSR/사전 렌더링 → Hydration → Server/Client Components → 경계의 데이터 전달.
+7. 비동기 UI 상태 → Suspense → Action 폼 → 서버 검증 → 낙관적 UI와 실패 복구.
 
-실습 코드와 원본 자료의 차이 반영
-- 현재 App.jsx는 HashRouter 사용
-- services/api.jsx는 localStorage 기반 mock API이며 HTTP 통신 없음
-- 초기 인기 목록은 평점 내림차순이며 좋아요 수나 실제 주간 집계와 무관
-- 제보 저장 후 pending 상태 유지, 승인 과정에서 맛집을 별도로 생성
-- 승인 시 submissions와 restaurants 쿼리 무효화; 상세·인기는 별도 캐시 키
-- 맛집 생성과 제보 상태 갱신은 두 번의 저장이며 원자적 트랜잭션 없음
-- 관리 화면에 인증 없음
-- 원본 Netlify/Netlify Forms를 현재 Vercel/브라우저 저장 방식과 비교
-- npm run deploy는 GitHub Pages용; Vercel은 Git 연동 배포 절차로 안내
-- 제출 기한은 실습 README에 기록된 2026-10-18 23:59 KST를 출처와 함께 표기
+코드와 디자인
+- 주제마다 코드 1개, 총 32개. 표지·챕터 표지에는 코드 없음.
+- 상품명·가격·재고·검색·수량을 공통 사례로 사용.
+- 코드 옆에 정의·활용·입력/행동/관찰 결과를 연결.
+- 검정 #000000 / 녹색 #00ff00 / Consolas 우선 / 14px 상당 / 줄 높이 1.45.
+- 긴 코드는 핵심에 맞게 간결화하고 일부 본문 상단 간격을 조정. 코드 글자 크기를 줄이지 않음.
+- 원본 PDF p.9,13~17의 개념을 재구성하고 React·Next.js 공식 문서를 하단 출처로 기록.
+- Netlify·배포·과거 과제 기한은 현재 범위에서 제외. 원본 PDF와 과거 이미지 자산 보존.
 
-검증 결과
-- packages/web-deck npm test 통과: 13개 덱 및 코드 예제 검증
-- check-slides.cjs: 64장, 한·영 화면·인쇄·모바일 레이아웃 오류 0, 브라우저 오류 0
-- 한·영 인쇄 확인용 PDF: 각각 64쪽
-- capture-practice.cjs: 화면 3개 촬영 및 필터·빈 목록·없는 ID·검증·저장·메뉴 변환·재로드 확인 통과
-- 실습 저장소 npm run lint, npm run build 통과
-- 실제 검증 런타임: Node 26.8.2, Vite 7.1.5. 강의의 Node 24.x 안내는 실습 package.json과 README 기준
-- 실습 앱 소스 파일 변경 없음. Vercel 실제 배포는 수행 범위에 포함하지 않음
+실행 환경과 한계
+- React 기초 코드는 React 컴포넌트 예제. Props가 필요한 예제는 라벨에서 입력 계약 명시.
+- 라우팅·데이터·서버 예제는 Next.js App Router 기준. root layout과 DB/권한 함수는 별도 필요.
+- CSR/SSR/Hydration은 API 구조 예시이며 실행 환경과 초기 HTML 조건을 설명.
+- use client는 모듈 경계이며 서버에서 초기 HTML이 생성될 수도 있음을 설명.
+- 서버→클라이언트 Props의 직렬화는 React 지원 값 기준이며 JSON으로 한정하지 않음.
+- 원본의 과거 빌드 환경이나 Effect 설명을 그대로 사용하지 않고 공식 문서와 대조.
+- 주제 30은 브라우저 지연·입력 검사만 수행하고 실제 저장하지 않음.
+- 주제 31은 Server Function 입력·권한·저장 구조. useActionState 연결 시 결과 객체를 맞추도록 명시.
+- 주제 32의 saveStock은 Promise<boolean> 또는 reject. 성공/실패 검증은 모의 비동기 응답 사용.
+- Next.js 프로젝트 실행, 실제 DB·권한·캐시 통합, 배포 검증은 수행하지 않음.
 
-출처
-- 원본 PDF 페이지, 실습 코드 커밋, React·React Router·TanStack Query·React Hook Form·MDN·Vite·Vercel 공식 자료를 슬라이드별 링크와 slide-map.json에 기록
-- 검증용 PNG/PDF는 시스템 임시 폴더에 생성하며 강의 배포 자산에 포함하지 않음
+실제 검증
+- npm test --prefix packages/web-deck 통과: 13회차 덱 구조·번역·HTML과 코드 구문·서식.
+- 강의 05의 코드 32개 / 한·영 64변형 서식·JSX 구문 검사 통과.
+- check-slides.cjs: 한·영 각각 40장, 발표·인쇄·모바일 검사 통과.
+  JavaScript/HTTP 오류 0, 잘림·겹침·제목 줄바꿈·코드 가로 초과 0.
+- 인쇄 PDF 한·영 각각 40페이지 확인. 챕터·상태·라우팅·비동기 구간을 실제 렌더 이미지로 검토.
+- check-examples.cjs: 실제 슬라이드 코드를 임시 React 19.3 앱으로 추출하여 주제 13개 검증.
+  주제 08 상태 증가, 09 제목 DOM 보존, 10 상태 스냅샷/함수 업데이트,
+  11 불변성 예제 결과, 12 파생 목록/개수, 13 key 변경 시 수량 초기화,
+  15 Ref 포커스, 16 탭 제목 동기화/복원, 17 의존성 변경/제거 후 타이머 정리,
+  18 Hook 상태 독립, 28 로딩/오류/빈 결과, 30 pending/입력 확인,
+  32 낙관적 성공 유지/실패 복구. 브라우저 예외 0.
+- 검사 출력은 시스템 임시 폴더 pwd-week5-deck/review에 생성.

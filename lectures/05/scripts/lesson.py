@@ -1,921 +1,469 @@
-"""Week 5 lesson source. Short teaching examples are explicitly labeled."""
+"""Lecture 05: seven chapters, 32 topics; React core and Next.js App Router."""
 from urllib.parse import quote
 
 SLIDES = []
-REPO = 'https://github.com/ajou-hyunseok-oh/pwd-week5'
-COMMIT = '9d12cebf32d6e333e8cd69faa4a7c9c721e4be00'
 PDF = 'materials/' + quote('[PWD Week 3] React 프레임워크를 이용한 웹 프론트엔드 개발.pdf')
-
 def P(ko, en): return (ko, en)
 def C(*items): return dict(kind='concepts', items=items)
 def K(label, code, lang='jsx', width=64): return dict(kind='code', label=label, code=code, lang=lang, width=width)
 def T(head, *rows): return dict(kind='table', head=head, rows=rows)
 def S(*items): return dict(kind='steps', items=items)
-def I(name, ko, en): return dict(kind='image', src='materials/images/' + name + '.png', alt=P(ko, en), caption=P('pwd-week5 실제 실행 화면 · 한국어 UI', 'Running pwd-week5 app · Korean UI'))
-def src(path): return (path, REPO + '/blob/' + COMMIT + '/' + path)
 def pdf(page): return ('React PDF · p.' + str(page), PDF + '#page=' + str(page))
-def doc(name, url): return (name, url)
-def add(id, title, lead, *blocks, layout='split', sources=(), note=''):
-    SLIDES.append(dict(id=id, chapter=CH, title=title, lead=lead, blocks=list(blocks), layout=layout, sources=list(sources), note=note))
+def react(path): return ('React · Official', 'https://react.dev/' + path)
+def nextdoc(path): return ('Next.js · Official', 'https://nextjs.org/docs/app/' + path)
+def add(id, title, lead, *blocks, layout='split', sources=(), note='', kind='topic', topic_number=None):
+    SLIDES.append(dict(id=id, chapter=CH, title=title, lead=lead, blocks=list(blocks), layout=layout, sources=list(sources), note=note, kind=kind, topic_number=topic_number))
+def chapter(n, ko, en, subko, suben):
+    global CH
+    CH = P(f'CHAPTER {n:02} · {ko}', f'CHAPTER {n:02} · {en}')
+    add(f'chapter-{n:02}', P(ko,en), P(subko,suben), kind='chapter')
+def topic(n, ko, en, subko, suben, code, points, source, label=None, layout='split'):
+    concepts = C(*[(P(a,b), [P(c,d)]) for a,b,c,d in points])
+    blocks = [concepts]
+    if code:
+        blocks.append(K(label or P('React · 개념 예제', 'React · Teaching example'), code))
+    add(f'topic-{n:02}', P(ko,en), P(subko,suben), *blocks, sources=source, layout=layout if code else 'single', topic_number=n)
 
-JSX = doc('React · JSX', 'https://react.dev/learn/writing-markup-with-jsx')
-COMP = doc('React · Components', 'https://react.dev/learn/your-first-component')
-PROPS = doc('React · Props', 'https://react.dev/learn/passing-props-to-a-component')
-STATE = doc('React · State', 'https://react.dev/learn/state-as-a-snapshot')
-LIST = doc('React · Lists', 'https://react.dev/learn/rendering-lists')
-EFFECT = doc('React · useEffect', 'https://react.dev/reference/react/useEffect')
-RULES = doc('React · Hook Rules', 'https://react.dev/reference/rules/rules-of-hooks')
-STORAGE = doc('MDN · localStorage', 'https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage')
-QUERY = doc('TanStack · Query Keys', 'https://tanstack.com/query/latest/docs/framework/react/guides/query-keys')
-INVALIDATE = doc('TanStack · Invalidation', 'https://tanstack.com/query/latest/docs/framework/react/guides/query-invalidation')
-ROUTER = doc('React Router · HashRouter', 'https://reactrouter.com/api/declarative-routers/HashRouter')
-FORM = doc('React Hook Form · Source', 'https://github.com/react-hook-form/react-hook-form')
-VERCEL = doc('Vercel · Vite', 'https://vercel.com/docs/frameworks/frontend/vite')
-
-CH = P('LECTURE 05 · 실전 웹 서비스 개발', 'LECTURE 05 · PRACTICAL WEB DEVELOPMENT')
-add('cover', P('React 심화 · 캠퍼스 푸드맵', 'React Development · Campus Foodmap'),
-    P('4주차 복습 · 컴포넌트와 상태 · 맛집 앱 구현과 Vercel 배포', 'Week 4 review · Components and state · Foodmap development and Vercel deployment'))
-
-CH = P('01 · 4주차 학습 내용 복습', '01 · WEEK 4 REVIEW')
-add('review-react', P('React와 개발 도구의 역할', 'React and Development Tools'),
-    P('4주차의 Hello World 프로젝트를 구성한 도구와 실행 환경', 'The tools and runtime behind the Week 4 Hello World project'),
-    T([P('구성 요소', 'Component'), P('역할', 'Role'), P('이번 실습의 사용 위치', 'Use in This Practice')],
-      ['React', P('컴포넌트와 상태로 UI 표현', 'UI defined with components and state'), 'src/components/*.jsx'],
-      ['React DOM', P('React UI를 브라우저 DOM에 반영', 'React UI committed to the browser DOM'), 'src/main.jsx'],
-      ['Vite', P('개발 서버 · 소스 변환 · 배포 빌드', 'Dev server · Source transforms · Build'), 'vite.config.js'],
-      ['Node.js · npm', P('개발 도구 실행 · 의존성 설치', 'Run tools · Install dependencies'), 'package.json · package-lock.json']),
-    layout='single', sources=[('../04 · React 기초', '../04/index.html#/22'), src('package.json')])
-add('review-ui', P('컴포넌트와 선언형 UI', 'Components and Declarative UI'),
-    P('상품 목록에서 맛집 목록으로 이어지는 데이터 중심 화면 구성', 'The same data-driven UI model applied to restaurant listings'),
-    C((P('컴포넌트 - 역할별 UI 단위', 'Component - A UI unit with a clear role'), [
-        P('목록 · 카드 · 검색 조건의 분리', 'Separate the list, cards, and filters'),
-        P('같은 카드에 서로 다른 맛집 데이터 전달', 'Pass different restaurant data to the same card')]),
-      (P('선언형 UI - 상태에 맞는 화면 정의', 'Declarative UI - A view for the current state'), [
-        P('한식 선택 → 조건 변경 → 일치하는 카드 표시', 'Select Korean food → Change filter → Show matching cards') ])),
-    K(P('개념 예제 · 선택 조건과 화면', 'Teaching example · Filter and view'), """
-const visible = restaurants.filter(
-  (restaurant) => restaurant.category === category
-);
-
-return <RestaurantList restaurants={visible} />;
-"""), sources=[('../04 · 컴포넌트와 선언형 UI', '../04/index.html#/9'), src('src/pages/ListPage.jsx')])
-add('review-render', P('상태 변경과 화면 갱신', 'State Changes and Screen Updates'),
-    P('이벤트 처리 · Render · Commit · 브라우저 렌더링의 구분', 'Events, render, commit, and browser rendering'),
-    S((P('상태 변경 요청', 'Request a state update'), P('좋아요 버튼 클릭 → setLiked 호출', 'Click Like → Call setLiked')),
-      (P('Render - UI 계산', 'Render - Calculate the UI'), P('새 상태로 컴포넌트 실행 · JSX 결과 비교', 'Run the component with new state · Compare UI output')),
-      (P('Commit - DOM 변경 반영', 'Commit - Apply DOM updates'), P('버튼 문구 · 색상 등 필요한 DOM 갱신', 'Update the required DOM text and attributes')),
-      (P('브라우저 표시', 'Browser rendering'), P('변경 내용에 따라 스타일 · 레이아웃 · 페인트 처리', 'Process style, layout, and paint as needed'))),
-    C((P('Virtual DOM - UI의 메모리 표현', 'Virtual DOM - An in-memory UI representation'), [
-        P('컴포넌트 재실행과 DOM 전체 교체는 별개', 'Re-running a component differs from replacing all DOM nodes'),
-        P('직접 DOM 조작보다 항상 빠르다는 보장 없음', 'No guarantee of being faster than direct DOM updates')]),
-      (P('상태의 소유자 - 변경 책임의 위치', 'State owner - The place responsible for updates'), [
-        P('선택 조건은 ListPage · 좋아요는 RestaurantCard', 'Filter in ListPage · Like state in RestaurantCard') ])),
-    sources=[pdf(7), ('React · Render and Commit', 'https://react.dev/learn/render-and-commit')])
-add('review-planning', P('서비스 기획과 구현 단위', 'Service Plans and Implementation'),
-    P('4주차의 사용자 흐름을 페이지 · 기능 · 데이터로 구체화', 'Translate the Week 4 user flow into pages, features, and data'),
-    T([P('사용자 행동', 'User Action'), P('화면과 파일', 'Screen and File'), P('필요한 데이터', 'Required Data')],
-      [P('주변 맛집 탐색', 'Browse restaurants'), 'ListPage.jsx', P('맛집 목록 · 선택 카테고리', 'Restaurants · Selected category')],
-      [P('한 맛집의 정보 확인', 'Inspect one restaurant'), 'DetailPage.jsx', P('URL의 id · 해당 맛집 객체', 'URL id · Restaurant object')],
-      [P('마음에 드는 맛집 표시', 'Like a restaurant'), 'RestaurantCard.jsx', P('좋아요 여부 · 개수', 'Like status · Count')],
-      [P('새로운 맛집 제보', 'Submit a restaurant'), 'SubmitRestaurant.jsx', P('입력값 · 검증 오류 · 저장 결과', 'Input · Validation errors · Save result')]),
-    layout='single', sources=[('../04 · 웹 서비스 기획', '../04/ai-design.html'), src('src/App.jsx')])
-
-CH = P('02 · 실습 프로젝트와 개발 환경', '02 · PROJECT AND DEVELOPMENT ENVIRONMENT')
-add('practice-target', P('캠퍼스 푸드맵의 실습 목표', 'Campus Foodmap Practice Goals'),
-    P('탐색 · 상호작용 · 제보 · 배포를 연결하는 React 웹 앱', 'A React app combining browsing, interaction, submission, and deployment'),
-    I('list', '카테고리 필터와 세 개의 맛집 카드', 'Category filters and three restaurant cards'),
-    C((P('화면 구성 - 컴포넌트 조합', 'UI structure - Component composition'), [P('목록 · 상세 · 인기 · 제보 페이지', 'List · Detail · Ranking · Submission pages')]),
-      (P('상호작용 - 상태와 이벤트', 'Interaction - State and events'), [P('카테고리 선택 · 좋아요 변경', 'Category selection · Like updates')]),
-      (P('완료 기준 - 배포 주소의 기능 확인', 'Completion - Working features at the deployed URL'), [P('새로고침 후 저장값 유지 · Git 변경 반영', 'Saved values after reload · Deployed Git changes')])),
-    layout='visual', sources=[src('README.md')])
-add('practice-data', P('실습 데이터와 저장 범위', 'Practice Data and Storage Scope'),
-    P('초기 예제 데이터와 현재 브라우저의 localStorage로 동작', 'Initial sample data and localStorage in the current browser'),
-    T([P('대상', 'Item'), P('실제 구현', 'Current Implementation'), P('확인할 특징', 'Behavior to Check')],
-      [P('맛집 목록', 'Restaurants'), 'src/services/api.jsx', P('초기 3개 예제 · 저장값 우선 조회', '3 initial examples · Saved values take priority')],
-      [P('좋아요', 'Likes'), 'likedRestaurants · restaurantLikes', P('현재 브라우저의 선택과 개수', 'Choices and counts in this browser')],
-      [P('제보', 'Submissions'), 'pwd-week5-submissions', P('사용자 간 공유 없는 브라우저 저장', 'Browser storage with no cross-user sharing')],
-      [P('인기 목록', 'Ranking'), 'getPopularRestaurants()', P('평점 내림차순 · 최대 5개', 'Rating descending · Up to 5 items')]),
-    layout='single', sources=[src('src/services/api.jsx'), src('src/components/RestaurantCard.jsx')],
-    note='초기 음식점 이름·수치는 실습 데이터이며 실시간 식당 정보나 실제 인기 통계가 아님.')
-add('setup-clone', P('완성 실습 저장소의 실행', 'Running the Practice Repository'),
-    P('본 강의의 기준 경로 · 제공된 소스와 잠금 파일 사용', 'Main path for this lecture · Provided source and lockfile'),
-    K(P('터미널 · 프로젝트를 둘 상위 폴더', 'Terminal · Parent folder for the project'), """
-node --version
-npm --version
-git --version
-
-git clone https://github.com/ajou-hyunseok-oh/pwd-week5.git
-cd pwd-week5
-npm ci
-npm run dev
-""", 'bash'),
-    S((P('환경 확인', 'Check the environment'), P('실습 package.json의 Node.js 24.x 사용', 'Use Node.js 24.x specified in package.json')),
-      (P('설치 위치 확인', 'Check the working directory'), P('package.json과 package-lock.json이 있는 폴더', 'The folder containing package.json and package-lock.json')),
-      (P('브라우저 접속', 'Open the browser'), P('터미널의 Local 주소 접속 · 기본 포트 5173', 'Open the terminal’s Local URL · Default port 5173')),
-      (P('성공 결과', 'Expected result'), P('홈 화면 표시 · 맛집 둘러보기 이동', 'Home screen · Navigation to the restaurant list'))),
-    layout='code', sources=[src('README.md'), src('package.json')])
-add('setup-new', P('빈 프로젝트 생성과 파일 적용', 'Creating and Populating a Project'),
-    P('직접 작성 경로 · JavaScript + SWC 템플릿 사용', 'Build-from-scratch path · JavaScript + SWC template'),
-    K(P('터미널 · 새 프로젝트 생성', 'Terminal · Create a new project'), """
-mkdir pwd-week5
-cd pwd-week5
-npm create vite@7.1.2 . -- --template react-swc
-npm install
-npm run dev
-""", 'bash'),
-    S((P('파일 확장자 확인', 'Check file extensions'), P('4주차 .tsx → 이번 실습 .jsx · 타입 표기 없이 작성', 'Week 4 .tsx → This practice .jsx · No type annotations')),
-      (P('의존성 적용', 'Apply dependencies'), P('실습 저장소의 package.json 적용 후 npm install', 'Apply the practice package.json, then run npm install')),
-      (P('파일 구성 적용', 'Apply the source files'), P('실습 src/ · index.html · vite.config.js · vercel.json 사용', 'Use the practice src/, index.html, vite.config.js, and vercel.json')),
-      (P('기준 소스 선택', 'Choose the reference source'), P('README와 차이가 있으면 실제 src/ 파일 기준', 'Use actual src/ files when README snippets differ'))),
-    layout='code', sources=[src('README.md'), src('package.json')],
-    note='본 강의 기본 경로는 완성 저장소 실행 후 개념별 코드 수정. 신규 생성은 대안이며 같은 폴더에서 두 경로를 연속 실행하지 않음.')
-add('project-files', P('프로젝트 폴더와 역할', 'Project Folders and Responsibilities'),
-    P('화면 구성 · 데이터 처리 · 스타일의 책임 구분', 'Separate UI composition, data operations, and styles'),
-    K(P('pwd-week5 · 핵심 파일', 'pwd-week5 · Main files'), """
-index.html
-src/
-  main.jsx
-  App.jsx
-  pages/
-    ListPage.jsx
-    DetailPage.jsx
-  components/
-    RestaurantList.jsx
-    RestaurantCard.jsx
-    SubmitRestaurant.jsx
-  services/api.jsx
-  styles/GlobalStyles.jsx
-""", 'text'),
-    C((P('pages - URL별 화면', 'pages - Screens selected by URL'), [P('조회와 상태 관리 · 컴포넌트 배치', 'Queries and state · Component composition')]),
-      (P('components - 재사용 UI', 'components - Reusable UI'), [P('목록 · 카드 · 입력 폼의 표현과 동작', 'List, card, and form views and interactions')]),
-      (P('services - 데이터 접근', 'services - Data access'), [P('조회 · 생성 · 수정 · 삭제 함수', 'Read · Create · Update · Delete functions')]),
-      (P('styles - 공통 표현', 'styles - Shared presentation'), [P('전역 스타일과 컴포넌트별 Emotion', 'Global styles and component-level Emotion')])),
-    sources=[src('src/App.jsx'), src('src/services/api.jsx')])
-add('entry', P('index.html과 React 진입점', 'HTML and the React Entry Point'),
-    P('root 요소에 App 컴포넌트를 연결하는 main.jsx', 'main.jsx mounts the App component into the root element'),
-    K('src/main.jsx', """
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
-"""),
-    C((P('index.html - 최초 문서', 'index.html - The initial document'), [P('id가 root인 요소 · /src/main.jsx 모듈 로드', 'Element with id root · Load the /src/main.jsx module')]),
-      (P('createRoot - React 관리 영역 생성', 'createRoot - Create a React root'), [P('render(<App />)로 최상위 컴포넌트 연결', 'Mount the top-level component with render(<App />)')]),
-      (P('StrictMode - 개발 중 추가 검사', 'StrictMode - Extra development checks'), [P('순수한 렌더링과 Effect 정리 점검', 'Check render purity and Effect cleanup')])),
-    layout='code', sources=[src('src/main.jsx'), doc('React · StrictMode', 'https://react.dev/reference/react/StrictMode')])
-
-CH = P('03 · JSX와 컴포넌트', '03 · JSX AND COMPONENTS')
-add('component-types', P('클래스형과 함수형 컴포넌트', 'Class and Function Components'),
-    P('원본 PDF의 두 구현 방식과 이번 실습의 함수형 컴포넌트', 'The two forms in the original PDF and functions used in this practice'),
-    T([P('구분', 'Aspect'), P('클래스형', 'Class Component'), P('함수형', 'Function Component')],
-      [P('선언', 'Declaration'), 'class extends Component', 'function RestaurantCard()'],
-      [P('화면 반환', 'View output'), 'render() { return ...; }', 'return (...);'],
-      [P('상태', 'State'), 'this.state · this.setState', 'useState'],
-      [P('외부 동기화', 'Synchronization'), 'componentDidMount · componentDidUpdate', 'useEffect · cleanup'],
-      [P('학습 적용', 'Use in this lecture'), P('기존 코드의 구조 이해', 'Recognize existing class-based code'), P('src/ 전체의 함수형 구현 분석', 'Read function components throughout src/')]),
-    layout='single', sources=[pdf(13), COMP, doc('React · Component', 'https://react.dev/reference/react/Component')])
-add('function-component', P('함수형 컴포넌트의 구조', 'Function Component Structure'),
-    P('입력을 받아 JSX를 반환하는 JavaScript 함수', 'A JavaScript function that receives input and returns JSX'),
-    K(P('개념 예제 · 최소 맛집 카드', 'Teaching example · Minimal restaurant card'), """
-export default function RestaurantCard({ restaurant }) {
+CH = P('LECTURE 05 · 프로그래밍과 웹데이터', 'LECTURE 05 · PROGRAMMING AND WEB DATA')
+add('cover', P('React Framework의 이해', 'Understanding React Framework'), P('컴포넌트와 상태에서 서버 데이터와 비동기 UI까지', 'From components and state to server data and async UI'), kind='cover')
+chapter(1, 'React 애플리케이션의 이해', 'Understanding React Applications', '컴포넌트와 데이터로 구성하는 사용자 인터페이스', 'User interfaces composed from components and data')
+topic(1,'React 기초 요약','React Fundamentals Recap','컴포넌트 구성과 현재 데이터에 따른 화면 표현','Components and views derived from current data', '''
+function ProductRow({ product }) {
+  return <li>{product.name}: {product.price}원</li>;
+}
+export default function App() {
+  const product = { id: 'p1', name: '사과', price: 1000 };
+  return <ul><ProductRow product={product} /></ul>;
+}
+''', [('컴포넌트의 조합','Component composition','App이 상품 데이터를 준비하고 ProductRow가 한 행을 표현한다.','App provides product data; ProductRow describes one row.'),('선언형 UI','Declarative UI','DOM 수정 명령 대신 현재 데이터에 대응하는 JSX를 반환한다.','Return JSX for current data instead of issuing DOM mutation commands.'),('관찰 결과','Observe','화면에는 “사과: 1000원”이 나타난다.','The screen displays “사과: 1000원”.')], [('Lecture 04','../04/'),react('learn/thinking-in-react')])
+topic(2,'React와 프레임워크의 역할','React and Frameworks','UI 표현과 라우팅·데이터 처리·렌더링 도구의 관계','How UI relates to routing, data, and rendering tools', '''
+// app/products/page.jsx (Next.js App Router)
+import Link from 'next/link';
+export default function ProductsPage() {
   return (
-    <article>
-      <h3>{restaurant.name}</h3>
-      <p>{restaurant.category}</p>
-    </article>
+    <main>
+      <h1>상품 목록</h1>
+      <Link href="/products/p1">사과 상세 보기</Link>
+    </main>
   );
 }
-"""),
-    C((P('대문자 이름 - 사용자 컴포넌트', 'Capitalized name - A custom component'), [P('RestaurantCard와 HTML의 article 구분', 'Distinguish RestaurantCard from HTML article')]),
-      (P('return - 화면 표현 반환', 'return - Return the view'), [P('여러 줄 JSX는 괄호로 묶기', 'Wrap multiline JSX in parentheses')]),
-      (P('export - 다른 파일에서 재사용', 'export - Reuse in another file'), [P('default export와 중괄호 없는 import 연결', 'Pair a default export with an import without braces')])),
-    layout='code', sources=[pdf(11), pdf(13), COMP])
-add('jsx-rules', P('JSX 작성 규칙', 'JSX Syntax Rules'),
-    P('HTML과 비슷한 표현에 JavaScript 값을 결합하는 문법', 'HTML-like markup combined with JavaScript values'),
-    K(P('개념 예제 · 카드와 버튼', 'Teaching example · Card and button'), """
-return (
-  <>
-    <article className="card">
-      <h3>{restaurant.name}</h3>
-      <img src={restaurant.image} alt={restaurant.name} />
-      <button onClick={handleLike}>Like</button>
-    </article>
-    {/* Additional UI */}
-  </>
-);
-"""),
-    C((P('루트 - 하나의 JSX 표현식', 'Root - A single JSX expression'), [P('형제 요소는 부모 요소 또는 Fragment로 묶기', 'Wrap siblings in a parent element or Fragment')]),
-      (P('태그와 속성 - JSX 표기', 'Tags and props - JSX spelling'), [P('모든 태그 닫기 · className · onClick', 'Close all tags · className · onClick'), P('aria-* · data-*는 하이픈 유지', 'Keep hyphens in aria-* and data-*')]),
-      (P('중괄호 - JavaScript 표현식', 'Braces - JavaScript expressions'), [P('문자열 · 숫자 · 함수 호출 결과 삽입', 'Insert strings, numbers, and function results')])),
-    layout='code', sources=[pdf(9), pdf(10), JSX])
-add('jsx-values', P('JSX의 값과 조건 표현', 'Values and Conditions in JSX'),
-    P('문자열 · 속성 · 삼항 연산자의 서로 다른 사용 위치', 'Different uses of text, attributes, and conditional expressions'),
-    K(P('개념 예제 · 값의 삽입', 'Teaching example · Inserting values'), """
-const label = liked ? 'Liked' : 'Like';
-
-return (
-  <button
-    className={liked ? 'active' : ''}
-    onClick={handleLike}
-  >
-    {label} {likes}
-  </button>
-);
-"""),
-    C((P('따옴표 - 고정 문자열', 'Quotes - A fixed string'), [P('className="card"의 card는 그대로 전달', 'card in className="card" is a literal value')]),
-      (P('중괄호 - 계산 결과', 'Braces - A computed value'), [P('{likes}는 현재 숫자 표시', '{likes} displays the current number')]),
-      (P('조건부 표현 - 값에 따른 분기', 'Conditional expression - A value-based branch'), [P('liked가 true이면 Liked 표시', 'Display Liked when liked is true'), P('if 문은 JSX 밖 · 삼항 연산자는 JSX 안에서도 사용', 'Use if outside JSX · Ternaries may appear inside JSX')])),
-    layout='code', sources=[JSX, src('src/components/RestaurantCard.jsx')])
-add('props', P('Props 전달과 구조 분해', 'Passing and Destructuring Props'),
-    P('부모의 맛집 객체를 자식 컴포넌트의 입력으로 전달', 'Pass a restaurant object from parent to child'),
-    K(P('개념 예제 · 부모와 자식', 'Teaching example · Parent and child'), """
-// Parent
-<RestaurantCard restaurant={item} />;
-
-// Child
-function RestaurantCard({ restaurant }) {
-  return <h3>{restaurant.name}</h3>;
-}
-"""),
-    C((P('속성 이름 - 입력의 이름', 'Prop name - The input key'), [P('왼쪽 restaurant는 props의 키', 'restaurant on the left is the prop key')]),
-      (P('속성 값 - 부모가 가진 데이터', 'Prop value - Data from the parent'), [P('오른쪽 item은 전달할 객체', 'item on the right is the object being passed')]),
-      (P('구조 분해 - 필요한 값 추출', 'Destructuring - Extract the needed value'), [P('{ restaurant }는 props.restaurant 추출', '{ restaurant } extracts props.restaurant')]),
-      (P('읽기 전용 - 자식의 직접 수정 금지', 'Read-only - No direct mutation by the child'), [P('변경이 필요하면 상태의 소유자에게 요청', 'Request updates from the state owner')])),
-    layout='code', sources=[pdf(14), PROPS, src('src/components/RestaurantList.jsx')])
-add('composition', P('페이지와 컴포넌트의 조합', 'Page and Component Composition'),
-    P('조회 · 필터 · 목록 표현을 서로 다른 책임으로 분리', 'Separate data queries, filtering, and list rendering'),
-    T([P('컴포넌트', 'Component'), P('입력과 상태', 'Input and State'), P('주요 책임', 'Responsibility')],
-      ['ListPage', 'selectedCategory · useQuery', P('목록 조회 · 카테고리 선택 · 필터 계산', 'Query restaurants · Select and apply a filter')],
-      ['RestaurantList', 'restaurants', P('빈 목록 처리 · 카드 반복 생성', 'Handle an empty list · Render cards')],
-      ['RestaurantCard', 'restaurant · liked · likes', P('한 맛집 표시 · 좋아요 처리', 'Show one restaurant · Handle likes')],
-      ['SubmitPage', 'SubmitRestaurant', P('제보 컴포넌트를 URL에 연결', 'Connect the form component to a route')]),
-    layout='single', sources=[pdf(12), src('src/pages/ListPage.jsx'), src('src/components/RestaurantList.jsx')])
-add('map-key', P('목록 렌더링과 key', 'List Rendering and Keys'),
-    P('배열의 맛집 객체를 식별 가능한 카드 목록으로 변환', 'Transform restaurant objects into an identifiable list of cards'),
-    K(P('RestaurantList.jsx · 핵심 구조', 'RestaurantList.jsx · Core structure'), """
-function RestaurantList({ restaurants }) {
-  if (restaurants.length === 0) {
-    return <NoResults>No restaurants in this category.</NoResults>;
-  }
-
+''', [('React의 책임','React responsibilities','컴포넌트·상태·화면 갱신을 통해 UI를 구성한다.','Build UI through components, state, and updates.'),('프레임워크의 책임','Framework responsibilities','URL과 파일 연결, 서버 실행, 데이터 처리와 빌드를 통합한다.','Integrate URL conventions, server execution, data handling, and builds.'),('관찰 결과','Observe','Next.js에서 파일 경로가 /products 페이지를 만든다. Vite 단독에는 이 규칙이 없다.','Next.js maps this file to /products. Vite alone does not provide this convention.')], [react('learn/creating-a-react-app'),nextdoc('getting-started/layouts-and-pages')],P('Next.js · 페이지 파일 전체', 'Next.js · Complete page file'))
+chapter(2,'JSX와 컴포넌트 기반 화면 구성','JSX and Component-Based UI','데이터를 UI로 표현하고 작은 단위로 조합하는 방법','Express data as UI and compose small units')
+topic(3,'JSX의 역할','The Role of JSX','JavaScript 안에서 표현하는 UI 구조와 데이터','UI structure and data expressed in JavaScript', '''
+export default function ProductTitle() {
+  const product = { name: '사과', price: 1000 };
   return (
-    <ListContainer>
-      {restaurants.map((restaurant) => (
-        <RestaurantCard
-          key={restaurant.id}
-          restaurant={restaurant}
-        />
+    <h2>
+      {product.name} · {product.price * 2}원
+    </h2>
+  );
+}
+''', [('JSX는 문법 확장','JSX is a syntax extension','빌드 도구가 JSX를 JavaScript로 변환한다. HTML 문자열로 직접 삽입하지 않는다.','Build tools transform JSX into JavaScript; JSX is not an HTML string.'),('중괄호의 표현식','Expressions in braces','JavaScript 값을 UI 안에 삽입하고 계산할 수 있다.','Insert and compute JavaScript values inside the UI.'),('관찰 결과','Observe','상품명과 계산된 가격으로 “사과 · 2000원”을 표시한다.','Displays “사과 · 2000원” from the name and computed price.')], [pdf(9),react('learn/javascript-in-jsx-with-curly-braces')])
+topic(4,'JSX 작성 규칙','JSX Rules','요소와 속성, 표현식과 Fragment','Elements, attributes, expressions, and Fragments', '''
+export default function ProductField() {
+  return (
+    <>
+      <label htmlFor="product">상품명</label>
+      <input id="product" className="field" />
+      <p style={{ color: 'green' }}>필수 입력</p>
+    </>
+  );
+}
+''', [('하나의 반환 구조','One returned structure','Fragment(<>)는 DOM 요소를 추가하지 않고 형제 요소를 묶는다.','A Fragment (<>) groups siblings without adding a DOM element.'),('태그와 속성','Tags and attributes','태그를 닫고 className·htmlFor를 사용한다. style에는 객체를 전달한다.','Close tags and use className and htmlFor. Pass an object to style.'),('관찰 결과','Observe','label과 input이 연결되고 설명 문장이 녹색으로 표시된다.','The label targets the input and the description appears green.')], [pdf(9),react('learn/writing-markup-with-jsx')])
+topic(5,'함수 컴포넌트와 Props','Function Components and Props','입력 데이터를 받아 화면을 반환하는 함수','Functions that receive data and return UI', '''
+function Price({ amount, unit = '원' }) {
+  return <strong>{amount}{unit}</strong>;
+}
+export default function App() {
+  return (
+    <>
+      <Price amount={1000} />
+      <Price amount={2} unit="USD" />
+    </>
+  );
+}
+''', [('Props는 읽기 전용 입력','Props are read-only inputs','부모가 값을 전달한다. 자식은 Props를 직접 변경하지 않는다.','The parent passes values; the child does not mutate its props.'),('같은 정의, 다른 데이터','Same definition, different data','대문자로 시작하는 컴포넌트를 JSX에서 사용한다.','Use a capitalized component name in JSX.'),('관찰 결과','Observe','같은 Price가 “1000원”과 “2USD”를 각각 표시한다.','The same Price renders “1000원” and “2USD”.')], [pdf(13),react('learn/passing-props-to-a-component')])
+topic(6,'컴포넌트의 분리와 조합','Splitting and Composing Components','책임 구분과 children을 통한 UI 재사용','Separate responsibilities and reuse UI through children', '''
+function Card({ title, children }) {
+  return (
+    <section>
+      <h2>{title}</h2>
+      <div>{children}</div>
+    </section>
+  );
+}
+export default function App() {
+  return (
+    <Card title="상품 정보">
+      <p>사과 · 1000원</p>
+    </Card>
+  );
+}
+''', [('역할에 따른 분리','Separate by responsibility','카드는 공통 외형을, 내부 내용은 사용하는 쪽이 결정한다.','Card owns the shared structure; its caller chooses the content.'),('children으로 조합','Compose with children','여는 태그와 닫는 태그 사이의 JSX가 children으로 전달된다.','JSX between the opening and closing tags becomes children.'),('관찰 결과','Observe','동일한 카드 구조 안에 다른 상품·안내 내용을 넣을 수 있다.','The same card structure can contain different products or guidance.')], [pdf(13),react('learn/passing-props-to-a-component')])
+topic(7,'조건부 렌더링과 목록','Conditional Rendering and Lists','조건에 따른 화면 표현과 map·key를 이용한 항목 구성','Conditions, map, and keys for list items', '''
+export default function ProductList({ products }) {
+  return (
+    <ul>
+      {products.map(product => (
+        <li key={product.id}>
+          {product.name}
+          {product.stocked ? ' · 재고 있음' : ' · 품절'}
+        </li>
       ))}
-    </ListContainer>
+    </ul>
   );
 }
-""", width=64),
-    C((P('map - 항목별 UI 생성', 'map - UI for each item'), [P('맛집 객체 하나 → 카드 하나', 'One restaurant object → One card')]),
-      (P('key - 형제 항목의 안정적인 식별자', 'key - Stable identity among siblings'), [P('추가 · 삭제 · 순서 변경에도 같은 항목 추적', 'Track the same item across inserts, deletes, and reorders'), P('변하는 목록에서 index · Math.random() 사용 지양', 'Avoid indexes or Math.random() for changing lists')]),
-      (P('props - key와 별도 전달', 'props - Passed separately from key'), [P('자식에서 id가 필요하면 restaurant.id 사용', 'Read restaurant.id when the child needs the id')])),
-    layout='code', sources=[LIST, src('src/components/RestaurantList.jsx')],
-    note='코드의 UI 문자열은 강의 예제용 영문으로 축약. NoResults와 ListContainer 정의·import는 실제 파일 참조.')
-add('practice-card', P('실습 1 · 카드의 표시 정보 수정', 'Practice 1 · Editing Card Content'),
-    P('Props와 JSX를 사용해 추천 메뉴를 카드에 추가', 'Use props and JSX to add recommended menus to a card'),
-    K(P('RestaurantCard.jsx · CardContent 내부에 추가', 'RestaurantCard.jsx · Add inside CardContent'), """
-<p>
-  {(restaurant.recommendedMenu ?? []).join(', ')}
-</p>
-"""),
-    S((P('수정 위치', 'Edit location'), P('RestaurantCard.jsx의 이름 · 카테고리 아래', 'Below the name and category in RestaurantCard.jsx')),
-      (P('데이터 확인', 'Inspect the data'), P('services/api.jsx의 recommendedMenu 배열', 'The recommendedMenu array in services/api.jsx')),
-      (P('기대 결과', 'Expected result'), P('송림식당 카드에 순두부 · 김치찌개 등 표시', 'Songnim’s card shows menu items such as soft tofu and kimchi stew')),
-      (P('오류 확인', 'Check errors'), P('객체 자체 대신 문자열 · 배열의 join 결과 표시', 'Render strings or a joined array, not the whole object'))),
-    layout='code', sources=[src('src/components/RestaurantCard.jsx'), src('src/services/api.jsx')])
-
-CH = P('04 · State와 이벤트', '04 · STATE AND EVENTS')
-add('state-props', P('Props · State · 파생값의 구분', 'Props, State, and Derived Values'),
-    P('입력 · 변경 가능한 최소 정보 · 계산 결과를 구분하는 기준', 'Distinguish inputs, minimal changing data, and calculated results'),
-    T([P('종류', 'Kind'), P('실습 예시', 'Practice Example'), P('관리 방식', 'How It Is Managed')],
-      ['Props', 'restaurant', P('부모로부터 전달 · 자식에서 읽기', 'Passed by the parent · Read by the child')],
-      ['State', 'selectedCategory · liked', P('useState로 보관 · setter로 갱신', 'Stored by useState · Updated through a setter')],
-      [P('파생값', 'Derived value'), 'filteredData', P('현재 목록과 선택 조건으로 계산', 'Calculated from the list and selected category')],
-      [P('영속 저장', 'Persistent storage'), 'localStorage', P('새로고침 이후 복원 · 별도 저장 필요', 'Restored after reload · Explicit writes required')]),
-    layout='single', sources=[pdf(14), STATE, src('src/pages/ListPage.jsx')])
-add('use-state', P('useState의 반환값과 갱신', 'useState Values and Updates'),
-    P('현재 상태와 상태 변경 함수를 구조 분해로 받는 방식', 'Destructure the current state and its update function'),
-    K(P('개념 예제 · 좋아요 토글', 'Teaching example · Like toggle'), """
+''', [('조건은 JavaScript로','Conditions use JavaScript','삼항 연산자로 재고 여부에 따른 문구를 선택한다.','A ternary expression selects the stock label.'),('목록 항목의 식별','Identify list items','map은 요소 배열을 만들고 안정적인 id를 key로 사용한다.','map produces elements; stable IDs serve as keys.'),('관찰 결과','Observe','products의 순서대로 표시된다. key는 화면 문구나 일반 Props로 전달되지 않는다.','Items follow products order. key is neither displayed text nor a normal prop.')], [react('learn/rendering-lists'),react('learn/conditional-rendering')],P('React · 컴포넌트 전체 / products는 부모가 전달','React · Complete component / parent supplies products'))
+chapter(3,'사용자 행동과 상태 기반 화면 갱신','User Actions and State Updates','사용자의 입력을 기억하고 화면에 반영하는 원리','Remember user input and reflect it in the UI')
+topic(8,'이벤트와 State','Events and State','사용자의 클릭·입력과 컴포넌트가 기억하는 값','User clicks and input, and values a component remembers', '''
 import { useState } from 'react';
-
-export default function LikeButton() {
-  const [liked, setLiked] = useState(false);
-
+export default function Quantity() {
+  const [quantity, setQuantity] = useState(1);
   return (
-    <button onClick={() => setLiked((prev) => !prev)}>
-      {liked ? 'Liked' : 'Like'}
+    <button onClick={() => setQuantity(quantity + 1)}>
+      수량: {quantity}
     </button>
   );
 }
-"""),
-    C((P('초기값 - 첫 렌더의 상태', 'Initial value - State for the first render'), [P('false → 아직 좋아요를 선택하지 않은 상태', 'false → The restaurant is not liked yet')]),
-      (P('setter - 갱신 요청 함수', 'Setter - A request to update state'), [P('setLiked 호출 → 새 상태로 다시 렌더링', 'Call setLiked → Render with the next state')]),
-      (P('함수형 갱신 - 이전 상태로 계산', 'Updater function - Calculate from prior state'), [P('prev는 처리 중인 이전 상태', 'prev is the prior state being processed'), P('토글 · 누적처럼 이전 값에 의존할 때 사용', 'Useful for toggles and accumulated updates')])),
-    layout='code', sources=[STATE, src('src/components/RestaurantCard.jsx')])
-add('state-snapshot', P('상태 스냅샷과 연속 갱신', 'State Snapshots and Queued Updates'),
-    P('한 이벤트 안에서 읽는 상태는 해당 렌더 시점의 값', 'State read inside an event belongs to that render'),
-    K(P('개념 예제 · count가 0인 렌더', 'Teaching example · A render with count = 0'), """
-function addThree() {
-  setCount((n) => n + 1);
-  setCount((n) => n + 1);
-  setCount((n) => n + 1);
-}
-
-function replaceThreeTimes() {
-  setCount(count + 1);
-  setCount(count + 1);
-  setCount(count + 1);
-}
-"""),
-    C((P('함수형 갱신 - 대기 중인 값에 순차 적용', 'Updater functions - Apply to queued values'), [P('addThree: 0 → 1 → 2 → 3', 'addThree: 0 → 1 → 2 → 3')]),
-      (P('값 전달 - 같은 계산 결과로 교체', 'Value updates - Replace with the same result'), [P('replaceThreeTimes: 1로 교체 요청 3회 → 1', 'replaceThreeTimes: Replace with 1 three times → 1')]),
-      (P('이벤트 안의 변수 - 즉시 변경되지 않음', 'Event variables - Unchanged in this render'), [P('setter 호출 직후 count를 읽으면 기존 값', 'Reading count immediately after the setter gives the old value')])),
-    layout='code', sources=[STATE, doc('React · Queued Updates', 'https://react.dev/learn/queueing-a-series-of-state-updates')])
-add('events', P('이벤트 핸들러의 전달', 'Passing Event Handlers'),
-    P('렌더 시 함수 전달과 이벤트 발생 시 함수 실행의 구분', 'Passing a function during render versus running it on an event'),
-    K(P('개념 예제 · 클릭 이벤트', 'Teaching example · Click events'), """
-<button onClick={handleLike}>Like</button>;
-
-<button onClick={() => setSelectedCategory('한식')}>
-  Korean food
-</button>;
-"""),
-    C((P('함수 전달 - 클릭할 때 실행', 'Function reference - Run on click'), [P('onClick={handleLike}에 함수 자체 전달', 'Pass the function itself with onClick={handleLike}')]),
-      (P('인자 전달 - 새 콜백으로 감싸기', 'Arguments - Wrap the call in a callback'), [P('카테고리 값은 화살표 함수 안에서 전달', 'Pass the category inside an arrow function')]),
-      (P('즉시 호출 - 렌더 중 실행', 'Immediate call - Runs during render'), [P('onClick={handleLike()}는 클릭 전에 실행', 'onClick={handleLike()} runs before any click'), P('렌더 중 무조건적인 상태 갱신은 반복 렌더링 원인', 'Unconditional state updates during render can loop')])),
-    layout='code', sources=[pdf(15), src('src/pages/ListPage.jsx')])
-add('filter', P('카테고리 선택과 파생 목록', 'Category Selection and Derived Lists'),
-    P('선택 값만 State로 보관하고 필터 결과는 렌더 중 계산', 'Store only the selected category; calculate the filtered list during render'),
-    K(P('ListPage.jsx · 필터 계산', 'ListPage.jsx · Filter calculation'), """
-const [selectedCategory, setSelectedCategory] =
-  useState('전체');
-
-const filteredData =
-  selectedCategory === '전체'
-    ? data?.data
-    : data?.data.filter(
-        (r) => r.category === selectedCategory
-      );
-
-return <RestaurantList restaurants={filteredData || []} />;
-"""),
-    C((P('전체 - 원본 목록 사용', 'All - Use the original list'), [P('카테고리 조건 없이 전체 데이터 표시', 'Display every item without a category condition')]),
-      (P('선택 카테고리 - filter 조건', 'Selected category - The filter predicate'), [P('한식 선택 → category가 한식인 항목만 유지', 'Select Korean food → Keep matching items')]),
-      (P('파생값 - 중복 상태 방지', 'Derived value - Avoid duplicated state'), [P('filteredData용 State와 Effect는 불필요', 'No separate state or Effect needed for filteredData')])),
-    layout='code', sources=[src('src/pages/ListPage.jsx'), doc('React · Derived Values', 'https://react.dev/learn/you-might-not-need-an-effect')])
-add('like-state', P('좋아요 상태와 개수의 계산', 'Calculating Like State and Count'),
-    P('현재 선택을 반전하고 좋아요 수가 음수가 되지 않도록 처리', 'Toggle the current choice and keep the count nonnegative'),
-    K(P('RestaurantCard.jsx · handleLike 일부', 'RestaurantCard.jsx · Part of handleLike'), """
-const newLikedState = !liked;
-const newLikesCount = newLikedState
-  ? likes + 1
-  : Math.max(0, likes - 1);
-
-setLiked(newLikedState);
-setLikes(newLikesCount);
-"""),
-    C((P('liked - 선택 여부', 'liked - Whether the item is liked'), [P('false → true는 선택 · true → false는 취소', 'false → true selects · true → false cancels')]),
-      (P('likes - 현재 브라우저의 개수', 'likes - The count in this browser'), [P('선택 시 +1 · 취소 시 -1 · 최솟값 0', '+1 on like · -1 on unlike · Minimum 0')]),
-      (P('저장 실패 - UI와 저장값 불일치 가능', 'Write failure - UI and storage may diverge'), [P('현재 코드는 UI 변경 후 저장 · 실패 처리 확인 필요', 'Current code updates UI before storage; inspect failure handling')])),
-    layout='code', sources=[src('src/components/RestaurantCard.jsx')])
-add('immutable-state', P('객체와 배열 상태의 갱신', 'Updating Object and Array State'),
-    P('기존 State를 직접 수정하지 않고 새 값을 전달하는 방식', 'Pass a new value instead of mutating existing state'),
-    K(P('개념 예제 · 상태 갱신 패턴', 'Teaching example · State update patterns'), """
-setForm((prev) => ({
-  ...prev,
-  restaurantName: nextName,
-}));
-
-setItems((prev) => [...prev, newItem]);
-
-setItems((prev) =>
-  prev.filter((item) => item.id !== deletedId)
-);
-"""),
-    C((P('객체 - 전개 후 변경 필드 덮어쓰기', 'Objects - Spread, then replace a field'), [P('...prev로 나머지 필드 유지', 'Keep other fields with ...prev')]),
-      (P('배열 - 새 배열 생성', 'Arrays - Create a new array'), [P('추가에 전개 구문 · 삭제에 filter 사용', 'Spread to add · filter to remove')]),
-      (P('변경 대상 - React State 여부 확인', 'Update target - Check whether it is React state'), [P('저장소에서 새로 읽은 배열과 State 배열 구분', 'Distinguish newly read storage arrays from state arrays')])),
-    layout='code', sources=[doc('React · Updating Arrays', 'https://react.dev/learn/updating-arrays-in-state'), src('src/services/api.jsx')])
-add('practice-state', P('실습 2 · 필터와 좋아요 확인', 'Practice 2 · Filters and Likes'),
-    P('입력 · 변경된 상태 · 화면 결과를 연결하는 동작 확인', 'Connect input, changed state, and visible results'),
-    T([P('실행', 'Action'), P('기대 결과', 'Expected Result'), P('오류 확인 위치', 'Where to Inspect')],
-      [P('한식 선택', 'Select Korean food'), P('초기 데이터 중 송림식당 1개 표시', 'Only Songnim shown in the initial data'), 'ListPage.jsx · selectedCategory'],
-      [P('카페 선택', 'Select cafés'), P('초기 데이터 기준 빈 목록 안내', 'Empty-state message for the initial data'), 'RestaurantList.jsx · length'],
-      [P('전체 선택', 'Select All'), P('초기 맛집 3개 복원', 'All 3 initial restaurants shown'), 'ListPage.jsx · filteredData'],
-      [P('좋아요 클릭 · 다시 클릭', 'Like · Click again'), P('선택과 개수 증가 · 취소와 개수 복원', 'Like and increment · Unlike and restore'), 'RestaurantCard.jsx · handleLike']),
-    layout='single', sources=[src('src/pages/ListPage.jsx'), src('src/components/RestaurantCard.jsx')])
-
-CH = P('05 · Hooks와 브라우저 저장', '05 · HOOKS AND BROWSER STORAGE')
-add('hook-rules', P('Hooks의 역할과 호출 규칙', 'Hook Roles and Calling Rules'),
-    P('컴포넌트의 상태와 외부 동기화를 연결하는 함수 API', 'Function APIs for component state and external synchronization'),
-    T([P('Hook', 'Hook'), P('역할', 'Role'), P('실습 사용 예', 'Practice Use')],
-      ['useState', P('렌더 사이에 상태 보관', 'Retain state between renders'), 'liked · selectedCategory'],
-      ['useEffect', P('외부 시스템과 동기화', 'Synchronize with an external system'), P('좋아요 저장값 복원', 'Restore saved likes')],
-      ['useQuery', P('비동기 조회 결과와 상태 관리', 'Manage async query results and status'), 'ListPage · DetailPage'],
-      ['useForm', P('입력 등록 · 검증 · 제출 관리', 'Register inputs · Validate · Submit'), 'SubmitRestaurant']),
-    C((P('호출 위치 - 컴포넌트 최상위', 'Call location - Component top level'), [P('조건문 · 반복문 · 이벤트 핸들러 안에서 호출 금지', 'No calls inside conditions, loops, or event handlers'), P('조기 return보다 먼저 호출', 'Call before any early return')]),
-      (P('라이브러리 Hooks - 같은 호출 규칙', 'Library Hooks - The same calling rules'), [P('useQuery · useForm도 컴포넌트 최상위에서 호출', 'Call useQuery and useForm at component top level too')])),
-    sources=[pdf(16), RULES])
-add('effects', P('useEffect와 의존성 배열', 'useEffect and Dependencies'),
-    P('렌더 후 외부 상태를 동기화할 조건을 표현하는 방식', 'Describe when external state needs synchronization after a commit'),
-    K(P('개념 예제 · 문서 제목 동기화', 'Teaching example · Synchronize the document title'), """
-useEffect(() => {
-  document.title = restaurant.name;
-}, [restaurant.name]);
-"""),
-    C((P('Effect - 외부 상태와 동기화', 'Effect - Synchronization with external state'), [P('문서 제목 · 이벤트 구독 · 브라우저 저장', 'Document title · Event subscriptions · Browser storage')]),
-      (P('의존성 - Effect가 읽는 반응형 값', 'Dependencies - Reactive values read by the Effect'), [P('restaurant.name 변경 시 다시 동기화', 'Synchronize again when restaurant.name changes'), P('의존성 생략은 모든 Commit 뒤 실행', 'Omitting the array runs after every commit')]),
-      (P('빈 배열 - 반응형 의존성 없음', 'Empty array - No reactive dependencies'), [P('개발 StrictMode의 추가 setup·cleanup 가능', 'Development StrictMode may add a setup/cleanup cycle')])),
-    layout='code', sources=[pdf(17), EFFECT])
-add('effect-cleanup', P('Effect의 정리와 실행 순서', 'Effect Cleanup and Execution Order'),
-    P('구독과 타이머의 수명을 setup · cleanup으로 관리', 'Manage subscriptions and timers through setup and cleanup'),
-    K(P('개념 예제 · resize 구독', 'Teaching example · Resize subscription'), """
-useEffect(() => {
-  const onResize = () => {
-    setWidth(window.innerWidth);
-  };
-
-  window.addEventListener('resize', onResize);
-
-  return () => {
-    window.removeEventListener('resize', onResize);
-  };
-}, []);
-"""),
-    C((P('마운트 - 첫 setup', 'Mount - Initial setup'), [P('DOM 반영 후 Effect 실행', 'Run the Effect after the DOM commit')]),
-      (P('의존성 변경 - 정리 후 재설정', 'Dependency change - Cleanup, then setup'), [P('이전 cleanup → 새 setup', 'Previous cleanup → New setup')]),
-      (P('언마운트 - 마지막 cleanup', 'Unmount - Final cleanup'), [P('화면에서 제거 시 구독 해제', 'Remove subscriptions when the component leaves')]),
-      (P('실행 시점 - Commit 이후', 'Timing - After the commit'), [P('상호작용에 따른 Effect는 Paint 전에 실행 가능', 'An interaction-related Effect may run before paint')])),
-    layout='code', sources=[pdf(17), EFFECT])
-add('storage-api', P('localStorage와 JSON 변환', 'localStorage and JSON Conversion'),
-    P('문자열 저장소에 배열과 객체를 저장하고 복원하는 과정', 'Store and restore arrays and objects through a string-based store'),
-    K(P('개념 예제 · 좋아요 ID 배열', 'Teaching example · Liked restaurant IDs'), """
-const ids = [1, 3];
-
-localStorage.setItem(
-  'likedRestaurants',
-  JSON.stringify(ids)
-);
-
-const saved = JSON.parse(
-  localStorage.getItem('likedRestaurants') || '[]'
-);
-""", 'javascript'),
-    C((P('stringify - 값을 문자열로 변환', 'stringify - Convert a value to a string'), [P('[1, 3] 배열 → JSON 문자열 저장', 'Array [1, 3] → Store a JSON string')]),
-      (P('parse - 문자열에서 값 복원', 'parse - Restore a value from a string'), [P('키가 없으면 null · 기본 문자열 사용', 'A missing key returns null · Supply a default string')]),
-      (P('오류 - 읽기와 쓰기 실패 가능', 'Errors - Reads and writes may fail'), [P('잘못된 JSON · 저장 공간 · 브라우저 정책', 'Invalid JSON · Storage quota · Browser policy')])),
-    layout='code', sources=[STORAGE, src('src/services/api.jsx')])
-add('hook-selection', P('Hooks의 선택 기준', 'Choosing Hooks for a Task'),
-    P('상태 · 참조 · 공유 · 성능 최적화의 서로 다른 목적', 'Distinct purposes for state, references, sharing, and optimization'),
-    T([P('필요', 'Need'), P('Hook', 'Hook'), P('선택 기준', 'Selection Criterion')],
-      [P('화면에 표시할 값', 'A value shown in the UI'), 'useState', P('변경 시 새 렌더링 필요', 'Changing it should request a render')],
-      [P('렌더링과 무관한 보관', 'Storage without rendering'), 'useRef', P('DOM 참조 · 타이머 ID 등', 'DOM references · Timer IDs')],
-      [P('하위 트리의 공통 값', 'Values shared in a subtree'), 'useContext', P('Provider가 제공한 문맥 읽기', 'Read context from a Provider')],
-      [P('복잡한 상태 전이', 'Complex state transitions'), 'useReducer', P('여러 변경 규칙을 reducer로 모으기', 'Collect update rules in a reducer')],
-      [P('측정된 반복 계산 비용', 'Measured repeated computation cost'), 'useMemo · useCallback', P('계산 결과 · 함수 참조 캐시 · 정확성의 전제 아님', 'Cache results or function references · Not required for correctness')]),
-    layout='single', sources=[pdf(16), doc('React · Hooks', 'https://react.dev/reference/react/hooks'), src('src/pages/AdminPage.jsx')])
-add('restore-likes', P('좋아요 저장값의 복원', 'Restoring Saved Likes'),
-    P('카드 마운트와 맛집 의존성 변경 시 저장값 조회', 'Read saved values on mount and when restaurant dependencies change'),
-    K(P('RestaurantCard.jsx · useEffect 발췌', 'RestaurantCard.jsx · useEffect excerpt'), """
-useEffect(() => {
-  try {
-    const likedRestaurants = JSON.parse(
-      localStorage.getItem('likedRestaurants') || '[]'
-    );
-    if (likedRestaurants.includes(restaurant.id)) {
-      setLiked(true);
-    }
-    const savedLikes = JSON.parse(
-      localStorage.getItem('restaurantLikes') || '{}'
-    );
-    if (savedLikes[restaurant.id] !== undefined) {
-      setLikes(savedLikes[restaurant.id]);
-    }
-  } catch (error) {
-    console.error('LocalStorage read error:', error);
-  }
-}, [restaurant.id, restaurant.likes]);
-"""),
-    C((P('likedRestaurants - 선택한 ID 목록', 'likedRestaurants - Selected IDs'), [P('includes(id)로 현재 맛집 선택 여부 확인', 'Check the current restaurant with includes(id)')]),
-      (P('restaurantLikes - ID별 개수', 'restaurantLikes - Count by ID'), [P('저장된 개수가 0인 경우도 복원', 'Restore a saved count even when it is 0')]),
-      (P('State 갱신 - 복원 결과를 화면에 반영', 'State update - Show the restored result'), [P('새로고침 후 동일 브라우저에서 확인', 'Verify after reloading in the same browser')])),
-    layout='code', sources=[src('src/components/RestaurantCard.jsx'), EFFECT],
-    note='실제 Effect 발췌. 로그 문자열만 영문 축약. id 변경 시 미선택을 false로 초기화하는 일반화된 구현은 아니며 목록은 id 기반 key로 카드 인스턴스를 구분.')
-add('storage-keys', P('저장 키와 사이트 주소의 관계', 'Storage Keys and Site Origins'),
-    P('프로토콜 · 호스트 · 포트가 같은 출처 안에서 유지되는 데이터', 'Data persists within an origin defined by scheme, host, and port'),
-    T([P('키', 'Key'), P('내용', 'Contents'), P('확인 위치', 'Inspect In')],
-      ['likedRestaurants', P('선택한 맛집 ID 배열', 'Array of liked IDs'), 'RestaurantCard.jsx'],
-      ['restaurantLikes', P('ID별 좋아요 개수 객체', 'Object of like counts by ID'), 'RestaurantCard.jsx'],
-      ['pwd-week5-restaurants', P('관리 기능으로 저장한 맛집 목록', 'Restaurant list saved by management actions'), 'services/api.jsx'],
-      ['pwd-week5-submissions', P('제보 목록과 처리 상태', 'Submissions and their status'), 'services/api.jsx']),
-    C((P('같은 출처 - 새로고침 뒤 유지', 'Same origin - Persists across reloads'), [P('주소의 #/list와 #/submit은 같은 저장 공간', '#/list and #/submit use the same storage')]),
-      (P('다른 출처 - 별도 저장 공간', 'Different origins - Separate stores'), [P('localhost · 배포 주소 · Preview 주소는 서로 분리', 'localhost, production, and preview URLs are separate')])),
-    sources=[STORAGE, src('src/services/api.jsx')])
-add('practice-storage', P('실습 3 · 저장과 새로고침 확인', 'Practice 3 · Storage and Reloads'),
-    P('DevTools에서 화면 상태와 저장 데이터를 함께 확인', 'Inspect UI state and saved data together in DevTools'),
-    S((P('좋아요 선택', 'Like one restaurant'), P('맛집 한 개 선택 후 개수 기록', 'Like one restaurant and note its count')),
-      (P('저장 키 확인', 'Inspect storage keys'), P('Application → Local Storage → 현재 사이트 선택', 'Application → Local Storage → Current site')),
-      (P('새로고침', 'Reload the page'), P('likedRestaurants와 restaurantLikes의 값 유지 확인', 'Verify likedRestaurants and restaurantLikes persist')),
-      (P('다른 브라우저 비교', 'Compare another browser'), P('동일 URL에서도 별도 브라우저 저장값 사용', 'Even the same URL uses separate browser storage'))),
-    C((P('빈 저장소 - 정상 초기 상태', 'Empty storage - A normal initial state'), [P('맛집 목록은 초기 데이터로 표시', 'The list falls back to initial sample data')]),
-      (P('실습 초기화 - 관련 키만 삭제', 'Practice reset - Remove only relevant keys'), [P('실습 사이트의 네 개 키 삭제 후 새로고침', 'Delete the four practice keys at the practice origin, then reload'), P('저장된 제보 · 수정 내용도 함께 초기화', 'This also resets saved submissions and edits')])),
-    sources=[STORAGE, src('src/services/api.jsx')])
-
-CH = P('06 · 데이터 조회와 라우팅', '06 · DATA QUERIES AND ROUTING')
-add('ecosystem', P('실습 라이브러리의 역할', 'Libraries Used in the Practice'),
-    P('필요한 기능을 React 주변 라이브러리로 조합', 'Compose supporting libraries around React'),
-    T([P('기능', 'Feature'), P('라이브러리', 'Library'), P('실습 사용', 'Use in This App')],
-      [P('URL과 화면 연결', 'URL-to-screen mapping'), 'react-router-dom', 'HashRouter · Routes · Link · useParams'],
-      [P('조회 · 캐시 · 갱신', 'Queries · Cache · Updates'), '@tanstack/react-query', 'useQuery · useMutation'],
-      [P('입력과 검증', 'Inputs and validation'), 'react-hook-form', 'register · handleSubmit · errors'],
-      [P('스타일과 피드백', 'Styles and feedback'), 'Emotion · Toastify · Icons · Spinners', P('스타일 · 알림 · 아이콘 · 로딩 표시', 'Styles · Toasts · Icons · Loading indicators')],
-      ['HTTP', 'axios', P('의존성에 포함 · 현재 서비스 계층에서 미사용', 'Installed dependency · Unused in the current service layer')]),
-    layout='single', sources=[pdf(18), src('package.json'), src('src/services/api.jsx')])
-add('app-providers', P('App의 Provider와 공통 화면', 'Providers and Shared UI in App'),
-    P('공통 기능을 최상위에 배치하고 페이지에서 사용', 'Place shared capabilities above the pages that use them'),
-    K(P('App.jsx · 구조 축약', 'App.jsx · Structural outline'), """
-const queryClient = new QueryClient();
-
-function App() {
+''', [('State가 값을 기억','State remembers a value','일반 지역 변수와 달리 렌더 사이에 값이 유지된다.','Unlike local variables, state persists between renders.'),('이벤트에 함수 전달','Pass a function to the event','onClick에 함수를 전달하고 클릭했을 때 상태 변경을 요청한다.','Pass a function to onClick; a click requests an update.'),('관찰 결과','Observe','초기 수량 1이 클릭할 때마다 2, 3으로 증가한다.','The initial quantity 1 increases to 2 and 3 with clicks.')], [pdf(14),pdf(15),react('learn/state-a-components-memory')])
+topic(9,'상태 변경과 화면 갱신','State Updates and Rendering','컴포넌트의 UI 계산과 DOM 반영, Render와 Commit','UI calculation and DOM changes: render and commit', '''
+import { useState } from 'react';
+export default function Quantity() {
+  const [quantity, setQuantity] = useState(1);
+  console.log('render', quantity);
   return (
-    <QueryClientProvider client={queryClient}>
-      <HashRouter>
-        <GlobalStyles />
-        <Header />
-        <Routes>{/* Page routes */}</Routes>
-        <ToastContainer />
-      </HashRouter>
-    </QueryClientProvider>
+    <div>
+      <h2>상품 수량</h2>
+      <button onClick={() => setQuantity(q => q + 1)}>
+        {quantity}
+      </button>
+    </div>
   );
 }
-"""),
-    C((P('QueryClientProvider - 조회 캐시 공유', 'QueryClientProvider - Share the query cache'), [P('컴포넌트 밖에서 QueryClient 생성', 'Create QueryClient outside the component')]),
-      (P('HashRouter - 라우팅 문맥 제공', 'HashRouter - Provide routing context'), [P('내부에서 Link · Routes · useParams 사용', 'Use Link, Routes, and useParams inside it')]),
-      (P('공통 컴포넌트 - 모든 페이지의 기반', 'Shared components - UI across pages'), [P('Header · GlobalStyles · ToastContainer', 'Header · GlobalStyles · ToastContainer')])),
-    layout='code', sources=[src('src/App.jsx')])
-add('service-layer', P('가상 API의 비동기 인터페이스', 'The Mock API’s Async Interface'),
-    P('HTTP 요청 없이 Promise와 data 객체를 반환하는 서비스 계층', 'A service layer returning Promises and data objects without HTTP requests'),
-    K(P('services/api.jsx · 핵심 구조 발췌', 'services/api.jsx · Core excerpt'), """
-const RESTAURANTS_KEY = 'pwd-week5-restaurants';
-
-export const restaurantAPI = {
-  getRestaurants: async () => ({
-    data: readItems(RESTAURANTS_KEY, initialRestaurants),
-  }),
-};
-"""),
-    C((P('async - Promise 반환', 'async - Return a Promise'), [P('동기적인 localStorage 결과를 비동기 인터페이스로 제공', 'Expose synchronous storage through an async interface')]),
-      (P('readItems - 저장값 또는 초기값', 'readItems - Saved data or fallback'), [P('키가 없으면 initialRestaurants의 복제 반환', 'Return a clone of initialRestaurants when the key is absent')]),
-      (P('data - 응답의 목록 필드', 'data - The list inside the response'), [P('useQuery의 data 안에 서비스 응답의 data 존재', 'Query data contains another data field from the service')])),
-    layout='code', sources=[src('src/services/api.jsx')])
-add('use-query', P('useQuery의 조회와 캐시 키', 'Queries and Cache Keys with useQuery'),
-    P('조회 함수 · 결과 · 진행 상태를 하나의 Hook으로 연결', 'Connect a query function, result, and progress state in one Hook'),
-    K(P('ListPage.jsx · 실제 조회 설정', 'ListPage.jsx · Query configuration'), """
-const { data, isLoading, error } = useQuery({
-  queryKey: ['restaurants'],
-  queryFn: restaurantAPI.getRestaurants,
-});
-
-const restaurants = data?.data || [];
-"""),
-    C((P('queryKey - 캐시의 식별자', 'queryKey - Identity of cached data'), [P('같은 키를 쓰는 화면에서 조회 결과 공유', 'Views with the same key share cached results')]),
-      (P('queryFn - 실행할 조회 함수', 'queryFn - The function to run'), [P('함수를 전달 · Promise가 반환되거나 오류 발생', 'Pass a function that returns a Promise or throws')]),
-      (P('data?.data - 아직 없는 응답 처리', 'data?.data - Handle an absent response'), [P('조회 전 undefined 가능 · 목록 기본값 []', 'May be undefined before success · Default list []')])),
-    layout='code', sources=[QUERY, src('src/pages/ListPage.jsx')])
-add('query-states', P('로딩 · 오류 · 빈 목록의 구분', 'Loading, Error, and Empty States'),
-    P('조회 상태와 조회된 데이터의 개수를 별도로 판단', 'Evaluate query status separately from the result count'),
-    K(P('ListPage와 RestaurantList · 구조 축약', 'ListPage and RestaurantList · Outline'), """
-if (isLoading) return <p>Loading...</p>;
-if (error) return <p>{error.message}</p>;
-
-const restaurants = data?.data || [];
-
-if (restaurants.length === 0) {
-  return <p>No results.</p>;
+''', [('Render: 다음 UI 계산','Render: calculate the next UI','상태 변경으로 컴포넌트를 다시 실행한다. 렌더 중 외부 데이터를 변경하지 않는다.','An update re-runs the component. Do not mutate external data during render.'),('Commit: DOM에 반영','Commit: apply changes to DOM','React는 필요한 DOM 변경을 수행하고 브라우저가 화면을 그린다.','React applies needed DOM changes; the browser paints the screen.'),('관찰 결과','Observe','클릭 후 숫자가 바뀌지만 제목 DOM은 유지된다. 개발 Strict Mode는 render 로그를 추가 실행할 수 있다.','The number changes while the heading DOM stays. Development Strict Mode may produce extra render logs.')], [react('learn/render-and-commit')])
+topic(10,'상태의 스냅샷과 업데이트','State Snapshots and Updates','각 렌더의 상태 값과 이전 상태를 이용한 갱신','Per-render state values and updates based on previous state', '''
+import { useState } from 'react';
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  function replace() {
+    setCount(count + 1);
+    setCount(count + 1);
+  }
+  function increment() {
+    setCount(c => c + 1);
+    setCount(c => c + 1);
+  }
+  return <>
+    <p>{count}</p>
+    <button onClick={replace}>값 두 번</button>
+    <button onClick={increment}>함수 두 번</button>
+  </>;
 }
-
-return <RestaurantList restaurants={restaurants} />;
-"""),
-    C((P('로딩 - 결과 대기', 'Loading - Waiting for a result'), [P('ClipLoader와 안내 문구 표시', 'Show ClipLoader and a loading message')]),
-      (P('오류 - 조회 실패', 'Error - The query failed'), [P('잘못된 저장 데이터의 JSON 오류도 포함', 'Includes malformed JSON in saved data')]),
-      (P('빈 목록 - 성공한 조회의 0개 결과', 'Empty - A successful query with no results'), [P('목록 자체가 비었거나 필터 결과가 0개', 'The data is empty or the filter matches nothing')]),
-      (P('빠른 조회 - 로딩 표시 생략 가능', 'Fast queries - Loading may be imperceptible'), [P('로컬 데이터는 빠르게 완료되어 관찰이 어려울 수 있음', 'Local queries may finish too quickly to observe')])),
-    layout='code', sources=[src('src/pages/ListPage.jsx'), src('src/components/RestaurantList.jsx')])
-add('query-settings', P('캐시의 유효 시간과 재조회', 'Freshness and Query Refreshes'),
-    P('저장 데이터와 메모리 캐시의 서로 다른 수명', 'Persistent data and the in-memory cache have different lifetimes'),
-    K(P('App.jsx · QueryClient 설정 발췌', 'App.jsx · QueryClient options'), """
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5,
-      retry: 1,
-    },
-  },
-});
-"""),
-    C((P('staleTime - 5분간 신선한 데이터', 'staleTime - Fresh data for five minutes'), [P('5분 뒤 자동 삭제 또는 정기 조회를 뜻하지 않음', 'Does not mean automatic deletion or five-minute polling')]),
-      (P('retry - 실패 후 추가 시도', 'retry - Additional attempts after failure'), [P('조회 실패 시 한 번 재시도', 'Retry a failed query once')]),
-      (P('invalidateQueries - 오래된 결과 표시', 'invalidateQueries - Mark results as stale'), [P('변경 후 관련 캐시 무효화 · 활성 조회 재실행', 'Invalidate related cache after a change · Refetch active queries')])),
-    layout='code', sources=[src('src/App.jsx'), INVALIDATE])
-add('routes', P('HashRouter와 페이지 경로', 'HashRouter and Page Routes'),
-    P('URL의 해시 영역으로 현재 화면을 식별하는 실습 구조', 'The practice app identifies its screen through the URL hash'),
-    T([P('접속 주소의 끝부분', 'URL Ending'), P('Route path', 'Route Path'), P('페이지', 'Page')],
-      ['/#/', '/', 'HomePage'],
-      ['/#/list', '/list', 'ListPage'],
-      ['/#/restaurant/1', '/restaurant/:id', 'DetailPage'],
-      ['/#/popular', '/popular', 'PopularPage'],
-      ['/#/submit', '/submit', 'SubmitPage'],
-      ['/#/admin · /#/submissions', '/admin · /submissions', 'AdminPage · SubmissionsPage']),
-    layout='single', sources=[src('src/App.jsx'), ROUTER],
-    note='표의 두 관리 경로는 학습용이며 실제 인증이나 권한 검증이 구현되어 있지 않음.')
-add('links-detail', P('Link와 동적 경로의 id', 'Links and Dynamic Route IDs'),
-    P('카드의 식별자를 URL에 넣고 상세 페이지에서 다시 읽기', 'Put a card’s ID in the URL and read it on the detail page'),
-    K(P('개념 예제 · 카드에서 상세 조회까지', 'Teaching example · From card to detail query'), """
-<Link to={'/restaurant/' + restaurant.id}>
-  Details
-</Link>;
-
-const { id } = useParams();
-
-const { data, isLoading, error } = useQuery({
-  queryKey: ['restaurant', id],
-  queryFn: () => restaurantAPI.getRestaurantById(id),
-});
-"""),
-    C((P('Link - 앱 안의 화면 이동', 'Link - Navigation within the app'), [P('to에는 /restaurant/1 · #은 Router가 처리', 'Use /restaurant/1 in to · The router handles #')]),
-      (P('useParams - URL 값 읽기', 'useParams - Read URL parameters'), [P('id는 문자열 · 서비스에서 String(id)로 비교', 'id is a string · The service compares String(id)')]),
-      (P('queryKey - 맛집마다 다른 결과', 'queryKey - A distinct result per restaurant'), [P('id를 포함해 1번과 2번의 캐시 구분', 'Include id to distinguish cached restaurants 1 and 2')])),
-    layout='code', sources=[src('src/pages/DetailPage.jsx'), src('src/components/RestaurantCard.jsx'), QUERY])
-add('practice-routing', P('실습 4 · 상세와 인기 화면 확인', 'Practice 4 · Detail and Ranking Pages'),
-    P('화면 이동 · 직접 접속 · 없는 데이터의 결과 점검', 'Check navigation, direct access, and missing-data behavior'),
-    I('detail', '송림식당 상세 정보 화면', 'Songnim restaurant detail screen'),
-    S((P('상세 정보 확인', 'Check restaurant details'), P('첫 카드의 상세보기 → 이름 · 위치 · 추천 메뉴', 'Open the first card → Name, location, and menu')),
-      (P('직접 접속과 새로고침', 'Direct access and reload'), P('/#/restaurant/1을 새 탭에서 열고 새로고침', 'Open /#/restaurant/1 in a new tab and reload')),
-      (P('없는 id 확인', 'Try a missing ID'), P('/#/restaurant/missing → 맛집을 찾을 수 없음', '/#/restaurant/missing → Restaurant not found')),
-      (P('인기 순위 확인', 'Check the ranking'), P('초기 데이터는 평점 순 3개 · 좋아요와 별도', '3 initial entries in rating order · Independent of likes'))),
-    layout='visual', sources=[src('src/pages/DetailPage.jsx'), src('src/services/api.jsx')])
-
-CH = P('07 · 폼 입력과 데이터 변경', '07 · FORMS AND DATA MUTATIONS')
-add('form-flow', P('제보 폼의 처리 단계', 'Submission Form Processing'),
-    P('입력 등록 → 검증 → 정규화 → 저장 → 결과 표시', 'Register inputs → Validate → Normalize → Save → Show the result'),
-    I('submit', '맛집 이름과 카테고리 등 제보 입력 폼', 'Restaurant submission form with name, category, and other fields'),
-    C((P('필수 입력 - 제보의 기본 정보', 'Required inputs - Basic submission data'), [P('맛집 이름 · 카테고리 · 위치', 'Restaurant name · Category · Location')]),
-      (P('선택 입력 - 추가 설명', 'Optional inputs - Extra detail'), [P('가격대 · 추천 메뉴 · 후기 · 제보자 정보', 'Price range · Menu · Review · Submitter information')]),
-      (P('제출 결과 - 저장 성공 후 표시', 'Result - Shown after a successful save'), [P('성공 화면 · 토스트 · 입력 초기화', 'Success view · Toast · Form reset')])),
-    layout='visual', sources=[src('src/components/SubmitRestaurant.jsx')])
-add('register', P('useForm과 입력 등록', 'useForm and Input Registration'),
-    P('입력 이름과 검증 규칙을 register에 함께 지정', 'Register an input name together with validation rules'),
-    K(P('SubmitRestaurant.jsx · 입력 구조 축약', 'SubmitRestaurant.jsx · Input outline'), """
-const {
-  register,
-  handleSubmit,
-  formState: { errors, isSubmitting },
-  reset,
-} = useForm();
-
-<input
-  {...register('restaurantName', {
-    required: 'Restaurant name is required',
-  })}
-/>;
-"""),
-    C((P('register - 입력과 폼 상태 연결', 'register - Connect an input to form state'), [P('이름 · 변경 핸들러 · ref 등을 입력에 전달', 'Provide the name, change handler, ref, and related props')]),
-      (P('전개 구문 - 속성 묶음 적용', 'Spread syntax - Apply the returned props'), [P('{...register(...)}를 input에 적용', 'Apply {...register(...)} to the input')]),
-      (P('required - 빈 값 검증', 'required - Validate missing input'), [P('오류 문구는 errors.restaurantName.message', 'Read the error at errors.restaurantName.message')])),
-    layout='code', sources=[src('src/components/SubmitRestaurant.jsx'), FORM])
-add('form-submit', P('폼 제출과 중복 클릭 처리', 'Form Submission and Repeated Clicks'),
-    P('검증을 통과한 값만 onSubmit으로 전달', 'Pass validated values to onSubmit'),
-    K(P('SubmitRestaurant.jsx · 폼 구조 축약', 'SubmitRestaurant.jsx · Form outline'), """
-<form onSubmit={handleSubmit(onSubmit)}>
-  <input {...register('restaurantName', { required: true })} />
-  {errors.restaurantName && <p>Name is required.</p>}
-
-  <button type="submit" disabled={isSubmitting}>
-    {isSubmitting ? 'Submitting...' : 'Submit'}
-  </button>
-</form>;
-"""),
-    C((P('handleSubmit - 검증 후 제출 실행', 'handleSubmit - Validate, then submit'), [P('오류가 있으면 onSubmit 실행 대신 오류 표시', 'On validation failure, show errors instead of calling onSubmit')]),
-      (P('isSubmitting - 비동기 제출 진행 상태', 'isSubmitting - Async submission progress'), [P('제출 함수의 Promise 완료까지 버튼 비활성화', 'Disable the button until the submission Promise settles')]),
-      (P('이벤트 제어 - 서로 다른 두 동작', 'Event control - Two distinct operations'), [P('preventDefault: 기본 동작 취소', 'preventDefault: Cancel the default action'), P('stopPropagation: 부모로의 이벤트 전파 중단', 'stopPropagation: Stop propagation to ancestors')])),
-    layout='code', sources=[src('src/components/SubmitRestaurant.jsx'), src('src/components/RestaurantCard.jsx')])
-add('normalization', P('입력 문자열과 저장 데이터', 'Input Strings and Stored Data'),
-    P('추천 메뉴 문자열을 배열로 바꾸고 불필요한 공백 제거', 'Convert menu text into an array and remove surrounding whitespace'),
-    K(P('SubmitRestaurant.jsx · 정규화 축약', 'SubmitRestaurant.jsx · Normalization outline'), r"""
-const recommendedMenuArray = data.recommendedMenu
-  .split(/[\n,]/)
-  .map((item) => item.trim())
-  .filter(Boolean);
-
-const payload = {
-  restaurantName: data.restaurantName?.trim(),
-  category: data.category,
-  location: data.location?.trim(),
-  recommendedMenu: recommendedMenuArray,
-};
-""", 'javascript'),
-    C((P('split - 쉼표와 줄바꿈으로 분리', 'split - Separate by commas or newlines'), [P('김치찌개, 순두부 → 두 개 항목', 'Kimchi stew, soft tofu → Two items')]),
-      (P('trim · filter - 항목 정리', 'trim · filter - Clean the items'), [P('양끝 공백 제거 · 비어 있는 항목 제거', 'Trim surrounding spaces · Remove empty items')]),
-      (P('데이터 계약 - 필드 이름과 타입', 'Data contract - Field names and types'), [P('제보는 restaurantName · 맛집은 name', 'Submissions use restaurantName · Restaurants use name'), P('실제 파일에는 입력 타입별 분기와 선택 필드 포함', 'The full file also handles input types and optional fields')])),
-    layout='code', sources=[src('src/components/SubmitRestaurant.jsx')])
-add('save-submission', P('제보 저장과 성공·실패 처리', 'Saving Submissions and Handling Results'),
-    P('저장 완료를 확인한 뒤 성공 화면과 입력 초기화 수행', 'Show success and reset inputs after the save completes'),
-    K(P('SubmitRestaurant.jsx · 저장 단계 발췌', 'SubmitRestaurant.jsx · Save-stage excerpt'), """
-try {
-  await submissionAPI.createSubmission(payload);
-  setSubmitted(true);
-  toast.success('Submission saved');
-  reset();
-  setTimeout(() => setSubmitted(false), 5000);
-} catch {
-  toast.error('Submission failed');
+''', [('렌더의 스냅샷','Snapshot of a render','같은 이벤트 안의 count는 해당 렌더의 값이다. setter가 지역 값을 즉시 바꾸지 않는다.','count in the event is that render’s value. A setter does not immediately mutate it.'),('업데이트 함수','Updater function','c => c + 1은 대기열에서 이전 결과를 받아 다음 값을 계산한다.','c => c + 1 computes the next value from the previous queued result.'),('관찰 결과','Observe','0에서 “값 두 번”은 1, 이어 “함수 두 번”은 3이 된다.','From 0, “값 두 번” gives 1; then “함수 두 번” gives 3.')], [react('learn/state-as-a-snapshot'),react('learn/queueing-a-series-of-state-updates')])
+topic(11,'객체와 배열의 상태 변경','Updating Objects and Arrays','불변성을 유지하는 데이터 갱신','Update data while preserving immutability', '''
+import { useState } from 'react';
+export default function Stock() {
+  const [products, setProducts] = useState([
+    { id: 'p1', name: '사과', stocked: false }
+  ]);
+  function restock() {
+    setProducts(items => items.map(p =>
+      p.id === 'p1' ? { ...p, stocked: true } : p
+    ));
+  }
+  return <button onClick={restock}>
+    {products[0].stocked ? '재고 있음' : '품절'}
+  </button>;
 }
-"""),
-    C((P('await - 저장 성공까지 대기', 'await - Wait for the save'), [P('실패한 Promise는 catch에서 처리', 'Handle a rejected Promise in catch')]),
-      (P('성공 - 화면과 입력 상태 변경', 'Success - Update the view and inputs'), [P('성공 안내 · 입력값 초기화 · 5초 뒤 폼 복원', 'Show success · Reset inputs · Restore the form after 5 seconds')]),
-      (P('실패 - 성공 안내 생략', 'Failure - Do not show success'), [P('localStorage 쓰기 실패는 서비스에서 호출자에게 전달', 'The service propagates storage write failures to its caller')])),
-    layout='code', sources=[src('src/components/SubmitRestaurant.jsx'), src('src/services/api.jsx')])
-add('submission-record', P('제보 객체와 저장 키', 'Submission Records and Storage Keys'),
-    P('입력 데이터에 식별자와 대기 상태를 붙여 저장', 'Add an identifier and pending status before saving'),
-    K(P('services/api.jsx · createSubmission 발췌', 'services/api.jsx · createSubmission excerpt'), """
-const createSubmission = async (payload) => {
-  const items = readItems(SUBMISSIONS_KEY);
-  const item = {
-    ...payload,
-    id: crypto.randomUUID(),
-    status: 'pending',
-  };
-  writeItems(SUBMISSIONS_KEY, [...items, item]);
-  return { data: item };
-};
-""", 'javascript'),
-    C((P('id - 제보의 식별자', 'id - Submission identity'), [P('crypto.randomUUID()로 새 문자열 ID 생성', 'Create a new string ID with crypto.randomUUID()')]),
-      (P('status - 처리 상태', 'status - Processing status'), [P('pending → approved 또는 rejected', 'pending → approved or rejected')]),
-      (P('별도 목록 - 제보와 맛집 구분', 'Separate lists - Submissions and restaurants'), [P('제보 저장만으로 맛집 목록에 즉시 추가되지 않음', 'Saving a submission does not immediately add a restaurant')])),
-    layout='code', sources=[src('src/services/api.jsx')])
-add('practice-form', P('실습 5 · 제보 검증과 저장 확인', 'Practice 5 · Validation and Saving'),
-    P('정상 입력과 실패 입력을 모두 재현하는 폼 점검', 'Exercise both valid and invalid form input'),
-    T([P('실행', 'Action'), P('기대 결과', 'Expected Result'), P('확인 대상', 'Inspect')],
-      [P('필수 입력 없이 제출', 'Submit without required inputs'), P('검증 오류 · 저장 없음', 'Validation errors · No saved record'), 'errors · Local Storage'],
-      [P('가상 맛집 정보 입력', 'Enter fictional restaurant data'), P('성공 안내와 폼 초기화', 'Success message and form reset'), 'submitted · reset()'],
-      [P('추천 메뉴 두 개 입력', 'Enter two menu items'), P('문자열이 배열 두 항목으로 저장', 'Text saved as an array of two items'), 'recommendedMenu'],
-      [P('새로고침 후 키 확인', 'Reload and inspect storage'), P('제보와 pending 상태 유지', 'Submission and pending status remain'), 'pwd-week5-submissions'],
-      [P('/#/submissions 접속', 'Open /#/submissions'), P('대기 목록에 제보 표시', 'Submission appears in Pending'), 'SubmissionsPage.jsx']),
-    layout='single', sources=[src('src/components/SubmitRestaurant.jsx'), src('src/pages/SubmissionsPage.jsx')])
-add('mutation', P('관리 기능과 useMutation', 'Management Actions and useMutation'),
-    P('데이터 변경 요청과 변경 후 목록 갱신의 연결', 'Connect a data mutation to a refreshed list'),
-    K(P('AdminPage.jsx · 생성 설정 발췌', 'AdminPage.jsx · Create mutation excerpt'), """
-const createMutation = useMutation({
-  mutationFn: restaurantAPI.createRestaurant,
-  onSuccess: () => {
-    toast.success('Created');
-    queryClient.invalidateQueries({
-      queryKey: ['restaurants'],
-    });
-    reset();
-  },
-});
-"""),
-    C((P('mutationFn - 변경 함수', 'mutationFn - A function that changes data'), [P('create · update · delete 함수 연결', 'Connect create, update, and delete functions')]),
-      (P('onSuccess - 저장 이후 처리', 'onSuccess - Work after a successful write'), [P('알림 표시 · 관련 목록 캐시 갱신', 'Show feedback · Refresh the related list cache')]),
-      (P('학습용 관리 화면 - 인증 없음', 'Practice management UI - No authentication'), [P('/#/admin과 /#/submissions는 접근 제한 없는 예제', '/#/admin and /#/submissions have no access restrictions')])),
-    layout='code', sources=[src('src/pages/AdminPage.jsx'), INVALIDATE])
-add('approve-flow', P('제보 승인과 맛집 데이터 변환', 'Approvals and Restaurant Data Mapping'),
-    P('제보 필드를 맛집 필드로 바꾸어 등록하는 과정', 'Map submission fields to a restaurant record'),
-    T([P('제보 필드', 'Submission Field'), P('맛집 필드', 'Restaurant Field'), P('처리', 'Processing')],
-      ['restaurantName', 'name', P('이름 필드 변환', 'Rename the field')],
-      ['review', 'description', P('후기를 소개로 사용', 'Use the review as the description')],
-      ['recommendedMenu', 'recommendedMenu', P('배열 형태 유지', 'Preserve the array')]),
-    C((P('status - 원래 제보의 처리 상태', 'status - Status on the original submission'), [P('맛집 등록 후 제보를 pending → approved로 갱신', 'After creating the restaurant, update the submission to approved')]),
-      (P('조회 갱신 - 관련 캐시 선택', 'Refresh - Select related cache keys'), [P('현재 승인 코드는 submissions · restaurants 무효화', 'Approval invalidates submissions and restaurants'), P('상세 · 인기 캐시는 별도 키이므로 추가 갱신 필요 가능', 'Detail and ranking use separate keys that may need invalidation')]),
-      (P('두 번의 저장 - 원자적 처리 없음', 'Two writes - No atomic transaction'), [P('맛집 생성과 제보 상태 저장 사이 실패 가능', 'Failure is possible between restaurant creation and status update')])),
-    layout='visual', sources=[src('src/pages/SubmissionsPage.jsx'), src('src/services/api.jsx')])
-add('styling', P('Emotion과 화면 피드백', 'Emotion and UI Feedback'),
-    P('상태에 따른 스타일과 사용자 동작의 결과 표현', 'Express state through styles and interaction feedback'),
-    T([P('표현', 'Presentation'), P('실습 구현', 'Implementation'), P('관찰', 'Observation')],
-      [P('선택된 카테고리', 'Selected category'), 'FilterButton · active', P('배경색과 글자색 변경', 'Background and text colors change')],
-      [P('좋아요 상태', 'Liked state'), 'LikeButton · $liked', P('선택과 취소에 따른 버튼 색상', 'Button color follows the choice')],
-      [P('저장 성공 · 실패', 'Save success or failure'), 'toast.success · toast.error', P('오른쪽 아래 알림', 'Bottom-right notification')],
-      [P('반응형 목록', 'Responsive list'), 'grid · auto-fill · minmax', P('화면 폭에 맞춰 카드 열 수 변경', 'Card column count changes with width')]),
-    layout='single', sources=[src('src/components/RestaurantCard.jsx'), src('src/components/RestaurantList.jsx')])
-
-CH = P('08 · 빌드 · 배포 · 실습 완료', '08 · BUILD, DEPLOYMENT, AND COMPLETION')
-add('serverless', P('정적 호스팅과 서버리스 기능', 'Static Hosting and Serverless Features'),
-    P('배포 플랫폼의 기능과 이번 앱이 실제 사용하는 기능의 구분', 'Distinguish platform capabilities from features used by this app'),
-    T([P('구분', 'Type'), P('처리 위치와 역할', 'Execution and Role'), P('이번 실습', 'This Practice')],
-      [P('정적 호스팅', 'Static hosting'), P('빌드한 HTML · CSS · JS 파일 제공', 'Serve built HTML, CSS, and JavaScript'), P('Vercel에서 dist 파일 배포', 'Deploy dist files on Vercel')],
-      [P('브라우저 실행', 'Browser execution'), P('React 화면 계산 · 입력 처리 · localStorage', 'React UI · Input handling · localStorage'), P('이번 앱의 조회 · 저장 처리', 'Queries and storage in this app')],
-      [P('서버리스 함수', 'Serverless functions'), P('관리형 서버 환경에서 요청별 코드 실행', 'Run request-handling code on managed infrastructure'), P('함수 코드 미구현', 'No function code implemented')],
-      [P('관리형 데이터 서비스', 'Managed data services'), P('여러 사용자가 공유하는 DB · 인증 · 파일 저장', 'Shared database, authentication, and file storage'), P('브라우저 저장과 별도 구성 필요', 'Requires setup beyond browser storage')]),
-    layout='single', sources=[pdf(21), VERCEL])
-add('pdf-deployment', P('원본 PDF와 현재 실습의 배포', 'Original PDF and Current Deployment'),
-    P('React 개념은 유지하고 배포와 제보 저장은 현재 소스로 적용', 'Retain the React concepts and follow the current deployment and storage code'),
-    T([P('항목', 'Item'), P('원본 PDF', 'Original PDF'), P('이번 실습', 'This Practice')],
-      [P('호스팅', 'Hosting'), 'Netlify', 'Vercel · Vite'],
-      [P('폼 저장', 'Form storage'), 'Netlify Forms', 'localStorage · submissionAPI'],
-      [P('화면 라우팅', 'Screen routing'), 'BrowserRouter', P('실제 src/App.jsx의 HashRouter', 'HashRouter in the actual src/App.jsx')],
-      [P('서버 기능', 'Server features'), P('Forms · 서버리스 개념 소개', 'Forms · Serverless introduction'), P('정적 파일 배포 · 브라우저에서 앱 실행', 'Static files deployed · App runs in the browser')]),
-    layout='single', sources=[pdf(20), pdf(21), pdf(22), src('src/App.jsx'), VERCEL],
-    note='Netlify Forms의 hidden form·POST 예제는 현재 코드와 맞지 않으므로 실행 절차에 포함하지 않음. 정적 프론트엔드 배포 자체를 서버리스 함수 구현으로 설명하지 않음.')
-add('build-preview', P('빌드와 배포 전 미리보기', 'Build and Preview Before Deployment'),
-    P('개발 서버가 아닌 dist 결과물로 기능 확인', 'Verify features using the built dist output'),
-    K(P('터미널 · pwd-week5 프로젝트 루트', 'Terminal · pwd-week5 project root'), """
-npm run lint
-npm run build
-npm run preview
-""", 'bash'),
-    S((P('lint - 코드 규칙 점검', 'lint - Check code rules'), P('오류가 있는 파일과 줄 확인 · 수정 후 재실행', 'Inspect the reported file and line · Fix and rerun')),
-      (P('build - 배포 파일 생성', 'build - Produce deployment files'), P('dist/ 생성 · import와 파일명 오류 확인', 'Generate dist/ · Check imports and filenames')),
-      (P('preview - 빌드 결과 실행', 'preview - Run the built output'), P('터미널의 URL 접속 · 기본 포트 4173', 'Open the terminal URL · Default port 4173')),
-      (P('기능 재확인', 'Verify features again'), P('목록 · 필터 · 상세 · 좋아요 · 제보 · 새로고침', 'List · Filter · Detail · Likes · Submit · Reload'))),
-    layout='code', sources=[src('package.json'), doc('Vite · Static Deploy', 'https://vite.dev/guide/static-deploy.html')])
-add('git-own-repo', P('개인 GitHub 저장소 연결', 'Connecting a Personal GitHub Repository'),
-    P('완성 저장소를 복제한 경우 자신의 저장소로 origin 변경', 'After cloning the practice repository, point origin to your own repository'),
-    K(P('터미널 · YOUR_USERNAME을 본인 계정으로 변경', 'Terminal · Replace YOUR_USERNAME with your account'), """
-git remote -v
-
-git remote set-url origin \\
-  https://github.com/YOUR_USERNAME/pwd-week5.git
-git add .
-git commit -m "Customize campus foodmap"
-git push -u origin main
-""", 'bash', width=80),
-    S((P('원격 저장소 생성', 'Create the remote repository'), P('GitHub에 빈 pwd-week5 저장소 생성', 'Create an empty pwd-week5 repository on GitHub')),
-      (P('원격 주소 확인', 'Inspect the remote URL'), P('git remote -v로 자신의 계정 주소 확인', 'Check that git remote -v shows your own account')),
-      (P('변경 기록과 업로드', 'Commit and upload changes'), P('수정 파일 커밋 · main 브랜치 push', 'Commit edited files · Push the main branch')),
-      (P('신규 프로젝트의 차이', 'For a new project'), P('원격이 없으면 git init 후 remote add origin 사용', 'If there is no remote, use git init and remote add origin'))),
-    layout='code', sources=[src('README.md')],
-    note='기존 origin의 원본 수업 저장소에 push하도록 안내하지 않음. 커밋 명령은 실제 변경 파일이 있을 때 수행.')
-add('vercel-settings', P('Vercel 프로젝트와 빌드 설정', 'Vercel Project and Build Settings'),
-    P('GitHub 저장소를 가져와 Vite 빌드 결과 배포', 'Import the GitHub repository and deploy the Vite build'),
-    T([P('설정', 'Setting'), P('값', 'Value'), P('확인 기준', 'Check')],
-      ['Framework Preset', 'Vite', P('프레임워크 자동 감지 결과', 'The detected framework')],
-      ['Root Directory', P('프로젝트 루트', 'Project root'), P('package.json이 있는 디렉터리', 'Directory containing package.json')],
-      ['Build Command', 'npm run build', P('로컬에서 성공한 빌드 명령', 'The build command verified locally')],
-      ['Output Directory', 'dist', P('Vite가 만든 배포 파일', 'Output generated by Vite')],
-      ['Node.js · Branch', '24.x · main', P('package.json · 실제 기본 브랜치와 일치', 'Match package.json and the actual default branch')],
-      ['Environment Variables', P('이번 실습에서는 없음', 'None for this practice'), P('외부 API 주소나 DB 연결 없음', 'No external API or database connection')]),
-    layout='single', sources=[src('vercel.json'), src('package.json'), VERCEL])
-add('vercel-deploy', P('Vercel 배포와 변경 반영', 'Deploying and Updating on Vercel'),
-    P('최초 Import · 배포 로그 · 서비스 주소 · Git 연동 확인', 'Check import, build logs, the service URL, and Git integration'),
-    S((P('프로젝트 가져오기', 'Import the project'), P('Vercel → Add New → Project → 자신의 GitHub 저장소', 'Vercel → Add New → Project → Your GitHub repository')),
-      (P('설정 확인 후 Deploy', 'Review settings and deploy'), P('Vite · build · dist · Node 설정 확인', 'Check Vite, build, dist, and Node settings')),
-      (P('배포 로그와 주소 확인', 'Inspect logs and the URL'), P('빌드 성공 후 실제 할당된 Production 주소 접속', 'After a successful build, open the assigned production URL')),
-      (P('변경 반영 확인', 'Verify an update'), P('HomePage 문구 수정 → commit · push → 새 배포 확인', 'Edit HomePage text → Commit and push → Check the new deployment'))),
-    C((P('배포 명령 - 대시보드와 Git 연동', 'Deployment - Dashboard and Git integration'), [P('저장소의 npm run deploy는 GitHub Pages용', 'The repository’s npm run deploy targets GitHub Pages'), P('Vercel 실습에서는 대시보드 Deploy 사용', 'Use the dashboard Deploy action for this practice')]),
-      (P('데이터 - 배포 주소에서 새로 시작', 'Data - A separate store at the deployment URL'), [P('로컬의 좋아요와 제보는 자동 이전되지 않음', 'Local likes and submissions do not migrate automatically')])),
-    sources=[src('README.md'), src('package.json'), VERCEL])
-add('routing-deploy', P('배포 주소와 새로고침 처리', 'Deployed URLs and Reloads'),
-    P('HashRouter와 BrowserRouter의 요청 경로 차이', 'HashRouter and BrowserRouter use different request paths'),
-    T([P('방식', 'Router'), P('상세 주소', 'Detail URL'), P('새로고침 동작', 'Reload Behavior')],
-      ['HashRouter', '/#/restaurant/1', P('서버에는 / 요청 · # 뒤 경로는 브라우저 처리', 'Server receives / · The browser handles the hash')],
-      ['BrowserRouter', '/restaurant/1', P('서버에도 상세 경로 요청 · SPA rewrite 필요', 'Server receives the detail path · Requires an SPA rewrite')]),
-    K(P('vercel.json · 제공된 SPA rewrite', 'vercel.json · Provided SPA rewrite'), """
-{
-  "framework": "vite",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+''', [('새 배열과 새 객체','New array and object','map으로 새 배열을 만들고 변경 항목만 객체 전개로 복사한다.','map creates a new array; spread copies the changed item.'),('원본 상태 보존','Preserve the previous state','products[0].stocked에 직접 대입하지 않는다. 복사는 필요한 깊이까지 수행한다.','Do not assign to products[0].stocked directly. Copy each level that changes.'),('관찰 결과','Observe','버튼의 “품절”이 클릭 후 “재고 있음”으로 바뀐다.','Clicking changes “품절” to “재고 있음”.')], [react('learn/updating-arrays-in-state'),react('learn/updating-objects-in-state')])
+topic(12,'상태의 설계와 공유','Designing and Sharing State','최소 상태, 파생값과 공통 부모의 변경 책임','Minimal state, derived values, and a shared parent', '''
+import { useState } from 'react';
+export default function Search({ products }) {
+  const [query, setQuery] = useState('');
+  const visible = products.filter(p =>
+    p.name.includes(query)
+  );
+  return <>
+    <input value={query}
+      onChange={e => setQuery(e.target.value)} />
+    <p>{visible.length}개</p>
+    <ul>{visible.map(p =>
+      <li key={p.id}>{p.name}</li>
+    )}</ul>
+  </>;
 }
-""", 'json'),
-    sources=[src('src/App.jsx'), src('vercel.json'), ROUTER, VERCEL])
-add('troubleshooting', P('실습 오류와 확인 순서', 'Troubleshooting the Practice'),
-    P('에러 메시지 → 관련 파일 → 실행 조건 순서로 원인 확인', 'Inspect the error message, related file, and execution conditions'),
-    T([P('증상', 'Symptom'), P('우선 확인', 'First Check'), P('조치', 'Action')],
-      ['package.json ENOENT', P('터미널 현재 폴더', 'Current terminal directory'), P('pwd-week5 폴더로 이동', 'Change to the pwd-week5 folder')],
-      ['Module not found', P('파일명 대소문자 · import · 의존성', 'Filename case · Import · Dependencies'), P('실제 파일 경로 확인 · npm ci 재실행', 'Check the actual path · Rerun npm ci')],
-      ['Too many re-renders', P('렌더 중 setter 호출', 'Setter called during render'), P('onClick에 함수 전달', 'Pass a function to onClick')],
-      [P('제보 미표시', 'Submission missing'), P('현재 출처 · 저장 키 · pending 필터', 'Current origin · Storage key · Pending filter'), P('같은 주소의 Local Storage 확인', 'Inspect Local Storage at the same origin')],
-      [P('수정 후 오래된 화면', 'Old data after an edit'), P('조회 캐시의 key와 무효화', 'Query key and invalidation'), P('관련 캐시 갱신 · 새로고침으로 비교', 'Refresh related cache · Compare after reload')]),
-    layout='single', sources=[src('src/App.jsx'), src('src/pages/SubmissionsPage.jsx'), src('README.md')])
-add('completion', P('실습 완료 기준', 'Practice Completion Criteria'),
-    P('코드 · 동작 · 저장 · 배포를 직접 재현할 수 있는 상태', 'Reproducible code, behavior, storage, and deployment'),
-    T([P('확인 영역', 'Area'), P('완료 기준', 'Completion Criterion')],
-      [P('컴포넌트', 'Components'), P('Props의 데이터가 JSX와 목록에 표시되는 과정 설명', 'Explain how props become JSX and list items')],
-      [P('상태와 이벤트', 'State and events'), P('필터 · 좋아요 동작과 새로고침 후 복원 확인', 'Verify filters, likes, and restored values after reload')],
-      [P('라우팅과 조회', 'Routing and queries'), P('상세 URL 직접 접속 · 없는 id의 결과 확인', 'Open a detail URL directly · Check a missing ID')],
-      [P('폼과 저장', 'Forms and storage'), P('필수 검증 · 정상 제출 · 저장 키와 제보 내용 확인', 'Validate required fields · Submit · Inspect the stored record')],
-      [P('빌드와 배포', 'Build and deployment'), P('lint · build 통과 · 배포 URL과 GitHub URL 준비', 'Pass lint and build · Prepare deployment and GitHub URLs')],
-      [P('실습 제출 일정', 'Submission deadline'), P('2026. 10. 18. 23:59 · 한국시간 · 실습 README 기준', 'October 18, 2026, 23:59 KST · As listed in the practice README')]),
-    layout='single', sources=[src('README.md')])
-add('resources', P('실습 코드와 복습 자료', 'Practice Code and Review Resources'),
-    P('코드의 실행 결과와 공식 문서를 연결하는 복습 기준', 'Review behavior alongside source code and official documentation'),
-    C((P('JSX와 컴포넌트', 'JSX and components'), [P('RestaurantList · RestaurantCard의 props · map · key', 'Props, map, and keys in RestaurantList and RestaurantCard')]),
-      (P('상태와 Hooks', 'State and Hooks'), [P('ListPage의 파생값 · RestaurantCard의 State와 Effect', 'Derived data in ListPage · State and Effects in RestaurantCard')]),
-      (P('조회와 저장', 'Queries and storage'), [P('services/api.jsx의 응답 · SubmitRestaurant의 입력 처리', 'Service responses in api.jsx · Form handling in SubmitRestaurant')])),
-    S((P('실습 저장소', 'Practice repository'), P('하단 pwd-week5 링크에서 전체 코드 확인', 'Open pwd-week5 below for the complete source')),
-      (P('학습 자료', 'Learning references'), P('각 슬라이드 하단의 원본 PDF · 공식 문서 확인', 'Use the original PDF and official links under each slide')),
-      (P('결과 설명', 'Explain the result'), P('사용자 행동 → 상태 변경 → UI 반영 → 저장의 흐름 설명', 'Explain action → State update → UI update → Storage'))),
-    sources=[('pwd-week5', REPO), ('React · Learn', 'https://react.dev/learn'), ('Vercel · Vite', VERCEL[1]), ('Original PDF', PDF)])
+''', [('최소 상태와 파생값','Minimal state and derived values','query만 상태로 둔다. visible과 개수는 매 렌더에서 계산한다.','Store query as state; calculate visible items and count during render.'),('단일 변경 책임','One owner of updates','입력과 목록의 공통 부모가 상태를 소유한다. 분리할 때 값과 콜백을 전달한다.','Their shared parent owns state. Pass values and callbacks when splitting components.'),('관찰 결과','Observe','검색어가 바뀌면 목록과 개수가 함께 갱신된다. 이를 위한 Effect는 필요 없다.','Changing the query updates both list and count, without an Effect.')], [react('learn/choosing-the-state-structure'),react('learn/sharing-state-between-components')],P('React · 컴포넌트 전체 / products는 부모가 전달','React · Complete component / parent supplies products'),layout='compact')
+topic(13,'컴포넌트의 식별과 상태 보존','Component Identity and State','화면의 위치와 key에 따른 상태 유지·초기화','Preserve or reset state through position and keys', '''
+import { useState } from 'react';
+function Quantity() {
+  const [count, setCount] = useState(1);
+  return <button onClick={() => setCount(c => c + 1)}>
+    수량: {count}
+  </button>;
+}
+export default function App({ productId }) {
+  return <Quantity key={productId} />;
+}
+''', [('위치·타입·key','Position, type, and key','React는 트리 안의 식별을 기준으로 상태를 보존한다.','React preserves state according to identity in the tree.'),('명시적 초기화','Explicit reset','상품 id가 바뀌면 Quantity의 key가 바뀌어 새 상태로 시작한다.','A new product ID changes Quantity’s key and starts fresh state.'),('비교 실험','Compare','수량을 3으로 만든 뒤 상품을 바꾸면 1로 초기화된다. key를 제거하면 3이 유지된다.','Set quantity to 3 and switch products: it resets to 1. Without key, 3 persists.')], [react('learn/preserving-and-resetting-state')],P('React · 컴포넌트 전체 / 부모가 선택한 productId 전달','React · Complete component / parent passes selected productId'))
+chapter(4,'Hooks와 외부 시스템 동기화','Hooks and External Synchronization','상태 관리, 참조와 외부 연결의 역할 구분','Distinguish state, references, and external connections')
+topic(14,'Hooks의 역할과 호출 규칙','Hooks and Their Rules','함수 컴포넌트의 기능 확장과 일관된 호출 순서','Extend function components with consistent Hook calls', '''
+import { useState } from 'react';
+export default function ProductPanel({ visible }) {
+  const [count, setCount] = useState(1);
+  if (!visible) return null;
+  return <button onClick={() => setCount(c => c + 1)}>
+    수량: {count}
+  </button>;
+}
+''', [('최상위에서 호출','Call at the top level','Hook을 조건문·반복문·이벤트 안에서 호출하지 않는다. 조기 반환보다 먼저 호출한다.','Do not call Hooks in conditions, loops, or events. Call them before early returns.'),('호출 위치','Where Hooks belong','함수 컴포넌트와 커스텀 Hook 안에서 React의 기능을 사용한다.','Use React features inside function components or custom Hooks.'),('관찰 결과','Observe','visible이 바뀌어도 Hook 호출 순서는 같다. 부모가 컴포넌트를 제거하면 상태는 사라진다.','Hook order stays consistent when visible changes. Removing the component discards its state.')], [pdf(16),react('reference/rules/rules-of-hooks')])
+topic(15,'State와 Ref의 구분','State Versus Ref','화면을 갱신하는 값과 렌더 사이에 유지하는 참조','Values that update UI and references that persist', '''
+import { useRef, useState } from 'react';
+export default function SearchField() {
+  const inputRef = useRef(null);
+  const [query, setQuery] = useState('');
+  return <>
+    <input ref={inputRef} value={query}
+      onChange={e => setQuery(e.target.value)} />
+    <button onClick={() => inputRef.current.focus()}>
+      검색창으로 이동
+    </button>
+    <p>검색어: {query}</p>
+  </>;
+}
+''', [('State: 화면 데이터','State: UI data','query가 바뀌면 렌더가 예약되고 검색어 표시가 갱신된다.','Changing query schedules a render and updates its display.'),('Ref: 유지되는 참조','Ref: persistent reference','inputRef.current로 DOM에 접근한다. Ref 변경 자체는 렌더를 예약하지 않는다.','inputRef.current accesses the DOM. Ref changes alone do not schedule renders.'),('관찰 결과','Observe','입력하면 문구가 바뀌고 버튼을 누르면 입력창에 포커스가 이동한다.','Typing updates the text; clicking the button focuses the input.')], [react('learn/referencing-values-with-refs'),react('learn/manipulating-the-dom-with-refs')])
+topic(16,'이벤트 처리와 Effect','Events and Effects','사용자 행동에 따른 작업과 외부 시스템 동기화','User-triggered work and synchronization with external systems', '''
+import { useEffect, useState } from 'react';
+export default function ProductName() {
+  const [name, setName] = useState('사과');
+  useEffect(() => {
+    const previous = document.title;
+    document.title = `상품: ${name}`;
+    return () => { document.title = previous; };
+  }, [name]);
+  return <input value={name}
+    onChange={e => setName(e.target.value)} />;
+}
+''', [('이벤트: 특정 행동','Event: a specific action','사용자가 입력할 때 onChange에서 상태를 변경한다.','onChange updates state when the user types.'),('Effect: 외부와 동기화','Effect: synchronize externally','React 화면 밖의 브라우저 탭 제목을 name과 맞춘다. 파생값 계산은 렌더에서 한다.','Synchronize the browser tab title with name. Compute derived values during render.'),('관찰 결과','Observe','입력값을 바꾸면 탭 제목이 바뀐다. 제거되면 원래 제목으로 돌아간다.','Editing changes the tab title; unmounting restores the original title.')], [pdf(17),react('learn/synchronizing-with-effects'),react('learn/you-might-not-need-an-effect')])
+topic(17,'Effect의 의존성과 정리','Effect Dependencies and Cleanup','연결의 시작·갱신·종료와 cleanup','Start, update, and stop connections with cleanup', '''
+import { useEffect } from 'react';
+export default function Poll({ productId }) {
+  useEffect(() => {
+    console.log('start', productId);
+    const timer = setInterval(() => {
+      console.log('poll', productId);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+      console.log('stop', productId);
+    };
+  }, [productId]);
+  return <p>조회 대상: {productId}</p>;
+}
+''', [('의존성은 사용 값','Dependencies follow used values','Effect가 읽는 반응형 값 productId를 의존성으로 선언한다.','Declare the reactive value productId read by the Effect.'),('정리 후 다시 시작','Clean up before restarting','id 변경 시 이전 타이머를 정리하고 새 타이머를 만든다. 제거할 때도 정리한다.','Clean up the previous timer before starting a new one; also clean up on unmount.'),('관찰 결과','Observe','p1 → p2 변경 시 stop p1 뒤 start p2. 개발 Strict Mode에서는 추가 setup·cleanup 검사가 있다.','Switching p1 → p2 logs stop p1 then start p2. Development Strict Mode adds a setup/cleanup check.')], [pdf(17),react('reference/react/useEffect')],P('React · 로그로 연결 수명 관찰 / productId는 Props','React · Observe connection lifetime in logs / productId is a prop'))
+topic(18,'커스텀 Hook과 로직 재사용','Custom Hooks and Logic Reuse','공통 상태·동기화 로직의 추출과 독립적인 상태','Extract shared logic while keeping state independent', '''
+import { useState } from 'react';
+function useQuantity() {
+  const [value, setValue] = useState(1);
+  return [value, () => setValue(v => v + 1)];
+}
+export default function TwoProducts() {
+  const [apple, addApple] = useQuantity();
+  const [pear, addPear] = useQuantity();
+  return <>
+    <button onClick={addApple}>사과: {apple}</button>
+    <button onClick={addPear}>배: {pear}</button>
+  </>;
+}
+''', [('로직의 추출','Extract logic','use로 시작하는 함수 안에 반복되는 Hook 사용을 묶는다.','Group repeated Hook usage in a function whose name starts with use.'),('상태는 호출마다 독립','Each call owns its state','같은 Hook을 호출해도 상태 값 자체를 공유하지 않는다. 공유가 필요하면 상태를 올린다.','Calling the same Hook does not share state. Lift state when sharing is needed.'),('관찰 결과','Observe','사과 버튼을 눌러도 배 수량은 1을 유지한다.','Clicking the apple button leaves the pear quantity at 1.')], [react('learn/reusing-logic-with-custom-hooks')])
+chapter(5,'라우팅과 애플리케이션 데이터 흐름','Routing and Application Data Flow','하나의 화면을 여러 페이지의 서비스로 확장하는 방법','Expand one screen into a service with multiple pages')
+topic(19,'URL과 페이지의 연결','Connecting URLs to Pages','경로, 동적 매개변수와 화면 선택','Paths, dynamic parameters, and page selection', '''
+// app/products/[id]/page.jsx
+export default async function ProductPage({ params }) {
+  const { id } = await params;
+  return <h1>상품 ID: {id}</h1>;
+}
+''', [('파일 기반 경로','File-based paths','app/products/[id]/page.jsx가 상품 상세 경로를 정의한다.','app/products/[id]/page.jsx defines the product detail route.'),('동적 매개변수','Dynamic parameters','[id] 부분의 URL 값은 params로 전달된다. 현재 App Router에서 await로 읽는다.','The [id] URL segment is provided through params, read with await in the current App Router.'),('관찰 결과','Observe','/products/p1 → “상품 ID: p1”, /products/p2 → “상품 ID: p2”.','/products/p1 displays “상품 ID: p1”; /products/p2 displays “상품 ID: p2”.')], [nextdoc('getting-started/layouts-and-pages')],P('Next.js App Router · 페이지 파일 전체','Next.js App Router · Complete page file'))
+topic(20,'공통 레이아웃과 중첩 라우트','Shared Layouts and Nested Routes','여러 페이지가 공유하는 구조와 하위 화면 구성','Shared page structures and nested views', '''
+// app/products/layout.jsx
+import Link from 'next/link';
+export default function ProductsLayout({ children }) {
+  return <section>
+    <nav><Link href="/products">상품 목록</Link></nav>
+    <main>{children}</main>
+  </section>;
+}
+''', [('레이아웃은 공통 구조','Layouts provide shared structure','상품 목록과 상세 페이지가 같은 메뉴를 사용한다.','Product list and detail pages share navigation.'),('중첩 경로와 children','Nested routes and children','프레임워크가 현재 하위 페이지를 children 위치에 구성한다. 루트 layout은 html·body를 포함한다.','The framework places the current nested page in children. The root layout includes html and body.'),('관찰 결과','Observe','목록에서 상세로 이동해도 상품 영역의 공통 메뉴는 유지된다.','Navigating from list to detail retains the shared product navigation.')], [nextdoc('getting-started/layouts-and-pages')],P('Next.js · 중첩 layout 파일 전체 / 루트 layout 별도','Next.js · Complete nested layout / root layout required separately'))
+topic(21,'UI 상태와 서버 데이터','UI State and Server Data','검색 조건과 상품 데이터의 출처·수명·변경 책임','Origins, lifetimes, and ownership of filters and product data', '''
+'use client';
+import { useState } from 'react';
+export default function ProductFilter({ products }) {
+  const [query, setQuery] = useState('');
+  const visible = products.filter(p =>
+    p.name.includes(query)
+  );
+  return <>
+    <input value={query}
+      onChange={e => setQuery(e.target.value)} />
+    <p>검색 결과: {visible.length}개</p>
+  </>;
+}
+''', [('UI 상태','UI state','query는 이 화면에서 사용자가 입력하는 일시적인 값이다.','query is a temporary value entered by the user on this screen.'),('서버 데이터','Server data','products의 원본은 서버에 있다. 자식이 필터링해도 원본 저장 내용은 바뀌지 않는다.','The source of products lives on the server. Filtering in the child does not change stored data.'),('관찰 결과','Observe','입력은 결과 개수만 바꾼다. 상품 저장·수정은 별도의 서버 작업이 필요하다.','Typing changes the result count; storing or editing a product requires a server operation.')], [react('learn/thinking-in-react'),nextdoc('getting-started/fetching-data')],P('Next.js · Client Component 전체 / 서버에서 products 전달','Next.js · Complete Client Component / server supplies products'))
+topic(22,'페이지에 필요한 데이터 조회','Fetching Page Data','라우트와 데이터 로딩의 연결','Connect a route to the data it needs', '''
+// app/products/page.jsx
+import { listProducts } from '@/lib/products';
+export default async function ProductsPage() {
+  const products = await listProducts();
+  return <ul>{products.map(p =>
+    <li key={p.id}>{p.name}</li>
+  )}</ul>;
+}
+''', [('페이지가 필요한 데이터 선언','Declare data where it is needed','Server Component 페이지에서 조회를 기다린 뒤 UI를 반환한다.','The Server Component page awaits data before returning UI.'),('조회 계층의 역할','The data-access layer','listProducts는 서버 전용 DB 조회 함수다. DB 연결·실패 처리는 별도 구현한다.','listProducts is a server-only database query function. Connection and failure handling require a separate implementation.'),('관찰 결과','Observe','서버 조회 결과의 이름을 표시한다. 브라우저 useEffect가 서버 조회를 대신하지 않는다.','Displays names returned by the server query. A browser useEffect does not replace this server query.')], [nextdoc('getting-started/fetching-data')],P('Next.js · 구조 예시 / listProducts 구현 별도','Next.js · Structure example / listProducts implemented separately'))
+topic(23,'데이터 변경과 화면 동기화','Mutations and UI Synchronization','저장·수정·삭제 이후 캐시와 데이터 재검증','Revalidate data and caches after saving, editing, or deleting', '''
+'use server';
+import { revalidatePath } from 'next/cache';
+import { saveProduct } from '@/lib/products';
+import { requireEditor } from '@/lib/auth';
+export async function createProduct(formData) {
+  await requireEditor();
+  const name = String(formData.get('name') ?? '').trim();
+  if (!name) return { error: '상품명을 입력하세요' };
+  await saveProduct({ name });
+  revalidatePath('/products');
+  return { error: null };
+}
+''', [('변경과 조회는 다른 작업','Mutation and query differ','저장 성공만으로 모든 화면의 오래된 데이터가 자동 교체되지는 않는다.','A successful save does not automatically replace stale data everywhere.'),('재검증의 대상','Revalidation target','저장 후 /products 경로를 재검증한다. 실제 갱신 시점은 호출 위치·캐시 정책에 따라 달라진다.','Revalidate /products after saving; update timing depends on the call context and cache policy.'),('관찰할 흐름','Observe the flow','권한 검사 → 입력 검사 → 저장 → 재검증. 오류이면 저장과 재검증을 실행하지 않는다.','Authorization → validation → save → revalidate. A validation error skips saving and revalidation.')], [nextdoc('api-reference/functions/revalidatePath')],P('Next.js · Server Function 예시 / DB·권한 함수 별도','Next.js · Server Function example / DB and authorization helpers required'))
+chapter(6,'렌더링 전략과 서버·클라이언트 경계','Rendering and Server–Client Boundaries','화면의 생성 시점과 코드의 실행 위치','When UI is generated and where code executes')
+topic(24,'클라이언트 렌더링과 서버 렌더링','Client and Server Rendering','CSR·SSR·사전 렌더링의 화면 생성 과정','How CSR, SSR, and prerendering generate UI', '''
+// CSR entry: browser execution
+import { createRoot } from 'react-dom/client';
+function App() { return <h1>상품 목록</h1>; }
+createRoot(document.getElementById('root')).render(<App />);
+
+// SSR API shape: separate server execution
+import { renderToString } from 'react-dom/server';
+const html = renderToString(<App />);
+''', [('CSR: 브라우저에서 시작','CSR: begin in the browser','브라우저가 코드를 받아 UI를 구성한다. root 요소가 있는 HTML이 필요하다.','The browser receives code and builds UI. The HTML must include a root element.'),('SSR과 사전 렌더링','SSR and prerendering','SSR은 요청 시, 사전 렌더링은 요청 전에 HTML을 준비한다. Next.js는 경로와 정책에 따라 조합한다.','SSR prepares HTML on request; prerendering prepares it beforehand. Next.js combines these according to route policies.'),('코드의 실행 환경','Execution environments','위·아래 코드는 별도 환경의 API 비교다. renderToString 호출만으로 서버 서비스가 만들어지지는 않는다.','The blocks compare APIs in separate environments. Calling renderToString alone does not build a server service.')], [react('reference/react-dom/client/createRoot'),react('reference/react-dom/server/renderToString')],P('React DOM · 구조 비교 / 브라우저·서버 파일 분리','React DOM · API comparison / separate browser and server files'))
+topic(25,'Hydration과 상호작용','Hydration and Interaction','서버에서 생성한 HTML과 브라우저 코드의 연결','Connect server-generated HTML to browser code', '''
+// Shared component: server and browser
+import { useState } from 'react';
+function Quantity() {
+  const [count, setCount] = useState(1);
+  return <button onClick={() => setCount(c => c + 1)}>
+    수량: {count}
+  </button>;
+}
+// Browser entry after matching server HTML arrives
+import { hydrateRoot } from 'react-dom/client';
+hydrateRoot(document.getElementById('root'), <Quantity />);
+''', [('HTML 표시와 상호작용 연결','HTML display and interactivity','서버가 Quantity의 초기 HTML을 보낸 뒤 브라우저가 같은 트리를 연결한다.','The server sends initial Quantity HTML; the browser attaches the same tree.'),('초기 결과의 일치','Matching initial output','서버 HTML과 브라우저의 첫 렌더가 일치해야 한다. 시간·난수·환경 분기에 주의한다.','Server HTML must match the first browser render. Time, randomness, and environment branches can cause mismatches.'),('관찰 결과','Observe','서버 HTML은 “수량: 1”을 먼저 보여주고 Hydration 후 클릭으로 2가 된다. Next.js는 연결을 관리한다.','Server HTML shows “수량: 1”; after hydration, a click gives 2. Next.js manages hydration.')], [react('reference/react-dom/client/hydrateRoot')],P('React DOM · 구조 예시 / 서버가 같은 Quantity HTML 제공','React DOM · Structure example / server supplies matching Quantity HTML'))
+topic(26,'Server Components와 Client Components','Server and Client Components','서버의 데이터 처리와 브라우저의 상태·이벤트 분담','Split server data work from browser state and events', '''
+// app/products/page.jsx — Server Component
+import Quantity from './quantity';
+import { listProducts } from '@/lib/products';
+export default async function Page() {
+  const products = await listProducts();
+  return <>
+    <h1>{products[0].name}</h1>
+    <Quantity />
+  </>;
+}
+// quantity.jsx starts with 'use client'
+// Quantity is the state/event component from topic 08.
+''', [('서버 컴포넌트','Server Component','기본 App Router 페이지는 서버에서 실행하며 DB에 접근할 수 있다. 브라우저용 상태·이벤트는 쓰지 않는다.','An App Router page runs on the server by default and can access a database. Browser state and events belong elsewhere.'),('클라이언트 경계','Client boundary','quantity.jsx 맨 위의 use client가 클라이언트 모듈 경계를 선언한다. 초기 HTML은 서버에서 준비될 수도 있다.','use client at the top of quantity.jsx declares a client module boundary. Its initial HTML may still be prepared on the server.'),('구분의 기준','Distinction','RSC는 코드 실행 경계이고 SSR은 HTML 생성 전략이다. 같은 의미로 사용하지 않는다.','RSC describes code execution boundaries; SSR is an HTML generation strategy.')], [nextdoc('getting-started/server-and-client-components'),react('reference/rsc/server-components')],P('Next.js · 구조 예시 / 별도 Quantity·조회 함수, 상품 1개 이상 가정','Next.js · Structure example / separate Quantity and query helper; assumes a product exists'))
+topic(27,'서버·클라이언트 데이터 전달','Passing Data Across the Boundary','컴포넌트 경계, 직렬화와 서버 전용 정보','Serialization and server-only information at component boundaries', '''
+// app/products/page.jsx — server
+import ProductFilter from './product-filter';
+import { listProducts } from '@/lib/products';
+export default async function Page() {
+  const products = await listProducts();
+  const publicProducts = products.map(p => ({
+    id: p.id, name: p.name, price: p.price
+  }));
+  return <ProductFilter products={publicProducts} />;
+}
+''', [('전달할 데이터 선택','Select data to pass','클라이언트에 필요한 필드만 전달한다. 비밀 키·내부 원가·DB 연결 객체는 제외한다.','Pass only required fields; exclude secrets, internal costs, and database connection objects.'),('직렬화 가능한 Props','Serializable props','React가 지원하는 직렬화 가능한 값을 전달한다. JSON에만 한정되지는 않는다.','Pass values supported by React serialization; this is not limited to JSON.'),('관찰 결과','Observe','주제 21의 ProductFilter가 받은 데이터로 브라우저에서 검색한다. 전달된 데이터는 사용자가 볼 수 있다.','ProductFilter from topic 21 filters the received data in the browser. Users can inspect data sent to the client.')], [nextdoc('getting-started/server-and-client-components'),nextdoc('guides/data-security')],P('Next.js · 구조 예시 / 주제 21 컴포넌트·DB 함수 별도','Next.js · Structure example / topic 21 component and DB helper required'))
+chapter(7,'비동기 작업과 폼 제출','Async Work and Form Submission','대기·성공·실패를 포함하는 사용자 작업의 완성','Complete user tasks through waiting, success, and failure')
+topic(28,'비동기 작업의 UI 상태','UI States for Async Work','로딩, 빈 결과, 제출 중과 실패 상태','Loading, empty results, pending submission, and failure', '''
+export default function Results({ status, products }) {
+  if (status === 'loading') return <p>조회 중</p>;
+  if (status === 'error') return <p role="alert">조회 실패</p>;
+  if (products.length === 0) return <p>검색 결과 없음</p>;
+  return <ul>{products.map(p =>
+    <li key={p.id}>{p.name}</li>
+  )}</ul>;
+}
+''', [('상태에 따라 다른 화면','Different views for different states','조회 중과 실패는 빈 결과와 구분한다. 성공 후 항목이 없는 경우에만 빈 결과를 보여준다.','Distinguish loading and failure from empty results. Show empty only after a successful query with no items.'),('제출 중의 피드백','Submission feedback','조회 중은 읽기 작업, 제출 중은 변경 작업이다. 진행 표시와 중복 제출 방지를 함께 설계한다.','Loading concerns reads; pending submission concerns mutations. Provide progress feedback and prevent duplicate submission.'),('비교 입력','Compare inputs','loading → 조회 중, error → 조회 실패, success + [] → 검색 결과 없음.','loading → 조회 중; error → 조회 실패; success + [] → 검색 결과 없음.')], [react('learn/reacting-to-input-with-state')],P('React · 표시 컴포넌트 전체 / status·products는 부모가 관리','React · Complete display component / parent manages status and products'))
+topic(29,'Suspense와 점진적 화면 표시','Suspense and Progressive Display','준비 중인 영역의 fallback과 스트리밍','Fallbacks and streaming for areas still being prepared', '''
+// app/products/page.jsx
+import { Suspense } from 'react';
+import { listProducts } from '@/lib/products';
+async function ProductList() {
+  const products = await listProducts();
+  return <p>{products.map(p => p.name).join(' · ')}</p>;
+}
+export default function Page() {
+  return <>
+    <h1>상품 목록</h1>
+    <Suspense fallback={<p>상품 조회 중</p>}>
+      <ProductList />
+    </Suspense>
+  </>;
+}
+''', [('경계 안의 준비 대기','Wait within a boundary','제목은 먼저 표시하고 데이터가 준비되는 목록에 fallback을 표시할 수 있다.','The title can appear first while a fallback covers the list waiting for data.'),('지원되는 데이터 연결','Supported data integration','App Router의 async Server Component 예시다. Effect 안의 fetch를 Suspense가 자동 감지하지 않는다.','This uses an async Server Component in App Router. Suspense does not automatically detect fetch inside an Effect.'),('관찰 결과','Observe','목록 조회가 대기하면 “상품 조회 중”을 거쳐 목록이 나타난다. 캐시·응답 속도에 따라 대기가 보이지 않을 수 있다.','A slow query may show “상품 조회 중” before the list. Cached or fast responses may hide the wait.')], [react('reference/react/Suspense'),nextdoc('getting-started/fetching-data')],P('Next.js · 페이지 구조 예시 / 조회 함수 별도','Next.js · Page structure example / query helper required'))
+topic(30,'폼 제출과 Actions','Forms and Actions','입력 데이터 수집과 제출 결과·진행 상태 관리','Collect input and manage submission results and progress', '''
+import { useActionState } from 'react';
+async function validateName(previous, formData) {
+  await new Promise(resolve => setTimeout(resolve, 500));
+  const name = String(formData.get('name') ?? '').trim();
+  return name ? `확인: ${name}` : '상품명을 입력하세요';
+}
+export default function ProductForm() {
+  const [message, action, pending] = useActionState(
+    validateName, ''
+  );
+  return <form action={action}>
+    <input name="name" aria-label="상품명" />
+    <button disabled={pending}>
+      {pending ? '확인 중' : '확인'}
+    </button>
+    <p role="status">{message}</p>
+  </form>;
+}
+''', [('FormData와 Action','FormData and an Action','name 속성으로 입력을 수집한다. action 함수는 폼 제출을 처리한다.','The name attribute identifies submitted fields. An action function handles form submission.'),('결과·진행 상태','Result and pending state','useActionState는 이전 결과·FormData를 함수에 전달하고 결과와 pending을 제공한다.','useActionState passes previous state and FormData, and exposes the result and pending state.'),('관찰 결과','Observe','제출 중 버튼이 비활성화되고 확인 결과가 표시된다. 이 예제는 지연·입력 확인만 하며 저장하지 않는다.','The button is disabled while pending, then shows the validation result. This example simulates delay and validates input without saving.')], [react('reference/react/useActionState'),react('reference/react-dom/components/form')],layout='compact')
+topic(31,'서버의 데이터 변경과 검증','Server Mutations and Validation','Server Function·라우트 action의 역할과 입력·권한 검사','Server Functions, route actions, and input and permission checks', '''
+'use server';
+import { requireEditor } from '@/lib/auth';
+import { saveProduct } from '@/lib/products';
+export async function createProduct(previous, formData) {
+  await requireEditor();
+  const name = String(formData.get('name') ?? '').trim();
+  if (!name || name.length > 40) {
+    return { error: '상품명은 1~40자입니다' };
+  }
+  await saveProduct({ name });
+  return { error: null };
+}
+''', [('서버에서도 검사','Validate on the server too','브라우저 검사는 우회 가능하다. 서버 진입점에서 인증·권한과 입력을 검사한다.','Browser checks can be bypassed. Check authentication, authorization, and inputs at the server entry point.'),('프레임워크의 변경 진입점','Framework mutation entry points','Next.js는 Server Function을, React Router는 라우트 action을 제공한다. 여기서는 Next.js API를 사용한다.','Next.js offers Server Functions; React Router offers route actions. This example uses Next.js APIs.'),('연결과 결과','Integration and results','주제 30의 action 함수 대신 연결할 때 초기 결과는 { error: null }로 맞춘다. 저장 후 재검증은 주제 23처럼 추가한다.','When replacing the topic 30 action, initialize state as { error: null }. Add post-save revalidation as in topic 23.')], [nextdoc('guides/data-security'),react('reference/rsc/use-server')],P('Next.js · Server Function 예시 / DB·권한 함수 별도','Next.js · Server Function example / DB and authorization helpers required'))
+topic(32,'낙관적 UI와 오류 복구','Optimistic UI and Error Recovery','응답 전 화면 갱신과 실패 시 결과 처리','Update before the response and handle failure', '''
+import { useOptimistic, useState } from 'react';
+export default function Stock({ initial, saveStock }) {
+  const [stocked, setStocked] = useState(initial);
+  const [shown, show] = useOptimistic(stocked);
+  const [error, setError] = useState('');
+  async function action() {
+    setError('');
+    show(true);
+    await saveStock(true)
+      .then(setStocked)
+      .catch(() => setError('저장 실패: 다시 시도하세요'));
+  }
+  return <form action={action}>
+    <p>{shown ? '재고 있음' : '품절'}</p>
+    <button>입고 처리</button>
+    <p role="alert">{error}</p>
+  </form>;
+}
+''', [('임시 표시와 확정 상태','Temporary view and confirmed state','useOptimistic은 Action 중 임시로 재고를 표시한다. 서버 응답을 받은 뒤 확정 상태를 갱신한다.','useOptimistic temporarily shows stock during an Action. Update confirmed state after the server response.'),('실패 시 복구','Recovery on failure','실패하면 확정 상태를 바꾸지 않는다. Action이 끝나면 표시가 확정 상태로 돌아가고 오류를 알린다.','On failure, leave confirmed state unchanged. When the Action ends, display returns to that state and shows the error.'),('비교 실험','Compare','initial=false에서 지연 성공은 품절 → 재고 있음 유지. 지연 실패는 재고 있음 → 품절 복구.','With initial=false, delayed success keeps 재고 있음; delayed failure restores 품절.')], [react('reference/react/useOptimistic')],P('React · 컴포넌트 전체 / saveStock은 Promise<boolean> 반환 또는 reject','React · Complete component / saveStock returns Promise<boolean> or rejects'),layout='compact')
+
+assert len(SLIDES) == 40
+assert [s['topic_number'] for s in SLIDES if s['kind'] == 'topic'] == list(range(1,33))

@@ -40,7 +40,7 @@ fs.mkdirSync(output, {recursive: true});
                 result.push({type: 'title-wrap', text: e.textContent});
             }
             const blocks = [...s.querySelectorAll('.w5-block')].map(e => e.getBoundingClientRect());
-            if (blocks.length === 2 && blocks[0].right > blocks[1].left + 1)
+            if (blocks.length === 2 && Math.abs(blocks[0].top - blocks[1].top) < 1 && blocks[0].right > blocks[1].left + 1)
               result.push({type: 'column-overlap'});
             return result;
           });

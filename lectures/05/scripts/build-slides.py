@@ -44,7 +44,7 @@ sections = []
 for i, s in enumerate(SLIDES):
     key = f'w5_{i + 1:02}'
     ident = 'cover' if i == 0 else s['id']
-    cls = 'w5-cover' if i == 0 else 'wd-slide--content'
+    cls = 'w5-cover' if i == 0 else ('w5-chapter' if s['kind'] == 'chapter' else 'wd-slide--content')
     parts = [f'<section class="wd-slide w5-slide {cls}{" is-active" if i == 0 else ""}" data-wd-slide="{ident}" role="region">']
     parts.append(tr(key + '_chapter', s['chapter'], 'p', 'w5-eyebrow'))
     parts.append(tr(key + '_title', s['title'], 'h1' if i == 0 else 'h2', 'w5-title' if i == 0 else 'wd-slide-heading'))
@@ -65,15 +65,15 @@ for i, s in enumerate(SLIDES):
     parts.append('</section>')
     sections.append('\n'.join(parts))
 
-MESSAGES['ko']['page_title'] = '05 | React 심화 · 캠퍼스 푸드맵'
-MESSAGES['en']['page_title'] = '05 | React Development · Campus Foodmap'
+MESSAGES['ko']['page_title'] = '05 | React Framework의 이해'
+MESSAGES['en']['page_title'] = '05 | Understanding React Framework'
 ROOT.joinpath('lecture-content.js').write_text('window.LECTURE_CONTENT = ' + json.dumps(MESSAGES, ensure_ascii=False, indent=2) + ';\n')
 ROOT.joinpath('index.html').write_text('''<!doctype html>
 <html class="wd-page" lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title data-wd-i18n="page_title">05 | React 심화 · 캠퍼스 푸드맵</title>
+  <title data-wd-i18n="page_title">05 | React Framework의 이해</title>
   <link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
   <link rel="stylesheet" href="lecture.css">
 </head>
@@ -87,5 +87,5 @@ ROOT.joinpath('index.html').write_text('''<!doctype html>
 <script src="../../packages/web-deck/web-deck.js"></script>
 </body></html>
 ''')
-ROOT.joinpath('materials/slide-map.json').write_text(json.dumps([{'number': i + 1, 'id': s.get('id', 'cover'), 'title': s['title'][0], 'sources': s.get('sources', [])} for i, s in enumerate(SLIDES)], ensure_ascii=False, indent=2) + '\n')
+ROOT.joinpath('materials/slide-map.json').write_text(json.dumps([{'number': i + 1, 'id': s.get('id', 'cover'), 'title': s['title'][0], 'subtitle': s['lead'][0], 'kind': s['kind'], 'topic_number': s['topic_number'], 'chapter': s['chapter'][0], 'sources': s.get('sources', [])} for i, s in enumerate(SLIDES)], ensure_ascii=False, indent=2) + '\n')
 print(f'Built {len(SLIDES)} bilingual slides')
