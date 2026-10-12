@@ -1,0 +1,10 @@
+[
+  {
+    "source_slide": "slide-03",
+    "locale": "en",
+    "key": "slide_03_b0_cell2_1",
+    "before": "Keep scattered update code and displayed data in sync",
+    "after": "Coordinate scattered update code to keep the UI in sync with the data",
+    "reason": "2026-10-12 review: preserve the Korean meaning that UI and data, rather than code and data, stay in sync. Correct Week 5 only; keep Lecture 04 intact."
+  }
+]

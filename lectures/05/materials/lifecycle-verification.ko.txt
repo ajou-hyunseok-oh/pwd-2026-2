@@ -1,0 +1,62 @@
+[현행 안내 · 2026-10-12 세부 검토 후]
+이 파일은 생명주기 검증과 그 직후 교정의 이력이다. 아래의 ‘현재’, 화면 번호와 검사 결과는 각 기록 당시의 상태를 뜻하며, 현행 65장 덱의 최종 판정은 detail-review-2026-10-12.ko.txt를 기준으로 확인한다.
+특히 [4]의 ‘개발 Strict Mode의 추가 설정·정리는 61번에서 이미 설명함’과 마지막 기록의 ‘60번 배열 생략 설명’은 과거 검토 기록의 주장이다. 이번 세부 검토 직전 61번에는 StrictMode 실행 조건이 없었고, 60번에는 배열 형태별 비교가 없었으므로 현행 내용의 근거로 사용하지 않는다. 현재 교정에서는 45·60·61번 콘솔 결과의 실행 조건과 Effect 의존성 설명을 별도로 확인한다. 아래 이력은 수정하지 않고 보존한다.
+
+2026-10-12 · 컴포넌트 생명주기와 Hook 연결의 공식 문서 대조
+
+범위: 28 컴포넌트 생명주기, 45 Render, 46 Commit, 56–62 Hook 챕터 및 공유 SVG 도식.
+판정: 실행 순서의 핵심은 정확하나, Update 정의와 Effect의 독립적인 생명주기 설명은 보완 필요. 슬라이드 본문·도식은 이번 검증에서 변경하지 않음.
+
+[1] 28번 Update 정의 — 수정 필요
+현재: 화면에 있는 컴포넌트의 표시 내용이 갱신되는 단계.
+공식: 새로운 Props 또는 State를 받을 때 Update. 렌더 결과가 같으면 DOM 변경은 없음.
+권장: 컴포넌트가 새로운 입력이나 상태에 맞춰 UI를 다시 계산하는 단계.
+28번에서는 아직 Props·State를 소개하지 않았으므로 ‘입력이나 내부 값’으로 풀어 써도 됨. 45번에서 정확한 Props·State 용어로 연결.
+출처: https://react.dev/learn/lifecycle-of-reactive-effects
+      https://react.dev/learn/render-and-commit
+
+[2] 45–46번 Render·Commit — 기본 설명 적합, 도식의 적용 범위 보완
+UI 계산과 DOM 반영의 구분, 첫 DOM 연결, 달라진 부분만 변경하는 설명은 공식 문서와 일치.
+일반적인 화면 반영 흐름을 보여주는 도식으로 적합. 다만 모든 Render가 반드시 Commit으로 이어지는 보장으로 읽으면 부정확. React는 렌더 결과를 폐기할 수 있음.
+Mount → Update → Unmount의 화살표는 예시 순서임을 구분할 필요. Update는 0회 이상 가능하며 Mount 뒤 바로 Unmount도 가능.
+권장: 생명주기 본문에 ‘Update는 필요할 때 0회 이상 반복’ 추가 또는 Mount→Unmount 경로 표시. Render 장에는 ‘Render 결과가 같으면 DOM 변경 없음’을 우선 보완. 렌더 폐기·중단은 심화 범위이므로 기본 슬라이드의 필수 설명으로 강제하지 않음.
+출처: https://react.dev/learn/render-and-commit
+      https://react.dev/reference/react/Component#render
+
+[3] 56번 useState·58번 useRef — 적합
+useState의 최초 렌더 초기 상태 준비 및 이후 현재 상태 반환은 정확.
+useRef의 첫 참조 객체 생성 및 이후 같은 객체 반환, 값 변경만으로 렌더를 요청하지 않는 설명은 정확.
+DOM ref의 Commit 연결 및 제거 시 null 해제는 DOM에 연결한 객체 ref에 한정한 설명으로 적합. 모든 useRef의 current가 Unmount 때 자동으로 null이 된다는 일반화는 피해야 함. 현재 본문은 ‘DOM에 연결한 ref’로 제한함.
+출처: https://react.dev/reference/react/useState
+      https://react.dev/reference/react/useRef
+      https://react.dev/learn/manipulating-the-dom-with-refs#when-react-attaches-the-refs
+
+[4] 59–61번 Effect — 실행 순서 적합, 개념적 구분 보완 필요
+useEffect 호출은 Render 중, 설정 함수는 Commit 이후라는 구분은 정확. 의존성 변경 시 이전 정리→새 설정, 제거 시 정리도 정확.
+공식 문서는 Effect를 컴포넌트 생명주기의 콜백으로 생각하는 방식을 피하도록 권고하며, 각 Effect의 동기화 시작→중지라는 독립적 주기를 강조.
+현재 도식은 실행 시점 참고로 유효하나, 독립적 주기 설명이 없어서 Mount·Update·Unmount에 일대일 대응하는 Hook으로 오해할 여지가 있음.
+권장 문구: ‘Effect는 외부 시스템과 동기화를 시작하고 정리 함수로 중지하는 작업’. ‘컴포넌트가 유지되는 동안에도 의존성이 바뀌면 중지→다시 시작’.
+‘배열 생략은 매 Commit’은 ‘해당 컴포넌트의 매 Commit’으로 범위 명확화 권장. 앱의 다른 컴포넌트 Commit까지 뜻하지 않음.
+빈 배열에 대한 기본 설명은 적합하며 개발 Strict Mode의 추가 설정·정리는 61번에서 이미 설명함.
+‘Commit 뒤’는 브라우저가 화면을 그린 뒤와 동의어가 아님. 현재 본문은 Commit으로 표현하므로 적합. 상위 부제의 ‘화면 반영 후’는 ‘DOM 반영 후’로 바꾸면 더 명확.
+출처: https://react.dev/learn/lifecycle-of-reactive-effects
+      https://react.dev/reference/react/useEffect
+
+[5] 57번 Hook 규칙·62번 커스텀 Hook — 현재 학습 범위에 적합
+소개한 useState·useRef·useEffect는 렌더 중 컴포넌트/커스텀 Hook의 최상위 호출이라는 규칙에 해당. 커스텀 Hook을 호출해도 내부 Hook의 작업 시점은 유지됨.
+이번 챕터에서 다루지 않는 특수 API까지 같은 규칙으로 일반화하지 않음.
+
+실행 대조
+- React production + Chrome, MutationObserver로 Props 변경 뒤 Render 로그가 추가되지만 같은 DOM 노드 유지·DOM mutation 0건인 사례 확인.
+- 같은 Effect 의존성으로 Update하면 설정 재실행 없음. 의존성 A→B 변경은 cleanup A→setup B. Unmount는 cleanup B.
+- Mount 뒤 Update 없이 Unmount 가능한 사례 확인.
+- 이 실행 대조는 검증용 최소 사례이며 슬라이드의 예제 코드를 변경하지 않음.
+- 고급 렌더 중단·폐기와 브라우저 paint 시점은 실행으로 재현하지 않고 공식 문서 근거로만 판단.
+
+2026-10-12 · 검증 후 교정 반영
+- 28번 Update 정의를 새로운 입력·내부 값에 따른 UI 재계산으로 수정. Update 0회 이상 가능·동일 결과에는 화면 변경 없음 설명.
+- 모든 생명주기 도식에 Update를 건너뛰는 Mount→Unmount 경로와 0회 이상 반복 표시. Render·Commit 도식에 Commit/결과 폐기 분기를 추가하고 Hook 도식에도 Render 폐기 가능성 명시.
+- 45번에 Render 결과가 항상 Commit으로 이어지지 않음 및 같은 결과에서는 DOM 변경 없음 설명.
+- 59번 Effect 정의를 동기화 시작·중지로 수정하고 컴포넌트 생명주기와 별도의 반복 주기임을 명시. 61번에서 설정=시작·정리=중지, 유지 중 의존성 변경 시 중지→재시작을 구체화. 도식에도 동기화 반복 표시.
+- 60번 배열 생략 설명을 ‘해당 컴포넌트’의 매 Commit으로 한정. 59번 부제 ‘화면 반영 후’를 ‘DOM 반영 후’로 명확화. 한영 본문·기본 HTML·제목 미리보기 재생성.
+- 예제 동작 변경 없음. 코드 서식·구문·번역·작성 계약 검사와 git diff --check 통과.

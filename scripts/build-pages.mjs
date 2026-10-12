@@ -50,6 +50,7 @@ await cp(path.join(repoRoot, 'lectures', 'shared'), path.join(outputRoot, 'lectu
 await cp(path.join(repoRoot, 'packages', 'web-deck', 'fonts'), path.join(outputRoot, 'packages', 'web-deck', 'fonts'), { recursive: true });
 await cp(path.join(repoRoot, 'packages', 'web-deck', 'vendor'), path.join(outputRoot, 'packages', 'web-deck', 'vendor'), { recursive: true });
 await cp(path.join(repoRoot, 'packages', 'web-deck', 'web-deck.css'), path.join(outputRoot, 'packages', 'web-deck', 'web-deck.css'));
+await cp(path.join(repoRoot, 'packages', 'web-deck', 'authoring.css'), path.join(outputRoot, 'packages', 'web-deck', 'authoring.css'));
 await cp(path.join(repoRoot, 'packages', 'web-deck', 'web-deck.js'), path.join(outputRoot, 'packages', 'web-deck', 'web-deck.js'));
 
 for (const lecture of releasedLectures) {

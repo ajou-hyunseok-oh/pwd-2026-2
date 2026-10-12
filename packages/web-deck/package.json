@@ -8,20 +8,23 @@
   "exports": {
     ".": "./web-deck.js",
     "./web-deck.css": "./web-deck.css",
+    "./authoring.css": "./authoring.css",
     "./template": "./template/index.html"
   },
   "files": [
     "web-deck.js",
     "web-deck.css",
+    "authoring.css",
     "fonts",
     "template",
     "README.md",
     "vendor"
   ],
   "scripts": {
-    "test": "node tests/validate.cjs && node scripts/code-examples.cjs --check",
+    "test": "node tests/validate.cjs && node scripts/code-examples.cjs --check && node tests/authoring.cjs",
     "format:code": "node scripts/code-examples.cjs --write",
     "check:code": "node scripts/code-examples.cjs --check",
+    "check:authoring": "node tests/authoring.cjs",
     "vendor:code": "node scripts/vendor-code.cjs"
   },
   "keywords": [

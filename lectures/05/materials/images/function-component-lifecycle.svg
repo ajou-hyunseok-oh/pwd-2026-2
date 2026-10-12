@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="590" viewBox="0 0 800 590" role="img" aria-labelledby="title desc">
+<title id="title">Function component lifecycle</title>
+<desc id="desc">Based on the lifecycle diagram referenced on page 17 of PWD Week 3. Render can be discarded; Updates are optional; passive Effect timing is not fixed to after paint.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#557866"/></marker></defs>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<rect x="130" y="12" width="230" height="58" rx="9" fill="#f0f5f1" stroke="#759884" stroke-width="2"/>
+<text x="245" y="36" font-size="23" fill="#234c37" font-weight="700">Mount</text>
+<text x="245" y="58" font-size="18" fill="#234c37" font-weight="400">First display</text>
+<rect x="400" y="12" width="260" height="58" rx="9" fill="#f0f5f1" stroke="#759884" stroke-width="2"/>
+<text x="530" y="36" font-size="23" fill="#234c37" font-weight="700">Update · 0+ times</text>
+<text x="530" y="58" font-size="18" fill="#234c37" font-weight="400">New inputs / state</text>
+<path d="M245 71 V95 H390 V112" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M530 71 V95 H390" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="145" y="115" width="490" height="82" rx="9" fill="#edf2fb" stroke="#8fa7ca" stroke-width="2"/>
+<text x="75" y="151" font-size="22" fill="#234c37" font-weight="700">Render</text>
+<text x="390" y="145" font-size="22" fill="#234c37" font-weight="700">Component function → UI calculation</text>
+<text x="390" y="177" font-size="18" fill="#234c37" font-weight="400">useMemo / useCallback: memoization during render</text>
+<rect x="661" y="128" width="130" height="58" rx="9" fill="#f7f3ef" stroke="#baa491" stroke-width="2"/>
+<text x="726" y="154" font-size="20" fill="#234c37" font-weight="700">Discard</text>
+<text x="726" y="177" font-size="17" fill="#234c37" font-weight="400">No commit</text>
+<path d="M636 156 H657" fill="none" stroke="#557866" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<path d="M390 198 V222" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="145" y="225" width="490" height="57" rx="9" fill="#fff6d7" stroke="#c7ad5e" stroke-width="2"/>
+<text x="75" y="259" font-size="22" fill="#234c37" font-weight="700">Commit</text>
+<text x="390" y="260" font-size="22" fill="#234c37" font-weight="400">Apply DOM changes and attach refs</text>
+<path d="M390 283 V306" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="145" y="309" width="490" height="57" rx="9" fill="#eaf4e8" stroke="#85aa7a" stroke-width="2"/>
+<text x="390" y="344" font-size="21" fill="#234c37" font-weight="400">useLayoutEffect: before browser paint</text>
+<path d="M390 367 V385 H245 V405" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M390 385 H535 V405" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="130" y="408" width="230" height="57" rx="9" fill="#f3f3f3" stroke="#aaaaaa" stroke-width="2"/>
+<text x="245" y="442" font-size="22" fill="#234c37" font-weight="700">Browser paint</text>
+<rect x="400" y="408" width="260" height="57" rx="9" fill="#eaf4e8" stroke="#85aa7a" stroke-width="2"/>
+<text x="530" y="432" font-size="22" fill="#234c37" font-weight="700">useEffect setup</text>
+<text x="530" y="454" font-size="18" fill="#234c37" font-weight="400">Start synchronization</text>
+<text x="390" y="493" font-size="18" fill="#536b5e" font-weight="400">Paint / useEffect order varies with the update</text>
+<rect x="160" y="515" width="510" height="59" rx="9" fill="#faeaea" stroke="#c69191" stroke-width="2"/>
+<text x="415" y="540" font-size="21" fill="#234c37" font-weight="700">Effect cleanup: stop synchronization</text>
+<text x="415" y="562" font-size="18" fill="#234c37" font-weight="400">Before the next setup · also on Unmount</text>
+<path d="M535 466 V510" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M670 545 H705 V435 H664" fill="none" stroke="#557866" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+<text x="746" y="493" font-size="17" fill="#234c37" font-weight="400">Deps</text>
+<text x="746" y="514" font-size="17" fill="#234c37" font-weight="400">change</text>
+<path d="M660 437 H777 V42 H664" fill="none" stroke="#557866" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+</g></svg>

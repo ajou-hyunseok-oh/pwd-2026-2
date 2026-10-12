@@ -1,0 +1,24 @@
+2026-10-12 · pwd-week5 실습 안내 추가
+
+범위
+강의 마지막 65번에 실습 안내 1장 추가. 기존 1~64 section 및 KO/EN 번역 값 전체를 수정 직전 스냅샷과 대조하여 동일 확인.
+
+형식
+4주차 마지막 안내(lectures/04/ai-design.html 19번)의 짙은 녹색 제출 마감 배너·노란 마감일·연한 제출 카드 형식을 재사용. 왼쪽은 학습 목표와 요구사항, 오른쪽은 마감·제출물·참고 실습 README 링크로 구성. 출처 없는 제출처·추가 평가 조건·다운로드/실행 명령은 추가하지 않음.
+
+내용 근거
+/Users/nnnceo/WorkspaceAjou/pwd-week5/README.md:
+- 프로젝트 소개: 아주 캠퍼스 푸드맵, 목록·좋아요·카테고리 필터·제보·인기 TOP 5
+- 제보 저장 설정: 가상 맛집 목록 및 현재 브라우저 LocalStorage 제보 저장
+- 제출 방법: GitHub 저장소 URL, Vercel App URL, 기능/자동 배포/저장 점검
+- 사용자 직접 확정: 2026년 10월 18일 23:59
+참고 링크: https://github.com/ajou-hyunseok-oh/pwd-week5#readme
+
+작성 원본
+scripts/title_outline.py, scripts/practice_guide.py, scripts/lesson.py
+빌드 렌더러: scripts/build-slides.py의 practice 블록
+스타일: lecture.css의 practice-week5 범위
+
+검증
+본문·제목 빌드, 코드 포매터, 공용 정적 검사 및 git diff --check 통과.
+65장 전체 KO/EN 발표·인쇄·390px 모바일 검사 errors/ issues 0. 65번 KO/EN 발표 화면 육안 확인. 산출물: /private/tmp/pwd-week5-practice-65.

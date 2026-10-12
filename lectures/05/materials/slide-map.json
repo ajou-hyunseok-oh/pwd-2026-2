@@ -2,79 +2,856 @@
   {
     "number": 1,
     "id": "cover",
-    "title": "React Framework의 이해",
-    "subtitle": "컴포넌트와 상태에서 서버 데이터와 비동기 UI까지",
+    "title": "실전 웹서비스개발 – 5주차",
+    "subtitle": "React Framework의 이해",
     "kind": "cover",
     "topic_number": null,
-    "chapter": "LECTURE 05 · 프로그래밍과 웹데이터",
+    "chapter": "",
     "sources": []
   },
   {
     "number": 2,
     "id": "chapter-01",
-    "title": "React 애플리케이션의 이해",
-    "subtitle": "컴포넌트와 데이터로 구성하는 사용자 인터페이스",
+    "title": "React 기초",
+    "subtitle": "React의 등장 배경·UI 설계 철학",
     "kind": "chapter",
     "topic_number": null,
-    "chapter": "CHAPTER 01 · React 애플리케이션의 이해",
-    "sources": []
-  },
-  {
-    "number": 3,
-    "id": "topic-01",
-    "title": "React 기초 요약",
-    "subtitle": "컴포넌트 구성과 현재 데이터에 따른 화면 표현",
-    "kind": "topic",
-    "topic_number": 1,
-    "chapter": "CHAPTER 01 · React 애플리케이션의 이해",
+    "chapter": "CHAPTER 01 · React 기초",
     "sources": [
       [
         "Lecture 04",
-        "../04/"
-      ],
-      [
-        "React · Official",
-        "https://react.dev/learn/thinking-in-react"
+        "../04/index.html#/1"
       ]
-    ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "cover",
+      "number": 1
+    }
+  },
+  {
+    "number": 3,
+    "id": "slide-02",
+    "title": "React 등장 배경",
+    "subtitle": "",
+    "kind": "subchapter",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/2"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-02",
+      "number": 2
+    }
   },
   {
     "number": 4,
-    "id": "topic-02",
-    "title": "React와 프레임워크의 역할",
-    "subtitle": "UI 표현과 라우팅·데이터 처리·렌더링 도구의 관계",
+    "id": "slide-03",
+    "title": "React의 등장 배경",
+    "subtitle": "데이터 변화에 맞춰 화면을 직접 수정하고 일치를 유지해야 했던 문제",
     "kind": "topic",
-    "topic_number": 2,
-    "chapter": "CHAPTER 01 · React 애플리케이션의 이해",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
     "sources": [
       [
-        "React · Official",
-        "https://react.dev/learn/creating-a-react-app"
+        "Lecture 04",
+        "../04/index.html#/3"
       ],
       [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/layouts-and-pages"
+        "Original source",
+        "https://legacy.reactjs.org/blog/2013/06/05/why-react.html"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/blog/2016/09/28/our-first-50000-stars.html"
       ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-03",
+      "number": 3
+    },
+    "import_text_corrections": [
+      "en:slide_03_b0_cell2_1"
     ]
   },
   {
     "number": 5,
-    "id": "chapter-02",
-    "title": "JSX와 컴포넌트 기반 화면 구성",
-    "subtitle": "데이터를 UI로 표현하고 작은 단위로 조합하는 방법",
-    "kind": "chapter",
+    "id": "slide-04",
+    "title": "React의 역할",
+    "subtitle": "데이터에 맞는 웹 서비스 화면을 구성하는 JavaScript 라이브러리",
+    "kind": "topic",
     "topic_number": null,
-    "chapter": "CHAPTER 02 · JSX와 컴포넌트 기반 화면 구성",
-    "sources": []
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/4"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/thinking-in-react"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/render-and-commit"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-04",
+      "number": 4
+    }
   },
   {
     "number": 6,
-    "id": "topic-03",
-    "title": "JSX의 역할",
-    "subtitle": "JavaScript 안에서 표현하는 UI 구조와 데이터",
+    "id": "slide-05",
+    "title": "Facebook.com 재설계",
+    "subtitle": "React UI와 CSS·코드 로딩·데이터·탐색 구조의 변화",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/5"
+      ],
+      [
+        "Original source",
+        "https://engineering.fb.com/2020/05/08/web/facebook-redesign/"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-05",
+      "number": 5
+    }
+  },
+  {
+    "number": 7,
+    "id": "slide-06",
+    "title": "React의 발전 과정",
+    "subtitle": "",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/6"
+      ],
+      [
+        "Original source",
+        "https://react.dev/versions"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/blog/2013/06/05/why-react.html"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/blog/2017/09/26/react-v16.0.html"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/blog/2019/02/06/react-v16.8.0.html"
+      ],
+      [
+        "Original source",
+        "https://react.dev/blog/2022/03/29/react-v18"
+      ],
+      [
+        "Original source",
+        "https://react.dev/blog/2024/12/05/react-19"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-06",
+      "number": 6
+    }
+  },
+  {
+    "number": 8,
+    "id": "slide-07",
+    "title": "React 사용 현황",
+    "subtitle": "",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/7"
+      ],
+      [
+        "Original source",
+        "../04/../05/materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=4"
+      ],
+      [
+        "Original source",
+        "https://survey.stackoverflow.co/2025/technology/"
+      ],
+      [
+        "Original source",
+        "https://survey.stackoverflow.co/2025/methodology"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-07",
+      "number": 7
+    }
+  },
+  {
+    "number": 9,
+    "id": "slide-08",
+    "title": "React를 사용하는 서비스",
+    "subtitle": "아이콘을 선택해 새 탭에서 실제 서비스 화면 살펴보기",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/8"
+      ],
+      [
+        "Original source",
+        "https://react.dev/blog/2024/02/15/react-labs-what-we-have-been-working-on-february-2024"
+      ],
+      [
+        "Original source",
+        "https://react.dev/blog/2024/10/21/react-compiler-beta-release"
+      ],
+      [
+        "Original source",
+        "https://netflixtechblog.com/modernizing-the-web-playback-ui-1ad2f184a5a0"
+      ],
+      [
+        "Original source",
+        "https://engineering.atspotify.com/2021/4/building-the-future-of-our-desktop-apps"
+      ],
+      [
+        "Original source",
+        "https://airbnb.tech/infrastructure/accelerating-large-scale-test-migration-with-llms/"
+      ],
+      [
+        "Original source",
+        "https://techcommunity.microsoft.com/blog/microsoftteamsblog/making-microsoft-teams-more-responsive-reliable-and-ready-for-work/4526527"
+      ],
+      [
+        "Original source",
+        "https://static.cdninstagram.com/rsrc.php/yw/r/icwX0xAk0pz.webp"
+      ],
+      [
+        "Original source",
+        "https://www.facebook.com/images/fb_icon_325x325.png"
+      ],
+      [
+        "Original source",
+        "https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.png"
+      ],
+      [
+        "Original source",
+        "https://open.spotifycdn.com/cdn/images/icons/Spotify_MWP_512.50dd387d.png"
+      ],
+      [
+        "Original source",
+        "https://a0.muscache.com/im/pictures/AirbnbPlatformAssets/AirbnbPlatformAssets-Favicons/original/d1fcc0b3-865f-485a-b28b-43ca0bf7c891.png?im_w=240"
+      ],
+      [
+        "Original source",
+        "https://teams.public.onecdn.static.microsoft/evergreen-assets/icons/microsoft_teams_logo_refresh_v2025.ico"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-08",
+      "number": 8
+    }
+  },
+  {
+    "number": 10,
+    "id": "slide-09",
+    "title": "React의 UI 설계 철학",
+    "subtitle": "화면의 구성 요소·재사용·데이터와 표현의 관계",
+    "kind": "subchapter",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/9"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-09",
+      "number": 9
+    }
+  },
+  {
+    "number": 11,
+    "id": "slide-10",
+    "title": "React UI 설계 철학",
+    "subtitle": "화면을 컴포넌트로 구성하고, 현재 데이터와 상태에 따른 모습을 선언",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/10"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/thinking-in-react"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/state-a-components-memory"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-10",
+      "number": 10
+    }
+  },
+  {
+    "number": 12,
+    "id": "slide-11",
+    "title": "컴포넌트 기반 화면 구성",
+    "subtitle": "상품 검색 화면의 컴포넌트 경계와 포함 관계",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/11"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/thinking-in-react"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-11",
+      "number": 11
+    }
+  },
+  {
+    "number": 13,
+    "id": "slide-12",
+    "title": "컴포넌트의 재사용과 일관성",
+    "subtitle": "ProductRow 하나로 여섯 상품 행을 표시",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/12"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/thinking-in-react"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-12",
+      "number": 12
+    }
+  },
+  {
+    "number": 14,
+    "id": "slide-13",
+    "title": "데이터 변화와 화면 표현",
+    "subtitle": "재고 조건 선택 → 품절 2개 제외 → 결과 6개 → 4개",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/13"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/thinking-in-react"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-13",
+      "number": 13
+    }
+  },
+  {
+    "number": 15,
+    "id": "slide-14",
+    "title": "명령형과 선언형 프로그래밍",
+    "subtitle": "클릭 카운터로 비교하는 DOM 직접 수정과 UI 선언",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/14"
+      ],
+      [
+        "Original source",
+        "../04/../05/materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=6"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/blog/2013/06/05/why-react.html"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/thinking-in-react"
+      ],
+      [
+        "Original source",
+        "https://api.jquery.com/text/"
+      ],
+      [
+        "Original source",
+        "https://api.jquery.com/on/"
+      ],
+      [
+        "Original source",
+        "https://react.dev/reference/react/useState"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-14",
+      "number": 14
+    }
+  },
+  {
+    "number": 16,
+    "id": "slide-15",
+    "title": "React UI 설계 방식의 확장",
+    "subtitle": "",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/15"
+      ],
+      [
+        "Original source",
+        "https://reactnative.dev/"
+      ],
+      [
+        "Original source",
+        "https://reactnative.dev/docs/tutorial"
+      ],
+      [
+        "Original source",
+        "https://docs.flutter.dev/ui"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-15",
+      "number": 15
+    }
+  },
+  {
+    "number": 17,
+    "id": "slide-16",
+    "title": "React의 화면 갱신",
+    "subtitle": "Virtual DOM의 개념과 화면 갱신 구조",
+    "kind": "subchapter",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/16"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-16",
+      "number": 16
+    }
+  },
+  {
+    "number": 18,
+    "id": "slide-17",
+    "title": "Virtual DOM이란?",
+    "subtitle": "실제 DOM과 구분되는 메모리의 UI 표현",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/17"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/docs/faq-internals.html"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Original source",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-17",
+      "number": 17
+    }
+  },
+  {
+    "number": 19,
+    "id": "slide-18",
+    "title": "DOM 직접 갱신과 React의 차이",
+    "subtitle": "재고 조건 변경 시 검색 결과 6개 → 4개",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/18"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/docs/faq-internals.html"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Original source",
+        "https://api.jquery.com/text/"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-18",
+      "number": 18
+    }
+  },
+  {
+    "number": 20,
+    "id": "slide-19",
+    "title": "React의 화면 갱신 과정",
+    "subtitle": "상태 변경 → UI 계산·대조 → DOM 반영",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/19"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/docs/faq-internals.html"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-19",
+      "number": 19
+    }
+  },
+  {
+    "number": 21,
+    "id": "slide-20",
+    "title": "Virtual DOM의 효과와 한계",
+    "subtitle": "갱신 책임의 분리와 계산 비용",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/20"
+      ],
+      [
+        "Original source",
+        "https://legacy.reactjs.org/docs/faq-internals.html"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Original source",
+        "https://react.dev/reference/react/memo"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-20",
+      "number": 20
+    }
+  },
+  {
+    "number": 22,
+    "id": "slide-21",
+    "title": "프로젝트 셋업과 Hello World",
+    "subtitle": "개발 환경에서 첫 React 화면까지의 실행 흐름",
+    "kind": "subchapter",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/21"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-21",
+      "number": 21
+    }
+  },
+  {
+    "number": 23,
+    "id": "slide-22",
+    "title": "React 개발 환경과 도구",
+    "subtitle": "Node.js·npm·Vite의 역할과 실행 환경 확인",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/22"
+      ],
+      [
+        "Original source",
+        "https://vite.dev/guide/"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-22",
+      "number": 22
+    }
+  },
+  {
+    "number": 24,
+    "id": "slide-23",
+    "title": "React 프로젝트 생성과 실행",
+    "subtitle": "Vite 대화형 메뉴의 선택 항목과 프로젝트 구성",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/23"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/build-a-react-app-from-scratch"
+      ],
+      [
+        "Original source",
+        "https://vite.dev/guide/"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-23",
+      "number": 23
+    },
+    "import_override": "vite-interactive"
+  },
+  {
+    "number": 25,
+    "id": "slide-24",
+    "title": "Hello, World! 출력",
+    "subtitle": "App.tsx로 정의하는 첫 React 화면",
+    "kind": "topic",
+    "topic_number": null,
+    "chapter": "CHAPTER 01 · React 기초",
+    "sources": [
+      [
+        "Lecture 04",
+        "../04/index.html#/24"
+      ],
+      [
+        "Original source",
+        "https://react.dev/learn/build-a-react-app-from-scratch"
+      ],
+      [
+        "Original source",
+        "https://vite.dev/guide/"
+      ]
+    ],
+    "import_source": {
+      "lecture": "04",
+      "deck": "index.html",
+      "slide": "slide-24",
+      "number": 24
+    },
+    "import_override": "vite-template-edit"
+  },
+  {
+    "number": 26,
+    "id": "chapter-02",
+    "title": "컴포넌트와 JSX",
+    "subtitle": "함수 컴포넌트에서 시작해 상품 목록 화면을 구성하는 방법",
+    "kind": "chapter",
+    "topic_number": null,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [],
+    "source_slide_ids": [
+      "chapter-02"
+    ],
+    "source_pages": [
+      26
+    ]
+  },
+  {
+    "number": 27,
+    "id": "concept-function-component",
+    "title": "함수 컴포넌트",
+    "subtitle": "UI를 계산하고 반환하는 함수의 구조",
+    "kind": "topic",
+    "topic_number": 1,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/your-first-component"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/Component"
+      ],
+      [
+        "Official documentation",
+        "https://ko.react.dev/reference/react/Component"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-05"
+    ],
+    "source_pages": [
+      29
+    ]
+  },
+  {
+    "number": 28,
+    "id": "concept-component-lifecycle",
+    "title": "함수 컴포넌트 생명주기",
+    "subtitle": "UI 계산·DOM 반영·외부 동기화로 이어지는 함수 컴포넌트의 처리 흐름",
+    "kind": "topic",
+    "topic_number": 2,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "Reference diagram · supplied Week 3 PDF, page 17",
+        "https://wavez.github.io/react-hooks-lifecycle/"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/useEffect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/useLayoutEffect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/lifecycle-of-reactive-effects"
+      ],
+      [
+        "Supplied Week 3 PDF · page 17",
+        "materials/[PWD Week 3] React 프레임워크를 이용한 웹 프론트엔드 개발.pdf"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-05"
+    ],
+    "source_pages": [
+      29
+    ]
+  },
+  {
+    "number": 29,
+    "id": "concept-jsx",
+    "title": "JSX",
+    "subtitle": "JavaScript 코드 안에서 화면 구조를 표현하는 문법",
     "kind": "topic",
     "topic_number": 3,
-    "chapter": "CHAPTER 02 · JSX와 컴포넌트 기반 화면 구성",
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
     "sources": [
       [
         "React PDF · p.9",
@@ -83,17 +860,60 @@
       [
         "React · Official",
         "https://react.dev/learn/javascript-in-jsx-with-curly-braces"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/writing-markup-with-jsx"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-03"
+    ],
+    "source_pages": [
+      27
     ]
   },
   {
-    "number": 7,
-    "id": "topic-04",
-    "title": "JSX 작성 규칙",
-    "subtitle": "요소와 속성, 표현식과 Fragment",
+    "number": 30,
+    "id": "concept-jsx-expressions",
+    "title": "JSX의 표현식",
+    "subtitle": "중괄호 안의 JavaScript 계산 결과를 화면에 넣는 방법",
     "kind": "topic",
     "topic_number": 4,
-    "chapter": "CHAPTER 02 · JSX와 컴포넌트 기반 화면 구성",
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.9",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=9"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/javascript-in-jsx-with-curly-braces"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/conditional-rendering"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/rendering-lists"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-03"
+    ],
+    "source_pages": [
+      27
+    ]
+  },
+  {
+    "number": 31,
+    "id": "concept-jsx-tags",
+    "title": "JSX 태그 작성 규칙",
+    "subtitle": "요소를 빠짐없이 닫고 중첩 구조를 맞추는 규칙",
+    "kind": "topic",
+    "topic_number": 5,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
     "sources": [
       [
         "React PDF · p.9",
@@ -102,36 +922,85 @@
       [
         "React · Official",
         "https://react.dev/learn/writing-markup-with-jsx"
-      ]
-    ]
-  },
-  {
-    "number": 8,
-    "id": "topic-05",
-    "title": "함수 컴포넌트와 Props",
-    "subtitle": "입력 데이터를 받아 화면을 반환하는 함수",
-    "kind": "topic",
-    "topic_number": 5,
-    "chapter": "CHAPTER 02 · JSX와 컴포넌트 기반 화면 구성",
-    "sources": [
-      [
-        "React PDF · p.13",
-        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
       ],
       [
-        "React · Official",
-        "https://react.dev/learn/passing-props-to-a-component"
+        "Official documentation",
+        "https://react.dev/learn/writing-markup-with-jsx"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-04"
+    ],
+    "source_pages": [
+      28
     ]
   },
   {
-    "number": 9,
-    "id": "topic-06",
-    "title": "컴포넌트의 분리와 조합",
-    "subtitle": "책임 구분과 children을 통한 UI 재사용",
+    "number": 32,
+    "id": "concept-jsx-attributes",
+    "title": "JSX 속성",
+    "subtitle": "JavaScript 방식의 속성 이름과 값으로 요소를 설정하는 방법",
     "kind": "topic",
     "topic_number": 6,
-    "chapter": "CHAPTER 02 · JSX와 컴포넌트 기반 화면 구성",
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.9",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=9"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/writing-markup-with-jsx"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/javascript-in-jsx-with-curly-braces"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-04"
+    ],
+    "source_pages": [
+      28
+    ]
+  },
+  {
+    "number": 33,
+    "id": "concept-fragment",
+    "title": "Fragment",
+    "subtitle": "추가 DOM 요소 없이 여러 형제 요소를 묶는 구조",
+    "kind": "topic",
+    "topic_number": 7,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.9",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=9"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/writing-markup-with-jsx"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/Fragment"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-04"
+    ],
+    "source_pages": [
+      28
+    ]
+  },
+  {
+    "number": 34,
+    "id": "concept-props",
+    "title": "Props",
+    "subtitle": "컴포넌트에 전달하는 입력 데이터",
+    "kind": "topic",
+    "topic_number": 8,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
     "sources": [
       [
         "React PDF · p.13",
@@ -140,17 +1009,118 @@
       [
         "React · Official",
         "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/passing-props-to-a-component"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-05"
+    ],
+    "source_pages": [
+      29
     ]
   },
   {
-    "number": 10,
-    "id": "topic-07",
-    "title": "조건부 렌더링과 목록",
-    "subtitle": "조건에 따른 화면 표현과 map·key를 이용한 항목 구성",
+    "number": 35,
+    "id": "concept-component-separation",
+    "title": "컴포넌트 분리",
+    "subtitle": "역할을 명확히 나누고 재사용·조합하기 쉬운 UI 구성",
     "kind": "topic",
-    "topic_number": 7,
-    "chapter": "CHAPTER 02 · JSX와 컴포넌트 기반 화면 구성",
+    "topic_number": 9,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/thinking-in-react"
+      ],
+      [
+        "Provided lecture PDF (page 12)",
+        "materials/%5BPWD%20Week%203%5D%20React%20프레임워크를%20이용한%20웹%20프론트엔드%20개발.pdf#page=12"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-06"
+    ],
+    "source_pages": [
+      30
+    ]
+  },
+  {
+    "number": 36,
+    "id": "concept-component-files",
+    "title": "컴포넌트 파일 분리",
+    "subtitle": "분리한 컴포넌트를 export와 import로 연결하는 방법",
+    "kind": "topic",
+    "topic_number": 10,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/importing-and-exporting-components"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-06"
+    ],
+    "source_pages": [
+      30
+    ]
+  },
+  {
+    "number": 37,
+    "id": "concept-children",
+    "title": "children",
+    "subtitle": "컴포넌트 태그 사이의 내용을 내부에 배치하는 Props",
+    "kind": "topic",
+    "topic_number": 11,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-06"
+    ],
+    "source_pages": [
+      30
+    ]
+  },
+  {
+    "number": 38,
+    "id": "concept-conditional-rendering",
+    "title": "조건부 렌더링",
+    "subtitle": "조건의 결과에 따라 표시할 UI를 선택하는 방법",
+    "kind": "topic",
+    "topic_number": 12,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
     "sources": [
       [
         "React · Official",
@@ -159,27 +1129,140 @@
       [
         "React · Official",
         "https://react.dev/learn/conditional-rendering"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/conditional-rendering"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-07"
+    ],
+    "source_pages": [
+      31
     ]
   },
   {
-    "number": 11,
-    "id": "chapter-03",
-    "title": "사용자 행동과 상태 기반 화면 갱신",
-    "subtitle": "사용자의 입력을 기억하고 화면에 반영하는 원리",
-    "kind": "chapter",
-    "topic_number": null,
-    "chapter": "CHAPTER 03 · 사용자 행동과 상태 기반 화면 갱신",
-    "sources": []
+    "number": 39,
+    "id": "concept-list-rendering",
+    "title": "목록 렌더링",
+    "subtitle": "map으로 배열의 각 데이터를 반복되는 UI 요소로 표현하는 방법",
+    "kind": "topic",
+    "topic_number": 13,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/rendering-lists"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/conditional-rendering"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/rendering-lists"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-07"
+    ],
+    "source_pages": [
+      31
+    ]
   },
   {
-    "number": 12,
-    "id": "topic-08",
-    "title": "이벤트와 State",
-    "subtitle": "사용자의 클릭·입력과 컴포넌트가 기억하는 값",
+    "number": 40,
+    "id": "concept-list-key",
+    "title": "목록 항목의 key",
+    "subtitle": "목록 변경 전후에 같은 항목을 식별하는 기준",
     "kind": "topic",
-    "topic_number": 8,
-    "chapter": "CHAPTER 03 · 사용자 행동과 상태 기반 화면 갱신",
+    "topic_number": 14,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/rendering-lists"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/conditional-rendering"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/rendering-lists"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-07"
+    ],
+    "source_pages": [
+      31
+    ]
+  },
+  {
+    "number": 41,
+    "id": "concept-static-product-ui",
+    "title": "상품 목록의 정적 구현",
+    "subtitle": "사용자 동작을 연결하기 전에 화면 구조와 내용을 완성하는 단계",
+    "kind": "topic",
+    "topic_number": 15,
+    "chapter": "CHAPTER 02 · 컴포넌트와 JSX",
+    "sources": [
+      [
+        "React PDF · p.13",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/passing-props-to-a-component"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/rendering-lists"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/conditional-rendering"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/thinking-in-react"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-06",
+      "topic-07"
+    ],
+    "source_pages": [
+      30,
+      31
+    ]
+  },
+  {
+    "number": 42,
+    "id": "chapter-03",
+    "title": "상태 기반 화면 갱신",
+    "subtitle": "사용자 입력에 따라 컴포넌트의 화면을 변경하는 원리",
+    "kind": "chapter",
+    "topic_number": null,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
+    "sources": [],
+    "source_slide_ids": [
+      "chapter-03"
+    ],
+    "source_pages": [
+      32
+    ]
+  },
+  {
+    "number": 43,
+    "id": "concept-event-handler",
+    "title": "이벤트 핸들러",
+    "subtitle": "사용자 행동이 발생했을 때 실행할 함수를 연결하는 방법",
+    "kind": "topic",
+    "topic_number": 16,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
     "sources": [
       [
         "React PDF · p.14",
@@ -192,32 +1275,130 @@
       [
         "React · Official",
         "https://react.dev/learn/state-a-components-memory"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/responding-to-events"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react-dom/components/common"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react-dom/components/input"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-08"
+    ],
+    "source_pages": [
+      33
     ]
   },
   {
-    "number": 13,
-    "id": "topic-09",
-    "title": "상태 변경과 화면 갱신",
-    "subtitle": "컴포넌트의 UI 계산과 DOM 반영, Render와 Commit",
+    "number": 44,
+    "id": "concept-state",
+    "title": "State",
+    "subtitle": "useState로 컴포넌트가 기억할 값을 관리하는 방법",
     "kind": "topic",
-    "topic_number": 9,
-    "chapter": "CHAPTER 03 · 사용자 행동과 상태 기반 화면 갱신",
+    "topic_number": 17,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
+    "sources": [
+      [
+        "React PDF · p.14",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=14"
+      ],
+      [
+        "React PDF · p.15",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=15"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/state-a-components-memory"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/state-a-components-memory"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/useState"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-08"
+    ],
+    "source_pages": [
+      33
+    ]
+  },
+  {
+    "number": 45,
+    "id": "concept-render",
+    "title": "Render",
+    "subtitle": "현재 입력과 상태를 바탕으로 다음 UI를 계산하는 단계",
+    "kind": "topic",
+    "topic_number": 18,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
     "sources": [
       [
         "React · Official",
         "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/Component#render"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/StrictMode"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-09"
+    ],
+    "source_pages": [
+      34
     ]
   },
   {
-    "number": 14,
-    "id": "topic-10",
-    "title": "상태의 스냅샷과 업데이트",
-    "subtitle": "각 렌더의 상태 값과 이전 상태를 이용한 갱신",
+    "number": 46,
+    "id": "concept-commit",
+    "title": "Commit",
+    "subtitle": "계산된 UI에 맞춰 필요한 DOM 변경을 반영하는 단계",
     "kind": "topic",
-    "topic_number": 10,
-    "chapter": "CHAPTER 03 · 사용자 행동과 상태 기반 화면 갱신",
+    "topic_number": 19,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/render-and-commit"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/render-and-commit"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-09"
+    ],
+    "source_pages": [
+      34
+    ]
+  },
+  {
+    "number": 47,
+    "id": "concept-state-snapshot",
+    "title": "상태 스냅샷",
+    "subtitle": "하나의 렌더에서 고정된 상태 값을 참조하는 방식",
+    "kind": "topic",
+    "topic_number": 20,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
     "sources": [
       [
         "React · Official",
@@ -226,17 +1407,56 @@
       [
         "React · Official",
         "https://react.dev/learn/queueing-a-series-of-state-updates"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/state-as-a-snapshot"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-10"
+    ],
+    "source_pages": [
+      35
     ]
   },
   {
-    "number": 15,
-    "id": "topic-11",
-    "title": "객체와 배열의 상태 변경",
-    "subtitle": "불변성을 유지하는 데이터 갱신",
+    "number": 48,
+    "id": "concept-state-updater",
+    "title": "함수형 상태 업데이트",
+    "subtitle": "이전 상태를 입력으로 다음 상태를 계산하는 방법",
     "kind": "topic",
-    "topic_number": 11,
-    "chapter": "CHAPTER 03 · 사용자 행동과 상태 기반 화면 갱신",
+    "topic_number": 21,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/state-as-a-snapshot"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/queueing-a-series-of-state-updates"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/queueing-a-series-of-state-updates"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-10"
+    ],
+    "source_pages": [
+      35
+    ]
+  },
+  {
+    "number": 49,
+    "id": "concept-state-immutability",
+    "title": "상태의 불변성",
+    "subtitle": "기존 값을 직접 바꾸지 않고 새 값으로 상태를 교체하는 원칙",
+    "kind": "topic",
+    "topic_number": 22,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
     "sources": [
       [
         "React · Official",
@@ -245,17 +1465,31 @@
       [
         "React · Official",
         "https://react.dev/learn/updating-objects-in-state"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/updating-arrays-in-state"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/updating-objects-in-state"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-11"
+    ],
+    "source_pages": [
+      36
     ]
   },
   {
-    "number": 16,
-    "id": "topic-12",
-    "title": "상태의 설계와 공유",
-    "subtitle": "최소 상태, 파생값과 공통 부모의 변경 책임",
+    "number": 50,
+    "id": "concept-derived-values",
+    "title": "파생값",
+    "subtitle": "기존 상태에서 계산할 수 있는 값을 별도 상태 없이 구하는 방법",
     "kind": "topic",
-    "topic_number": 12,
-    "chapter": "CHAPTER 03 · 사용자 행동과 상태 기반 화면 갱신",
+    "topic_number": 23,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
     "sources": [
       [
         "React · Official",
@@ -264,42 +1498,155 @@
       [
         "React · Official",
         "https://react.dev/learn/sharing-state-between-components"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/thinking-in-react"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/choosing-the-state-structure"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-12"
+    ],
+    "source_pages": [
+      37
     ]
   },
   {
-    "number": 17,
-    "id": "topic-13",
-    "title": "컴포넌트의 식별과 상태 보존",
-    "subtitle": "화면의 위치와 key에 따른 상태 유지·초기화",
+    "number": 51,
+    "id": "concept-controlled-inputs",
+    "title": "제어 입력",
+    "subtitle": "입력값과 선택 여부를 React 상태와 연결하는 방법",
     "kind": "topic",
-    "topic_number": 13,
-    "chapter": "CHAPTER 03 · 사용자 행동과 상태 기반 화면 갱신",
+    "topic_number": 24,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/choosing-the-state-structure"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/sharing-state-between-components"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react-dom/components/input"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-12"
+    ],
+    "source_pages": [
+      37
+    ]
+  },
+  {
+    "number": 52,
+    "id": "concept-lifting-state",
+    "title": "상태 끌어올리기",
+    "subtitle": "여러 컴포넌트가 같은 상태를 함께 사용하도록 관리하는 방법",
+    "kind": "topic",
+    "topic_number": 25,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/choosing-the-state-structure"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/learn/sharing-state-between-components"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/sharing-state-between-components"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-12"
+    ],
+    "source_pages": [
+      37
+    ]
+  },
+  {
+    "number": 53,
+    "id": "concept-state-preservation",
+    "title": "Props 변경과 상태 보존",
+    "subtitle": "Props가 바뀌어도 같은 컴포넌트의 상태는 초기화되지 않음",
+    "kind": "topic",
+    "topic_number": 26,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
     "sources": [
       [
         "React · Official",
         "https://react.dev/learn/preserving-and-resetting-state"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/preserving-and-resetting-state"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-13"
+    ],
+    "source_pages": [
+      38
     ]
   },
   {
-    "number": 18,
-    "id": "chapter-04",
-    "title": "Hooks와 외부 시스템 동기화",
-    "subtitle": "상태 관리, 참조와 외부 연결의 역할 구분",
-    "kind": "chapter",
-    "topic_number": null,
-    "chapter": "CHAPTER 04 · Hooks와 외부 시스템 동기화",
-    "sources": []
+    "number": 54,
+    "id": "concept-state-reset-key",
+    "title": "key를 이용한 상태 초기화",
+    "subtitle": "key 변경으로 컴포넌트를 새 인스턴스로 구분하는 방법",
+    "kind": "topic",
+    "topic_number": 27,
+    "chapter": "CHAPTER 03 · 상태 기반 화면 갱신",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/preserving-and-resetting-state"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/preserving-and-resetting-state"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-13"
+    ],
+    "source_pages": [
+      38
+    ]
   },
   {
-    "number": 19,
-    "id": "topic-14",
-    "title": "Hooks의 역할과 호출 규칙",
-    "subtitle": "함수 컴포넌트의 기능 확장과 일관된 호출 순서",
+    "number": 55,
+    "id": "chapter-04",
+    "title": "Hooks",
+    "subtitle": "함수 컴포넌트에서 React 기능을 사용하는 방법",
+    "kind": "chapter",
+    "topic_number": null,
+    "chapter": "CHAPTER 04 · Hooks",
+    "sources": [],
+    "source_slide_ids": [
+      "chapter-04"
+    ],
+    "source_pages": [
+      39
+    ]
+  },
+  {
+    "number": 56,
+    "id": "concept-hook-introduction",
+    "title": "Hook",
+    "subtitle": "함수 컴포넌트에서 React 기능을 사용하고 관련 로직을 재사용하는 방법",
     "kind": "topic",
-    "topic_number": 14,
-    "chapter": "CHAPTER 04 · Hooks와 외부 시스템 동기화",
+    "topic_number": 28,
+    "chapter": "CHAPTER 04 · Hooks",
     "sources": [
       [
         "React PDF · p.16",
@@ -308,17 +1655,72 @@
       [
         "React · Official",
         "https://react.dev/reference/rules/rules-of-hooks"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/hooks"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/preserving-and-resetting-state"
+      ],
+      [
+        "Official documentation",
+        "https://legacy.reactjs.org/docs/hooks-intro.html"
+      ],
+      [
+        "Official documentation",
+        "https://legacy.reactjs.org/blog/2019/02/06/react-v16.8.0.html"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-14"
+    ],
+    "source_pages": [
+      40
     ]
   },
   {
-    "number": 20,
-    "id": "topic-15",
-    "title": "State와 Ref의 구분",
-    "subtitle": "화면을 갱신하는 값과 렌더 사이에 유지하는 참조",
+    "number": 57,
+    "id": "concept-hook-rules",
+    "title": "Hook의 호출 규칙",
+    "subtitle": "렌더마다 일관된 Hook 호출 순서를 유지하기 위한 제약",
     "kind": "topic",
-    "topic_number": 15,
-    "chapter": "CHAPTER 04 · Hooks와 외부 시스템 동기화",
+    "topic_number": 29,
+    "chapter": "CHAPTER 04 · Hooks",
+    "sources": [
+      [
+        "React PDF · p.16",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=16"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/reference/rules/rules-of-hooks"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/rules/rules-of-hooks"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/state-a-components-memory"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-14"
+    ],
+    "source_pages": [
+      40
+    ]
+  },
+  {
+    "number": 58,
+    "id": "concept-ref",
+    "title": "Ref",
+    "subtitle": "값을 바꿔도 렌더를 요청하지 않는 참조 저장 공간",
+    "kind": "topic",
+    "topic_number": 30,
+    "chapter": "CHAPTER 04 · Hooks",
     "sources": [
       [
         "React · Official",
@@ -327,17 +1729,35 @@
       [
         "React · Official",
         "https://react.dev/learn/manipulating-the-dom-with-refs"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/referencing-values-with-refs"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/useRef"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/manipulating-the-dom-with-refs"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-15"
+    ],
+    "source_pages": [
+      41
     ]
   },
   {
-    "number": 21,
-    "id": "topic-16",
-    "title": "이벤트 처리와 Effect",
-    "subtitle": "사용자 행동에 따른 작업과 외부 시스템 동기화",
+    "number": 59,
+    "id": "concept-effect",
+    "title": "Effect",
+    "subtitle": "DOM 반영 후 외부 시스템과 동기화를 시작하고 중지하는 작업",
     "kind": "topic",
-    "topic_number": 16,
-    "chapter": "CHAPTER 04 · Hooks와 외부 시스템 동기화",
+    "topic_number": 31,
+    "chapter": "CHAPTER 04 · Hooks",
     "sources": [
       [
         "React PDF · p.17",
@@ -350,17 +1770,31 @@
       [
         "React · Official",
         "https://react.dev/learn/you-might-not-need-an-effect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/useEffect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/lifecycle-of-reactive-effects"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-16"
+    ],
+    "source_pages": [
+      42
     ]
   },
   {
-    "number": 22,
-    "id": "topic-17",
-    "title": "Effect의 의존성과 정리",
-    "subtitle": "연결의 시작·갱신·종료와 cleanup",
+    "number": 60,
+    "id": "concept-effect-dependencies",
+    "title": "Effect 의존성",
+    "subtitle": "의존성 배열에 넣은 값이 바뀌면 Effect를 다시 실행",
     "kind": "topic",
-    "topic_number": 17,
-    "chapter": "CHAPTER 04 · Hooks와 외부 시스템 동기화",
+    "topic_number": 32,
+    "chapter": "CHAPTER 04 · Hooks",
     "sources": [
       [
         "React PDF · p.17",
@@ -369,290 +1803,154 @@
       [
         "React · Official",
         "https://react.dev/reference/react/useEffect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/useEffect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/removing-effect-dependencies"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/StrictMode"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-17"
+    ],
+    "source_pages": [
+      43
     ]
   },
   {
-    "number": 23,
-    "id": "topic-18",
-    "title": "커스텀 Hook과 로직 재사용",
-    "subtitle": "공통 상태·동기화 로직의 추출과 독립적인 상태",
+    "number": 61,
+    "id": "concept-effect-cleanup",
+    "title": "Effect 정리 함수",
+    "subtitle": "이전 Effect에서 시작한 외부 연결을 해제하는 함수",
     "kind": "topic",
-    "topic_number": 18,
-    "chapter": "CHAPTER 04 · Hooks와 외부 시스템 동기화",
+    "topic_number": 33,
+    "chapter": "CHAPTER 04 · Hooks",
+    "sources": [
+      [
+        "React PDF · p.17",
+        "materials/%5BPWD%20Week%203%5D%20React%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%20%EA%B0%9C%EB%B0%9C.pdf#page=17"
+      ],
+      [
+        "React · Official",
+        "https://react.dev/reference/react/useEffect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/useEffect"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/lifecycle-of-reactive-effects"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/StrictMode"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-17"
+    ],
+    "source_pages": [
+      43
+    ]
+  },
+  {
+    "number": 62,
+    "id": "concept-custom-hook",
+    "title": "커스텀 Hook",
+    "subtitle": "반복되는 Hook 로직을 함수로 추출해 재사용하는 방법",
+    "kind": "topic",
+    "topic_number": 34,
+    "chapter": "CHAPTER 04 · Hooks",
     "sources": [
       [
         "React · Official",
         "https://react.dev/learn/reusing-logic-with-custom-hooks"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/learn/reusing-logic-with-custom-hooks"
       ]
+    ],
+    "source_slide_ids": [
+      "topic-18"
+    ],
+    "source_pages": [
+      44
     ]
   },
   {
-    "number": 24,
-    "id": "chapter-05",
-    "title": "라우팅과 애플리케이션 데이터 흐름",
-    "subtitle": "하나의 화면을 여러 페이지의 서비스로 확장하는 방법",
-    "kind": "chapter",
+    "number": 63,
+    "id": "concept-more-hooks",
+    "title": "추가로 알아둘 Hook",
+    "subtitle": "공유 데이터·상태 관리·성능·화면 제어에 활용하는 Hook",
+    "kind": "topic",
+    "topic_number": 35,
+    "chapter": "CHAPTER 04 · Hooks",
+    "sources": [
+      [
+        "React · Official",
+        "https://react.dev/learn/reusing-logic-with-custom-hooks"
+      ],
+      [
+        "Official documentation",
+        "https://react.dev/reference/react/hooks"
+      ]
+    ],
+    "source_slide_ids": [
+      "topic-18"
+    ],
+    "source_pages": [
+      44
+    ]
+  },
+  {
+    "number": 64,
+    "id": "appendix-react-ecosystem",
+    "title": "React 생태계",
+    "subtitle": "원본 PDF 18쪽",
+    "kind": "topic",
     "topic_number": null,
-    "chapter": "CHAPTER 05 · 라우팅과 애플리케이션 데이터 흐름",
-    "sources": []
-  },
-  {
-    "number": 25,
-    "id": "topic-19",
-    "title": "URL과 페이지의 연결",
-    "subtitle": "경로, 동적 매개변수와 화면 선택",
-    "kind": "topic",
-    "topic_number": 19,
-    "chapter": "CHAPTER 05 · 라우팅과 애플리케이션 데이터 흐름",
+    "chapter": "부록",
     "sources": [
       [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/layouts-and-pages"
-      ]
-    ]
-  },
-  {
-    "number": 26,
-    "id": "topic-20",
-    "title": "공통 레이아웃과 중첩 라우트",
-    "subtitle": "여러 페이지가 공유하는 구조와 하위 화면 구성",
-    "kind": "topic",
-    "topic_number": 20,
-    "chapter": "CHAPTER 05 · 라우팅과 애플리케이션 데이터 흐름",
-    "sources": [
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/layouts-and-pages"
-      ]
-    ]
-  },
-  {
-    "number": 27,
-    "id": "topic-21",
-    "title": "UI 상태와 서버 데이터",
-    "subtitle": "검색 조건과 상품 데이터의 출처·수명·변경 책임",
-    "kind": "topic",
-    "topic_number": 21,
-    "chapter": "CHAPTER 05 · 라우팅과 애플리케이션 데이터 흐름",
-    "sources": [
-      [
-        "React · Official",
-        "https://react.dev/learn/thinking-in-react"
+        "Original lecture PDF (page 18)",
+        "materials/%5BPWD%20Week%203%5D%20React%20프레임워크를%20이용한%20웹%20프론트엔드%20개발.pdf#page=18"
       ],
       [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/fetching-data"
+        "npm latest versions checked 2026-10-12",
+        "materials/ecosystem-right-versions-2026.json"
       ]
-    ]
+    ],
+    "source_slide_ids": [],
+    "source_pages": []
   },
   {
-    "number": 28,
-    "id": "topic-22",
-    "title": "페이지에 필요한 데이터 조회",
-    "subtitle": "라우트와 데이터 로딩의 연결",
+    "number": 65,
+    "id": "practice-week5",
+    "title": "실습 안내 · pwd-week5",
+    "subtitle": "React로 아주 캠퍼스 푸드맵 구현 및 Vercel 배포",
     "kind": "topic",
-    "topic_number": 22,
-    "chapter": "CHAPTER 05 · 라우팅과 애플리케이션 데이터 흐름",
-    "sources": [
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/fetching-data"
-      ]
-    ]
-  },
-  {
-    "number": 29,
-    "id": "topic-23",
-    "title": "데이터 변경과 화면 동기화",
-    "subtitle": "저장·수정·삭제 이후 캐시와 데이터 재검증",
-    "kind": "topic",
-    "topic_number": 23,
-    "chapter": "CHAPTER 05 · 라우팅과 애플리케이션 데이터 흐름",
-    "sources": [
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/api-reference/functions/revalidatePath"
-      ]
-    ]
-  },
-  {
-    "number": 30,
-    "id": "chapter-06",
-    "title": "렌더링 전략과 서버·클라이언트 경계",
-    "subtitle": "화면의 생성 시점과 코드의 실행 위치",
-    "kind": "chapter",
     "topic_number": null,
-    "chapter": "CHAPTER 06 · 렌더링 전략과 서버·클라이언트 경계",
-    "sources": []
-  },
-  {
-    "number": 31,
-    "id": "topic-24",
-    "title": "클라이언트 렌더링과 서버 렌더링",
-    "subtitle": "CSR·SSR·사전 렌더링의 화면 생성 과정",
-    "kind": "topic",
-    "topic_number": 24,
-    "chapter": "CHAPTER 06 · 렌더링 전략과 서버·클라이언트 경계",
+    "chapter": "실습",
     "sources": [
       [
-        "React · Official",
-        "https://react.dev/reference/react-dom/client/createRoot"
+        "Lab README",
+        "https://github.com/ajou-hyunseok-oh/pwd-week5#readme"
       ],
       [
-        "React · Official",
-        "https://react.dev/reference/react-dom/server/renderToString"
+        "Week 4 submission format",
+        "../04/ai-design.html#/19"
       ]
-    ]
-  },
-  {
-    "number": 32,
-    "id": "topic-25",
-    "title": "Hydration과 상호작용",
-    "subtitle": "서버에서 생성한 HTML과 브라우저 코드의 연결",
-    "kind": "topic",
-    "topic_number": 25,
-    "chapter": "CHAPTER 06 · 렌더링 전략과 서버·클라이언트 경계",
-    "sources": [
-      [
-        "React · Official",
-        "https://react.dev/reference/react-dom/client/hydrateRoot"
-      ]
-    ]
-  },
-  {
-    "number": 33,
-    "id": "topic-26",
-    "title": "Server Components와 Client Components",
-    "subtitle": "서버의 데이터 처리와 브라우저의 상태·이벤트 분담",
-    "kind": "topic",
-    "topic_number": 26,
-    "chapter": "CHAPTER 06 · 렌더링 전략과 서버·클라이언트 경계",
-    "sources": [
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/server-and-client-components"
-      ],
-      [
-        "React · Official",
-        "https://react.dev/reference/rsc/server-components"
-      ]
-    ]
-  },
-  {
-    "number": 34,
-    "id": "topic-27",
-    "title": "서버·클라이언트 데이터 전달",
-    "subtitle": "컴포넌트 경계, 직렬화와 서버 전용 정보",
-    "kind": "topic",
-    "topic_number": 27,
-    "chapter": "CHAPTER 06 · 렌더링 전략과 서버·클라이언트 경계",
-    "sources": [
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/server-and-client-components"
-      ],
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/guides/data-security"
-      ]
-    ]
-  },
-  {
-    "number": 35,
-    "id": "chapter-07",
-    "title": "비동기 작업과 폼 제출",
-    "subtitle": "대기·성공·실패를 포함하는 사용자 작업의 완성",
-    "kind": "chapter",
-    "topic_number": null,
-    "chapter": "CHAPTER 07 · 비동기 작업과 폼 제출",
-    "sources": []
-  },
-  {
-    "number": 36,
-    "id": "topic-28",
-    "title": "비동기 작업의 UI 상태",
-    "subtitle": "로딩, 빈 결과, 제출 중과 실패 상태",
-    "kind": "topic",
-    "topic_number": 28,
-    "chapter": "CHAPTER 07 · 비동기 작업과 폼 제출",
-    "sources": [
-      [
-        "React · Official",
-        "https://react.dev/learn/reacting-to-input-with-state"
-      ]
-    ]
-  },
-  {
-    "number": 37,
-    "id": "topic-29",
-    "title": "Suspense와 점진적 화면 표시",
-    "subtitle": "준비 중인 영역의 fallback과 스트리밍",
-    "kind": "topic",
-    "topic_number": 29,
-    "chapter": "CHAPTER 07 · 비동기 작업과 폼 제출",
-    "sources": [
-      [
-        "React · Official",
-        "https://react.dev/reference/react/Suspense"
-      ],
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/getting-started/fetching-data"
-      ]
-    ]
-  },
-  {
-    "number": 38,
-    "id": "topic-30",
-    "title": "폼 제출과 Actions",
-    "subtitle": "입력 데이터 수집과 제출 결과·진행 상태 관리",
-    "kind": "topic",
-    "topic_number": 30,
-    "chapter": "CHAPTER 07 · 비동기 작업과 폼 제출",
-    "sources": [
-      [
-        "React · Official",
-        "https://react.dev/reference/react/useActionState"
-      ],
-      [
-        "React · Official",
-        "https://react.dev/reference/react-dom/components/form"
-      ]
-    ]
-  },
-  {
-    "number": 39,
-    "id": "topic-31",
-    "title": "서버의 데이터 변경과 검증",
-    "subtitle": "Server Function·라우트 action의 역할과 입력·권한 검사",
-    "kind": "topic",
-    "topic_number": 31,
-    "chapter": "CHAPTER 07 · 비동기 작업과 폼 제출",
-    "sources": [
-      [
-        "Next.js · Official",
-        "https://nextjs.org/docs/app/guides/data-security"
-      ],
-      [
-        "React · Official",
-        "https://react.dev/reference/rsc/use-server"
-      ]
-    ]
-  },
-  {
-    "number": 40,
-    "id": "topic-32",
-    "title": "낙관적 UI와 오류 복구",
-    "subtitle": "응답 전 화면 갱신과 실패 시 결과 처리",
-    "kind": "topic",
-    "topic_number": 32,
-    "chapter": "CHAPTER 07 · 비동기 작업과 폼 제출",
-    "sources": [
-      [
-        "React · Official",
-        "https://react.dev/reference/react/useOptimistic"
-      ]
-    ]
+    ],
+    "source_slide_ids": [],
+    "source_pages": []
   }
 ]

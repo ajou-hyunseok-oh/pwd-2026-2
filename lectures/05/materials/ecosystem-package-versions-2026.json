@@ -1,0 +1,205 @@
+{
+  "checked_on": "2026-10-12",
+  "dist_tag": "latest",
+  "packages": {
+    "react": {
+      "source": "https://registry.npmjs.org/react/latest",
+      "version": "19.3.0",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "react-dom": {
+      "source": "https://registry.npmjs.org/react-dom/latest",
+      "version": "19.3.0",
+      "peerDependencies": {
+        "react": "^19.3.0"
+      }
+    },
+    "react-router": {
+      "source": "https://registry.npmjs.org/react-router/latest",
+      "version": "8.4.0",
+      "peerDependencies": {
+        "react": ">=19.2.7",
+        "react-dom": ">=19.2.7"
+      },
+      "engines": {
+        "node": ">=22.22.0"
+      }
+    },
+    "react-hook-form": {
+      "source": "https://registry.npmjs.org/react-hook-form/latest",
+      "version": "7.90.0",
+      "peerDependencies": {
+        "react": "^16.8.0 || ^17 || ^18 || ^19",
+        "@types/react": "*"
+      },
+      "engines": {
+        "node": ">=18.0.0"
+      }
+    },
+    "@tanstack/react-query": {
+      "source": "https://registry.npmjs.org/@tanstack%2freact-query/latest",
+      "version": "5.104.2",
+      "peerDependencies": {
+        "react": "^18 || ^19"
+      }
+    },
+    "axios": {
+      "source": "https://registry.npmjs.org/axios/latest",
+      "version": "1.20.0"
+    },
+    "@emotion/react": {
+      "source": "https://registry.npmjs.org/@emotion%2freact/latest",
+      "version": "11.14.0",
+      "peerDependencies": {
+        "react": ">=16.8.0"
+      }
+    },
+    "@emotion/styled": {
+      "source": "https://registry.npmjs.org/@emotion%2fstyled/latest",
+      "version": "11.14.1",
+      "peerDependencies": {
+        "react": ">=16.8.0",
+        "@emotion/react": "^11.0.0-rc.0"
+      }
+    },
+    "react-icons": {
+      "source": "https://registry.npmjs.org/react-icons/latest",
+      "version": "5.7.0",
+      "peerDependencies": {
+        "react": "*"
+      }
+    },
+    "react-spinners": {
+      "source": "https://registry.npmjs.org/react-spinners/latest",
+      "version": "0.17.1",
+      "peerDependencies": {
+        "react": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+      }
+    },
+    "react-toastify": {
+      "source": "https://registry.npmjs.org/react-toastify/latest",
+      "version": "11.1.0",
+      "peerDependencies": {
+        "react": "^18 || ^19",
+        "react-dom": "^18 || ^19"
+      }
+    },
+    "web-vitals": {
+      "source": "https://registry.npmjs.org/web-vitals/latest",
+      "version": "6.2.3"
+    },
+    "vite": {
+      "source": "https://registry.npmjs.org/vite/latest",
+      "version": "8.3.4",
+      "peerDependencies": {
+        "tsx": "^4.8.1",
+        "jiti": ">=1.21.0",
+        "less": "^4.0.0",
+        "sass": "^1.70.0",
+        "yaml": "^2.4.2",
+        "stylus": ">=0.54.8",
+        "terser": "^5.16.0",
+        "esbuild": "^0.27.0 || ^0.28.0",
+        "sugarss": "^5.0.0",
+        "@types/node": "^20.19.0 || >=22.12.0",
+        "sass-embedded": "^1.70.0",
+        "@vitejs/devtools": "^0.7.1"
+      },
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      }
+    },
+    "@vitejs/plugin-react": {
+      "source": "https://registry.npmjs.org/@vitejs%2fplugin-react/latest",
+      "version": "6.1.2",
+      "peerDependencies": {
+        "vite": "^8.0.0",
+        "oxc-transform-react": "^0.152.0",
+        "@rolldown/plugin-babel": "^0.1.7 || ^0.2.0",
+        "babel-plugin-react-compiler": "^1.0.0"
+      },
+      "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+      }
+    },
+    "vitest": {
+      "source": "https://registry.npmjs.org/vitest/latest",
+      "version": "5.0.3",
+      "peerDependencies": {
+        "vite": "^6.4.0 || ^7.0.0 || ^8.0.0",
+        "jsdom": "*",
+        "happy-dom": "*",
+        "@vitest/ui": "5.0.3",
+        "@types/node": "^22.0.0 || >=24.0.0",
+        "@edge-runtime/vm": "*",
+        "@opentelemetry/api": "^1.9.0",
+        "@vitest/coverage-v8": "5.0.3",
+        "@vitest/browser-preview": "5.0.3",
+        "@vitest/coverage-istanbul": "5.0.3",
+        "@vitest/browser-playwright": "5.0.3",
+        "@vitest/browser-webdriverio": "^5.0.0-beta.5 || >=5.0.0"
+      },
+      "engines": {
+        "node": "^22.12.0 || ^24.0.0 || >=26.0.0"
+      }
+    },
+    "jsdom": {
+      "source": "https://registry.npmjs.org/jsdom/latest",
+      "version": "30.1.2",
+      "peerDependencies": {
+        "canvas": "^3.2.3"
+      },
+      "engines": {
+        "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+      }
+    },
+    "@testing-library/react": {
+      "source": "https://registry.npmjs.org/@testing-library%2freact/latest",
+      "version": "16.3.3",
+      "peerDependencies": {
+        "react": "^18.0.0 || ^19.0.0",
+        "react-dom": "^18.0.0 || ^19.0.0",
+        "@types/react": "^18.0.0 || ^19.0.0",
+        "@types/react-dom": "^18.0.0 || ^19.0.0",
+        "@testing-library/dom": "^10.0.0"
+      },
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "@testing-library/jest-dom": {
+      "source": "https://registry.npmjs.org/@testing-library%2fjest-dom/latest",
+      "version": "7.0.1",
+      "peerDependencies": {
+        "vitest": ">= 0.32",
+        "@testing-library/dom": ">=10 <11"
+      },
+      "engines": {
+        "npm": ">=6",
+        "node": ">=22",
+        "yarn": ">=1"
+      }
+    },
+    "@testing-library/user-event": {
+      "source": "https://registry.npmjs.org/@testing-library%2fuser-event/latest",
+      "version": "14.6.7",
+      "peerDependencies": {
+        "@testing-library/dom": ">=7.21.4"
+      },
+      "engines": {
+        "npm": ">=6",
+        "node": ">=12"
+      }
+    },
+    "@testing-library/dom": {
+      "source": "https://registry.npmjs.org/@testing-library%2fdom/latest",
+      "version": "10.4.2",
+      "engines": {
+        "node": ">=18"
+      }
+    }
+  }
+}

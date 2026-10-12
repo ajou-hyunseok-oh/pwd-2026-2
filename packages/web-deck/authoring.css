@@ -1,0 +1,67 @@
+/* Shared authoring format extracted from Lectures 01–04; opt-in lesson classes. */
+.wd-lesson-slide { padding: 2.2rem 3rem 1.8rem; background: var(--wd-paper); }
+.wd-lesson-slide > * { min-width: 0; }
+.wd-lesson-slide :is(h1,h2,h3,p) { margin: 0; }
+.wd-lesson-eyebrow { color: var(--wd-muted); font-size: .76rem; font-weight: 750; letter-spacing: .12em; margin-bottom: .8rem !important; }
+.wd-lesson-slide .wd-slide-heading { flex: 0 0 auto; max-width: 28em; }
+.wd-lesson-slide .wd-slide-lead { margin-top: .7rem !important; max-width: 52em; }
+.wd-lesson-body { display: grid; gap: 2rem; margin-top: 1.15rem; align-items: start; min-height: 0; }
+.wd-lesson-body--split { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.wd-lesson-body--code { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); }
+.wd-lesson-body--visual { grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); }
+.wd-lesson-body--single { grid-template-columns: 1fr; }
+.wd-lesson-block { min-width: 0; }
+.wd-lesson-concepts { margin: 0; font-size: .94rem; line-height: 1.55; word-break: keep-all; }
+.wd-lesson-concepts > div + div { margin-top: 1.05rem; }
+.wd-lesson-concepts dt { font-weight: 750; color: #263e30; }
+.wd-lesson-concepts dd { margin: .28rem 0 0 1rem; }
+.wd-lesson-concepts ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .18rem; color: #43564a; }
+.wd-lesson-concepts li { font-size: .88rem; }
+.wd-lesson-concepts li::marker { color: #85968b; }
+.wd-lesson-code-label { font-size: .7rem; font-weight: 650; color: #536159; line-height: 1.4; margin-bottom: .4rem !important; overflow-wrap: anywhere; }
+.wd-lesson-slide .wd-code { margin: 0; font-size: .7rem; line-height: 1.45; padding: .75rem .8rem; max-height: none; font-family: Consolas, 'Liberation Mono', Menlo, 'SFMono-Regular', monospace; background: #000; color: #00ff00; border: 0; border-radius: 0; }
+.wd-lesson-slide .wd-code :is(code,.token) { color: #00ff00; background: transparent; text-shadow: none; }
+.wd-lesson-table { width: 100%; border-collapse: collapse; font-size: .88rem; line-height: 1.55; word-break: keep-all; table-layout: fixed; }
+.wd-lesson-table th, .wd-lesson-table td { padding: .65rem .8rem; border-bottom: 1px solid #d7ddd9; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.wd-lesson-table thead th { background: #edf3ef; color: #263e30; }
+.wd-lesson-table tbody th { width: 26%; font-weight: 700; }
+.wd-lesson-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 1.1rem; }
+.wd-lesson-steps li { counter-increment: step; padding-left: 2.2rem; position: relative; font-size: .94rem; line-height: 1.5; word-break: keep-all; }
+.wd-lesson-steps li::before { content: counter(step,decimal-leading-zero); position: absolute; left: 0; color: #256747; font-size: .85rem; font-weight: 750; top: .08rem; }
+.wd-lesson-steps p { margin-top: .2rem; color: #536159; font-size: .88rem; }
+.wd-lesson-figure { margin: 0; }
+.wd-lesson-figure img { display: block; width: 100%; max-height: 20rem; object-fit: contain; object-position: top; border: 1px solid #d7ddd9; }
+.wd-lesson-figure figcaption { margin-top: .55rem; font-size: .73rem; color: #536159; line-height: 1.4; }
+.wd-lesson-cover { justify-content: center; }
+.wd-lesson-cover__content { max-width: 52rem; }
+.wd-lesson-cover__eyebrow { color: var(--wd-muted); font-size: .72rem; font-weight: 700; letter-spacing: .06em; }
+.wd-lesson-title { font-size: 3rem; line-height: 1.14; font-weight: 760; letter-spacing: -.03em; word-break: keep-all; }
+.wd-lesson-cover__eyebrow + .wd-lesson-title { margin-top: 1rem !important; }
+.wd-lesson-cover__subtitle { margin-top: 1.2rem !important; color: var(--wd-muted); font-size: 1.32rem; font-weight: 650; line-height: 1.45; word-break: keep-all; }
+.wd-lesson-cover[data-wd-cover="topic"] .wd-lesson-title { font-size: 2.8rem; line-height: 1.2; letter-spacing: -.035em; }
+@media screen and (max-width: 767px) {
+  .wd-lesson-slide { padding: 1.5rem 1.2rem; }
+  .wd-lesson-slide > * { flex-shrink: 0; }
+  .wd-lesson-slide .wd-slide-heading { font-size: 1.85rem; text-wrap: wrap; word-break: keep-all; }
+  .wd-lesson-body { grid-template-columns: 1fr; gap: 1.5rem; min-height: auto; }
+  .wd-lesson-slide .wd-code { font-size: 14px; overflow-x: auto; }
+  .wd-lesson-table { font-size: .8rem; word-break: normal; }
+  .wd-lesson-table th, .wd-lesson-table td { padding: .5rem .3rem; }
+  .wd-lesson-cover { padding-right: 1rem; padding-left: 1rem; }
+  .wd-lesson-cover .wd-lesson-title { font-size: 2.2rem; }
+}
+
+.wd-lesson-chapter { justify-content: center; }
+.wd-lesson-chapter .wd-slide-heading { font-size: 2.8rem; }
+.wd-lesson-chapter .wd-slide-lead { margin-top: 1.2rem; }
+@media screen and (max-width: 767px) {
+  .wd-lesson-chapter .wd-slide-heading { font-size: 1.85rem; }
+}
+
+.wd-lesson-concepts dt strong { font-weight: 700; }
+.wd-lesson-result { margin-top: 1.1rem; padding-top: .6rem; border-top: 1px solid var(--wd-line); color: #43564a; font-size: .82rem; line-height: 1.55; word-break: keep-all; }
+.wd-lesson-result p + p { margin-top: .18rem; }
+.wd-lesson-source { position: absolute; right: 3rem; bottom: 1.8rem; color: var(--wd-muted); font-size: .7rem; font-weight: 700; letter-spacing: .1em; }
+@media screen and (max-width: 767px) {
+  .wd-lesson-source { position: static; align-self: flex-end; margin-top: 2rem !important; }
+}

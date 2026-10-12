@@ -1,0 +1,68 @@
+2026-10-12 Asia/Seoul
+Command: npm create vite@latest
+Environment: Node.js v26.11.0 / npm 11.20.0 / create-vite 9.2.1
+Working directory: /private/tmp/pwd-vite-menu-review
+Actual PTY session; ANSI redraws removed. Menu options and selected output transcribed unchanged.
+
+[Framework menu]
+◆  Select a framework:
+│  ● Vanilla
+│  ○ Vue
+│  ○ React
+│  ○ Preact
+│  ○ Lit
+│  ○ Svelte
+│  ○ Solid
+│  ○ Ember
+│  ○ Qwik
+│  ○ Angular
+│  ○ Marko
+│  ○ Others
+│  ↑/↓ to navigate • Enter: confirm
+
+[React variant menu]
+◆  Select a variant:
+│  ● TypeScript
+│  ○ TypeScript + React Compiler
+│  ○ JavaScript
+│  ○ JavaScript + React Compiler
+│  ○ RSC
+│  ○ React Router v7 ↗ https://reactrouter.com
+│  ○ TanStack Router ↗ https://tanstack.com/router
+│  ○ RedwoodSDK ↗ https://rwsdk.com
+│  ○ Vike ↗ https://vike.dev
+│  ↑/↓ to navigate • Enter: confirm
+
+[Linter menu]
+◆  Which linter to use?
+│  ● Oxlint
+│  ○ ESLint
+│  ↑/↓ to navigate • Enter: confirm
+
+[Install menu]
+◆  Install with npm and start now?
+│  ● Yes / ○ No
+
+[Selected console output]
+$ npm create vite@latest
+◇  Project name:
+│  pwd-week5-demo
+◇  Select a framework:
+│  React
+◇  Select a variant:
+│  TypeScript
+◇  Which linter to use?
+│  ESLint
+◇  Install with npm and start now?
+│  No
+└  Done. Now run:
+
+  cd pwd-week5-demo
+  npm install
+  npm run dev
+
+[Generated project]
+◇  Scaffolding project in /private/tmp/pwd-vite-menu-review/pwd-week5-demo...
+Generated package.json: react + react-dom, TypeScript, Vite, ESLint; scripts dev/build/lint/preview.
+No dependency installation or development server execution in this capture; the commands above are actual CLI guidance.
+The selected output excerpt omits the scaffolding path line. The initial project name default was vite-project.

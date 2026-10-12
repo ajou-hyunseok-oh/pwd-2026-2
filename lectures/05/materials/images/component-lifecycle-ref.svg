@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="260" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+<title id="title">Component lifecycle: ref</title>
+<desc id="desc">Zero or more Updates, direct Mount to Unmount route; render can be discarded before commit.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#557866"/></marker></defs>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<path d="M104 56 V20 H536 V53" fill="none" stroke="#557866" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<text x="320" y="15" font-size="17" fill="#315e44">No update needed</text>
+<rect x="8" y="56" width="192" height="146" rx="10" fill="#f0f5f1" stroke="#759884" stroke-width="2"/>
+<text x="104" y="89" font-size="25" font-weight="700" fill="#234c37">Mount</text>
+<text x="104" y="126" font-size="19" fill="#315e44">Render: useRef</text>
+<text x="104" y="154" font-size="19" fill="#315e44">Commit: DOM ref</text>
+<path d="M202 131 H220" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="224" y="56" width="192" height="146" rx="10" fill="#f0f5f1" stroke="#759884" stroke-width="2"/>
+<text x="320" y="89" font-size="25" font-weight="700" fill="#234c37">Update</text>
+<text x="320" y="126" font-size="19" fill="#315e44">Render: useRef</text>
+<text x="320" y="154" font-size="19" fill="#315e44">Commit: DOM ref</text>
+<path d="M418 131 H436" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="440" y="56" width="192" height="146" rx="10" fill="#f0f5f1" stroke="#759884" stroke-width="2"/>
+<text x="536" y="89" font-size="25" font-weight="700" fill="#234c37">Unmount</text>
+<text x="536" y="126" font-size="19" fill="#315e44">DOM ref: null</text>
+<path d="M390 202 C425 244 235 244 265 204" fill="none" stroke="#557866" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="320" y="220" font-size="17" fill="#315e44">0+ updates</text>
+<text x="320" y="254" font-size="17" fill="#536b5e">Render output may be discarded before commit</text>
+</g></svg>

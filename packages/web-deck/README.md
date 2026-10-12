@@ -6,6 +6,10 @@ The package self-hosts the variable Noto Sans KR font for consistent Korean and 
 
 Reusable content styles are available for `.wd-slide--content`, `.wd-slide-heading`, `.wd-slide-lead`, `.wd-content`, `.wd-columns`, `.wd-code`, `.wd-table`, and `.wd-caption`. A deck with one enabled slide automatically hides the progress rail and bottom navigation.
 
+05 이후 본문 강의는 [작성 하네스](../../lectures/authoring/README.md)의 `authoring.css`와 `.wd-lesson-*` 블록을 재사용합니다. `data-wd-authoring="v1"`으로 적용을 표시하며 `npm test`가 문체·정의 위계·HTML 기본값·불필요한 반복 영역을 함께 확인합니다.
+
+현재 05회차는 React 기초·컴포넌트·JSX·상태·Hooks, 부록과 실습 안내로 구성한 65장 덱이며 공용 코드 블록은 41개입니다. [05회차 자료 안내](../../lectures/05/materials/README.md)에 원본 가져오기 예외와 생성·검증 명령을 기록합니다. 실제 발표·인쇄·모바일 배치와 React 예제 동작은 별도 브라우저 검사로 확인합니다.
+
 빌드 도구 없이 정적 HTML에서 사용하는 KO/EN 슬라이드 프레임워크입니다.
 
 ## 제공 기능

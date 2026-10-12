@@ -1,62 +1,804 @@
-.w5-slide { padding: 2rem 3rem 3rem; background: var(--wd-paper); }
-.w5-slide > * { min-width: 0; }
-.w5-slide :is(h1,h2,h3,p) { margin: 0; }
-.w5-eyebrow { color: #256747; font-size: .68rem; font-weight: 750; letter-spacing: .08em; margin-bottom: .65rem !important; }
-.w5-slide .wd-slide-heading { max-width: none; font-size: 2.05rem; line-height: 1.22; text-wrap: nowrap; }
-.w5-slide .wd-slide-lead { margin-top: .65rem; font-size: 1.05rem; line-height: 1.5; color: #536159; max-width: none; }
-.w5-body { display: grid; gap: 2rem; margin-top: 1.35rem; min-height: 0; }
-.w5-body--split { grid-template-columns: 1fr 1fr; }
-.w5-body--code { grid-template-columns: minmax(0,1.25fr) minmax(0,1fr); }
-.w5-body--visual { grid-template-columns: minmax(0,1.5fr) minmax(0,1fr); }
-.w5-body--single { grid-template-columns: 1fr; }
-.w5-block { min-width: 0; }
-.w5-concepts { margin: 0; font-size: .94rem; line-height: 1.55; word-break: keep-all; }
-.w5-concepts > div + div { margin-top: 1.05rem; }
-.w5-concepts dt { font-weight: 750; color: #263e30; }
-.w5-concepts dd { margin: .32rem 0 0 .6rem; }
-.w5-concepts ul { margin: 0; padding-left: 1rem; display: grid; gap: .22rem; }
-.w5-concepts li { font-size: .9rem; }
-.w5-concepts li::marker { color: #85968b; }
-.w5-code-label { font-size: .7rem; font-weight: 650; color: #536159; line-height: 1.4; margin-bottom: .4rem !important; overflow-wrap: anywhere; }
-.w5-slide .wd-code { margin: 0; font-size: .7rem; line-height: 1.45; padding: .75rem .8rem; max-height: none; font-family: Consolas, 'Liberation Mono', Menlo, 'SFMono-Regular', monospace; background: #000; color: #00ff00; border: 0; border-radius: 0; }
-.w5-slide .wd-code :is(code,.token) { color: #00ff00; background: transparent; text-shadow: none; }
-.w5-table { width: 100%; border-collapse: collapse; font-size: .88rem; line-height: 1.55; word-break: keep-all; table-layout: fixed; }
-.w5-table th, .w5-table td { padding: .65rem .8rem; border-bottom: 1px solid #d7ddd9; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
-.w5-table thead th { background: #edf3ef; color: #263e30; }
-.w5-table tbody th { width: 26%; font-weight: 700; }
-.w5-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 1.1rem; }
-.w5-steps li { counter-increment: step; padding-left: 2.2rem; position: relative; font-size: .94rem; line-height: 1.5; word-break: keep-all; }
-.w5-steps li::before { content: counter(step,decimal-leading-zero); position: absolute; left: 0; color: #256747; font-size: .85rem; font-weight: 750; top: .08rem; }
-.w5-steps p { margin-top: .2rem; color: #536159; font-size: .9rem; }
-.w5-figure { margin: 0; }
-.w5-figure img { display: block; width: 100%; max-height: 20rem; object-fit: contain; object-position: top; border: 1px solid #d7ddd9; }
-.w5-figure figcaption { margin-top: .55rem; font-size: .73rem; color: #536159; line-height: 1.4; }
-.w5-references { position: absolute; bottom: .8rem; left: 3rem; right: 7rem; font-size: .57rem; line-height: 1.4; color: #536159; }
-.w5-references a { color: inherit; text-underline-offset: 2px; }
-.w5-page { position: absolute; right: 3rem; bottom: .8rem; font-size: .6rem; color: #536159; font-variant-numeric: tabular-nums; }
-.w5-cover { justify-content: center; padding-bottom: 5rem; }
-.w5-title { font-size: 3rem; line-height: 1.2; font-weight: 750; letter-spacing: -.035em; }
-.w5-cover .wd-slide-lead { margin-top: 1.3rem; font-size: 1.25rem; max-width: 43em; }
-.w5-cover .wd-slide-footer { position: absolute; bottom: 2rem; right: 3rem; left: 3rem; }
+/* Content-specific layout; shared typography lives in packages/web-deck/authoring.css. */
+[data-wd-concept="concept-function-component"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; }
+.wd-lesson-body--compact { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1rem; }
+.wd-lesson-body--modules { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+.wd-lesson-body--modules > :first-child { grid-column: 1 / -1; }
+.wd-lesson-body--example { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+.wd-lesson-body--controls { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+.wd-lesson-body--controls > :nth-child(2) { grid-column: 1; grid-row: 2; }
+.wd-lesson-body--controls > :nth-child(3) { grid-column: 2; grid-row: 1 / span 2; }
 @media screen and (max-width: 767px) {
-  .w5-slide { padding: 1.5rem 1.2rem; }
-  .w5-slide > * { flex-shrink: 0; }
-  .w5-slide .wd-slide-heading { font-size: 1.85rem; text-wrap: wrap; word-break: keep-all; }
-  .w5-body { grid-template-columns: 1fr; gap: 1.5rem; min-height: auto; }
-  .w5-slide .wd-code { font-size: 14px; overflow-x: auto; }
-  .w5-table { font-size: .8rem; word-break: normal; }
-  .w5-table th, .w5-table td { padding: .5rem .3rem; }
-  .w5-references { position: static; margin-top: 1.5rem; overflow-wrap: anywhere; }
-  .w5-page { position: static; align-self: flex-end; margin-top: .8rem; }
-  .w5-title { font-size: 2.5rem; }
-  .w5-cover .wd-slide-footer { position: static; margin-top: 3rem; }
+  .wd-lesson-body--compact, .wd-lesson-body--modules, .wd-lesson-body--example, .wd-lesson-body--controls { grid-template-columns: 1fr; }
+  .wd-lesson-body--controls > :nth-child(n) { grid-column: auto; grid-row: auto; }
 }
 
-.w5-chapter { justify-content: center; padding-bottom: 5rem; }
-.w5-chapter .wd-slide-heading { font-size: 2.4rem; }
-.w5-chapter .wd-slide-lead { margin-top: 1.2rem; }
-.w5-body--compact { grid-template-columns: 1fr 1fr; margin-top: 1rem; }
+.wd-lesson-body--vite-setup { grid-template-columns: minmax(0, .9fr) minmax(0, 1.35fr); gap: 2rem; margin-top: .8rem; }
+.wd-lesson-body--vite-setup .wd-lesson-concepts { gap: .65rem; }
+.wd-lesson-body--vite-setup .wd-lesson-concepts dt { font-size: .9rem; }
+.wd-lesson-body--vite-setup .wd-lesson-concepts dd { font-size: .85rem; }
+.wd-lesson-body--vite-setup .vite-setup-caption { font-size: .8rem; margin-top: .6rem; }
 @media screen and (max-width: 767px) {
-  .w5-body--compact { grid-template-columns: 1fr; }
-  .w5-chapter .wd-slide-heading { font-size: 1.85rem; }
+  .wd-lesson-body--vite-setup { grid-template-columns: 1fr; }
+}
+.wd-lesson-body--vite-edit { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: .6rem; }
+.wd-lesson-body--vite-edit .wd-lesson-figure { margin: .5rem 0 0; }
+.wd-lesson-body--vite-edit .wd-lesson-figure img { width: 100%; max-height: 20rem; object-fit: contain; }
+.vite-edit-explanation { margin-top: .6rem; }
+@media screen and (max-width: 767px) {
+  .wd-lesson-body--vite-edit { grid-template-columns: 1fr; }
+}
+
+/* Screen 27: outline the ProductTitle function definition (first three lines). */
+[data-wd-concept="concept-function-component"] .wd-lesson-block:nth-child(2) pre.wd-code { position: relative; }
+[data-wd-concept="concept-function-component"] .wd-lesson-block:nth-child(2) pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: calc(.75rem - .2em);
+  left: calc(.8rem - .3em);
+  width: 31ch;
+  height: calc(3 * 1.45em + .4em);
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+/* Screen 27: outline the ProductTitle usage on line seven. */
+[data-wd-concept="concept-function-component"] .wd-lesson-block:nth-child(2) pre.wd-code::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: calc(.75rem + 6 * 1.45em - .2em);
+  left: calc(.8rem + 6ch - .3em);
+  width: calc(16ch + .6em);
+  height: calc(1.45em + .4em);
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+[data-wd-concept="concept-function-component"] .wd-lesson-body { gap: .7rem 2rem; }
+[data-wd-concept="concept-function-component"] .wd-lesson-block:first-child { grid-row: 1 / span 2; }
+[data-wd-concept="concept-function-component"] .wd-lesson-block:nth-child(3) { grid-column: 2; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-function-component"] .wd-lesson-block:first-child { grid-row: auto; }
+  [data-wd-concept="concept-function-component"] .wd-lesson-block:nth-child(3) { grid-column: auto; }
+}
+[data-wd-concept="concept-function-component"] .wd-lesson-code-caption { font-size: .75rem; line-height: 1.4; margin: .35rem 0 0; padding: .25rem .45rem; border-left: 4px solid #18733c; background: #e7f3e9; color: #125c30; font-weight: 800; }
+
+/* Screen 28: outline the returned JSX, lines three through six. */
+[data-wd-concept="concept-jsx"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-jsx"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: calc(.75rem + 2 * 1.45em - .2em);
+  left: calc(.8rem + 4ch - .3em);
+  width: calc(22ch + .6em);
+  height: calc(4 * 1.45em + .4em);
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+[data-wd-concept="concept-jsx"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; }
+
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; }
+
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-body { gap: .8rem 2rem; }
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:first-child { grid-row: 1; }
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:nth-child(3) { grid-column: 1; }
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-code-caption { margin: .4rem 0 0; font-size: .8rem; line-height: 1.4; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:first-child { grid-row: auto; }
+  [data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:nth-child(3) { grid-column: auto; }
+}
+
+/* Screen 29: red prohibition strokes across the invalid if/for examples. */
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:nth-child(3) pre.wd-code { position: relative; }
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:nth-child(3) pre.wd-code::before,
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:nth-child(3) pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  height: 3px;
+  background: #ff3030;
+  transform: rotate(-8deg);
+  transform-origin: center;
+}
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:nth-child(3) pre.wd-code::before {
+  top: calc(.75rem + .7em);
+  left: .8rem;
+  width: 28ch;
+}
+[data-wd-concept="concept-jsx-expressions"] .wd-lesson-block:nth-child(3) pre.wd-code::after {
+  top: calc(.75rem + 3 * 1.45em + .7em);
+  left: .8rem;
+  width: 47ch;
+}
+
+.wd-lesson-body--attributes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem 2rem; }
+.wd-lesson-body--attributes > :first-child { grid-row: 1 / span 2; }
+.wd-lesson-body--attributes > :nth-child(3) { grid-column: 2; }
+.wd-lesson-body--attributes .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .65rem; }
+.wd-lesson-body--attributes .wd-lesson-figure img { max-height: 7rem; }
+@media screen and (max-width: 767px) {
+  .wd-lesson-body--attributes { grid-template-columns: 1fr; }
+  .wd-lesson-body--attributes > :first-child { grid-row: auto; }
+  .wd-lesson-body--attributes > :nth-child(3) { grid-column: auto; }
+}
+
+[data-wd-concept="concept-fragment"] .wd-lesson-body { gap: .8rem 2rem; }
+[data-wd-concept="concept-fragment"] .wd-lesson-block:first-child { grid-row: 1 / span 2; }
+[data-wd-concept="concept-fragment"] .wd-lesson-block:nth-child(3) { grid-column: 2; }
+[data-wd-concept="concept-fragment"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .5rem; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-fragment"] .wd-lesson-block:first-child { grid-row: auto; }
+  [data-wd-concept="concept-fragment"] .wd-lesson-block:nth-child(3) { grid-column: auto; }
+}
+
+[data-wd-concept="concept-props"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; }
+[data-wd-concept="concept-props"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.3; }
+
+/* Screen 33: Props reception and the two pName attributes passed by App. */
+[data-wd-concept="concept-props"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-props"] pre.wd-code::before,
+[data-wd-concept="concept-props"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+[data-wd-concept="concept-props"] pre.wd-code::before {
+  top: calc(.75rem + 2 * 1.45em - .2em);
+  left: calc(.8rem + 21ch - .3em);
+  width: calc(25ch + .6em);
+  height: calc(1.45em + .4em);
+}
+[data-wd-concept="concept-props"] pre.wd-code::after {
+  top: calc(.75rem + 8 * 1.45em - .2em);
+  left: calc(.8rem + 19ch - .3em);
+  width: calc(12ch + .6em);
+  height: calc(2 * 1.45em + .4em);
+}
+
+[data-wd-concept="concept-component-separation"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-component-separation"] .wd-lesson-figure img { max-height: 23rem; border: 0; }
+
+/* Screen 35: export/import keywords on lines one and eight of both examples. */
+[data-wd-concept="concept-component-files"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-component-files"] pre.wd-code::before,
+[data-wd-concept="concept-component-files"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  left: calc(.8rem - .2em);
+  width: calc(6ch + .4em);
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-component-files"] pre.wd-code::before {
+  top: calc(.75rem - .15em);
+}
+[data-wd-concept="concept-component-files"] pre.wd-code::after {
+  top: calc(.75rem + 7 * 1.45em - .15em);
+}
+
+/* Screen 36: the children insertion point and the content passed between tags. */
+[data-wd-concept="concept-children"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-children"] pre.wd-code {
+  position: relative;
+  /* Third outline: children read from the props parameter on line four. */
+  --children-x: calc(.8rem + 24ch - .2em);
+  --children-y: calc(.75rem + 3 * 1.45em - .15em);
+  --children-w: calc(8ch + .4em);
+  --children-h: calc(1.45em + .3em);
+  background-image: linear-gradient(#ff3030, #ff3030), linear-gradient(#ff3030, #ff3030), linear-gradient(#ff3030, #ff3030), linear-gradient(#ff3030, #ff3030);
+  background-repeat: no-repeat;
+  background-size: var(--children-w) 2px, var(--children-w) 2px, 2px var(--children-h), 2px var(--children-h);
+  background-position: var(--children-x) var(--children-y), var(--children-x) calc(var(--children-y) + var(--children-h) - 2px), var(--children-x) var(--children-y), calc(var(--children-x) + var(--children-w) - 2px) var(--children-y);
+}
+[data-wd-concept="concept-children"] pre.wd-code::before,
+[data-wd-concept="concept-children"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+[data-wd-concept="concept-children"] pre.wd-code::before {
+  top: calc(.75rem + 4 * 1.45em - .15em);
+  left: calc(.8rem + 18ch - .2em);
+  width: calc(10ch + .4em);
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-children"] pre.wd-code::after {
+  top: calc(.75rem + 10 * 1.45em - .15em);
+  left: calc(.8rem + 6ch - .2em);
+  width: calc(18ch + .4em);
+  height: calc(2 * 1.45em + .3em);
+}
+
+/* Screen 37: the ternary expression kept on one line. */
+[data-wd-concept="concept-conditional-rendering"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-conditional-rendering"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-conditional-rendering"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  top: calc(.75rem + 9 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(45ch + .4em);
+  height: calc(1.45em + .3em);
+}
+
+/* Screen 38: map transforms array items into JSX elements. */
+[data-wd-concept="concept-list-rendering"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-list-rendering"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.3; }
+[data-wd-concept="concept-list-rendering"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-list-rendering"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  top: calc(.75rem + 8 * 1.45em - .15em);
+  left: calc(.8rem + 6ch - .2em);
+  width: calc(36ch + .4em);
+  height: calc(3 * 1.45em + .3em);
+}
+
+/* Screen 39: key supplies the stable identity for each mapped item. */
+[data-wd-concept="concept-list-key"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-list-key"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-list-key"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  top: calc(.75rem + 9 * 1.45em - .15em);
+  left: calc(.8rem + 12ch - .2em);
+  width: calc(16ch + .4em);
+  height: calc(1.45em + .3em);
+}
+
+/* Screen 42: the event handler definition and its onClick connection. */
+[data-wd-concept="concept-event-handler"] .wd-lesson-body { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: .7rem 2rem; }
+[data-wd-concept="concept-event-handler"] .wd-lesson-block:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+[data-wd-concept="concept-event-handler"] .wd-lesson-block:nth-child(3) { grid-column: 1; }
+[data-wd-concept="concept-event-handler"] .wd-lesson-table { font-size: .75rem; line-height: 1.4; }
+[data-wd-concept="concept-event-handler"] .wd-lesson-table th,
+[data-wd-concept="concept-event-handler"] .wd-lesson-table td { padding: .35rem .4rem; }
+[data-wd-concept="concept-event-handler"] .wd-lesson-table tr > :nth-child(1) { width: 20%; }
+[data-wd-concept="concept-event-handler"] .wd-lesson-table tr > :nth-child(2) { width: 38%; }
+[data-wd-concept="concept-event-handler"] .wd-lesson-table tr > :nth-child(3) { width: 42%; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-event-handler"] .wd-lesson-body { grid-template-columns: 1fr; }
+  [data-wd-concept="concept-event-handler"] .wd-lesson-block:nth-child(n) { grid-column: auto; grid-row: auto; }
+}
+[data-wd-concept="concept-event-handler"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-event-handler"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-event-handler"] pre.wd-code::before,
+[data-wd-concept="concept-event-handler"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+[data-wd-concept="concept-event-handler"] pre.wd-code::before {
+  top: calc(.75rem + 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(32ch + .4em);
+  height: calc(3 * 1.45em + .3em);
+}
+[data-wd-concept="concept-event-handler"] pre.wd-code::after {
+  top: calc(.75rem + 4 * 1.45em - .15em);
+  left: calc(.8rem + 17ch - .2em);
+  width: calc(21ch + .4em);
+  height: calc(1.45em + .3em);
+}
+
+/* Screen 43: state declaration and the state setter call. */
+[data-wd-concept="concept-state"] .wd-lesson-body { gap: .7rem 2rem; }
+[data-wd-concept="concept-state"] .wd-lesson-block:nth-child(2) { grid-column: 1; grid-row: 2; }
+[data-wd-concept="concept-state"] .wd-lesson-block:nth-child(3) { grid-column: 2; grid-row: 1 / span 2; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-state"] .wd-lesson-block:nth-child(n) { grid-column: auto; grid-row: auto; }
+}
+[data-wd-concept="concept-state"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-state"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.4; }
+[data-wd-concept="concept-state"] .wd-lesson-block:nth-child(3) pre.wd-code { position: relative; }
+[data-wd-concept="concept-state"] .wd-lesson-block:nth-child(3) pre.wd-code::before,
+[data-wd-concept="concept-state"] .wd-lesson-block:nth-child(3) pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-state"] .wd-lesson-block:nth-child(3) pre.wd-code::before {
+  top: calc(.75rem + 3 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(44ch + .4em);
+}
+[data-wd-concept="concept-state"] .wd-lesson-block:nth-child(3) pre.wd-code::after {
+  top: calc(.75rem + 5 * 1.45em - .15em);
+  left: calc(.8rem + 27ch - .2em);
+  width: calc(25ch + .4em);
+}
+
+/* Screen 44: the console log runs when React calls the component. */
+[data-wd-concept="concept-render"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-render"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.3; }
+[data-wd-concept="concept-render"] .wd-lesson-result p:not(.wd-lesson-code-label) { font-family: Consolas, monospace; font-size: .75rem; }
+[data-wd-concept="concept-render"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-render"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  top: calc(.75rem + 4 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(33ch + .4em);
+  height: calc(1.45em + .3em);
+}
+
+/* Screen 45: actual Quantity UI before and after a commit. */
+[data-wd-concept="concept-commit"] .wd-lesson-body { align-content: start; row-gap: 1.5rem; }
+[data-wd-concept="concept-commit"] .wd-lesson-figure img { max-height: 8rem; }
+[data-wd-concept="concept-commit"] .wd-lesson-figure figcaption { font-size: .8rem; color: #243d2e; }
+
+/* Screen 46: request the next state, then read the captured snapshot. */
+[data-wd-concept="concept-state-snapshot"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-state-snapshot"] .wd-lesson-result { margin-top: .6rem; padding-top: .5rem; line-height: 1.5; }
+[data-wd-concept="concept-state-snapshot"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-state-snapshot"] pre.wd-code::before,
+[data-wd-concept="concept-state-snapshot"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-state-snapshot"] pre.wd-code::before {
+  top: calc(.75rem + 5 * 1.45em - .15em);
+  left: calc(.8rem + 4ch - .2em);
+  width: calc(20ch + .4em);
+}
+[data-wd-concept="concept-state-snapshot"] pre.wd-code::after {
+  top: calc(.75rem + 6 * 1.45em - .15em);
+  left: calc(.8rem + 21ch - .2em);
+  width: calc(12ch + .4em);
+}
+
+/* Screen 47: consecutive updater functions accumulate state changes. */
+[data-wd-concept="concept-state-updater"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-state-updater"] .wd-lesson-result { margin-top: .6rem; padding-top: .5rem; line-height: 1.5; }
+[data-wd-concept="concept-state-updater"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-state-updater"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  top: calc(.75rem + 5 * 1.45em - .15em);
+  left: calc(.8rem + 4ch - .2em);
+  width: calc(23ch + .4em);
+  height: calc(2 * 1.45em + .3em);
+}
+
+/* Screen 48: map creates an array and spread creates the changed object. */
+[data-wd-concept="concept-state-immutability"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-state-immutability"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.4; }
+[data-wd-concept="concept-state-immutability"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-state-immutability"] pre.wd-code::before,
+[data-wd-concept="concept-state-immutability"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+[data-wd-concept="concept-state-immutability"] pre.wd-code::before {
+  top: calc(.75rem + 8 * 1.45em - .15em);
+  left: calc(.8rem + 6ch - .2em);
+  width: calc(36ch + .4em);
+  height: calc(5 * 1.45em + .3em);
+}
+[data-wd-concept="concept-state-immutability"] pre.wd-code::after {
+  top: calc(.75rem + 10 * 1.45em - .15em);
+  left: calc(.8rem + 12ch - .2em);
+  width: calc(29ch + .4em);
+  height: calc(1.45em + .3em);
+}
+
+/* Screen 49: derive a filtered list and its count from source data. */
+[data-wd-concept="concept-derived-values"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-derived-values"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.4; }
+[data-wd-concept="concept-derived-values"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-derived-values"] pre.wd-code::before,
+[data-wd-concept="concept-derived-values"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+[data-wd-concept="concept-derived-values"] pre.wd-code::before {
+  top: calc(.75rem + 5 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(42ch + .4em);
+  height: calc(3 * 1.45em + .3em);
+}
+[data-wd-concept="concept-derived-values"] pre.wd-code::after {
+  top: calc(.75rem + 14 * 1.45em - .15em);
+  left: calc(.8rem + 33ch - .2em);
+  width: calc(14ch + .4em);
+  height: calc(1.45em + .3em);
+}
+
+/* Screen 50: controlled values and their change handlers. */
+[data-wd-concept="concept-controlled-inputs"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-controlled-inputs"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.4; }
+[data-wd-concept="concept-controlled-inputs"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-controlled-inputs"] pre.wd-code::before,
+[data-wd-concept="concept-controlled-inputs"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+[data-wd-concept="concept-controlled-inputs"] pre.wd-code::before {
+  top: calc(.75rem + 7 * 1.45em - .15em);
+  left: calc(.8rem + 13ch - .2em);
+  width: calc(54ch + .4em);
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-controlled-inputs"] pre.wd-code::after {
+  top: calc(.75rem + 11 * 1.45em - .15em);
+  left: calc(.8rem + 10ch - .2em);
+  width: calc(44ch + .4em);
+  height: calc(2 * 1.45em + .3em);
+}
+
+/* Screen 51: one shared state and props passed to both components. */
+[data-wd-concept="concept-lifting-state"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-lifting-state"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.4; }
+[data-wd-concept="concept-lifting-state"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-lifting-state"] pre.wd-code::before,
+[data-wd-concept="concept-lifting-state"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+}
+[data-wd-concept="concept-lifting-state"] pre.wd-code::before {
+  top: calc(.75rem + 9 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(44ch + .4em);
+  height: calc(2 * 1.45em + .3em);
+}
+[data-wd-concept="concept-lifting-state"] pre.wd-code::after {
+  top: calc(.75rem + 13 * 1.45em - .15em);
+  left: calc(.8rem + 22ch - .2em);
+  width: calc(28ch + .4em);
+  height: calc(2 * 1.45em + .3em);
+}
+
+/* Screen 52: Counter retains its state when its label prop changes. */
+[data-wd-concept="concept-state-preservation"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-state-preservation"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.4; }
+[data-wd-concept="concept-state-preservation"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-state-preservation"] pre.wd-code::before,
+[data-wd-concept="concept-state-preservation"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-state-preservation"] pre.wd-code::before {
+  top: calc(.75rem + 3 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(37ch + .4em);
+}
+[data-wd-concept="concept-state-preservation"] pre.wd-code::after {
+  top: calc(.75rem + 15 * 1.45em - .15em);
+  left: calc(.8rem + 6ch - .2em);
+  width: calc(25ch + .4em);
+}
+
+/* Screen 53: change the identifier used as the Editor key. */
+[data-wd-concept="concept-state-reset-key"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-state-reset-key"] .wd-lesson-result { margin-top: .5rem; padding-top: .4rem; line-height: 1.4; }
+[data-wd-concept="concept-state-reset-key"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-state-reset-key"] pre.wd-code::before,
+[data-wd-concept="concept-state-reset-key"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-state-reset-key"] pre.wd-code::before {
+  top: calc(.75rem + 10 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(39ch + .4em);
+}
+[data-wd-concept="concept-state-reset-key"] pre.wd-code::after {
+  top: calc(.75rem + 14 * 1.45em - .15em);
+  left: calc(.8rem + 14ch - .2em);
+  width: calc(11ch + .4em);
+}
+
+/* Screen 55: compare Hook placement around an early return. */
+[data-wd-concept="concept-hook-rules"] .wd-lesson-body { gap: .8rem 2rem; }
+[data-wd-concept="concept-hook-rules"] .wd-lesson-block:nth-child(3) { grid-column: 2; }
+[data-wd-concept="concept-hook-rules"] .wd-lesson-block:nth-child(3) .wd-lesson-code-label { color: #b52323; }
+[data-wd-concept="concept-hook-rules"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-hook-rules"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(38ch + .4em);
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-hook-rules"] .wd-lesson-block:nth-child(2) pre.wd-code::after { top: calc(.75rem + 3 * 1.45em - .15em); }
+[data-wd-concept="concept-hook-rules"] .wd-lesson-block:nth-child(3) pre.wd-code::after { top: calc(.75rem + 4 * 1.45em - .15em); }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-hook-rules"] .wd-lesson-block:nth-child(3) { grid-column: auto; }
+}
+
+/* Hook introduction precedes the calling rules. */
+[data-wd-concept="concept-hook-introduction"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .7rem; }
+
+/* Reuse the lifecycle visual in the component and Hook introductions. */
+[data-wd-concept="concept-component-lifecycle"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .7rem; }
+[data-wd-concept="concept-component-lifecycle"] .wd-lesson-figure img,
+[data-wd-concept="concept-hook-introduction"] .wd-lesson-figure img { max-height: 22rem; border: 0; }
+
+/* Reuse the lifecycle stages with the relevant Render / Commit timing. */
+:is([data-wd-concept="concept-render"], [data-wd-concept="concept-ref"], [data-wd-concept="concept-effect"], [data-wd-concept="concept-effect-dependencies"]) .wd-lesson-body {
+  grid-template-rows: auto auto;
+  gap: .8rem 2rem;
+}
+:is([data-wd-concept="concept-render"], [data-wd-concept="concept-ref"], [data-wd-concept="concept-effect"], [data-wd-concept="concept-effect-dependencies"]) .wd-lesson-block:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+:is([data-wd-concept="concept-render"], [data-wd-concept="concept-ref"], [data-wd-concept="concept-effect"], [data-wd-concept="concept-effect-dependencies"]) .wd-lesson-block:nth-child(3) { grid-column: 1; grid-row: 2; }
+:is([data-wd-concept="concept-ref"], [data-wd-concept="concept-effect"], [data-wd-concept="concept-effect-dependencies"], [data-wd-concept="concept-effect-cleanup"]) .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .6rem; }
+[data-wd-concept="concept-commit"] .wd-lesson-block:first-child { grid-row: 1; }
+[data-wd-concept="concept-commit"] .wd-lesson-block:nth-child(2) { grid-column: 2; grid-row: 1; }
+[data-wd-concept="concept-commit"] .wd-lesson-block:nth-child(3) { grid-column: 2; grid-row: 2; }
+[data-wd-concept="concept-commit"] .wd-lesson-block:nth-child(4) { grid-column: 1; grid-row: 2; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-block:first-child { grid-column: 1; grid-row: 1 / span 2; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-block:nth-child(2) { grid-column: 2; grid-row: 1; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-block:nth-child(3) { grid-column: 2; grid-row: 2; }
+.wd-lesson-figure img[src*="component-lifecycle-"] { width: 100%; max-height: 13rem; border: 0; }
+[data-wd-concept="concept-hook-introduction"] .wd-lesson-figure img { max-height: 22rem; }
+@media screen and (max-width: 767px) {
+  :is([data-wd-concept="concept-render"], [data-wd-concept="concept-commit"], [data-wd-concept="concept-ref"], [data-wd-concept="concept-effect"], [data-wd-concept="concept-effect-dependencies"], [data-wd-concept="concept-effect-cleanup"]) .wd-lesson-block { grid-column: 1 !important; grid-row: auto !important; }
+}
+
+/* Function lifecycle overview adapted from the supplied Week 3 PDF. */
+[data-wd-concept="concept-component-lifecycle"] .wd-lesson-body { grid-template-columns: .85fr 1.35fr; gap: 1.5rem; }
+[data-wd-concept="concept-component-lifecycle"] .wd-lesson-concepts ul { gap: .6rem; }
+[data-wd-concept="concept-component-lifecycle"] .wd-lesson-figure img { max-height: 29rem; width: 100%; border: 0; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-component-lifecycle"] .wd-lesson-body { grid-template-columns: 1fr; }
+}
+
+/* Ref: declaration, JSX connection, and DOM access. */
+[data-wd-concept="concept-ref"] .wd-lesson-block:nth-child(2) { grid-row: 1 / span 2; }
+[data-wd-concept="concept-ref"] .wd-lesson-result .wd-lesson-figure img { max-height: 5.5rem; width: 100%; border: 1px solid #d4ddd7; }
+[data-wd-concept="concept-ref"] .wd-lesson-result figcaption { font-size: .8rem; color: #243d2e; }
+[data-wd-concept="concept-ref"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-ref"] pre.wd-code > code { position: static; font: inherit; }
+[data-wd-concept="concept-ref"] pre.wd-code::before,
+[data-wd-concept="concept-ref"] pre.wd-code::after,
+[data-wd-concept="concept-ref"] pre.wd-code > code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-ref"] pre.wd-code::before {
+  top: calc(.75rem + 3 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(30ch + .4em);
+}
+[data-wd-concept="concept-ref"] pre.wd-code::after {
+  top: calc(.75rem + 6 * 1.45em - .15em);
+  left: calc(.8rem + 13ch - .2em);
+  width: calc(14ch + .4em);
+}
+[data-wd-concept="concept-ref"] pre.wd-code > code::after {
+  top: calc(.75rem + 7 * 1.45em - .15em);
+  left: calc(.8rem + 29ch - .2em);
+  width: calc(24ch + .4em);
+}
+
+[data-wd-concept="concept-ref"] .wd-lesson-result { margin-top: .7rem; padding-top: .5rem; }
+
+/* Ref / State comparison replaces the lifecycle illustration. */
+[data-wd-concept="concept-ref"] .wd-lesson-body { row-gap: 1rem; }
+[data-wd-concept="concept-ref"] .wd-lesson-block:nth-child(3) .wd-lesson-table { font-size: .8rem; line-height: 1.45; }
+[data-wd-concept="concept-ref"] .wd-lesson-table :is(th, td) { padding: .5rem .45rem; }
+[data-wd-concept="concept-ref"] .wd-lesson-table th:first-child { width: 19%; white-space: nowrap; }
+
+/* Effect: schedule synchronization and update the browser title. */
+[data-wd-concept="concept-effect"] pre.wd-code { position: relative; }
+[data-wd-concept="concept-effect"] pre.wd-code::before,
+[data-wd-concept="concept-effect"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  height: calc(1.45em + .3em);
+}
+[data-wd-concept="concept-effect"] pre.wd-code::before {
+  top: calc(.75rem + 4 * 1.45em - .15em);
+  left: calc(.8rem + 2ch - .2em);
+  width: calc(17ch + .4em);
+}
+[data-wd-concept="concept-effect"] pre.wd-code::after {
+  top: calc(.75rem + 5 * 1.45em - .15em);
+  left: calc(.8rem + 4ch - .2em);
+  width: calc(34ch + .4em);
+}
+[data-wd-concept="concept-effect"] .wd-lesson-result { margin-top: .7rem; padding-top: .5rem; }
+[data-wd-concept="concept-effect"] .wd-lesson-result .wd-lesson-figure img { max-height: 4.5rem; width: 100%; border: 1px solid #d4ddd7; }
+[data-wd-concept="concept-effect"] .wd-lesson-result figcaption { font-size: .8rem; line-height: 1.5; color: #243d2e; }
+
+/* Dependencies: independent state changes with observed Effect output. */
+[data-wd-concept="concept-effect-dependencies"] .wd-lesson-body { grid-template-columns: .9fr 1.1fr; gap: .8rem 1.6rem; }
+[data-wd-concept="concept-effect-dependencies"] pre.wd-code { position: relative; line-height: 1.4; }
+[data-wd-concept="concept-effect-dependencies"] .wd-lesson-figure img { max-height: 10rem; }
+[data-wd-concept="concept-effect-dependencies"] pre.wd-code::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid #ff3030;
+  background: transparent;
+  box-sizing: border-box;
+  top: calc(.75rem + 8 * 1.4em - .15em);
+  left: calc(.8rem + 5ch - .2em);
+  width: calc(7ch + .4em);
+  height: calc(1.4em + .3em);
+}
+[data-wd-concept="concept-effect-dependencies"] .wd-lesson-result { margin-top: .3rem; padding-top: .3rem; font-size: .75rem; line-height: 1.5; }
+[data-wd-concept="concept-effect-dependencies"] .wd-lesson-result p { margin: .15rem 0; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-effect-dependencies"] .wd-lesson-body { grid-template-columns: 1fr; }
+}
+
+/* Cleanup: stop the previous timer on a value change or removal. */
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-body { grid-template-columns: .85fr 1.15fr; gap: .6rem 1.4rem; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-block:first-child { grid-column: 1; grid-row: 1; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-block:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-block:nth-child(3) { grid-column: 1; grid-row: 2; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-figure img { max-height: 9rem; }
+[data-wd-concept="concept-effect-cleanup"] pre.wd-code { position: relative; line-height: 1.25; padding: .6rem .8rem; }
+[data-wd-concept="concept-effect-cleanup"] pre.wd-code::before,
+[data-wd-concept="concept-effect-cleanup"] pre.wd-code::after {
+  content: ""; position: absolute; pointer-events: none; border: 2px solid #ff3030;
+  background: transparent; box-sizing: border-box; height: calc(1.25em + .3em);
+}
+[data-wd-concept="concept-effect-cleanup"] pre.wd-code::before {
+  top: calc(.6rem + 5 * 1.25em - .15em); left: calc(.8rem + 4ch - .2em); width: calc(14ch + .4em);
+}
+[data-wd-concept="concept-effect-cleanup"] pre.wd-code::after {
+  top: calc(.6rem + 6 * 1.25em - .15em); left: calc(.8rem + 6ch - .2em); width: calc(21ch + .4em);
+}
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-result { margin-top: .25rem; padding-top: .25rem; font-size: .75rem; line-height: 1.4; }
+[data-wd-concept="concept-effect-cleanup"] .wd-lesson-result p { margin: .1rem 0; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-effect-cleanup"] .wd-lesson-body { grid-template-columns: 1fr; }
+}
+
+/* Custom Hook: reusable definition and per-component call. */
+[data-wd-concept="concept-custom-hook"] .wd-lesson-body { grid-template-columns: .9fr 1.1fr; gap: 1.5rem; }
+[data-wd-concept="concept-custom-hook"] .wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .7rem; }
+[data-wd-concept="concept-custom-hook"] pre.wd-code { position: relative; line-height: 1.4; padding: .6rem .8rem; }
+[data-wd-concept="concept-custom-hook"] pre.wd-code::before,
+[data-wd-concept="concept-custom-hook"] pre.wd-code::after {
+  content: ""; position: absolute; pointer-events: none; border: 2px solid #ff3030;
+  background: transparent; box-sizing: border-box;
+}
+[data-wd-concept="concept-custom-hook"] pre.wd-code::before {
+  top: calc(.6rem + 2 * 1.4em - .15em); left: calc(.8rem - .2em);
+  width: calc(47ch + .4em); height: calc(4 * 1.4em + .3em);
+}
+[data-wd-concept="concept-custom-hook"] pre.wd-code::after {
+  top: calc(.6rem + 7 * 1.4em - .15em); left: calc(.8rem + 29ch - .2em);
+  width: calc(13ch + .4em); height: calc(1.4em + .3em);
+}
+[data-wd-concept="concept-custom-hook"] .wd-lesson-result { margin-top: .35rem; padding-top: .3rem; font-size: .75rem; line-height: 1.4; }
+[data-wd-concept="concept-custom-hook"] .wd-lesson-result p { margin: .1rem 0; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-custom-hook"] .wd-lesson-body { grid-template-columns: 1fr; }
+}
+
+[data-wd-concept="concept-more-hooks"] .wd-lesson-table { font-size: .85rem; line-height: 1.45; }
+[data-wd-concept="concept-more-hooks"] .wd-lesson-table :is(th, td) { padding: .55rem .6rem; }
+[data-wd-concept="concept-more-hooks"] .wd-lesson-table td:first-child { font-family: Consolas, monospace; font-weight: 700; white-space: nowrap; }
+[data-wd-concept="concept-more-hooks"] .wd-lesson-table th:first-child { width: 18%; }
+[data-wd-concept="concept-more-hooks"] .wd-lesson-table th:nth-child(2) { width: 47%; }
+
+/* Slide 35: design principles and separation criteria beside the example. */
+[data-wd-concept="concept-component-separation"] .wd-lesson-body { grid-template-columns: 1.15fr .85fr; gap: .85rem 1.5rem; }
+[data-wd-concept="concept-component-separation"] .wd-lesson-block:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; }
+[data-wd-concept="concept-component-separation"] .wd-lesson-block:nth-child(3) { grid-column: 1; grid-row: 2; }
+[data-wd-concept="concept-component-separation"] .wd-lesson-concepts ul { gap: .45rem; }
+[data-wd-concept="concept-component-separation"] .wd-lesson-table { font-size: .8rem; line-height: 1.45; }
+[data-wd-concept="concept-component-separation"] .wd-lesson-table :is(th, td) { padding: .55rem .5rem; }
+[data-wd-concept="concept-component-separation"] .wd-lesson-table th:first-child { width: 23%; }
+@media screen and (max-width: 767px) {
+  [data-wd-concept="concept-component-separation"] .wd-lesson-body { grid-template-columns: 1fr; }
+  [data-wd-concept="concept-component-separation"] .wd-lesson-block { grid-column: 1 !important; grid-row: auto !important; }
+}
+
+/* Verbatim PDF appendix; the source page includes all typography and content. */
+[data-wd-slide="appendix-react-ecosystem"].wd-source-slide { padding: 0; background: white; }
+[data-wd-slide="appendix-react-ecosystem"] .wd-source-page { width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: center; }
+@media screen and (max-width: 767px) {
+  [data-wd-slide="appendix-react-ecosystem"] .wd-source-page { height: auto; aspect-ratio: 16 / 9; }
+}
+
+[data-wd-slide="appendix-react-ecosystem"] .wd-source-page { position: relative; }
+[data-wd-slide="appendix-react-ecosystem"] .wd-source-code-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Week 5 lab: Week 4's green deadline banner and submission card. */
+[data-wd-slide="practice-week5"] .wd-practice-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.2rem; }
+[data-wd-slide="practice-week5"] h3 { margin: 0 0 .65rem; color: #355241; font-size: 1.15rem; }
+[data-wd-slide="practice-week5"] ul { margin: 0 0 1.5rem; padding-left: 1.15rem; font-size: .95rem; line-height: 1.65; }
+[data-wd-slide="practice-week5"] li + li { margin-top: .5rem; }
+[data-wd-slide="practice-week5"] li::marker { color: #355241; }
+[data-wd-slide="practice-week5"] .wd-practice-submission { border: 1px solid #b9c9bd; background: #f8faf8; }
+[data-wd-slide="practice-week5"] .wd-practice-deadline { display: grid; gap: .5rem; padding: 1rem; background: #284b38; color: white; }
+[data-wd-slide="practice-week5"] .wd-practice-deadline span { font-size: .95rem; font-weight: 700; }
+[data-wd-slide="practice-week5"] .wd-practice-deadline strong { color: #ffe19a; font-size: 1.35rem; line-height: 1.35; }
+[data-wd-slide="practice-week5"] .wd-practice-deliverables { padding: 1rem; }
+[data-wd-slide="practice-week5"] .wd-practice-deliverables ul { margin-bottom: 0; }
+[data-wd-slide="practice-week5"] .wd-practice-reference { margin-top: 1.5rem; }
+[data-wd-slide="practice-week5"] .wd-practice-reference a { color: #284b38; font-size: 1rem; font-weight: 700; text-decoration: underline; }
+[data-wd-slide="practice-week5"] .wd-practice-reference p { margin-top: .8rem; font-size: .85rem; line-height: 1.6; }
+@media screen and (max-width: 767px) {
+  [data-wd-slide="practice-week5"] .wd-practice-grid { grid-template-columns: 1fr; gap: 1rem; }
 }

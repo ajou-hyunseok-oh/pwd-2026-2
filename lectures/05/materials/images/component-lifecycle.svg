@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="440" viewBox="0 0 520 440" role="img" aria-labelledby="title desc">
+<title id="title">Component lifecycle</title>
+<desc id="desc">Mount, zero or more Updates, then Unmount</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#557866"/></marker></defs>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<g fill="#f0f5f1" stroke="#759884" stroke-width="2"><rect x="55" y="15" width="380" height="100" rx="12"/><rect x="55" y="165" width="380" height="100" rx="12"/><rect x="55" y="315" width="380" height="100" rx="12"/></g>
+<g fill="#234c37" font-size="30" font-weight="700"><text x="245" y="57">Mount</text><text x="245" y="207">Update</text><text x="245" y="357">Unmount</text></g>
+<g fill="#536b5e" font-size="20"><text x="245" y="89">Add to UI</text><text x="245" y="239">Recalculate UI</text><text x="245" y="389">Remove from UI</text></g>
+</g>
+<g fill="none" stroke="#557866" stroke-width="3" marker-end="url(#arrow)"><path d="M245 116 V155"/><path d="M245 266 V305"/><path d="M436 190 C510 145 510 285 440 245"/></g>
+<path d="M55 65 H20 V365 H52" fill="none" stroke="#557866" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<text x="465" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#315e44">0+ updates</text>
+</svg>
