@@ -1,13 +1,24 @@
-// Usage: LECTURE=05 PLAYWRIGHT_PATH=/path/to/playwright node packages/web-deck/tests/authoring-layout.cjs
+// Usage: LECTURE=05 or DECK_PATH=lectures/prd, with PLAYWRIGHT_PATH=/path/to/playwright
 const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const assert = require('node:assert/strict');
 const { chromium } = require(process.env.PLAYWRIGHT_PATH || 'playwright');
 const lecture = process.env.LECTURE || '05';
-if (!/^(0[5-9]|1[0-3])$/.test(lecture)) throw new Error('LECTURE must be 05–13');
-const deckPath = 'lectures/' + lecture + '/index.html';
-const root = path.resolve(__dirname, '../../../lectures/' + lecture);
+const repositoryRoot = path.resolve(__dirname, '../../..');
+let deckPath;
+if (process.env.DECK_PATH) {
+  deckPath = process.env.DECK_PATH;
+  assert.match(deckPath, /^lectures\/[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_-]+)*(?:\/index\.html)?$/, 'DECK_PATH must be a repository-relative lecture directory or index.html path');
+  if (!deckPath.endsWith('/index.html')) deckPath += '/index.html';
+} else {
+  if (!/^(0[5-9]|1[0-3])$/.test(lecture)) throw new Error('LECTURE must be 05–13');
+  deckPath = 'lectures/' + lecture + '/index.html';
+}
+const htmlPath = path.resolve(repositoryRoot, deckPath);
+const root = path.dirname(htmlPath);
+const realRepositoryRoot = fs.realpathSync(repositoryRoot);
+assert.ok(fs.realpathSync(htmlPath).startsWith(realRepositoryRoot + path.sep), 'DECK_PATH must stay inside the repository');
 const count = (fs.readFileSync(path.join(root, 'index.html'), 'utf8').match(/data-wd-slide=/g) || []).length;
 const output = process.env.REVIEW_OUTPUT || path.join(os.tmpdir(), 'pwd-lecture-' + path.basename(root) + '/review');
 fs.mkdirSync(output, {recursive: true});
@@ -53,8 +64,8 @@ fs.mkdirSync(output, {recursive: true});
           const found = await page.locator('[data-wd-slide]').nth(i).evaluate(s => {
             const result = [], box = s.getBoundingClientRect();
             const limit = box.bottom - 30;
-            for (const e of s.querySelectorAll('h1,h2,dt,dd,li,p,pre,table,img,figcaption')) {
-              if (e.closest('[hidden],.wd-slide-footer')) continue;
+            for (const e of s.querySelectorAll('h1,h2,dt,dd,li,p,pre,table,img,figcaption,a')) {
+              if (e.closest('[hidden],.wd-slide-footer') || !e.getClientRects().length) continue;
               const r = e.getBoundingClientRect();
               // Flow arrows in ::after contribute to scrollWidth; measure real content too.
               const range = document.createRange();

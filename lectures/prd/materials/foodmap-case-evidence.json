@@ -1,0 +1,154 @@
+{
+  "reviewed": "2026-10-12",
+  "method": "static-code-review",
+  "scope": "현재 작업공간의 5주차 캠퍼스 푸드맵 프런트엔드 실습. 실행 결과가 아닌 코드 확인 기록.",
+  "sources": [
+    {
+      "id": "S-01",
+      "kind": "course-readme",
+      "path": "pwd-week5/README.md",
+      "limit": "설명 일부와 실제 src의 차이가 있어 구현 동작은 S-02 코드와 대조."
+    },
+    {
+      "id": "S-02",
+      "kind": "implementation",
+      "paths": [
+        "pwd-week5/src/services/api.jsx",
+        "pwd-week5/src/App.jsx",
+        "pwd-week5/src/pages/ListPage.jsx",
+        "pwd-week5/src/pages/DetailPage.jsx",
+        "pwd-week5/src/components/RestaurantCard.jsx",
+        "pwd-week5/src/components/SubmitRestaurant.jsx",
+        "pwd-week5/src/components/PopularRestaurants.jsx",
+        "pwd-week5/src/pages/AdminPage.jsx",
+        "pwd-week5/src/pages/SubmissionsPage.jsx",
+        "pwd-2026-2/lectures/05/scripts/practice_guide.py"
+      ],
+      "limit": "코드에 있는 동작의 정적 확인. 실행 검증·실제 수요의 증거는 아님."
+    },
+    {
+      "id": "S-03",
+      "kind": "user-research",
+      "status": "TBD",
+      "limit": "인터뷰·과업 관찰 미수집. 문제와 목표는 학습용 가정."
+    }
+  ],
+  "files": [
+    {
+      "path": "pwd-week5/README.md",
+      "sha256": "6dbebeedd93507e96cefac4c4acf54d249148434e33f2175a6614c1f74febdb0"
+    },
+    {
+      "path": "pwd-week5/src/services/api.jsx",
+      "sha256": "f1a5afbdf877c96f374c79ddfd21870e4ab0c13b937ce709fb715c839ad35250"
+    },
+    {
+      "path": "pwd-week5/src/App.jsx",
+      "sha256": "ffc3dd44d217f4dca6f48dd7b63267a92a369aac64b0910ef6b2478b1b43ca2e"
+    },
+    {
+      "path": "pwd-week5/src/pages/ListPage.jsx",
+      "sha256": "2ad0b28ae9450b913adb9d88e1c07dc96ffc29a1c80539d7e6919df434703a16"
+    },
+    {
+      "path": "pwd-week5/src/pages/DetailPage.jsx",
+      "sha256": "dbc5509d1e40f71e1d0904a76477fa16b638d4115242e66dec1b65ca4b27ea29"
+    },
+    {
+      "path": "pwd-week5/src/components/RestaurantCard.jsx",
+      "sha256": "72127c79319429f289a23a47bd473d59175886bd38735030678a65df58808d5b"
+    },
+    {
+      "path": "pwd-week5/src/components/SubmitRestaurant.jsx",
+      "sha256": "04d6c46417b0cb06673975896b7436563e70c4864fda6e639c522e5c3e18f6c1"
+    },
+    {
+      "path": "pwd-week5/src/components/PopularRestaurants.jsx",
+      "sha256": "064b734f5a21961cbe72fcfd720a3e69cdba39d778ead2b831c3ae35e1deca37"
+    },
+    {
+      "path": "pwd-week5/src/pages/AdminPage.jsx",
+      "sha256": "875ad7a062c151e2279585326fbe747f3d74125f8d713a87db17fbaabaff33b1"
+    },
+    {
+      "path": "pwd-week5/src/pages/SubmissionsPage.jsx",
+      "sha256": "ad939e67a66059657402c4ac1211dbd1b27bcb7aebb96e60fcc1fc82ba5bfb55"
+    },
+    {
+      "path": "pwd-2026-2/lectures/05/scripts/practice_guide.py",
+      "sha256": "e8ce7c0914ba04fe5c60b5283390d60de990698efda431f03ee6e43d6ca8b159"
+    }
+  ],
+  "facts": [
+    {
+      "id": "C-01",
+      "summary": "5주차 필수 실습: 목록·카테고리 필터·좋아요·인기 목록·제보와 브라우저 저장 확인.",
+      "file": "pwd-2026-2/lectures/05/scripts/practice_guide.py",
+      "line": 13
+    },
+    {
+      "id": "C-02",
+      "summary": "식당·제보 함수는 비동기 인터페이스를 유지하지만 실제 HTTP 대신 LocalStorage를 사용.",
+      "file": "pwd-week5/src/services/api.jsx",
+      "line": 41
+    },
+    {
+      "id": "C-03",
+      "summary": "좋아요 선택과 표시 수는 같은 브라우저의 별도 저장 키로 유지. 전체 사용자 집계 없음.",
+      "file": "pwd-week5/src/components/RestaurantCard.jsx",
+      "line": 98
+    },
+    {
+      "id": "C-04",
+      "summary": "인기 목록은 제공된 rating 내림차순 최대5개. 초기 식당은3개이며 기간 집계 없음.",
+      "file": "pwd-week5/src/services/api.jsx",
+      "line": 81
+    },
+    {
+      "id": "C-05",
+      "summary": "제보의 이름·카테고리·위치는 필수. 제보 생성 시 pending 저장.",
+      "file": "pwd-week5/src/components/SubmitRestaurant.jsx",
+      "line": 178
+    },
+    {
+      "id": "C-06",
+      "summary": "승인은 식당 생성 후 제보를 approved로 변경하는 별도 저장. 거절은 rejected 변경.",
+      "file": "pwd-week5/src/pages/SubmissionsPage.jsx",
+      "line": 69
+    },
+    {
+      "id": "C-07",
+      "summary": "관리·제보 관리 라우트에 인증·권한 검사 없음. 관리 화면 존재가 접근 통제를 뜻하지 않음.",
+      "file": "pwd-week5/src/App.jsx",
+      "line": 43
+    },
+    {
+      "id": "C-08",
+      "summary": "제보 저장 성공 후 완료 화면. 저장 실패 시 오류 알림.",
+      "file": "pwd-week5/src/components/SubmitRestaurant.jsx",
+      "line": 148
+    },
+    {
+      "id": "C-09",
+      "summary": "별도 게시 상태·실제 지도·로그인·공유 DB·사용자 평점 입력은 현재 구현 범위에 없음.",
+      "file": "pwd-week5/src/services/api.jsx",
+      "line": 73
+    },
+    {
+      "id": "C-10",
+      "summary": "입력 폼에는 기타 카테고리가 있지만 목록에는 기타 개별 필터가 없음. 전체에서는 확인 가능.",
+      "file": "pwd-week5/src/pages/ListPage.jsx",
+      "line": 38
+    }
+  ],
+  "unresolved": [
+    "사용자 문제·목표값·측정 기간의 근거",
+    "평점의 출처·동점 순위·기간 집계 정책",
+    "관리자 인증과 공유 저장소 도입",
+    "승인 상태 전이·중복 생성·부분 저장 실패 복구",
+    "좋아요 저장 실패 시 UI 복원",
+    "제보자 연락정보의 필요성과 보관·삭제 정책",
+    "관리 변경 후 인기·상세 데이터의 갱신 조건"
+  ],
+  "teaching_rule": "확인 사실, 학습용 가정, 미결정(TBD), 검증 대상을 구분. 현재 실습을 여러 사용자가 공유하는 운영 서비스로 설명하지 않음."
+}

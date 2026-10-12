@@ -1,0 +1,14 @@
+PRD 작성 개요 · 공식 레퍼런스
+Accessed: 2026-10-12
+
+Draft PRDs from internal context
+https://learn.chatgpt.com/use-cases/draft-prds-from-sources
+근거 자료로 PRD 초안 작성
+
+PRD from a problem statement
+https://academy.claude.com/use-cases/prd-from-a-one-pager
+인터뷰와 기존 양식으로 초안 작성
+
+Write Spec — Product Management plugin
+https://github.com/anthropics/knowledge-work-plugins/blob/main/product-management/skills/write-spec/SKILL.md
+문서 구성·우선순위·인수 기준

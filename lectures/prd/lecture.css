@@ -1,0 +1,15 @@
+/* One-slide overview; shared authoring typography and colors. */
+.prd-overview { margin-top: 1rem; }
+.prd-overview dd { margin: 0; }
+.prd-overview-body { grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); margin-top: .8rem; }
+.prd-block-title { margin-bottom: .65rem !important; color: var(--wd-muted); font-size: .8rem; font-weight: 700; }
+.wd-lesson-table thead th:first-child { width: 29%; }
+.prd-reading-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 1.1rem; }
+.prd-reading-list li { padding-bottom: 1rem; border-bottom: 1px solid var(--wd-line); }
+.prd-reading-list a { color: var(--wd-accent); font-size: .88rem; line-height: 1.5; font-weight: 700; text-underline-offset: .18em; }
+.prd-reading-list p { margin-top: .35rem !important; color: var(--wd-muted); font-size: .8rem; line-height: 1.5; }
+html[lang="en"] .prd-overview { word-break: normal; }
+@media screen and (max-width: 767px) {
+  .prd-overview-body { grid-template-columns: 1fr; }
+  .wd-lesson-table thead th:first-child { width: 33%; }
+}

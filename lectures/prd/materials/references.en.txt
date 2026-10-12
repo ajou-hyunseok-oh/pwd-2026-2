@@ -1,0 +1,14 @@
+PRD Writing Overview · Official References
+Accessed: 2026-10-12
+
+Draft PRDs from internal context
+https://learn.chatgpt.com/use-cases/draft-prds-from-sources
+Draft a PRD from source materials
+
+PRD from a problem statement
+https://academy.claude.com/use-cases/prd-from-a-one-pager
+Use interviews and an existing template
+
+Write Spec — Product Management plugin
+https://github.com/anthropics/knowledge-work-plugins/blob/main/product-management/skills/write-spec/SKILL.md
+Structure, priorities, and acceptance criteria

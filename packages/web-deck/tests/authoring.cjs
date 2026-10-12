@@ -9,13 +9,26 @@ const decode = text => text.replace(/&#(x[0-9a-f]+|\d+);|&(amp|lt|gt|quot|apos);
   n ? String.fromCodePoint(n[0].toLowerCase() === 'x' ? parseInt(n.slice(1), 16) : Number(n)) :
     ({amp: '&', lt: '<', gt: '>', quot: '"', apos: "'"})[name.toLowerCase()]);
 let decks = 0;
-for (let week = 5; week <= 13; week++) {
-  const number = String(week).padStart(2, '0');
+const directories = Array.from({length: 9}, (_, index) => String(index + 5).padStart(2, '0'));
+for (const entry of fs.readdirSync(path.join(root, 'lectures'), {withFileTypes: true})) {
+  if (!entry.isDirectory() || !/^[a-z][a-z0-9-]*$/.test(entry.name)) continue;
+  const indexPath = path.join(root, 'lectures', entry.name, 'index.html');
+  if (fs.existsSync(indexPath) && /<body\b[^>]*data-wd-supplement="/.test(fs.readFileSync(indexPath, 'utf8')))
+    directories.push(entry.name);
+}
+for (const directory of (process.env.AUTHORING_DECKS || '').split(',').map(value => value.trim()).filter(Boolean)) {
+  assert.match(directory, /^[a-z][a-z0-9-]*$/, 'AUTHORING_DECKS requires lecture directory names, such as prd');
+  if (!directories.includes(directory)) directories.push(directory);
+}
+for (const number of directories) {
+  const week = Number(number);
   const directory = path.join(root, 'lectures', number);
   const html = fs.readFileSync(path.join(directory, 'index.html'), 'utf8');
+  const supplement = html.match(/<body\b[^>]*data-wd-supplement="([^"]+)"/)?.[1];
+  if (!Number.isFinite(week)) assert.ok(supplement, `${number}: declare the supplement identity`);
   const slides = [...html.matchAll(/<section\b([^>]*data-wd-slide="([^"]+)"[^>]*)>([\s\S]*?)<\/section>/g)];
   // A cover-only future deck has no authored lesson content yet.
-  if (slides.length === 1) continue;
+  if (slides.length === 1 && Number.isFinite(week)) continue;
   assert.match(html, /data-wd-authoring="v1"/, `Lecture ${number}: missing authoring harness`);
   assert.match(html, /packages\/web-deck\/authoring\.css/, `Lecture ${number}: missing shared authoring CSS`);
   const sandbox = {window: {}};
@@ -73,8 +86,14 @@ for (let week = 5; week <= 13; week++) {
       };
       const title = field('wd-lesson-title');
       field('wd-lesson-cover__subtitle');
-      assert.equal(field('wd-lesson-source').text, `LECTURE ${number}`, `${label}: wrong lecture identity`);
-      assert.equal((body.match(/LECTURE \d+/g) || []).length, 1, `${label}: repeated lecture label`);
+      const source = supplement ? `SUPPLEMENT · ${supplement}` : `LECTURE ${number}`;
+      assert.equal(field('wd-lesson-source').text, source, `${label}: wrong lecture or supplement identity`);
+      if (supplement) {
+        assert.equal(body.split(source).length - 1, 1, `${label}: repeated supplement label`);
+        assert.equal(variant, 'topic', `${label}: supplements use the topic cover format`);
+      } else {
+        assert.equal((body.match(/LECTURE \d+/g) || []).length, 1, `${label}: repeated lecture label`);
+      }
       assert.doesNotMatch(body, /class="wd-(?:slide-lead|lesson-eyebrow)"/, `${label}: use cover-specific text roles`);
       if (variant === 'weekly') {
         const eyebrow = field('wd-lesson-cover__eyebrow');

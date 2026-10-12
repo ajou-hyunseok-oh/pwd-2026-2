@@ -1,0 +1,26 @@
+PRD 작성 개요 · 1장 검토 기록
+검토일: 2026-10-12
+
+사용자 요청 반영
+- 별도 표지 없이 정확히 1장 구성
+- PRD = Product Requirements Document / 제품 요구사항 문서
+- 작성 내용 7항목을 표로 요약
+- OpenAI, Claude Academy, Anthropic 공식 작성 레퍼런스 3개 제공
+- 기존 푸드맵 사례와 긴 작성 설명은 현재 슬라이드에서 제외
+
+내용 검토
+- 표는 수업용 요약이며 공식 고정 양식으로 표현하지 않음
+- 문제의 근거, 사용자, 목표와 측정, 범위, 흐름과 예외, 완료·품질 조건, 미결정 사항의 역할 확인
+- 링크한 원문의 작성 방식과 일치하는 짧은 설명 확인
+- 공식 원문 3개 재확인: 2026-10-12
+
+실행한 검증
+- python3 lectures/prd/scripts/build-slides.py: 1장 재생성
+- npm test --prefix packages/web-deck: 통과
+- authoring-layout.cjs: KO/EN 각 1장, 발표·인쇄·390px 모바일 검사 통과
+- 번역 29항목씩 확인, 불일치 0, 브라우저 오류 0, 레이아웃 이슈 0
+- 한국어 PDF: 1페이지, 공식 HTTPS 링크 3개
+- PDF를 Poppler로 PNG 렌더링 후 표·문자·링크 배치 육안 확인
+- 최종 한·영 화면과 한국어 모바일 캡처 육안 확인
+
+검토 산출물: /private/tmp/pwd-prd-one-slide-final

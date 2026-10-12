@@ -1,0 +1,161 @@
+# PRD: Campus Foodmap — Week 5 Single-Browser Exercise
+- Author / responsible team: Practice team (example) / named owner TBD
+- Version / date: 0.1 (learning draft) / 2026-10-12 (date of this example)
+- Status / reviewer: Learning draft, not reviewed / TBD
+- Repository / original source locations: pwd-week5 / README.md and src/
+- Document purpose / decisions for this review: Define the single-browser exercise scope and expected behavior to verify. Proposed policies below are neither operational approval nor claims of implementation completion.
+
+Status labels
+- [Code inspected]: Structure observed in the actual src on 2026-10-12. This is not browser execution evidence.
+- [Learning assumption]: A proposed problem, goal, priority, or handling condition used to fill the PRD.
+- [Verification planned]: A method is proposed; there are no execution results or evidence yet.
+- TBD: Evidence, policy, owner, or date is unresolved. Do not invent numbers to fill gaps.
+
+## 1. Source evidence
+| Source ID | Title, location, access date | Supported facts | Limitations, conflicts, questions |
+|---|---|---|---|
+| S-01 | pwd-week5/README.md / 2026-10-12 | Project introduction and exercise description | HTTP examples and weekly-popularity wording may differ from actual code. Earlier verification reports are not this PRD's execution results. |
+| S-02 | Actual src/services/api.jsx, components/RestaurantCard.jsx, SubmitRestaurant.jsx, PopularRestaurants.jsx, pages/ListPage.jsx, SubmissionsPage.jsx, App.jsx / 2026-10-12 | Local array storage, local likes, required inputs, rating sort, management processing | Static inspection only. Does not establish current browser data, runtime success, performance, or safe operational permissions. |
+| S-03 | User interviews and task observations / not collected | No established user findings yet | Actual problem frequency, impact, and metric baselines are TBD. Participants, consent procedure, and owner are TBD. |
+
+## 2. Problem
+- Current situation / user problem: [Learning assumption] Investigate whether students struggle to compare nearby food options, locations, and recommended dishes. No interviews have confirmed this pain.
+- Context and frequency / impact if unresolved: Assume the context is choosing where to eat. Actual frequency and impact are TBD. Repeated information search is also an unconfirmed impact hypothesis.
+- Supporting source IDs: Intended service in S-01; information represented by the implementation in S-02. User confirmation requires the missing S-03 evidence.
+
+## 3. Users and roles
+| Role ID | User and permission scope | Job to accomplish | Usage context and evidence |
+|---|---|---|---|
+| R-01 | Explorer. Use lists, filters, details, and likes | Compare restaurant information and mark local interests | [Learning assumption] Choosing where to eat. S-02 provides feature structure; actual user evidence S-03 is missing. |
+| R-02 | Contributor. Save submissions in the same browser | Suggest a restaurant absent from the list | [Learning assumption] Enter fictional submissions. No account-linked identity and no cross-user sharing. |
+| R-03 | Admin demonstrator. Demonstrate management in personal practice | View, approve, reject, and delete submissions | [Code inspected] /admin and /submissions have no route protection. A practice role name does not enforce access control. Operational permissions TBD. |
+
+## 4. Goals and success metrics
+| Goal ID and desired outcome | Metric, formula, denominator | Baseline and target | Observation window and evaluation date | Measurement method and evidence |
+|---|---|---|---|---|
+| G-01 / [Learning assumption] An explorer finds details of a suitable restaurant | Participants completing a specified browsing task / all participants assigned the same task. Task definition TBD. | TBD / TBD | TBD / TBD | Plan consented task observations. No execution or aggregation. Needs S-03; owner TBD. |
+| G-02 / [Learning assumption] A contributor correctly understands the submission outcome | Valid submission attempts both saved and acknowledged by the contributor / all valid submission attempts | TBD / TBD | TBD / TBD | Plan to compare screen and stored array in test records. No operational analytics feature. S-02 and planned verification; owner TBD. |
+
+## 5. Scope and non-goals
+- Features and users included in this version: Single-browser FR-01 list, category filters and details; FR-02 local likes; FR-03 submissions; FR-04 rating-sorted results; FR-05 local management demonstration. User roles describe the exercise context.
+- Features and users excluded from this version, with reasons: Accounts, a shared DB, real maps, official review collection, weekly aggregation, and like-based popularity are absent from this exercise. [Learning proposal] Block public operation of unprotected administration. This boundary prevents confusing a personal exercise with an operational service.
+- Items for later consideration / scope decision owner: Operational expansion, authentication, shared storage, privacy policy, and safe approval processing / named product and technical decision owners TBD.
+
+## 6. Core user journeys
+| Journey ID, role, purpose | Starting conditions | Sequence of actions | Expected outcome and end conditions | Error and exception paths | Related FRs |
+|---|---|---|---|---|---|
+| J-01 / R-02 / Submit restaurant information | Open the submission screen in a personal browser; use fictional information. | Enter name, category, and location → enter or omit optional information → submit | [Verification planned] Save a pending submission and show completion; confirm the screen and stored result. | Missing required data: input error and no addition. Storage failure: error and no completion indication. | FR-03 |
+| J-02 / R-01 / Find restaurant information | Restaurant data loads on the list screen | List → an available category filter → details | [Verification planned] Show the selected restaurant's location, description, and recommended dishes | Check missing-restaurant and read-error feedback. 'Other' is accepted by the form but currently has no dedicated filter. | FR-01 |
+
+## 7. Entities, data, states, and business rules
+| Entity or data ID | Definition and key fields | Owner and access rights | Collection basis, retention, deletion |
+|---|---|---|---|
+| D-01 / Restaurant | id, name, category, location, priceRange, rating, description, recommendedMenu, image. Three initial records. | [Code inspected] pwd-week5-restaurants array or initial data. No account ownership or server access controls. | S-02. Ratings are not derived from collected user reviews. Real restaurant accuracy, image use, and operational retention policy TBD. |
+| D-02 / Submission | id, restaurantName, category, location, priceRange, recommendedMenu, review, submitterName, submitterEmail, status | [Code inspected] pwd-week5-submissions array; accessible in the same browser and origin. No protected administrative ownership. | Name, category, and location are required; the rest are optional. [Learning assumption] Use fictional contacts only. Real collection, retention, deletion, and access policy TBD. |
+| D-03 / Local likes | Restaurant IDs in likedRestaurants; per-restaurant counts in restaurantLikes | [Code inspected] Browser keys managed by RestaurantCard. No cross-user sharing. | S-02. Not linked to popularity sorting. UI rollback on storage failure is not guaranteed. |
+
+| State transition ID | Entity and initial → resulting state | Conditions and permitted roles | Prohibited conditions and failure outcome |
+|---|---|---|---|
+| ST-01 | Submission / absent → pending | [Code inspected] Initial state set by createSubmission. Practice role R-02. | [Verification planned] No success indication on storage failure. Execution evidence TBD. |
+| ST-02 | Submission / pending or rejected → approved | [Code inspected] Approval button is disabled only when already approved. Create a restaurant, then store approved. Practice role R-03; route is unprotected. | No atomicity across the two writes. Duplicate creation on reapproval, partial failure, and reversal policies TBD. Q-02 blocks public operation. |
+| ST-03 | Submission / pending or approved → rejected | [Code inspected] Reject button is disabled only when already rejected. Practice role R-03. | Does not remove a restaurant already created. Do not interpret this as a guarantee of safe terminal states. Policy TBD. |
+
+- Business rule ID / condition / result / source evidence: BR-01 / popular-results request / return at most five in descending rating order; initial dataset has three. No weekly or like aggregation / S-02.
+- Business rule ID / condition / result / source evidence: BR-02 / submission input / name, category, and location required. Split recommended dishes on commas or line breaks. Check email format when optional contact email is entered / S-02.
+- Business rule ID / condition / result / source evidence: BR-03 / list category filter / only categories offered by current buttons have individual filters. No dedicated 'Other' filter matching the submission form / S-02.
+- FR IDs linked to states and business rules: ST-01 and BR-02 → FR-03; ST-02/03 → FR-05; BR-01 → FR-04; BR-03 → FR-01.
+
+## 8. Functional requirements — repeat as needed
+
+### FR-01 / List, filters, and details
+- FR ID / title: FR-01 / Browse lists, filters, and details
+- Expected user-visible behavior / linked problem, goal, journey: Compare registered restaurants and view details / problem hypothesis, G-01, J-02
+- Preconditions and permitted roles / inputs and data / business rules: R-01 in a personal browser / category, restaurant ID, D-01 / BR-03. Dedicated filters for every submittable category are not guaranteed.
+- Priority / included in this version / rationale: [Learning proposal] P0 / included / core browsing flow
+- Acceptance criterion ID / Given / When / Then (observable outcome): AC-01 / offered category and restaurant data / select the category and open restaurant details / show the matching list and selected restaurant information
+- Acceptance criteria for errors, boundaries, and denied access: AC-01E / show not-found feedback for a missing restaurant ID. Empty-list and read-error feedback also require checks. Authentication is outside current scope.
+- Verification method and evidence / owner / source IDs: [Verification planned] Screen records for lists, filters, and details; execution results TBD / TBD / S-02
+
+### FR-02 / Local likes
+- FR ID / title: FR-02 / Like and unlike in the same browser
+- Expected user-visible behavior / linked problem, goal, journey: Mark interests in a personal browser / problem hypothesis, supports G-01, extends J-02
+- Preconditions and permitted roles / inputs and data / business rules: R-01 with browser storage available / restaurant ID, D-03 / no cross-user sharing and no effect on FR-04 ordering
+- Priority / included in this version / rationale: [Learning proposal] P1 / included / secondary personal marking
+- Acceptance criterion ID / Given / When / Then (observable outcome): AC-02 / storage available and a restaurant card / like or unlike / check display and browser-key changes
+- Acceptance criteria for errors, boundaries, and denied access: Code contains error feedback, but UI rollback and partial-write handling on storage failure are TBD. Do not apply FR-03's no-success-indication-on-failure criterion to likes without a separate decision.
+- Verification method and evidence / owner / source IDs: [Verification planned] Click, reload, and compare both local keys; execution results TBD / TBD / S-02
+
+### FR-03 / Restaurant submission
+- FR ID / title: FR-03 / Save a submission and show its outcome
+- Expected user-visible behavior / linked problem, goal, journey: Suggest fictional restaurant information and understand the save outcome / problem hypothesis, G-02, J-01
+- Preconditions and permitted roles / inputs and data / business rules: R-02 in a personal browser / required restaurantName, category, location; optional priceRange, recommendedMenu, review, submitterName, submitterEmail; D-02 / BR-02, ST-01. Use fictional contacts rather than real ones.
+- Priority / included in this version / rationale: [Learning proposal] P0 / included / detailed form example and core submission flow
+- Acceptance criterion ID / Given / When / Then (observable outcome): AC-03A / all three required fields have values and storage works / submit / add a pending submission and show completion
+- Acceptance criteria for errors, boundaries, and denied access: AC-03B / missing required input / submit / show an input error and add no submission. AC-03C / an environment reproducing storage failure / submit / show an error without completion. Omitted optional values and invalid email formats need additional checks. Whitespace-only input, length limits, and duplicate submissions remain TBD in Q-04.
+- Verification method and evidence / owner / source IDs: [Verification planned] Capture screens, before/after D-02 arrays, and reload results for valid input, missing required input, and storage failure. Reproduce a failing storage call in a test environment. No execution or passing claim yet / TBD / S-02
+
+### FR-04 / Rating-sorted popular results
+- FR ID / title: FR-04 / Results ordered by rating
+- Expected user-visible behavior / linked problem, goal, journey: View restaurants in stored rating order / supports G-01
+- Preconditions and permitted roles / inputs and data / business rules: R-01 / D-01 / BR-01
+- Priority / included in this version / rationale: [Learning proposal] P1 / included / secondary browsing with an explicit ordering rule
+- Acceptance criterion ID / Given / When / Then (observable outcome): AC-04 / practice data with ratings / open popular results / show at most five in descending order; show three when only three exist
+- Acceptance criteria for errors, boundaries, and denied access: [Learning PRD proposal] Clearly avoid representing results as weekly or like-based aggregation. Current 'this week' wording conflicts with code and needs correction and verification. Tie order and missing-rating policy TBD. Immediate popularity/detail refresh after management changes is not guaranteed.
+- Verification method and evidence / owner / source IDs: [Verification planned] Compare input data with returned and displayed order; execution results TBD / TBD / S-02
+
+### FR-05 / Local management demonstration
+- FR ID / title: FR-05 / Demonstrate viewing and processing submissions
+- Expected user-visible behavior / linked problem, goal, journey: Learn how submissions connect to restaurant data / practice objective. Actual operator goals need research and remain TBD.
+- Preconditions and permitted roles / inputs and data / business rules: Practice role R-03 / D-01, D-02 / ST-02/03. Code provides no admin route protection.
+- Priority / included in this version / rationale: [Learning proposal] P1 / local demonstration only / observe management data flow. Block public operation while policies remain unresolved.
+- Acceptance criterion ID / Given / When / Then (observable outcome): AC-05 / a fictional pending submission / demonstrate approval once / observe and compare restaurant creation and the approved submission record
+- Acceptance criteria for errors, boundaries, and denied access: Duplicate approval, reversal, partial-failure recovery, and operational permissions TBD. Do not assume rejection removes a previously created restaurant. Unprotected routes do not prove authorization.
+- Verification method and evidence / owner / source IDs: [Verification planned] Compare both arrays and the screen before/after processing. Do not issue a safe-operational-readiness pass / TBD / S-02
+
+## 9. Quality requirements and measurement
+| NFR ID and quality attribute | Relevant features and operating conditions | Target and acceptable limit | Measurement method, environment, window | Evidence and owner |
+|---|---|---|---|---|
+| NFR-01 / Stored outcome | FR-03; same origin and browser, storage allowed | [Learning proposal] Successful submissions survive reload. Failure meets AC-03C. | Plan screen and before/after D-02 comparison. Browser, origin, and execution date TBD. No permanent-retention guarantee after site-data deletion. | S-02 structure plus proposed criterion; no execution evidence / TBD |
+| NFR-02 / Input access | FR-03; keyboard use and input errors | [Learning proposal] Submit by keyboard and identify the error location and text | Plan a keyboard task observation. Environment and window TBD. Not a standards-compliance or passing-test claim. | Learning proposal / TBD |
+| NFR-03 / Privacy | D-02, FR-03, FR-05 | [Learning assumption] Fictional contacts only. Real collection, retention, deletion, and access TBD. | Plan a practice-data check. Block real personal data and public operation until policy is agreed. | Practice scope decision / TBD |
+| NFR-04 / Performance | Operations and load conditions TBD | Baseline, target, and acceptable limit TBD | Environment, window, method TBD. Not measured. | Evidence not collected / TBD |
+
+## 10. Dependencies and responsibility
+| Dependency ID, system, team | Required input or contract | Owner and decision authority | Readiness and failure response | Related FRs and NFRs |
+|---|---|---|---|---|
+| DEP-01 / Browser storage and runtime | LocalStorage, crypto.randomUUID support, same browser and origin | Named practice technical owner TBD | Plan checks for storage permission and array format. FR-03 failures use AC-03C; partial like failures are separately unresolved. No HTTP server API contract exists. | FR-02/03/05, NFR-01 |
+| DEP-02 / External images | D-01 image URLs | Named content and technical owners TBD | External availability unverified. Fallback display and usage conditions TBD. | FR-01/04 |
+| DEP-03 / Operational policy decisions | Authentication, shared storage, privacy, approval recovery | Named product, technical, privacy owners TBD | Not ready. Resolve before operational expansion; distinguish from personal practice. | FR-05, NFR-03, Q-02/03 |
+
+## 11. Links to feature specifications
+| Feature and specification ID | Scope and non-goals | Specification location and status | Related FRs, NFRs, data | Prerequisites and owner |
+|---|---|---|---|---|
+| SPEC-03 / Restaurant submission | Required/optional input, pending storage, valid/missing/storage-failure cases. Exclude approval and sharing. | Location TBD / planned, not written. FR-03 in §8 is input to the specification, not a claim that a separate spec exists. | FR-03, AC-03A/B/C, NFR-01/02/03, D-02, BR-02, ST-01 | DEP-01 / named owner TBD |
+
+## 12. Phased release
+| Phase ID and target users | Delivered scope and requirements | Entry and completion conditions | Verification, stop, recovery conditions | Owner and schedule evidence |
+|---|---|---|---|---|
+| REL-01 / Personal practice participant | FR-01–04 and local FR-05 demonstration | Begin after confirming fictional data and browser conditions. Judge completion after collecting evidence per acceptance criterion. Verification is currently planned. | Stop on storage failure. Agree local-data copy/reset procedures and which data to retain before performing them. Do not assume deletion or automatic recovery. | Named owner, entry/completion dates, and schedule evidence TBD |
+| REL-02 / Multi-user operation | Outside current scope; separate requirements and review needed | Propose blocking entry until authentication, shared storage, privacy, duplicate-approval, reversal, and recovery policies are resolved | Security, concurrency, and operational checks TBD. Personal-practice success cannot substitute. | Decision owner and schedule TBD |
+
+## 13. Assumptions and open questions
+| ID and type (assumption/open question) | Content and affected requirements | Evidence or resolution condition | Owner and decision date | Blocks implementation? Status |
+|---|---|---|---|---|
+| Q-01 / Assumption | Student comparison difficulty and G-01/02 | Collect S-03 interviews, define tasks, and gather results | Named research owner and date TBD | Practice may proceed; blocks confirmed user-effect claims / unverified |
+| Q-02 / Open question | Admin authentication, duplicate approval, reversal, partial-failure recovery / FR-05 | Decide operational policy, design, and checks based on S-02 limitations | Named product/technical owners and date TBD | Local demonstration may proceed; blocks public operation / open |
+| Q-03 / Open question | Purpose, access, retention, deletion for real contacts / D-02, NFR-03 | Review need and obtain the responsible owner's decision | Privacy owner and date TBD | Fictional practice may proceed; blocks real personal data / open |
+| Q-04 / Open question | Whitespace, length limits, duplicate submissions, Other filter, tied/missing ratings, cache refresh / FR-01/03/04 | Assess code limitations; decide expected behavior and checks | Named product/technical owners and date TBD | Resolve before finalizing affected improvements / open |
+| Q-05 / Open question | Metric baseline, targets, windows, practice schedule, named owners | Research, measurement plans, and actual team decisions | Owner and date TBD | Blocks target-achievement and schedule-confirmation claims / open |
+
+## 14. Change history
+| Version and date | Changed decision and reason | Affected requirements and specifications | Evidence and approving owner |
+|---|---|---|---|
+| 0.1 / 2026-10-12 | [Learning document history] Create this example within single-browser practice scope; avoid confusing it with an operational service. | FR-01–05, SPEC-03 | S-02 / reviewer and approver TBD |
+| 0.1 / 2026-10-12 | [Learning document decision] Clarify popularity as descending rating, up to five; distinguish weekly and like aggregation. Does not imply a code change. | FR-04, BR-01 | S-02 / reviewer and approver TBD |
+
+## Before submission
+- Facts are bounded by static inspection. Do not claim execution, passing results, or operational readiness.
+- Mark unsupported numerical targets, policies, owners, and dates as TBD or learning assumptions.
+- Separate each FR's conditions, observable outcomes, and planned checks from evidence not yet collected.
+- Keep user research, operational authentication, privacy policy, and safe approval processing unresolved.
+- This is a writing example; it sets no actual submission deadline, grading allocation, or institutional policy.

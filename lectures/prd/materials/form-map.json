@@ -1,0 +1,195 @@
+[
+  {
+    "section": 1,
+    "title": [
+      "원문 근거",
+      "Source evidence"
+    ],
+    "slides": [
+      3
+    ],
+    "sources": [
+      "openai-prd",
+      "claude-prd"
+    ]
+  },
+  {
+    "section": 2,
+    "title": [
+      "문제",
+      "Problem"
+    ],
+    "slides": [
+      4
+    ],
+    "sources": [
+      "claude-prd",
+      "claude-write-spec"
+    ]
+  },
+  {
+    "section": 3,
+    "title": [
+      "사용자와 역할",
+      "Users and roles"
+    ],
+    "slides": [
+      5
+    ],
+    "sources": [
+      "claude-write-spec"
+    ]
+  },
+  {
+    "section": 4,
+    "title": [
+      "목표와 성공 지표",
+      "Goals and success metrics"
+    ],
+    "slides": [
+      6
+    ],
+    "sources": [
+      "claude-write-spec"
+    ]
+  },
+  {
+    "section": 5,
+    "title": [
+      "범위와 비목표",
+      "Scope and non-goals"
+    ],
+    "slides": [
+      7
+    ],
+    "sources": [
+      "claude-write-spec"
+    ]
+  },
+  {
+    "section": 6,
+    "title": [
+      "핵심 사용자 여정",
+      "Core user journeys"
+    ],
+    "slides": [
+      8
+    ],
+    "sources": [
+      "claude-write-spec"
+    ]
+  },
+  {
+    "section": 7,
+    "title": [
+      "개체·데이터·상태·업무 규칙",
+      "Entities, data, states, and business rules"
+    ],
+    "slides": [
+      9,
+      10
+    ],
+    "sources": [
+      "openai-prd",
+      "claude-write-spec"
+    ]
+  },
+  {
+    "section": 8,
+    "title": [
+      "기능 요구사항 — 필요한 만큼 반복",
+      "Functional requirements — repeat as needed"
+    ],
+    "slides": [
+      11,
+      12
+    ],
+    "sources": [
+      "claude-write-spec",
+      "openai-best"
+    ]
+  },
+  {
+    "section": 9,
+    "title": [
+      "품질 요구조건과 측정",
+      "Quality requirements and measurement"
+    ],
+    "slides": [
+      13
+    ],
+    "sources": [
+      "openai-best"
+    ]
+  },
+  {
+    "section": 10,
+    "title": [
+      "의존성과 책임",
+      "Dependencies and responsibility"
+    ],
+    "slides": [
+      14
+    ],
+    "sources": [
+      "openai-prd"
+    ]
+  },
+  {
+    "section": 11,
+    "title": [
+      "기능별 상세 명세 연결",
+      "Links to feature specifications"
+    ],
+    "slides": [
+      15
+    ],
+    "sources": [
+      "claude-best",
+      "claude-playbook",
+      "kiro-best",
+      "kiro-workflow"
+    ]
+  },
+  {
+    "section": 12,
+    "title": [
+      "단계별 출시",
+      "Phased release"
+    ],
+    "slides": [
+      16
+    ],
+    "sources": [
+      "openai-workflow",
+      "spec-kit"
+    ]
+  },
+  {
+    "section": 13,
+    "title": [
+      "가정과 미결정 사항",
+      "Assumptions and open questions"
+    ],
+    "slides": [
+      17
+    ],
+    "sources": [
+      "claude-prd"
+    ]
+  },
+  {
+    "section": 14,
+    "title": [
+      "변경 이력",
+      "Change history"
+    ],
+    "slides": [
+      18
+    ],
+    "sources": [
+      "claude-playbook",
+      "kiro-best"
+    ]
+  }
+]

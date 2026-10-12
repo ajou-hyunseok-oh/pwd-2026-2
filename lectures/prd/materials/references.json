@@ -1,0 +1,212 @@
+[
+  {
+    "id": "openai-prd",
+    "title": "Draft PRDs from internal context",
+    "url": "https://learn.chatgpt.com/use-cases/draft-prds-from-sources",
+    "published": null,
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-example",
+    "claim": [
+      "지정한 자료로 PRD를 작성하고 요구사항의 근거, 자료 간 충돌, 미결정 사항을 드러내는 공식 활용 예시. 문제·사용자·목표와 비목표·요구사항·지표 등의 구성 제안.",
+      "An official example drafts a PRD from named sources, exposes conflicting evidence and unresolved decisions, and suggests sections covering the problem, users, goals, non-goals, requirements, and metrics."
+    ],
+    "use": [
+      "PRD의 기본 구성과 요구사항에 근거를 연결하는 작성 방식 비교",
+      "Compare a PRD's core sections and ways to connect requirements to evidence."
+    ],
+    "date_note": [
+      "공식 본문에 게시일·갱신일 미표시. 확인일은 게시일이 아님.",
+      "The official page does not display a publication or update date. The access date is not a publication date."
+    ]
+  },
+  {
+    "id": "openai-workflow",
+    "title": "Iterating Development Workflows with Codex",
+    "url": "https://developers.openai.com/cookbook/examples/codex/iterating-development-workflows-with-codex",
+    "published": "2026-08-03",
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-example",
+    "claim": [
+      "목표·계획·단계별 범위와 인수 기준·실제 검증 기록을 구분하는 개발 사례. AGENTS.md를 포함한 파일 구조는 프로젝트에 맞게 조정하는 선택적 관례이며 필수 체계가 아님.",
+      "This workflow example separates goals, plans, phase scope and acceptance criteria, and observed verification. Its file structure is an optional convention to adapt to the project, not a required Codex system."
+    ],
+    "use": [
+      "제품 요구에서 단계별 구현과 검증 증거까지 연결하는 문서 역할 구분",
+      "Distinguish document roles that connect product requirements to implementation phases and verification evidence."
+    ],
+    "date_note": [
+      "공식 페이지에 게시일 2026-08-03 표시. 별도 갱신일 미표시. 확인 시 보관 문서 표시 없음.",
+      "The official page displays publication on 2026-08-03, no separate update date, and no archive notice at access."
+    ]
+  },
+  {
+    "id": "openai-best",
+    "title": "Best practices",
+    "url": "https://learn.chatgpt.com/guides/best-practices",
+    "published": null,
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-guide",
+    "claim": [
+      "작업 지시에 목표·맥락·제약·완료 조건을 포함하는 방식 권고. 복잡하거나 모호한 작업에는 구현 전 계획 수립이나 인터뷰를 통한 구체화 제안.",
+      "The guide recommends including a goal, context, constraints, and completion conditions in task instructions. It suggests planning or an interview before implementing complex or ambiguous work."
+    ],
+    "use": [
+      "모호한 프로젝트 소개를 AI가 실행·검증할 수 있는 작업 맥락으로 구체화",
+      "Turn a vague project introduction into task context an AI agent can execute and verify."
+    ],
+    "date_note": [
+      "공식 본문에 게시일·갱신일 미표시. 확인일 기준 현행 안내.",
+      "The official page does not state a publication or update date. This is the current guidance as of the access date."
+    ]
+  },
+  {
+    "id": "claude-playbook",
+    "title": "The AI-native SDLC playbook",
+    "url": "https://claude.com/resources/articles/the-ai-native-sdlc-playbook",
+    "published": "2026-08-21",
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-guide",
+    "claim": [
+      "검토한 의도·명세·구현계획을 버전 관리하는 산출물로 연결하는 방식 제안. 사람의 판단과 승인 책임을 유지하며 각 산출물의 기준 시스템을 정하도록 안내.",
+      "The playbook connects reviewed intent, specifications, and implementation plans through versioned artifacts. It retains human judgment and approval responsibility and advises naming an authoritative system for each artifact."
+    ],
+    "use": [
+      "양식11·14: 제품 요구와 기능 명세의 연결, 변경 이력에 반영할 결정의 추적",
+      "Form sections 11 and 14: connect product requirements to feature specifications and trace decisions in the change log."
+    ],
+    "date_note": [
+      "공식 페이지에 게시일 2026-08-21 표시. 별도 갱신일 미표시. 대규모 조직의 적용 사례이며 수업의 필수 파일명 규칙이 아님.",
+      "The official page displays publication on 2026-08-21 and no separate update date. Its enterprise workflow does not establish mandatory filenames for this course."
+    ]
+  },
+  {
+    "id": "claude-prd",
+    "title": "PRD from a problem statement",
+    "url": "https://academy.claude.com/use-cases/prd-from-a-one-pager",
+    "published": null,
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-example",
+    "claim": [
+      "문제·사용자·제약·성공 측정에 관한 인터뷰를 먼저 진행하고 기존 양식과 좋은 예시로 PRD를 작성하는 사례. 목표·비목표·가정·담당자가 있는 미결정 사항의 검토 강조.",
+      "This example interviews the user about the problem, users, constraints, and success measures before drafting with a template and a trusted example. It emphasizes reviewing goals, non-goals, assumptions, and owned open questions."
+    ],
+    "use": [
+      "AI 인터뷰와 근거 자료를 이용한 초안 작성 및 가정 검토 절차 학습",
+      "Learn a drafting and assumption-review process using an AI interview and source materials."
+    ],
+    "date_note": [
+      "공식 본문에 페이지 게시일·갱신일 미표시. 화면 속 예시 PRD와 파일의 날짜는 페이지 게시일로 사용하지 않음.",
+      "The page does not display its publication or update date. Dates inside the sample PRD and files are not treated as page dates."
+    ]
+  },
+  {
+    "id": "claude-write-spec",
+    "title": "Write Spec — Product Management plugin",
+    "url": "https://github.com/anthropics/knowledge-work-plugins/blob/main/product-management/skills/write-spec/SKILL.md",
+    "published": null,
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-tool-workflow",
+    "claim": [
+      "문제·측정 가능한 목표·비목표·사용자 이야기·우선순위별 요구사항·지표·미결정 사항의 PRD 구조 제안. 인수 기준은 조건·행동·결과 또는 체크리스트로 작성하고 정상·오류·경계 상황 포함.",
+      "The skill proposes a PRD structure with measurable goals, non-goals, user stories, prioritized requirements, metrics, and open questions. Acceptance criteria can use Given/When/Then or checklists and cover normal, error, and boundary cases."
+    ],
+    "use": [
+      "요구사항 우선순위와 관찰 가능한 인수 기준의 작성 예시 확인",
+      "Inspect examples of requirement prioritization and observable acceptance criteria."
+    ],
+    "date_note": [
+      "GitHub main 브랜치의 현행 파일 확인. 본문에 게시일·갱신일 미표시이며 커밋 날짜를 문서 게시일로 추정하지 않음.",
+      "The current file on GitHub's main branch was checked. Its body provides no publication or update date; commit dates are not inferred as publication dates."
+    ]
+  },
+  {
+    "id": "claude-best",
+    "title": "Best practices for Claude Code",
+    "url": "https://code.claude.com/docs/en/best-practices",
+    "published": null,
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-guide",
+    "claim": [
+      "탐색·계획·구현을 구분하고 실행 가능한 검증 수단을 제공하도록 권고. 큰 기능은 먼저 인터뷰로 명세를 작성하며 범위 밖 항목과 종단 간 검증을 명시하도록 안내.",
+      "The guide recommends separating exploration, planning, and implementation and providing executable checks. For larger features it suggests an interview before writing a self-contained specification with exclusions and end-to-end verification."
+    ],
+    "use": [
+      "큰 요구를 구현 전에 질문으로 다듬고 명세에 검증 방법을 연결하는 이유 이해",
+      "Understand why larger requests need clarification before implementation and verification methods within the specification."
+    ],
+    "date_note": [
+      "공식 본문에 게시일·갱신일 미표시. 확인일 기준 현행 문서이며 확인 시 보관 문서 표시 없음.",
+      "No publication or update date is displayed. This is the current documentation at access, with no archive notice observed."
+    ]
+  },
+  {
+    "id": "kiro-workflow",
+    "title": "Specs — Kiro",
+    "url": "https://kiro.dev/docs/specs/",
+    "published": null,
+    "updated": "2026-10-02",
+    "accessed": "2026-10-12",
+    "type": "official-tool-workflow",
+    "claim": [
+      "요구사항·기술 설계·실행 작업을 세 산출물로 구분하는 명세 개발 방식 설명. 요구사항에는 사용자 이야기와 인수 기준, 설계에는 구조와 테스트 전략, 작업에는 추적 가능한 실행 단위 포함.",
+      "Kiro separates requirements, technical design, and executable tasks into three artifacts. Requirements include user stories and acceptance criteria; design includes architecture and testing strategy; tasks provide trackable implementation units."
+    ],
+    "use": [
+      "제품 요구·기술 결정·작업 분해의 역할을 비교하는 도구 사례",
+      "Use a tool example to compare the roles of product requirements, technical decisions, and task decomposition."
+    ],
+    "date_note": [
+      "공식 본문에 갱신일 2026-10-02 표시. 게시일 미표시. Requirements-First·Design-First·Quick Spec을 지원하므로 하나의 고정 승인 절차로 일반화하지 않음.",
+      "The official page displays update on 2026-10-02, with no publication date. It supports Requirements-First, Design-First, and Quick Spec, so no single approval procedure is generalized."
+    ]
+  },
+  {
+    "id": "kiro-best",
+    "title": "Best practices — Kiro Specs",
+    "url": "https://kiro.dev/docs/specs/best-practices/",
+    "published": null,
+    "updated": "2026-09-25",
+    "accessed": "2026-10-12",
+    "type": "official-guide",
+    "claim": [
+      "전체 코드베이스를 하나의 명세에 담기보다 기능별 여러 명세로 나누도록 권고. 요구나 설계 변경에 따라 관련 파일을 정렬하고 작업을 동기화하는 반복 절차 안내.",
+      "The guide recommends multiple feature specifications rather than one specification for the entire codebase. It describes refining requirements or design and synchronizing related artifacts and tasks as the project changes."
+    ],
+    "use": [
+      "양식11·14: 맛집 제보를 기능 명세로 나누고 관련 요구가 바뀔 때 문서 정렬",
+      "Form sections 11 and 14: separate submissions into a feature specification and keep related documents aligned when requirements change."
+    ],
+    "date_note": [
+      "공식 본문에 갱신일 2026-09-25 표시. 게시일 미표시. 기능별 분할 권고는 직접 근거이며 수업의 전체 PRD 구성은 교육적 종합.",
+      "The official page displays update on 2026-09-25, with no publication date. Feature-level decomposition is direct guidance; the course's overall PRD structure is a teaching synthesis."
+    ]
+  },
+  {
+    "id": "spec-kit",
+    "title": "GitHub Spec Kit",
+    "url": "https://github.com/github/spec-kit",
+    "published": null,
+    "updated": null,
+    "accessed": "2026-10-12",
+    "type": "official-tool-workflow",
+    "claim": [
+      "무엇과 왜를 정의한 명세에서 기술 계획·작업·구현·수렴 검증으로 이어지는 개발 흐름 제시. 프로젝트 원칙은 공통으로 두고 기능별 산출물을 검토하며 구현과 수렴 확인을 반복.",
+      "Spec Kit carries what-and-why specifications through technical planning, tasks, implementation, and convergence. Project principles are shared, feature artifacts are reviewed, and implementation and convergence are repeated."
+    ],
+    "use": [
+      "명세·계획·작업·구현·검증을 연결하는 개발 도구의 산출물 흐름 비교",
+      "Compare a development tool's artifact flow linking specifications, plans, tasks, implementation, and validation."
+    ],
+    "date_note": [
+      "GitHub main 브랜치의 현행 README 확인. 본문에 게시일·갱신일 미표시. 확인 시 흐름은 specify → plan → tasks → implement → converge.",
+      "The current README on GitHub's main branch was checked. Its body provides no publication or update date. At access the flow is specify → plan → tasks → implement → converge."
+    ]
+  }
+]

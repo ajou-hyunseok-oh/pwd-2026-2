@@ -1,0 +1,21 @@
+[
+  {
+    "number": 1,
+    "id": "prd-overview",
+    "kind": "content",
+    "title": [
+      "PRD · 제품 요구사항 문서",
+      "PRD · Product Requirements Document"
+    ],
+    "lead": [
+      "Product Requirements Document",
+      "A concise guide to writing product requirements"
+    ],
+    "sources": [
+      "openai-prd",
+      "claude-prd",
+      "claude-write-spec"
+    ],
+    "application": "one-slide-overview"
+  }
+]

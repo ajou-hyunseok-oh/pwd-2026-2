@@ -1,0 +1,89 @@
+# PRD: [Project title]
+- Author / responsible team: TBD
+- Version / date: TBD / TBD
+- Status / reviewer: TBD / TBD
+- Repository / original source locations: TBD
+- Document purpose / decisions for this review: TBD
+
+## 1. Source evidence
+| Source ID | Title, location, access date | Supported facts | Limitations, conflicts, questions |
+|---|---|---|---|
+| S-___ | TBD | TBD | TBD |
+
+## 2. Problem
+- Current situation / user problem: TBD
+- Context and frequency / impact if unresolved: TBD
+- Supporting source IDs: TBD
+
+## 3. Users and roles
+| Role ID | User and permission scope | Job to accomplish | Usage context and evidence |
+|---|---|---|---|
+| R-___ | TBD | TBD | TBD |
+
+## 4. Goals and success metrics
+| Goal ID and desired outcome | Metric, formula, denominator | Baseline and target | Observation window and evaluation date | Measurement method and evidence |
+|---|---|---|---|---|
+| G-___ / TBD | TBD | TBD / TBD | TBD | TBD |
+
+## 5. Scope and non-goals
+- Features and users included in this version: TBD
+- Features and users excluded from this version, with reasons: TBD
+- Items for later consideration / scope decision owner: TBD
+
+## 6. Core user journeys
+| Journey ID, role, purpose | Starting conditions | Sequence of actions | Expected outcome and end conditions | Error and exception paths | Related FRs |
+|---|---|---|---|---|---|
+| J-___ / TBD | TBD | TBD | TBD | TBD | TBD |
+
+## 7. Entities, data, states, and business rules
+| Entity or data ID | Definition and key fields | Owner and access rights | Collection basis, retention, deletion |
+|---|---|---|---|
+| D-___ | TBD | TBD | TBD |
+| State transition ID | Entity and initial → resulting state | Conditions and permitted roles | Prohibited conditions and failure outcome |
+|---|---|---|---|
+| ST-___ | TBD → TBD | TBD | TBD |
+- Business rule ID / condition / result / source evidence: BR-___ / TBD / TBD / TBD
+- FR IDs linked to states and business rules: TBD
+
+## 8. Functional requirements — repeat as needed
+- FR ID / title: FR-___ / TBD
+- Expected user-visible behavior / linked problem, goal, journey: TBD / TBD
+- Preconditions and permitted roles / inputs and data / business rules: TBD / TBD / TBD
+- Priority / included in this version / rationale: TBD / TBD / TBD
+- Acceptance criterion ID / Given / When / Then (observable outcome): AC-___ / TBD / TBD / TBD
+- Acceptance criteria for errors, boundaries, and denied access: TBD
+- Verification method and evidence / owner / source IDs: TBD / TBD / TBD
+
+## 9. Quality requirements and measurement
+| NFR ID and quality attribute | Relevant features and operating conditions | Target and acceptable limit | Measurement method, environment, window | Evidence and owner |
+|---|---|---|---|---|
+| NFR-___ / TBD | TBD | TBD | TBD | TBD |
+
+## 10. Dependencies and responsibility
+| Dependency ID, system, team | Required input or contract | Owner and decision authority | Readiness and failure response | Related FRs and NFRs |
+|---|---|---|---|---|
+| DEP-___ / TBD | TBD | TBD | TBD | TBD |
+
+## 11. Links to feature specifications
+| Feature and specification ID | Scope and non-goals | Specification location and status | Related FRs, NFRs, data | Prerequisites and owner |
+|---|---|---|---|---|
+| SPEC-___ / TBD | TBD | TBD | TBD | TBD |
+
+## 12. Phased release
+| Phase ID and target users | Delivered scope and requirements | Entry and completion conditions | Verification, stop, recovery conditions | Owner and schedule evidence |
+|---|---|---|---|---|
+| REL-___ / TBD | TBD | TBD | TBD | TBD |
+
+## 13. Assumptions and open questions
+| ID and type (assumption/open question) | Content and affected requirements | Evidence or resolution condition | Owner and decision date | Blocks implementation? Status |
+|---|---|---|---|---|
+| Q-___ / TBD | TBD | TBD | TBD | TBD |
+
+## 14. Change history
+| Version and date | Changed decision and reason | Affected requirements and specifications | Evidence and approving owner |
+|---|---|---|---|
+| TBD / TBD | TBD | TBD | TBD |
+
+## Before submission
+- Separate policy and numerical evidence from unverified assumptions. Keep unsupported values as TBD.
+- State conditions, observable outcomes, and verification methods. Check that each requirement can be verified individually.
