@@ -1,0 +1,32 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+JSON
+JSON = JavaScript Object Notation                                      {
+                                                                           "name": "홍길동",
+                                                                           "age": 25,
+ ●   서버와 클라이언트 간 데이터를 주고받는 데이터 직렬화 형식                                      "isStudent": true,
+                                                                           "courses": ["웹개발", "데이터베이스"],
+ ●   사람이 읽기 쉬운 텍스트                                                         "address": {
+ ●   기계가 파싱 쉬움                                                               "city": "서울",
+                                                                             "zip": "12345"
+                                                                           }
+                                                                       }
+
+
+
+JSON 규칙                                                          JaveScript JSON 파싱과 직렬화
+                                                                 // Parse (문자열 → 값)
+ ●   값 타입 6개: string, number, boolean, null, object, array       const obj = JSON.parse(jsonString);
+ ●   문자열은 반드시 쌍따옴표 "..." (홑따옴표 X)                                // Stringify (값 → 문자열)
+ ●   주석 없음(//, /* */ 모두 금지)                                      const s = JSON.stringify(obj, null, 2);
+
+ ●   마지막 요소 뒤 쉼표 금지(trailing comma X)                            // Replacer로 필드 필터/정렬
+                                                                 const s2 = JSON.stringify(obj, ["id", "title"], 2);
+
+
+
+
+                                        JSON Online Validator and Formatter - JSON Lint (실데이터, 프러덕션 JSON 데이터 사용 금지)

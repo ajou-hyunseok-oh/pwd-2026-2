@@ -1,0 +1,10 @@
+{
+  "name": "홍길동",
+  "age": 25,
+  "isStudent": true,
+  "courses": ["웹개발", "데이터베이스"],
+  "address": {
+    "city": "서울",
+    "zip": "12345"
+  }
+}

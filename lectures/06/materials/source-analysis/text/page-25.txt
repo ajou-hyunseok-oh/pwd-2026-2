@@ -1,0 +1,17 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+Render
+Git에 올린 코드를 자동으로 빌드·배포해주는 PaaS(Platform-as-a-Service) 클라우드 개발 플랫폼
+ ●   원클릭 배포 & 자동 재배포
+ ●   서비스 타입
+      ○   Web Service(Express 등 장기 실행 서버)
+      ○   Static Site(정적 호스팅)
+      ○   Background Worker
+      ○   Cron Job
+      ○   Private Service.
+ ●   운영 편의
+      ○   환경변수 관리,
+      ○   프로젝트 1개 무료, 로그/헬스체크, 수평 스케일링 지원.

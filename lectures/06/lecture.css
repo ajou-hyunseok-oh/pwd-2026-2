@@ -1,0 +1,107 @@
+/* Week 05 typography and content hierarchy are supplied by authoring.css. */
+.wd-lesson-stack { display: grid; gap: .85rem; min-width: 0; }
+.wd-lesson-concepts ul { list-style: disc; padding-left: .8rem; gap: .25rem; }
+.wd-source-subpoint { margin-left: .6rem; }
+.wd-source-list { margin: 0; padding-left: 1rem; display: grid; gap: .3rem; font-size: .88rem; line-height: 1.55; color: #43564a; word-break: keep-all; }
+.wd-source-list strong, .wd-lesson-concepts li strong { font-weight: 700; color: #263e30; }
+.wd-source-list :is(li,span), .wd-lesson-concepts li { overflow-wrap: anywhere; }
+.wd-source-heading { color: #263e30; font-size: .94rem; font-weight: 700; line-height: 1.55; }
+.wd-lesson-figure img { border: 0; object-position: center; }
+.wd-lesson-figure figcaption { overflow-wrap: anywhere; }
+.wd-lesson-table td { white-space: pre-line; }
+.wd-source-link { font-size: .73rem; line-height: 1.5; color: #536159; }
+.wd-source-anchor { color: #284b38; text-decoration: underline; text-underline-offset: .15em; overflow-wrap: anywhere; }
+.wd-source-zoom { display: block; cursor: zoom-in; }
+.wd-source-code-heading { display: flex; gap: .35rem; align-items: center; margin-bottom: .4rem; }
+.wd-source-code-heading .wd-lesson-code-label { margin: 0 !important; }
+.wd-source-icon { width: .85rem; height: .85rem; object-fit: contain; }
+
+.wd-lesson-body--webservice { grid-template-columns: 1.2fr 1fr; }
+.wd-lesson-body--webservice > :last-child { align-self: center; }
+.wd-lesson-body--roles { grid-template-columns: 1fr; max-width: 54rem; }
+.wd-lesson-body--roles .wd-lesson-stack { gap: 1.05rem; }
+.wd-lesson-body--comparison { grid-template-columns: 1.15fr 1fr; gap: 1rem 2rem; }
+.wd-lesson-body--comparison > :first-child { grid-column: 1 / -1; }
+.wd-lesson-body--comparison .wd-lesson-table :is(th,td) { padding-top: .45rem; padding-bottom: .45rem; }
+.wd-lesson-body--comparison img { max-height: 11.5rem; }
+.wd-lesson-body--node-intro { grid-template-columns: 2.3fr 1fr; }
+.wd-lesson-body--node-intro > :last-child { align-self: center; }
+.node-features { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem 1.5rem; }
+.wd-lesson-body--engine { grid-template-columns: 3fr 1fr; }
+.wd-lesson-body--engine > :last-child { align-self: center; }
+.wd-lesson-body--engine .wd-lesson-figure:first-child img { max-height: 11rem; }
+.wd-lesson-body--engine .wd-lesson-figure:last-child img { max-height: 3rem; }
+.wd-lesson-body--http { grid-template-columns: 1.4fr 1fr; }
+.wd-lesson-body--http > :last-child { align-self: center; }
+.wd-lesson-body--request { grid-template-columns: .95fr 1.2fr; align-items: center; }
+.wd-lesson-body--request .wd-lesson-table th:first-child { width: 22%; }
+.wd-lesson-body--response { grid-template-columns: 1.05fr 1fr; align-items: center; }
+.wd-status-table { margin-top: .65rem; }
+.wd-status-table td p + p { margin-top: .5rem !important; }
+.wd-lesson-body--json { grid-template-columns: .95fr 1.05fr; gap: .9rem 2rem; }
+.wd-lesson-body--json > :last-child { grid-column: 1 / -1; }
+.wd-lesson-body--rest { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.wd-lesson-body--rest .wd-lesson-figure img { max-height: 6.5rem; }
+.wd-lesson-body--routing { grid-template-columns: .85fr 1.25fr; align-items: start; }
+.wd-lesson-body--routing .wd-lesson-table :is(th,td):nth-child(1) { width: 17%; }
+.wd-lesson-body--routing .wd-lesson-table :is(th,td):nth-child(2) { width: 14%; }
+.wd-lesson-body--routing .wd-lesson-table :is(th,td):nth-child(3) { width: 20%; }
+.wd-lesson-body--routing .wd-lesson-table :is(th,td):nth-child(4) { width: 49%; }
+.wd-lesson-body--routing .wd-lesson-table :is(th,td) { padding: .55rem .55rem; }
+.wd-lesson-body--middleware { grid-template-columns: 1.15fr 1fr; gap: 1rem 2rem; }
+.wd-lesson-body--middleware > :last-child { grid-column: 1 / -1; justify-self: center; width: 50rem; max-width: 100%; }
+.wd-lesson-body--middleware > :last-child img { max-height: 8rem; }
+.wd-lesson-body--mvc { grid-template-columns: 1.2fr 1fr; }
+.wd-lesson-body--mvc > :last-child { align-self: center; }
+.wd-lesson-body--mvcs { grid-template-columns: 1.2fr 1fr; }
+.wd-lesson-body--mvcs > :last-child { align-self: center; }
+.wd-lesson-body--tree { grid-template-columns: 1fr; }
+.wd-lesson-body--tree > :first-child { width: 47rem; max-width: 100%; justify-self: center; }
+.wd-lesson-body--tree img { max-height: 22rem; }
+.wd-lesson-body--tree figcaption { text-align: center; }
+.wd-lesson-body--tdd { grid-template-columns: 2fr 1fr; }
+.wd-lesson-body--tdd > :last-child { align-self: center; }
+.wd-lesson-body--express { position: relative; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .9rem 2rem; }
+.wd-lesson-body--express > :first-child { grid-column: 1 / -1; padding-right: 11rem; }
+.wd-lesson-body--express > :nth-child(2) { position: absolute; right: 0; top: 0; width: 9rem; }
+.wd-lesson-body--express > :nth-child(2) img { max-height: 3rem; }
+.wd-lesson-body--project { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem 2rem; }
+.wd-lesson-body--project > :first-child { grid-column: 1 / -1; width: 35rem; max-width: 100%; }
+.wd-lesson-body--project > :nth-child(2) { align-self: center; }
+.wd-lesson-body--project > :nth-child(2) img { max-height: 18rem; }
+.wd-lesson-body--project-roles { grid-template-columns: 1.8fr 1fr; }
+.wd-lesson-body--project-roles > :last-child { align-self: center; }
+.wd-lesson-body--project-roles .wd-source-list { gap: .3rem; }
+.folder-heading { display: flex; align-items: center; gap: .45rem; }
+.inline-folder { flex: 0 0 1rem; }
+.inline-folder img { width: 1rem; height: 1rem; }
+.wd-lesson-body--render { grid-template-columns: 1.3fr 1fr; }
+.wd-lesson-body--render > :last-child { align-self: center; }
+
+/* The same goals/requirements and submission hierarchy used in Week 05. */
+.wd-practice-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.2rem; }
+.wd-practice-main { display: grid; gap: 1.2rem; }
+.wd-practice-submission { border: 1px solid #b9c9bd; background: #f8faf8; }
+.wd-practice-deadline { display: grid; gap: .5rem; padding: 1rem; background: #284b38; color: white; }
+.wd-practice-deadline span { font-size: .95rem; font-weight: 700; }
+.wd-practice-deadline__label { display: flex; align-items: baseline; flex-wrap: wrap; gap: .65rem; }
+.wd-practice-deadline small { font-size: .7rem; color: #d5e3d8; }
+.wd-practice-deadline strong { color: #ffe19a; font-size: 1.35rem; line-height: 1.35; }
+.wd-practice-deliverables { display: grid; gap: 1rem; padding: 1rem; }
+.wd-practice-deliverables dl dd { margin-left: 0; }
+.wd-practice-deliverables li { overflow-wrap: anywhere; }
+
+@media screen and (max-width: 767px) {
+  .wd-lesson-body { grid-template-columns: 1fr; }
+  .wd-lesson-body > .wd-lesson-block { grid-column: 1; }
+  .node-features { grid-template-columns: 1fr; }
+  .wd-lesson-body--express > :first-child { padding-right: 0; }
+  .wd-lesson-body--express > :nth-child(2) { position: static; width: 9rem; }
+  .wd-lesson-body--express > :nth-child(n) { grid-column: 1; }
+  .wd-lesson-body--project > :first-child { width: 100%; }
+  .wd-lesson-body--tree > :first-child { width: 100%; }
+  .wd-practice-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .wd-source-list { font-size: .88rem; }
+  .wd-lesson-body--middleware > :last-child { width: 100%; }
+  .wd-lesson-body--middleware > :last-child img { max-height: none; }
+}

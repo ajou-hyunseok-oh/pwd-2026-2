@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="wd-page" lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title data-wd-i18n="page_title">06 | Ajou Campus Foodmap 클라이언트 코드 리뷰</title>
+<link rel="stylesheet" href="../../../packages/web-deck/web-deck.css">
+<link rel="stylesheet" href="../../../packages/web-deck/authoring.css">
+<link rel="stylesheet" href="lecture.css">
+</head>
+<body class="wd-page-body" data-lecture="06">
+<main class="wd-deck" data-web-deck data-wd-authoring="v1" data-wd-format="week-05"><div class="wd-viewport" data-wd-viewport><div class="wd-stage" data-wd-stage>
+<section class="wd-slide wd-lesson-slide review-cover wd-lesson-cover is-active" data-wd-slide="cover" data-wd-cover="weekly" role="region">
+<div class="wd-lesson-cover__content">
+<p class="wd-lesson-cover__eyebrow" data-wd-i18n="review_eyebrow">2026학년도 2학기 실전웹서비스개발</p>
+<h1 class="wd-lesson-title" data-wd-i18n="review_cover_title">실전 웹서비스개발 – 6주차</h1>
+<p class="wd-lesson-cover__subtitle" data-wd-i18n="review_cover_subtitle">Ajou Campus Foodmap 클라이언트 코드 리뷰</p>
+</div>
+<p class="wd-lesson-source">LECTURE 06</p>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-project wd-slide--content" data-wd-slide="project" data-wd-concept="project" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="project_title">React 프로젝트의 실행 구조</h2>
+<p class="wd-slide-lead" data-wd-i18n="project_lead">진입 파일에서 App으로 이어지는 화면 구성</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><figure class="wd-lesson-figure review-screen review-screen--home"><a href="materials/screens/home.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/home.png" alt="App의 렌더링 결과 · Header·HomePage·footer" data-wd-i18n-alt="project_left_0_alt"></a><figcaption data-wd-i18n="project_left_0_caption">App의 렌더링 결과 · Header·HomePage·footer</figcaption></figure><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="project_left_1_h0" scope="col">파일·폴더</th><th data-wd-i18n="project_left_1_h1" scope="col">역할</th></tr></thead><tbody><tr><th data-wd-i18n="project_left_1_0_0" scope="row">package.json · vite.config.ts</th><td data-wd-i18n="project_left_1_0_1">실행 명령·의존성·Vite 설정</td></tr><tr><th data-wd-i18n="project_left_1_1_0" scope="row">src/App.tsx</th><td data-wd-i18n="project_left_1_1_1">공통 레이아웃·페이지 연결·Query 설정</td></tr><tr><th data-wd-i18n="project_left_1_2_0" scope="row">src/pages · components</th><td data-wd-i18n="project_left_1_2_1">경로별 화면 · 재사용 UI</td></tr><tr><th data-wd-i18n="project_left_1_3_0" scope="row">src/services · types</th><td data-wd-i18n="project_left_1_3_1">데이터 접근·검증 · 데이터 타입</td></tr><tr><th data-wd-i18n="project_left_1_4_0" scope="row">src/styles · CSS</th><td data-wd-i18n="project_left_1_4_1">전역 스타일·화면 배치</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="project_right_0_term">진입점 - React 화면을 브라우저에 연결하는 시작 위치</strong></dt><dd><ul><li data-wd-i18n="project_right_0_0">index.html의 root 요소를 main.tsx에서 찾아 App 배치</li></ul></dd></div></dl><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="project_right_1_label">src/main.tsx · root 검색과 App 연결 발췌</p><pre class="wd-code" data-wd-i18n="project_right_1_code" data-wd-code="tsx" data-wd-code-width="58">const root = document.getElementById(&#x27;root&#x27;);
+if (!root)
+  throw new Error(
+    &#x27;앱을 표시할 root 요소를 찾을 수 없습니다.&#x27;
+  );
+
+createRoot(root).render(
+  &lt;StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/StrictMode&gt;
+);</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week5/index.html
+pwd-week5/src/main.tsx
+pwd-week5/src/App.tsx
+pwd-week5/package.json
+pwd-week5/vite.config.ts
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-routing wd-slide--content" data-wd-slide="routing" data-wd-concept="routing" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="routing_title">공통 레이아웃과 페이지 라우팅</h2>
+<p class="wd-slide-lead" data-wd-i18n="routing_lead">같은 앱 안에서 경로에 따라 바뀌는 본문</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><figure class="wd-lesson-figure review-screen review-screen--app-list"><a href="materials/screens/app-list.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/app-list.png" alt="#/list · Header·목록 본문·footer" data-wd-i18n-alt="routing_left_0_alt"></a><figcaption data-wd-i18n="routing_left_0_caption">#/list · Header·목록 본문·footer</figcaption></figure><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="routing_left_1_term">라우팅 - URL에 대응하는 페이지 선택</strong></dt><dd><ul><li data-wd-i18n="routing_left_1_0">Header·footer는 공통 영역, Routes는 페이지 영역</li><li data-wd-i18n="routing_left_1_1">HashRouter는 # 뒤 경로 사용 · :id는 상세 항목 식별</li></ul></dd></div></dl></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="routing_right_0_label">src/App.tsx · 홈·목록·상세 경로 발췌</p><pre class="wd-code" data-wd-i18n="routing_right_0_code" data-wd-code="tsx" data-wd-code-width="58">&lt;Routes&gt;
+  &lt;Route path=&quot;/&quot; element={&lt;HomePage /&gt;} /&gt;
+  &lt;Route path=&quot;/list&quot; element={&lt;ListPage /&gt;} /&gt;
+  &lt;Route
+    path=&quot;/restaurant/:id&quot;
+    element={&lt;DetailPage /&gt;}
+  /&gt;
+&lt;/Routes&gt;;</pre></div><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="routing_right_1_label">RestaurantCard.tsx · 상세 화면 링크</p><pre class="wd-code" data-wd-i18n="routing_right_1_code" data-wd-code="tsx" data-wd-code-width="58">&lt;DetailLink to={`/restaurant/${restaurant.id}`}&gt;
+  자세히 보기 →
+&lt;/DetailLink&gt;;</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week5/src/App.tsx
+pwd-week5/src/components/Header.tsx
+pwd-week5/src/components/RestaurantCard.tsx
+pwd-week5/src/pages/DetailPage.tsx
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-components wd-slide--content" data-wd-slide="components" data-wd-concept="components" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="components_title">목록과 카드의 컴포넌트 분리</h2>
+<p class="wd-slide-lead" data-wd-i18n="components_lead">목록은 반복 배치, 카드는 한 항목의 표시 담당</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><figure class="wd-lesson-figure review-screen review-screen--list"><a href="materials/screens/list.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/list.png" alt="전체 목록 · 같은 카드 구조에 서로 다른 맛집 데이터" data-wd-i18n-alt="components_left_0_alt"></a><figcaption data-wd-i18n="components_left_0_caption">전체 목록 · 같은 카드 구조에 서로 다른 맛집 데이터</figcaption></figure><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="components_left_1_term">컴포넌트 분리 - 역할에 따라 UI를 나누는 구조</strong></dt><dd><ul><li data-wd-i18n="components_left_1_0">부모는 목록을 순회하며 각 항목을 Props로 전달</li><li data-wd-i18n="components_left_1_1">자식은 받은 데이터로 카드의 이름·분류·정보 표시</li></ul></dd></div></dl></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="components_right_0_label">RestaurantList.tsx · 목록 반복 발췌</p><pre class="wd-code" data-wd-i18n="components_right_0_code" data-wd-code="tsx" data-wd-code-width="58">&lt;ListContainer&gt;
+  {restaurants.map((restaurant) =&gt; (
+    &lt;RestaurantCard
+      key={restaurant.id}
+      restaurant={restaurant}
+    /&gt;
+  ))}
+&lt;/ListContainer&gt;;</pre></div><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="components_right_1_label">RestaurantCard.tsx · 카드 제목 영역 발췌</p><pre class="wd-code" data-wd-i18n="components_right_1_code" data-wd-code="tsx" data-wd-code-width="58">&lt;CardHeader&gt;
+  &lt;CardTitle&gt;{restaurant.name}&lt;/CardTitle&gt;
+  &lt;CategoryBadge&gt;{restaurant.category}&lt;/CategoryBadge&gt;
+&lt;/CardHeader&gt;;</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week5/src/components/RestaurantList.tsx
+pwd-week5/src/components/RestaurantCard.tsx
+https://react.dev/learn/passing-props-to-a-component
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-query-state wd-slide--content" data-wd-slide="query-state" data-wd-concept="query-state" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="query-state_title">조회 데이터와 화면 상태</h2>
+<p class="wd-slide-lead" data-wd-i18n="query-state_lead">원본 목록을 가져온 뒤 선택한 카테고리로 필터링</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><figure class="wd-lesson-figure review-screen review-screen--filtered-list"><a href="materials/screens/filtered-list.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/filtered-list.png" alt="한식 선택 · 전체 데이터에서 조건에 맞는 카드만 표시" data-wd-i18n-alt="query-state_left_0_alt"></a><figcaption data-wd-i18n="query-state_left_0_caption">한식 선택 · 전체 데이터에서 조건에 맞는 카드만 표시</figcaption></figure><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="query-state_left_1_term">상태 분리 - 조회 결과와 화면 선택값을 따로 관리</strong></dt><dd><ul><li data-wd-i18n="query-state_left_1_0">useQuery는 조회 결과·로딩·오류 관리</li><li data-wd-i18n="query-state_left_1_1">useState는 선택값 관리 · 필터 결과는 렌더링 중 계산</li></ul></dd></div></dl></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="query-state_right_0_label">src/pages/ListPage.tsx · 조회·필터 발췌</p><pre class="wd-code" data-wd-i18n="query-state_right_0_code" data-wd-code="tsx" data-wd-code-width="58">const [selectedCategory, setSelectedCategory] =
+  useState(&#x27;전체&#x27;);
+const { data, isLoading, error } = useQuery({
+  queryKey: [&#x27;restaurants&#x27;],
+  queryFn: restaurantAPI.getRestaurants
+});
+const filteredData =
+  selectedCategory === &#x27;전체&#x27;
+    ? data?.data
+    : data?.data.filter(
+        (r) =&gt; r.category === selectedCategory
+      );</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week5/src/pages/ListPage.tsx
+pwd-week5/src/App.tsx
+https://tanstack.com/query/v5/docs/framework/react/guides/queries
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-form wd-slide--content" data-wd-slide="form" data-wd-concept="form" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="form_title">제보 폼의 저장 흐름</h2>
+<p class="wd-slide-lead" data-wd-i18n="form_lead">메뉴 입력의 변환과 저장 성공에 따른 화면 전환</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><figure class="wd-lesson-figure review-screen review-screen--submit-menu"><a href="materials/screens/submit-menu.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/submit-menu.png" alt="추천 메뉴 입력 · 김치찌개, 제육볶음" data-wd-i18n-alt="form_left_0_alt"></a><figcaption data-wd-i18n="form_left_0_caption">추천 메뉴 입력 · 김치찌개, 제육볶음</figcaption></figure><figure class="wd-lesson-figure review-screen review-screen--submit-success"><a href="materials/screens/submit-success.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/submit-success.png" alt="저장 성공 후 화면" data-wd-i18n-alt="form_left_1_alt"></a><figcaption data-wd-i18n="form_left_1_caption">저장 성공 후 화면</figcaption></figure></div>
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="form_right_0_term">폼 처리 - 입력값을 저장 형태로 변환해 전달하는 과정</strong></dt><dd><ul><li data-wd-i18n="form_right_0_0">쉼표·줄바꿈으로 구분한 메뉴 문자열을 배열로 변환</li><li data-wd-i18n="form_right_0_1">저장 요청의 성공 후 완료 상태로 화면 전환</li></ul></dd></div></dl><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="form_right_1_label">SubmitRestaurant.tsx · 메뉴 입력 변환 발췌</p><pre class="wd-code" data-wd-i18n="form_right_1_code" data-wd-code="tsx" data-wd-code-width="58">const recommendedMenuArray =
+  typeof data.recommendedMenu === &#x27;string&#x27;
+    ? data.recommendedMenu
+        .split(/[\n,]/)
+        .map((item) =&gt; item.trim())
+        .filter(Boolean)
+    : [];</pre></div><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="form_right_2_label">SubmitRestaurant.tsx · 저장 성공 처리 발췌</p><pre class="wd-code" data-wd-i18n="form_right_2_code" data-wd-code="tsx" data-wd-code-width="58">await submissionAPI.createSubmission(payload);
+setSubmitted(true);
+toast.success(&#x27;맛집이 성공적으로 제보되었습니다! 🎉&#x27;);
+reset();</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week5/src/components/SubmitRestaurant.tsx
+pwd-week5/src/services/api.ts
+pwd-week5/src/types/index.ts
+https://react-hook-form.com/docs/useform/handlesubmit
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-service wd-slide--content" data-wd-slide="service" data-wd-concept="service" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="service_title">서비스 함수의 데이터 접근</h2>
+<p class="wd-slide-lead" data-wd-i18n="service_lead">현재 브라우저 저장소와 앞으로 연결할 서버 사이의 경계</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><figure class="wd-lesson-figure review-screen review-screen--restaurant-table"><a href="materials/screens/restaurant-table.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/restaurant-table.png" alt="AdminPage의 맛집 3개 · getRestaurants() 조회 결과" data-wd-i18n-alt="service_left_0_alt"></a><figcaption data-wd-i18n="service_left_0_caption">AdminPage의 맛집 3개 · getRestaurants() 조회 결과</figcaption></figure><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="service_left_1_h0" scope="col">현재 구현</th><th data-wd-i18n="service_left_1_h1" scope="col">서버 연결 시 대체</th></tr></thead><tbody><tr><th data-wd-i18n="service_left_1_0_0" scope="row">initialRestaurants · readItems</th><td data-wd-i18n="service_left_1_0_1">서버 API로 목록·상세 조회</td></tr><tr><th data-wd-i18n="service_left_1_1_0" scope="row">writeItems · localStorage</th><td data-wd-i18n="service_left_1_1_1">서버 API로 데이터 변경·저장</td></tr><tr><th data-wd-i18n="service_left_1_2_0" scope="row">비동기 함수 · { data: ... }</th><td data-wd-i18n="service_left_1_2_1">페이지가 기대하는 응답 형태 유지</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="service_right_0_term">서비스 계층 - 데이터 접근 방법을 모으는 경계</strong></dt><dd><ul><li data-wd-i18n="service_right_0_0">페이지는 비동기 함수를 호출하고 { data: ... } 결과 사용</li><li data-wd-i18n="service_right_0_1">현재는 HTTP 요청 없이 localStorage에서 읽기·저장</li></ul></dd></div></dl><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="service_right_1_label">src/services/api.ts · restaurantAPI 내부 발췌</p><pre class="wd-code" data-wd-i18n="service_right_1_code" data-wd-code="tsx" data-wd-code-width="58">export const restaurantAPI = {
+  getRestaurants: async (): Promise&lt;
+    ApiResponse&lt;Restaurant[]&gt;
+  &gt; =&gt; ({
+    data: readItems(
+      RESTAURANTS_KEY,
+      isRestaurant,
+      initialRestaurants
+    )
+  })
+};</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week5/src/services/api.ts
+pwd-week5/src/services/storage.ts
+pwd-week5/src/pages/AdminPage.tsx
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-server-data wd-slide--content" data-wd-slide="server-data" data-wd-concept="server-data" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="server-data_title">서버가 맡을 데이터 책임</h2>
+<p class="wd-slide-lead" data-wd-i18n="server-data_lead">브라우저별 저장과 서버로 공유할 데이터</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><figure class="wd-lesson-figure review-screen review-screen--submissions"><a href="materials/screens/submissions.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/submissions.png" alt="브라우저 A · 제보 저장 후 1건" data-wd-i18n-alt="server-data_left_0_alt"></a><figcaption data-wd-i18n="server-data_left_0_caption">브라우저 A · 제보 저장 후 1건</figcaption></figure><figure class="wd-lesson-figure review-screen review-screen--submissions-empty"><a href="materials/screens/submissions-empty.png" target="_blank" rel="noopener noreferrer"><img src="materials/screens/submissions-empty.png" alt="브라우저 B · 같은 #/submissions에서 0건" data-wd-i18n-alt="server-data_left_1_alt"></a><figcaption data-wd-i18n="server-data_left_1_caption">브라우저 B · 같은 #/submissions에서 0건</figcaption></figure><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="server-data_left_2_term">공유 데이터 - 서버에서 함께 조회·변경하는 원본</strong></dt><dd><ul><li data-wd-i18n="server-data_left_2_0">현재 제보는 브라우저별 저장 · 다른 브라우저에 미공유</li><li data-wd-i18n="server-data_left_2_1">선택 카테고리·입력 중인 값은 클라이언트 상태</li></ul></dd></div></dl></div>
+<div class="wd-lesson-block review-stack"><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="server-data_right_0_h0" scope="col">대상</th><th data-wd-i18n="server-data_right_0_h1" scope="col">현재 코드</th><th data-wd-i18n="server-data_right_0_h2" scope="col">서버의 책임</th></tr></thead><tbody><tr><th data-wd-i18n="server-data_right_0_0_0" scope="row">맛집</th><td data-wd-i18n="server-data_right_0_0_1">initialRestaurants · 브라우저 저장소</td><td data-wd-i18n="server-data_right_0_0_2">DB의 목록·상세·생성·수정·삭제</td></tr><tr><th data-wd-i18n="server-data_right_0_1_0" scope="row">제보·승인</th><td data-wd-i18n="server-data_right_0_1_1">브라우저 저장 · 관리자 화면에서 변경</td><td data-wd-i18n="server-data_right_0_1_2">입력 재검증·관리자 권한·승인 일괄 처리</td></tr><tr><th data-wd-i18n="server-data_right_0_2_0" scope="row">좋아요</th><td data-wd-i18n="server-data_right_0_2_1">카드가 별도 localStorage 키에 직접 저장</td><td data-wd-i18n="server-data_right_0_2_2">사용자별 중복 제어·공유 개수 집계</td></tr><tr><th data-wd-i18n="server-data_right_0_3_0" scope="row">인기 순위</th><td data-wd-i18n="server-data_right_0_3_1">rating 내림차순 · 주간 집계 없음</td><td data-wd-i18n="server-data_right_0_3_2">조회 기간·정렬·집계 기준 적용</td></tr></tbody></table></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week5/src/services/api.ts
+pwd-week5/src/components/RestaurantCard.tsx
+pwd-week5/src/components/PopularRestaurants.tsx
+pwd-week5/src/pages/SubmissionsPage.tsx
+[/Source]</aside>
+</section>
+</div></div></main>
+<script src="lecture-content.js"></script>
+<script src="../../shared/lecture-deck.js"></script>
+<script>window.WEB_DECK_CONFIG.homeHref = '../../../';</script>
+<script src="../../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
+<script src="../../../packages/web-deck/web-deck.js"></script>
+</body></html>

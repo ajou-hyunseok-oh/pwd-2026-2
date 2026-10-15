@@ -1,0 +1,11 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+학습 목표
+●   서버 개발과 Node.js
+●   Node.js와
+●   REST API 설계 원칙과 구현 방법
+●   서버 아키텍처 설계(MVC / MVCS 패턴)
+●   TDD(Test Driven Development)

@@ -1,0 +1,1640 @@
+{
+  "format": "week-05",
+  "policy": "../../authoring/week-05-format.md",
+  "total_slides": 50,
+  "concept_slides": 43,
+  "slides": [
+    {
+      "number": 1,
+      "id": "cover",
+      "title": [
+        "실전 웹서비스개발 – 6주차",
+        "Practical Web Service Development – Week 6"
+      ],
+      "subtitle": [
+        "Node.js와 Express를 이용한 웹 서버 개발",
+        "Web Server Development with Node.js and Express"
+      ],
+      "kind": "cover",
+      "topic_number": null,
+      "chapter": "",
+      "source_pages": [
+        1
+      ],
+      "requires": [],
+      "sources": []
+    },
+    {
+      "number": 2,
+      "id": "chapter-01",
+      "title": [
+        "서버와 Node.js",
+        "Servers and Node.js"
+      ],
+      "subtitle": [
+        "클라이언트 요청을 처리하는 실행 환경",
+        "The runtime that processes client requests"
+      ],
+      "kind": "chapter",
+      "topic_number": null,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [],
+      "requires": [],
+      "sources": []
+    },
+    {
+      "number": 3,
+      "id": "concept-client-server",
+      "title": [
+        "클라이언트-서버 구조",
+        "Client–Server Architecture"
+      ],
+      "subtitle": [
+        "네트워크를 통한 요청과 응답의 역할 분리",
+        "Separate request and response roles across a network"
+      ],
+      "kind": "topic",
+      "topic_number": 1,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [
+        4
+      ],
+      "requires": [],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=4"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 4,
+      "id": "concept-server-role",
+      "title": [
+        "서버의 역할",
+        "Server Responsibilities"
+      ],
+      "subtitle": [
+        "입력 검증부터 처리 결과 반환까지의 책임",
+        "Responsibilities from input validation to returning results"
+      ],
+      "kind": "topic",
+      "topic_number": 2,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [
+        5
+      ],
+      "requires": [
+        "concept-client-server"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=5"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 5,
+      "id": "concept-server-stack",
+      "title": [
+        "서버 개발 스택",
+        "Server Development Stacks"
+      ],
+      "subtitle": [
+        "실행 언어와 웹 프레임워크의 조합",
+        "Combinations of languages and web frameworks"
+      ],
+      "kind": "topic",
+      "topic_number": 3,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [
+        6
+      ],
+      "requires": [
+        "concept-server-role"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=6"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"
+        ]
+      ]
+    },
+    {
+      "number": 6,
+      "id": "concept-nodejs",
+      "title": [
+        "Node.js 런타임",
+        "The Node.js Runtime"
+      ],
+      "subtitle": [
+        "브라우저 밖에서 실행하는 JavaScript",
+        "Run JavaScript outside the browser"
+      ],
+      "kind": "topic",
+      "topic_number": 4,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [
+        7,
+        8
+      ],
+      "requires": [
+        "concept-server-stack"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=7"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=8"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"
+        ]
+      ]
+    },
+    {
+      "number": 7,
+      "id": "concept-v8",
+      "title": [
+        "V8 엔진",
+        "The V8 Engine"
+      ],
+      "subtitle": [
+        "JavaScript 코드를 해석하고 실행하는 엔진",
+        "The engine that interprets and executes JavaScript"
+      ],
+      "kind": "topic",
+      "topic_number": 5,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [
+        8
+      ],
+      "requires": [
+        "concept-nodejs"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=8"
+        ],
+        [
+          "Official documentation",
+          "https://v8.dev/docs"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"
+        ]
+      ]
+    },
+    {
+      "number": 8,
+      "id": "concept-async-io",
+      "title": [
+        "비동기 I/O",
+        "Asynchronous I/O"
+      ],
+      "subtitle": [
+        "입출력 대기와 JavaScript 실행의 분리",
+        "Separate waiting for I/O from JavaScript execution"
+      ],
+      "kind": "topic",
+      "topic_number": 6,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [
+        7
+      ],
+      "requires": [
+        "concept-nodejs"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=7"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/learn/asynchronous-work/overview-of-blocking-vs-non-blocking"
+        ]
+      ]
+    },
+    {
+      "number": 9,
+      "id": "concept-event-loop",
+      "title": [
+        "이벤트 루프",
+        "The Event Loop"
+      ],
+      "subtitle": [
+        "준비된 콜백을 실행하는 반복 처리 구조",
+        "A repeating mechanism for executing ready callbacks"
+      ],
+      "kind": "topic",
+      "topic_number": 7,
+      "chapter": "CHAPTER 01 · 서버와 Node.js",
+      "source_pages": [
+        7
+      ],
+      "requires": [
+        "concept-async-io"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=7"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/learn/asynchronous-work/event-loop-timers-and-nexttick"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop"
+        ]
+      ]
+    },
+    {
+      "number": 10,
+      "id": "chapter-02",
+      "title": [
+        "HTTP와 REST API",
+        "HTTP and REST APIs"
+      ],
+      "subtitle": [
+        "요청·응답 메시지와 리소스 중심의 인터페이스",
+        "Request and response messages with resource-oriented interfaces"
+      ],
+      "kind": "chapter",
+      "topic_number": null,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [],
+      "requires": [],
+      "sources": []
+    },
+    {
+      "number": 11,
+      "id": "concept-http",
+      "title": [
+        "HTTP",
+        "HTTP"
+      ],
+      "subtitle": [
+        "요청과 응답을 교환하는 통신 규약",
+        "The protocol for exchanging requests and responses"
+      ],
+      "kind": "topic",
+      "topic_number": 8,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        10
+      ],
+      "requires": [
+        "concept-client-server"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=10"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 12,
+      "id": "concept-https",
+      "title": [
+        "HTTPS",
+        "HTTPS"
+      ],
+      "subtitle": [
+        "TLS로 보호하는 HTTP 통신",
+        "Protect HTTP communication with TLS"
+      ],
+      "kind": "topic",
+      "topic_number": 9,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        10
+      ],
+      "requires": [
+        "concept-http"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=10"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 13,
+      "id": "concept-http-request",
+      "title": [
+        "HTTP 요청",
+        "HTTP Requests"
+      ],
+      "subtitle": [
+        "메서드·요청 대상·헤더·본문의 역할",
+        "The roles of methods, targets, headers, and bodies"
+      ],
+      "kind": "topic",
+      "topic_number": 10,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        11
+      ],
+      "requires": [
+        "concept-http"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=11"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 14,
+      "id": "concept-http-response",
+      "title": [
+        "HTTP 응답",
+        "HTTP Responses"
+      ],
+      "subtitle": [
+        "상태 코드·헤더·본문으로 전달하는 처리 결과",
+        "Communicate results through status codes, headers, and bodies"
+      ],
+      "kind": "topic",
+      "topic_number": 11,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        12
+      ],
+      "requires": [
+        "concept-http-request"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=12"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 15,
+      "id": "concept-status-code",
+      "title": [
+        "HTTP 상태 코드",
+        "HTTP Status Codes"
+      ],
+      "subtitle": [
+        "요청 처리 결과를 구분하는 세 자리 숫자",
+        "Three-digit codes that classify request outcomes"
+      ],
+      "kind": "topic",
+      "topic_number": 12,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        12
+      ],
+      "requires": [
+        "concept-http-response"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=12"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 16,
+      "id": "concept-json",
+      "title": [
+        "JSON",
+        "JSON"
+      ],
+      "subtitle": [
+        "서로 다른 프로그램 사이의 텍스트 데이터 표현",
+        "A text representation of data exchanged between programs"
+      ],
+      "kind": "topic",
+      "topic_number": 13,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        13
+      ],
+      "requires": [
+        "concept-http-response"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc8259.html"
+        ]
+      ]
+    },
+    {
+      "number": 17,
+      "id": "concept-json-transform",
+      "title": [
+        "JSON 직렬화와 파싱",
+        "JSON Serialization and Parsing"
+      ],
+      "subtitle": [
+        "프로그램의 값과 전송용 문자열 사이의 변환",
+        "Convert between program values and transport strings"
+      ],
+      "kind": "topic",
+      "topic_number": 14,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        13
+      ],
+      "requires": [
+        "concept-json"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+        ],
+        [
+          "Official documentation",
+          "https://tc39.es/ecma262/multipage/structured-data.html#sec-json-object"
+        ]
+      ]
+    },
+    {
+      "number": 18,
+      "id": "concept-rest-resource",
+      "title": [
+        "REST의 리소스 표현",
+        "Resource Representations in REST"
+      ],
+      "subtitle": [
+        "URI로 식별한 자원의 상태를 표현으로 교환",
+        "Exchange representations of resources identified by URIs"
+      ],
+      "kind": "topic",
+      "topic_number": 15,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        14
+      ],
+      "requires": [
+        "concept-json"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=14"
+        ],
+        [
+          "Official documentation",
+          "https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 19,
+      "id": "concept-http-method",
+      "title": [
+        "HTTP 메서드",
+        "HTTP Methods"
+      ],
+      "subtitle": [
+        "같은 리소스에 적용하는 요청 의미의 구분",
+        "Distinguish request semantics for the same resource"
+      ],
+      "kind": "topic",
+      "topic_number": 16,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        15
+      ],
+      "requires": [
+        "concept-rest-resource"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=15"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 20,
+      "id": "concept-idempotency",
+      "title": [
+        "멱등성",
+        "Idempotency"
+      ],
+      "subtitle": [
+        "동일 요청의 반복과 서버 상태에 대한 의도된 효과",
+        "Repeated requests and their intended effect on server state"
+      ],
+      "kind": "topic",
+      "topic_number": 17,
+      "chapter": "CHAPTER 02 · HTTP와 REST API",
+      "source_pages": [
+        15
+      ],
+      "requires": [
+        "concept-http-method"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=15"
+        ],
+        [
+          "Official documentation",
+          "https://www.rfc-editor.org/rfc/rfc9110.html"
+        ]
+      ]
+    },
+    {
+      "number": 21,
+      "id": "chapter-03",
+      "title": [
+        "Express 요청 처리",
+        "Request Processing in Express"
+      ],
+      "subtitle": [
+        "프로젝트 생성과 라우트·미들웨어의 연결",
+        "Create a project and connect routes and middleware"
+      ],
+      "kind": "chapter",
+      "topic_number": null,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [],
+      "requires": [],
+      "sources": []
+    },
+    {
+      "number": 22,
+      "id": "concept-express",
+      "title": [
+        "Express 프레임워크",
+        "The Express Framework"
+      ],
+      "subtitle": [
+        "Node.js HTTP 서버의 라우팅과 공통 처리 구성",
+        "Organize routing and shared processing for Node.js HTTP servers"
+      ],
+      "kind": "topic",
+      "topic_number": 18,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        22
+      ],
+      "requires": [
+        "concept-http-method",
+        "concept-nodejs"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=22"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/routing.html"
+        ]
+      ]
+    },
+    {
+      "number": 23,
+      "id": "concept-node-project",
+      "title": [
+        "Node.js 프로젝트",
+        "Node.js Projects"
+      ],
+      "subtitle": [
+        "패키지 설정과 의존성 설치 정보의 관리",
+        "Manage package configuration and dependency installation"
+      ],
+      "kind": "topic",
+      "topic_number": 19,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        23
+      ],
+      "requires": [
+        "concept-express"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=23"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/starter/installing.html"
+        ],
+        [
+          "Official documentation",
+          "https://docs.npmjs.com/cli/v11/commands/npm-ci"
+        ],
+        [
+          "Official documentation",
+          "https://github.com/expressjs/express/releases/tag/v5.3.0"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/en/blog/release/v24.22.0"
+        ]
+      ]
+    },
+    {
+      "number": 24,
+      "id": "concept-commonjs",
+      "title": [
+        "CommonJS 모듈",
+        "CommonJS Modules"
+      ],
+      "subtitle": [
+        "파일 단위의 기능 공개와 불러오기",
+        "Export and load functionality by file"
+      ],
+      "kind": "topic",
+      "topic_number": 20,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        22,
+        23
+      ],
+      "requires": [
+        "concept-node-project"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=22"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=23"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/api/modules.html"
+        ]
+      ]
+    },
+    {
+      "number": 25,
+      "id": "concept-hello-server",
+      "title": [
+        "Express 서버 시작",
+        "Starting an Express Server"
+      ],
+      "subtitle": [
+        "앱 생성·요청 처리 등록·포트 대기",
+        "Create an app, register a handler, and listen on a port"
+      ],
+      "kind": "topic",
+      "topic_number": 21,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        23
+      ],
+      "requires": [
+        "concept-commonjs"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=23"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/starter/hello-world.html"
+        ]
+      ]
+    },
+    {
+      "number": 26,
+      "id": "concept-express-routing",
+      "title": [
+        "Express 라우팅",
+        "Express Routing"
+      ],
+      "subtitle": [
+        "메서드와 경로에 대응하는 핸들러 선택",
+        "Select a handler by request method and path"
+      ],
+      "kind": "topic",
+      "topic_number": 22,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        15,
+        22
+      ],
+      "requires": [
+        "concept-hello-server"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=15"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=22"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/routing.html"
+        ]
+      ]
+    },
+    {
+      "number": 27,
+      "id": "concept-path-params",
+      "title": [
+        "경로 매개변수",
+        "Route Parameters"
+      ],
+      "subtitle": [
+        "경로의 일부를 리소스 식별값으로 추출",
+        "Extract a resource identifier from a path segment"
+      ],
+      "kind": "topic",
+      "topic_number": 23,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        15,
+        24
+      ],
+      "requires": [
+        "concept-express-routing"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=15"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/routing.html"
+        ]
+      ]
+    },
+    {
+      "number": 28,
+      "id": "concept-query",
+      "title": [
+        "쿼리 매개변수",
+        "Query Parameters"
+      ],
+      "subtitle": [
+        "URL의 검색 조건과 조회 옵션 전달",
+        "Pass search conditions and retrieval options in the URL"
+      ],
+      "kind": "topic",
+      "topic_number": 24,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        11,
+        24
+      ],
+      "requires": [
+        "concept-express-routing"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=11"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/routing.html"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/5x/api.html"
+        ]
+      ]
+    },
+    {
+      "number": 29,
+      "id": "concept-middleware",
+      "title": [
+        "미들웨어",
+        "Middleware"
+      ],
+      "subtitle": [
+        "등록 순서에 따라 요청을 처리하는 함수의 연결",
+        "Chain request-processing functions in registration order"
+      ],
+      "kind": "topic",
+      "topic_number": 25,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        16
+      ],
+      "requires": [
+        "concept-express-routing"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=16"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/using-middleware.html"
+        ]
+      ]
+    },
+    {
+      "number": 30,
+      "id": "concept-json-body",
+      "title": [
+        "JSON 본문 파싱",
+        "Parsing JSON Bodies"
+      ],
+      "subtitle": [
+        "요청 본문의 JSON을 JavaScript 값으로 변환",
+        "Convert a JSON request body into a JavaScript value"
+      ],
+      "kind": "topic",
+      "topic_number": 26,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        13,
+        16,
+        24
+      ],
+      "requires": [
+        "concept-middleware",
+        "concept-json-transform"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=13"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=16"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/using-middleware.html"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/5x/api.html"
+        ]
+      ]
+    },
+    {
+      "number": 31,
+      "id": "concept-input-validation",
+      "title": [
+        "입력 검증",
+        "Input Validation"
+      ],
+      "subtitle": [
+        "요청 데이터의 타입과 서비스 조건 확인",
+        "Check request types and application constraints"
+      ],
+      "kind": "topic",
+      "topic_number": 27,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        5,
+        24
+      ],
+      "requires": [
+        "concept-json-body",
+        "concept-status-code"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=5"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/5x/api.html"
+        ]
+      ]
+    },
+    {
+      "number": 32,
+      "id": "concept-error-handler",
+      "title": [
+        "오류 처리 미들웨어",
+        "Error-Handling Middleware"
+      ],
+      "subtitle": [
+        "오류 전달과 일관된 HTTP 오류 응답",
+        "Forward errors and return consistent HTTP error responses"
+      ],
+      "kind": "topic",
+      "topic_number": 28,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        16,
+        24
+      ],
+      "requires": [
+        "concept-middleware",
+        "concept-input-validation"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=16"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/error-handling.html"
+        ]
+      ]
+    },
+    {
+      "number": 33,
+      "id": "concept-async-handler",
+      "title": [
+        "비동기 핸들러의 오류 전달",
+        "Errors in Asynchronous Handlers"
+      ],
+      "subtitle": [
+        "Express 5에서 거부된 Promise의 오류 처리",
+        "Handle rejected promises in Express 5"
+      ],
+      "kind": "topic",
+      "topic_number": 29,
+      "chapter": "CHAPTER 03 · Express 요청 처리",
+      "source_pages": [
+        24,
+        26
+      ],
+      "requires": [
+        "concept-error-handler",
+        "concept-async-io"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=26"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/error-handling.html"
+        ]
+      ]
+    },
+    {
+      "number": 34,
+      "id": "chapter-04",
+      "title": [
+        "MVC와 서비스 계층",
+        "MVC and the Service Layer"
+      ],
+      "subtitle": [
+        "Foodmap API의 책임 분리와 파일 구조",
+        "Separate responsibilities and files in the Foodmap API"
+      ],
+      "kind": "chapter",
+      "topic_number": null,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [],
+      "requires": [],
+      "sources": []
+    },
+    {
+      "number": 35,
+      "id": "concept-mvc",
+      "title": [
+        "MVC 패턴",
+        "The MVC Pattern"
+      ],
+      "subtitle": [
+        "데이터·표현·요청 제어의 역할 분리",
+        "Separate data, presentation, and request coordination"
+      ],
+      "kind": "topic",
+      "topic_number": 30,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [
+        17
+      ],
+      "requires": [
+        "concept-async-handler"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=17"
+        ],
+        [
+          "Official documentation",
+          "https://martinfowler.com/eaaCatalog/modelViewController.html"
+        ]
+      ]
+    },
+    {
+      "number": 36,
+      "id": "concept-mvcs",
+      "title": [
+        "MVCS의 서비스 계층",
+        "The Service Layer in MVCS"
+      ],
+      "subtitle": [
+        "요청 처리에서 업무 규칙을 분리하는 구조",
+        "Separate business rules from request handling"
+      ],
+      "kind": "topic",
+      "topic_number": 31,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [
+        18
+      ],
+      "requires": [
+        "concept-mvc"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=18"
+        ],
+        [
+          "Official documentation",
+          "https://martinfowler.com/eaaCatalog/serviceLayer.html"
+        ]
+      ]
+    },
+    {
+      "number": 37,
+      "id": "concept-project-structure",
+      "title": [
+        "Express 프로젝트 구조",
+        "Express Project Structure"
+      ],
+      "subtitle": [
+        "서버 시작과 앱 설정·계층 모듈의 분리",
+        "Separate server startup, app configuration, and layer modules"
+      ],
+      "kind": "topic",
+      "topic_number": 32,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [
+        19,
+        24
+      ],
+      "requires": [
+        "concept-mvcs",
+        "concept-commonjs"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=19"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/using-middleware.html"
+        ]
+      ]
+    },
+    {
+      "number": 38,
+      "id": "concept-model",
+      "title": [
+        "모델의 데이터 접근",
+        "Data Access in the Model"
+      ],
+      "subtitle": [
+        "저장 방식의 세부 사항을 감추는 인터페이스",
+        "An interface that hides storage details"
+      ],
+      "kind": "topic",
+      "topic_number": 33,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [
+        17,
+        24
+      ],
+      "requires": [
+        "concept-project-structure"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=17"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://martinfowler.com/eaaCatalog/serviceLayer.html"
+        ]
+      ]
+    },
+    {
+      "number": 39,
+      "id": "concept-service",
+      "title": [
+        "서비스의 업무 규칙",
+        "Business Rules in Services"
+      ],
+      "subtitle": [
+        "입력을 검증하고 모델 작업을 조합하는 계층",
+        "Validate inputs and coordinate model operations"
+      ],
+      "kind": "topic",
+      "topic_number": 34,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [
+        18,
+        24
+      ],
+      "requires": [
+        "concept-model",
+        "concept-input-validation"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=18"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://martinfowler.com/eaaCatalog/serviceLayer.html"
+        ]
+      ]
+    },
+    {
+      "number": 40,
+      "id": "concept-controller",
+      "title": [
+        "컨트롤러의 HTTP 변환",
+        "HTTP Translation in Controllers"
+      ],
+      "subtitle": [
+        "HTTP 입력과 서비스 결과 사이의 연결",
+        "Connect HTTP inputs to service results"
+      ],
+      "kind": "topic",
+      "topic_number": 35,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [
+        17,
+        24
+      ],
+      "requires": [
+        "concept-service",
+        "concept-path-params"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=17"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/5x/api.html"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/error-handling.html"
+        ]
+      ]
+    },
+    {
+      "number": 41,
+      "id": "concept-router",
+      "title": [
+        "Express Router",
+        "Express Router"
+      ],
+      "subtitle": [
+        "관련 엔드포인트를 묶는 라우팅 모듈",
+        "A routing module for related endpoints"
+      ],
+      "kind": "topic",
+      "topic_number": 36,
+      "chapter": "CHAPTER 04 · MVC와 서비스 계층",
+      "source_pages": [
+        24
+      ],
+      "requires": [
+        "concept-controller",
+        "concept-middleware"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/guide/routing.html"
+        ]
+      ]
+    },
+    {
+      "number": 42,
+      "id": "chapter-05",
+      "title": [
+        "테스트와 배포",
+        "Testing and Deployment"
+      ],
+      "subtitle": [
+        "실행 가능한 요구사항과 브라우저 연동",
+        "Executable requirements and browser integration"
+      ],
+      "kind": "chapter",
+      "topic_number": null,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [],
+      "requires": [],
+      "sources": []
+    },
+    {
+      "number": 43,
+      "id": "concept-tdd",
+      "title": [
+        "테스트 주도 개발",
+        "Test-Driven Development"
+      ],
+      "subtitle": [
+        "실패 테스트·최소 구현·리팩터링의 반복",
+        "Repeat a failing test, minimal implementation, and refactoring"
+      ],
+      "kind": "topic",
+      "topic_number": 37,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [
+        20
+      ],
+      "requires": [
+        "concept-router"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=20"
+        ],
+        [
+          "Official documentation",
+          "https://martinfowler.com/bliki/TestDrivenDevelopment.html"
+        ]
+      ]
+    },
+    {
+      "number": 44,
+      "id": "concept-unit-test",
+      "title": [
+        "서비스 단위 테스트",
+        "Service Unit Tests"
+      ],
+      "subtitle": [
+        "HTTP 연결 없이 검증하는 업무 규칙",
+        "Check business rules without an HTTP connection"
+      ],
+      "kind": "topic",
+      "topic_number": 38,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [
+        20
+      ],
+      "requires": [
+        "concept-tdd",
+        "concept-service"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=20"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/api/test.html"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/api/assert.html#assertrejectsasyncfn-error-message"
+        ]
+      ]
+    },
+    {
+      "number": 45,
+      "id": "concept-api-test",
+      "title": [
+        "HTTP API 테스트",
+        "HTTP API Tests"
+      ],
+      "subtitle": [
+        "실제 요청의 상태 코드·헤더·본문 검증",
+        "Check status codes, headers, and bodies from real requests"
+      ],
+      "kind": "topic",
+      "topic_number": 39,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [
+        20,
+        26
+      ],
+      "requires": [
+        "concept-unit-test",
+        "concept-controller"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=20"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=26"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/api/test.html"
+        ]
+      ]
+    },
+    {
+      "number": 46,
+      "id": "concept-environment",
+      "title": [
+        "환경변수와 서버 설정",
+        "Environment Variables and Server Configuration"
+      ],
+      "subtitle": [
+        "실행 환경에서 주입하는 포트와 허용 출처",
+        "Inject the port and allowed origin at runtime"
+      ],
+      "kind": "topic",
+      "topic_number": 40,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [
+        24,
+        25
+      ],
+      "requires": [
+        "concept-api-test",
+        "concept-project-structure"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=24"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=25"
+        ],
+        [
+          "Official documentation",
+          "https://nodejs.org/api/process.html#processenv"
+        ],
+        [
+          "Official documentation",
+          "https://render.com/docs/web-services#port-binding"
+        ]
+      ]
+    },
+    {
+      "number": 47,
+      "id": "concept-render",
+      "title": [
+        "Render 웹 서비스 배포",
+        "Deploying a Web Service on Render"
+      ],
+      "subtitle": [
+        "저장소의 코드를 서버 프로세스로 실행하는 배포",
+        "Deploy repository code as a running server process"
+      ],
+      "kind": "topic",
+      "topic_number": 41,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [
+        25
+      ],
+      "requires": [
+        "concept-environment"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=25"
+        ],
+        [
+          "Official documentation",
+          "https://render.com/docs/deploy-node-express-app"
+        ],
+        [
+          "Official documentation",
+          "https://render.com/docs/web-services#port-binding"
+        ],
+        [
+          "Official documentation",
+          "https://render.com/docs/free"
+        ],
+        [
+          "Official documentation",
+          "https://render.com/docs/node-version"
+        ]
+      ]
+    },
+    {
+      "number": 48,
+      "id": "concept-cors",
+      "title": [
+        "CORS",
+        "CORS"
+      ],
+      "subtitle": [
+        "다른 출처의 응답을 읽을 수 있는 브라우저 권한",
+        "Browser permission to read responses from another origin"
+      ],
+      "kind": "topic",
+      "topic_number": 42,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [
+        16,
+        26
+      ],
+      "requires": [
+        "concept-render",
+        "concept-middleware",
+        "concept-https"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=16"
+        ],
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=26"
+        ],
+        [
+          "Official documentation",
+          "https://expressjs.com/en/resources/middleware/cors.html"
+        ]
+      ]
+    },
+    {
+      "number": 49,
+      "id": "concept-frontend-api",
+      "title": [
+        "브라우저의 API 호출",
+        "Calling an API from the Browser"
+      ],
+      "subtitle": [
+        "서버 응답과 화면 상태의 비동기 연결",
+        "Connect server responses to UI state asynchronously"
+      ],
+      "kind": "topic",
+      "topic_number": 43,
+      "chapter": "CHAPTER 05 · 테스트와 배포",
+      "source_pages": [
+        26
+      ],
+      "requires": [
+        "concept-cors",
+        "concept-json-transform"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=26"
+        ],
+        [
+          "Official documentation",
+          "https://fetch.spec.whatwg.org/"
+        ]
+      ]
+    },
+    {
+      "number": 50,
+      "id": "practice-week6",
+      "title": [
+        "실습 · Ajou Campus Foodmap API",
+        "Lab · Ajou Campus Foodmap API"
+      ],
+      "subtitle": [
+        "Express·MVCS·테스트·React 연동",
+        "Express, MVCS, tests, and React integration"
+      ],
+      "kind": "topic",
+      "topic_number": null,
+      "chapter": "실습",
+      "source_pages": [
+        26
+      ],
+      "requires": [
+        "concept-frontend-api"
+      ],
+      "sources": [
+        [
+          "Supplied lecture PDF · adapted as an in-class lab",
+          "materials/%5BPWD%20Week4%5D%20Node.js%20Express%20%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%9B%B9%20%EC%84%9C%EB%B2%84%20%EA%B0%9C%EB%B0%9C.pdf#page=26"
+        ],
+        [
+          "Executable source and setup",
+          "examples/README.md"
+        ]
+      ]
+    }
+  ]
+}

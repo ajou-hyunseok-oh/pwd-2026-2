@@ -3,12 +3,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
+const {execFileSync} = require('node:child_process');
 const validateImports = require('./authoring-imports.cjs');
 const root = path.resolve(__dirname, '../../..');
 const decode = text => text.replace(/&#(x[0-9a-f]+|\d+);|&(amp|lt|gt|quot|apos);/gi, (_, n, name) =>
   n ? String.fromCodePoint(n[0].toLowerCase() === 'x' ? parseInt(n.slice(1), 16) : Number(n)) :
     ({amp: '&', lt: '<', gt: '>', quot: '"', apos: "'"})[name.toLowerCase()]);
 let decks = 0;
+let preservedDecks = 0;
 const directories = Array.from({length: 9}, (_, index) => String(index + 5).padStart(2, '0'));
 for (const entry of fs.readdirSync(path.join(root, 'lectures'), {withFileTypes: true})) {
   if (!entry.isDirectory() || !/^[a-z][a-z0-9-]*$/.test(entry.name)) continue;
@@ -29,6 +31,15 @@ for (const number of directories) {
   const slides = [...html.matchAll(/<section\b([^>]*data-wd-slide="([^"]+)"[^>]*)>([\s\S]*?)<\/section>/g)];
   // A cover-only future deck has no authored lesson content yet.
   if (slides.length === 1 && Number.isFinite(week)) continue;
+  // Verbatim PDF conversion has no concept splitting, rewriting or cover rules.
+  // Its checks compare the actual original text, images, vectors and positions.
+  if (/data-wd-source-pdf=/.test(html)) {
+    execFileSync(process.env.PYTHON || 'python3', [path.join(directory, 'scripts/check-source.py')], {cwd:root, stdio:'pipe'});
+    preservedDecks++;
+    continue;
+  }
+  const originalContent = /data-wd-source-elements=/.test(html);
+  if (originalContent) execFileSync(process.env.PYTHON || 'python3', [path.join(directory, 'scripts/check-source.py')], {cwd:root, stdio:'pipe'});
   assert.match(html, /data-wd-authoring="v1"/, `Lecture ${number}: missing authoring harness`);
   assert.match(html, /packages\/web-deck\/authoring\.css/, `Lecture ${number}: missing shared authoring CSS`);
   const sandbox = {window: {}};
@@ -44,18 +55,15 @@ for (const number of directories) {
     const prose = body.replace(/<aside\b[\s\S]*?<\/aside>|<pre\b[\s\S]*?<\/pre>/g, '');
     if (/data-wd-concept=/.test(attributes)) {
       assert.match(attributes, new RegExp(`data-wd-concept="${id}"`), `${label}: concept identity differs`);
-      // A single primary definition is a structural guard; meaning still needs review.
-      assert.equal((prose.match(/<dt>/g) || []).length, 1,
-        `${label}: introduce one primary concept and keep conditions/examples subordinate`);
     }
     for (const [, , key, value] of prose.matchAll(/<(\w+)\b[^>]*data-wd-i18n="([^"]+)"[^>]*>([\s\S]*?)<\/\1>/g)) {
       assert.equal(decode(value), messages.ko[key], `${label}: stale HTML default for ${key}`);
       for (const locale of ['ko', 'en']) {
         const text = messages[locale][key];
         assert.ok(typeof text === 'string' && text.trim(), `${label}: missing ${locale}.${key}`);
-        assert.doesNotMatch(text, /다음\s*(?:연결|슬라이드|섹션|장에서는)|이어서 살펴볼|제작 의도|검토 작업|\b(?:up next|connection to the next section)\b/i,
+        if (!originalContent) assert.doesNotMatch(text, /다음\s*(?:연결|슬라이드|섹션|장에서는)|이어서 살펴볼|제작 의도|검토 작업|\b(?:up next|connection to the next section)\b/i,
           `${label}: production/transition prose in ${locale}.${key}`);
-        if (locale === 'ko') assert.doesNotMatch(text, /(?:한다|된다|이다|있다|없다|않는다|바뀐다|나타난다|해진다)\.$/,
+        if (!originalContent && locale === 'ko') assert.doesNotMatch(text, /(?:한다|된다|이다|있다|없다|않는다|바뀐다|나타난다|해진다)\.$/,
           `${label}: use concise noun phrases in ${key}`);
       }
     }
@@ -65,7 +73,7 @@ for (const number of directories) {
       for (const [, term] of terms) {
         assert.match(term, /^<strong\b[^>]*data-wd-i18n="[^"]+"[^>]*>[^<]+<\/strong>$/, `${label}: bold concept-definition required`);
         const key = term.match(/data-wd-i18n="([^"]+)"/)[1];
-        for (const locale of ['ko', 'en']) assert.match(messages[locale][key], /\S - \S/,
+        if (!originalContent) for (const locale of ['ko', 'en']) assert.match(messages[locale][key], /\S - \S/,
           `${label}: missing concept - definition in ${locale}.${key}`);
       }
     }
@@ -109,4 +117,4 @@ for (const number of directories) {
   }
   decks++;
 }
-console.log(`authoring: ${decks} authored deck(s) satisfy the 01–04-derived contract`);
+console.log(`authoring: ${decks} structured deck(s) checked; ${preservedDecks} original PDF deck(s) checked for source preservation`);

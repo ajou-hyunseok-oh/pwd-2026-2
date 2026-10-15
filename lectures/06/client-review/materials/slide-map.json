@@ -1,0 +1,157 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "title": "실전 웹서비스개발 – 6주차",
+    "sources": [],
+    "screenshots": [],
+    "code_excerpts": []
+  },
+  {
+    "number": 2,
+    "id": "project",
+    "title": "React 프로젝트의 실행 구조",
+    "sources": [
+      "index.html",
+      "src/main.tsx",
+      "src/App.tsx",
+      "package.json",
+      "vite.config.ts"
+    ],
+    "screenshots": [
+      {
+        "file": "materials/screens/home.png",
+        "caption": "App의 렌더링 결과 · Header·HomePage·footer"
+      }
+    ],
+    "code_excerpts": [
+      "entry"
+    ]
+  },
+  {
+    "number": 3,
+    "id": "routing",
+    "title": "공통 레이아웃과 페이지 라우팅",
+    "sources": [
+      "src/App.tsx",
+      "src/components/Header.tsx",
+      "src/components/RestaurantCard.tsx",
+      "src/pages/DetailPage.tsx"
+    ],
+    "screenshots": [
+      {
+        "file": "materials/screens/app-list.png",
+        "caption": "#/list · Header·목록 본문·footer"
+      }
+    ],
+    "code_excerpts": [
+      "routes",
+      "detail-link"
+    ]
+  },
+  {
+    "number": 4,
+    "id": "components",
+    "title": "목록과 카드의 컴포넌트 분리",
+    "sources": [
+      "src/components/RestaurantList.tsx",
+      "src/components/RestaurantCard.tsx",
+      "https://react.dev/learn/passing-props-to-a-component"
+    ],
+    "screenshots": [
+      {
+        "file": "materials/screens/list.png",
+        "caption": "전체 목록 · 같은 카드 구조에 서로 다른 맛집 데이터"
+      }
+    ],
+    "code_excerpts": [
+      "list",
+      "card"
+    ]
+  },
+  {
+    "number": 5,
+    "id": "query-state",
+    "title": "조회 데이터와 화면 상태",
+    "sources": [
+      "src/pages/ListPage.tsx",
+      "src/App.tsx",
+      "https://tanstack.com/query/v5/docs/framework/react/guides/queries"
+    ],
+    "screenshots": [
+      {
+        "file": "materials/screens/filtered-list.png",
+        "caption": "한식 선택 · 전체 데이터에서 조건에 맞는 카드만 표시"
+      }
+    ],
+    "code_excerpts": [
+      "query"
+    ]
+  },
+  {
+    "number": 6,
+    "id": "form",
+    "title": "제보 폼의 저장 흐름",
+    "sources": [
+      "src/components/SubmitRestaurant.tsx",
+      "src/services/api.ts",
+      "src/types/index.ts",
+      "https://react-hook-form.com/docs/useform/handlesubmit"
+    ],
+    "screenshots": [
+      {
+        "file": "materials/screens/submit-menu.png",
+        "caption": "추천 메뉴 입력 · 김치찌개, 제육볶음"
+      },
+      {
+        "file": "materials/screens/submit-success.png",
+        "caption": "저장 성공 후 화면"
+      }
+    ],
+    "code_excerpts": [
+      "menu-input",
+      "submit"
+    ]
+  },
+  {
+    "number": 7,
+    "id": "service",
+    "title": "서비스 함수의 데이터 접근",
+    "sources": [
+      "src/services/api.ts",
+      "src/services/storage.ts",
+      "src/pages/AdminPage.tsx"
+    ],
+    "screenshots": [
+      {
+        "file": "materials/screens/restaurant-table.png",
+        "caption": "AdminPage의 맛집 3개 · getRestaurants() 조회 결과"
+      }
+    ],
+    "code_excerpts": [
+      "get-restaurants"
+    ]
+  },
+  {
+    "number": 8,
+    "id": "server-data",
+    "title": "서버가 맡을 데이터 책임",
+    "sources": [
+      "src/services/api.ts",
+      "src/components/RestaurantCard.tsx",
+      "src/components/PopularRestaurants.tsx",
+      "src/pages/SubmissionsPage.tsx"
+    ],
+    "screenshots": [
+      {
+        "file": "materials/screens/submissions.png",
+        "caption": "브라우저 A · 제보 저장 후 1건"
+      },
+      {
+        "file": "materials/screens/submissions-empty.png",
+        "caption": "브라우저 B · 같은 #/submissions에서 0건"
+      }
+    ],
+    "code_excerpts": []
+  }
+]

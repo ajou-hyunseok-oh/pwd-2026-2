@@ -1,0 +1,2504 @@
+{
+  "source": "[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf",
+  "source_sha256": "e7a6a31c8c7da834e5387e6180a89c7030ac8f7ccb269e720b6922fdaab7d40f",
+  "metadata": {
+    "format": "PDF 1.4",
+    "title": "[Week 4] Node.js와 Express.js를 이용한 웹 서버 개발",
+    "author": "",
+    "subject": "",
+    "keywords": "",
+    "creator": "Google",
+    "producer": "",
+    "creationDate": "",
+    "modDate": "",
+    "trapped": "",
+    "encryption": null
+  },
+  "page_count": 27,
+  "unique_image_objects": 23,
+  "image_occurrence_count": 73,
+  "hyperlink_count": 7,
+  "render_width_px": 1600,
+  "note": "Image counts exclude PDF soft masks. Composed vector/text diagrams are inventoried separately.",
+  "tools": {
+    "pymupdf": "1.28.2",
+    "text_extractor": "Poppler pdftotext -layout"
+  },
+  "pages": [
+    {
+      "page": 1,
+      "title": "실전 웹서비스개발 ‒ 4주차",
+      "text": "text/page-01.txt",
+      "render": "pages/page-01.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 76,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 1,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 5,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 1,
+          "id": "cover",
+          "title": "실전 웹서비스개발 – 6주차"
+        }
+      ]
+    },
+    {
+      "page": 2,
+      "title": "학습 목표",
+      "text": "text/page-02.txt",
+      "render": "pages/page-02.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 151,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 2,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 5,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 2,
+          "id": "pdf-02",
+          "title": "학습 목표"
+        }
+      ]
+    },
+    {
+      "page": 3,
+      "title": "서버와 Node.js",
+      "text": "text/page-03.txt",
+      "render": "pages/page-03.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 36,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 3,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 4,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 3,
+          "id": "pdf-03",
+          "title": "서버와 Node.js"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "title": "웹서비스의 구조",
+      "text": "text/page-04.txt",
+      "render": "pages/page-04.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 686,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 4,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "client-server-network",
+          "page": 4,
+          "bbox_pt": [
+            155.476,
+            81.406,
+            564.524,
+            227.331
+          ]
+        },
+        {
+          "id": "response-message-shadow",
+          "page": 4,
+          "bbox_pt": [
+            289.354,
+            200.746,
+            467.75,
+            235.12
+          ]
+        },
+        {
+          "id": "response-message",
+          "page": 4,
+          "bbox_pt": [
+            293.854,
+            203.746,
+            463.25,
+            229.12
+          ]
+        },
+        {
+          "id": "request-message-shadow",
+          "page": 4,
+          "bbox_pt": [
+            282.598,
+            60.78,
+            459.778,
+            95.154
+          ]
+        },
+        {
+          "id": "request-message",
+          "page": 4,
+          "bbox_pt": [
+            287.098,
+            63.78,
+            455.278,
+            89.154
+          ]
+        },
+        {
+          "id": "json-sample",
+          "page": 4,
+          "bbox_pt": [
+            520.72,
+            7.285,
+            571.752,
+            99.646
+          ]
+        }
+      ],
+      "vector_path_count": 56,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 4,
+          "id": "pdf-04",
+          "title": "웹서비스의 구조"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "title": "서버의 역할",
+      "text": "text/page-05.txt",
+      "render": "pages/page-05.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 346,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 5,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 5,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 5,
+          "id": "pdf-05",
+          "title": "서버의 역할"
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "title": "서버 개발 언어 별 비교",
+      "text": "text/page-06.txt",
+      "render": "pages/page-06.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 899,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 6,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "backend-ranking-2025",
+          "page": 6,
+          "bbox_pt": [
+            399.006,
+            239.768,
+            640.459,
+            375.585
+          ]
+        }
+      ],
+      "vector_path_count": 29,
+      "links": [
+        {
+          "page": 6,
+          "url": "https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/",
+          "bbox_pt": [
+            385.2460632324219,
+            387.5137939453125,
+            690.2999267578125,
+            397.11376953125
+          ]
+        }
+      ],
+      "current_slides": [
+        {
+          "number": 6,
+          "id": "pdf-06",
+          "title": "서버 개발 언어 별 비교"
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "title": "Node.js",
+      "text": "text/page-07.txt",
+      "render": "pages/page-07.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 470,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 7,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "node-homepage-2025",
+          "page": 7,
+          "bbox_pt": [
+            423.756,
+            125.323,
+            666.51,
+            351.549
+          ]
+        }
+      ],
+      "vector_path_count": 6,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 7,
+          "id": "pdf-07",
+          "title": "Node.js"
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "title": "Node.js",
+      "text": "text/page-08.txt",
+      "render": "pages/page-08.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 569,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 8,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "nodejs-logo",
+          "page": 8,
+          "bbox_pt": [
+            516.0,
+            303.549,
+            687.008,
+            354.787
+          ]
+        },
+        {
+          "id": "rocket-turtle-illustration",
+          "page": 8,
+          "bbox_pt": [
+            567.443,
+            160.961,
+            666.055,
+            273.982
+          ]
+        }
+      ],
+      "vector_path_count": 17,
+      "links": [
+        {
+          "page": 8,
+          "url": "https://github.com/nodejs/node",
+          "bbox_pt": [
+            429.4517517089844,
+            96.93612670898438,
+            610.4721069335938,
+            111.33615112304688
+          ]
+        },
+        {
+          "page": 8,
+          "url": "https://blog.chromium.org/",
+          "bbox_pt": [
+            321.7778625488281,
+            307.776123046875,
+            476.5181884765625,
+            322.1761169433594
+          ]
+        }
+      ],
+      "current_slides": [
+        {
+          "number": 8,
+          "id": "pdf-08",
+          "title": "Node.js"
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "title": "서버 개발 핵심 개념",
+      "text": "text/page-09.txt",
+      "render": "pages/page-09.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 36,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 9,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 4,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 9,
+          "id": "pdf-09",
+          "title": "서버 개발 핵심 개념"
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "title": "HTTP/HTTPS",
+      "text": "text/page-10.txt",
+      "render": "pages/page-10.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 877,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 10,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "request-icon",
+          "page": 10,
+          "bbox_pt": [
+            396.148,
+            190.474,
+            409.368,
+            202.916
+          ]
+        },
+        {
+          "id": "response-icon",
+          "page": 10,
+          "bbox_pt": [
+            583.841,
+            190.474,
+            597.061,
+            202.916
+          ]
+        }
+      ],
+      "vector_path_count": 22,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 10,
+          "id": "pdf-10",
+          "title": "HTTP/HTTPS"
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "title": "HTTP 요청(Request) 구조",
+      "text": "text/page-11.txt",
+      "render": "pages/page-11.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 522,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 11,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 22,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 11,
+          "id": "pdf-11",
+          "title": "HTTP 요청(Request) 구조"
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "title": "HTTP 응답(Response) 구조",
+      "text": "text/page-12.txt",
+      "render": "pages/page-12.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 489,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 12,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 9,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 12,
+          "id": "pdf-12",
+          "title": "HTTP 응답(Response) 구조"
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "title": "JSON",
+      "text": "text/page-13.txt",
+      "render": "pages/page-13.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 1693,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 13,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 17,
+      "links": [
+        {
+          "page": 13,
+          "url": "https://jsonlint.com/",
+          "bbox_pt": [
+            273.3431701660156,
+            355.031494140625,
+            511.94818115234375,
+            367.031494140625
+          ]
+        }
+      ],
+      "current_slides": [
+        {
+          "number": 13,
+          "id": "pdf-13",
+          "title": "JSON"
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "title": "REST API",
+      "text": "text/page-14.txt",
+      "render": "pages/page-14.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 718,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 14,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "cross-icon",
+          "page": 14,
+          "bbox_pt": [
+            446.835,
+            198.533,
+            458.041,
+            209.079
+          ]
+        },
+        {
+          "id": "check-icon",
+          "page": 14,
+          "bbox_pt": [
+            446.835,
+            230.033,
+            458.041,
+            240.579
+          ]
+        }
+      ],
+      "vector_path_count": 6,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 14,
+          "id": "pdf-14",
+          "title": "REST API"
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "title": "라우팅(Routing)",
+      "text": "text/page-15.txt",
+      "render": "pages/page-15.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 952,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 15,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 24,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 15,
+          "id": "pdf-15",
+          "title": "라우팅(Routing)"
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "title": "미들웨어",
+      "text": "text/page-16.txt",
+      "render": "pages/page-16.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 860,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 16,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 23,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 16,
+          "id": "pdf-16",
+          "title": "미들웨어"
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "title": "MVC 패턴",
+      "text": "text/page-17.txt",
+      "render": "pages/page-17.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 397,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 17,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "mvc-diagram",
+          "page": 17,
+          "bbox_pt": [
+            413.785,
+            128.248,
+            700.689,
+            276.752
+          ]
+        }
+      ],
+      "vector_path_count": 6,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 17,
+          "id": "pdf-17",
+          "title": "MVC 패턴"
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "title": "MVCS 패턴",
+      "text": "text/page-18.txt",
+      "render": "pages/page-18.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 404,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 18,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "mvcs-diagram",
+          "page": 18,
+          "bbox_pt": [
+            392.14,
+            236.032,
+            692.262,
+            363.425
+          ]
+        }
+      ],
+      "vector_path_count": 7,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 18,
+          "id": "pdf-18",
+          "title": "MVCS 패턴"
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "title": "MVCS 패턴",
+      "text": "text/page-19.txt",
+      "render": "pages/page-19.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 389,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 19,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 19,
+          "bbox_pt": [
+            173.469,
+            142.076,
+            185.916,
+            153.79
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            155.576,
+            221.946,
+            167.29
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            169.076,
+            221.946,
+            180.79
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            182.576,
+            221.946,
+            194.29
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            196.076,
+            221.946,
+            207.79
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            209.576,
+            221.946,
+            221.29
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            223.076,
+            221.946,
+            234.79
+          ]
+        },
+        {
+          "id": "file-icon",
+          "page": 19,
+          "bbox_pt": [
+            209.469,
+            250.076,
+            221.916,
+            261.79
+          ]
+        }
+      ],
+      "vector_path_count": 6,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 19,
+          "id": "pdf-19",
+          "title": "MVCS 패턴"
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "title": "테스트 주도 개발(TDD)",
+      "text": "text/page-20.txt",
+      "render": "pages/page-20.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 496,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 20,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "tdd-cycle",
+          "page": 20,
+          "bbox_pt": [
+            449.732,
+            163.352,
+            684.909,
+            319.526
+          ]
+        }
+      ],
+      "vector_path_count": 12,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 20,
+          "id": "pdf-20",
+          "title": "테스트 주도 개발(TDD)"
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "title": "Express 서버 App 개발",
+      "text": "text/page-21.txt",
+      "render": "pages/page-21.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 42,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 21,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 4,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 21,
+          "id": "pdf-21",
+          "title": "Express 서버 App 개발"
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "title": "Express.js",
+      "text": "text/page-22.txt",
+      "render": "pages/page-22.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 1009,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 22,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "cross-icon",
+          "page": 22,
+          "bbox_pt": [
+            31.293,
+            191.24,
+            44.98,
+            204.122
+          ]
+        },
+        {
+          "id": "check-icon",
+          "page": 22,
+          "bbox_pt": [
+            387.254,
+            191.256,
+            400.94,
+            204.137
+          ]
+        },
+        {
+          "id": "express-logo",
+          "page": 22,
+          "bbox_pt": [
+            499.259,
+            48.704,
+            692.141,
+            107.192
+          ]
+        }
+      ],
+      "vector_path_count": 16,
+      "links": [
+        {
+          "page": 22,
+          "url": "https://github.com/expressjs/express",
+          "bbox_pt": [
+            338.3979187011719,
+            127.296142578125,
+            545.746337890625,
+            141.69613647460938
+          ]
+        },
+        {
+          "page": 22,
+          "url": "https://expressjs.com/",
+          "bbox_pt": [
+            181.9775848388672,
+            143.85614013671875,
+            306.5378723144531,
+            158.25613403320312
+          ]
+        }
+      ],
+      "current_slides": [
+        {
+          "number": 22,
+          "id": "pdf-22",
+          "title": "Express.js"
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "title": "Express 프로젝트 생성",
+      "text": "text/page-23.txt",
+      "render": "pages/page-23.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 790,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 23,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            226.753,
+            86.451,
+            238.468
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            240.253,
+            86.451,
+            251.968
+          ]
+        },
+        {
+          "id": "file-icon",
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            253.753,
+            86.451,
+            265.468
+          ]
+        },
+        {
+          "id": "file-icon",
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            267.253,
+            86.451,
+            278.968
+          ]
+        },
+        {
+          "id": "file-icon",
+          "page": 23,
+          "bbox_pt": [
+            74.035,
+            280.753,
+            86.481,
+            292.468
+          ]
+        }
+      ],
+      "vector_path_count": 16,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 23,
+          "id": "pdf-23",
+          "title": "Express 프로젝트 생성"
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "title": "Express MVCS 프로젝트",
+      "text": "text/page-24.txt",
+      "render": "pages/page-24.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 1665,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 24,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "project-folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            31.293,
+            78.075,
+            48.715,
+            94.472
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            526.077,
+            259.825,
+            534.788,
+            268.023
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            548.632,
+            268.075,
+            557.343,
+            276.273
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            277.825,
+            593.343,
+            286.023
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            287.575,
+            593.343,
+            295.773
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            297.325,
+            593.343,
+            305.523
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            307.075,
+            593.343,
+            315.273
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            316.825,
+            593.343,
+            325.023
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            326.575,
+            593.343,
+            334.773
+          ]
+        },
+        {
+          "id": "folder-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            336.325,
+            593.343,
+            344.523
+          ]
+        },
+        {
+          "id": "file-icon",
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            346.075,
+            593.343,
+            354.273
+          ]
+        },
+        {
+          "id": "file-icon",
+          "page": 24,
+          "bbox_pt": [
+            547.065,
+            355.825,
+            555.776,
+            364.023
+          ]
+        }
+      ],
+      "vector_path_count": 6,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 24,
+          "id": "pdf-24",
+          "title": "Express MVCS 프로젝트"
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "title": "Render ",
+      "text": "text/page-25.txt",
+      "render": "pages/page-25.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 349,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 25,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "id": "render-logo",
+          "page": 25,
+          "bbox_pt": [
+            364.191,
+            220.872,
+            664.191,
+            310.872
+          ]
+        }
+      ],
+      "vector_path_count": 6,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 25,
+          "id": "pdf-25",
+          "title": "Render"
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "title": "과제 개요",
+      "text": "text/page-26.txt",
+      "render": "pages/page-26.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 998,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 26,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 65,
+      "links": [
+        {
+          "page": 26,
+          "url": "https://ajou-campus-foodmap.netlify.app/",
+          "bbox_pt": [
+            632.7789306640625,
+            221.61614990234375,
+            682.4891357421875,
+            233.61614990234375
+          ]
+        }
+      ],
+      "current_slides": [
+        {
+          "number": 26,
+          "id": "pdf-26",
+          "title": "과제 개요"
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "title": "Q&A",
+      "text": "text/page-27.txt",
+      "render": "pages/page-27.png",
+      "width_pt": 720.0,
+      "height_pt": 405.0,
+      "text_characters": 28,
+      "image_occurrences": [
+        {
+          "id": "ajou-footer",
+          "page": 27,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ],
+      "vector_path_count": 4,
+      "links": [],
+      "current_slides": [
+        {
+          "number": 27,
+          "id": "pdf-27",
+          "title": "Q&A"
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "id": "ajou-footer",
+      "xref": 12,
+      "category": "branding",
+      "description": "반복 학교·학과 로고",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 409,
+      "height": 55,
+      "original": "images/ajou-footer-original.jpeg",
+      "composed_png": "images/ajou-footer.png",
+      "original_sha256": "65df81ceb866db6d2218fd14c838167c03e052f182ef2b9eb4b17259b87d1e1e",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 1,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 2,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 3,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 4,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 5,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 6,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 7,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 8,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 9,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 10,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 11,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 12,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 13,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 14,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 15,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 16,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 17,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 18,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 19,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 20,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 21,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 22,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 23,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 25,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 26,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        },
+        {
+          "page": 27,
+          "bbox_pt": [
+            4.216,
+            387.678,
+            109.614,
+            401.852
+          ]
+        }
+      ]
+    },
+    {
+      "id": "client-server-network",
+      "xref": 36,
+      "category": "diagram-part",
+      "description": "클라이언트·네트워크·서버 도식 바탕",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 897,
+      "height": 320,
+      "original": "images/client-server-network-original.jpeg",
+      "composed_png": "images/client-server-network.png",
+      "original_sha256": "f5b40169d710dfb481c1fff8f057f41823967f58d41e36694a5c76df4820c2bf",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 4,
+          "bbox_pt": [
+            155.476,
+            81.406,
+            564.524,
+            227.331
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response-message-shadow",
+      "xref": 37,
+      "category": "decoration",
+      "description": "응답 메시지 패널의 그림자",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 714,
+      "height": 138,
+      "original": "images/response-message-shadow-original.jpeg",
+      "composed_png": "images/response-message-shadow.png",
+      "original_sha256": "47ab0446374b3f7383c3437e0e0ef78119fcf3f310e545e4125c2f104b9a65ca",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 4,
+          "bbox_pt": [
+            289.354,
+            200.746,
+            467.75,
+            235.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response-message",
+      "xref": 38,
+      "category": "diagram-part",
+      "description": "HTTP 200·Access-Control-Allow-Origin 응답 메시지",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 247,
+      "height": 37,
+      "original": "images/response-message-original.jpeg",
+      "composed_png": "images/response-message.png",
+      "original_sha256": "9b565dc11631f44c49da2a9e5278bda93b2dee60a6c6c9e447c9d768217fa771",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 4,
+          "bbox_pt": [
+            293.854,
+            203.746,
+            463.25,
+            229.12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "request-message-shadow",
+      "xref": 39,
+      "category": "decoration",
+      "description": "요청 메시지 패널의 그림자",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 709,
+      "height": 138,
+      "original": "images/request-message-shadow-original.jpeg",
+      "composed_png": "images/request-message-shadow.png",
+      "original_sha256": "d59baa4cab647ae73763345322bcf2ce080f8eaba3b68e39c63cf15f86dcbef0",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 4,
+          "bbox_pt": [
+            282.598,
+            60.78,
+            459.778,
+            95.154
+          ]
+        }
+      ]
+    },
+    {
+      "id": "request-message",
+      "xref": 40,
+      "category": "diagram-part",
+      "description": "GET·Origin 요청 메시지",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 285,
+      "height": 43,
+      "original": "images/request-message-original.jpeg",
+      "composed_png": "images/request-message.png",
+      "original_sha256": "f9ebc9c7f21440672898a3f5b6027c0cf059b8248a2a24c275db988aab217b93",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 4,
+          "bbox_pt": [
+            287.098,
+            63.78,
+            455.278,
+            89.154
+          ]
+        }
+      ]
+    },
+    {
+      "id": "json-sample",
+      "xref": 41,
+      "category": "code-image",
+      "description": "JSON 예시 이미지",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 163,
+      "height": 295,
+      "original": "images/json-sample-original.jpeg",
+      "composed_png": "images/json-sample.png",
+      "original_sha256": "bd877b327c49b14462f0aa5221f3c5b62c4ec254a960a462d4950fbf38be15a6",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 4,
+          "bbox_pt": [
+            520.72,
+            7.285,
+            571.752,
+            99.646
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend-ranking-2025",
+      "xref": 64,
+      "category": "historical-chart",
+      "description": "Jan-2025 백엔드 프레임워크 순위 이미지",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 1920,
+      "height": 1080,
+      "original": "images/backend-ranking-2025-original.jpeg",
+      "composed_png": "images/backend-ranking-2025.png",
+      "original_sha256": "e17bf95276bf00f34b5a451f5744f90681beccb4f3d7fc7245b55c6a33451f87",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 6,
+          "bbox_pt": [
+            399.006,
+            239.768,
+            640.459,
+            375.585
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-homepage-2025",
+      "xref": 71,
+      "category": "historical-screenshot",
+      "description": "Node.js 홈페이지 소개·다운로드 화면 캡처",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 470,
+      "height": 438,
+      "original": "images/node-homepage-2025-original.jpeg",
+      "composed_png": "images/node-homepage-2025.png",
+      "original_sha256": "c19ef7a26c96dc2b8570f475737487cfe2061adf293f538fdeeb6412c9ba1e96",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 7,
+          "bbox_pt": [
+            423.756,
+            125.323,
+            666.51,
+            351.549
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nodejs-logo",
+      "xref": 78,
+      "category": "branding",
+      "description": "Node.js 로고",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 267,
+      "height": 80,
+      "original": "images/nodejs-logo-original.jpeg",
+      "composed_png": "images/nodejs-logo.png",
+      "original_sha256": "085dbb5063a488c37203ff2857b8f1ae05a864915a788f227a920aea1f5fb97e",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 8,
+          "bbox_pt": [
+            516.0,
+            303.549,
+            687.008,
+            354.787
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rocket-turtle-illustration",
+      "xref": 79,
+      "category": "decoration",
+      "description": "로켓을 탄 거북이 삽화",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 698,
+      "height": 800,
+      "original": "images/rocket-turtle-illustration-original.jpeg",
+      "composed_png": "images/rocket-turtle-illustration.png",
+      "original_sha256": "df534c0dfc0405ba39d9f698b70312482fcf54dc60ac4c799f2088dd8cafd8a0",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 8,
+          "bbox_pt": [
+            567.443,
+            160.961,
+            666.055,
+            273.982
+          ]
+        }
+      ]
+    },
+    {
+      "id": "request-icon",
+      "xref": 97,
+      "category": "decoration",
+      "description": "Request 아이콘",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 136,
+      "height": 128,
+      "original": "images/request-icon-original.jpeg",
+      "composed_png": "images/request-icon.png",
+      "original_sha256": "349f2770b57361f83dc3d2d14c6d157dd3af22298ce35b0fc14ab9344cd7f19f",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 10,
+          "bbox_pt": [
+            396.148,
+            190.474,
+            409.368,
+            202.916
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response-icon",
+      "xref": 98,
+      "category": "decoration",
+      "description": "Response 아이콘",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 136,
+      "height": 128,
+      "original": "images/response-icon-original.jpeg",
+      "composed_png": "images/response-icon.png",
+      "original_sha256": "d1fda1a48c0bccdf430a9e4fc7cc718f4608407a789f21f1643c29a8818c1c60",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 10,
+          "bbox_pt": [
+            583.841,
+            190.474,
+            597.061,
+            202.916
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cross-icon",
+      "xref": 129,
+      "category": "decoration",
+      "description": "오류 표시 아이콘",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 136,
+      "height": 128,
+      "original": "images/cross-icon-original.jpeg",
+      "composed_png": "images/cross-icon.png",
+      "original_sha256": "73196a0bda4b1a4b03c895ece07de4c0fd5cba58f06677e2b2e05432ebcba190",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 14,
+          "bbox_pt": [
+            446.835,
+            198.533,
+            458.041,
+            209.079
+          ]
+        },
+        {
+          "page": 22,
+          "bbox_pt": [
+            31.293,
+            191.24,
+            44.98,
+            204.122
+          ]
+        }
+      ]
+    },
+    {
+      "id": "check-icon",
+      "xref": 130,
+      "category": "decoration",
+      "description": "확인 표시 아이콘",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 136,
+      "height": 128,
+      "original": "images/check-icon-original.jpeg",
+      "composed_png": "images/check-icon.png",
+      "original_sha256": "7679afb1a085f37b3e59ab3656fe8113e23e5f8870fa03a5d170afea443a496f",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 14,
+          "bbox_pt": [
+            446.835,
+            230.033,
+            458.041,
+            240.579
+          ]
+        },
+        {
+          "page": 22,
+          "bbox_pt": [
+            387.254,
+            191.256,
+            400.94,
+            204.137
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvc-diagram",
+      "xref": 152,
+      "category": "diagram",
+      "description": "MVC 요청·응답 관계",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 738,
+      "height": 382,
+      "original": "images/mvc-diagram-original.jpeg",
+      "composed_png": "images/mvc-diagram.png",
+      "original_sha256": "52825e8d1a919634e9dc26892a673ac99c550c1b93976be048d162fe6e77abbb",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 17,
+          "bbox_pt": [
+            413.785,
+            128.248,
+            700.689,
+            276.752
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvcs-diagram",
+      "xref": 161,
+      "category": "diagram",
+      "description": "Service를 추가한 계층 도식",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 523,
+      "height": 222,
+      "original": "images/mvcs-diagram-original.jpeg",
+      "composed_png": "images/mvcs-diagram.png",
+      "original_sha256": "072204f1fe109f6d65a922a4eb30a0fa51cc6635a887f6f8f4ee5e951bbf923c",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 18,
+          "bbox_pt": [
+            392.14,
+            236.032,
+            692.262,
+            363.425
+          ]
+        }
+      ]
+    },
+    {
+      "id": "folder-icon",
+      "xref": 168,
+      "category": "decoration",
+      "description": "반복 폴더 아이콘",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 136,
+      "height": 128,
+      "original": "images/folder-icon-original.jpeg",
+      "composed_png": "images/folder-icon.png",
+      "original_sha256": "ec9c13c646a5fc3222e3d30689145770fe6cb572d2cbac7e03ae4c9e1586ec7e",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 19,
+          "bbox_pt": [
+            173.469,
+            142.076,
+            185.916,
+            153.79
+          ]
+        },
+        {
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            155.576,
+            221.946,
+            167.29
+          ]
+        },
+        {
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            169.076,
+            221.946,
+            180.79
+          ]
+        },
+        {
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            182.576,
+            221.946,
+            194.29
+          ]
+        },
+        {
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            196.076,
+            221.946,
+            207.79
+          ]
+        },
+        {
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            209.576,
+            221.946,
+            221.29
+          ]
+        },
+        {
+          "page": 19,
+          "bbox_pt": [
+            209.499,
+            223.076,
+            221.946,
+            234.79
+          ]
+        },
+        {
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            226.753,
+            86.451,
+            238.468
+          ]
+        },
+        {
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            240.253,
+            86.451,
+            251.968
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            526.077,
+            259.825,
+            534.788,
+            268.023
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            548.632,
+            268.075,
+            557.343,
+            276.273
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            277.825,
+            593.343,
+            286.023
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            287.575,
+            593.343,
+            295.773
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            297.325,
+            593.343,
+            305.523
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            307.075,
+            593.343,
+            315.273
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            316.825,
+            593.343,
+            325.023
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            326.575,
+            593.343,
+            334.773
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            336.325,
+            593.343,
+            344.523
+          ]
+        }
+      ]
+    },
+    {
+      "id": "file-icon",
+      "xref": 169,
+      "category": "decoration",
+      "description": "반복 파일 아이콘",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 136,
+      "height": 128,
+      "original": "images/file-icon-original.jpeg",
+      "composed_png": "images/file-icon.png",
+      "original_sha256": "7915936cdd91c0a3f20efed15dbb50b991d43c7b48e8dcf768655e24bee0bffd",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 19,
+          "bbox_pt": [
+            209.469,
+            250.076,
+            221.916,
+            261.79
+          ]
+        },
+        {
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            253.753,
+            86.451,
+            265.468
+          ]
+        },
+        {
+          "page": 23,
+          "bbox_pt": [
+            74.005,
+            267.253,
+            86.451,
+            278.968
+          ]
+        },
+        {
+          "page": 23,
+          "bbox_pt": [
+            74.035,
+            280.753,
+            86.481,
+            292.468
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            584.632,
+            346.075,
+            593.343,
+            354.273
+          ]
+        },
+        {
+          "page": 24,
+          "bbox_pt": [
+            547.065,
+            355.825,
+            555.776,
+            364.023
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tdd-cycle",
+      "xref": 181,
+      "category": "diagram",
+      "description": "Red·Green·Refactor 반복 도식",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 1024,
+      "height": 680,
+      "original": "images/tdd-cycle-original.jpeg",
+      "composed_png": "images/tdd-cycle.png",
+      "original_sha256": "590d688d3044f7b8ea8e64dad629896018f26fb36fae0565d549b65b738fb4e6",
+      "has_alpha": false,
+      "occurrences": [
+        {
+          "page": 20,
+          "bbox_pt": [
+            449.732,
+            163.352,
+            684.909,
+            319.526
+          ]
+        }
+      ]
+    },
+    {
+      "id": "express-logo",
+      "xref": 193,
+      "category": "branding",
+      "description": "원본 Express 로고",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 465,
+      "height": 141,
+      "original": "images/express-logo-original.jpeg",
+      "composed_png": "images/express-logo.png",
+      "original_sha256": "acede4107db4805668fd4624c45906a97e5cb72694e61b5bb859fce9163e27ca",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 22,
+          "bbox_pt": [
+            499.259,
+            48.704,
+            692.141,
+            107.192
+          ]
+        }
+      ]
+    },
+    {
+      "id": "project-folder-icon",
+      "xref": 208,
+      "category": "decoration",
+      "description": "프로젝트 루트 폴더 아이콘",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 136,
+      "height": 128,
+      "original": "images/project-folder-icon-original.jpeg",
+      "composed_png": "images/project-folder-icon.png",
+      "original_sha256": "9eabfb2ebddaf151471fa6cc9ccc7ab9a190babe93a9f9c400465b90643c3f01",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 24,
+          "bbox_pt": [
+            31.293,
+            78.075,
+            48.715,
+            94.472
+          ]
+        }
+      ]
+    },
+    {
+      "id": "render-logo",
+      "xref": 217,
+      "category": "branding",
+      "description": "Render 로고",
+      "decision": "해당 슬라이드 문맥과 구성 요소 보존; 페이지 배치는 05 형식에 맞춰 최적화",
+      "width": 400,
+      "height": 120,
+      "original": "images/render-logo-original.jpeg",
+      "composed_png": "images/render-logo.png",
+      "original_sha256": "781d01be60e13d08ce780008afbbdda6135005bc5b3c9406f592a18e5ad69493",
+      "has_alpha": true,
+      "occurrences": [
+        {
+          "page": 25,
+          "bbox_pt": [
+            364.191,
+            220.872,
+            664.191,
+            310.872
+          ]
+        }
+      ]
+    }
+  ],
+  "composite_crops": [
+    {
+      "page": 4,
+      "id": "client-server-composite",
+      "file": "crops/client-server-composite.png",
+      "bbox_pt": [
+        20,
+        4,
+        585,
+        240
+      ],
+      "description": "제목과 요청/응답·JSON을 포함한 원본 상단 합성 도식",
+      "content": "unaltered crop of the rendered original page"
+    },
+    {
+      "page": 16,
+      "id": "middleware-pipeline",
+      "file": "crops/middleware-pipeline.png",
+      "bbox_pt": [
+        105,
+        271,
+        615,
+        365
+      ],
+      "description": "PDF 벡터·텍스트로 구성한 미들웨어 처리 흐름",
+      "content": "unaltered crop of the rendered original page"
+    },
+    {
+      "page": 19,
+      "id": "mvcs-file-tree",
+      "file": "crops/mvcs-file-tree.png",
+      "bbox_pt": [
+        132,
+        94,
+        588,
+        338
+      ],
+      "description": "아이콘·텍스트가 결합된 원본 MVCS 폴더 트리",
+      "content": "unaltered crop of the rendered original page"
+    },
+    {
+      "page": 24,
+      "id": "express-file-tree",
+      "file": "crops/express-file-tree.png",
+      "bbox_pt": [
+        518,
+        241,
+        699,
+        382
+      ],
+      "description": "아이콘·텍스트가 결합된 Express 프로젝트 트리",
+      "content": "unaltered crop of the rendered original page"
+    }
+  ],
+  "links": [
+    {
+      "page": 6,
+      "url": "https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/",
+      "bbox_pt": [
+        385.2460632324219,
+        387.5137939453125,
+        690.2999267578125,
+        397.11376953125
+      ]
+    },
+    {
+      "page": 8,
+      "url": "https://github.com/nodejs/node",
+      "bbox_pt": [
+        429.4517517089844,
+        96.93612670898438,
+        610.4721069335938,
+        111.33615112304688
+      ]
+    },
+    {
+      "page": 8,
+      "url": "https://blog.chromium.org/",
+      "bbox_pt": [
+        321.7778625488281,
+        307.776123046875,
+        476.5181884765625,
+        322.1761169433594
+      ]
+    },
+    {
+      "page": 13,
+      "url": "https://jsonlint.com/",
+      "bbox_pt": [
+        273.3431701660156,
+        355.031494140625,
+        511.94818115234375,
+        367.031494140625
+      ]
+    },
+    {
+      "page": 22,
+      "url": "https://github.com/expressjs/express",
+      "bbox_pt": [
+        338.3979187011719,
+        127.296142578125,
+        545.746337890625,
+        141.69613647460938
+      ]
+    },
+    {
+      "page": 22,
+      "url": "https://expressjs.com/",
+      "bbox_pt": [
+        181.9775848388672,
+        143.85614013671875,
+        306.5378723144531,
+        158.25613403320312
+      ]
+    },
+    {
+      "page": 26,
+      "url": "https://ajou-campus-foodmap.netlify.app/",
+      "bbox_pt": [
+        632.7789306640625,
+        221.61614990234375,
+        682.4891357421875,
+        233.61614990234375
+      ]
+    }
+  ]
+}

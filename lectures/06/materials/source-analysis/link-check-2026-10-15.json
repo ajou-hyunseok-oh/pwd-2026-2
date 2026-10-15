@@ -1,0 +1,56 @@
+{
+  "checked_at": "2026-10-15T07:19:44.918Z",
+  "method": "HTTP GET with redirects; no interactive actions",
+  "note": "A failed request does not establish permanent unavailability or course suitability.",
+  "links": [
+    {
+      "page": 6,
+      "url": "https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/",
+      "status": 200,
+      "final_url": "https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/",
+      "ok": true
+    },
+    {
+      "page": 8,
+      "url": "https://github.com/nodejs/node",
+      "status": 200,
+      "final_url": "https://github.com/nodejs/node",
+      "ok": true
+    },
+    {
+      "page": 8,
+      "url": "https://blog.chromium.org/",
+      "status": 200,
+      "final_url": "https://blog.google/chromium/",
+      "ok": true
+    },
+    {
+      "page": 13,
+      "url": "https://jsonlint.com/",
+      "status": 200,
+      "final_url": "https://jsonlint.com/",
+      "ok": true
+    },
+    {
+      "page": 22,
+      "url": "https://github.com/expressjs/express",
+      "status": 200,
+      "final_url": "https://github.com/expressjs/express",
+      "ok": true
+    },
+    {
+      "page": 22,
+      "url": "https://expressjs.com/",
+      "status": 200,
+      "final_url": "https://expressjs.com/",
+      "ok": true
+    },
+    {
+      "page": 26,
+      "url": "https://ajou-campus-foodmap.netlify.app/",
+      "status": 404,
+      "final_url": "https://ajou-campus-foodmap.netlify.app/",
+      "ok": false
+    }
+  ]
+}

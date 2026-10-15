@@ -1,0 +1,26 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+Express MVCS 프로젝트
+📂 각 폴더와 주요 파일 역할
+
+ ●   server.js : 서버 진입점 - app.js를 불러와 포트 설정 후 app.listen()으로 HTTP 서버를 시작
+ ●   src/app.js : Express 앱 설정 - 핵심 미들웨어, 라우터, 에러 핸들러를 연결
+ ●   src/controllers : 요청을 받아 파라미터 검증 → 서비스 호출 → 응답 형식화까지 담당하는 계층
+ ●   src/data : 초기 더미 데이터, 시드 파일, JSON 리소스 등 코드 없는 정적 데이터 보관소
+ ●   src/middleware : 인증, 로깅, CORS, 입력 검증, 에러 처리 등 요청/응답 사이에 끼워 넣는 공용 함수들
+ ●   src/models : DB 스키마와 데이터 접근 로직(예: Mongoose Schema/Model, 쿼리 메서드)을 정의
+ ●   src/routes : URL 경로와 HTTP 메서드를 컨트롤러에 매핑하는 Express Router 모듈들
+                                                                           📁 pwd-week4/
+ ●   src/services : 비즈니스 로직 계층 - 여러 모델/외부 API를 조합해 도메인 규칙을 구현              ├── 📁 src/ # 소스 코드
+                                                                           │       ├── 📁 controllers/ # 컨트롤러
+ ●   src/utils : 재사용 가능한 작은 헬퍼/유틸 함수 묶음                                    │       ├── 📁 data/ # 데이터 db로 교체 예정
+                                                                           │       ├── 📁 middleware/ # 미들웨어
+                                                                           │       ├── 📁 models/ # 모델
+                                                                           │       ├── 📁 routes/ # 라우트
+                                                                           │       ├── 📁 services/ # 서비스
+                                                                           │       ├── 📁 utils/ # 유틸리티
+                                                                           │       └── 📄 app.js # express 시작
+                                                                           ├──📄 server.js # node 시작

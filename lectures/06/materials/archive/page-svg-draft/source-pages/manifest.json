@@ -1,0 +1,604 @@
+{
+  "source": "[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf",
+  "source_sha256": "e7a6a31c8c7da834e5387e6180a89c7030ac8f7ccb269e720b6922fdaab7d40f",
+  "page_count": 27,
+  "language": "ko",
+  "content_policy": "verbatim PDF pages; formatting only; no content updates",
+  "extractor": "PyMuPDF 1.28.2",
+  "fonts": [
+    {
+      "file": "fonts/13.ttf",
+      "family": "MUFUZY+TimesNewRomanPS-BoldMT",
+      "sha256": "9264fe9a3b7f72094700bf6c755532966e66257966c6907d077ffc9c13b1efce"
+    },
+    {
+      "file": "fonts/14.ttf",
+      "family": "MUFUZY+Batang",
+      "sha256": "7f5f181626c18699cb44ba7718c90ef0d803192a0e6a29c658111693531cfaa6"
+    },
+    {
+      "file": "fonts/15.ttf",
+      "family": "MUFUZY+NotoSansSymbols",
+      "sha256": "d281ce4e60c7edb0d84113983220e8dad1b05d219b47146e6dc9bc74b41afbcf"
+    },
+    {
+      "file": "fonts/16.ttf",
+      "family": "MUFUZY+NotoSansKR-Bold",
+      "sha256": "e54ace5e12e753b1733ccf41820b9e841192018c56afa68f5f66b9e5f2e4cd49"
+    },
+    {
+      "file": "fonts/23.ttf",
+      "family": "MUFUZY+ArialMT",
+      "sha256": "ab14e1ccc03f8455120d0fb0e3c77a56473dc7defaf114064dfd5ec77d5ba98e"
+    },
+    {
+      "file": "fonts/24.ttf",
+      "family": "MUFUZY+NotoSansKR-Regular",
+      "sha256": "3ea9c93ab09f6807118eafe625aa9f59e10fdcbfbc85bb7a7baf67c9233e7ac3"
+    },
+    {
+      "file": "fonts/35.ttf",
+      "family": "MUFUZY+Arial-BoldMT",
+      "sha256": "f9a6a33e3f1274f7469b1bf67c57cdac4b0ced68b322e75c150a3e52cffd8307"
+    },
+    {
+      "file": "fonts/96.ttf",
+      "family": "MUFUZY+NotoColorEmoji",
+      "sha256": "15aa9dca8c25323ac1ec5fd74d8012d7dd42b64763ece0025621c78216d6910c"
+    },
+    {
+      "file": "fonts/110.ttf",
+      "family": "MUFUZY+Consolas",
+      "sha256": "787b99183ed2819d5c515a4ff1491319f55329b3fc1d697bec190bc70961e941"
+    },
+    {
+      "file": "fonts/111.ttf",
+      "family": "MUFUZY+Gulim",
+      "sha256": "c02a3dd2092e00e269bc8e1579312dc3eebb6033755aab31a410c91bd01fda8f"
+    },
+    {
+      "file": "fonts/122.ttf",
+      "family": "MUFUZY+Consolas-BoldItalic",
+      "sha256": "2a87c22178058645bf6d127b94512ed77e9f482f63f420c3fda590bbd45df66a"
+    },
+    {
+      "file": "fonts/123.ttf",
+      "family": "MUFUZY+Consolas-Bold",
+      "sha256": "21fd4703ec09c22250886822ac8765e2278bbc61e713bf637d4fbf60eabbd4b2"
+    },
+    {
+      "file": "fonts/202.ttf",
+      "family": "MUFUZY+Consolas-Italic",
+      "sha256": "de1aa8b65884f6b764f2ae41dd4ee5943065f758323fcaeaec9ea1e8be06ca14"
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "id": "cover",
+      "title": "실전 웹서비스개발 ‒ 4주차",
+      "source_pages": [
+        1
+      ],
+      "svg": "page-01.svg",
+      "original_svg": "original/page-01.svg",
+      "svg_sha256": "be9008cb86ba43eb0ea7d70c637fdfba13bb3f83765ed1b199d48807fcbe7d5c",
+      "original_svg_sha256": "76fe5992cf319b23827ad5048751f2c4901fa2f0e448903421c65ca382ab6467",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n실전 웹서비스개발 ‒ 4주차\nNode.js Express 프레임워크를 이용한 웹 서버 개발\n",
+      "text_runs": 9,
+      "image_occurrences": 1,
+      "vector_paths": 5,
+      "links": []
+    },
+    {
+      "number": 2,
+      "id": "pdf-02",
+      "title": "학습 목표",
+      "source_pages": [
+        2
+      ],
+      "svg": "page-02.svg",
+      "original_svg": "original/page-02.svg",
+      "svg_sha256": "d5d949b74ea38e92c5d652456d8b3a488df168b8d6e9ed8a51c2d48df0bdfe7d",
+      "original_svg_sha256": "f0b88f15e6fdfd3eec07cf88513a594ceec55bec35a51e2db9d7efd6239b944a",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n학습 목표\n●\n서버 개발과 Node.js\n●\nNode.js와 \n●\nREST API 설계 원칙과 구현 방법\n●\n서버 아키텍처 설계(MVC / MVCS 패턴)\n●\nTDD(Test Driven Development)\n",
+      "text_runs": 18,
+      "image_occurrences": 1,
+      "vector_paths": 5,
+      "links": []
+    },
+    {
+      "number": 3,
+      "id": "pdf-03",
+      "title": "서버와 Node.js",
+      "source_pages": [
+        3
+      ],
+      "svg": "page-03.svg",
+      "original_svg": "original/page-03.svg",
+      "svg_sha256": "73f9c00ed3e3a7c04824850c4df46bd000aecbfb01c76b9e5b4db35a03b17f9d",
+      "original_svg_sha256": "52aa78334382a8335c650fb054c04954aa889a12dd546b0bcc9c4d883325b855",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n서버와 Node.js\n",
+      "text_runs": 8,
+      "image_occurrences": 1,
+      "vector_paths": 4,
+      "links": []
+    },
+    {
+      "number": 4,
+      "id": "pdf-04",
+      "title": "웹서비스의 구조",
+      "source_pages": [
+        4
+      ],
+      "svg": "page-04.svg",
+      "original_svg": "original/page-04.svg",
+      "svg_sha256": "e68684ffaec664ccb3c776c5b38346c78805d9040d28eac4c634544b6273aa8b",
+      "original_svg_sha256": "504fe66f235cd5be9017e92f660855895f01805fda5d70539551fdf7690a44c0",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n웹서비스의 구조\n●\n클라이언트-서버 모델 : 클라이언트와 서버 간의 요청(request)과 응답(response)을 통해 데이터를 주고받는 구조\n○\n클라이언트: 브라우저, 모바일 앱, 또는 다른 서버\n○\n서버: 요청을 처리하고 적절한 응답을 반환하는 역할\n●\n네트워크: 클라이언트와 서버 간의 데이터를 전송하는 매개체(World Wide Web)\n●\n프로토콜\n○\nHTTP/HTTPS: 웹 브라우저와 서버 간의 데이터 통신 규약. HTTPS는 HTTP에 SSL/TLS를 추가하여 보안을 강화한 프로토콜.\n○\nREST: Representational State Transfer의 약자로, HTTP 프로토콜을 기반으로 하는 아키텍처 스타일. RESTful 서비스는 URL을 통해 \n리소스를 식별하고, HTTP 요청(GET, POST, PUT, DELETE)을 사용하여 리소스를 조작.\n●\n데이터 형식\n○\nJSON (JavaScript Object Notation)\nNetwork\nJSON\n",
+      "text_runs": 35,
+      "image_occurrences": 7,
+      "vector_paths": 56,
+      "links": []
+    },
+    {
+      "number": 5,
+      "id": "pdf-05",
+      "title": "서버의 역할",
+      "source_pages": [
+        5
+      ],
+      "svg": "page-05.svg",
+      "original_svg": "original/page-05.svg",
+      "svg_sha256": "03841acf7fb860b8e4704fe0eaac8bdc59db2d73f9f71e14d106fa00146ce762",
+      "original_svg_sha256": "cc41c9e5e49fa9e4c3965e5046e1a676ce5e1c81c95d662180ddc3f2fb1399d8",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n서버의 역할\n●\n클라이언트 요청 수신\n○\nHTTP 요청(URI·메서드·헤더/바디)을 받아 라우팅 규칙에 맞는 핸들러로 전달\n●\n데이터 처리 및 계산\n○\n입력을 검증하고 비즈니스 로직을 수행하며 필요 시 연산·외부 API 호출을 실행\n●\nDB와 통신\n○\nCRUD 쿼리로 영속 데이터를 조회·저장·수정·삭제\n●\n처리 결과 반환\n○\n상태코드·헤더를 설정하고 결과를 JSON/HTML/파일 등으로 직렬화해 응답\n●\n인증/인가 처리\n○\n사용자 신원을 확인(인증)하고 권한을 검사해 자원 접근을 허용/차단\n",
+      "text_runs": 28,
+      "image_occurrences": 1,
+      "vector_paths": 5,
+      "links": []
+    },
+    {
+      "number": 6,
+      "id": "pdf-06",
+      "title": "서버 개발 언어 별 비교",
+      "source_pages": [
+        6
+      ],
+      "svg": "page-06.svg",
+      "original_svg": "original/page-06.svg",
+      "svg_sha256": "2953767f164c7d5f5e8c2c9d07a9424b9d7039f2d253ce7f24ac5b73d175b762",
+      "original_svg_sha256": "d6b1cc4f51685509998d6ff639c166d3c70630b152e877df0fc9353f29b934d0",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n서버 개발 언어 별 비교\n용도에 따라\n●\n프론트와 한 언어로 빠르게: Node.js\n●\n데이터/AI와 붙는 API: Python\n●\n금융/대기업 표준·복잡 도메인: Java 또는 .NET\n●\n성능·배포 단순성(단일 바이너리): Go\n●\n지속적 고성능·안전성: Rust\n●\n콘텐츠·마케팅·백오피스 빨리: PHP / Ruby(Rails)\n언어\n프레임워크\n장점\n사용 사례\nNode.js\nExpress, NestJS, Fastify\n빠른 I/O, 풀스택 JS\n실시간 앱, API 서버\nPython\nFastAPI, Django, Flask\n쉬운 문법, AI/ML\n데이터 분석, 웹 앱\nJava\nSpring\n안정성, 대규모\n엔터프라이즈\nPHP\nLaravel\n웹 특화, 호스팅\nCMS, 블로그\nhttps://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/\n",
+      "text_runs": 58,
+      "image_occurrences": 2,
+      "vector_paths": 29,
+      "links": [
+        {
+          "url": "https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/",
+          "bbox_pt": [
+            385.2460632324219,
+            387.5137939453125,
+            690.2999267578125,
+            397.11376953125
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "pdf-07",
+      "title": "Node.js",
+      "source_pages": [
+        7
+      ],
+      "svg": "page-07.svg",
+      "original_svg": "original/page-07.svg",
+      "svg_sha256": "1164661fc4ae10748263686f9a11ad0eb0f56f4db037d2923a811159021f6706",
+      "original_svg_sha256": "4d2b011ba6dd11ed019c0208eef7a2e2869a176d781bb4f334f7be58fb01587f",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nNode.js\nNode.js\n●\nNode.js는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임 환경\n●\n웹 브라우저 밖에서도 JavaScript를 실행할 수 있게 해주는 프로그램\n특징\n1. JavaScript 런타임\n●\n브라우저가 없어도 컴퓨터에서 JavaScript 실행 가능\n●\n서버 프로그래밍, 데스크톱 앱, 명령줄 도구 개발 가능\n2. 비동기 I/O (Non-blocking)\n●\n동시에 여러 작업 처리 가능\n●\n한 작업이 끝날 때까지 기다리지 않고 다른 작업 진행\n●\n높은 성능과 효율성\n3. 단일 스레드 이벤트 루프\n●\n하나의 스레드로 많은 연결을 효율적으로 처리\n●\n메모리 사용량이 적음\n4. NPM 생태계\n●\n세계 최대 오픈소스 라이브러리 생태계\n●\n100만개 이상의 패키지 사용 가능\n",
+      "text_runs": 37,
+      "image_occurrences": 2,
+      "vector_paths": 6,
+      "links": []
+    },
+    {
+      "number": 8,
+      "id": "pdf-08",
+      "title": "Node.js",
+      "source_pages": [
+        8
+      ],
+      "svg": "page-08.svg",
+      "original_svg": "original/page-08.svg",
+      "svg_sha256": "e1804e48e7eab9e2fff2fb8ea60daa257fab1c8adb869ffe2f2722fc87f05ba6",
+      "original_svg_sha256": "1f1a9b942bb7d9f366b95f2ece93ac93e7da183fdf5753c0a975a64d03984d10",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nNode.js\n●\n고성능의 비동기 애플리케이션 작성을 위한 JavaScript 엔진\n●\nRyan Dahl이 최초 작성 후 2009년 5월 27일 처음 공개된 오픈소스 프로젝트  https://github.com/nodejs/node\n●\nV8 엔진의 JIT(Just-In-Time) 컴파일을 쓰는 하이브리드(인터프리터+컴파일러) 런타임\nV8 엔진\n●\n구글에서 C++ 만든 오픈소스 자바스크립트/웹어셈블리 엔진\n●\nJavaScript 코드를 4단 구조로 빠르게 실행\n○\n파싱→바이트코드→JIT 컴파일→실행\n○\n인터프리터처럼 바로 시작해서 초기 응답이 빠름\n○\n자주 사용되는 코드를 네이티브 코드로 즉석 컴파일 함\n●\nChrome/Edge(Chromium 계열) 브라우저, Node.js\nChromium \n●\nGoogle이 주도하는 오픈소스 웹브라우저 프로젝트  https://blog.chromium.org/\n●\n최근 공개된 많은 브라우저들이 Chromium을 기반으로 개발 됨\n",
+      "text_runs": 36,
+      "image_occurrences": 3,
+      "vector_paths": 17,
+      "links": [
+        {
+          "url": "https://github.com/nodejs/node",
+          "bbox_pt": [
+            429.4517517089844,
+            96.93612670898438,
+            610.4721069335938,
+            111.33615112304688
+          ]
+        },
+        {
+          "url": "https://blog.chromium.org/",
+          "bbox_pt": [
+            321.7778625488281,
+            307.776123046875,
+            476.5181884765625,
+            322.1761169433594
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "pdf-09",
+      "title": "서버 개발 핵심 개념",
+      "source_pages": [
+        9
+      ],
+      "svg": "page-09.svg",
+      "original_svg": "original/page-09.svg",
+      "svg_sha256": "387bbe04814b6b3389f32d28f8054adaa90d94c0c408fdb7c21ba428849b6d34",
+      "original_svg_sha256": "b66c6a86fed245b7b14df704df5cdc5e491325078feefcbb57b7b9b9eb8b15f3",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n서버 개발 핵심 개념\n",
+      "text_runs": 8,
+      "image_occurrences": 1,
+      "vector_paths": 4,
+      "links": []
+    },
+    {
+      "number": 10,
+      "id": "pdf-10",
+      "title": "HTTP/HTTPS",
+      "source_pages": [
+        10
+      ],
+      "svg": "page-10.svg",
+      "original_svg": "original/page-10.svg",
+      "svg_sha256": "0828a5f6a4b33c0c364afc5ad4732d73714aa9f5a0708b66a70c905fac56a3eb",
+      "original_svg_sha256": "fa5b4cec558bd42b4cba7a34ca7e4e190e3d61524c8a2cba9874660a4872018f",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nHTTP/HTTPS\nHTTP = HyperText Transfer Protocol\n●\n하이퍼텍스트를 빠르게 교환하기 위한 프로토콜\n●\n서버와 클라이언트의 사이에서 어떻게 메시지를 교환할지를 정해 놓은 규칙\n●\n각 HTTP 요청을 독립적으로 처리 이전 요청의 정보를 연결·기억하지 않음(Stateless: 무상태)\n●\n필요한 맥락은 매 요청마다 함께 전송\n●\n특징\n○\n확장성: 어떤 요청이든 아무 서버가 처리 가능.\n○\n장애 격리: 한 서버가 내려가도 세션 날아가지 않음.\n○\n같은 요청을 다른 서버가 받아도 결과 동일\nHTTPS = HyperText Transfer Protocol Secure\n●\n웹 브라우저와 웹사이트 간의 데이터 통신을 암호화하여 보안을 강화한 프로토콜\n●\nHTTP가 데이터를 암호화하지 않고 전송하여 해킹에 취약했던 문제를 해결하기 위해 개발\n📤 Request\n클라이언트 → 서버\n●\n메서드 (GET, POST)\n●\nURL 경로\n●\n헤더 & 바디\n📥 Response\n서버 → 클라이언트\n●\n상태 코드 (200, 404)\n●\n헤더 정보\n●\n응답 데이터\n",
+      "text_runs": 55,
+      "image_occurrences": 3,
+      "vector_paths": 22,
+      "links": []
+    },
+    {
+      "number": 11,
+      "id": "pdf-11",
+      "title": "HTTP 요청(Request) 구조",
+      "source_pages": [
+        11
+      ],
+      "svg": "page-11.svg",
+      "original_svg": "original/page-11.svg",
+      "svg_sha256": "f3c92518b0f173ef3f2a89371c1a050f12253bb8013f6d7f705a39864765b5f1",
+      "original_svg_sha256": "0b15c7d20deb4910be5e9941e90404b1d4f293260499d5b3c7a9d8a73b4e8a91",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nHTTP 요청(Request) 구조\nPOST /api/users HTTP/1.1\nHost: example.com\nContent-Type: application/json\nAuthorization: Bearer token123\n{\n  \"name\": \"홍길동\",\n  \"email\": \"hong@example.com\"\n}\n구성 요소\n설명\n예시\nMethod\n요청 종류\nGET, POST, PUT, DELETE\nURL\n요청 경로\n/api/users\nHeaders\n부가 정보\nContent-Type, Authorization\nBody\n전송 데이터\nJSON, Form Data\n",
+      "text_runs": 33,
+      "image_occurrences": 1,
+      "vector_paths": 22,
+      "links": []
+    },
+    {
+      "number": 12,
+      "id": "pdf-12",
+      "title": "HTTP 응답(Response) 구조",
+      "source_pages": [
+        12
+      ],
+      "svg": "page-12.svg",
+      "original_svg": "original/page-12.svg",
+      "svg_sha256": "9fd574fe369e12f619809793d6a4cec0ab07e2e249cdb25e4356b06ab7c23f40",
+      "original_svg_sha256": "777249126e89dfb0a85c8f22a7cb7cbed88b48dacb94a852f4242abeeb1f013d",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nHTTP 응답(Response) 구조\n주요 상태 코드\nHTTP/1.1 200 OK\nContent-Type: application/json\nCache-Control: no-cache\n{\n  \"success\": true,\n  \"message\": \"사용자가 생성되었습니다\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"홍길동\"\n  }\n}\n2xx 성공\n●\n200 OK\n●\n201 Created\n4xx 클라이언트 오류\n●\n400 Bad Request\n●\n404 Not Found\n5xx 서버 오류\n●\n500 Server Error\n●\n503 Service Unavailable\n",
+      "text_runs": 54,
+      "image_occurrences": 1,
+      "vector_paths": 9,
+      "links": []
+    },
+    {
+      "number": 13,
+      "id": "pdf-13",
+      "title": "JSON",
+      "source_pages": [
+        13
+      ],
+      "svg": "page-13.svg",
+      "original_svg": "original/page-13.svg",
+      "svg_sha256": "ad1ef299b0c9a1c7d156a1af42a22428bc5c66c6087a3894fc18cb8a6a3b863d",
+      "original_svg_sha256": "4aa5d14e60d9c7fe94fc2f6722d403988918c714779654fe84010241ac7cdf0a",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nJSON\nJSON = JavaScript Object Notation\n●\n서버와 클라이언트 간 데이터를 주고받는 데이터 직렬화 형식\n●\n사람이 읽기 쉬운 텍스트\n●\n기계가 파싱 쉬움\nJSON 규칙\n●\n값 타입 6개: string, number, boolean, null, object, array\n●\n문자열은 반드시 쌍따옴표 \"...\" (홑따옴표 X)\n●\n주석 없음(//, /* */ 모두 금지)\n●\n마지막 요소 뒤 쉼표 금지(trailing comma X)\n{\n  \"name\": \"홍길동\",\n  \"age\": 25,\n  \"isStudent\": true,\n  \"courses\": [\"웹개발\", \"데이터베이스\"],\n  \"address\": {\n    \"city\": \"서울\",\n    \"zip\": \"12345\"\n  }\n}\n// Parse (문자열 → 값)\nconst obj = JSON.parse(jsonString);\n// Stringify (값 → 문자열)\nconst s = JSON.stringify(obj, null, 2);\n// Replacer로 필드 필터/정렬\nconst s2 = JSON.stringify(obj, [\"id\", \"title\"], 2);\nJSON Online Validator and Formatter - JSON Lint (실데이터, 프러덕션 JSON 데이터 사용 금지)\nJaveScript JSON 파싱과 직렬화\n",
+      "text_runs": 79,
+      "image_occurrences": 1,
+      "vector_paths": 17,
+      "links": [
+        {
+          "url": "https://jsonlint.com/",
+          "bbox_pt": [
+            273.3431701660156,
+            355.031494140625,
+            511.94818115234375,
+            367.031494140625
+          ]
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "pdf-14",
+      "title": "REST API",
+      "source_pages": [
+        14
+      ],
+      "svg": "page-14.svg",
+      "original_svg": "original/page-14.svg",
+      "svg_sha256": "4a1fe5bdd168f8ec7066422b26be8c3cbcc22140340c318f3afd5b9eb70ce3fd",
+      "original_svg_sha256": "7d969f406c598b9bd5e8e007a18c88e8a4deb97e366216c148ab960b13e925e9",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nREST API\nREST = REpresentational State Transfer\n●\n리소스 중심의 HTTP 기반 아키텍처 스타일\n●\n자원을 이름으로 구분하여 해당 자원의 상태를 주고받는 방식으로 개발\n●\n구성 요소\n○\n자원(Resource) : HTTP URI\n○\n자원에 대한 행위(Verb) : HTTP Method\n○\n자원에 대한 행위의 내용 (Representations) : HTTP Message Pay Load\nREST API\n●\nREST의 원리를 따르는 API\n●\n표준 HTTP를 활용해 예측 및 확장 가능한 API 설계하는 것이 목표\n●\n설계 원칙\n○\nURL은 리소스를 나타냄 (동사X, 명사O)\n○\n행동은 메서드로 표현\n○\n무상태(Stateless): 각 요청은 독립적\n○\n일관된 인터페이스: 예측 가능한 구조\n❌ 잘못된 예: GET /getUsers, POST /createUser\n✅ 올바른 예: GET /users, POST /users\n",
+      "text_runs": 55,
+      "image_occurrences": 3,
+      "vector_paths": 6,
+      "links": []
+    },
+    {
+      "number": 15,
+      "id": "pdf-15",
+      "title": "라우팅(Routing)",
+      "source_pages": [
+        15
+      ],
+      "svg": "page-15.svg",
+      "original_svg": "original/page-15.svg",
+      "svg_sha256": "906a177948b94e484b4d07eb809e5b55ba018926bda77ba891f09cf3f636c381",
+      "original_svg_sha256": "7f95b0da919fea7b6fd171ed01bdf7ff3d5f14dab2b5f129c7e8388b8ed7a13e",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n라우팅(Routing)\n●\n서버가 받은 요청을 실제 처리할 핸들러 함수에 연결하는 과정\n●\n형식 키: 메서드(GET/POST/…), 경로(/users/:id)\n●\n서버 프레임워크가 라우팅 테이블을 만들어 실행\n●\n멱등성(Idempotency)\n○\nGET, PUT, DELETE는 여러 번 실행해도 결과가 같아야 함\n○\n타임아웃·중복전송이 일어나도 중복 생성/결제를 막아야 됨\n○\n큐/리트라이(적어도 한 번 전달) 환경에서 중복 처리 방지\n○\n멱등한 요청은 안전하게 캐시·재전송 가능\n○\n롤백/재처리가 쉽게(운영/장애 대응)\nHTTP Method\nCRUD\n설명\n예시\nGET\nRead\n리소스 조회\nGET /users (모든 사용자)\nGET /users/1 (특정 사용자)\nPOST\nCreate\n리소스 생성\nPOST /users (새 사용자 생성)\nPUT\nUpdate\n리소스 수정\nPUT /users/1 (사용자 정보 수정)\nDELETE\nDelete\n리소스 삭제\nDELETE /users/1 (사용자 삭제)\n",
+      "text_runs": 50,
+      "image_occurrences": 1,
+      "vector_paths": 24,
+      "links": []
+    },
+    {
+      "number": 16,
+      "id": "pdf-16",
+      "title": "미들웨어",
+      "source_pages": [
+        16
+      ],
+      "svg": "page-16.svg",
+      "original_svg": "original/page-16.svg",
+      "svg_sha256": "8f2110382e30e3a4facbed6c11ff5c59894c403a675f33c9d2f6857ea0ad832d",
+      "original_svg_sha256": "c8a0312e0d238559be250b0d064708374d2d698ae7e49aa4f13bffcbda6ad352",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n공통 로직을 앞단에서 처리해 라우트의 책임을 최소화하는 요청‒응답 파이프라인의 블록\n효과\n●\n책임 최소화: 라우트는 입력 수집 → 서비스 호출 → 응답만 담당.\n●\n일관성: 인증/검증/에러 포맷을 한 곳에서 통일.\n●\n재사용성: 같은 규칙을 여러 라우트에 간단히 붙임.\n●\n테스트 용이성: 공통 로직을 독립적으로 단위 테스트.\n●\n보안·품질 향상: Helmet, CORS, Rate Limit 등 기본 방어막을 전역 적용.\n●\n가독성: 코드가 “파이프라인(흐름)”처럼 읽힘.\n미들웨어\n요청\n미들웨어1\n로깅\n미들웨어2\n인증\n미들웨어3\n파싱\n라우트 \n핸들러\n// 미들웨어 예시\napp.use((req, res, next) => {\n    console.log(`${req.method} ${req.url}`); // 로깅\n    next(); // 다음 미들웨어로 이동\n});\n",
+      "text_runs": 55,
+      "image_occurrences": 1,
+      "vector_paths": 23,
+      "links": []
+    },
+    {
+      "number": 17,
+      "id": "pdf-17",
+      "title": "MVC 패턴",
+      "source_pages": [
+        17
+      ],
+      "svg": "page-17.svg",
+      "original_svg": "original/page-17.svg",
+      "svg_sha256": "9a6207c4661fadcea3d8e74de7fddb0c9ed41023aebd40ef6d3ba614b76c1fbb",
+      "original_svg_sha256": "281fe9c0c3c3410868d6ae48e0f212c41ff428f2f855e6ccadae3b3324e62960",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nMVC 패턴\nModel\n●\n앱의 데이터 구조와 규칙. 스키마, 검증, DB 접근\nView\n●\n사용자에게 보여줄 화면 또는 데이터. EJS/React/JSON 등 표현\nController\n●\n요청을 받아 Model에 일 시키고, 결과를 View 또는 JSON으로 응답\n장점\n●\n역할 분리로 변경 용이\n●\n테스트/재사용 용이(서비스/모델 단위 테스트)\n●\n재사용성: 같은 컨트롤러 로직으로 EJS 페이지와 JSON API를 모두 제공 가능\n적용\n●\n서버: Model + Controller(+ Service)로 JSON API 제공\n●\n클라이언트(View): React(SPA)가 화면 담당\n",
+      "text_runs": 32,
+      "image_occurrences": 2,
+      "vector_paths": 6,
+      "links": []
+    },
+    {
+      "number": 18,
+      "id": "pdf-18",
+      "title": "MVCS 패턴",
+      "source_pages": [
+        18
+      ],
+      "svg": "page-18.svg",
+      "original_svg": "original/page-18.svg",
+      "svg_sha256": "4668b150373dab831e9906279e27a303dc5dab2ddca3e7cbb7a1bd6931063ae2",
+      "original_svg_sha256": "161d9a1ad8a0323e66eb8db5a7171bf8caefc9ed959440c70d3764781b8d368f",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nMVCS 패턴\nMVCS(Model‒View‒Controller‒Service)\n●\nMVC에 Service(서비스) 레이어를 추가해 도메인 로직을 컨트롤러 밖으로 분리한 구조\n왜 Service가 필요한가?\n●\n컨트롤러 비대화 방지: 요청 흐름만 남기고 복잡한 규칙은 서비스로 이전\n●\n재사용/테스트 용이: 같은 규칙을 여러 엔드포인트/잡/웹훅에서 재사용, 단위테스트 쉬움\n●\n여러 모델/외부 API 오케스트레이션: 결제, 알림, 트랜잭션, 캐싱 등\n●\n권한/검증 일관화: “소유자만 수정 가능” 같은 규칙을 한 곳에\nMVCS 패턴 적용\n",
+      "text_runs": 25,
+      "image_occurrences": 2,
+      "vector_paths": 7,
+      "links": []
+    },
+    {
+      "number": 19,
+      "id": "pdf-19",
+      "title": "MVCS 패턴",
+      "source_pages": [
+        19
+      ],
+      "svg": "page-19.svg",
+      "original_svg": "original/page-19.svg",
+      "svg_sha256": "cf06df3cafc9d1edb44079e087c42f8ef987c38dd1b6665616f183772a618f30",
+      "original_svg_sha256": "766e1eeb8b0b38e123c05767919b603e719fd8dbff025f690db947c6635780a7",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nMVCS 패턴\nㅇmvcs-app/\n├── 📁 src/ # 소스 코드\n│ \n├── 📁 controllers/ # 컨트롤러\n│ \n├── 📁 db/ # 데이터베이스\n│ \n├── 📁 middleware/ # 미들웨어\n│ \n├── 📁 models/ # 모델\n│ \n├── 📁 routes/ # 라우트\n│ \n├── 📁 services/ # 서비스\n…\n│ \n├── 📄 app.js # express 시작\nMVCS 패턴 적용 사례\n",
+      "text_runs": 54,
+      "image_occurrences": 9,
+      "vector_paths": 6,
+      "links": []
+    },
+    {
+      "number": 20,
+      "id": "pdf-20",
+      "title": "테스트 주도 개발(TDD)",
+      "source_pages": [
+        20
+      ],
+      "svg": "page-20.svg",
+      "original_svg": "original/page-20.svg",
+      "svg_sha256": "c101aca8fb04913264baf6e0c6efcb7ddb00dc2aee4fde7bfa676b927ccb44d0",
+      "original_svg_sha256": "040f27f181d26f569d614a332a0040e56c84271d17a1ea1336a4f605fdaa5cee",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n테스트 주도 개발(TDD)\n테스트 주도 개발(TDD: Test-Driven Development)\n●\n테스트를 먼저 작성하고, 그 테스트를 통과시키는 최소 코드를 작성한 뒤, 코드를 개선하는 짧은 반복 루프로 개발하는 방법\n효과\n●\n버그 빠른 차단: 사양이 코드가 되기 전에 실패 테스트로 드러남\n●\n리팩터링 안전망: 테스트가 있으니 구조 바꿔도 안심\n●\n설계 품질: 작은 단위로 분리(함수/레이어링)하게 됨 → MVCS와 잘 맞음\n●\n문서화: 테스트가 곧 “실행 가능한 예시 문서”\n●\nCI/CD 친화: 깃 푸시 시 자동 검증(파이프라인에 테스트 포함)\nTDD 싸이클 : Red → Green → Refactor\n●\nRed: 기능이 제대로 작동하지 않는 상태를 정의\n●\nGreen: 테스트를 통과하는 최소한의 동작 코드를 작성\n●\nRefactor: 코드를 보다 깔끔하고 효율적으로 개선\n",
+      "text_runs": 42,
+      "image_occurrences": 2,
+      "vector_paths": 12,
+      "links": []
+    },
+    {
+      "number": 21,
+      "id": "pdf-21",
+      "title": "Express 서버 App 개발",
+      "source_pages": [
+        21
+      ],
+      "svg": "page-21.svg",
+      "original_svg": "original/page-21.svg",
+      "svg_sha256": "5013284e5a12439e75ccd68c294765f462bf99fadb6d3daa753d31ba1241a240",
+      "original_svg_sha256": "67ff1a716453c5f2d16b8e70d2224ea1b55fa9419c96a777d8ce4102df780cd6",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nExpress 서버 App 개발\n",
+      "text_runs": 8,
+      "image_occurrences": 1,
+      "vector_paths": 4,
+      "links": []
+    },
+    {
+      "number": 22,
+      "id": "pdf-22",
+      "title": "Express.js",
+      "source_pages": [
+        22
+      ],
+      "svg": "page-22.svg",
+      "original_svg": "original/page-22.svg",
+      "svg_sha256": "e58c37554740b8fc6448c16660422e8fe72cfa0066c0afd8376de63d0b94b985",
+      "original_svg_sha256": "b3827c0f207b53773b81407b1bd9f88621cbcd5f8e90ee8a33042e965f39940d",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nExpress.js\n●\nNode.js로 RESTful API를 구축하기 위한 백엔드 웹 애플리케이션 프레임워크\n●\n웹 애플리케이션과 API 구축을 위해 설계\n●\nNode.js의 사실상 표준 서버 프레임워크\n●\nMIT 라이선스에 따라 무료 오픈소스 소프트웨어로 제공 https://github.com/expressjs/express\n●\n최신 안정화 버전 5.1.0 https://expressjs.com/\n❌ 순수 Node.js\n✅ Express.js\nconst http = require('http');\nhttp.createServer((req, res) => {\n  if (req.url ==='/') {\n    res.write('Hello World');\n  } else if(req.url === '/hello') {\n    res.write('World');\n  }\n  res.end();\n}).listen(3000);\nconst express = require('express');\nconst app = express();\napp.get('/', (req, res) => {\n  res.send('Hello World');\n});\napp.get('/hello', (req, res) => {\n  res.send('World');\n});\napp.listen(3000);\n",
+      "text_runs": 47,
+      "image_occurrences": 4,
+      "vector_paths": 16,
+      "links": [
+        {
+          "url": "https://github.com/expressjs/express",
+          "bbox_pt": [
+            338.3979187011719,
+            127.296142578125,
+            545.746337890625,
+            141.69613647460938
+          ]
+        },
+        {
+          "url": "https://expressjs.com/",
+          "bbox_pt": [
+            181.9775848388672,
+            143.85614013671875,
+            306.5378723144531,
+            158.25613403320312
+          ]
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "pdf-23",
+      "title": "Express 프로젝트 생성",
+      "source_pages": [
+        23
+      ],
+      "svg": "page-23.svg",
+      "original_svg": "original/page-23.svg",
+      "svg_sha256": "142a692d2c3b5910820844157759f82208974e91b90269b3f76b5f19d71046c8",
+      "original_svg_sha256": "b443d97a6de67f1de8991450cfe752cbc70e7d4d7a1faa4b5fa9b63311a3afd4",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nExpress 프로젝트 생성\n# Express 프로젝트 생성\n$ npm install express --save\nconst express = require('express')\nconst app = express()\nconst port = 3000\napp.get('/', (req, res) => {\n  res.send('Hello World!')\n})\napp.listen(port, () => {\n  console.log(`Example app listening on port \n${port}`)\n})\nexpress 실행 테스트(Hello World)\nmy-express-app/\n├── 📁 src/ # 소스 코드 (작성 필요)\n├── 📁 node_modules/ # 설치된 패키지들 \n├── 📄 package-lock.json # 실제 패키지 설치 정보 \n├── 📄 package.json # 프로젝트 패키지 설정 \n└── 📄 server.js # 프로젝트 진입 (작성 필요)\n",
+      "text_runs": 48,
+      "image_occurrences": 6,
+      "vector_paths": 16,
+      "links": []
+    },
+    {
+      "number": 24,
+      "id": "pdf-24",
+      "title": "Express MVCS 프로젝트",
+      "source_pages": [
+        24
+      ],
+      "svg": "page-24.svg",
+      "original_svg": "original/page-24.svg",
+      "svg_sha256": "e5d28b9d191a2faa193b991aaab009c2b67cd419ae7a4d3b8f28cc8b70e806d5",
+      "original_svg_sha256": "4e2afd384d519620e7f4d18ad3a1c87cb137a5a3e638e4d1b9f0ce91659b1438",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nExpress MVCS 프로젝트\n📂 각 폴더와 주요 파일 역할\n●\nserver.js : 서버 진입점 - app.js를 불러와 포트 설정 후 app.listen()으로 HTTP 서버를 시작\n●\nsrc/app.js : Express 앱 설정 - 핵심 미들웨어, 라우터, 에러 핸들러를 연결\n●\nsrc/controllers : 요청을 받아 파라미터 검증 → 서비스 호출 → 응답 형식화까지 담당하는 계층\n●\nsrc/data : 초기 더미 데이터, 시드 파일, JSON 리소스 등 코드 없는 정적 데이터 보관소\n●\nsrc/middleware : 인증, 로깅, CORS, 입력 검증, 에러 처리 등 요청/응답 사이에 끼워 넣는 공용 함수들\n●\nsrc/models : DB 스키마와 데이터 접근 로직(예: Mongoose Schema/Model, 쿼리 메서드)을 정의\n●\nsrc/routes : URL 경로와 HTTP 메서드를 컨트롤러에 매핑하는 Express Router 모듈들\n●\nsrc/services : 비즈니스 로직 계층 - 여러 모델/외부 API를 조합해 도메인 규칙을 구현\n●\nsrc/utils : 재사용 가능한 작은 헬퍼/유틸 함수 묶음\n📁 pwd-week4/\n├── 📁 src/ # 소스 코드\n│ \n├── 📁 controllers/ # 컨트롤러\n│ \n├── 📁 data/ # 데이터 db로 교체 예정\n│ \n├── 📁 middleware/ # 미들웨어\n│ \n├── 📁 models/ # 모델\n│ \n├── 📁 routes/ # 라우트\n│ \n├── 📁 services/ # 서비스\n│ \n├── 📁 utils/ # 유틸리티\n│ \n└── 📄 app.js # express 시작\n├──📄 server.js # node 시작\n",
+      "text_runs": 78,
+      "image_occurrences": 13,
+      "vector_paths": 6,
+      "links": []
+    },
+    {
+      "number": 25,
+      "id": "pdf-25",
+      "title": "Render ",
+      "source_pages": [
+        25
+      ],
+      "svg": "page-25.svg",
+      "original_svg": "original/page-25.svg",
+      "svg_sha256": "2ab13857e13aa97827838202f2555b56c147c1f4ac72d1654e4898efb5a9cb21",
+      "original_svg_sha256": "f62a4461fe52e1ba1680b86b575d1ef375e9861d33f0d207c7a14c14affcfbb6",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nRender \nGit에 올린 코드를 자동으로 빌드·배포해주는 PaaS(Platform-as-a-Service) 클라우드 개발 플랫폼\n●\n원클릭 배포 & 자동 재배포\n●\n서비스 타입\n○\nWeb Service(Express 등 장기 실행 서버)\n○\nStatic Site(정적 호스팅)\n○\nBackground Worker\n○\nCron Job\n○\nPrivate Service.\n●\n운영 편의\n○\n환경변수 관리, \n○\n프로젝트 1개 무료, 로그/헬스체크, 수평 스케일링 지원.\n",
+      "text_runs": 30,
+      "image_occurrences": 2,
+      "vector_paths": 6,
+      "links": []
+    },
+    {
+      "number": 26,
+      "id": "pdf-26",
+      "title": "과제 개요",
+      "source_pages": [
+        26
+      ],
+      "svg": "page-26.svg",
+      "original_svg": "original/page-26.svg",
+      "svg_sha256": "6701d857f554ff5d358765bac7d68c8083754311f34e783e44c3eb49b816e4de",
+      "original_svg_sha256": "94535283f66dc0655a740406d6ed1cf5da4dea9681793704958431a5f39e837e",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\n과제 개요\nExpress & Render로 만드는 Ajou Campus Foodmap API\n학습 목표\n●\nExpress로 REST API 개발\n●\nMVCS 패턴 학습\n●\n비동기 처리 & 에러 핸들링 습득\n●\n테스트 주도 개발 연습\n필수 구현 사항\n●\nGitHub 저장소에 프로젝트 버전 관리가 바르게 되고 있는가?\n●\nRender에 GitHub 저장소가 연결되어 자동 배포가 이루어 지고 있는가?\n●\nExpress로 개발한 서버 모듈이 모두 바르게 동작하는가?\n●\npwd-week3 React App이 Render 서버로부터 데이터를 받아오는가 ?\n마감일\n●\n9월 28일 11시 59분 까지\nGitHub URL \n●\n(예: https://github.com/username/pwd-week4)\nRender App URL \n●\n(예: https://pwd-week4-[username]..onrender.com)\nNetlify App URL(Render 서버 연동)\n●\n(예: https://pwd-week3-[username].netlify.app)\n",
+      "text_runs": 51,
+      "image_occurrences": 1,
+      "vector_paths": 65,
+      "links": [
+        {
+          "url": "https://ajou-campus-foodmap.netlify.app/",
+          "bbox_pt": [
+            632.7789306640625,
+            221.61614990234375,
+            682.4891357421875,
+            233.61614990234375
+          ]
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "id": "pdf-27",
+      "title": "Q&A",
+      "source_pages": [
+        27
+      ],
+      "svg": "page-27.svg",
+      "original_svg": "original/page-27.svg",
+      "svg_sha256": "4c8c393f560e4e274d03cfa1c588fcd892fbd92c0cb377b2e8b9b8652d8d9ffb",
+      "original_svg_sha256": "126464a918f270aba2d777abea113da15e18a5299e46dfa6aa148cca16ef4357",
+      "original_text": "2025학년도 2학기 실전웹서비스개발\nQ&A\n",
+      "text_runs": 8,
+      "image_occurrences": 1,
+      "vector_paths": 4,
+      "links": []
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "entry": {
+    "file": "src/main.tsx",
+    "sha256": "a1d1f4b7c1b85e3b64fdefcd6cc958675edb832ca5ce6088832ea6a9274f2897",
+    "selections": [
+      {
+        "startLine": 6,
+        "endLine": 13,
+        "text": "const root = document.getElementById('root')\nif (!root) throw new Error('앱을 표시할 root 요소를 찾을 수 없습니다.')\n\ncreateRoot(root).render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n)"
+      }
+    ],
+    "code": "const root = document.getElementById('root')\nif (!root) throw new Error('앱을 표시할 root 요소를 찾을 수 없습니다.')\n\ncreateRoot(root).render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n)"
+  },
+  "routes": {
+    "file": "src/App.tsx",
+    "sha256": "96411f31b8d2f07505665ca5a3edbbe436ce95e35e2b117ceb81bb9f4c8d3e04",
+    "selections": [
+      {
+        "startLine": 41,
+        "endLine": 44,
+        "text": "            <Routes>\n              <Route path=\"/\" element={<HomePage />} />\n              <Route path=\"/list\" element={<ListPage />} />\n              <Route path=\"/restaurant/:id\" element={<DetailPage />} />"
+      },
+      {
+        "startLine": 50,
+        "endLine": 50,
+        "text": "            </Routes>"
+      }
+    ],
+    "code": "            <Routes>\n              <Route path=\"/\" element={<HomePage />} />\n              <Route path=\"/list\" element={<ListPage />} />\n              <Route path=\"/restaurant/:id\" element={<DetailPage />} />\n            </Routes>"
+  },
+  "detail-link": {
+    "file": "src/components/RestaurantCard.tsx",
+    "sha256": "8d8da8319d106205f1650797b38669049cf638d39b7b7ae7d7f6b033a5514f5a",
+    "selections": [
+      {
+        "startLine": 230,
+        "endLine": 232,
+        "text": "          <DetailLink to={`/restaurant/${restaurant.id}`}>\n            자세히 보기 →\n          </DetailLink>"
+      }
+    ],
+    "code": "          <DetailLink to={`/restaurant/${restaurant.id}`}>\n            자세히 보기 →\n          </DetailLink>"
+  },
+  "list": {
+    "file": "src/components/RestaurantList.tsx",
+    "sha256": "f08e3dc622f3ecd318cf703ddbba9da85c2cd92ef6c70e0b94082f072a368310",
+    "selections": [
+      {
+        "startLine": 27,
+        "endLine": 31,
+        "text": "    <ListContainer>\n      {restaurants.map(restaurant => (\n        <RestaurantCard key={restaurant.id} restaurant={restaurant} />\n      ))}\n    </ListContainer>"
+      }
+    ],
+    "code": "    <ListContainer>\n      {restaurants.map(restaurant => (\n        <RestaurantCard key={restaurant.id} restaurant={restaurant} />\n      ))}\n    </ListContainer>"
+  },
+  "card": {
+    "file": "src/components/RestaurantCard.tsx",
+    "sha256": "8d8da8319d106205f1650797b38669049cf638d39b7b7ae7d7f6b033a5514f5a",
+    "selections": [
+      {
+        "startLine": 203,
+        "endLine": 206,
+        "text": "        <CardHeader>\n          <CardTitle>{restaurant.name}</CardTitle>\n          <CategoryBadge>{restaurant.category}</CategoryBadge>\n        </CardHeader>"
+      }
+    ],
+    "code": "        <CardHeader>\n          <CardTitle>{restaurant.name}</CardTitle>\n          <CategoryBadge>{restaurant.category}</CategoryBadge>\n        </CardHeader>"
+  },
+  "query": {
+    "file": "src/pages/ListPage.tsx",
+    "sha256": "fda5676b41f632b24753b53145710c32ab0a4980f268f588832032bc00191747",
+    "selections": [
+      {
+        "startLine": 38,
+        "endLine": 38,
+        "text": "  const [selectedCategory, setSelectedCategory] = useState('전체');"
+      },
+      {
+        "startLine": 42,
+        "endLine": 45,
+        "text": "  const { data, isLoading, error } = useQuery({\n    queryKey: ['restaurants'],\n    queryFn: restaurantAPI.getRestaurants,\n  });"
+      },
+      {
+        "startLine": 60,
+        "endLine": 62,
+        "text": "  const filteredData = selectedCategory === '전체' \n    ? data?.data \n    : data?.data.filter(r => r.category === selectedCategory);"
+      }
+    ],
+    "code": "  const [selectedCategory, setSelectedCategory] = useState('전체');\n  const { data, isLoading, error } = useQuery({\n    queryKey: ['restaurants'],\n    queryFn: restaurantAPI.getRestaurants,\n  });\n  const filteredData = selectedCategory === '전체' \n    ? data?.data \n    : data?.data.filter(r => r.category === selectedCategory);"
+  },
+  "menu-input": {
+    "file": "src/components/SubmitRestaurant.tsx",
+    "sha256": "b41b8e9cc3ea6c762036af856fa4ec3d49093c94f10e3834a9db417a72a9a8a0",
+    "selections": [
+      {
+        "startLine": 129,
+        "endLine": 134,
+        "text": "      const recommendedMenuArray = typeof data.recommendedMenu === 'string'\n        ? data.recommendedMenu\n            .split(/[\\n,]/)\n            .map((item) => item.trim())\n            .filter(Boolean)\n        : [];"
+      }
+    ],
+    "code": "      const recommendedMenuArray = typeof data.recommendedMenu === 'string'\n        ? data.recommendedMenu\n            .split(/[\\n,]/)\n            .map((item) => item.trim())\n            .filter(Boolean)\n        : [];"
+  },
+  "submit": {
+    "file": "src/components/SubmitRestaurant.tsx",
+    "sha256": "b41b8e9cc3ea6c762036af856fa4ec3d49093c94f10e3834a9db417a72a9a8a0",
+    "selections": [
+      {
+        "startLine": 147,
+        "endLine": 150,
+        "text": "      await submissionAPI.createSubmission(payload);\n      setSubmitted(true);\n      toast.success('맛집이 성공적으로 제보되었습니다! 🎉');\n      reset();"
+      }
+    ],
+    "code": "      await submissionAPI.createSubmission(payload);\n      setSubmitted(true);\n      toast.success('맛집이 성공적으로 제보되었습니다! 🎉');\n      reset();"
+  },
+  "get-restaurants": {
+    "file": "src/services/api.ts",
+    "sha256": "c3740dc7f461ec6adb0ed9b0e7c7ea71740bd1de2e4029481a1b48be1dd7a5b1",
+    "selections": [
+      {
+        "startLine": 99,
+        "endLine": 101,
+        "text": "  getRestaurants: async (): Promise<ApiResponse<Restaurant[]>> => ({\n    data: readItems(RESTAURANTS_KEY, isRestaurant, initialRestaurants),\n  }),"
+      }
+    ],
+    "code": "export const restaurantAPI = {\n  getRestaurants: async (): Promise<ApiResponse<Restaurant[]>> => ({\n    data: readItems(RESTAURANTS_KEY, isRestaurant, initialRestaurants),\n  }),\n};"
+  }
+}

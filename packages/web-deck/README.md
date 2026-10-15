@@ -6,9 +6,11 @@ The package self-hosts the variable Noto Sans KR font for consistent Korean and 
 
 Reusable content styles are available for `.wd-slide--content`, `.wd-slide-heading`, `.wd-slide-lead`, `.wd-content`, `.wd-columns`, `.wd-code`, `.wd-table`, and `.wd-caption`. A deck with one enabled slide automatically hides the progress rail and bottom navigation.
 
-05 이후 본문 강의는 [작성 하네스](../../lectures/authoring/README.md)의 `authoring.css`와 `.wd-lesson-*` 블록을 재사용합니다. `data-wd-authoring="v1"`으로 적용을 표시하며 `npm test`가 문체·정의 위계·HTML 기본값·불필요한 반복 영역을 함께 확인합니다.
+새 본문 작성은 [작성 지침](../../lectures/authoring/README.md)의 `authoring.css`와 `.wd-lesson-*` 블록을 재사용할 수 있습니다. 원본 포맷 변경에 이 블록의 내용 구조나 문체를 강제하지 않습니다. `data-wd-authoring="v1"`으로 적용을 표시하며 `npm test`가 문체·정의 위계·HTML 기본값·불필요한 반복 영역을 함께 확인합니다.
 
 현재 05회차는 React 기초·컴포넌트·JSX·상태·Hooks, 부록과 실습 안내로 구성한 65장 덱이며 공용 코드 블록은 41개입니다. [05회차 자료 안내](../../lectures/05/materials/README.md)에 원본 가져오기 예외와 생성·검증 명령을 기록합니다. 실제 발표·인쇄·모바일 배치와 React 예제 동작은 별도 브라우저 검사로 확인합니다.
+
+06회차는 05의 디자인·본문 정리 형식을 적용한 한영 27장 강의입니다. 제목·학습 내용·실습은 PDF를 따르고, 표지는 2026학년도 2학기·6주차입니다. `data-wd-source-elements`로 원문 요소를 연결하여 내용 대조와 05 형식 검사를 함께 수행합니다. 그림·코드·표는 먼저 추출하고 각 슬라이드에 맞게 배치합니다. [06회차 자료 안내](../../lectures/06/materials/README.md)에 생성·검증 경로가 있습니다.
 
 빌드 도구 없이 정적 HTML에서 사용하는 KO/EN 슬라이드 프레임워크입니다.
 

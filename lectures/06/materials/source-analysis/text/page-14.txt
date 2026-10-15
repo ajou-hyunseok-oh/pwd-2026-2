@@ -1,0 +1,26 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+REST API
+REST = REpresentational State Transfer
+
+ ●   리소스 중심의 HTTP 기반 아키텍처 스타일
+ ●   자원을 이름으로 구분하여 해당 자원의 상태를 주고받는 방식으로 개발
+ ●   구성 요소
+       ○   자원(Resource) : HTTP URI
+       ○   자원에 대한 행위(Verb) : HTTP Method
+       ○   자원에 대한 행위의 내용 (Representations) : HTTP Message Pay Load
+                                                                     ❌ 잘못된 예: GET /getUsers, POST /createUser
+
+REST API                                                             ✅ 올바른 예: GET /users, POST /users
+
+
+ ●   REST의 원리를 따르는 API
+ ●   표준 HTTP를 활용해 예측 및 확장 가능한 API 설계하는 것이 목표
+ ●   설계 원칙
+      ○   URL은 리소스를 나타냄 (동사X, 명사O)
+      ○   행동은 메서드로 표현
+      ○   무상태(Stateless): 각 요청은 독립적
+      ○   일관된 인터페이스: 예측 가능한 구조

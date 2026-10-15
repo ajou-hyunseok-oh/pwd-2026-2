@@ -1,0 +1,27 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+서버 개발 언어 별 비교
+               언어                      프레임워크                        장점                                  사용 사례
+
+     Node.js                 Express, NestJS, Fastify   빠른 I/O, 풀스택 JS                      실시간 앱, API 서버
+
+     Python                  FastAPI, Django, Flask     쉬운 문법, AI/ML                        데이터 분석, 웹 앱
+
+     Java                    Spring                     안정성, 대규모                            엔터프라이즈
+
+     PHP                     Laravel                    웹 특화, 호스팅                           CMS, 블로그
+
+
+용도에 따라
+ ●    프론트와 한 언어로 빠르게: Node.js
+ ●    데이터/AI와 붙는 API: Python
+ ●    금융/대기업 표준·복잡 도메인: Java 또는 .NET
+ ●    성능·배포 단순성(단일 바이너리): Go
+ ●    지속적 고성능·안전성: Rust
+ ●    콘텐츠·마케팅·백오피스 빨리: PHP / Ruby(Rails)
+
+
+                                                          https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/

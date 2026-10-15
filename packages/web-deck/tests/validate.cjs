@@ -58,7 +58,7 @@ for (let week = 1; week <= 13; week += 1) {
     const lectureContent = fs.readFileSync(lectureContentPath, 'utf8');
     vm.runInNewContext(lectureContent, sandbox);
     for (const [key, value] of Object.entries(sandbox.window.LECTURE_CONTENT.ko)) {
-      if (typeof value !== 'string' || codeKeys.has(key)) continue;
+      if (typeof value !== 'string' || codeKeys.has(key) || (/data-wd-source-elements=/.test(html) && key.startsWith('w6_p'))) continue;
       assert.doesNotMatch(
         value,
         politeKoreanEnding,
@@ -88,7 +88,10 @@ for (let week = 1; week <= 13; week += 1) {
 
   assert.match(html, /data-web-deck/, `Lecture ${number} is missing the deck root`);
   assert.match(html, /data-wd-slide="cover"/, `Lecture ${number} is missing its cover slide`);
-  const expectedSlideCount = { 1: 28, 2: 54, 3: 50, 4: 24, 5: 65 }[week] || 1;
+  const sourcePdfManifest = html.match(/data-wd-source-(?:pdf|elements)="([^"]+)"/)?.[1];
+  const expectedSlideCount = sourcePdfManifest
+    ? JSON.parse(fs.readFileSync(path.resolve(path.dirname(lecturePath), sourcePdfManifest), 'utf8')).page_count
+    : ({ 1: 28, 2: 54, 3: 50, 4: 24, 5: 65 }[week] || 1);
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);

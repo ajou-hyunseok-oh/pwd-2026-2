@@ -1,0 +1,24 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+Express 프로젝트 생성
+# Express 프로젝트 생성
+$ npm install express --save
+
+
+
+
+                                         express 실행 테스트(Hello World)
+my-express-app/                          const express = require('express')
+├── 📁 src/ # 소스 코드 (작성 필요)               const app = express()
+├── 📁 node_modules/ # 설치된 패키지들           const port = 3000
+├── 📄 package-lock.json # 실제 패키지 설치 정보   app.get('/', (req, res) => {
+├── 📄 package.json # 프로젝트 패키지 설정            res.send('Hello World!')
+└── 📄 server.js # 프로젝트 진입 (작성 필요)        })
+
+                                         app.listen(port, () => {
+                                            console.log(`Example app listening on port
+                                         ${port}`)
+                                         })

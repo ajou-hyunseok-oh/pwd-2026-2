@@ -1,0 +1,23 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+MVCS 패턴
+
+
+      ㅇmvcs-app/
+      ├── 📁 src/ # 소스 코드
+      │     ├── 📁 controllers/ # 컨트롤러
+      │     ├── 📁 db/ # 데이터베이스
+      │     ├── 📁 middleware/ # 미들웨어
+      │     ├── 📁 models/ # 모델
+      │     ├── 📁 routes/ # 라우트
+      │     ├── 📁 services/ # 서비스
+                  …
+      │     ├── 📄 app.js # express 시작
+
+
+
+
+                                  MVCS 패턴 적용 사례

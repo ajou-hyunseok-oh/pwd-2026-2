@@ -1,0 +1,28 @@
+/* The existing Week 05 authoring theme supplies typography, spacing and code. */
+.review-body { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); }
+.review-stack { display: grid; gap: 1.1rem; align-content: start; }
+.review-screen img { width: 100%; max-height: 17.6rem; object-fit: contain; }
+.review-screen a { display: block; }
+.review-screen figcaption { margin-top: .35rem; }
+.review-project .review-screen img { max-height: 10.5rem; }
+.review-project .wd-lesson-table { font-size: .77rem; }
+.review-project .wd-lesson-table :is(th, td) { padding: .38rem .5rem; }
+.review-project .wd-lesson-table th:first-child { width: 48%; }
+.review-routing .review-screen img { max-height: 17rem; }
+.review-routing .wd-lesson-table { font-size: .8rem; }
+.review-routing .wd-lesson-table :is(th, td) { padding: .4rem .5rem; }
+.review-form .review-stack { gap: .85rem; }
+.review-form .review-screen--submit-menu img { max-height: 9rem; }
+.review-form .review-screen--submit-success img { max-height: 11rem; }
+.review-service .wd-lesson-table { font-size: .8rem; }
+.review-service .wd-lesson-table :is(th, td) { padding: .45rem .5rem; }
+.review-server-data .review-body { grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); }
+.review-server-data .wd-lesson-table { font-size: .84rem; }
+.review-server-data .wd-lesson-table :is(th, td) { padding: .65rem .55rem; }
+.review-server-data .wd-lesson-table th:first-child { width: 23%; }
+@media screen and (max-width: 767px) {
+  .review-body, .review-server-data .review-body { grid-template-columns: 1fr; }
+  .review-screen img, .review-project .review-screen img, .review-routing .review-screen img { max-height: none; }
+  .review-form .review-screen--submit-menu img, .review-form .review-screen--submit-success img { max-height: none; }
+  .review-project .wd-lesson-table, .review-server-data .wd-lesson-table { font-size: .8rem; }
+}

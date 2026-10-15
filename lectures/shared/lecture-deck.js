@@ -7,7 +7,7 @@
     '03': { ko: 'JavaScript / TypeScript 기초', en: 'JavaScript / TypeScript Basics', dateKo: '2026. 09. 21. 월요일', dateEn: 'Monday, September 21, 2026' },
     '04': { ko: 'React 기초 / 웹 서비스 기획', en: 'React Basics / Web Service Planning', dateKo: '2026. 09. 28. 월요일', dateEn: 'Monday, September 28, 2026' },
     '05': { ko: 'React Framework의 이해', en: 'Understanding the React Framework', dateKo: '2026. 10. 12. 월요일', dateEn: 'Monday, October 12, 2026' },
-    '06': { ko: 'Backend + REST API', en: 'Backend & REST APIs', dateKo: '2026. 10. 19. 월요일', dateEn: 'Monday, October 19, 2026' },
+    '06': { ko: 'Node.js Express 프레임워크를 이용한 웹 서버 개발', en: 'Web Server Development with Node.js and Express', dateKo: '2026. 10. 19. 월요일', dateEn: 'Monday, October 19, 2026' },
     '07': { ko: 'Database + Authentication', en: 'Database & Authentication', dateKo: '2026. 11. 02. 월요일', dateEn: 'Monday, November 2, 2026' },
     '08': { ko: 'Full Stack Integration', en: 'Full Stack Integration', dateKo: '2026. 11. 09. 월요일', dateEn: 'Monday, November 9, 2026' },
     '09': { ko: 'Deployment', en: 'Deployment', dateKo: '2026. 11. 16. 월요일', dateEn: 'Monday, November 16, 2026' },
@@ -27,7 +27,7 @@
     brand: '실전 웹 서비스 개발 · 2026년 2학기',
     brandKey: 'course_title',
     homeHref: '../../',
-    locales: ['ko', 'en'],
+    locales: document.body.getAttribute('data-content-language') === 'ko' ? ['ko'] : ['ko', 'en'],
     defaultLocale: 'ko',
     storageKey: 'pwd.webDeck.language',
     messages: {

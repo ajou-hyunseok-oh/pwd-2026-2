@@ -1,18 +1,286 @@
 <!doctype html>
 <html class="wd-page" lang="ko">
-  <head>
-    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title data-wd-i18n="page_title">06 | Backend + REST API</title><link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
-  </head>
-  <body class="wd-page-body" data-lecture="06">
-    <main class="wd-deck" data-web-deck><div class="wd-viewport" data-wd-viewport><div class="wd-stage" data-wd-stage>
-      <section class="wd-slide wd-slide--cover is-active" data-wd-slide="cover" role="region">
-        <div class="wd-cover-grid"><div><p class="wd-cover-kicker">LECTURE 06</p><h1 class="wd-cover-title" data-wd-i18n="lecture_title">Backend + REST API</h1><p class="wd-cover-course" data-wd-i18n="course">실전 웹서비스 개발 · 2026년 2학기</p></div><aside class="wd-placeholder"><strong class="wd-placeholder__label" data-wd-i18n="status">강의 자료 준비 중</strong><p data-wd-i18n="status_detail">자료 수집이 완료되면 이 골격에 슬라이드를 추가합니다.</p></aside></div>
-        <footer class="wd-slide-footer"><span data-wd-i18n="lecture_date">2026. 10. 19. 월요일</span><span>16:30–19:30</span><span>06 / 13</span></footer>
-      </section>
-    </div></div></main>
-    <script src="../shared/lecture-deck.js"></script>
-    <script src="../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
-    <script src="../../packages/web-deck/web-deck.js"></script>
-  </body>
-</html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title data-wd-i18n="page_title">06 | Node.js Express 프레임워크를 이용한 웹 서버 개발</title>
+<link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
+<link rel="stylesheet" href="../../packages/web-deck/authoring.css">
+<link rel="stylesheet" href="lecture.css">
+</head>
+<body class="wd-page-body" data-lecture="06">
+<main class="wd-deck" data-web-deck data-wd-authoring="v1" data-wd-format="week-05" data-wd-source-elements="materials/elements/manifest.json"><div class="wd-viewport" data-wd-viewport><div class="wd-stage" data-wd-stage>
+<section class="wd-slide wd-lesson-slide wd-lesson-cover is-active" data-wd-slide="cover" data-source-page="1" data-wd-cover="weekly" role="region">
+<div class="wd-lesson-cover__content">
+<p class="wd-lesson-cover__eyebrow" data-wd-i18n="w6_cover_eyebrow">2026학년도 2학기 실전웹서비스개발</p>
+<h1 class="wd-lesson-title" data-wd-i18n="w6_cover_title">실전 웹서비스개발 – 6주차</h1>
+<p class="wd-lesson-cover__subtitle" data-wd-i18n="w6_p01_u01" data-source-unit="p01-u01">Node.js Express 프레임워크를 이용한 웹 서버 개발</p>
+</div>
+<p class="wd-lesson-source">LECTURE 06</p>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=1
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-02" data-source-page="2" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_2">학습 목표</h2>
+<div class="wd-lesson-body wd-lesson-body--single"><div class="wd-lesson-block"><ul class="wd-source-list"><li data-wd-i18n="w6_p02_u01" data-source-unit="p02-u01">서버 개발과 Node.js</li><li data-wd-i18n="w6_p02_u02" data-source-unit="p02-u02">Node.js와 </li><li data-wd-i18n="w6_p02_u03" data-source-unit="p02-u03">REST API 설계 원칙과 구현 방법</li><li data-wd-i18n="w6_p02_u04" data-source-unit="p02-u04">서버 아키텍처 설계(MVC / MVCS 패턴)</li><li data-wd-i18n="w6_p02_u05" data-source-unit="p02-u05">TDD(Test Driven Development)</li></ul></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=2
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-03" data-source-page="3" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="w6_chapter_3">01</p>
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_3">서버와 Node.js</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=3
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-04" data-source-page="4" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_4">웹서비스의 구조</h2>
+<div class="wd-lesson-body wd-lesson-body--webservice"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p04_u01" data-source-unit="p04-u01">클라이언트-서버 모델 : 클라이언트와 서버 간의 요청(request)과 응답(response)을 통해 데이터를 주고받는 구조</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p04_u02" data-source-unit="p04-u02">클라이언트: 브라우저, 모바일 앱, 또는 다른 서버</li><li class="wd-source-subpoint" data-source-unit="p04-u03"><strong data-wd-i18n="w6_p04_u03_term">서버:</strong><span data-wd-i18n="w6_p04_u03_detail"> 요청을 처리하고 적절한 응답을 반환하는 역할</span></li></ul></dd></div></dl><ul class="wd-source-list"><li data-source-unit="p04-u04"><strong data-wd-i18n="w6_p04_u04_term">네트워크:</strong><span data-wd-i18n="w6_p04_u04_detail"> 클라이언트와 서버 간의 데이터를 전송하는 매개체(World Wide Web)</span></li></ul><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p04_u05" data-source-unit="p04-u05">프로토콜</strong></dt><dd><ul><li class="wd-source-subpoint" data-source-unit="p04-u06"><strong data-wd-i18n="w6_p04_u06_term">HTTP/HTTPS:</strong><span data-wd-i18n="w6_p04_u06_detail"> 웹 브라우저와 서버 간의 데이터 통신 규약. HTTPS는 HTTP에 SSL/TLS를 추가하여 보안을 강화한 프로토콜.</span></li><li class="wd-source-subpoint" data-source-unit="p04-u07"><strong data-wd-i18n="w6_p04_u07_term">REST:</strong><span data-wd-i18n="w6_p04_u07_detail"> Representational State Transfer의 약자로, HTTP 프로토콜을 기반으로 하는 아키텍처 스타일. RESTful 서비스는 URL을 통해 리소스를 식별하고, HTTP 요청(GET, POST, PUT, DELETE)을 사용하여 리소스를 조작.</span></li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p04_u08" data-source-unit="p04-u08">데이터 형식</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p04_u09" data-source-unit="p04-u09">JSON (JavaScript Object Notation)</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/webservice-diagram.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/webservice-diagram.png" alt="클라이언트·서버·요청·응답·네트워크·JSON 원본 구조도" data-wd-i18n-alt="w6_asset_webservice_diagram" data-source-asset="webservice-diagram"></a></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=4
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-05" data-source-page="5" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_5">서버의 역할</h2>
+<div class="wd-lesson-body wd-lesson-body--roles"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p05_u01" data-source-unit="p05-u01">클라이언트 요청 수신</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p05_u02" data-source-unit="p05-u02">HTTP 요청(URI·메서드·헤더/바디)을 받아 라우팅 규칙에 맞는 핸들러로 전달</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p05_u03" data-source-unit="p05-u03">데이터 처리 및 계산</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p05_u04" data-source-unit="p05-u04">입력을 검증하고 비즈니스 로직을 수행하며 필요 시 연산·외부 API 호출을 실행</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p05_u05" data-source-unit="p05-u05">DB와 통신</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p05_u06" data-source-unit="p05-u06">CRUD 쿼리로 영속 데이터를 조회·저장·수정·삭제</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p05_u07" data-source-unit="p05-u07">처리 결과 반환</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p05_u08" data-source-unit="p05-u08">상태코드·헤더를 설정하고 결과를 JSON/HTML/파일 등으로 직렬화해 응답</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p05_u09" data-source-unit="p05-u09">인증/인가 처리</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p05_u10" data-source-unit="p05-u10">사용자 신원을 확인(인증)하고 권한을 검사해 자원 접근을 허용/차단</li></ul></dd></div></dl></div></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=5
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-06" data-source-page="6" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_6">서버 개발 언어 별 비교</h2>
+<div class="wd-lesson-body wd-lesson-body--comparison"><div class="wd-lesson-block"><table class="wd-lesson-table" data-source-table="table-06"><thead><tr><th data-wd-i18n="w6_table_6_0_0">언어</th><th data-wd-i18n="w6_table_6_0_1">프레임워크</th><th data-wd-i18n="w6_table_6_0_2">장점</th><th data-wd-i18n="w6_table_6_0_3">사용 사례</th></tr></thead><tbody><tr><th data-wd-i18n="w6_table_6_1_0">Node.js</th><td data-wd-i18n="w6_table_6_1_1">Express, NestJS, Fastify</td><td data-wd-i18n="w6_table_6_1_2">빠른 I/O, 풀스택 JS</td><td data-wd-i18n="w6_table_6_1_3">실시간 앱, API 서버</td></tr><tr><th data-wd-i18n="w6_table_6_2_0">Python</th><td data-wd-i18n="w6_table_6_2_1">FastAPI, Django, Flask</td><td data-wd-i18n="w6_table_6_2_2">쉬운 문법, AI/ML</td><td data-wd-i18n="w6_table_6_2_3">데이터 분석, 웹 앱</td></tr><tr><th data-wd-i18n="w6_table_6_3_0">Java</th><td data-wd-i18n="w6_table_6_3_1">Spring</td><td data-wd-i18n="w6_table_6_3_2">안정성, 대규모</td><td data-wd-i18n="w6_table_6_3_3">엔터프라이즈</td></tr><tr><th data-wd-i18n="w6_table_6_4_0">PHP</th><td data-wd-i18n="w6_table_6_4_1">Laravel</td><td data-wd-i18n="w6_table_6_4_2">웹 특화, 호스팅</td><td data-wd-i18n="w6_table_6_4_3">CMS, 블로그</td></tr></tbody></table></div><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p06_u01" data-source-unit="p06-u01">용도에 따라</strong></dt><dd><ul><li data-source-unit="p06-u02"><strong data-wd-i18n="w6_p06_u02_term">프론트와 한 언어로 빠르게:</strong><span data-wd-i18n="w6_p06_u02_detail"> Node.js</span></li><li data-source-unit="p06-u03"><strong data-wd-i18n="w6_p06_u03_term">데이터/AI와 붙는 API:</strong><span data-wd-i18n="w6_p06_u03_detail"> Python</span></li><li data-source-unit="p06-u04"><strong data-wd-i18n="w6_p06_u04_term">금융/대기업 표준·복잡 도메인:</strong><span data-wd-i18n="w6_p06_u04_detail"> Java 또는 .NET</span></li><li data-source-unit="p06-u05"><strong data-wd-i18n="w6_p06_u05_term">성능·배포 단순성(단일 바이너리):</strong><span data-wd-i18n="w6_p06_u05_detail"> Go</span></li><li data-source-unit="p06-u06"><strong data-wd-i18n="w6_p06_u06_term">지속적 고성능·안전성:</strong><span data-wd-i18n="w6_p06_u06_detail"> Rust</span></li><li data-source-unit="p06-u07"><strong data-wd-i18n="w6_p06_u07_term">콘텐츠·마케팅·백오피스 빨리:</strong><span data-wd-i18n="w6_p06_u07_detail"> PHP / Ruby(Rails)</span></li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/backend-ranking-2025.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/backend-ranking-2025.png" alt="Jan-2025 백엔드 프레임워크 비교 그래프" data-wd-i18n-alt="w6_asset_backend_ranking_2025" data-source-asset="backend-ranking-2025"></a><figcaption data-source-unit="p06-u08"><a class="wd-source-anchor" data-wd-i18n="w6_p06_u08_link" href="https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/" target="_blank" rel="noopener noreferrer" data-source-link="https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/">https://statisticsanddata.org/data/most-popular-backend-frameworks-2012-2025/</a></figcaption></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=6
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-07" data-source-page="7" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_7">Node.js</h2>
+<div class="wd-lesson-body wd-lesson-body--node-intro"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p07_u01" data-source-unit="p07-u01">Node.js</strong></dt><dd><ul><li data-wd-i18n="w6_p07_u02" data-source-unit="p07-u02">Node.js는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임 환경</li><li data-wd-i18n="w6_p07_u03" data-source-unit="p07-u03">웹 브라우저 밖에서도 JavaScript를 실행할 수 있게 해주는 프로그램</li></ul></dd></div></dl><p class="wd-source-heading" data-wd-i18n="w6_p07_u04" data-source-unit="p07-u04">특징</p><div class="wd-lesson-stack node-features"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p07_u05" data-source-unit="p07-u05">1. JavaScript 런타임</strong></dt><dd><ul><li data-wd-i18n="w6_p07_u06" data-source-unit="p07-u06">브라우저가 없어도 컴퓨터에서 JavaScript 실행 가능</li><li data-wd-i18n="w6_p07_u07" data-source-unit="p07-u07">서버 프로그래밍, 데스크톱 앱, 명령줄 도구 개발 가능</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p07_u08" data-source-unit="p07-u08">2. 비동기 I/O (Non-blocking)</strong></dt><dd><ul><li data-wd-i18n="w6_p07_u09" data-source-unit="p07-u09">동시에 여러 작업 처리 가능</li><li data-wd-i18n="w6_p07_u10" data-source-unit="p07-u10">한 작업이 끝날 때까지 기다리지 않고 다른 작업 진행</li><li data-wd-i18n="w6_p07_u11" data-source-unit="p07-u11">높은 성능과 효율성</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p07_u12" data-source-unit="p07-u12">3. 단일 스레드 이벤트 루프</strong></dt><dd><ul><li data-wd-i18n="w6_p07_u13" data-source-unit="p07-u13">하나의 스레드로 많은 연결을 효율적으로 처리</li><li data-wd-i18n="w6_p07_u14" data-source-unit="p07-u14">메모리 사용량이 적음</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p07_u15" data-source-unit="p07-u15">4. NPM 생태계</strong></dt><dd><ul><li data-wd-i18n="w6_p07_u16" data-source-unit="p07-u16">세계 최대 오픈소스 라이브러리 생태계</li><li data-wd-i18n="w6_p07_u17" data-source-unit="p07-u17">100만개 이상의 패키지 사용 가능</li></ul></dd></div></dl></div></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/node-homepage-2025.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/node-homepage-2025.png" alt="Node.js 소개 홈페이지 원본 화면" data-wd-i18n-alt="w6_asset_node_homepage_2025" data-source-asset="node-homepage-2025"></a></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=7
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-08" data-source-page="8" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_8">Node.js</h2>
+<div class="wd-lesson-body wd-lesson-body--engine"><div class="wd-lesson-block"><div class="wd-lesson-stack "><ul class="wd-source-list"><li data-wd-i18n="w6_p08_u01" data-source-unit="p08-u01">고성능의 비동기 애플리케이션 작성을 위한 JavaScript 엔진</li><li data-source-unit="p08-u02"><span data-wd-i18n="w6_p08_u02_before">Ryan Dahl이 최초 작성 후 2009년 5월 27일 처음 공개된 오픈소스 프로젝트  </span><a class="wd-source-anchor" data-wd-i18n="w6_p08_u02_link" href="https://github.com/nodejs/node" target="_blank" rel="noopener noreferrer" data-source-link="https://github.com/nodejs/node">https://github.com/nodejs/node</a></li><li data-wd-i18n="w6_p08_u03" data-source-unit="p08-u03">V8 엔진의 JIT(Just-In-Time) 컴파일을 쓰는 하이브리드(인터프리터+컴파일러) 런타임</li></ul><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p08_u04" data-source-unit="p08-u04">V8 엔진</strong></dt><dd><ul><li data-wd-i18n="w6_p08_u05" data-source-unit="p08-u05">구글에서 C++ 만든 오픈소스 자바스크립트/웹어셈블리 엔진</li><li data-wd-i18n="w6_p08_u06" data-source-unit="p08-u06">JavaScript 코드를 4단 구조로 빠르게 실행</li><li class="wd-source-subpoint" data-wd-i18n="w6_p08_u07" data-source-unit="p08-u07">파싱→바이트코드→JIT 컴파일→실행</li><li class="wd-source-subpoint" data-wd-i18n="w6_p08_u08" data-source-unit="p08-u08">인터프리터처럼 바로 시작해서 초기 응답이 빠름</li><li class="wd-source-subpoint" data-wd-i18n="w6_p08_u09" data-source-unit="p08-u09">자주 사용되는 코드를 네이티브 코드로 즉석 컴파일 함</li><li data-wd-i18n="w6_p08_u10" data-source-unit="p08-u10">Chrome/Edge(Chromium 계열) 브라우저, Node.js</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p08_u11" data-source-unit="p08-u11">Chromium </strong></dt><dd><ul><li data-source-unit="p08-u12"><span data-wd-i18n="w6_p08_u12_before">Google이 주도하는 오픈소스 웹브라우저 프로젝트  </span><a class="wd-source-anchor" data-wd-i18n="w6_p08_u12_link" href="https://blog.chromium.org/" target="_blank" rel="noopener noreferrer" data-source-link="https://blog.chromium.org/">https://blog.chromium.org/</a></li><li data-wd-i18n="w6_p08_u13" data-source-unit="p08-u13">최근 공개된 많은 브라우저들이 Chromium을 기반으로 개발 됨</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><div class="wd-lesson-stack "><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/rocket-turtle-illustration.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/rocket-turtle-illustration.png" alt="원본의 로켓을 탄 거북이 삽화" data-wd-i18n-alt="w6_asset_rocket_turtle_illustration" data-source-asset="rocket-turtle-illustration"></a></figure><figure class="wd-lesson-figure "><img class="" src="materials/elements/images/nodejs-logo.png" alt="Node.js 로고" data-wd-i18n-alt="w6_asset_nodejs_logo" data-source-asset="nodejs-logo"></figure></div></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=8
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-09" data-source-page="9" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="w6_chapter_9">02</p>
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_9">서버 개발 핵심 개념</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=9
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-10" data-source-page="10" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_10">HTTP/HTTPS</h2>
+<div class="wd-lesson-body wd-lesson-body--http"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p10_u01" data-source-unit="p10-u01">HTTP = HyperText Transfer Protocol</strong></dt><dd><ul><li data-wd-i18n="w6_p10_u02" data-source-unit="p10-u02">하이퍼텍스트를 빠르게 교환하기 위한 프로토콜</li><li data-wd-i18n="w6_p10_u03" data-source-unit="p10-u03">서버와 클라이언트의 사이에서 어떻게 메시지를 교환할지를 정해 놓은 규칙</li><li data-wd-i18n="w6_p10_u04" data-source-unit="p10-u04">각 HTTP 요청을 독립적으로 처리 이전 요청의 정보를 연결·기억하지 않음(Stateless: 무상태)</li><li data-wd-i18n="w6_p10_u05" data-source-unit="p10-u05">필요한 맥락은 매 요청마다 함께 전송</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p10_u06" data-source-unit="p10-u06">특징</strong></dt><dd><ul><li class="wd-source-subpoint" data-source-unit="p10-u07"><strong data-wd-i18n="w6_p10_u07_term">확장성:</strong><span data-wd-i18n="w6_p10_u07_detail"> 어떤 요청이든 아무 서버가 처리 가능.</span></li><li class="wd-source-subpoint" data-source-unit="p10-u08"><strong data-wd-i18n="w6_p10_u08_term">장애 격리:</strong><span data-wd-i18n="w6_p10_u08_detail"> 한 서버가 내려가도 세션 날아가지 않음.</span></li><li class="wd-source-subpoint" data-wd-i18n="w6_p10_u09" data-source-unit="p10-u09">같은 요청을 다른 서버가 받아도 결과 동일</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p10_u10" data-source-unit="p10-u10">HTTPS = HyperText Transfer Protocol Secure</strong></dt><dd><ul><li data-wd-i18n="w6_p10_u11" data-source-unit="p10-u11">웹 브라우저와 웹사이트 간의 데이터 통신을 암호화하여 보안을 강화한 프로토콜</li><li data-wd-i18n="w6_p10_u12" data-source-unit="p10-u12">HTTP가 데이터를 암호화하지 않고 전송하여 해킹에 취약했던 문제를 해결하기 위해 개발</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/http-exchange.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/http-exchange.png" alt="원본 Request·Response 구성 요소 비교" data-wd-i18n-alt="w6_asset_http_exchange" data-source-asset="http-exchange"></a></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=10
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-11" data-source-page="11" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_11">HTTP 요청(Request) 구조</h2>
+<div class="wd-lesson-body wd-lesson-body--request"><div class="wd-lesson-block"><pre class="wd-code" data-wd-i18n="w6_code_http_request" data-wd-code="text" data-wd-preserve-code data-source-code="http-request">POST /api/users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+Authorization: Bearer token123
+
+{
+  &quot;name&quot;: &quot;홍길동&quot;,
+  &quot;email&quot;: &quot;hong@example.com&quot;
+}</pre></div><div class="wd-lesson-block"><table class="wd-lesson-table" data-source-table="table-11"><thead><tr><th data-wd-i18n="w6_table_11_0_0">구성 요소</th><th data-wd-i18n="w6_table_11_0_1">설명</th><th data-wd-i18n="w6_table_11_0_2">예시</th></tr></thead><tbody><tr><th data-wd-i18n="w6_table_11_1_0">Method</th><td data-wd-i18n="w6_table_11_1_1">요청 종류</td><td data-wd-i18n="w6_table_11_1_2">GET, POST, PUT, DELETE</td></tr><tr><th data-wd-i18n="w6_table_11_2_0">URL</th><td data-wd-i18n="w6_table_11_2_1">요청 경로</td><td data-wd-i18n="w6_table_11_2_2">/api/users</td></tr><tr><th data-wd-i18n="w6_table_11_3_0">Headers</th><td data-wd-i18n="w6_table_11_3_1">부가 정보</td><td data-wd-i18n="w6_table_11_3_2">Content-Type, Authorization</td></tr><tr><th data-wd-i18n="w6_table_11_4_0">Body</th><td data-wd-i18n="w6_table_11_4_1">전송 데이터</td><td data-wd-i18n="w6_table_11_4_2">JSON, Form Data</td></tr></tbody></table></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=11
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-12" data-source-page="12" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_12">HTTP 응답(Response) 구조</h2>
+<div class="wd-lesson-body wd-lesson-body--response"><div class="wd-lesson-block"><pre class="wd-code" data-wd-i18n="w6_code_http_response" data-wd-code="text" data-wd-preserve-code data-source-code="http-response">HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;사용자가 생성되었습니다&quot;,
+  &quot;data&quot;: {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;홍길동&quot;
+  }
+}</pre></div><div class="wd-lesson-block"><p class="wd-source-heading" data-wd-i18n="w6_p12_u01" data-source-unit="p12-u01">주요 상태 코드</p><table class="wd-lesson-table wd-status-table"><thead><tr><th data-wd-i18n="w6_p12_u02" data-source-unit="p12-u02">2xx 성공</th><th data-wd-i18n="w6_p12_u05" data-source-unit="p12-u05">4xx 클라이언트 오류</th><th data-wd-i18n="w6_p12_u08" data-source-unit="p12-u08">5xx 서버 오류</th></tr></thead><tbody><tr><td><p data-wd-i18n="w6_p12_u03" data-source-unit="p12-u03">200 OK</p><p data-wd-i18n="w6_p12_u04" data-source-unit="p12-u04">201 Created</p></td><td><p data-wd-i18n="w6_p12_u06" data-source-unit="p12-u06">400 Bad Request</p><p data-wd-i18n="w6_p12_u07" data-source-unit="p12-u07">404 Not Found</p></td><td><p data-wd-i18n="w6_p12_u09" data-source-unit="p12-u09">500 Server Error</p><p data-wd-i18n="w6_p12_u10" data-source-unit="p12-u10">503 Service Unavailable</p></td></tr></tbody></table></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=12
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-13" data-source-page="13" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_13">JSON</h2>
+<div class="wd-lesson-body wd-lesson-body--json"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p13_u01" data-source-unit="p13-u01">JSON = JavaScript Object Notation</strong></dt><dd><ul><li data-wd-i18n="w6_p13_u02" data-source-unit="p13-u02">서버와 클라이언트 간 데이터를 주고받는 데이터 직렬화 형식</li><li data-wd-i18n="w6_p13_u03" data-source-unit="p13-u03">사람이 읽기 쉬운 텍스트</li><li data-wd-i18n="w6_p13_u04" data-source-unit="p13-u04">기계가 파싱 쉬움</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p13_u05" data-source-unit="p13-u05">JSON 규칙</strong></dt><dd><ul><li data-source-unit="p13-u06"><strong data-wd-i18n="w6_p13_u06_term">값 타입 6개:</strong><span data-wd-i18n="w6_p13_u06_detail"> string, number, boolean, null, object, array</span></li><li data-wd-i18n="w6_p13_u07" data-source-unit="p13-u07">문자열은 반드시 쌍따옴표 &quot;...&quot; (홑따옴표 X)</li><li data-wd-i18n="w6_p13_u08" data-source-unit="p13-u08">주석 없음(//, /* */ 모두 금지)</li><li data-wd-i18n="w6_p13_u09" data-source-unit="p13-u09">마지막 요소 뒤 쉼표 금지(trailing comma X)</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><div class="wd-lesson-stack "><pre class="wd-code" data-wd-i18n="w6_code_json_object" data-wd-code="json" data-wd-preserve-code data-source-code="json-object">{
+  &quot;name&quot;: &quot;홍길동&quot;,
+  &quot;age&quot;: 25,
+  &quot;isStudent&quot;: true,
+  &quot;courses&quot;: [&quot;웹개발&quot;, &quot;데이터베이스&quot;],
+  &quot;address&quot;: {
+    &quot;city&quot;: &quot;서울&quot;,
+    &quot;zip&quot;: &quot;12345&quot;
+  }
+}</pre><div class="wd-source-code-heading"><p class="wd-lesson-code-label" data-wd-i18n="w6_p13_u11" data-source-unit="p13-u11">JaveScript JSON 파싱과 직렬화</p></div><pre class="wd-code" data-wd-i18n="w6_code_json_transform" data-wd-code="javascript" data-wd-preserve-code data-source-code="json-transform">// Parse (문자열 → 값)
+const obj = JSON.parse(jsonString);
+
+// Stringify (값 → 문자열)
+const s = JSON.stringify(obj, null, 2);
+
+// Replacer로 필드 필터/정렬
+const s2 = JSON.stringify(obj, [&quot;id&quot;, &quot;title&quot;], 2);</pre></div></div><div class="wd-lesson-block"><p class="wd-source-link" data-source-unit="p13-u10"><a class="wd-source-anchor" data-wd-i18n="w6_p13_u10_link" href="https://jsonlint.com/" target="_blank" rel="noopener noreferrer" data-source-link="https://jsonlint.com/">JSON Online Validator and Formatter - JSON Lint (실데이터, 프러덕션 JSON 데이터 사용 금지)</a></p></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=13
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-14" data-source-page="14" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_14">REST API</h2>
+<div class="wd-lesson-body wd-lesson-body--rest"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p14_u01" data-source-unit="p14-u01">REST = REpresentational State Transfer</strong></dt><dd><ul><li data-wd-i18n="w6_p14_u02" data-source-unit="p14-u02">리소스 중심의 HTTP 기반 아키텍처 스타일</li><li data-wd-i18n="w6_p14_u03" data-source-unit="p14-u03">자원을 이름으로 구분하여 해당 자원의 상태를 주고받는 방식으로 개발</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p14_u04" data-source-unit="p14-u04">구성 요소</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p14_u05" data-source-unit="p14-u05">자원(Resource) : HTTP URI</li><li class="wd-source-subpoint" data-wd-i18n="w6_p14_u06" data-source-unit="p14-u06">자원에 대한 행위(Verb) : HTTP Method</li><li class="wd-source-subpoint" data-wd-i18n="w6_p14_u07" data-source-unit="p14-u07">자원에 대한 행위의 내용 (Representations) : HTTP Message Pay Load</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p14_u08" data-source-unit="p14-u08">REST API</strong></dt><dd><ul><li data-wd-i18n="w6_p14_u09" data-source-unit="p14-u09">REST의 원리를 따르는 API</li><li data-wd-i18n="w6_p14_u10" data-source-unit="p14-u10">표준 HTTP를 활용해 예측 및 확장 가능한 API 설계하는 것이 목표</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p14_u11" data-source-unit="p14-u11">설계 원칙</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p14_u12" data-source-unit="p14-u12">URL은 리소스를 나타냄 (동사X, 명사O)</li><li class="wd-source-subpoint" data-wd-i18n="w6_p14_u13" data-source-unit="p14-u13">행동은 메서드로 표현</li><li class="wd-source-subpoint" data-wd-i18n="w6_p14_u14" data-source-unit="p14-u14">무상태(Stateless): 각 요청은 독립적</li><li class="wd-source-subpoint" data-wd-i18n="w6_p14_u15" data-source-unit="p14-u15">일관된 인터페이스: 예측 가능한 구조</li></ul></dd></div></dl><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/rest-examples.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/rest-examples.png" alt="원본의 잘못된 REST 경로와 올바른 경로 예시" data-wd-i18n-alt="w6_asset_rest_examples" data-source-asset="rest-examples"></a></figure></div></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=14
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-15" data-source-page="15" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_15">라우팅(Routing)</h2>
+<div class="wd-lesson-body wd-lesson-body--routing"><div class="wd-lesson-block"><div class="wd-lesson-stack "><ul class="wd-source-list"><li data-wd-i18n="w6_p15_u01" data-source-unit="p15-u01">서버가 받은 요청을 실제 처리할 핸들러 함수에 연결하는 과정</li><li data-wd-i18n="w6_p15_u02" data-source-unit="p15-u02">형식 키: 메서드(GET/POST/…), 경로(/users/:id)</li><li data-wd-i18n="w6_p15_u03" data-source-unit="p15-u03">서버 프레임워크가 라우팅 테이블을 만들어 실행</li></ul><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p15_u04" data-source-unit="p15-u04">멱등성(Idempotency)</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p15_u05" data-source-unit="p15-u05">GET, PUT, DELETE는 여러 번 실행해도 결과가 같아야 함</li><li class="wd-source-subpoint" data-wd-i18n="w6_p15_u06" data-source-unit="p15-u06">타임아웃·중복전송이 일어나도 중복 생성/결제를 막아야 됨</li><li class="wd-source-subpoint" data-wd-i18n="w6_p15_u07" data-source-unit="p15-u07">큐/리트라이(적어도 한 번 전달) 환경에서 중복 처리 방지</li><li class="wd-source-subpoint" data-wd-i18n="w6_p15_u08" data-source-unit="p15-u08">멱등한 요청은 안전하게 캐시·재전송 가능</li><li class="wd-source-subpoint" data-wd-i18n="w6_p15_u09" data-source-unit="p15-u09">롤백/재처리가 쉽게(운영/장애 대응)</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><table class="wd-lesson-table" data-source-table="table-15"><thead><tr><th data-wd-i18n="w6_table_15_0_0">HTTP Method</th><th data-wd-i18n="w6_table_15_0_1">CRUD</th><th data-wd-i18n="w6_table_15_0_2">설명</th><th data-wd-i18n="w6_table_15_0_3">예시</th></tr></thead><tbody><tr><th data-wd-i18n="w6_table_15_1_0">GET</th><td data-wd-i18n="w6_table_15_1_1">Read</td><td data-wd-i18n="w6_table_15_1_2">리소스 조회</td><td data-wd-i18n="w6_table_15_1_3">GET /users (모든 사용자)
+GET /users/1 (특정 사용자)</td></tr><tr><th data-wd-i18n="w6_table_15_2_0">POST</th><td data-wd-i18n="w6_table_15_2_1">Create</td><td data-wd-i18n="w6_table_15_2_2">리소스 생성</td><td data-wd-i18n="w6_table_15_2_3">POST /users (새 사용자 생성)</td></tr><tr><th data-wd-i18n="w6_table_15_3_0">PUT</th><td data-wd-i18n="w6_table_15_3_1">Update</td><td data-wd-i18n="w6_table_15_3_2">리소스 수정</td><td data-wd-i18n="w6_table_15_3_3">PUT /users/1 (사용자 정보 수정)</td></tr><tr><th data-wd-i18n="w6_table_15_4_0">DELETE</th><td data-wd-i18n="w6_table_15_4_1">Delete</td><td data-wd-i18n="w6_table_15_4_2">리소스 삭제</td><td data-wd-i18n="w6_table_15_4_3">DELETE /users/1 (사용자 삭제)</td></tr></tbody></table></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=15
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-16" data-source-page="16" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_16">미들웨어</h2>
+<p class="wd-slide-lead" data-wd-i18n="w6_p16_u01" data-source-unit="p16-u01">공통 로직을 앞단에서 처리해 라우트의 책임을 최소화하는 요청‒응답 파이프라인의 블록</p>
+<div class="wd-lesson-body wd-lesson-body--middleware"><div class="wd-lesson-block"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p16_u02" data-source-unit="p16-u02">효과</strong></dt><dd><ul><li data-source-unit="p16-u03"><strong data-wd-i18n="w6_p16_u03_term">책임 최소화:</strong><span data-wd-i18n="w6_p16_u03_detail"> 라우트는 입력 수집 → 서비스 호출 → 응답만 담당.</span></li><li data-source-unit="p16-u04"><strong data-wd-i18n="w6_p16_u04_term">일관성:</strong><span data-wd-i18n="w6_p16_u04_detail"> 인증/검증/에러 포맷을 한 곳에서 통일.</span></li><li data-source-unit="p16-u05"><strong data-wd-i18n="w6_p16_u05_term">재사용성:</strong><span data-wd-i18n="w6_p16_u05_detail"> 같은 규칙을 여러 라우트에 간단히 붙임.</span></li><li data-source-unit="p16-u06"><strong data-wd-i18n="w6_p16_u06_term">테스트 용이성:</strong><span data-wd-i18n="w6_p16_u06_detail"> 공통 로직을 독립적으로 단위 테스트.</span></li><li data-source-unit="p16-u07"><strong data-wd-i18n="w6_p16_u07_term">보안·품질 향상:</strong><span data-wd-i18n="w6_p16_u07_detail"> Helmet, CORS, Rate Limit 등 기본 방어막을 전역 적용.</span></li><li data-source-unit="p16-u08"><strong data-wd-i18n="w6_p16_u08_term">가독성:</strong><span data-wd-i18n="w6_p16_u08_detail"> 코드가 “파이프라인(흐름)”처럼 읽힘.</span></li></ul></dd></div></dl></div><div class="wd-lesson-block"><pre class="wd-code" data-wd-i18n="w6_code_middleware_code" data-wd-code="javascript" data-wd-preserve-code data-source-code="middleware-code">// 미들웨어 예시
+app.use((req, res, next) =&gt; {
+    console.log(`${req.method} ${req.url}`); // 로깅
+    next(); // 다음 미들웨어로 이동
+});</pre></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/middleware-pipeline.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/middleware-pipeline.png" alt="요청에서 로깅·인증·파싱 미들웨어를 거쳐 라우트 핸들러로 가는 원본 흐름" data-wd-i18n-alt="w6_asset_middleware_pipeline" data-source-asset="middleware-pipeline"></a></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=16
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-17" data-source-page="17" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_17">MVC 패턴</h2>
+<div class="wd-lesson-body wd-lesson-body--mvc"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p17_u01" data-source-unit="p17-u01">Model</strong></dt><dd><ul><li data-wd-i18n="w6_p17_u02" data-source-unit="p17-u02">앱의 데이터 구조와 규칙. 스키마, 검증, DB 접근</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p17_u03" data-source-unit="p17-u03">View</strong></dt><dd><ul><li data-wd-i18n="w6_p17_u04" data-source-unit="p17-u04">사용자에게 보여줄 화면 또는 데이터. EJS/React/JSON 등 표현</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p17_u05" data-source-unit="p17-u05">Controller</strong></dt><dd><ul><li data-wd-i18n="w6_p17_u06" data-source-unit="p17-u06">요청을 받아 Model에 일 시키고, 결과를 View 또는 JSON으로 응답</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p17_u07" data-source-unit="p17-u07">장점</strong></dt><dd><ul><li data-wd-i18n="w6_p17_u08" data-source-unit="p17-u08">역할 분리로 변경 용이</li><li data-wd-i18n="w6_p17_u09" data-source-unit="p17-u09">테스트/재사용 용이(서비스/모델 단위 테스트)</li><li data-wd-i18n="w6_p17_u10" data-source-unit="p17-u10">재사용성: 같은 컨트롤러 로직으로 EJS 페이지와 JSON API를 모두 제공 가능</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p17_u11" data-source-unit="p17-u11">적용</strong></dt><dd><ul><li data-wd-i18n="w6_p17_u12" data-source-unit="p17-u12">서버: Model + Controller(+ Service)로 JSON API 제공</li><li data-wd-i18n="w6_p17_u13" data-source-unit="p17-u13">클라이언트(View): React(SPA)가 화면 담당</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/mvc-diagram.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/mvc-diagram.png" alt="사용자·Controller·Model·View·Database 관계를 보여주는 원본 MVC 도식" data-wd-i18n-alt="w6_asset_mvc_diagram" data-source-asset="mvc-diagram"></a></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=17
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-18" data-source-page="18" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_18">MVCS 패턴</h2>
+<div class="wd-lesson-body wd-lesson-body--mvcs"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p18_u01" data-source-unit="p18-u01">MVCS(Model‒View‒Controller‒Service)</strong></dt><dd><ul><li data-wd-i18n="w6_p18_u02" data-source-unit="p18-u02">MVC에 Service(서비스) 레이어를 추가해 도메인 로직을 컨트롤러 밖으로 분리한 구조</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p18_u03" data-source-unit="p18-u03">왜 Service가 필요한가?</strong></dt><dd><ul><li data-source-unit="p18-u04"><strong data-wd-i18n="w6_p18_u04_term">컨트롤러 비대화 방지:</strong><span data-wd-i18n="w6_p18_u04_detail"> 요청 흐름만 남기고 복잡한 규칙은 서비스로 이전</span></li><li data-source-unit="p18-u05"><strong data-wd-i18n="w6_p18_u05_term">재사용/테스트 용이:</strong><span data-wd-i18n="w6_p18_u05_detail"> 같은 규칙을 여러 엔드포인트/잡/웹훅에서 재사용, 단위테스트 쉬움</span></li><li data-source-unit="p18-u06"><strong data-wd-i18n="w6_p18_u06_term">여러 모델/외부 API 오케스트레이션:</strong><span data-wd-i18n="w6_p18_u06_detail"> 결제, 알림, 트랜잭션, 캐싱 등</span></li><li data-source-unit="p18-u07"><strong data-wd-i18n="w6_p18_u07_term">권한/검증 일관화:</strong><span data-wd-i18n="w6_p18_u07_detail"> “소유자만 수정 가능” 같은 규칙을 한 곳에</span></li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/mvcs-diagram.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/mvcs-diagram.png" alt="Controller와 Model 사이에 Service를 추가하는 원본 MVCS 도식" data-wd-i18n-alt="w6_asset_mvcs_diagram" data-source-asset="mvcs-diagram"></a><figcaption data-wd-i18n="w6_p18_u08" data-source-unit="p18-u08">MVCS 패턴 적용</figcaption></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=18
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-19" data-source-page="19" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_19">MVCS 패턴</h2>
+<div class="wd-lesson-body wd-lesson-body--tree"><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/mvcs-tree.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/mvcs-tree.png" alt="db 폴더를 포함한 원본 MVCS 프로젝트 폴더 구조" data-wd-i18n-alt="w6_asset_mvcs_tree" data-source-asset="mvcs-tree"></a><figcaption data-wd-i18n="w6_p19_u01" data-source-unit="p19-u01">MVCS 패턴 적용 사례</figcaption></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=19
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-20" data-source-page="20" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_20">테스트 주도 개발(TDD)</h2>
+<div class="wd-lesson-body wd-lesson-body--tdd"><div class="wd-lesson-block"><div class="wd-lesson-stack "><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p20_u01" data-source-unit="p20-u01">테스트 주도 개발(TDD: Test-Driven Development)</strong></dt><dd><ul><li data-wd-i18n="w6_p20_u02" data-source-unit="p20-u02">테스트를 먼저 작성하고, 그 테스트를 통과시키는 최소 코드를 작성한 뒤, 코드를 개선하는 짧은 반복 루프로 개발하는 방법</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p20_u03" data-source-unit="p20-u03">효과</strong></dt><dd><ul><li data-source-unit="p20-u04"><strong data-wd-i18n="w6_p20_u04_term">버그 빠른 차단:</strong><span data-wd-i18n="w6_p20_u04_detail"> 사양이 코드가 되기 전에 실패 테스트로 드러남</span></li><li data-source-unit="p20-u05"><strong data-wd-i18n="w6_p20_u05_term">리팩터링 안전망:</strong><span data-wd-i18n="w6_p20_u05_detail"> 테스트가 있으니 구조 바꿔도 안심</span></li><li data-source-unit="p20-u06"><strong data-wd-i18n="w6_p20_u06_term">설계 품질:</strong><span data-wd-i18n="w6_p20_u06_detail"> 작은 단위로 분리(함수/레이어링)하게 됨 → MVCS와 잘 맞음</span></li><li data-source-unit="p20-u07"><strong data-wd-i18n="w6_p20_u07_term">문서화:</strong><span data-wd-i18n="w6_p20_u07_detail"> 테스트가 곧 “실행 가능한 예시 문서”</span></li><li data-source-unit="p20-u08"><strong data-wd-i18n="w6_p20_u08_term">CI/CD 친화:</strong><span data-wd-i18n="w6_p20_u08_detail"> 깃 푸시 시 자동 검증(파이프라인에 테스트 포함)</span></li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p20_u09" data-source-unit="p20-u09">TDD 싸이클 : Red → Green → Refactor</strong></dt><dd><ul><li data-source-unit="p20-u10"><strong data-wd-i18n="w6_p20_u10_term">Red:</strong><span data-wd-i18n="w6_p20_u10_detail"> 기능이 제대로 작동하지 않는 상태를 정의</span></li><li data-source-unit="p20-u11"><strong data-wd-i18n="w6_p20_u11_term">Green:</strong><span data-wd-i18n="w6_p20_u11_detail"> 테스트를 통과하는 최소한의 동작 코드를 작성</span></li><li data-source-unit="p20-u12"><strong data-wd-i18n="w6_p20_u12_term">Refactor:</strong><span data-wd-i18n="w6_p20_u12_detail"> 코드를 보다 깔끔하고 효율적으로 개선</span></li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/tdd-cycle.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/tdd-cycle.png" alt="Red·Green·Refactor를 순환하는 원본 TDD 도식" data-wd-i18n-alt="w6_asset_tdd_cycle" data-source-asset="tdd-cycle"></a></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=20
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-21" data-source-page="21" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="w6_chapter_21">03</p>
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_21">Express 서버 App 개발</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=21
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-22" data-source-page="22" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_22">Express.js</h2>
+<div class="wd-lesson-body wd-lesson-body--express"><div class="wd-lesson-block"><ul class="wd-source-list"><li data-wd-i18n="w6_p22_u01" data-source-unit="p22-u01">Node.js로 RESTful API를 구축하기 위한 백엔드 웹 애플리케이션 프레임워크</li><li data-wd-i18n="w6_p22_u02" data-source-unit="p22-u02">웹 애플리케이션과 API 구축을 위해 설계</li><li data-wd-i18n="w6_p22_u03" data-source-unit="p22-u03">Node.js의 사실상 표준 서버 프레임워크</li><li data-source-unit="p22-u04"><span data-wd-i18n="w6_p22_u04_before">MIT 라이선스에 따라 무료 오픈소스 소프트웨어로 제공 </span><a class="wd-source-anchor" data-wd-i18n="w6_p22_u04_link" href="https://github.com/expressjs/express" target="_blank" rel="noopener noreferrer" data-source-link="https://github.com/expressjs/express">https://github.com/expressjs/express</a></li><li data-source-unit="p22-u05"><span data-wd-i18n="w6_p22_u05_before">최신 안정화 버전 5.1.0 </span><a class="wd-source-anchor" data-wd-i18n="w6_p22_u05_link" href="https://expressjs.com/" target="_blank" rel="noopener noreferrer" data-source-link="https://expressjs.com/">https://expressjs.com/</a></li></ul></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><img class="" src="materials/elements/images/express-logo.png" alt="Express 로고" data-wd-i18n-alt="w6_asset_express_logo" data-source-asset="express-logo"></figure></div><div class="wd-lesson-block"><div class="wd-source-code-heading"><img class="wd-source-icon" src="materials/elements/images/cross-icon.png" alt="잘못된 예 표시" data-wd-i18n-alt="w6_asset_cross_icon" data-source-asset="cross-icon"><p class="wd-lesson-code-label" data-wd-i18n="w6_p22_u06" data-source-unit="p22-u06"> 순수 Node.js</p></div><pre class="wd-code" data-wd-i18n="w6_code_node_http" data-wd-code="javascript" data-wd-preserve-code data-source-code="node-http">const http = require(&#x27;http&#x27;);
+
+http.createServer((req, res) =&gt; {
+  if (req.url ===&#x27;/&#x27;) {
+    res.write(&#x27;Hello World&#x27;);
+  } else if(req.url === &#x27;/hello&#x27;) {
+    res.write(&#x27;World&#x27;);
+  }
+  res.end();
+}).listen(3000);</pre></div><div class="wd-lesson-block"><div class="wd-source-code-heading"><img class="wd-source-icon" src="materials/elements/images/check-icon.png" alt="올바른 예 표시" data-wd-i18n-alt="w6_asset_check_icon" data-source-asset="check-icon"><p class="wd-lesson-code-label" data-wd-i18n="w6_p22_u07" data-source-unit="p22-u07"> Express.js</p></div><pre class="wd-code" data-wd-i18n="w6_code_express_http" data-wd-code="javascript" data-wd-preserve-code data-source-code="express-http">const express = require(&#x27;express&#x27;);
+
+const app = express();
+app.get(&#x27;/&#x27;, (req, res) =&gt; {
+  res.send(&#x27;Hello World&#x27;);
+});
+
+app.get(&#x27;/hello&#x27;, (req, res) =&gt; {
+  res.send(&#x27;World&#x27;);
+});
+
+app.listen(3000);</pre></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=22
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-23" data-source-page="23" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_23">Express 프로젝트 생성</h2>
+<div class="wd-lesson-body wd-lesson-body--project"><div class="wd-lesson-block"><pre class="wd-code" data-wd-i18n="w6_code_install_express" data-wd-code="bash" data-wd-preserve-code data-source-code="install-express"># Express 프로젝트 생성
+$ npm install express --save</pre></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/project-tree.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/project-tree.png" alt="my-express-app의 src·node_modules·패키지 파일·server.js 구조" data-wd-i18n-alt="w6_asset_project_tree" data-source-asset="project-tree"></a></figure></div><div class="wd-lesson-block"><div class="wd-source-code-heading"><p class="wd-lesson-code-label" data-wd-i18n="w6_p23_u01" data-source-unit="p23-u01">express 실행 테스트(Hello World)</p></div><pre class="wd-code" data-wd-i18n="w6_code_hello_world" data-wd-code="javascript" data-wd-preserve-code data-source-code="hello-world">const express = require(&#x27;express&#x27;)
+const app = express()
+const port = 3000
+
+app.get(&#x27;/&#x27;, (req, res) =&gt; {
+  res.send(&#x27;Hello World!&#x27;)
+})
+
+app.listen(port, () =&gt; {
+  console.log(`Example app listening on port&#32;
+${port}`)
+})</pre></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=23
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-24" data-source-page="24" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_24">Express MVCS 프로젝트</h2>
+<div class="wd-lesson-body wd-lesson-body--project-roles"><div class="wd-lesson-block"><div class="wd-lesson-stack "><div class="wd-lesson-stack folder-heading"><figure class="wd-lesson-figure inline-folder"><img class="" src="materials/elements/images/project-folder-icon.png" alt="폴더" data-wd-i18n-alt="w6_asset_project_folder_icon" data-source-asset="project-folder-icon"></figure><p class="wd-source-heading" data-wd-i18n="w6_p24_u01" data-source-unit="p24-u01"> 각 폴더와 주요 파일 역할</p></div><ul class="wd-source-list"><li data-source-unit="p24-u02"><strong data-wd-i18n="w6_p24_u02_term">server.js :</strong><span data-wd-i18n="w6_p24_u02_detail"> 서버 진입점 - app.js를 불러와 포트 설정 후 app.listen()으로 HTTP 서버를 시작</span></li><li data-source-unit="p24-u03"><strong data-wd-i18n="w6_p24_u03_term">src/app.js :</strong><span data-wd-i18n="w6_p24_u03_detail"> Express 앱 설정 - 핵심 미들웨어, 라우터, 에러 핸들러를 연결</span></li><li data-source-unit="p24-u04"><strong data-wd-i18n="w6_p24_u04_term">src/controllers :</strong><span data-wd-i18n="w6_p24_u04_detail"> 요청을 받아 파라미터 검증 → 서비스 호출 → 응답 형식화까지 담당하는 계층</span></li><li data-source-unit="p24-u05"><strong data-wd-i18n="w6_p24_u05_term">src/data :</strong><span data-wd-i18n="w6_p24_u05_detail"> 초기 더미 데이터, 시드 파일, JSON 리소스 등 코드 없는 정적 데이터 보관소</span></li><li data-source-unit="p24-u06"><strong data-wd-i18n="w6_p24_u06_term">src/middleware :</strong><span data-wd-i18n="w6_p24_u06_detail"> 인증, 로깅, CORS, 입력 검증, 에러 처리 등 요청/응답 사이에 끼워 넣는 공용 함수들</span></li><li data-source-unit="p24-u07"><strong data-wd-i18n="w6_p24_u07_term">src/models :</strong><span data-wd-i18n="w6_p24_u07_detail"> DB 스키마와 데이터 접근 로직(예: Mongoose Schema/Model, 쿼리 메서드)을 정의</span></li><li data-source-unit="p24-u08"><strong data-wd-i18n="w6_p24_u08_term">src/routes :</strong><span data-wd-i18n="w6_p24_u08_detail"> URL 경로와 HTTP 메서드를 컨트롤러에 매핑하는 Express Router 모듈들</span></li><li data-source-unit="p24-u09"><strong data-wd-i18n="w6_p24_u09_term">src/services :</strong><span data-wd-i18n="w6_p24_u09_detail"> 비즈니스 로직 계층 - 여러 모델/외부 API를 조합해 도메인 규칙을 구현</span></li><li data-source-unit="p24-u10"><strong data-wd-i18n="w6_p24_u10_term">src/utils :</strong><span data-wd-i18n="w6_p24_u10_detail"> 재사용 가능한 작은 헬퍼/유틸 함수 묶음</span></li></ul></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><a class="wd-source-zoom" href="materials/elements/images/express-tree.png" target="_blank" rel="noopener noreferrer"><img class="" src="materials/elements/images/express-tree.png" alt="pwd-week4 원본 Express MVCS 폴더 구조" data-wd-i18n-alt="w6_asset_express_tree" data-source-asset="express-tree"></a></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=24
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-25" data-source-page="25" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_25">Render</h2>
+<p class="wd-slide-lead" data-wd-i18n="w6_p25_u01" data-source-unit="p25-u01">Git에 올린 코드를 자동으로 빌드·배포해주는 PaaS(Platform-as-a-Service) 클라우드 개발 플랫폼</p>
+<div class="wd-lesson-body wd-lesson-body--render"><div class="wd-lesson-block"><div class="wd-lesson-stack "><ul class="wd-source-list"><li data-wd-i18n="w6_p25_u02" data-source-unit="p25-u02">원클릭 배포 &amp; 자동 재배포</li></ul><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p25_u03" data-source-unit="p25-u03">서비스 타입</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p25_u04" data-source-unit="p25-u04">Web Service(Express 등 장기 실행 서버)</li><li class="wd-source-subpoint" data-wd-i18n="w6_p25_u05" data-source-unit="p25-u05">Static Site(정적 호스팅)</li><li class="wd-source-subpoint" data-wd-i18n="w6_p25_u06" data-source-unit="p25-u06">Background Worker</li><li class="wd-source-subpoint" data-wd-i18n="w6_p25_u07" data-source-unit="p25-u07">Cron Job</li><li class="wd-source-subpoint" data-wd-i18n="w6_p25_u08" data-source-unit="p25-u08">Private Service.</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p25_u09" data-source-unit="p25-u09">운영 편의</strong></dt><dd><ul><li class="wd-source-subpoint" data-wd-i18n="w6_p25_u10" data-source-unit="p25-u10">환경변수 관리, </li><li class="wd-source-subpoint" data-wd-i18n="w6_p25_u11" data-source-unit="p25-u11">프로젝트 1개 무료, 로그/헬스체크, 수평 스케일링 지원.</li></ul></dd></div></dl></div></div><div class="wd-lesson-block"><figure class="wd-lesson-figure "><img class="" src="materials/elements/images/render-logo.png" alt="Render 로고" data-wd-i18n-alt="w6_asset_render_logo" data-source-asset="render-logo"></figure></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=25
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-26" data-source-page="26" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_26">과제 개요</h2>
+<p class="wd-slide-lead" data-wd-i18n="w6_p26_u01" data-source-unit="p26-u01">Express &amp; Render로 만드는 Ajou Campus Foodmap API</p>
+<div class="wd-lesson-body wd-lesson-body--single"><div class="wd-lesson-block"><div class="wd-practice-grid"><div class="wd-practice-main"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p26_u02" data-source-unit="p26-u02">학습 목표</strong></dt><dd><ul><li data-wd-i18n="w6_p26_u03" data-source-unit="p26-u03">Express로 REST API 개발</li><li data-wd-i18n="w6_p26_u04" data-source-unit="p26-u04">MVCS 패턴 학습</li><li data-wd-i18n="w6_p26_u05" data-source-unit="p26-u05">비동기 처리 &amp; 에러 핸들링 습득</li><li data-wd-i18n="w6_p26_u06" data-source-unit="p26-u06">테스트 주도 개발 연습</li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p26_u07" data-source-unit="p26-u07">필수 구현 사항</strong></dt><dd><ul><li data-wd-i18n="w6_p26_u08" data-source-unit="p26-u08">GitHub 저장소에 프로젝트 버전 관리가 바르게 되고 있는가?</li><li data-wd-i18n="w6_p26_u09" data-source-unit="p26-u09">Render에 GitHub 저장소가 연결되어 자동 배포가 이루어 지고 있는가?</li><li data-wd-i18n="w6_p26_u10" data-source-unit="p26-u10">Express로 개발한 서버 모듈이 모두 바르게 동작하는가?</li><li data-wd-i18n="w6_p26_u11" data-source-unit="p26-u11">pwd-week3 React App이 Render 서버로부터 데이터를 받아오는가 ?</li></ul></dd></div></dl></div><div class="wd-practice-side"><div class="wd-practice-submission"><div class="wd-practice-deadline"><div class="wd-practice-deadline__label"><span data-wd-i18n="w6_p26_u12" data-source-unit="p26-u12">마감일</span><small data-wd-i18n="w6_practice_source_date">원본 자료 표기</small></div><strong data-wd-i18n="w6_p26_u13" data-source-unit="p26-u13">9월 28일 11시 59분 까지</strong></div><div class="wd-practice-deliverables"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p26_u14" data-source-unit="p26-u14">GitHub URL </strong></dt><dd><ul><li data-source-unit="p26-u15"><strong data-wd-i18n="w6_p26_u15_term">(예:</strong><span data-wd-i18n="w6_p26_u15_detail"> https://github.com/username/pwd-week4)</span></li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p26_u16" data-source-unit="p26-u16">Render App URL </strong></dt><dd><ul><li data-source-unit="p26-u17"><strong data-wd-i18n="w6_p26_u17_term">(예:</strong><span data-wd-i18n="w6_p26_u17_detail"> https://pwd-week4-[username]..onrender.com)</span></li></ul></dd></div></dl><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="w6_p26_u18" data-source-unit="p26-u18">Netlify App URL(Render 서버 연동)</strong></dt><dd><ul><li data-source-unit="p26-u19"><span data-wd-i18n="w6_p26_u19_before">(예: </span><a class="wd-source-anchor" data-wd-i18n="w6_p26_u19_link" href="https://ajou-campus-foodmap.netlify.app/" target="_blank" rel="noopener noreferrer" data-source-link="https://ajou-campus-foodmap.netlify.app/">https://pwd-week3-[username].netlify.app</a><span data-wd-i18n="w6_p26_u19_after">)</span></li></ul></dd></div></dl></div></div></div></div></div></div>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=26
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-27" data-source-page="27" role="region">
+
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_27">Q&amp;A</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=27
+[/Source]</aside></section>
+</div></div></main>
+<script src="lecture-content.js"></script>
+<script src="../shared/lecture-deck.js"></script>
+<script src="../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
+<script src="../../packages/web-deck/web-deck.js"></script>
+</body></html>

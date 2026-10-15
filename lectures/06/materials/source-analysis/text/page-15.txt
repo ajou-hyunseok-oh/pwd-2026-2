@@ -1,0 +1,28 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+라우팅(Routing)
+●    서버가 받은 요청을 실제 처리할 핸들러 함수에 연결하는 과정
+●    형식 키: 메서드(GET/POST/…), 경로(/users/:id)
+●    서버 프레임워크가 라우팅 테이블을 만들어 실행
+●    멱등성(Idempotency)
+          ○   GET, PUT, DELETE는 여러 번 실행해도 결과가 같아야 함
+          ○   타임아웃·중복전송이 일어나도 중복 생성/결제를 막아야 됨
+          ○   큐/리트라이(적어도 한 번 전달) 환경에서 중복 처리 방지
+          ○   멱등한 요청은 안전하게 캐시·재전송 가능
+          ○   롤백/재처리가 쉽게(운영/장애 대응)
+
+
+    HTTP Method               CRUD                    설명       예시
+
+                                                               GET /users (모든 사용자)
+    GET                       Read                    리소스 조회
+                                                               GET /users/1 (특정 사용자)
+
+    POST                      Create                  리소스 생성   POST /users (새 사용자 생성)
+
+    PUT                       Update                  리소스 수정   PUT /users/1 (사용자 정보 수정)
+
+    DELETE                    Delete                  리소스 삭제   DELETE /users/1 (사용자 삭제)

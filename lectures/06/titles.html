@@ -1,0 +1,189 @@
+<!doctype html>
+<html class="wd-page" lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title data-wd-i18n="page_title">06 | Node.js Express 프레임워크를 이용한 웹 서버 개발 · 제목 목록</title>
+<link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
+<link rel="stylesheet" href="../../packages/web-deck/authoring.css">
+<link rel="stylesheet" href="lecture.css">
+</head>
+<body class="wd-page-body" data-lecture="06">
+<main class="wd-deck" data-web-deck data-wd-authoring="v1" data-wd-format="week-05" data-wd-source-elements="materials/elements/manifest.json"><div class="wd-viewport" data-wd-viewport><div class="wd-stage" data-wd-stage>
+<section class="wd-slide wd-lesson-slide wd-lesson-cover is-active" data-wd-slide="cover" data-source-page="1" data-wd-cover="weekly" role="region">
+<div class="wd-lesson-cover__content">
+<p class="wd-lesson-cover__eyebrow" data-wd-i18n="w6_cover_eyebrow">2026학년도 2학기 실전웹서비스개발</p>
+<h1 class="wd-lesson-title" data-wd-i18n="w6_cover_title">실전 웹서비스개발 – 6주차</h1>
+<p class="wd-lesson-cover__subtitle" data-wd-i18n="w6_p01_u01" data-source-unit="p01-u01">Node.js Express 프레임워크를 이용한 웹 서버 개발</p>
+</div>
+<p class="wd-lesson-source">LECTURE 06</p>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=1
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-02" data-source-page="2" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_2">학습 목표</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=2
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-03" data-source-page="3" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="w6_chapter_3">01</p>
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_3">서버와 Node.js</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=3
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-04" data-source-page="4" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_4">웹서비스의 구조</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=4
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-05" data-source-page="5" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_5">서버의 역할</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=5
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-06" data-source-page="6" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_6">서버 개발 언어 별 비교</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=6
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-07" data-source-page="7" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_7">Node.js</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=7
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-08" data-source-page="8" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_8">Node.js</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=8
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-09" data-source-page="9" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="w6_chapter_9">02</p>
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_9">서버 개발 핵심 개념</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=9
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-10" data-source-page="10" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_10">HTTP/HTTPS</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=10
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-11" data-source-page="11" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_11">HTTP 요청(Request) 구조</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=11
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-12" data-source-page="12" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_12">HTTP 응답(Response) 구조</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=12
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-13" data-source-page="13" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_13">JSON</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=13
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-14" data-source-page="14" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_14">REST API</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=14
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-15" data-source-page="15" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_15">라우팅(Routing)</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=15
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-16" data-source-page="16" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_16">미들웨어</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=16
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-17" data-source-page="17" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_17">MVC 패턴</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=17
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-18" data-source-page="18" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_18">MVCS 패턴</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=18
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-19" data-source-page="19" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_19">MVCS 패턴</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=19
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-20" data-source-page="20" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_20">테스트 주도 개발(TDD)</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=20
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-21" data-source-page="21" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="w6_chapter_21">03</p>
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_21">Express 서버 App 개발</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=21
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-22" data-source-page="22" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_22">Express.js</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=22
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-23" data-source-page="23" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_23">Express 프로젝트 생성</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=23
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-24" data-source-page="24" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_24">Express MVCS 프로젝트</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=24
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-25" data-source-page="25" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_25">Render</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=25
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="pdf-26" data-source-page="26" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_26">과제 개요</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=26
+[/Source]</aside></section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="pdf-27" data-source-page="27" role="region">
+
+<h2 class="wd-slide-heading" data-wd-i18n="w6_title_27">Q&amp;A</h2>
+<aside hidden class="wd-lesson-notes">[Source]
+[PWD Week4] Node.js Express 프레임워크를 이용한 웹 서버 개발.pdf#page=27
+[/Source]</aside></section>
+</div></div></main>
+<script src="titles-content.js"></script>
+<script src="../shared/lecture-deck.js"></script>
+<script src="../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
+<script src="../../packages/web-deck/web-deck.js"></script>
+</body></html>

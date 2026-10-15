@@ -1,0 +1,273 @@
+{
+  "capturedAt": "2026-10-15T18:28:08.095Z",
+  "client": "pwd-week5",
+  "viewport": {
+    "width": 1200,
+    "height": 900
+  },
+  "captures": [
+    {
+      "file": "home.png",
+      "route": "/",
+      "selector": ".app",
+      "clip": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 900
+      },
+      "evidence": [
+        "Header",
+        "HomePage",
+        "footer"
+      ]
+    },
+    {
+      "file": "list.png",
+      "route": "/list",
+      "selector": "main",
+      "clip": {
+        "x": 0,
+        "y": 120,
+        "width": 1200,
+        "height": 690
+      },
+      "evidence": []
+    },
+    {
+      "file": "app-list.png",
+      "route": "/list",
+      "selector": ".app",
+      "clip": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "height": 900
+      },
+      "evidence": [
+        "Header",
+        "ListPage",
+        "footer",
+        "detail links"
+      ]
+    },
+    {
+      "file": "filtered-list.png",
+      "route": "/list · 한식",
+      "selector": "main",
+      "clip": {
+        "x": 0,
+        "y": 120,
+        "width": 1200,
+        "height": 690
+      },
+      "evidence": [
+        "한식 selected",
+        "전체 inactive",
+        "one restaurant card"
+      ]
+    },
+    {
+      "file": "detail.png",
+      "route": "/restaurant/1",
+      "selector": "main",
+      "clip": {
+        "x": 0,
+        "y": 120,
+        "width": 1200,
+        "height": 760
+      },
+      "evidence": []
+    },
+    {
+      "file": "submit-menu.png",
+      "route": "/submit · 추천 메뉴 입력",
+      "selector": "#recommendedMenu >> ..",
+      "clip": {
+        "x": 320,
+        "y": 703,
+        "width": 560,
+        "height": 169
+      },
+      "evidence": [
+        "추천 메뉴",
+        "김치찌개, 제육볶음"
+      ]
+    },
+    {
+      "file": "submit-success.png",
+      "route": "/submit · 저장 성공",
+      "selector": "main > div",
+      "clip": {
+        "x": 300,
+        "y": 152,
+        "width": 600,
+        "height": 333
+      },
+      "evidence": [
+        "제보 감사합니다!",
+        "다른 맛집 제보하기"
+      ]
+    },
+    {
+      "file": "submissions.png",
+      "route": "/submissions · 브라우저 A",
+      "selector": "main table",
+      "fromSelector": "main table th:nth-child(2)",
+      "clip": {
+        "x": 535.84375,
+        "y": 274.78125,
+        "width": 632.15625,
+        "height": 138.78125
+      },
+      "evidence": [
+        "아주대 실습 식당",
+        "김치찌개, 제육볶음",
+        "pending",
+        "승인"
+      ]
+    },
+    {
+      "file": "submissions-empty.png",
+      "route": "/submissions · 브라우저 B",
+      "selector": "main table",
+      "fromSelector": "main table th:nth-child(2)",
+      "clip": {
+        "x": 186.71875,
+        "y": 274.78125,
+        "width": 981.28125,
+        "height": 120
+      },
+      "evidence": [
+        "same URL",
+        "zero submission rows",
+        "isolated browser storage"
+      ]
+    },
+    {
+      "file": "restaurant-table.png",
+      "route": "/admin · 맛집 목록",
+      "selector": "main table",
+      "clip": {
+        "x": 36,
+        "y": 232,
+        "width": 728,
+        "height": 202.34375
+      },
+      "evidence": [
+        "송림식당",
+        "별미떡볶이",
+        "Sogo",
+        "getRestaurants result"
+      ]
+    },
+    {
+      "file": "popular.png",
+      "route": "/popular",
+      "selector": "main",
+      "clip": {
+        "x": 0,
+        "y": 120,
+        "width": 1200,
+        "height": 690
+      },
+      "evidence": []
+    }
+  ],
+  "checks": [
+    "Filtered screenshot has Korean selected, All inactive, and exactly one matching card after the transition",
+    "Three seed restaurants, Korean category filter and card-to-detail navigation",
+    "The same submissions URL shows one saved item in browser A and zero in isolated browser B",
+    "Form input transformed into a menu array, saved locally and shown as pending",
+    "Card likes stored under separate browser keys rather than restaurantAPI"
+  ],
+  "errors": [],
+  "sourceFiles": [
+    {
+      "file": "index.html",
+      "sha256": "a7465ded469c0ad07aa43ffd4026978e19c596ee4a0bac7ef8fe41944e513497"
+    },
+    {
+      "file": "package.json",
+      "sha256": "547e949c967b044d6ff7d6b0bf4bfd2fd5e0a1e20d27f655072ea244e7e9fada"
+    },
+    {
+      "file": "vite.config.ts",
+      "sha256": "89be90bac21c7c75b09ba0dfe3c1ef0252c7e20ee0ed7ddf9381e36673861169"
+    },
+    {
+      "file": "src/main.tsx",
+      "sha256": "a1d1f4b7c1b85e3b64fdefcd6cc958675edb832ca5ce6088832ea6a9274f2897"
+    },
+    {
+      "file": "src/App.tsx",
+      "sha256": "96411f31b8d2f07505665ca5a3edbbe436ce95e35e2b117ceb81bb9f4c8d3e04"
+    },
+    {
+      "file": "src/types/index.ts",
+      "sha256": "56002d1b64d8817840c532eac623d2684cf4d8f9b46b7ece39c42d527b698122"
+    },
+    {
+      "file": "src/components/Header.tsx",
+      "sha256": "10366200bcbdf751a5fdd4927fc02efa185a41385787fe7cc6b6dd3e812c6cb2"
+    },
+    {
+      "file": "src/components/PopularRestaurants.tsx",
+      "sha256": "267f8ad6ad4109e422c671aa1fe2bcc0f82f106584a4251f288992ba76b925d3"
+    },
+    {
+      "file": "src/pages/AdminPage.tsx",
+      "sha256": "6bb42207dbb1749a425c015ef7b2049f44d8fe02182016bfa0fa0eb999d635b7"
+    },
+    {
+      "file": "src/components/RestaurantList.tsx",
+      "sha256": "f08e3dc622f3ecd318cf703ddbba9da85c2cd92ef6c70e0b94082f072a368310"
+    },
+    {
+      "file": "src/components/RestaurantCard.tsx",
+      "sha256": "8d8da8319d106205f1650797b38669049cf638d39b7b7ae7d7f6b033a5514f5a"
+    },
+    {
+      "file": "src/components/SubmitRestaurant.tsx",
+      "sha256": "b41b8e9cc3ea6c762036af856fa4ec3d49093c94f10e3834a9db417a72a9a8a0"
+    },
+    {
+      "file": "src/pages/ListPage.tsx",
+      "sha256": "fda5676b41f632b24753b53145710c32ab0a4980f268f588832032bc00191747"
+    },
+    {
+      "file": "src/pages/DetailPage.tsx",
+      "sha256": "aaf2f54ee4ce6f6d3accc7ff25c96c0c356553f85815efbd4ed47c520cf8330d"
+    },
+    {
+      "file": "src/pages/PopularPage.tsx",
+      "sha256": "9fc4cb4ff4fde05b26a3fb4eaf193071656bfea15ef619953b4646bf6a9330f5"
+    },
+    {
+      "file": "src/pages/SubmissionsPage.tsx",
+      "sha256": "1d0f5e1af9e8e936afa5f40183011434916e0beac76ecc94d48e70c001075671"
+    },
+    {
+      "file": "src/services/api.ts",
+      "sha256": "c3740dc7f461ec6adb0ed9b0e7c7ea71740bd1de2e4029481a1b48be1dd7a5b1"
+    },
+    {
+      "file": "src/services/storage.ts",
+      "sha256": "34c9427aa7fda855f67f6046315192a6e421225566e3065ab4e200bbd1a92c5f"
+    }
+  ],
+  "images": [
+    {
+      "src": "https://mblogthumb-phinf.pstatic.net/MjAyMjA2MTJfODEg/MDAxNjU0OTYzNTM3MjE1.1BfmrmOsz_B6DBHAnhQSs6qfNIDnssofR-DrzMfigIIg.JHHDheG6ifJjtfKUqLss_mLXWFE9fNJ5BmepNUVXSOog.PNG.cary63/image.png?type=w966",
+      "loaded": true
+    },
+    {
+      "src": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNTA4MTJfMjcg%2FMDAxNzU0OTQ5ODk1Mjg0.GR6i3mNpJJXyqQrozGEJ65InCDBGlEmxc0aCeVHncJgg.sduDPX67J8hhoGxq4vLohpS4dXk1w-706dQLPfVs1iwg.JPEG%2Foutput%25A3%25DF1564208956.jpg",
+      "loaded": true
+    },
+    {
+      "src": "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190707_63%2F1562462598960nPDMy_JPEG%2FW7iKQEhTMzCF3flC1t0pzgzF.jpeg.jpg",
+      "loaded": true
+    }
+  ]
+}

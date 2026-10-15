@@ -1,0 +1,28 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+HTTP 응답(Response) 구조
+ HTTP/1.1 200 OK
+ Content-Type: application/json
+ Cache-Control: no-cache
+
+ {
+     "success": true,
+     "message": "사용자가 생성되었습니다",
+     "data": {
+       "id": 1,
+       "name": "홍길동"
+     }
+ }
+
+
+
+
+주요 상태 코드
+
+
+                2xx 성공                4xx 클라이언트 오류            5xx 서버 오류
+         ●   200 OK               ●    400 Bad Request   ●   500 Server Error
+         ●   201 Created          ●    404 Not Found     ●   503 Service Unavailable

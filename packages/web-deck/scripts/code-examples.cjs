@@ -58,6 +58,12 @@ async function format(value, language, width, label) {
 
 async function processDeck(htmlPath) {
   let html = fs.readFileSync(htmlPath, 'utf8');
+  // Original PDF code is evidence: its spelling, spacing and examples stay intact.
+  // The source-preservation check validates these native SVG text objects.
+  if (/data-wd-source-pdf=/.test(html)) {
+    assert.doesNotMatch(html, /<pre\b/, htmlPath + ': keep original code within the preserved PDF page');
+    return;
+  }
   const highlighter = html.indexOf('vendor/prism/prism.js');
   const runtime = html.search(/<script\b[^>]*src="[^"]*\/web-deck\.js"/);
   assert.ok(highlighter >= 0 && highlighter < runtime, htmlPath + ': load local Prism before the deck runtime');
@@ -80,6 +86,16 @@ async function processDeck(htmlPath) {
     assert.ok(width >= 32 && width <= 80, label + ': code width must be 32–80');
     const key = /data-wd-i18n="([^"]+)"/.exec(attributes)?.[1];
     let formatted;
+    if (/\bdata-wd-preserve-code\b/.test(attributes)) {
+      assert.ok(/data-wd-source-elements=/.test(html), label + ': preserved code needs source-element validation');
+      assert.ok(key && messages, label + ': source code needs translation bindings');
+      assert.equal(decode(markup), messages.ko[key], label + ': source code fallback differs');
+      assert.equal(messages.ko[key], messages.en[key], label + ': original code differs by locale');
+      if (language === 'javascript') new (require('node:vm').Script)(messages.ko[key], {filename:label});
+      if (language === 'json') JSON.parse(messages.ko[key]);
+      variants += 2;
+      continue; // Preserve the PDF's code; style comes from the same Week 05 CSS.
+    }
     if (key) {
       assert.ok(messages, label + ': translated code requires lecture-content.js');
       const localized = {};

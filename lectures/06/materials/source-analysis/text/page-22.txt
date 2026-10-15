@@ -1,0 +1,27 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+Express.js
+ ●    Node.js로 RESTful API를 구축하기 위한 백엔드 웹 애플리케이션 프레임워크
+ ●    웹 애플리케이션과 API 구축을 위해 설계
+ ●    Node.js의 사실상 표준 서버 프레임워크
+ ●    MIT 라이선스에 따라 무료 오픈소스 소프트웨어로 제공 https://github.com/expressjs/express
+ ●    최신 안정화 버전 5.1.0 https://expressjs.com/
+
+
+❌ 순수 Node.js                                      ✅ Express.js
+
+ const http = require('http');                    const express = require('express');
+
+ http.createServer((req, res) => {                const app = express();
+   if (req.url ==='/') {                          app.get('/', (req, res) => {
+     res.write('Hello World');                      res.send('Hello World');
+   } else if(req.url === '/hello') {              });
+     res.write('World');
+   }                                              app.get('/hello', (req, res) => {
+   res.end();                                       res.send('World');
+ }).listen(3000);                                 });
+
+                                                  app.listen(3000);

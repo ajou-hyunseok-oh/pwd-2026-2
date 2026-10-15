@@ -1,0 +1,23 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+MVC 패턴
+Model
+ ●     앱의 데이터 구조와 규칙. 스키마, 검증, DB 접근
+View
+ ●     사용자에게 보여줄 화면 또는 데이터. EJS/React/JSON 등 표현
+Controller
+ ●     요청을 받아 Model에 일 시키고, 결과를 View 또는 JSON으로 응답
+
+
+장점
+ ●     역할 분리로 변경 용이
+ ●     테스트/재사용 용이(서비스/모델 단위 테스트)
+ ●     재사용성: 같은 컨트롤러 로직으로 EJS 페이지와 JSON API를 모두 제공 가능
+
+
+적용
+ ●     서버: Model + Controller(+ Service)로 JSON API 제공
+ ●     클라이언트(View): React(SPA)가 화면 담당

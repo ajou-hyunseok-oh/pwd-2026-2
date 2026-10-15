@@ -1,0 +1,27 @@
+01. 실전 웹서비스개발 – 6주차
+02. 학습 목표
+03. 서버와 Node.js
+04. 웹서비스의 구조
+05. 서버의 역할
+06. 서버 개발 언어 별 비교
+07. Node.js
+08. Node.js
+09. 서버 개발 핵심 개념
+10. HTTP/HTTPS
+11. HTTP 요청(Request) 구조
+12. HTTP 응답(Response) 구조
+13. JSON
+14. REST API
+15. 라우팅(Routing)
+16. 미들웨어
+17. MVC 패턴
+18. MVCS 패턴
+19. MVCS 패턴
+20. 테스트 주도 개발(TDD)
+21. Express 서버 App 개발
+22. Express.js
+23. Express 프로젝트 생성
+24. Express MVCS 프로젝트
+25. Render
+26. 과제 개요
+27. Q&A

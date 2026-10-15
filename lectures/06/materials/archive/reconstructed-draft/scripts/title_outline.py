@@ -1,0 +1,75 @@
+"""Week 06 titles, PDF provenance, and prerequisite order; no body generation."""
+
+
+def C(ident, ko, en, ko_lead, en_lead, pages, *requires):
+    return dict(id='concept-' + ident, title=(ko, en), lead=(ko_lead, en_lead),
+                source_pages=pages, requires=['concept-' + item for item in requires])
+
+
+CHAPTERS = [
+    dict(number=1, title=('서버와 Node.js', 'Servers and Node.js'),
+         lead=('클라이언트 요청을 처리하는 실행 환경', 'The runtime that processes client requests'), concepts=[
+        C('client-server', '클라이언트-서버 구조', 'Client–Server Architecture',
+          '네트워크를 통한 요청과 응답의 역할 분리', 'Separate request and response roles across a network', [4]),
+        C('server-role', '서버의 역할', 'Server Responsibilities',
+          '입력 검증부터 처리 결과 반환까지의 책임', 'Responsibilities from input validation to returning results', [5], 'client-server'),
+        C('server-stack', '서버 개발 스택', 'Server Development Stacks',
+          '실행 언어와 웹 프레임워크의 조합', 'Combinations of languages and web frameworks', [6], 'server-role'),
+        C('nodejs', 'Node.js 런타임', 'The Node.js Runtime',
+          '브라우저 밖에서 실행하는 JavaScript', 'Run JavaScript outside the browser', [7, 8], 'server-stack'),
+        C('v8', 'V8 엔진', 'The V8 Engine',
+          'JavaScript 코드를 해석하고 실행하는 엔진', 'The engine that interprets and executes JavaScript', [8], 'nodejs'),
+        C('async-io', '비동기 I/O', 'Asynchronous I/O',
+          '입출력 대기와 JavaScript 실행의 분리', 'Separate waiting for I/O from JavaScript execution', [7], 'nodejs'),
+        C('event-loop', '이벤트 루프', 'The Event Loop',
+          '준비된 콜백을 실행하는 반복 처리 구조', 'A repeating mechanism for executing ready callbacks', [7], 'async-io'),
+    ]),
+    dict(number=2, title=('HTTP와 REST API', 'HTTP and REST APIs'),
+         lead=('요청·응답 메시지와 리소스 중심의 인터페이스', 'Request and response messages with resource-oriented interfaces'), concepts=[
+        C('http', 'HTTP', 'HTTP', '요청과 응답을 교환하는 통신 규약', 'The protocol for exchanging requests and responses', [10], 'client-server'),
+        C('https', 'HTTPS', 'HTTPS', 'TLS로 보호하는 HTTP 통신', 'Protect HTTP communication with TLS', [10], 'http'),
+        C('http-request', 'HTTP 요청', 'HTTP Requests', '메서드·요청 대상·헤더·본문의 역할', 'The roles of methods, targets, headers, and bodies', [11], 'http'),
+        C('http-response', 'HTTP 응답', 'HTTP Responses', '상태 코드·헤더·본문으로 전달하는 처리 결과', 'Communicate results through status codes, headers, and bodies', [12], 'http-request'),
+        C('status-code', 'HTTP 상태 코드', 'HTTP Status Codes', '요청 처리 결과를 구분하는 세 자리 숫자', 'Three-digit codes that classify request outcomes', [12], 'http-response'),
+        C('json', 'JSON', 'JSON', '서로 다른 프로그램 사이의 텍스트 데이터 표현', 'A text representation of data exchanged between programs', [13], 'http-response'),
+        C('json-transform', 'JSON 직렬화와 파싱', 'JSON Serialization and Parsing', '프로그램의 값과 전송용 문자열 사이의 변환', 'Convert between program values and transport strings', [13], 'json'),
+        C('rest-resource', 'REST의 리소스 표현', 'Resource Representations in REST', 'URI로 식별한 자원의 상태를 표현으로 교환', 'Exchange representations of resources identified by URIs', [14], 'json'),
+        C('http-method', 'HTTP 메서드', 'HTTP Methods', '같은 리소스에 적용하는 요청 의미의 구분', 'Distinguish request semantics for the same resource', [15], 'rest-resource'),
+        C('idempotency', '멱등성', 'Idempotency', '동일 요청의 반복과 서버 상태에 대한 의도된 효과', 'Repeated requests and their intended effect on server state', [15], 'http-method'),
+    ]),
+    dict(number=3, title=('Express 요청 처리', 'Request Processing in Express'),
+         lead=('프로젝트 생성과 라우트·미들웨어의 연결', 'Create a project and connect routes and middleware'), concepts=[
+        C('express', 'Express 프레임워크', 'The Express Framework', 'Node.js HTTP 서버의 라우팅과 공통 처리 구성', 'Organize routing and shared processing for Node.js HTTP servers', [22], 'http-method', 'nodejs'),
+        C('node-project', 'Node.js 프로젝트', 'Node.js Projects', '패키지 설정과 의존성 설치 정보의 관리', 'Manage package configuration and dependency installation', [23], 'express'),
+        C('commonjs', 'CommonJS 모듈', 'CommonJS Modules', '파일 단위의 기능 공개와 불러오기', 'Export and load functionality by file', [22, 23], 'node-project'),
+        C('hello-server', 'Express 서버 시작', 'Starting an Express Server', '앱 생성·요청 처리 등록·포트 대기', 'Create an app, register a handler, and listen on a port', [23], 'commonjs'),
+        C('express-routing', 'Express 라우팅', 'Express Routing', '메서드와 경로에 대응하는 핸들러 선택', 'Select a handler by request method and path', [15, 22], 'hello-server'),
+        C('path-params', '경로 매개변수', 'Route Parameters', '경로의 일부를 리소스 식별값으로 추출', 'Extract a resource identifier from a path segment', [15, 24], 'express-routing'),
+        C('query', '쿼리 매개변수', 'Query Parameters', 'URL의 검색 조건과 조회 옵션 전달', 'Pass search conditions and retrieval options in the URL', [11, 24], 'express-routing'),
+        C('middleware', '미들웨어', 'Middleware', '등록 순서에 따라 요청을 처리하는 함수의 연결', 'Chain request-processing functions in registration order', [16], 'express-routing'),
+        C('json-body', 'JSON 본문 파싱', 'Parsing JSON Bodies', '요청 본문의 JSON을 JavaScript 값으로 변환', 'Convert a JSON request body into a JavaScript value', [13, 16, 24], 'middleware', 'json-transform'),
+        C('input-validation', '입력 검증', 'Input Validation', '요청 데이터의 타입과 서비스 조건 확인', 'Check request types and application constraints', [5, 24], 'json-body', 'status-code'),
+        C('error-handler', '오류 처리 미들웨어', 'Error-Handling Middleware', '오류 전달과 일관된 HTTP 오류 응답', 'Forward errors and return consistent HTTP error responses', [16, 24], 'middleware', 'input-validation'),
+        C('async-handler', '비동기 핸들러의 오류 전달', 'Errors in Asynchronous Handlers', 'Express 5에서 거부된 Promise의 오류 처리', 'Handle rejected promises in Express 5', [24, 26], 'error-handler', 'async-io'),
+    ]),
+    dict(number=4, title=('MVC와 서비스 계층', 'MVC and the Service Layer'),
+         lead=('Foodmap API의 책임 분리와 파일 구조', 'Separate responsibilities and files in the Foodmap API'), concepts=[
+        C('mvc', 'MVC 패턴', 'The MVC Pattern', '데이터·표현·요청 제어의 역할 분리', 'Separate data, presentation, and request coordination', [17], 'async-handler'),
+        C('mvcs', 'MVCS의 서비스 계층', 'The Service Layer in MVCS', '요청 처리에서 업무 규칙을 분리하는 구조', 'Separate business rules from request handling', [18], 'mvc'),
+        C('project-structure', 'Express 프로젝트 구조', 'Express Project Structure', '서버 시작과 앱 설정·계층 모듈의 분리', 'Separate server startup, app configuration, and layer modules', [19, 24], 'mvcs', 'commonjs'),
+        C('model', '모델의 데이터 접근', 'Data Access in the Model', '저장 방식의 세부 사항을 감추는 인터페이스', 'An interface that hides storage details', [17, 24], 'project-structure'),
+        C('service', '서비스의 업무 규칙', 'Business Rules in Services', '입력을 검증하고 모델 작업을 조합하는 계층', 'Validate inputs and coordinate model operations', [18, 24], 'model', 'input-validation'),
+        C('controller', '컨트롤러의 HTTP 변환', 'HTTP Translation in Controllers', 'HTTP 입력과 서비스 결과 사이의 연결', 'Connect HTTP inputs to service results', [17, 24], 'service', 'path-params'),
+        C('router', 'Express Router', 'Express Router', '관련 엔드포인트를 묶는 라우팅 모듈', 'A routing module for related endpoints', [24], 'controller', 'middleware'),
+    ]),
+    dict(number=5, title=('테스트와 배포', 'Testing and Deployment'),
+         lead=('실행 가능한 요구사항과 브라우저 연동', 'Executable requirements and browser integration'), concepts=[
+        C('tdd', '테스트 주도 개발', 'Test-Driven Development', '실패 테스트·최소 구현·리팩터링의 반복', 'Repeat a failing test, minimal implementation, and refactoring', [20], 'router'),
+        C('unit-test', '서비스 단위 테스트', 'Service Unit Tests', 'HTTP 연결 없이 검증하는 업무 규칙', 'Check business rules without an HTTP connection', [20], 'tdd', 'service'),
+        C('api-test', 'HTTP API 테스트', 'HTTP API Tests', '실제 요청의 상태 코드·헤더·본문 검증', 'Check status codes, headers, and bodies from real requests', [20, 26], 'unit-test', 'controller'),
+        C('environment', '환경변수와 서버 설정', 'Environment Variables and Server Configuration', '실행 환경에서 주입하는 포트와 허용 출처', 'Inject the port and allowed origin at runtime', [24, 25], 'api-test', 'project-structure'),
+        C('render', 'Render 웹 서비스 배포', 'Deploying a Web Service on Render', '저장소의 코드를 서버 프로세스로 실행하는 배포', 'Deploy repository code as a running server process', [25], 'environment'),
+        C('cors', 'CORS', 'CORS', '다른 출처의 응답을 읽을 수 있는 브라우저 권한', 'Browser permission to read responses from another origin', [16, 26], 'render', 'middleware', 'https'),
+        C('frontend-api', '브라우저의 API 호출', 'Calling an API from the Browser', '서버 응답과 화면 상태의 비동기 연결', 'Connect server responses to UI state asynchronously', [26], 'cors', 'json-transform'),
+    ]),
+]

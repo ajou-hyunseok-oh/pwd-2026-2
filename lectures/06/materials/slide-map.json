@@ -1,0 +1,272 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "title": "실전 웹서비스개발 – 6주차",
+    "kind": "cover",
+    "source_pages": [
+      1
+    ],
+    "layout": "split"
+  },
+  {
+    "number": 2,
+    "id": "pdf-02",
+    "title": "학습 목표",
+    "kind": "content",
+    "source_pages": [
+      2
+    ],
+    "layout": "single"
+  },
+  {
+    "number": 3,
+    "id": "pdf-03",
+    "title": "서버와 Node.js",
+    "kind": "chapter",
+    "source_pages": [
+      3
+    ],
+    "layout": "split"
+  },
+  {
+    "number": 4,
+    "id": "pdf-04",
+    "title": "웹서비스의 구조",
+    "kind": "content",
+    "source_pages": [
+      4
+    ],
+    "layout": "webservice"
+  },
+  {
+    "number": 5,
+    "id": "pdf-05",
+    "title": "서버의 역할",
+    "kind": "content",
+    "source_pages": [
+      5
+    ],
+    "layout": "roles"
+  },
+  {
+    "number": 6,
+    "id": "pdf-06",
+    "title": "서버 개발 언어 별 비교",
+    "kind": "content",
+    "source_pages": [
+      6
+    ],
+    "layout": "comparison"
+  },
+  {
+    "number": 7,
+    "id": "pdf-07",
+    "title": "Node.js",
+    "kind": "content",
+    "source_pages": [
+      7
+    ],
+    "layout": "node-intro"
+  },
+  {
+    "number": 8,
+    "id": "pdf-08",
+    "title": "Node.js",
+    "kind": "content",
+    "source_pages": [
+      8
+    ],
+    "layout": "engine"
+  },
+  {
+    "number": 9,
+    "id": "pdf-09",
+    "title": "서버 개발 핵심 개념",
+    "kind": "chapter",
+    "source_pages": [
+      9
+    ],
+    "layout": "split"
+  },
+  {
+    "number": 10,
+    "id": "pdf-10",
+    "title": "HTTP/HTTPS",
+    "kind": "content",
+    "source_pages": [
+      10
+    ],
+    "layout": "http"
+  },
+  {
+    "number": 11,
+    "id": "pdf-11",
+    "title": "HTTP 요청(Request) 구조",
+    "kind": "content",
+    "source_pages": [
+      11
+    ],
+    "layout": "request"
+  },
+  {
+    "number": 12,
+    "id": "pdf-12",
+    "title": "HTTP 응답(Response) 구조",
+    "kind": "content",
+    "source_pages": [
+      12
+    ],
+    "layout": "response"
+  },
+  {
+    "number": 13,
+    "id": "pdf-13",
+    "title": "JSON",
+    "kind": "content",
+    "source_pages": [
+      13
+    ],
+    "layout": "json"
+  },
+  {
+    "number": 14,
+    "id": "pdf-14",
+    "title": "REST API",
+    "kind": "content",
+    "source_pages": [
+      14
+    ],
+    "layout": "rest"
+  },
+  {
+    "number": 15,
+    "id": "pdf-15",
+    "title": "라우팅(Routing)",
+    "kind": "content",
+    "source_pages": [
+      15
+    ],
+    "layout": "routing"
+  },
+  {
+    "number": 16,
+    "id": "pdf-16",
+    "title": "미들웨어",
+    "kind": "content",
+    "source_pages": [
+      16
+    ],
+    "layout": "middleware"
+  },
+  {
+    "number": 17,
+    "id": "pdf-17",
+    "title": "MVC 패턴",
+    "kind": "content",
+    "source_pages": [
+      17
+    ],
+    "layout": "mvc"
+  },
+  {
+    "number": 18,
+    "id": "pdf-18",
+    "title": "MVCS 패턴",
+    "kind": "content",
+    "source_pages": [
+      18
+    ],
+    "layout": "mvcs"
+  },
+  {
+    "number": 19,
+    "id": "pdf-19",
+    "title": "MVCS 패턴",
+    "kind": "content",
+    "source_pages": [
+      19
+    ],
+    "layout": "tree"
+  },
+  {
+    "number": 20,
+    "id": "pdf-20",
+    "title": "테스트 주도 개발(TDD)",
+    "kind": "content",
+    "source_pages": [
+      20
+    ],
+    "layout": "tdd"
+  },
+  {
+    "number": 21,
+    "id": "pdf-21",
+    "title": "Express 서버 App 개발",
+    "kind": "chapter",
+    "source_pages": [
+      21
+    ],
+    "layout": "split"
+  },
+  {
+    "number": 22,
+    "id": "pdf-22",
+    "title": "Express.js",
+    "kind": "content",
+    "source_pages": [
+      22
+    ],
+    "layout": "express"
+  },
+  {
+    "number": 23,
+    "id": "pdf-23",
+    "title": "Express 프로젝트 생성",
+    "kind": "content",
+    "source_pages": [
+      23
+    ],
+    "layout": "project"
+  },
+  {
+    "number": 24,
+    "id": "pdf-24",
+    "title": "Express MVCS 프로젝트",
+    "kind": "content",
+    "source_pages": [
+      24
+    ],
+    "layout": "project-roles"
+  },
+  {
+    "number": 25,
+    "id": "pdf-25",
+    "title": "Render",
+    "kind": "content",
+    "source_pages": [
+      25
+    ],
+    "layout": "render"
+  },
+  {
+    "number": 26,
+    "id": "pdf-26",
+    "title": "과제 개요",
+    "kind": "content",
+    "source_pages": [
+      26
+    ],
+    "layout": "single"
+  },
+  {
+    "number": 27,
+    "id": "pdf-27",
+    "title": "Q&A",
+    "kind": "chapter",
+    "source_pages": [
+      27
+    ],
+    "layout": "split"
+  }
+]

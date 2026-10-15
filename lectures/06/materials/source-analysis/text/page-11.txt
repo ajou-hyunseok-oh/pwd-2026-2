@@ -1,0 +1,28 @@
+2025학년도 2학기 실전웹서비스개발
+
+
+
+
+HTTP 요청(Request) 구조
+ POST /api/users HTTP/1.1
+ Host: example.com
+ Content-Type: application/json
+ Authorization: Bearer token123
+
+ {
+     "name": "홍길동",
+     "email": "hong@example.com"
+ }
+
+
+
+
+         구성 요소                     설명       예시
+
+         Method                    요청 종류    GET, POST, PUT, DELETE
+
+         URL                       요청 경로    /api/users
+
+         Headers                   부가 정보    Content-Type, Authorization
+
+         Body                      전송 데이터   JSON, Form Data

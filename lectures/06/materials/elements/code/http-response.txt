@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "success": true,
+  "message": "사용자가 생성되었습니다",
+  "data": {
+    "id": 1,
+    "name": "홍길동"
+  }
+}
