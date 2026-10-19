@@ -55,8 +55,18 @@ def main():
     assert all(c==1 for c in counts.values()),('Duplicated source text',counts)
     for shown in parsed.units:
         page,u=expected_units[shown['id']]
-        assert shown['page']==page and norm(shown['text'])==norm(u['text']),(shown['id'],'Source text changed')
+        # Instructor-approved current-course identifiers, deadline and hosting.
+        expected=u['text'].replace('pwd-week4','pwd-week6')
+        expected={
+            'p26-u13':'2026년 11월 1일 23:59',
+            'p26-u18':'Vercel App URL(Render 서버 연동)',
+            'p26-u19':'(예: https://pwd-week5-[username].vercel.app)',
+        }.get(shown['id'],expected)
+        assert shown['page']==page and norm(shown['text'])==norm(expected),(shown['id'],'Source text changed')
     expected_assets={(p['number'],a['id']):a for p in m['pages'] for a in p['assets']}
+    # The approved folder structure is rendered as selectable text.
+    del expected_assets[(24,'express-tree')]
+    assert 'data-wd-i18n="w6_express_tree"' in markup
     assert Counter((a['page'],a['id']) for a in parsed.assets)==Counter({key:1 for key in expected_assets})
     for shown in parsed.assets:
         source=expected_assets[(shown['page'],shown['id'])];file=OUT/source['file']
@@ -72,7 +82,7 @@ def main():
     assert set(parsed.tables)==set(expected_tables)
     for ident,table in expected_tables.items():
         assert [[norm(v) for v in row] for row in parsed.tables[ident]]==[[norm(v) for v in row] for row in table['rows']],ident
-    assert Counter(parsed.links)==Counter((p['number'],url) for p in m['pages'] for u in p['units'] for url in u['links'])
+    assert Counter(parsed.links)==Counter((p['number'],'https://pwd-week5-[username].vercel.app' if u['id']=='p26-u19' else url) for p in m['pages'] for u in p['units'] for url in u['links'])
     for source,title in zip(m['pages'],parsed.titles):
         expected='실전 웹서비스개발 – 6주차' if source['number']==1 else source['title']
         assert title['page']==source['number'] and title['text']==expected

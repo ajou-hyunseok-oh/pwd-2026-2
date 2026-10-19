@@ -50,10 +50,13 @@ class Renderer:
         u=UNITS[ident];key='w6_'+ident.replace('-','_');values=(u['text'],EN[ident])
         values=tuple(value.replace('pwd-week4','pwd-week6') for value in values)
         # Instructor-confirmed deadline supersedes the date in the original PDF.
-        if ident=='p26-u13':values=('2026년 10월 25일 23:59','October 25, 2026, 23:59')
+        if ident=='p26-u13':values=('2026년 11월 1일 23:59','November 1, 2026, 23:59')
+        if ident=='p26-u18':values=('Vercel App URL(Render 서버 연동)','Vercel App URL (Render server integration)')
+        if ident=='p26-u19':values=tuple(value.replace('pwd-week3','pwd-week5').replace('.netlify.app','.vercel.app') for value in values)
         attrs=f' data-source-unit="{ident}"'
         if u.get('links'):
             url=u['links'][0]
+            if ident=='p26-u19':url='https://pwd-week5-[username].vercel.app'
             pairs=[]
             for value in values:
                 match=re.search(r'https?://[^\s)]+',value)
@@ -82,7 +85,7 @@ class Renderer:
             if b['asset']=='express-tree':
                 return self.tr('w6_express_tree',(
                     'pwd-week6/\n├── src/ # 소스 코드\n│   ├── controllers/ # 컨트롤러\n│   ├── data/ # 데이터 db로 교체 예정\n│   ├── middleware/ # 미들웨어\n│   ├── models/ # 모델\n│   ├── routes/ # 라우트\n│   ├── services/ # 서비스\n│   ├── utils/ # 유틸리티\n│   └── app.js # express 시작\n└── server.js # node 시작',
-                    'pwd-week6/\n├── src/ # Source code\n│   ├── controllers/ # Controllers\n│   ├── data/ # Data; to be replaced by db\n│   ├── middleware/ # Middleware\n│   ├── models/ # Models\n│   ├── routes/ # Routes\n│   ├── services/ # Services\n│   ├── utils/ # Utilities\n│   └── app.js # Start Express\n└── server.js # Start Node'), 'pre','wd-project-tree')
+                    'pwd-week6/\n├── src/ # Source code\n│   ├── controllers/ # Controllers\n│   ├── data/ # Data; to be replaced by db\n│   ├── middleware/ # Middleware\n│   ├── models/ # Models\n│   ├── routes/ # Routes\n│   ├── services/ # Services\n│   ├── utils/ # Utilities\n│   └── app.js # Start Express\n└── server.js # Start Node'), 'pre','wd-code wd-project-tree',' data-wd-code="text"')
             picture=self.image(b['asset'])
             if 'icon' not in b['asset'] and 'logo' not in b['asset']:
                 picture='<a class="wd-source-zoom" href="materials/elements/'+ASSETS[b['asset']]['file']+'" target="_blank" rel="noopener noreferrer">'+picture+'</a>'
