@@ -30,7 +30,7 @@ ALT={
 'mvcs-diagram':('Controller와 Model 사이에 Service를 추가하는 원본 MVCS 도식','Original MVCS diagram adding a Service between the Controller and Model'),
 'mvcs-tree':('db 폴더를 포함한 원본 MVCS 프로젝트 폴더 구조','Original MVCS project folder structure including the db directory'),
 'project-tree':('my-express-app의 src·node_modules·패키지 파일·server.js 구조','Original my-express-app structure with src, node_modules, package files and server.js'),
-'express-tree':('pwd-week4 원본 Express MVCS 폴더 구조','Original pwd-week4 Express MVCS folder structure'),
+'express-tree':('pwd-week6 Express MVCS 폴더 구조','pwd-week6 Express MVCS folder structure'),
 'project-folder-icon':('폴더','Folder'), 'cross-icon':('잘못된 예 표시','Incorrect example marker'), 'check-icon':('올바른 예 표시','Correct example marker'),
 'express-logo':('Express 로고','Express logo'), 'render-logo':('Render 로고','Render logo'),
 ' tdd-cycle':('Red·Green·Refactor를 순환하는 원본 TDD 도식','Original TDD cycle through Red, Green and Refactor'),
@@ -48,6 +48,9 @@ class Renderer:
         return f'<{tag}'+(f' class="{cls}"' if cls else '')+f' data-wd-i18n="{key}"{attrs}>'+escaped+f'</{tag}>'
     def unit(self,ident,tag='p',cls=''):
         u=UNITS[ident];key='w6_'+ident.replace('-','_');values=(u['text'],EN[ident])
+        values=tuple(value.replace('pwd-week4','pwd-week6') for value in values)
+        # Instructor-confirmed deadline supersedes the date in the original PDF.
+        if ident=='p26-u13':values=('2026년 10월 25일 23:59','October 25, 2026, 23:59')
         attrs=f' data-source-unit="{ident}"'
         if u.get('links'):
             url=u['links'][0]
@@ -76,6 +79,10 @@ class Renderer:
         if kind=='list':return '<ul class="wd-source-list">'+''.join(self.unit(i,'li') for i in b['items'])+'</ul>'
         if kind=='concepts':return '<dl class="wd-lesson-concepts"><div><dt>'+self.unit(b['head'],'strong')+'</dt><dd><ul>'+''.join(self.unit(i,'li','wd-source-subpoint' if UNITS[i]['bullet']=='○' else '') for i in b['items'])+'</ul></dd></div></dl>'
         if kind=='image':
+            if b['asset']=='express-tree':
+                return self.tr('w6_express_tree',(
+                    'pwd-week6/\n├── src/ # 소스 코드\n│   ├── controllers/ # 컨트롤러\n│   ├── data/ # 데이터 db로 교체 예정\n│   ├── middleware/ # 미들웨어\n│   ├── models/ # 모델\n│   ├── routes/ # 라우트\n│   ├── services/ # 서비스\n│   ├── utils/ # 유틸리티\n│   └── app.js # express 시작\n└── server.js # node 시작',
+                    'pwd-week6/\n├── src/ # Source code\n│   ├── controllers/ # Controllers\n│   ├── data/ # Data; to be replaced by db\n│   ├── middleware/ # Middleware\n│   ├── models/ # Models\n│   ├── routes/ # Routes\n│   ├── services/ # Services\n│   ├── utils/ # Utilities\n│   └── app.js # Start Express\n└── server.js # Start Node'), 'pre','wd-project-tree')
             picture=self.image(b['asset'])
             if 'icon' not in b['asset'] and 'logo' not in b['asset']:
                 picture='<a class="wd-source-zoom" href="materials/elements/'+ASSETS[b['asset']]['file']+'" target="_blank" rel="noopener noreferrer">'+picture+'</a>'
@@ -100,7 +107,7 @@ class Renderer:
             return self.unit(b['label'],'p','wd-source-heading')+'<table class="wd-lesson-table wd-status-table"><thead><tr>'+''.join(self.unit(i,'th') for i in b['heads'])+'</tr></thead><tbody><tr>'+''.join('<td>'+''.join(self.unit(i,'p') for i in column)+'</td>' for column in b['columns'])+'</tr></tbody></table>'
         if kind=='practice':
             from lesson import D, L, ids
-            deadline_label='<div class="wd-practice-deadline__label">'+self.unit(ids(26,12)[0],'span')+self.tr('w6_practice_source_date',('원본 자료 표기','Original source date'),'small')+'</div>'
+            deadline_label='<div class="wd-practice-deadline__label">'+self.unit(ids(26,12)[0],'span')+'</div>'
             return '<div class="wd-practice-grid"><div class="wd-practice-main">'+self.block(D(26,2,3,4,5,6))+self.block(D(26,7,8,9,10,11))+'</div><div class="wd-practice-side"><div class="wd-practice-submission"><div class="wd-practice-deadline">'+deadline_label+self.unit(ids(26,13)[0],'strong')+'</div><div class="wd-practice-deliverables">'+''.join(self.block(D(26,h,d)) for h,d in [(14,15),(16,17),(18,19)])+'</div></div></div></div>'
         raise ValueError(kind)
 

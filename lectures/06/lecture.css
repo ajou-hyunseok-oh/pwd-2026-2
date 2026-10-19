@@ -71,6 +71,7 @@
 .wd-lesson-body--project > :nth-child(2) img { max-height: 18rem; }
 .wd-lesson-body--project-roles { grid-template-columns: 1.8fr 1fr; }
 .wd-lesson-body--project-roles > :last-child { align-self: center; }
+.wd-project-tree { margin: 0; padding: 1rem; background: #eef2eb; color: #284b38; font: .65rem/1.7 Consolas, monospace; white-space: pre; overflow-x: auto; }
 .wd-lesson-body--project-roles .wd-source-list { gap: .3rem; }
 .folder-heading { display: flex; align-items: center; gap: .45rem; }
 .inline-folder { flex: 0 0 1rem; }

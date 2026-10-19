@@ -207,9 +207,9 @@ Does the pwd-week3 React App receive data from the Render server?
 Deadline
 By September 28, 11:59
 GitHub URL
-(e.g. https://github.com/username/pwd-week4)
+(e.g. https://github.com/username/pwd-week6)
 Render App URL
-(e.g. https://pwd-week4-[username]..onrender.com)
+(e.g. https://pwd-week6-[username]..onrender.com)
 Netlify App URL (Render server integration)
 (e.g. https://pwd-week3-[username].netlify.app)''')
 TABLES={
