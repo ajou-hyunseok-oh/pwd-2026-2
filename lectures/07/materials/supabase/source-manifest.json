@@ -1,0 +1,160 @@
+{
+  "checked_on": "2026-11-02",
+  "reference_document": "supabase/research.ko.md",
+  "reference_document_role": "Research reference; proposed slide count and assignment are not user instructions",
+  "images": [
+    {
+      "file": "supabase/supabase-logo.svg",
+      "source_url": "https://supabase.com/brand-assets/supabase-logo-green-black-transparent.svg",
+      "source_page": "https://supabase.com/brand",
+      "sha256": "48fec684d8f9f7b0f93fa94fb4fbaa195d3cb299263c3c0fdaea11b43745ceb3",
+      "modified": false
+    }
+  ],
+  "diagrams": [
+    {
+      "slide": "sb-api",
+      "type": "original request flow, table and JSON",
+      "source": "https://supabase.com/docs/guides/api",
+      "illustration": "Read permitted, id/name selected, illustrative restaurants ordered by id; not a live response"
+    },
+    {
+      "slide": "sb-auth",
+      "type": "original sign-in flow and screen state table",
+      "source": "https://supabase.com/docs/guides/auth",
+      "illustration": "U1 abbreviates a user UUID; personalized UI is separate from row authorization"
+    },
+    {
+      "slide": "sb-rls",
+      "type": "original owner-based permission table",
+      "source": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+      "illustration": "RLS enabled; SELECT privilege plus own-row policy; non-bypass signed-in user U1 can read only owner U1"
+    },
+    {
+      "slide": "sb-ai-tools",
+      "type": "original development workflow and review examples",
+      "source": "https://supabase.com/docs/guides/ai-tools",
+      "illustration": "Conceptual workflow; no actual AI tool or Supabase connection performed"
+    }
+  ],
+  "slides": [
+    {
+      "number": 45,
+      "id": "supabase",
+      "title": "Supabase",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/getting-started/architecture"
+      ]
+    },
+    {
+      "number": 46,
+      "id": "sb-overview",
+      "title": "Supabase 개요",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/getting-started/architecture",
+        "https://supabase.com/docs/guides/database/overview",
+        "https://supabase.com/brand"
+      ]
+    },
+    {
+      "number": 47,
+      "id": "sb-backend",
+      "title": "백엔드의 반복 작업",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/getting-started/architecture",
+        "https://supabase.com/docs/guides/auth",
+        "https://supabase.com/docs/guides/storage"
+      ]
+    },
+    {
+      "number": 48,
+      "id": "sb-history",
+      "title": "Supabase의 출발과 성장",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/blog/supabase-how-we-launch",
+        "https://www.ycombinator.com/companies/supabase",
+        "https://supabase.com/ga",
+        "https://supabase.com/blog/100000-github-stars",
+        "https://supabase.com/docs/guides/getting-started/architecture"
+      ]
+    },
+    {
+      "number": 49,
+      "id": "sb-services",
+      "title": "Supabase의 주요 기능",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/getting-started/architecture",
+        "https://supabase.com/docs/guides/api",
+        "https://supabase.com/docs/guides/auth",
+        "https://supabase.com/docs/guides/storage",
+        "https://supabase.com/docs/guides/realtime",
+        "https://supabase.com/docs/guides/functions"
+      ]
+    },
+    {
+      "number": 50,
+      "id": "sb-api",
+      "title": "테이블과 자동 API",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/api",
+        "https://supabase.com/docs/guides/api/securing-your-api"
+      ]
+    },
+    {
+      "number": 51,
+      "id": "sb-auth",
+      "title": "사용자 로그인",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/auth"
+      ]
+    },
+    {
+      "number": 52,
+      "id": "sb-rls",
+      "title": "행별 데이터 접근",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/database/postgres/row-level-security",
+        "https://supabase.com/docs/guides/api/api-keys"
+      ]
+    },
+    {
+      "number": 53,
+      "id": "sb-adoption",
+      "title": "Supabase의 대중화 배경",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/getting-started/architecture",
+        "https://supabase.com/ga",
+        "https://supabase.com/blog/100000-github-stars",
+        "https://supabase.com/pricing"
+      ]
+    },
+    {
+      "number": 54,
+      "id": "sb-ai-tools",
+      "title": "AI 개발 도구와의 연결",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/docs/guides/ai-tools",
+        "https://supabase.com/docs/guides/database/postgres/row-level-security"
+      ]
+    },
+    {
+      "number": 55,
+      "id": "sb-cost",
+      "title": "무료 시작과 사용량 관리",
+      "sources": [
+        "materials/supabase/research.ko.md",
+        "https://supabase.com/pricing"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "scope": "Illustrative relational models; no service or live DB access",
+  "models": {
+    "restaurant_menu": {
+      "attributes": "RMNP",
+      "declared_dependencies": [
+        "R → N",
+        "RM → P"
+      ],
+      "data": [
+        [
+          "11",
+          "1",
+          "아주식당",
+          "7000"
+        ],
+        [
+          "11",
+          "2",
+          "아주식당",
+          "8000"
+        ],
+        [
+          "12",
+          "1",
+          "캠퍼스분식",
+          "6500"
+        ],
+        [
+          "13",
+          "1",
+          "아주식당",
+          "7500"
+        ]
+      ],
+      "candidate_keys": [
+        "RM"
+      ],
+      "prime_attributes": "RM",
+      "normal_forms": {
+        "2NF": false,
+        "3NF": false,
+        "BCNF": false
+      },
+      "violations": {
+        "2NF": [
+          "R → N"
+        ],
+        "3NF": [
+          "R → N",
+          "RP → N"
+        ],
+        "BCNF": [
+          "R → N",
+          "RP → N"
+        ]
+      }
+    },
+    "restaurant_region": {
+      "attributes": "RCN",
+      "declared_dependencies": [
+        "R → C",
+        "C → N"
+      ],
+      "data": [
+        [
+          "11",
+          "A01",
+          "원천동"
+        ],
+        [
+          "12",
+          "A01",
+          "원천동"
+        ],
+        [
+          "13",
+          "A02",
+          "광교동"
+        ]
+      ],
+      "candidate_keys": [
+        "R"
+      ],
+      "prime_attributes": "R",
+      "normal_forms": {
+        "2NF": true,
+        "3NF": false,
+        "BCNF": false
+      },
+      "violations": {
+        "2NF": [],
+        "3NF": [
+          "C → N"
+        ],
+        "BCNF": [
+          "C → N"
+        ]
+      }
+    },
+    "enrollment": {
+      "attributes": "SCP",
+      "declared_dependencies": [
+        "SC → P",
+        "P → C"
+      ],
+      "data": [
+        [
+          "S1",
+          "DB",
+          "P1"
+        ],
+        [
+          "S2",
+          "DB",
+          "P1"
+        ],
+        [
+          "S1",
+          "WEB",
+          "P2"
+        ],
+        [
+          "S3",
+          "DB",
+          "P3"
+        ]
+      ],
+      "candidate_keys": [
+        "SC",
+        "SP"
+      ],
+      "prime_attributes": "SCP",
+      "normal_forms": {
+        "2NF": true,
+        "3NF": true,
+        "BCNF": false
+      },
+      "violations": {
+        "2NF": [],
+        "3NF": [],
+        "BCNF": [
+          "P → C"
+        ]
+      }
+    }
+  },
+  "checks": {
+    "update_anomaly_detected": true,
+    "second-normal-form": {
+      "before_rows": 4,
+      "restored_rows": 4,
+      "exact_reconstruction": true
+    },
+    "third-normal-form": {
+      "before_rows": 3,
+      "restored_rows": 3,
+      "exact_reconstruction": true
+    },
+    "phone_values_preserved": true,
+    "foreign_key_allowed_and_missing_reference": true
+  }
+}

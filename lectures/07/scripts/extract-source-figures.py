@@ -22,6 +22,8 @@ FIGURES = [
     ('erd-cardinality-legend', 16, (420, 42, 554, 302)),
     ('erd-company-example', 16, (590, 42, 684, 302)),
     ('normalization-diagrams', 18, (380, 198, 701, 367)),
+    ('normalization-2nf', 18, (380, 198, 550, 367)),
+    ('normalization-3nf', 18, (551, 198, 701, 367)),
     ('sql-example', 19, (338, 48, 676, 274)),
 ]
 

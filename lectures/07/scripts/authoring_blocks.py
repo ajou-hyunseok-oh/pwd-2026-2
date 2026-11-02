@@ -12,17 +12,10 @@ PAGES = {
     'erd': [16], 'constraints': [17], 'integrity': [17], 'normalization': [18],
     'functional-dependency': [18], 'superkey': [18], 'candidate-key': [18],
     'prime-attribute': [18], 'partial-dependency': [18], 'transitive-dependency': [18],
-    'first-normal-form': [18], 'second-normal-form': [18], 'third-normal-form': [18], 'bcnf': [18], 'sql': [19],
+    'first-normal-form': [18], 'second-normal-form': [18], 'third-normal-form': [18], 'bcnf': [18],
 }
-POSTGRES = {'primary-key', 'foreign-key', 'constraints', 'integrity', 'data-types',
-            'postgresql', 'create-table', 'submission-table', 'one-to-one', 'insert-submission',
-            'insert', 'select', 'join', 'update', 'delete'}
-SQL_REFS = {'create-table': 'sql-createtable.html', 'submission-table': 'sql-createtable.html',
-            'one-to-one': 'sql-altertable.html', 'insert-submission': 'sql-insert.html',
-            'insert': 'sql-insert.html', 'select': 'sql-select.html', 'join': 'queries-table-expressions.html',
-            'update': 'sql-update.html', 'delete': 'sql-delete.html',
-            'postgresql': 'intro-whatis.html', 'data-types': 'datatype.html'}
-SUPABASE = {'supabase', 'project', 'build-flow', 'table-editor', 'sql-editor', 'access', 'rls', 'rls-setup'}
+POSTGRES = {'primary-key', 'foreign-key', 'constraints', 'integrity'}
+SUPABASE = {'supabase'}
 
 def enrich(slides):
     by_id = {s['id']: s for s in slides}
@@ -30,9 +23,9 @@ def enrich(slides):
         pages = PAGES.get(s['id'], [])
         sources = [f'{PDF}#page={p}' for p in pages]
         if s['id'] in POSTGRES:
-            sources.append('https://www.postgresql.org/docs/current/' + SQL_REFS[s['id']] if s['id'] in SQL_REFS else PG)
+            sources.append(PG)
         if s['id'] in SUPABASE:
-            sources.append(SUPA + ('connecting-to-postgres' if s['id'] == 'access' else 'tables' if s['id'] in {'table-editor','sql-editor','rls-setup'} else 'postgres/row-level-security' if s['id'] == 'rls' else 'overview'))
+            sources.append(SUPA + 'overview')
         s['source_pages'] = pages
         s['sources'] = list(dict.fromkeys(sources + s.get('source_urls', [])))
     def block(ident, kind, ko, en):
@@ -41,9 +34,6 @@ def enrich(slides):
     block('design-stages','steps',
           [['개념적 설계','대상·속성·관계 식별'],['논리적 설계','테이블·키·제약으로 구조화'],['물리적 설계','저장·접근 구조 결정']],
           [['Conceptual','Identify entities, attributes, and relationships'],['Logical','Structure tables, keys, and constraints'],['Physical','Determine storage and access structures']])
-    block('build-flow','steps',
-          [['schema.sql','테이블 · 권한 · 함수 정의'],['seed.sql','빈 테이블에만 원본 3건 입력'],['SELECT','저장된 열 값과 행 확인']],
-          [['schema.sql','Define table, privileges, and function'],['seed.sql','Insert originals only if empty'],['SELECT','Inspect stored values and rows']])
     block('second-normal-form','table',
           {'head':['분리된 테이블','속성'], 'rows':[['식당','식당 ID · 식당 이름'],['식당 메뉴','식당 ID · 메뉴 ID · 가격']]},
           {'head':['Decomposed table','Attributes'], 'rows':[['Restaurant','Restaurant ID · restaurant name'],['Restaurant menu','Restaurant ID · menu ID · price']]})
@@ -68,7 +58,6 @@ def enrich(slides):
         'logical': [('logical-model-mapping.png', '엔티티에서 테이블, 속성에서 열, 관계에서 키로의 대응', 'Mapping entities to tables, attributes to columns, and relationships to keys')],
         'cardinality': [('erd-cardinality-legend.png', '일대일, 일대다, 필수와 선택 참여를 보여주는 ERD 관계 기호 범례', 'ERD symbols for one, many, mandatory and optional participation'), ('erd-company-example.png', 'Company, Employee, Projects의 관계 예시', 'Example relationships among Company, Employee, and Projects')],
         'normalization': [('normalization-diagrams.png', '수강 등록 데이터의 2차와 3차 정규화 전후 테이블 구조', 'Second- and third-normal-form decomposition for course registration tables')],
-        'sql': [('sql-example.png', '사용자, 식당, 리뷰를 대상으로 삽입, 수정, 삭제, 조회하는 SQL 원본 발췌', 'Original SQL excerpts for insert, update, delete, and select on users, restaurants, and reviews')],
     }
     for ident, items in figures.items():
         slide = by_id[ident]

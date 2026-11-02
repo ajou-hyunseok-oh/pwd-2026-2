@@ -300,7 +300,8 @@
     "title": "물리적 설계",
     "subtitle": "데이터 저장과 접근을 위한 구현 결정",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=15"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=15",
+      "https://www.postgresql.org/docs/current/indexes-intro.html"
     ],
     "source_pages": [
       15
@@ -363,9 +364,7 @@
     "source_pages": [
       18
     ],
-    "source_figures": [
-      "materials/source-figures/normalization-diagrams.png"
-    ]
+    "source_figures": []
   },
   {
     "number": 26,
@@ -374,7 +373,8 @@
     "title": "함수 종속",
     "subtitle": "결정자에 따라 정해지는 속성의 값",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -388,7 +388,8 @@
     "title": "슈퍼키",
     "subtitle": "테이블의 각 행을 구별하는 속성 집합",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -402,7 +403,8 @@
     "title": "후보 키",
     "subtitle": "불필요한 속성이 없는 최소 슈퍼키",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -416,7 +418,8 @@
     "title": "주요 속성",
     "subtitle": "후보 키에 속하는 속성",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -430,7 +433,8 @@
     "title": "부분 종속",
     "subtitle": "복합 후보 키의 일부에 대한 함수 종속",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -444,7 +448,8 @@
     "title": "이행 종속",
     "subtitle": "중간 속성을 거쳐 결정되는 함수 종속",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -458,7 +463,8 @@
     "title": "제1정규형",
     "subtitle": "각 열에 도메인 기준의 단일 값 저장",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -472,12 +478,15 @@
     "title": "제2정규형",
     "subtitle": "복합 키의 일부에만 의존하는 속성 분리",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
     ],
-    "source_figures": []
+    "source_figures": [
+      "materials/source-figures/normalization-2nf.png"
+    ]
   },
   {
     "number": 34,
@@ -486,12 +495,15 @@
     "title": "제3정규형",
     "subtitle": "비주요 속성 사이의 이행 종속 분리",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
     ],
-    "source_figures": []
+    "source_figures": [
+      "materials/source-figures/normalization-3nf.png"
+    ]
   },
   {
     "number": 35,
@@ -500,7 +512,8 @@
     "title": "BCNF",
     "subtitle": "모든 결정자가 슈퍼키인 정규형",
     "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18"
+      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=18",
+      "https://www.cs.cmu.edu/~natassa/courses/15-415/S03/notes/18Norm6up.pdf"
     ],
     "source_pages": [
       18
@@ -511,581 +524,305 @@
     "number": 36,
     "id": "postgres",
     "kind": "chapter",
-    "title": "PostgreSQL과 SQL",
-    "subtitle": "",
-    "sources": [],
+    "title": "PostgreSQL",
+    "subtitle": "기술적 특징과 대중화 배경",
+    "sources": [
+      "materials/postgresql-research.ko.txt",
+      "https://www.postgresql.org/about/"
+    ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 37,
-    "id": "postgresql",
+    "id": "pg-overview",
     "kind": "content",
-    "title": "PostgreSQL",
-    "subtitle": "SQL을 사용하는 오픈소스 관계형 DBMS",
+    "title": "PostgreSQL 개요",
+    "subtitle": "관계형 모델에 다양한 자료형과 확장 기능을 결합한 DBMS",
     "sources": [
-      "https://www.postgresql.org/docs/current/intro-whatis.html"
+      "materials/postgresql-research.ko.txt",
+      "https://www.postgresql.org/about/",
+      "https://www.postgresql.org/about/featurematrix/",
+      "https://www.postgresql.org/about/press/presskit18/",
+      "https://www.postgresql.org/about/policies/trademarks/"
+    ],
+    "source_pages": [],
+    "source_figures": [
+      "materials/postgresql/elephant.png"
+    ]
+  },
+  {
+    "number": 38,
+    "id": "pg-history",
+    "kind": "content",
+    "title": "PostgreSQL의 발전",
+    "subtitle": "Berkeley 연구 프로젝트에서 커뮤니티와 확장 생태계로",
+    "sources": [
+      "materials/postgresql-research.ko.txt",
+      "https://www.postgresql.org/docs/current/history.html",
+      "https://www.postgresql.org/docs/9.4/release-9-4.html",
+      "https://www.postgresql.org/docs/9.6/release-9-6.html",
+      "https://www.postgresql.org/docs/10/release-10.html",
+      "https://github.com/pgvector/pgvector"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
-    "number": 38,
-    "id": "sql",
-    "kind": "content",
-    "title": "SQL",
-    "subtitle": "관계형 데이터베이스를 다루는 언어",
-    "sources": [
-      "materials/%5BPWD%205%5D%20Database%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90%20%EB%B0%8F%20MERN%20Stack%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%EC%9D%98%20%EC%9D%B4%ED%95%B4.pdf#page=19"
-    ],
-    "source_pages": [
-      19
-    ],
-    "source_figures": [
-      "materials/source-figures/sql-example.png"
-    ]
-  },
-  {
     "number": 39,
-    "id": "data-types",
+    "id": "pg-adoption",
     "kind": "content",
-    "title": "PostgreSQL 자료형",
-    "subtitle": "열에 저장할 값의 종류와 범위",
+    "title": "PostgreSQL의 사용 현황",
+    "subtitle": "개발자 설문과 생태계의 확산을 함께 읽는 관점",
     "sources": [
-      "https://www.postgresql.org/docs/current/datatype.html"
+      "materials/postgresql-research.ko.txt",
+      "https://survey.stackoverflow.co/2025/technology/"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 40,
-    "id": "create-table",
+    "id": "pg-license",
     "kind": "content",
-    "title": "테이블 생성",
-    "subtitle": "이름·열·자료형과 제약조건 정의",
+    "title": "PostgreSQL 라이선스",
+    "subtitle": "소프트웨어 도입 비용과 서비스 운영 비용의 구분",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-createtable.html"
+      "materials/postgresql-research.ko.txt",
+      "https://www.postgresql.org/about/licence/",
+      "https://www.postgresql.org/about/press/presskit18/"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 41,
-    "id": "submission-table",
+    "id": "pg-transactions",
     "kind": "content",
-    "title": "제보 테이블 생성",
-    "subtitle": "제보의 식별자와 내용을 저장",
+    "title": "함께 처리하는 데이터 변경",
+    "subtitle": "주문 기록과 재고 변경을 하나로 묶는 트랜잭션",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-createtable.html"
+      "materials/postgresql-research.ko.txt",
+      "https://www.postgresql.org/docs/current/tutorial-transactions.html"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 42,
-    "id": "one-to-one",
+    "id": "pg-jsonb",
     "kind": "content",
-    "title": "제보와 맛집의 관계",
-    "subtitle": "외래 키와 고유 제약으로 관계 구현",
+    "title": "JSON 부가 정보 저장",
+    "subtitle": "테이블의 기본 정보에 다양한 속성을 추가하는 방식",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-altertable.html"
+      "materials/postgresql-research.ko.txt",
+      "https://www.postgresql.org/docs/current/datatype-json.html"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 43,
-    "id": "insert-submission",
+    "id": "pg-extensions",
     "kind": "content",
-    "title": "제보 데이터 추가",
-    "subtitle": "새 제보를 저장하고 식별자 확인",
+    "title": "필요한 기능의 확장",
+    "subtitle": "주변 맛집 검색으로 이해하는 PostgreSQL 확장",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-insert.html"
+      "materials/postgresql-research.ko.txt",
+      "https://postgis.net/",
+      "https://postgis.net/docs/ST_DWithin.html"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 44,
-    "id": "insert",
+    "id": "pg-cloud",
     "kind": "content",
-    "title": "데이터 추가",
-    "subtitle": "테이블에 새로운 행 저장",
+    "title": "관리형 PostgreSQL",
+    "subtitle": "직접 설치하는 대신 클라우드에서 데이터베이스를 이용하는 방식",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-insert.html"
+      "materials/postgresql-research.ko.txt",
+      "https://supabase.com/docs/guides/database/overview",
+      "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 45,
-    "id": "select",
-    "kind": "content",
-    "title": "데이터 조회",
-    "subtitle": "조건에 맞는 행과 필요한 열 선택",
+    "id": "supabase",
+    "kind": "chapter",
+    "title": "Supabase",
+    "subtitle": "PostgreSQL을 활용한 쉬운 백엔드 개발",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-select.html"
+      "https://supabase.com/docs/guides/database/overview",
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/getting-started/architecture"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 46,
-    "id": "join",
+    "id": "sb-overview",
     "kind": "content",
-    "title": "JOIN",
-    "subtitle": "관계로 연결된 테이블의 데이터 결합",
+    "title": "Supabase 개요",
+    "subtitle": "PostgreSQL에 백엔드 개발 기능을 더한 플랫폼",
     "sources": [
-      "https://www.postgresql.org/docs/current/queries-table-expressions.html"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/getting-started/architecture",
+      "https://supabase.com/docs/guides/database/overview",
+      "https://supabase.com/brand"
     ],
     "source_pages": [],
-    "source_figures": []
+    "source_figures": [
+      "materials/supabase/supabase-logo.svg"
+    ]
   },
   {
     "number": 47,
-    "id": "update",
+    "id": "sb-backend",
     "kind": "content",
-    "title": "데이터 수정",
-    "subtitle": "기존 행의 열 값 변경",
+    "title": "백엔드의 반복 작업",
+    "subtitle": "공통 기능을 직접 구축하는 부담을 줄이는 BaaS",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-update.html"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/getting-started/architecture",
+      "https://supabase.com/docs/guides/auth",
+      "https://supabase.com/docs/guides/storage"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 48,
-    "id": "delete",
+    "id": "sb-history",
     "kind": "content",
-    "title": "데이터 삭제",
-    "subtitle": "조건에 맞는 기존 행 제거",
+    "title": "Supabase의 출발과 성장",
+    "subtitle": "PostgreSQL을 쉽게 쓰려는 목표에서 출발한 오픈소스 플랫폼",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-delete.html"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/blog/supabase-how-we-launch",
+      "https://www.ycombinator.com/companies/supabase",
+      "https://supabase.com/ga",
+      "https://supabase.com/blog/100000-github-stars",
+      "https://supabase.com/docs/guides/getting-started/architecture"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 49,
-    "id": "supabase-chapter",
-    "kind": "chapter",
-    "title": "Supabase 데이터베이스 구축",
-    "subtitle": "",
-    "sources": [],
+    "id": "sb-services",
+    "kind": "content",
+    "title": "Supabase의 주요 기능",
+    "subtitle": "한 프로젝트에서 필요한 백엔드 기능을 선택하는 구성",
+    "sources": [
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/getting-started/architecture",
+      "https://supabase.com/docs/guides/api",
+      "https://supabase.com/docs/guides/auth",
+      "https://supabase.com/docs/guides/storage",
+      "https://supabase.com/docs/guides/realtime",
+      "https://supabase.com/docs/guides/functions"
+    ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 50,
-    "id": "supabase",
+    "id": "sb-api",
     "kind": "content",
-    "title": "Supabase",
-    "subtitle": "PostgreSQL을 중심으로 구성한 백엔드 개발 플랫폼",
+    "title": "테이블과 자동 API",
+    "subtitle": "데이터베이스 구조를 바탕으로 만들어지는 데이터 접근 창구",
     "sources": [
-      "https://supabase.com/docs/guides/database/overview",
-      "https://supabase.com/"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/api",
+      "https://supabase.com/docs/guides/api/securing-your-api"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 51,
-    "id": "supabase-history",
+    "id": "sb-auth",
     "kind": "content",
-    "title": "Supabase의 출발과 성장",
-    "subtitle": "오픈 소스 개발 도구에서 관리형 플랫폼으로",
+    "title": "사용자 로그인",
+    "subtitle": "Supabase Auth로 앱의 사용자를 확인하는 과정",
     "sources": [
-      "https://supabase.com/blog/supabase-how-we-launch",
-      "https://www.ycombinator.com/companies/supabase",
-      "https://supabase.com/ga",
-      "https://supabase.com/blog/100000-github-stars"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/auth"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 52,
-    "id": "supabase-current",
+    "id": "sb-rls",
     "kind": "content",
-    "title": "Supabase의 현재 구성",
-    "subtitle": "2026년 11월 2일 공식 문서 확인 기준",
+    "title": "행별 데이터 접근",
+    "subtitle": "로그인한 사용자에게 허용된 행만 보여주는 규칙",
     "sources": [
-      "https://supabase.com/docs/guides/database/overview",
-      "https://supabase.com/docs/guides/api",
-      "https://supabase.com/docs/guides/storage",
-      "https://supabase.com/docs/guides/auth",
-      "https://supabase.com/docs/guides/realtime"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/database/postgres/row-level-security",
+      "https://supabase.com/docs/guides/api/api-keys"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 53,
-    "id": "supabase-meaning",
+    "id": "sb-adoption",
     "kind": "content",
-    "title": "관리형 데이터베이스의 의의",
-    "subtitle": "서버 프로세스와 데이터의 수명 분리",
+    "title": "Supabase의 대중화 배경",
+    "subtitle": "익숙한 기술과 쉬운 시작이 맞물린 도입 배경",
     "sources": [
-      "https://supabase.com/docs/guides/database/overview"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/getting-started/architecture",
+      "https://supabase.com/ga",
+      "https://supabase.com/blog/100000-github-stars",
+      "https://supabase.com/pricing"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
     "number": 54,
-    "id": "foodmap-architecture",
+    "id": "sb-ai-tools",
     "kind": "content",
-    "title": "이번 실습의 요청 흐름",
-    "subtitle": "기존 클라이언트 API 뒤에 Supabase 연결",
+    "title": "AI 개발 도구와의 연결",
+    "subtitle": "생성한 화면·코드를 실제 백엔드와 연결하는 개발 과정",
     "sources": [
-      "https://supabase.com/docs/guides/api",
-      "https://supabase.com/docs/guides/getting-started/api-keys"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 55,
-    "id": "foodmap-design",
-    "kind": "content",
-    "title": "pwd-week7의 저장 범위",
-    "subtitle": "완료된 구현의 실제 저장 위치",
-    "sources": [],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 56,
-    "id": "project",
-    "kind": "content",
-    "title": "Supabase 프로젝트 준비",
-    "subtitle": "SQL을 실행할 데이터베이스와 연결 정보 확보",
-    "sources": [
-      "https://supabase.com/docs/guides/database/overview",
-      "https://supabase.com/docs/guides/getting-started/quickstarts/reactjs",
-      "https://supabase.com/docs/guides/getting-started/api-keys"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 57,
-    "id": "build-flow",
-    "kind": "content",
-    "title": "실행한 SQL 파일의 역할",
-    "subtitle": "구조와 권한을 준비한 뒤 초기 데이터 입력",
-    "sources": [
-      "https://supabase.com/docs/guides/database/overview"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 58,
-    "id": "sql-editor",
-    "kind": "content",
-    "title": "SQL 실행과 결과 확인",
-    "subtitle": "같은 데이터베이스를 다루는 두 관리 도구",
-    "sources": [
-      "https://supabase.com/docs/guides/database/tables",
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/docs/guides/ai-tools",
       "https://supabase.com/docs/guides/database/postgres/row-level-security"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
-    "number": 59,
-    "id": "table-schema",
+    "number": 55,
+    "id": "sb-cost",
     "kind": "content",
-    "title": "restaurants 테이블 생성",
-    "subtitle": "스키마 이름·테이블 이름·열 정의의 구성",
+    "title": "무료 시작과 사용량 관리",
+    "subtitle": "작은 프로젝트의 시작 조건과 서비스 사용량의 구분",
     "sources": [
-      "https://www.postgresql.org/docs/current/sql-createtable.html",
-      "https://www.postgresql.org/docs/current/ddl-schemas.html"
+      "materials/supabase/research.ko.md",
+      "https://supabase.com/pricing"
     ],
     "source_pages": [],
     "source_figures": []
   },
   {
-    "number": 60,
-    "id": "column-types",
+    "number": 56,
+    "id": "practice-week7",
     "kind": "content",
-    "title": "실습 열의 자료형",
-    "subtitle": "저장할 값의 형태에 맞춘 PostgreSQL 타입",
+    "title": "실습 안내 · pwd-week7",
+    "subtitle": "Supabase로 푸드맵 데이터 영구 저장 및 기존 서비스 배포",
     "sources": [
-      "https://www.postgresql.org/docs/current/datatype.html"
+      "https://github.com/ajou-hyunseok-oh/pwd-week7#readme"
     ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 61,
-    "id": "table-identity",
-    "kind": "content",
-    "title": "맛집 ID의 자동 생성",
-    "subtitle": "값 생성은 IDENTITY · 중복 방지는 PRIMARY KEY",
-    "sources": [
-      "https://www.postgresql.org/docs/current/ddl-identity-columns.html",
-      "https://www.postgresql.org/docs/current/ddl-constraints.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 62,
-    "id": "table-not-null",
-    "kind": "content",
-    "title": "NOT NULL 제약조건",
-    "subtitle": "값이 없음을 나타내는 NULL의 저장 제한",
-    "sources": [
-      "https://www.postgresql.org/docs/current/ddl-constraints.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 63,
-    "id": "table-default",
-    "kind": "content",
-    "title": "DEFAULT 기본값",
-    "subtitle": "입력에서 생략한 열에 사용할 값",
-    "sources": [
-      "https://www.postgresql.org/docs/current/ddl-default.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 64,
-    "id": "table-array",
-    "kind": "content",
-    "title": "추천 메뉴의 배열 저장",
-    "subtitle": "여러 문자열을 하나의 text[] 열에 보관",
-    "sources": [
-      "https://www.postgresql.org/docs/current/arrays.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 65,
-    "id": "access",
-    "kind": "content",
-    "title": "API 키와 DB 역할",
-    "subtitle": "요청이 실행될 권한의 기준",
-    "sources": [
-      "https://supabase.com/docs/guides/database/connecting-to-postgres",
-      "https://supabase.com/docs/guides/getting-started/api-keys"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 66,
-    "id": "rls",
-    "kind": "content",
-    "title": "RLS와 테이블 접근",
-    "subtitle": "행 정책과 객체 권한의 구분",
-    "sources": [
-      "https://supabase.com/docs/guides/database/postgres/row-level-security",
-      "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 67,
-    "id": "table-privileges",
-    "kind": "content",
-    "title": "서버의 테이블 권한",
-    "subtitle": "대상 객체와 허용할 작업을 지정하는 GRANT",
-    "sources": [
-      "https://www.postgresql.org/docs/current/ddl-priv.html",
-      "https://www.postgresql.org/docs/current/sql-grant.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 68,
-    "id": "sequence-privileges",
-    "kind": "content",
-    "title": "ID 시퀀스의 권한",
-    "subtitle": "번호 생성 객체는 테이블과 별도로 관리",
-    "sources": [
-      "https://www.postgresql.org/docs/current/sql-grant.html",
-      "https://www.postgresql.org/docs/current/functions-sequence.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 69,
-    "id": "function-definition",
-    "kind": "content",
-    "title": "초기화 함수의 정의",
-    "subtitle": "여러 SQL 작업을 이름 있는 DB 함수로 묶기",
-    "sources": [
-      "https://www.postgresql.org/docs/current/sql-createfunction.html",
-      "https://www.postgresql.org/docs/current/plpgsql-structure.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 70,
-    "id": "function-context",
-    "kind": "content",
-    "title": "함수의 실행 환경",
-    "subtitle": "호출자 권한과 객체 이름의 해석",
-    "sources": [
-      "https://www.postgresql.org/docs/current/sql-createfunction.html",
-      "https://www.postgresql.org/docs/current/ddl-schemas.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 71,
-    "id": "reset-rows",
-    "kind": "content",
-    "title": "초기화 함수의 데이터 처리",
-    "subtitle": "현재 행을 제거하고 원본 3건 복원",
-    "sources": [
-      "https://www.postgresql.org/docs/current/sql-delete.html",
-      "https://www.postgresql.org/docs/current/sql-insert.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 72,
-    "id": "reset-transaction",
-    "kind": "content",
-    "title": "초기화의 실행 단위",
-    "subtitle": "한 호출 안에서 삭제와 입력을 함께 처리",
-    "sources": [
-      "https://www.postgresql.org/docs/current/tutorial-transactions.html",
-      "https://www.postgresql.org/docs/current/explicit-locking.html",
-      "https://www.postgresql.org/docs/current/functions-sequence.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 73,
-    "id": "reset-sequence",
-    "kind": "content",
-    "title": "초기 ID와 시퀀스 맞추기",
-    "subtitle": "명시한 1·2·3 다음 번호를 4로 설정",
-    "sources": [
-      "https://www.postgresql.org/docs/current/functions-sequence.html",
-      "https://www.postgresql.org/docs/current/functions-info.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 74,
-    "id": "function-privileges",
-    "kind": "content",
-    "title": "초기화 함수의 실행 권한",
-    "subtitle": "함수 호출도 EXECUTE 권한으로 제어",
-    "sources": [
-      "https://www.postgresql.org/docs/current/ddl-priv.html",
-      "https://www.postgresql.org/docs/current/sql-grant.html",
-      "https://supabase.com/docs/reference/javascript/rpc"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 75,
-    "id": "seed-block",
-    "kind": "content",
-    "title": "최초 데이터의 조건부 입력",
-    "subtitle": "seed.sql은 테이블이 비어 있을 때만 실행",
-    "sources": [
-      "https://www.postgresql.org/docs/current/sql-do.html",
-      "https://www.postgresql.org/docs/current/plpgsql-statements.html",
-      "https://www.postgresql.org/docs/current/functions-subquery.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 76,
-    "id": "verify-query",
-    "kind": "content",
-    "title": "저장 결과의 SQL 조회",
-    "subtitle": "원본 3건과 이후 등록 행을 같은 테이블에서 확인",
-    "sources": [
-      "https://www.postgresql.org/docs/current/sql-select.html"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 77,
-    "id": "server-mapping",
-    "kind": "content",
-    "title": "DB 행과 기존 API의 대응",
-    "subtitle": "저장 형태를 바꾸어도 클라이언트의 약속 유지",
-    "sources": [
-      "https://supabase.com/docs/reference/javascript/insert"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 78,
-    "id": "server-persistence",
-    "kind": "content",
-    "title": "서버 재시작과 영구 저장 검증",
-    "subtitle": "프로세스를 바꾸어도 동일한 DB 행 유지",
-    "sources": [],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 79,
-    "id": "deploy-verification",
-    "kind": "content",
-    "title": "배포 환경의 연결 설정",
-    "subtitle": "Vercel은 Express 주소 · Render는 Supabase 자격 증명",
-    "sources": [],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 80,
-    "id": "failure-cases",
-    "kind": "content",
-    "title": "실제로 확인한 연결 오류",
-    "subtitle": "오류가 난 계층과 설정의 대응",
-    "sources": [
-      "https://supabase.com/docs/guides/getting-started/api-keys"
-    ],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 81,
-    "id": "lab-check",
-    "kind": "content",
-    "title": "7주차 실습의 완료 기준",
-    "subtitle": "SQL 정의부터 기존 화면까지 결과 대조",
-    "sources": [],
-    "source_pages": [],
-    "source_figures": []
-  },
-  {
-    "number": 82,
-    "id": "questions",
-    "kind": "content",
-    "title": "Q&A",
-    "subtitle": "데이터베이스 설계와 구축",
-    "sources": [],
     "source_pages": [],
     "source_figures": []
   }

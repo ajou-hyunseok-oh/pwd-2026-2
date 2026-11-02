@@ -5,14 +5,34 @@ import re
 from pathlib import Path
 from lesson_content import SLIDES
 from authoring_blocks import enrich
+from design_examples import apply as apply_design_examples
+from example_blocks import render_example
 
-SLIDES = enrich(SLIDES)
+SLIDES = apply_design_examples(enrich(SLIDES))
 
 ROOT = Path(__file__).resolve().parents[1]
 messages = {'ko': {}, 'en': {}}
 def tr(key, ko, en, tag='p', cls=''):
     messages['ko'][key], messages['en'][key] = ko, en
     return f'<{tag} class="{cls}" data-wd-i18n="{key}">{html.escape(ko)}</{tag}>'
+
+def practice_guide(practice, key):
+    """Reuse Week 5's goals, deadline, deliverables, and reference layout."""
+    result = ['<div class="wd-lesson-body wd-lesson-body--single"><div class="wd-lesson-block"><div class="wd-practice-grid"><div class="wd-practice-main">']
+    for group in ('goals', 'requirements'):
+        result.append(tr(key+'_'+group+'_label', *practice[group+'_label'], 'h3'))
+        result.append('<ul>' + ''.join(tr(f'{key}_{group}_{i}', *item, 'li') for i, item in enumerate(practice[group])) + '</ul>')
+    result.append('</div><div class="wd-practice-side"><div class="wd-practice-submission"><div class="wd-practice-deadline">')
+    result.append(tr(key+'_deadline_label', *practice['deadline_label'], 'span'))
+    result.append(tr(key+'_deadline', *practice['deadline'], 'strong'))
+    result.append('</div><div class="wd-practice-deliverables">' + tr(key+'_deliverables_label', *practice['deliverables_label'], 'h3'))
+    result.append('<ul>' + ''.join(tr(f'{key}_deliverable_{i}', *item, 'li') for i, item in enumerate(practice['deliverables'])) + '</ul></div></div>')
+    result.append('<div class="wd-practice-reference">' + tr(key+'_reference_label', *practice['reference_label'], 'h3'))
+    link = tr(key+'_reference_title', *practice['reference_title'], 'a')
+    result.append(link.replace('<a ', '<a href="' + html.escape(practice['reference_url'], quote=True) + '" target="_blank" rel="noopener noreferrer" '))
+    result.append(tr(key+'_scope', *practice['scope']))
+    result.append('</div></div></div></div></div>')
+    return '\n'.join(result)
 
 sections = ['''<section class="wd-slide wd-lesson-slide wd-lesson-cover is-active" data-wd-slide="cover" data-wd-cover="weekly" role="region"><div class="wd-lesson-cover__content">''' + tr('w7_cover_eyebrow', '2026학년도 2학기 실전웹서비스개발', 'Practical Web Service Development · Fall 2026', 'p', 'wd-lesson-cover__eyebrow') + tr('w7_cover_title', '실전 웹서비스개발 – 7주차', 'Practical Web Service Development – Week 7', 'h1', 'wd-lesson-title') + tr('w7_cover_subtitle', '데이터베이스 설계와 PostgreSQL · Supabase', 'Database Design with PostgreSQL and Supabase', 'p', 'wd-lesson-cover__subtitle') + '</div><p class="wd-lesson-source">LECTURE 07</p></section>']
 slide_map = [{'number': 1, 'id': 'cover', 'kind': 'cover', 'title': '실전 웹서비스개발 – 7주차'}]
@@ -21,6 +41,8 @@ for number, slide in enumerate(SLIDES, 2):
     ident = slide['id']; ko, en = slide['ko'], slide['en']; kind = slide['type']; key = 'w7_' + str(number).zfill(2)
     assert kind in ('chapter', 'content')
     css = 'wd-lesson-chapter' if kind == 'chapter' else 'wd-slide--content'
+    if slide.get('example'):
+        css += ' w7-supported-slide'
     concept = '' if kind == 'chapter' else f' data-wd-concept="{html.escape(ident, quote=True)}"'
     parts = [f'<section class="wd-slide wd-lesson-slide {css}" data-wd-slide="{html.escape(ident, quote=True)}"{concept} role="region">']
     if kind == 'chapter':
@@ -29,6 +51,20 @@ for number, slide in enumerate(SLIDES, 2):
     parts.append(tr(key+'_title', ko['title'], en['title'], 'h2', 'wd-slide-heading'))
     if ko['lead'] or en['lead']:
         parts.append(tr(key+'_lead', ko['lead'], en['lead'], 'p', 'wd-slide-lead'))
+    if slide.get('practice'):
+        parts.append(practice_guide(slide['practice'], key))
+    if slide.get('example'):
+        assert len(ko['concepts']) == len(en['concepts'])
+        parts.append('<div class="wd-lesson-body wd-lesson-body--single w7-supported-body"><div class="wd-lesson-block"><dl class="wd-lesson-concepts w7-case-concepts">')
+        for i, (kc, ec) in enumerate(zip(ko['concepts'], en['concepts'])):
+            kd = [kc[2]] if isinstance(kc[2], str) else kc[2]
+            ed = [ec[2]] if isinstance(ec[2], str) else ec[2]
+            assert len(kd) == len(ed), ident
+            details = ''.join(tr(f'{key}_c{i}_detail{j}', k, e, 'li') for j, (k, e) in enumerate(zip(kd, ed)))
+            parts.append('<div><dt>'+tr(f'{key}_c{i}_term', kc[0]+' - '+kc[1], ec[0]+' - '+ec[1], 'strong')+'</dt>'+('<dd><ul>'+details+'</ul></dd>' if details else '')+'</div>')
+        parts.append('</dl></div><div class="wd-lesson-block w7-example" data-wd-example="'+ident+'">')
+        parts.append(render_example(slide['example'], key+'_example', tr))
+        parts.append('</div></div>')
     if ko.get('history'):
         assert len(ko['history']) == len(en['history'])
         figure = slide['source_figures'][0]
@@ -49,7 +85,7 @@ for number, slide in enumerate(SLIDES, 2):
             parts.append('<div><dt>' + title + '</dt><dd><ul>' + details + '</ul></dd></div>')
         src = html.escape(figure['src'], quote=True)
         parts.append('</dl></div><div class="wd-lesson-block"><figure class="week7-history__figure"><a href="' + src + '" target="_blank" rel="noopener noreferrer" aria-label="' + html.escape(messages['ko'][link_key], quote=True) + '" data-wd-i18n-aria-label="' + link_key + '"><img src="' + src + '" alt="' + html.escape(figure['alt'][0], quote=True) + '" data-wd-i18n-alt="' + alt_key + '"></a></figure></div></div>')
-    if kind == 'content' and (ko['concepts'] or slide.get('source_figures')) and not ko.get('history'):
+    if kind == 'content' and (ko['concepts'] or slide.get('source_figures')) and not ko.get('history') and not slide.get('example'):
         assert len(ko['concepts']) == len(en['concepts'])
         has_code = bool(ko.get('code'))
         has_table = bool(ko.get('table'))
@@ -137,7 +173,7 @@ for number, slide in enumerate(SLIDES, 2):
         parts.append('</div>')
     if slide.get('sources') or slide.get('note'):
         sources = slide.get('sources', [])
-        note = slide.get('note', '')
+        note = slide.get('note', '') + ('\n'+slide['example_note'] if slide.get('example_note') else '')
         parts.append('<aside hidden class="wd-lesson-notes">' + html.escape(note + '\n[Sources]\n' + '\n'.join(sources) + '\n[/Sources]') + '</aside>')
     parts.append('</section>')
     sections.append('\n'.join(parts))

@@ -1,0 +1,135 @@
+{
+  "checked_on": "2026-11-02",
+  "images": [
+    {
+      "file": "postgresql/elephant.png",
+      "source_url": "https://www.postgresql.org/media/img/about/press/elephant.png",
+      "source_page": "https://www.postgresql.org/about/press/presskit18/",
+      "usage_policy": "https://www.postgresql.org/about/policies/trademarks/",
+      "sha256": "ff92fb5d12a7fa6b23c2eb403d2edf4fbc58ced802021e1f02c3583cb70957be",
+      "modified": false
+    }
+  ],
+  "diagrams": [
+    {
+      "slide": "pg-transactions",
+      "type": "original before-and-after flow and result table",
+      "source": "https://www.postgresql.org/docs/current/tutorial-transactions.html",
+      "illustration": "One transaction groups one order and one stock reduction: success leaves stock 4 and one order; cancellation leaves stock 5 and zero orders"
+    },
+    {
+      "slide": "pg-jsonb",
+      "type": "original example table and JSON value",
+      "source": "https://www.postgresql.org/docs/current/datatype-json.html",
+      "illustration": "One restaurant row with regular id/name columns and a details JSONB column; illustrative schema, not the practice schema"
+    },
+    {
+      "slide": "pg-extensions",
+      "type": "original SVG and result table based on ST_DWithin semantics",
+      "source": "https://postgis.net/docs/ST_DWithin.html",
+      "illustration": "Planar coordinates in meters; A=300m and C=400m inside radius 500m; B=600m outside"
+    },
+    {
+      "slide": "pg-cloud",
+      "type": "original responsibility comparison and dashboard flow",
+      "sources": [
+        "https://supabase.com/docs/guides/database/overview",
+        "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html"
+      ],
+      "illustration": "Managed operating tools and the developer’s data design responsibilities"
+    }
+  ],
+  "slides": [
+    {
+      "number": 36,
+      "id": "postgres",
+      "title": "PostgreSQL",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://www.postgresql.org/about/"
+      ]
+    },
+    {
+      "number": 37,
+      "id": "pg-overview",
+      "title": "PostgreSQL 개요",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://www.postgresql.org/about/",
+        "https://www.postgresql.org/about/featurematrix/",
+        "https://www.postgresql.org/about/press/presskit18/",
+        "https://www.postgresql.org/about/policies/trademarks/"
+      ]
+    },
+    {
+      "number": 38,
+      "id": "pg-history",
+      "title": "PostgreSQL의 발전",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://www.postgresql.org/docs/current/history.html",
+        "https://www.postgresql.org/docs/9.4/release-9-4.html",
+        "https://www.postgresql.org/docs/9.6/release-9-6.html",
+        "https://www.postgresql.org/docs/10/release-10.html",
+        "https://github.com/pgvector/pgvector"
+      ]
+    },
+    {
+      "number": 39,
+      "id": "pg-adoption",
+      "title": "PostgreSQL의 사용 현황",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://survey.stackoverflow.co/2025/technology/"
+      ]
+    },
+    {
+      "number": 40,
+      "id": "pg-license",
+      "title": "PostgreSQL 라이선스",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://www.postgresql.org/about/licence/",
+        "https://www.postgresql.org/about/press/presskit18/"
+      ]
+    },
+    {
+      "number": 41,
+      "id": "pg-transactions",
+      "title": "함께 처리하는 데이터 변경",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://www.postgresql.org/docs/current/tutorial-transactions.html"
+      ]
+    },
+    {
+      "number": 42,
+      "id": "pg-jsonb",
+      "title": "JSON 부가 정보 저장",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://www.postgresql.org/docs/current/datatype-json.html"
+      ]
+    },
+    {
+      "number": 43,
+      "id": "pg-extensions",
+      "title": "필요한 기능의 확장",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://postgis.net/",
+        "https://postgis.net/docs/ST_DWithin.html"
+      ]
+    },
+    {
+      "number": 44,
+      "id": "pg-cloud",
+      "title": "관리형 PostgreSQL",
+      "sources": [
+        "materials/postgresql-research.ko.txt",
+        "https://supabase.com/docs/guides/database/overview",
+        "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html"
+      ]
+    }
+  ]
+}
