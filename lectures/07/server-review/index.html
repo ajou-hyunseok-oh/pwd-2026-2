@@ -1,0 +1,219 @@
+<!doctype html>
+<html class="wd-page" lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:,">
+<title data-wd-i18n="page_title">07 | 6주차 실습 리뷰 · Ajou Campus Foodmap API</title>
+<link rel="stylesheet" href="../../../packages/web-deck/web-deck.css">
+<link rel="stylesheet" href="../../../packages/web-deck/authoring.css">
+<link rel="stylesheet" href="lecture.css">
+</head>
+<body class="wd-page-body" data-lecture="07">
+<main class="wd-deck" data-web-deck data-wd-authoring="v1" data-wd-format="week-05"><div class="wd-viewport" data-wd-viewport><div class="wd-stage" data-wd-stage>
+<section class="wd-slide wd-lesson-slide review-cover wd-lesson-cover is-active" data-wd-slide="cover" data-wd-cover="weekly" role="region">
+<div class="wd-lesson-cover__content">
+<p class="wd-lesson-cover__eyebrow" data-wd-i18n="review_eyebrow">2026학년도 2학기 실전웹서비스개발</p>
+<h1 class="wd-lesson-title" data-wd-i18n="review_cover_title">실전 웹서비스개발 – 7주차</h1>
+<p class="wd-lesson-cover__subtitle" data-wd-i18n="review_cover_subtitle">6주차 실습 리뷰 · Ajou Campus Foodmap API</p>
+</div>
+<p class="wd-lesson-source">LECTURE 07</p>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-project wd-slide--content" data-wd-slide="project" data-wd-concept="project" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="project_title">서버 실행 준비</h2>
+<p class="wd-slide-lead" data-wd-i18n="project_lead">요청이 도착하기 전 앱 생성과 포트 대기</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="project_left_0_term">서버 시작 - 앱을 구성하고 HTTP 요청 수신을 준비하는 과정</strong></dt><dd><ul><li data-wd-i18n="project_left_0_0">앱 생성 함수는 미들웨어와 요청 경로를 서버에 등록</li><li data-wd-i18n="project_left_0_1">환경변수 PORT는 코드 밖에서 전달하는 서버 포트 설정값</li><li data-wd-i18n="project_left_0_2">개발은 tsx로 TypeScript 실행 · 배포는 JavaScript로 변환한 뒤 실행</li></ul></dd></div></dl><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="project_left_1_h0" scope="col">파일</th><th data-wd-i18n="project_left_1_h1" scope="col">시작할 때의 역할</th></tr></thead><tbody><tr><th data-wd-i18n="project_left_1_0_0" scope="row">server.ts</th><td data-wd-i18n="project_left_1_0_1">앱 생성·포트 설정·수신 시작</td></tr><tr><th data-wd-i18n="project_left_1_1_0" scope="row">src/app.ts</th><td data-wd-i18n="project_left_1_1_1">요청 처리에 사용할 함수와 경로 구성</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="project_right_0_label">pwd-week6/server.ts · 진입 파일</p><pre class="wd-code" data-wd-i18n="project_right_0_code" data-wd-code="typescript" data-wd-code-width="58">import createApp from &#x27;./src/app&#x27;;
+
+const PORT = Number(process.env.PORT) || 3000;
+const app = createApp();
+
+if (require.main === module) {
+  app.listen(PORT, () =&gt; {
+    console.log(`Server listening on port ${PORT}`);
+  });
+}
+
+export default app;</pre></div><div class="review-result"><p class="wd-lesson-code-label" data-wd-i18n="project_right_1_label">시작 확인 · GET /health</p><samp class="review-output" data-wd-i18n="project_right_1_output">HTTP 200
+{
+  &quot;status&quot;: &quot;ok&quot;
+}</samp></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/server.ts
+pwd-week6/src/app.ts
+pwd-week6/package.json
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-client wd-slide--content" data-wd-slide="client" data-wd-concept="client" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="client_title">클라이언트의 목록 조회 요청</h2>
+<p class="wd-slide-lead" data-wd-i18n="client_lead">서버 기본 주소에 GET /api/restaurants 요청</p>
+<div class="review-journey" data-request-flow="get"><p class="review-journey__request" data-wd-i18n="client_journey_request">GET /api/restaurants</p><ol><li class="is-current" data-wd-i18n="client_journey_step_0" data-flow-step="0">클라이언트</li><li data-wd-i18n="client_journey_step_1" data-flow-step="1">미들웨어</li><li data-wd-i18n="client_journey_step_2" data-flow-step="2">Router</li><li data-wd-i18n="client_journey_step_3" data-flow-step="3">Controller</li><li data-wd-i18n="client_journey_step_4" data-flow-step="4">Service</li><li data-wd-i18n="client_journey_step_5" data-flow-step="5">응답 수신</li></ol></div>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="client_left_0_term">조회 요청 - 서버의 목록을 가져오기 위한 HTTP 호출</strong></dt><dd><ul><li data-wd-i18n="client_left_0_0">Axios는 HTTP 요청을 보내는 라이브러리</li><li data-wd-i18n="client_left_0_1">서버 기본 주소에 기능별 경로인 엔드포인트를 붙여 요청</li><li data-wd-i18n="client_left_0_2">페이지는 서비스 함수를 호출해 데이터 접근 방법과 분리</li></ul></dd></div></dl><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="client_left_1_h0" scope="col">요청 요소</th><th data-wd-i18n="client_left_1_h1" scope="col">목록 조회의 값</th></tr></thead><tbody><tr><th data-wd-i18n="client_left_1_0_0" scope="row">기본 주소</th><td data-wd-i18n="client_left_1_0_1">VITE_API_BASE_URL의 서버 주소</td></tr><tr><th data-wd-i18n="client_left_1_1_0" scope="row">HTTP 메서드</th><td data-wd-i18n="client_left_1_1_1">GET · 데이터 조회</td></tr><tr><th data-wd-i18n="client_left_1_2_0" scope="row">경로</th><td data-wd-i18n="client_left_1_2_1">/api/restaurants</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="client_right_0_label">pwd-week6/README.md · Axios 조회 연동 예제 발췌</p><pre class="wd-code" data-wd-i18n="client_right_0_code" data-wd-code="typescript" data-wd-code-width="58">const http = axios.create({
+  baseURL: API_BASE_URL,
+  timeout: 60000
+});
+
+async function getData&lt;T&gt;(
+  url: string
+): Promise&lt;ApiResponse&lt;T&gt;&gt; {
+  requireApiUrl();
+  const response = await http.get&lt;ApiResponse&lt;T&gt;&gt;(url);
+  return response.data;
+}
+
+export const restaurantAPI = {
+  getRestaurants: (): Promise&lt;
+    ApiResponse&lt;Restaurant[]&gt;
+  &gt; =&gt; getData(&#x27;/api/restaurants&#x27;)
+};</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/README.md
+https://vite.dev/guide/env-and-mode
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-middleware wd-slide--content" data-wd-slide="middleware" data-wd-concept="middleware" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="middleware_title">Express의 요청 수신</h2>
+<p class="wd-slide-lead" data-wd-i18n="middleware_lead">공통 미들웨어를 거쳐 맛집 Router로 전달</p>
+<div class="review-journey" data-request-flow="get"><p class="review-journey__request" data-wd-i18n="middleware_journey_request">GET /api/restaurants</p><ol><li data-wd-i18n="middleware_journey_step_0" data-flow-step="0">클라이언트</li><li class="is-current" data-wd-i18n="middleware_journey_step_1" data-flow-step="1">미들웨어</li><li data-wd-i18n="middleware_journey_step_2" data-flow-step="2">Router</li><li data-wd-i18n="middleware_journey_step_3" data-flow-step="3">Controller</li><li data-wd-i18n="middleware_journey_step_4" data-flow-step="4">Service</li><li data-wd-i18n="middleware_journey_step_5" data-flow-step="5">응답 수신</li></ol></div>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="middleware_left_0_term">미들웨어 - 요청을 처리하거나 다음 처리기로 넘기는 함수</strong></dt><dd><ul><li data-wd-i18n="middleware_left_0_0">등록 순서에 따라 공통 처리를 거친 뒤 Router로 전달</li><li data-wd-i18n="middleware_left_0_1">출처(origin)는 프로토콜·호스트·포트의 조합</li><li data-wd-i18n="middleware_left_0_2">CORS(Cross-Origin Resource Sharing)는 다른 출처의 응답 읽기 허용 정보 제공</li><li data-wd-i18n="middleware_left_0_3">본문 해석기는 JSON·폼 입력을 req.body에 배치</li><li data-wd-i18n="middleware_left_0_4">목록 GET 요청은 본문 없이 /api/restaurants 경로로 전달</li></ul></dd></div></dl></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="middleware_right_0_label">src/app.ts · 공통 미들웨어와 맛집 Router 등록 발췌</p><pre class="wd-code" data-wd-i18n="middleware_right_0_code" data-wd-code="typescript" data-wd-code-width="58">app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(&#x27;/api/restaurants&#x27;, restaurantsRouter);</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/src/app.ts
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+https://developer.mozilla.org/en-US/docs/Glossary/Origin
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-mvcs wd-slide--content" data-wd-slide="mvcs" data-wd-concept="mvcs" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="mvcs_title">Router와 Controller의 요청 연결</h2>
+<p class="wd-slide-lead" data-wd-i18n="mvcs_lead">GET 경로 선택에서 목록 Service 호출로 연결</p>
+<div class="review-journey" data-request-flow="get"><p class="review-journey__request" data-wd-i18n="mvcs_journey_request">GET /api/restaurants</p><ol><li data-wd-i18n="mvcs_journey_step_0" data-flow-step="0">클라이언트</li><li data-wd-i18n="mvcs_journey_step_1" data-flow-step="1">미들웨어</li><li class="is-current" data-wd-i18n="mvcs_journey_step_2" data-flow-step="2">Router</li><li class="is-current" data-wd-i18n="mvcs_journey_step_3" data-flow-step="3">Controller</li><li data-wd-i18n="mvcs_journey_step_4" data-flow-step="4">Service</li><li data-wd-i18n="mvcs_journey_step_5" data-flow-step="5">응답 수신</li></ol></div>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="mvcs_left_0_term">역할 분리 - 경로 선택과 HTTP 처리의 책임을 나누는 구조</strong></dt><dd><ul><li data-wd-i18n="mvcs_left_0_0">Router는 메서드·경로에 맞는 Controller 선택</li><li data-wd-i18n="mvcs_left_0_1">Controller는 요청을 Service에 전달하고 반환값으로 응답 구성</li><li data-wd-i18n="mvcs_left_0_2">MVCS(Model·View·Controller·Service)에서 View는 React 화면</li></ul></dd></div></dl><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="mvcs_left_1_h0" scope="col">단계</th><th data-wd-i18n="mvcs_left_1_h1" scope="col">목록 조회에서의 연결</th></tr></thead><tbody><tr><th data-wd-i18n="mvcs_left_1_0_0" scope="row">Router</th><td data-wd-i18n="mvcs_left_1_0_1">GET /api/restaurants → getRestaurants</td></tr><tr><th data-wd-i18n="mvcs_left_1_1_0" scope="row">Controller</th><td data-wd-i18n="mvcs_left_1_1_1">getAllRestaurants() 호출</td></tr><tr><th data-wd-i18n="mvcs_left_1_2_0" scope="row">응답 약속</th><td data-wd-i18n="mvcs_left_1_2_1">Service 결과를 { data: ... }로 전달</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="mvcs_right_0_label">restaurants.routes.ts · 목록 경로 발췌</p><pre class="wd-code" data-wd-i18n="mvcs_right_0_code" data-wd-code="typescript" data-wd-code-width="58">router.get(&#x27;/&#x27;, restaurantsController.getRestaurants);</pre></div><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="mvcs_right_1_label">restaurants.controller.ts · 목록 Controller</p><pre class="wd-code" data-wd-i18n="mvcs_right_1_code" data-wd-code="typescript" data-wd-code-width="58">export const getRestaurants = asyncHandler&lt;
+  NoParams,
+  RestaurantListResponse
+&gt;(async (req, res) =&gt; {
+  const restaurants =
+    await restaurantService.getAllRestaurants();
+  res.json({ data: restaurants });
+});</pre></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/src/routes/restaurants.routes.ts
+pwd-week6/src/controllers/restaurants.controller.ts
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-async-query wd-slide--content" data-wd-slide="async-query" data-wd-concept="async-query" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="async-query_title">Service의 목록 조회와 응답 완료</h2>
+<p class="wd-slide-lead" data-wd-i18n="async-query_lead">메모리 목록을 반환하고 같은 요청의 응답을 클라이언트에서 수신</p>
+<div class="review-journey" data-request-flow="get"><p class="review-journey__request" data-wd-i18n="async-query_journey_request">GET /api/restaurants</p><ol><li data-wd-i18n="async-query_journey_step_0" data-flow-step="0">클라이언트</li><li data-wd-i18n="async-query_journey_step_1" data-flow-step="1">미들웨어</li><li data-wd-i18n="async-query_journey_step_2" data-flow-step="2">Router</li><li data-wd-i18n="async-query_journey_step_3" data-flow-step="3">Controller</li><li class="is-current" data-wd-i18n="async-query_journey_step_4" data-flow-step="4">Service</li><li class="is-current" data-wd-i18n="async-query_journey_step_5" data-flow-step="5">응답 수신</li></ol></div>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="async-query_left_0_term">Service - 조회 규칙을 처리하고 데이터 결과를 반환하는 계층</strong></dt><dd><ul><li data-wd-i18n="async-query_left_0_0">Promise는 비동기 작업의 성공 결과나 실패를 나타내는 객체</li><li data-wd-i18n="async-query_left_0_1">await는 현재 비동기 함수에서 Promise의 결과를 기다리는 표현</li><li data-wd-i18n="async-query_left_0_2">Model은 맛집 한 개의 데이터 객체 · 캐시는 이 객체들을 메모리에 보관</li><li data-wd-i18n="async-query_left_0_3">20ms 타이머 대기는 시뮬레이션 · 대기 중 다른 요청 처리 가능</li></ul></dd></div></dl><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="async-query_left_1_h0" scope="col">응답 전달 단계</th><th data-wd-i18n="async-query_left_1_h1" scope="col">전달되는 값</th></tr></thead><tbody><tr><th data-wd-i18n="async-query_left_1_0_0" scope="row">Service → Controller</th><td data-wd-i18n="async-query_left_1_0_1">맛집 3개의 배열</td></tr><tr><th data-wd-i18n="async-query_left_1_1_0" scope="row">Controller → HTTP</th><td data-wd-i18n="async-query_left_1_1_1">{ data: [맛집 3개] }</td></tr><tr><th data-wd-i18n="async-query_left_1_2_0" scope="row">Axios의 response.data</th><td data-wd-i18n="async-query_left_1_2_1">HTTP 응답 본문 객체</td></tr><tr><th data-wd-i18n="async-query_left_1_3_0" scope="row">본문의 data</th><td data-wd-i18n="async-query_left_1_3_1">페이지에서 사용할 맛집 배열</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="async-query_right_0_label">restaurants.service.ts · 목록 조회 발췌</p><pre class="wd-code" data-wd-i18n="async-query_right_0_code" data-wd-code="typescript" data-wd-code-width="58">export async function getAllRestaurants(): Promise&lt;
+  Restaurant[]
+&gt; {
+  await ensureCache();
+  await simulateLatency();
+  return cloneCollection(restaurantCache);
+}</pre></div><div class="review-result"><p class="wd-lesson-code-label" data-wd-i18n="async-query_right_1_label">같은 GET /api/restaurants 응답 · id·name 발췌</p><samp class="review-output" data-wd-i18n="async-query_right_1_output">HTTP 200
+{&quot;data&quot;: [
+  {&quot;id&quot;: 1, &quot;name&quot;: &quot;송림식당&quot;},
+  {&quot;id&quot;: 2, &quot;name&quot;: &quot;별미떡볶이&quot;},
+  {&quot;id&quot;: 3, &quot;name&quot;: &quot;SOGO&quot;}
+]}</samp></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/src/services/restaurants.service.ts
+pwd-week6/src/models/restaurant.model.ts
+pwd-week6/src/controllers/restaurants.controller.ts
+pwd-week6/README.md
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-create wd-slide--content" data-wd-slide="create" data-wd-concept="create" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="create_title">생성 요청에서 달라지는 처리</h2>
+<p class="wd-slide-lead" data-wd-i18n="create_lead">같은 요청 구조에 입력 변환·필수 값 확인·데이터 추가 적용</p>
+<div class="review-journey" data-request-flow="create"><p class="review-journey__request" data-wd-i18n="create_journey_request">생성 요청의 추가 처리 · POST /api/restaurants</p><ol><li data-wd-i18n="create_journey_step_0" data-flow-step="0">클라이언트</li><li data-wd-i18n="create_journey_step_1" data-flow-step="1">미들웨어</li><li data-wd-i18n="create_journey_step_2" data-flow-step="2">Router</li><li class="is-current" data-wd-i18n="create_journey_step_3" data-flow-step="3">Controller</li><li class="is-current" data-wd-i18n="create_journey_step_4" data-flow-step="4">Service</li><li class="is-current" data-wd-i18n="create_journey_step_5" data-flow-step="5">응답 수신</li></ol></div>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="create_left_0_term">생성 처리 - 입력으로 새 리소스를 만들고 결과를 반환하는 과정</strong></dt><dd><ul><li data-wd-i18n="create_left_0_0">메뉴 문자열·배열을 같은 문자열 배열 형태로 통일</li><li data-wd-i18n="create_left_0_1">이름·분류·위치의 누락 확인 후 새 ID 부여</li><li data-wd-i18n="create_left_0_2">새 맛집을 메모리에 추가한 뒤 201 응답</li></ul></dd></div></dl><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="create_left_1_h0" scope="col">구분</th><th data-wd-i18n="create_left_1_h1" scope="col">목록 조회 GET</th><th data-wd-i18n="create_left_1_h2" scope="col">생성 POST</th></tr></thead><tbody><tr><th data-wd-i18n="create_left_1_0_0" scope="row">입력</th><td data-wd-i18n="create_left_1_0_1">요청 본문 없음</td><td data-wd-i18n="create_left_1_0_2">맛집 정보·추천 메뉴</td></tr><tr><th data-wd-i18n="create_left_1_1_0" scope="row">처리</th><td data-wd-i18n="create_left_1_1_1">기존 목록 복사</td><td data-wd-i18n="create_left_1_1_2">형식 변환·확인·추가</td></tr><tr><th data-wd-i18n="create_left_1_2_0" scope="row">성공</th><td data-wd-i18n="create_left_1_2_1">200 · 맛집 배열</td><td data-wd-i18n="create_left_1_2_2">201 · 신규 맛집</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><div class="review-result"><p class="wd-lesson-code-label" data-wd-i18n="create_right_0_label">POST /api/restaurants · JSON 요청 본문</p><samp class="review-output" data-wd-i18n="create_right_0_output">{
+  &quot;name&quot;: &quot;아주대 실습 식당&quot;,
+  &quot;category&quot;: &quot;한식&quot;,
+  &quot;location&quot;: &quot;아주대 정문&quot;,
+  &quot;recommendedMenu&quot;: &quot;김밥, 라면, &quot;
+}</samp></div><div class="review-result"><p class="wd-lesson-code-label" data-wd-i18n="create_right_1_label">생성 결과 · id·recommendedMenu만 발췌</p><samp class="review-output" data-wd-i18n="create_right_1_output">HTTP 201
+{&quot;data&quot;: {&quot;id&quot;: 4, &quot;recommendedMenu&quot;: [&quot;김밥&quot;, &quot;라면&quot;]}}</samp></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/src/controllers/restaurants.controller.ts
+pwd-week6/src/services/restaurants.service.ts
+pwd-week6/src/models/restaurant.model.ts
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-errors wd-slide--content" data-wd-slide="errors" data-wd-concept="errors" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="errors_title">실패했을 때의 처리</h2>
+<p class="wd-slide-lead" data-wd-i18n="errors_lead">정상 응답 대신 실패 원인을 상태 코드와 JSON으로 전달</p>
+<div class="review-journey" data-request-flow="error"><p class="review-journey__request" data-wd-i18n="errors_journey_request">정상 요청의 실패 분기 · 400 / 404</p><ol><li data-wd-i18n="errors_journey_step_0" data-flow-step="0">클라이언트</li><li data-wd-i18n="errors_journey_step_1" data-flow-step="1">미들웨어</li><li data-wd-i18n="errors_journey_step_2" data-flow-step="2">Router</li><li class="is-current" data-wd-i18n="errors_journey_step_3" data-flow-step="3">Controller</li><li class="is-current" data-wd-i18n="errors_journey_step_4" data-flow-step="4">Service</li><li class="is-current" data-wd-i18n="errors_journey_step_5" data-flow-step="5">응답 수신</li></ol></div>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="errors_left_0_term">실패 분기 - 처리 결과에 따라 오류 응답으로 이어지는 경로</strong></dt><dd><ul><li data-wd-i18n="errors_left_0_0">HttpError는 HTTP 상태 코드·오류 메시지를 담는 객체</li><li data-wd-i18n="errors_left_0_1">next(error)는 오류 처리 미들웨어로 오류를 전달하는 호출</li><li data-wd-i18n="errors_left_0_2">stack trace는 오류가 발생한 함수 호출 경로 · 운영 응답에서 생략</li></ul></dd></div></dl><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="errors_left_1_h0" scope="col">실패 사례</th><th data-wd-i18n="errors_left_1_h1" scope="col">정상 흐름에서 달라지는 경로</th></tr></thead><tbody><tr><th data-wd-i18n="errors_left_1_0_0" scope="row">400 · category 누락</th><td data-wd-i18n="errors_left_1_0_1">Service의 HttpError → 오류 처리기</td></tr><tr><th data-wd-i18n="errors_left_1_1_0" scope="row">404 · 없는 맛집 id</th><td data-wd-i18n="errors_left_1_1_1">Controller에서 직접 응답</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="errors_right_0_label">asyncHandler.ts · 비동기 오류 전달 문장 발췌</p><pre class="wd-code" data-wd-i18n="errors_right_0_code" data-wd-code="typescript" data-wd-code-width="58">Promise.resolve(handler(req, res, next)).catch(next);</pre></div><div class="review-result"><p class="wd-lesson-code-label" data-wd-i18n="errors_right_1_label">POST /api/restaurants · name만 입력</p><samp class="review-output" data-wd-i18n="errors_right_1_output">HTTP 400
+{&quot;error&quot;: {&quot;message&quot;: &quot;&#x27;category&#x27; is required&quot;}}</samp></div><div class="review-result"><p class="wd-lesson-code-label" data-wd-i18n="errors_right_2_label">GET /api/restaurants/999 · 없는 맛집</p><samp class="review-output" data-wd-i18n="errors_right_2_output">HTTP 404
+{&quot;error&quot;: {&quot;message&quot;: &quot;Restaurant not found&quot;}}</samp></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/src/utils/asyncHandler.ts
+pwd-week6/src/utils/httpError.ts
+pwd-week6/src/middleware/error.middleware.ts
+pwd-week6/src/controllers/restaurants.controller.ts
+https://expressjs.com/en/guide/error-handling/
+[/Source]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide review-persistence wd-slide--content" data-wd-slide="persistence" data-wd-concept="persistence" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="persistence_title">메모리 저장의 한계</h2>
+<p class="wd-slide-lead" data-wd-i18n="persistence_lead">완료된 요청의 변경 데이터도 서버 재시작 후 소멸</p>
+<div class="wd-lesson-body review-body">
+<div class="wd-lesson-block review-stack"><dl class="wd-lesson-concepts"><div><dt><strong data-wd-i18n="persistence_left_0_term">메모리 저장 - 실행 중인 서버 프로그램 안에 데이터 보관</strong></dt><dd><ul><li data-wd-i18n="persistence_left_0_0">프로세스(process)는 실행 중인 프로그램 · 메모리는 이 실행 동안 유지</li><li data-wd-i18n="persistence_left_0_1">시드(seed)는 서버 시작 시 불러오는 초기 JSON 데이터</li><li data-wd-i18n="persistence_left_0_2">여러 클라이언트는 같은 서버의 데이터를 공유해도 재시작 후 신규 맛집 소멸</li><li data-wd-i18n="persistence_left_0_3">DB의 영구 저장은 서버 재시작 후에도 변경 데이터를 보존하는 방식</li></ul></dd></div></dl><table class="wd-lesson-table"><thead><tr><th data-wd-i18n="persistence_left_1_h0" scope="col">데이터</th><th data-wd-i18n="persistence_left_1_h1" scope="col">6주차 저장 위치</th></tr></thead><tbody><tr><th data-wd-i18n="persistence_left_1_0_0" scope="row">초기 맛집(시드)</th><td data-wd-i18n="persistence_left_1_0_1">restaurants.json → 메모리</td></tr><tr><th data-wd-i18n="persistence_left_1_1_0" scope="row">새로 등록한 맛집</th><td data-wd-i18n="persistence_left_1_1_1">서버 메모리 · 재시작 후 소멸</td></tr><tr><th data-wd-i18n="persistence_left_1_2_0" scope="row">제보·좋아요</th><td data-wd-i18n="persistence_left_1_2_1">브라우저 내 저장소(localStorage)</td></tr></tbody></table></div>
+<div class="wd-lesson-block review-stack"><div class="review-code"><p class="wd-lesson-code-label" data-wd-i18n="persistence_right_0_label">restaurants.service.ts · 저장·초기화 발췌</p><pre class="wd-code" data-wd-i18n="persistence_right_0_code" data-wd-code="typescript" data-wd-code-width="58">let restaurantCache: Restaurant[] = loadRestaurantsSync();
+
+restaurantCache = [...restaurantCache, restaurant];
+
+export function resetStore(): void {
+  restaurantCache = loadRestaurantsSync();
+}</pre></div><div class="review-result"><p class="wd-lesson-code-label" data-wd-i18n="persistence_right_1_label">생성 성공 → 다른 요청의 조회 → 서버 재시작</p><samp class="review-output" data-wd-i18n="persistence_right_1_output">생성 전 목록: HTTP 200 · 3건
+생성 후 목록: HTTP 200 · 4건
+다른 요청 GET /api/restaurants/4: HTTP 200
+재시작 후 목록: HTTP 200 · 3건
+재시작 후 GET /api/restaurants/4: HTTP 404</samp></div></div>
+</div>
+<aside hidden class="wd-lesson-notes">[Source]
+pwd-week6/src/services/restaurants.service.ts
+pwd-week6/src/data/restaurants.json
+pwd-week6/README.md
+[/Source]</aside>
+</section>
+</div></div></main>
+<script src="lecture-content.js"></script>
+<script src="../../shared/lecture-deck.js"></script>
+<script>window.WEB_DECK_CONFIG.homeHref = '../../../';</script>
+<script src="../../../packages/web-deck/vendor/prism/prism.js" data-manual></script>
+<script src="../../../packages/web-deck/web-deck.js"></script>
+</body></html>

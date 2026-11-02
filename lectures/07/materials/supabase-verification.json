@@ -1,0 +1,113 @@
+{
+  "recordedFor": "Week 7 Supabase teaching materials",
+  "localDate": "2026-11-02 Asia/Seoul",
+  "implementation": {
+    "repository": "ajou-hyunseok-oh/pwd-week7",
+    "localMainCommit": "7b76fdd55c8586fd60630d925c3f87e3cce74541",
+    "liveRenderCommitIndependentlyAttested": false
+  },
+  "realDatabaseRestart": {
+    "checkedAt": "2026-11-01T20:11:18.966Z",
+    "node": "v24.22.2",
+    "actualSupabase": true,
+    "creationStatus": 201,
+    "serverPort": 52106,
+    "firstServerPid": 6336,
+    "restartedServerPid": 6337,
+    "restaurantId": 4,
+    "restaurantName": "DB 영구 저장 검증 9179fe62",
+    "baselineCount": 3,
+    "finalCount": 4,
+    "apiDetailIdenticalAfterRestart": true,
+    "databaseRowIdenticalAfterRestart": true,
+    "otherRestaurantsUnchanged": true,
+    "resetEndpointCalled": false,
+    "verificationRestaurantRetained": true
+  },
+  "deploymentReadOnly": {
+    "checkedAt": "2026-11-01T20:58:37.075Z",
+    "server": "https://ajou-food-map.onrender.com",
+    "client": "https://pwd-week7-client.vercel.app",
+    "actualSupabaseMatchesRender": true,
+    "renderRestaurantCount": 4,
+    "databaseRestaurantCount": 4,
+    "databaseIdsMissingFromRender": [],
+    "detailMatchesDatabase": true,
+    "verificationRestaurantId": 4,
+    "verificationRestaurantName": "DB 영구 저장 검증 9179fe62",
+    "readOnly": true,
+    "checks": [
+      {
+        "endpoint": "/health",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "endpoint": "/api/restaurants",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "endpoint": "/api/restaurants/4",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "endpoint": "/api/restaurants/popular?limit=2",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "endpoint": "/api/restaurants/999999999",
+        "method": "GET",
+        "status": 404
+      },
+      {
+        "endpoint": "/api/restaurants/sync-demo",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "endpoint": "/api/restaurants",
+        "method": "OPTIONS",
+        "status": 204
+      }
+    ],
+    "browser": {
+      "names": [
+        "송림식당",
+        "별미떡볶이",
+        "SOGO",
+        "DB 영구 저장 검증 9179fe62"
+      ],
+      "koreanFilterCount": 2,
+      "detailName": "DB 영구 저장 검증 9179fe62",
+      "detailMenu": [
+        "김밥",
+        "라면"
+      ],
+      "emptyDetailImageElements": 0,
+      "detailReloadPassed": true,
+      "popularNames": [
+        "송림식당",
+        "별미떡볶이",
+        "SOGO",
+        "DB 영구 저장 검증 9179fe62"
+      ],
+      "consoleErrors": [],
+      "adminRestaurantCount": 4,
+      "editDisabled": true,
+      "deleteDisabled": true
+    },
+    "verificationPassed": true,
+    "verificationScope": "Read-only Render API, actual Supabase rows, and production Vercel browser flow",
+    "dataWrites": false
+  },
+  "scope": {
+    "databaseTable": "public.restaurants",
+    "submissionState": "existing browser LocalStorage",
+    "uiLikes": "existing browser LocalStorage",
+    "imageValue": "external URL text; no file upload added"
+  },
+  "authoringActions": "Documentation and lecture changes only; no cloud writes or resets."
+}

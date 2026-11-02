@@ -1,0 +1,141 @@
+{
+  "server": {
+    "file": "server.ts",
+    "sha256": "892282f1f3a66d05b89862123bdaea1e79511e3404e62f2a9a272cfd2d7538a2",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 1,
+        "endLine": 12,
+        "text": "import createApp from './src/app';\n\nconst PORT = Number(process.env.PORT) || 3000;\nconst app = createApp();\n\nif (require.main === module) {\n  app.listen(PORT, () => {\n    console.log(`Server listening on port ${PORT}`);\n  });\n}\n\nexport default app;"
+      }
+    ],
+    "code": "import createApp from './src/app';\n\nconst PORT = Number(process.env.PORT) || 3000;\nconst app = createApp();\n\nif (require.main === module) {\n  app.listen(PORT, () => {\n    console.log(`Server listening on port ${PORT}`);\n  });\n}\n\nexport default app;"
+  },
+  "client": {
+    "file": "README.md",
+    "sha256": "5ec7f1ee48ca817111947497d99f09bc219ae2e6d58faa46020ac02c815bcc56",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 1300,
+        "endLine": 1300,
+        "text": "const http = axios.create({ baseURL: API_BASE_URL, timeout: 60000 });"
+      },
+      {
+        "startLine": 1308,
+        "endLine": 1312,
+        "text": "async function getData<T>(url: string): Promise<ApiResponse<T>> {\n  requireApiUrl();\n  const response = await http.get<ApiResponse<T>>(url);\n  return response.data;\n}"
+      },
+      {
+        "startLine": 1322,
+        "endLine": 1322,
+        "text": "export const restaurantAPI = {"
+      },
+      {
+        "startLine": 1324,
+        "endLine": 1324,
+        "text": "  getRestaurants: (): Promise<ApiResponse<Restaurant[]>> => getData('/api/restaurants'),"
+      },
+      {
+        "startLine": 1336,
+        "endLine": 1336,
+        "text": "};"
+      }
+    ],
+    "code": "const http = axios.create({ baseURL: API_BASE_URL, timeout: 60000 });\n\nasync function getData<T>(url: string): Promise<ApiResponse<T>> {\n  requireApiUrl();\n  const response = await http.get<ApiResponse<T>>(url);\n  return response.data;\n}\n\nexport const restaurantAPI = {\n\n  getRestaurants: (): Promise<ApiResponse<Restaurant[]>> => getData('/api/restaurants'),\n\n};"
+  },
+  "app": {
+    "file": "src/app.ts",
+    "sha256": "deeb0fa97bbeb787f9cbd9d7f7a00b260ada5c2bd2ddf08d38799fd7c7dcbbc4",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 10,
+        "endLine": 12,
+        "text": "  app.use(cors());\n  app.use(express.json());\n  app.use(express.urlencoded({ extended: true }));"
+      },
+      {
+        "startLine": 18,
+        "endLine": 18,
+        "text": "  app.use('/api/restaurants', restaurantsRouter);"
+      }
+    ],
+    "code": "  app.use(cors());\n  app.use(express.json());\n  app.use(express.urlencoded({ extended: true }));\n\n  app.use('/api/restaurants', restaurantsRouter);"
+  },
+  "route-list": {
+    "file": "src/routes/restaurants.routes.ts",
+    "sha256": "ea3debce27f67156d782643b32c79567ac1652d5f4701bae1fdf4f41094c8ca7",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 6,
+        "endLine": 6,
+        "text": "router.get('/', restaurantsController.getRestaurants);"
+      }
+    ],
+    "code": "router.get('/', restaurantsController.getRestaurants);"
+  },
+  "controller-list": {
+    "file": "src/controllers/restaurants.controller.ts",
+    "sha256": "2ff0602596d9038b1c652758c609c5e67e5c4ba121e8e3408614ec43597e6b30",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 22,
+        "endLine": 25,
+        "text": "export const getRestaurants = asyncHandler<NoParams, RestaurantListResponse>(async (req, res) => {\n  const restaurants = await restaurantService.getAllRestaurants();\n  res.json({ data: restaurants });\n});"
+      }
+    ],
+    "code": "export const getRestaurants = asyncHandler<NoParams, RestaurantListResponse>(async (req, res) => {\n  const restaurants = await restaurantService.getAllRestaurants();\n  res.json({ data: restaurants });\n});"
+  },
+  "async-list": {
+    "file": "src/services/restaurants.service.ts",
+    "sha256": "b199dc24cf867b9a5fa6e69678e9d2f8733997618d7551d168470377697ec9bc",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 43,
+        "endLine": 47,
+        "text": "export async function getAllRestaurants(): Promise<Restaurant[]> {\n  await ensureCache();\n  await simulateLatency();\n  return cloneCollection(restaurantCache);\n}"
+      }
+    ],
+    "code": "export async function getAllRestaurants(): Promise<Restaurant[]> {\n  await ensureCache();\n  await simulateLatency();\n  return cloneCollection(restaurantCache);\n}"
+  },
+  "async-error": {
+    "file": "src/utils/asyncHandler.ts",
+    "sha256": "28186ae3453dd4dd461ecca7de8b9924e756b28bd5c7a26807cf411cd49528b6",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 16,
+        "endLine": 16,
+        "text": "    Promise.resolve(handler(req, res, next)).catch(next);"
+      }
+    ],
+    "code": "    Promise.resolve(handler(req, res, next)).catch(next);"
+  },
+  "cache": {
+    "file": "src/services/restaurants.service.ts",
+    "sha256": "b199dc24cf867b9a5fa6e69678e9d2f8733997618d7551d168470377697ec9bc",
+    "language": "typescript",
+    "selections": [
+      {
+        "startLine": 9,
+        "endLine": 9,
+        "text": "let restaurantCache: Restaurant[] = loadRestaurantsSync();"
+      },
+      {
+        "startLine": 93,
+        "endLine": 93,
+        "text": "  restaurantCache = [...restaurantCache, restaurant];"
+      },
+      {
+        "startLine": 97,
+        "endLine": 99,
+        "text": "export function resetStore(): void {\n  restaurantCache = loadRestaurantsSync();\n}"
+      }
+    ],
+    "code": "let restaurantCache: Restaurant[] = loadRestaurantsSync();\n\n  restaurantCache = [...restaurantCache, restaurant];\n\nexport function resetStore(): void {\n  restaurantCache = loadRestaurantsSync();\n}"
+  }
+}

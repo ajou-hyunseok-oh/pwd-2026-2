@@ -1,0 +1,30 @@
+/* Same shared Week 05 theme and two-column layout as 06/client-review. */
+.review-body { grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); }
+.review-stack { display: grid; gap: 1.1rem; align-content: start; }
+.review-output {
+  display: block; margin: 0; padding: .75rem .8rem;
+  font-family: Consolas, 'Liberation Mono', Menlo, 'SFMono-Regular', monospace;
+  font-size: .7rem; line-height: 1.45; white-space: pre;
+  background: #000; color: #00ff00; overflow-x: auto;
+}
+.review-journey { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: .85rem; padding-bottom: .6rem; border-bottom: 1px solid #d7ddd9; flex: 0 0 auto; }
+.review-journey__request { color: #536159; font-size: .7rem; line-height: 1.4; font-weight: 650; }
+.review-journey ol { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; list-style: none; padding: 0; margin: 0; }
+.review-journey li { position: relative; color: #6b786e; font-size: .8rem; line-height: 1.4; text-align: center; }
+.review-journey li + li::before { content: '→'; position: absolute; left: -.9rem; width: .8rem; color: #85968b; font-weight: 400; }
+.review-journey .is-current { color: #256747; font-weight: 750; }
+.review-journey + .review-body { margin-top: .8rem; }
+.review-body .wd-lesson-table { font-size: .8rem; }
+.review-body .wd-lesson-table :is(th, td) { padding: .4rem .5rem; }
+.review-project .wd-lesson-table th:first-child { width: 40%; }
+.review-async-query .review-stack,
+.review-errors .review-stack { gap: .8rem; }
+@media screen and (max-width: 767px) {
+  .review-body { grid-template-columns: 1fr; }
+  .review-output { font-size: 14px; }
+  .review-journey { grid-template-columns: 1fr; gap: .5rem; }
+  .review-journey ol { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .35rem .8rem; counter-reset: request-step; }
+  .review-journey li { text-align: left; counter-increment: request-step; }
+  .review-journey li::before,
+  .review-journey li + li::before { content: counter(request-step) '. '; position: static; color: inherit; }
+}

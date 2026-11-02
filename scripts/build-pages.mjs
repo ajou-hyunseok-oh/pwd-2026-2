@@ -67,7 +67,7 @@ const publishedIndex = sourceIndex.replace(
   /<li data-lecture="(\d{2})">([\s\S]*?)<\/li>/g,
   (_, lecture, inner) => {
     cardCount += 1;
-    if (lecture === '04' && releasedSet.has(lecture)) return `<li data-lecture="${lecture}">${inner}</li>`;
+    if (inner.includes('lecture-grid__item--split') && releasedSet.has(lecture)) return `<li data-lecture="${lecture}">${inner}</li>`;
     const content = inner.replace(/^<(?:a\b[^>]*|div\b[^>]*)>/, '').replace(/<\/(?:a|div)>$/, '');
     if (releasedSet.has(lecture)) {
       return `<li data-lecture="${lecture}"><a href="lectures/${lecture}/index.html">${content}</a></li>`;

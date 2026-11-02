@@ -91,7 +91,7 @@ for (let week = 1; week <= 13; week += 1) {
   const sourcePdfManifest = html.match(/data-wd-source-(?:pdf|elements)="([^"]+)"/)?.[1];
   const expectedSlideCount = sourcePdfManifest
     ? JSON.parse(fs.readFileSync(path.resolve(path.dirname(lecturePath), sourcePdfManifest), 'utf8')).page_count
-    : ({ 1: 28, 2: 54, 3: 50, 4: 24, 5: 65 }[week] || 1);
+    : ({ 1: 28, 2: 54, 3: 50, 4: 24, 5: 65, 7: 82 }[week] || 1);
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);

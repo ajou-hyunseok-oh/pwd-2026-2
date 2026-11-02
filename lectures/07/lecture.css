@@ -1,0 +1,75 @@
+.week7-erd { display: flex; align-items: center; padding: 1.5rem 0; }
+.week7-erd__entity { border: 1px solid #8cae99; background: #edf3ef; border-radius: .25rem; padding: 1.15rem 1rem; color: #263e30; text-align: center; min-width: 7rem; }
+.week7-erd__line { flex: 1; border-top: 2px solid #536e5b; display: flex; justify-content: space-between; align-items: center; color: #263e30; font-size: .8rem; font-weight: 700; padding: 0 .3rem; min-width: 5rem; }
+.week7-erd__line span { background: var(--wd-paper); padding: 0 .15rem; transform: translateY(-.5rem); }
+@media screen and (max-width: 767px) { .week7-erd__entity { min-width: 5.5rem; padding: .8rem .5rem; } }
+.week7-source-figures { display: grid; gap: .7rem; }
+.week7-source-figure img { max-height: 23rem; object-fit: contain; object-position: top center; border: 0; }
+.week7-source-figure figcaption { font-size: .7rem; }
+[data-wd-slide="cardinality"] .week7-source-figures { grid-template-columns: 1.1fr .9fr; gap: .7rem; }
+[data-wd-slide="cardinality"] .week7-source-figure img { max-height: 22rem; }
+@media screen and (max-width: 767px) {
+  [data-wd-slide="cardinality"] .week7-source-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .week7-source-figure img { max-height: none; }
+}
+/* Preserve the original chronology using the shared definition hierarchy. */
+.wd-lesson-body--history { grid-template-columns: minmax(0, 1.43fr) minmax(0, 1fr); gap: 1.4rem; }
+.week7-history__timeline { columns: 1; font-size: .82rem; line-height: 1.22; }
+.week7-history__timeline li { font-size: .78rem; }
+.week7-history__timeline > div { break-inside: avoid; margin: 0 0 .28rem; }
+.week7-history__timeline > div + div { margin-top: 0; }
+.week7-history__timeline dd { margin-top: .10rem; }
+.week7-history__timeline ul { gap: .04rem; }
+.week7-history__figure { margin: 0; text-align: center; }
+.week7-history__figure img { display: block; max-width: 100%; max-height: 26rem; width: auto; margin: auto; }
+@media screen and (max-width: 767px) {
+  .wd-lesson-body--history { grid-template-columns: 1fr; }
+  .week7-history__timeline { font-size: .94rem; line-height: 1.4; }
+  .week7-history__timeline li { font-size: .88rem; }
+  .week7-history__figure img { max-height: none; width: 100%; }
+}
+/* The web server is a client of the DBMS; the DBMS manages the database. */
+.week7-dbms-body { gap: 1.5rem; }
+.week7-dbms-body .wd-lesson-concepts { display: block; }
+.week7-dbms-body .wd-lesson-concepts > div + div { margin-top: .6rem; }
+.week7-architecture { display: grid; grid-template-columns: 1.1fr .8fr 1.1fr .8fr 1.1fr; align-items: center; gap: .5rem; margin-top: .4rem; }
+.week7-architecture__node { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: .35rem; text-align: center; color: #263e30; }
+.week7-architecture__node strong { font-size: 1.05rem; }
+.week7-architecture__node span { font-size: .78rem; color: #53675b; }
+.week7-architecture__icon { width: 8rem; height: 6.67rem; fill: none; stroke: #50745b; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.week7-architecture__icon--db { stroke: #cb2e2e; }
+.week7-architecture__dbms strong { color: #b92525; }
+.week7-architecture__exchange { display: grid; gap: .45rem; text-align: center; font-size: .78rem; font-weight: 700; color: #526d5c; }
+.week7-architecture__exchange span:first-child::after { content: " →"; font-size: 1.3rem; vertical-align: middle; }
+.week7-architecture__exchange span:last-child::before { content: "← "; font-size: 1.3rem; vertical-align: middle; }
+@media screen and (max-width: 767px) {
+  .week7-architecture { grid-template-columns: 1fr; gap: .6rem; }
+  .week7-architecture__exchange { grid-template-columns: 1fr 1fr; }
+  .week7-architecture__exchange span:first-child::after { content: " ↓"; }
+  .week7-architecture__exchange span:last-child::before { content: "↑ "; }
+}
+[data-wd-slide="db-types"] .wd-lesson-concepts > div + div { margin-top: .8rem; }
+[data-wd-slide="db-types"] .wd-lesson-concepts > div:nth-child(2) li:nth-child(n+4) { margin-left: 1rem; }
+[data-wd-slide="database-trends-2025"] .week7-source-figures { grid-template-columns: 1fr 1fr; align-items: start; gap: .7rem; }
+[data-wd-slide="database-trends-2025"] .wd-lesson-body { gap: .3rem; }
+/* Show the plot at a larger scale and move all 15 active series labels below it. */
+[data-wd-slide="database-trends-2025"] .week7-source-figure:first-child a { display: block; width: 100%; }
+[data-wd-slide="database-trends-2025"] .week7-source-figure:first-child img { display: block; width: 100%; max-width: none; max-height: none; aspect-ratio: 680 / 539; object-fit: cover; object-position: left; }
+.week7-trend-legend { display: grid; grid-template-columns: repeat(3, 1fr); }
+.week7-trend-legend span { display: block; aspect-ratio: 160 / 68; background-image: url("materials/source-figures/database-trends-2026-10-chart.jpg"); background-size: 598.75% 792.65%; background-repeat: no-repeat; }
+.week7-trend-legend span:nth-child(1) { background-position: 85.21% 2.97%; }
+.week7-trend-legend span:nth-child(2) { background-position: 85.21% 17.83%; }
+.week7-trend-legend span:nth-child(3) { background-position: 85.21% 32.70%; }
+/* Remove only empty space between the database model and score columns.
+   The linked image remains the complete, unaltered DB-Engines table. */
+[data-wd-slide="database-trends-2025"] .week7-source-figure:nth-child(2) a { display: flex; width: 100%; max-width: 36.32rem; }
+[data-wd-slide="database-trends-2025"] .week7-source-figure:nth-child(2) img { flex: 0 0 74.242%; width: 74.242%; max-width: none; max-height: none; aspect-ratio: 490 / 430; object-fit: cover; object-position: left; }
+[data-wd-slide="database-trends-2025"] .week7-source-figure:nth-child(2) a::after { content: ""; flex: 0 0 25.758%; aspect-ratio: 170 / 430; background: url("materials/source-figures/database-trends-2026-10-ranking.jpg") right / auto 100% no-repeat; }
+.week7-trend-link { text-align: center; font-size: .85rem; }
+.week7-trend-link a { color: #126c69; }
+[data-wd-slide="database-trends-2025"] .week7-trend-link { position: absolute; top: 31.5rem; right: 7rem; }
+@media screen and (max-width: 767px) {
+  [data-wd-slide="database-trends-2025"] .week7-source-figures { grid-template-columns: 1fr; }
+  [data-wd-slide="database-trends-2025"] .week7-source-figure img { max-height: none; }
+  [data-wd-slide="database-trends-2025"] .week7-trend-link { position: static; }
+}

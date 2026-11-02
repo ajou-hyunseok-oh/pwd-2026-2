@@ -64,7 +64,7 @@ fs.mkdirSync(output, {recursive: true});
           const found = await page.locator('[data-wd-slide]').nth(i).evaluate(s => {
             const result = [], box = s.getBoundingClientRect();
             const limit = box.bottom - 30;
-            for (const e of s.querySelectorAll('h1,h2,dt,dd,li,p,pre,table,img,figcaption,a')) {
+            for (const e of s.querySelectorAll('h1,h2,dt,dd,li,p,pre,samp,table,img,figcaption,a')) {
               if (e.closest('[hidden],.wd-slide-footer') || !e.getClientRects().length) continue;
               const r = e.getBoundingClientRect();
               // Flow arrows in ::after contribute to scrollWidth; measure real content too.
@@ -75,7 +75,7 @@ fs.mkdirSync(output, {recursive: true});
                 (content.left < r.left - 2 || content.right > r.right + 2);
               if (r.bottom > limit || r.left < box.left - 1 || r.right > box.right + 1 || contentOverflow)
                 result.push({type: 'bounds', tag: e.tagName, text: e.textContent.slice(0,80), bottom: r.bottom-box.top, limit: limit-box.top, sw: e.scrollWidth, cw: e.clientWidth});
-              if (e.tagName === 'PRE') {
+              if (e.tagName === 'PRE' || e.tagName === 'SAMP') {
                 const style = getComputedStyle(e), rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
                 if (Math.abs(parseFloat(style.fontSize) / rem - .7) > .01 || style.whiteSpace !== 'pre')
                   result.push({type: 'code-legibility', fontSize: style.fontSize, whiteSpace: style.whiteSpace});
@@ -104,7 +104,7 @@ fs.mkdirSync(output, {recursive: true});
           return {
             overflow: document.documentElement.scrollWidth > innerWidth,
             overlap: rects.some((r, index) => index > 0 && r.top < rects[index - 1].bottom - 1),
-            clippedCode: [...s.querySelectorAll('pre')].some(e => e.clientHeight + 2 < e.scrollHeight || parseFloat(getComputedStyle(e).fontSize) < 14)
+            clippedCode: [...s.querySelectorAll('pre,samp')].some(e => e.clientHeight + 2 < e.scrollHeight || parseFloat(getComputedStyle(e).fontSize) < 14)
           };
         }, i);
         if (mobile.overflow || mobile.overlap || mobile.clippedCode) issues.push({locale, mode:'mobile', slide:i+1, ...mobile});

@@ -1,0 +1,189 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "title": "실전 웹서비스개발 – 7주차",
+    "subtitle": "6주차 실습 리뷰 · Ajou Campus Foodmap API",
+    "sources": [],
+    "code_excerpts": [],
+    "runtime_results": [],
+    "request_flow": null
+  },
+  {
+    "number": 2,
+    "id": "project",
+    "title": "서버 실행 준비",
+    "subtitle": "요청이 도착하기 전 앱 생성과 포트 대기",
+    "sources": [
+      "server.ts",
+      "src/app.ts",
+      "package.json"
+    ],
+    "code_excerpts": [
+      "server"
+    ],
+    "runtime_results": [
+      "health"
+    ],
+    "request_flow": null
+  },
+  {
+    "number": 3,
+    "id": "client",
+    "title": "클라이언트의 목록 조회 요청",
+    "subtitle": "서버 기본 주소에 GET /api/restaurants 요청",
+    "sources": [
+      "README.md",
+      "https://vite.dev/guide/env-and-mode"
+    ],
+    "code_excerpts": [
+      "client"
+    ],
+    "runtime_results": [],
+    "request_flow": {
+      "kind": "get",
+      "current": [
+        0
+      ]
+    }
+  },
+  {
+    "number": 4,
+    "id": "middleware",
+    "title": "Express의 요청 수신",
+    "subtitle": "공통 미들웨어를 거쳐 맛집 Router로 전달",
+    "sources": [
+      "src/app.ts",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+      "https://developer.mozilla.org/en-US/docs/Glossary/Origin"
+    ],
+    "code_excerpts": [
+      "app"
+    ],
+    "runtime_results": [],
+    "request_flow": {
+      "kind": "get",
+      "current": [
+        1
+      ]
+    }
+  },
+  {
+    "number": 5,
+    "id": "mvcs",
+    "title": "Router와 Controller의 요청 연결",
+    "subtitle": "GET 경로 선택에서 목록 Service 호출로 연결",
+    "sources": [
+      "src/routes/restaurants.routes.ts",
+      "src/controllers/restaurants.controller.ts"
+    ],
+    "code_excerpts": [
+      "route-list",
+      "controller-list"
+    ],
+    "runtime_results": [],
+    "request_flow": {
+      "kind": "get",
+      "current": [
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "number": 6,
+    "id": "async-query",
+    "title": "Service의 목록 조회와 응답 완료",
+    "subtitle": "메모리 목록을 반환하고 같은 요청의 응답을 클라이언트에서 수신",
+    "sources": [
+      "src/services/restaurants.service.ts",
+      "src/models/restaurant.model.ts",
+      "src/controllers/restaurants.controller.ts",
+      "README.md",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+    ],
+    "code_excerpts": [
+      "async-list"
+    ],
+    "runtime_results": [
+      "list-result"
+    ],
+    "request_flow": {
+      "kind": "get",
+      "current": [
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "number": 7,
+    "id": "create",
+    "title": "생성 요청에서 달라지는 처리",
+    "subtitle": "같은 요청 구조에 입력 변환·필수 값 확인·데이터 추가 적용",
+    "sources": [
+      "src/controllers/restaurants.controller.ts",
+      "src/services/restaurants.service.ts",
+      "src/models/restaurant.model.ts"
+    ],
+    "code_excerpts": [],
+    "runtime_results": [
+      "create-input",
+      "created"
+    ],
+    "request_flow": {
+      "kind": "create",
+      "current": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "number": 8,
+    "id": "errors",
+    "title": "실패했을 때의 처리",
+    "subtitle": "정상 응답 대신 실패 원인을 상태 코드와 JSON으로 전달",
+    "sources": [
+      "src/utils/asyncHandler.ts",
+      "src/utils/httpError.ts",
+      "src/middleware/error.middleware.ts",
+      "src/controllers/restaurants.controller.ts",
+      "https://expressjs.com/en/guide/error-handling/"
+    ],
+    "code_excerpts": [
+      "async-error"
+    ],
+    "runtime_results": [
+      "invalid",
+      "missing"
+    ],
+    "request_flow": {
+      "kind": "error",
+      "current": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "number": 9,
+    "id": "persistence",
+    "title": "메모리 저장의 한계",
+    "subtitle": "완료된 요청의 변경 데이터도 서버 재시작 후 소멸",
+    "sources": [
+      "src/services/restaurants.service.ts",
+      "src/data/restaurants.json",
+      "README.md"
+    ],
+    "code_excerpts": [
+      "cache"
+    ],
+    "runtime_results": [
+      "restart"
+    ],
+    "request_flow": null
+  }
+]
