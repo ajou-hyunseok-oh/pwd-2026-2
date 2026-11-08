@@ -1,0 +1,349 @@
+{
+  "stage": "completed-bodies-and-resources",
+  "reviewed_on": "2026-11-07",
+  "counts": {
+    "chapters": 8,
+    "content_slides": 76,
+    "total_slides": 85,
+    "pdf_resource_slides": 16,
+    "new_resource_slides": 60
+  },
+  "authoring": {
+    "source": "../scripts/slide_body.py",
+    "paragraph_correspondence": "slide-bodies.json",
+    "korean_body": "week-09-body.ko.txt",
+    "references": "slide-references.html",
+    "reference_location": "별도 레퍼런스 문서; 본문·숨김 노트에 출처 없음"
+  },
+  "content_review": [
+    "1장: 지능 과제→평가→공동 연구→기호·수치 접근의 관계 유지. 퍼셉트론에는 학습 최적화 수식 대신 입력·가중합·임곗값의 역할만 설명.",
+    "2장: 모델·학습·추론 뒤에 학습 신호의 유형을 배치. 학습 방식과 신경망 구조를 구분하고 역전파의 영향 계산과 실제 가중치 갱신을 분리. AlexNet·AlphaGo는 앞서 배운 구조·학습의 사례로 설명.",
+    "3장: 토큰 ID→벡터 표현→문맥 관련도→Transformer 순서 유지. 학습 병렬 계산과 순차 생성, 현재 문맥과 저장 기록, 유창함과 사실 근거를 각각 구분. 임의 벡터·연결선·생성 예시는 측정 결과로 표시하지 않음.",
+    "4장: 코드 제안에서 개발자가 수락·적용·실행하는 흐름을 설명. 지시 튜닝·선호 학습의 가중치 변경과 요청 시 퓨샷 예시 제공을 구분. 제목 함수는 문자열·trim·길이 1~20·boolean의 공통 조건 유지.",
+    "5장: 도구 요청→외부 실행→권한→에이전트 반복의 선수 관계 유지. 일반 모델 추론과 추론 모델을 구분하고 화면 해석과 실제 조작을 별도 설명. MCP에는 호스트 내부 클라이언트와 서버의 연결만 설명.",
+    "6장: 프로젝트 정보→정보 선별→공통 지침→재사용 절차→현재 기록→문맥 요약의 역할 구분. 코드의 현재 상태와 검증 근거를 다시 읽는 관계를 설명하며 스킬을 재학습이나 MCP로 설명하지 않음.",
+    "7장: 동작 명세→관찰 가능한 완료 기준→계획·작업 분해→함수·브라우저 검사→반복·Hooks·하네스→리뷰의 순서 유지. 개별 함수 검사와 저장·화면의 통합 검증을 구분. 실제 서비스가 없는 브라우저 발췌를 실행 완료로 주장하지 않음.",
+    "8장: 독립 범위와 연결 계약을 먼저 설명한 뒤 위임·협업·이력·작업 폴더·통합을 도입. 병렬화·목표 유지·중단 재개·예약 시작을 구분. 완료 보고보다 코드 차이와 실제 동작을 근거로 수용하도록 설명."
+  ],
+  "layout_review": {
+    "definition_structure": "굵은 개념 - 짧은 정의 아래 들여쓴 글머리표. 개념·요소·관계 설명을 자료의 구체적 사례와 대응.",
+    "composition": "넓은 도식·표는 설명 아래, 코드와 결과는 나란히 배치. 이미지와 짧은 흐름은 설명 옆에 배치. 자료 비율과 설명량에 따라 1열·2열·중첩 2열 구성.",
+    "adjustments": "긴 영문 정의 간결화, 작업 분해 표의 불필요한 줄바꿈 제거, 짧은 표·흐름의 글자와 간격 조정. 중복 일반 설명을 본문으로 통합하되 사례·측정·실행 조건 표시 보존.",
+    "manual_visual_inspection": {
+      "contact_sheets": "KO·EN 각 85장 전체 확인. 마지막 중복 캡션 정리 후 대표 화면과 인쇄 재확인.",
+      "full_size_ko": [
+        18,
+        43,
+        64
+      ],
+      "full_size_en": [
+        20,
+        26,
+        42,
+        54,
+        67,
+        85
+      ],
+      "print_pages_each_locale": [
+        20,
+        54,
+        64,
+        69
+      ],
+      "mobile_examples": [
+        "ko-69-start/end",
+        "en-67-end"
+      ]
+    }
+  },
+  "validation": {
+    "shared_tests": "> @pwd/web-deck@0.2.1 test\n> node tests/validate.cjs && node scripts/code-examples.cjs --check && node tests/authoring.cjs\n\nweb-deck: package and 13 lecture decks are valid\nCode examples: 180 blocks / 358 language variants checked; syntax checks passed\nauthoring: 8 structured deck(s) checked; 0 original PDF deck(s) checked for source preservation",
+    "week09_code_format": "13 blocks / 26 language variants; 공용 구문·서식 검사 통과",
+    "source_checks": [
+      {
+        "command": "python3 lectures/09/scripts/title_outline.py --check",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 lectures/09/scripts/paragraph_outline.py --check",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 lectures/09/scripts/resource_placements.py --check",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 lectures/09/scripts/research_new_resources.py --check",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 lectures/09/scripts/slide_references.py --check",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 lectures/09/scripts/body_review.py --check",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 lectures/09/scripts/build-slides.py --check",
+        "exit_code": 0
+      },
+      {
+        "command": "git diff --check",
+        "exit_code": 0
+      }
+    ],
+    "render_audit": {
+      "count": 85,
+      "translations": [
+        {
+          "locale": "ko",
+          "checked": 1386,
+          "mismatches": 0
+        },
+        {
+          "locale": "en",
+          "checked": 1386,
+          "mismatches": 0
+        }
+      ],
+      "errors": [],
+      "issues": []
+    },
+    "diagram_mobile_keyboard": {
+      "svgLabels": 152,
+      "mobile": [
+        {
+          "locale": "ko",
+          "page": 20,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "ko",
+          "page": 32,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "ko",
+          "page": 43,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "ko",
+          "page": 54,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "ko",
+          "page": 67,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "ko",
+          "page": 69,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "ko",
+          "page": 80,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "ko",
+          "page": 84,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 20,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 32,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 43,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 54,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 67,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 69,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 80,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        },
+        {
+          "locale": "en",
+          "page": 84,
+          "lastItemReachable": true,
+          "codeScrollFailures": 0
+        }
+      ],
+      "keyboard": {
+        "next": "code-revision",
+        "previous": "title-validation-case"
+      },
+      "issues": []
+    },
+    "specification_columns": [
+      {
+        "locale": "ko",
+        "mode": "screen",
+        "columns": "547px 547px",
+        "bottom": 535.390625
+      },
+      {
+        "locale": "ko",
+        "mode": "print",
+        "columns": "547px 547px",
+        "bottom": 535.390625
+      },
+      {
+        "locale": "ko",
+        "mode": "mobile",
+        "columns": "332.297px"
+      },
+      {
+        "locale": "en",
+        "mode": "screen",
+        "columns": "547px 547px",
+        "bottom": 564.515625
+      },
+      {
+        "locale": "en",
+        "mode": "print",
+        "columns": "547px 547px",
+        "bottom": 564.515625
+      },
+      {
+        "locale": "en",
+        "mode": "mobile",
+        "columns": "332.297px"
+      }
+    ],
+    "pdf_pages": {
+      "ko": 85,
+      "en": 85,
+      "page_size_points": [
+        960,
+        540
+      ]
+    },
+    "example_function": {
+      "kind": "local-code-check",
+      "checked_on": "2026-11-07",
+      "node_version": "v26.13.0",
+      "case_count": 8,
+      "corrected_function_passes": 8,
+      "deliberate_baseline_failures": 2,
+      "note": "Actual local JavaScript output; no AI agent was run to create this trace.",
+      "rows": [
+        {
+          "label": "empty",
+          "input": "",
+          "expected": false,
+          "before": false,
+          "after": false
+        },
+        {
+          "label": "three spaces",
+          "input": "   ",
+          "expected": false,
+          "before": true,
+          "after": false
+        },
+        {
+          "label": "one character",
+          "input": "A",
+          "expected": true,
+          "before": true,
+          "after": true
+        },
+        {
+          "label": "twenty characters",
+          "input": "AAAAAAAAAAAAAAAAAAAA",
+          "expected": true,
+          "before": true,
+          "after": true
+        },
+        {
+          "label": "twenty-one characters",
+          "input": "AAAAAAAAAAAAAAAAAAAAA",
+          "expected": false,
+          "before": false,
+          "after": false
+        },
+        {
+          "label": "normal title",
+          "input": "공지사항",
+          "expected": true,
+          "before": true,
+          "after": true
+        },
+        {
+          "label": "padded normal title",
+          "input": "  공지사항  ",
+          "expected": true,
+          "before": true,
+          "after": true
+        },
+        {
+          "label": "padded twenty characters",
+          "input": "  AAAAAAAAAAAAAAAAAAAA  ",
+          "expected": true,
+          "before": false,
+          "after": true
+        }
+      ]
+    },
+    "evidence_directory": "/tmp/pwd-week09-body-review",
+    "scope": "발표·인쇄·390px 모바일 및 정적 검사. 제목 함수 8개 입력은 로컬 실행. Playwright 코드는 예제 앱용 발췌이며 실제 서비스 검증으로 실행하지 않음."
+  },
+  "temporary_server_cleanup": {
+    "pid": 53484,
+    "port": 4399,
+    "process_exited": true,
+    "port_listener_cleared": true
+  },
+  "sha256": {
+    "lectures/09/index.html": "3dbde4ee9115db5470f51758dd8ae907caa96e9d8b19a73a7b5f00ac828e1359",
+    "lectures/09/lecture-content.js": "4a26b5e1126ea6671e09537858ac90450b9590be6cd25fd2562ed387b7aed6f0",
+    "lectures/09/body.css": "22c81411766f75dab927b5628134c7993141ee5aa2e7efc4f08bf922115afb86",
+    "lectures/09/resources.css": "2a00605da7c399de46e9083b74601bc306b323f862c713c831f902e5e2d2efa9",
+    "lectures/09/scripts/slide_body.py": "4ae08bc76a019abbe0d3c3de8259d45d23c908955eddf840ce87a034cab44851",
+    "lectures/09/scripts/resource_blocks.py": "2ad14b767243e3d7b342424ddf208016d44a65d7c09a204e9d26134478021906",
+    "lectures/09/materials/slide-bodies.json": "98deee95f7c36e0da25a5f7efc395bdaf01bcdcf658a4d1ce3eafb93321f2d90",
+    "lectures/09/materials/slide-references.html": "7c54ae985896da72bb75c03531c98e8bdbf78b172faf47418a48512bb3cc6caf"
+  }
+}

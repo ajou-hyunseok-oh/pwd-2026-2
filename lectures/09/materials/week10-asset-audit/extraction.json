@@ -1,0 +1,1494 @@
+{
+  "source": "[PWD Week10] 인공지능과 웹 서비스 개발.pdf",
+  "source_sha256": "fd1c2504df40547b1cef2f1b31094f479c8b50dc9b1c13e0eedc82947bbd2277",
+  "pdf_pages": 29,
+  "image_placements": 20,
+  "excluded_decoration": "409×55 학교 로고, 전 29쪽",
+  "assets": [
+    {
+      "id": "I02",
+      "pages": [
+        2
+      ],
+      "files": [
+        "source-assets/p02-i02.jpg"
+      ],
+      "xref": 24,
+      "width": 943,
+      "height": 544,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 2,
+          "rects": [
+            [
+              412.9094543457031,
+              129.8208770751953,
+              664.8816528320312,
+              275.1791687011719
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p02-i02.jpg": "0274f99ce8c4c7a542a549da45d2fd5079cc9ab1bdb4908fa6f86c97d26d6789"
+      }
+    },
+    {
+      "id": "I03",
+      "pages": [
+        3
+      ],
+      "files": [
+        "source-assets/p03-i03.jpg"
+      ],
+      "xref": 31,
+      "width": 991,
+      "height": 555,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 3,
+          "rects": [
+            [
+              76.78838348388672,
+              78.05316162109375,
+              643.2125854492188,
+              395.2735595703125
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p03-i03.jpg": "7893702b0727451c3cb21a4411f69a08cda01eb6462e596ecf3ea36132f1e41c"
+      }
+    },
+    {
+      "id": "I04-poster",
+      "pages": [
+        4
+      ],
+      "files": [
+        "source-assets/p04-i04-poster.jpg"
+      ],
+      "xref": 39,
+      "width": 554,
+      "height": 554,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 4,
+          "rects": [
+            [
+              591.8681030273438,
+              25.45275115966797,
+              686.8189086914062,
+              120.40355682373047
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p04-i04-poster.jpg": "b62c41b39e6607589f16666cbb03467a691d5a5384ebeb32655b187fb38be0f2"
+      }
+    },
+    {
+      "id": "I04-test",
+      "pages": [
+        4
+      ],
+      "files": [
+        "source-assets/p04-i04-test.jpg"
+      ],
+      "xref": 40,
+      "width": 640,
+      "height": 586,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 4,
+          "rects": [
+            [
+              464.0905456542969,
+              149.5432891845703,
+              686.81884765625,
+              353.47833251953125
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p04-i04-test.jpg": "3eb0dca915225b1715ce79f460a81472d0f689d2151613c6830f63b577af7086"
+      }
+    },
+    {
+      "id": "I05-unit",
+      "pages": [
+        5
+      ],
+      "files": [
+        "source-assets/p05-i05-unit.jpg"
+      ],
+      "xref": 48,
+      "width": 695,
+      "height": 281,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 5,
+          "rects": [
+            [
+              427.2716369628906,
+              85.47834777832031,
+              704.44091796875,
+              197.54330444335938
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p05-i05-unit.jpg": "e90571c6d66ba23db3446b484b706636bfe38cf9e63ae08c95332598342221bf"
+      }
+    },
+    {
+      "id": "I05-boundary",
+      "pages": [
+        5
+      ],
+      "files": [
+        "source-assets/p05-i05-boundary.jpg"
+      ],
+      "xref": 49,
+      "width": 552,
+      "height": 277,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 5,
+          "rects": [
+            [
+              476.8937072753906,
+              240.90936279296875,
+              654.8189697265625,
+              330.1947937011719
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p05-i05-boundary.jpg": "47ec14d13885a0fced01a60362ed2315209deeea93dcdea5a9dfe03355c120e1"
+      }
+    },
+    {
+      "id": "I06",
+      "pages": [
+        6
+      ],
+      "files": [
+        "source-assets/p06-i06.jpg"
+      ],
+      "xref": 57,
+      "width": 1432,
+      "height": 468,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 6,
+          "rects": [
+            [
+              328.6377868652344,
+              156.26675415039062,
+              695.4567260742188,
+              276.15057373046875
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p06-i06.jpg": "077e1e20b6d0b7fb865eae8439e48c4d00f9eba51901fea8f73270e2c1769db5"
+      }
+    },
+    {
+      "id": "I07",
+      "pages": [
+        7
+      ],
+      "files": [
+        "source-assets/p07-i07.png"
+      ],
+      "xref": 65,
+      "width": 512,
+      "height": 256,
+      "has_alpha": true,
+      "placements": [
+        {
+          "page": 7,
+          "rects": [
+            [
+              356.3622131347656,
+              144.52755737304688,
+              685.3621826171875,
+              309.0275573730469
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p07-i07.png": "e85e8f7bf7b8568b918606de1ebf9a620abf160c51675e82d64bceaa52761596"
+      }
+    },
+    {
+      "id": "I08-xor",
+      "pages": [
+        8
+      ],
+      "files": [
+        "source-assets/p08-i08-xor.jpg"
+      ],
+      "xref": 74,
+      "width": 659,
+      "height": 703,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 8,
+          "rects": [
+            [
+              447.05511474609375,
+              70.006103515625,
+              695.4567260742188,
+              334.9943542480469
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p08-i08-xor.jpg": "f1823148f0c437d96aaa524b37c499b7c26a10980170a6d7460031f3d505a664"
+      }
+    },
+    {
+      "id": "I08-person",
+      "pages": [
+        8
+      ],
+      "files": [
+        "source-assets/p08-i08-person.jpg"
+      ],
+      "xref": 75,
+      "width": 441,
+      "height": 614,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 8,
+          "rects": [
+            [
+              371.6732177734375,
+              16.769683837890625,
+              487.33465576171875,
+              177.80508422851562
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p08-i08-person.jpg": "88342ffe7e79e47ccbed18e548203719273674053ecfd8b763c8ca343eaacad3"
+      }
+    },
+    {
+      "id": "I08-network",
+      "pages": [
+        8
+      ],
+      "files": [
+        "source-assets/p08-i08-network.jpg"
+      ],
+      "xref": 76,
+      "width": 634,
+      "height": 263,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 8,
+          "rects": [
+            [
+              60.289371490478516,
+              249.5157470703125,
+              334.0590515136719,
+              363.0846252441406
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p08-i08-network.jpg": "de22076dbca053ea93d2b00c7b4fdd545aa9afc16599eca4b855873d9fdb0fc6"
+      }
+    },
+    {
+      "id": "I09",
+      "pages": [
+        9
+      ],
+      "files": [
+        "source-assets/p09-i09.jpg"
+      ],
+      "xref": 85,
+      "width": 787,
+      "height": 397,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 9,
+          "rects": [
+            [
+              424.05303955078125,
+              194.4014892578125,
+              659.8128662109375,
+              313.3306579589844
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p09-i09.jpg": "1b3bb2576f9e03d9aa6bf0c05eb849336f2f7de0913f845449b9c57b54df650c"
+      }
+    },
+    {
+      "id": "I10-flow",
+      "pages": [
+        10
+      ],
+      "files": [
+        "source-assets/p10-i10-flow.jpg"
+      ],
+      "xref": 92,
+      "width": 1440,
+      "height": 123,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 10,
+          "rects": [
+            [
+              236.17523193359375,
+              142.56298828125,
+              680.41357421875,
+              180.5078582763672
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p10-i10-flow.jpg": "66c40bf8d516a0eb7fbe9b86643230f0812b6eb3f71cf518c2dc1da240b64d98"
+      }
+    },
+    {
+      "id": "I10-formula",
+      "pages": [
+        10
+      ],
+      "files": [
+        "source-assets/p10-i10-formula.jpg"
+      ],
+      "xref": 93,
+      "width": 373,
+      "height": 76,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 10,
+          "rects": [
+            [
+              400.66241455078125,
+              180.50787353515625,
+              680.4124145507812,
+              237.50787353515625
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p10-i10-formula.jpg": "db3b8f8923b64aabbb9ede5d072b2be810771feb2eddfd4fe7b7fb1667481da9"
+      }
+    },
+    {
+      "id": "I11-flow",
+      "pages": [
+        11,
+        12
+      ],
+      "files": [
+        "source-assets/p11-i11-flow.jpg"
+      ],
+      "xref": 101,
+      "width": 1449,
+      "height": 159,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 11,
+          "rects": [
+            [
+              137.08860778808594,
+              304.8601989746094,
+              582.911376953125,
+              353.7814636230469
+            ]
+          ]
+        },
+        {
+          "page": 12,
+          "rects": [
+            [
+              249.63388061523438,
+              167.85232543945312,
+              695.4566650390625,
+              216.77359008789062
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p11-i11-flow.jpg": "f487b2c1b43ce16d64dad6828be1354c1568c5cabf19c30cea2f934c880a66e6"
+      }
+    },
+    {
+      "id": "I11-formula",
+      "pages": [
+        11,
+        12
+      ],
+      "files": [
+        "source-assets/p11-i11-formula.jpg"
+      ],
+      "xref": 102,
+      "width": 402,
+      "height": 43,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 11,
+          "rects": [
+            [
+              393.9566955566406,
+              264.6072692871094,
+              695.4566650390625,
+              296.8572692871094
+            ]
+          ]
+        },
+        {
+          "page": 12,
+          "rects": [
+            [
+              386.8700866699219,
+              135.60137939453125,
+              688.3701171875,
+              167.85137939453125
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p11-i11-formula.jpg": "821566afacdebf87bc570f9021026fbeff1cedaacf78beb6671bc51735f10f5b"
+      }
+    },
+    {
+      "id": "I18",
+      "pages": [
+        18
+      ],
+      "files": [
+        "source-assets/p18-i18.jpg"
+      ],
+      "xref": 141,
+      "width": 285,
+      "height": 337,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 18,
+          "rects": [
+            [
+              502.33447265625,
+              130.07872009277344,
+              675.860107421875,
+              335.2637634277344
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p18-i18.jpg": "0a6cd13b4c533ff35208d5f8660d58f1027f965823d86aadb0c68142973304c6"
+      }
+    },
+    {
+      "id": "I22",
+      "pages": [
+        22
+      ],
+      "files": [
+        "source-assets/p22-i22.jpg"
+      ],
+      "xref": 163,
+      "width": 839,
+      "height": 111,
+      "has_alpha": false,
+      "placements": [
+        {
+          "page": 22,
+          "rects": [
+            [
+              81.99942016601562,
+              353.79132080078125,
+              343.6478576660156,
+              388.407470703125
+            ]
+          ]
+        }
+      ],
+      "sha256": {
+        "source-assets/p22-i22.jpg": "00ac63d943a7088bf30553b62d4ac3c026f22effacfd0d5aeebd78debac2c8b9"
+      }
+    },
+    {
+      "id": "T04",
+      "pages": [
+        4
+      ],
+      "files": [
+        "source-assets/p04-t04-source.png",
+        "source-assets/p04-t04-source.txt",
+        "source-assets/p04-t04-cells.json"
+      ],
+      "pdf_rect": [
+        30.0,
+        162.0,
+        391.0,
+        286.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "역할",
+          "설명"
+        ],
+        [
+          "질문자 (심사자)",
+          "키보드로 익명 상대에게 질문"
+        ],
+        [
+          "피실험자 (기계)",
+          "질문에 인간처럼 답변"
+        ],
+        [
+          "피실험자 (인간)",
+          "동일한 질문에 답변"
+        ],
+        [
+          "판정 기준",
+          "질문자가 누구(인간/기계)인지 구별하지 못하면 성공"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p04-t04-source.png": "625d4d10c9bc4854cc615fa9571394620fd9cc4a949aeb63543763f17096f067",
+        "source-assets/p04-t04-source.txt": "24b2d29243a8f2bef08bc6f377d8ccbcdf1afb52c92a073562bce9ad0585b14a",
+        "source-assets/p04-t04-cells.json": "ec4b73be7aa2d43ea2d3f5b3a7d540c06d56de27796d4c568661d00a0e948fa5"
+      }
+    },
+    {
+      "id": "T09",
+      "pages": [
+        9
+      ],
+      "files": [
+        "source-assets/p09-t09-source.png",
+        "source-assets/p09-t09-source.txt",
+        "source-assets/p09-t09-cells.json"
+      ],
+      "pdf_rect": [
+        42.0,
+        263.0,
+        361.0,
+        363.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "유형",
+          "모델",
+          "대표 응용"
+        ],
+        [
+          "이미지",
+          "CNN",
+          "얼굴 인식, 자율주행"
+        ],
+        [
+          "시퀀스",
+          "RNN / LSTM",
+          "음성 인식, 번역"
+        ],
+        [
+          "생성",
+          "GAN",
+          "이미지 생성, 딥페이크"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p09-t09-source.png": "96d4f67c4fbcebfb4d71de3a8e68aaaa5454f27ebbe952c18ef70125bc5fd7be",
+        "source-assets/p09-t09-source.txt": "077e710aea036eb136d958fa15f8eb2e7f04b6c2392653fd585018638c30de2e",
+        "source-assets/p09-t09-cells.json": "56619bf01c3f32e96b27d6b4c130c362e7a9087ebc2a98c319492aeb032f8e91"
+      }
+    },
+    {
+      "id": "T13",
+      "pages": [
+        13
+      ],
+      "files": [
+        "source-assets/p13-t13-source.png",
+        "source-assets/p13-t13-source.txt",
+        "source-assets/p13-t13-cells.json"
+      ],
+      "pdf_rect": [
+        71.0,
+        231.0,
+        649.0,
+        371.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "엔진",
+          "개발사",
+          "주요 특징",
+          "강점 영역"
+        ],
+        [
+          "ChatGPT (GPT-5)",
+          "OpenAI",
+          "코딩, 디자인 출력 강화, 더 나은 추론·정확성 증가",
+          "범용 언어 생성\n개발자 생태계"
+        ],
+        [
+          "Claude 4\n(Opus 4.1, Sonnet 4.5)",
+          "Anthropic",
+          "“하이브리드 리즈닝” 기능, 장기 과제/코딩에 특화",
+          "논리적 추론\n안전성\n장문 처리"
+        ],
+        [
+          "Gemini 2.5 Pro",
+          "Google\nDeepMind",
+          "텍스트·이미지·오디오·비디오 멀티모달 지원, 대용량 문맥 처리",
+          "멀티미디어 통합, 검색·코딩·융합\n서비스"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p13-t13-source.png": "79e30d78d46bb38ef8cae47a7af15cc463cf64a114d1a3f9ddd1db9a64a11e67",
+        "source-assets/p13-t13-source.txt": "8238479790a0812d408eed1e149ea899b7d5163156fb8753a555b56cb121ce8c",
+        "source-assets/p13-t13-cells.json": "15293fbbef2e45133c1262ae22719e3f4104a41a25a3f4d9a24efd81c523fb07"
+      }
+    },
+    {
+      "id": "T14-time",
+      "pages": [
+        14
+      ],
+      "files": [
+        "source-assets/p14-t14-time-source.png",
+        "source-assets/p14-t14-time-source.txt",
+        "source-assets/p14-t14-time-cells.json"
+      ],
+      "pdf_rect": [
+        45.0,
+        81.0,
+        675.0,
+        195.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "과거",
+          "현재",
+          "미래"
+        ],
+        [
+          "개발자가 모든 로직을 직접 작성",
+          "AI가 코드, 문서, UI를 자동 생성",
+          "개발자는 “프롬프트 디자이너”가 됨"
+        ],
+        [
+          "정적 콘텐츠 중심",
+          "대화형·지능형 서비스 중심",
+          "자율적 에이전트 기반 서비스"
+        ],
+        [
+          "사용자 입력 → 결과 출력",
+          "사용자 대화 → 맥락 유지 → 개인화 결과",
+          "개인 맞춤형 지속 대화형 UX"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p14-t14-time-source.png": "7f19f694ad11042da68cd5d6e59044dbb5fb086d2418bbdaa3b03ade32d5c2d5",
+        "source-assets/p14-t14-time-source.txt": "f710cf325aff23ba530fab9ee6c1550093c0d46a62629424b20c22446b1f6ded",
+        "source-assets/p14-t14-time-cells.json": "140a199bee9b58ab576a5c73e896bdbe0483a9ce86de416f2878235963a594a4"
+      }
+    },
+    {
+      "id": "T14-area",
+      "pages": [
+        14
+      ],
+      "files": [
+        "source-assets/p14-t14-area-source.png",
+        "source-assets/p14-t14-area-source.txt",
+        "source-assets/p14-t14-area-cells.json"
+      ],
+      "pdf_rect": [
+        411.0,
+        220.0,
+        682.0,
+        369.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "영역",
+          "변화 방향"
+        ],
+        [
+          "개발(Dev)",
+          "“코딩”에서 “설계 + 프롬프트”로 전환"
+        ],
+        [
+          "디자인(UI/UX)",
+          "사용자가 AI와 상호작용하는 흐름 중심"
+        ],
+        [
+          "서비스 운영",
+          "실시간 데이터·AI 모델 자동 업데이트"
+        ],
+        [
+          "콘텐츠 생성",
+          "Text → Image → Video 통합 자동화"
+        ],
+        [
+          "사용자 경험",
+          "AI가 개인 맞춤형 도우미로 진화"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p14-t14-area-source.png": "e74e15704badede030113d390c015dcbc17e9a3b763bb0f99d0de350051962c7",
+        "source-assets/p14-t14-area-source.txt": "492880655b9a972de64ac01e49bfaf93ab18946cf94b13417b6b61e3740efd6d",
+        "source-assets/p14-t14-area-cells.json": "1b04eb8043b8e8ee5d711eb7c85601153e42c834d13d0d7b38ea5d5e202a27d4"
+      }
+    },
+    {
+      "id": "T16",
+      "pages": [
+        16
+      ],
+      "files": [
+        "source-assets/p16-t16-source.png",
+        "source-assets/p16-t16-source.txt",
+        "source-assets/p16-t16-cells.json"
+      ],
+      "pdf_rect": [
+        60.0,
+        138.0,
+        660.0,
+        298.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "Prompt Engineering",
+          "명확한 목적, 역할, 조건을 가진 명령 설계 기술"
+        ],
+        [
+          "Chain of Thought (CoT)",
+          "단계별 사고를 유도하여 논리적 출력 확보"
+        ],
+        [
+          "Few-shot / Zero-shot Learning",
+          "예시를 통한 모델 학습 맥락 제공"
+        ],
+        [
+          "Role Prompting",
+          "“너는 ~전문가다”로 역할 지정해 맥락 조정"
+        ],
+        [
+          "System Prompt Design",
+          "모델 전체 톤·스타일을 결정하는 최상위 설정"
+        ],
+        [
+          "Prompt Debugging",
+          "출력 결과를 기반으로 입력 구조를 개선하는 과정"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p16-t16-source.png": "1f27c07090734bd80e6378b31575c7b4081ef460582c21a5fe794f9e433b0d77",
+        "source-assets/p16-t16-source.txt": "4509307b0b0466eb02146cf0b50722e8a06b7185d0a3db8c06866c50690b32ad",
+        "source-assets/p16-t16-cells.json": "0f4f1a65dcb4d1aee09acba49e0ba15939c09cc02c6358127dd339f33f9af572"
+      }
+    },
+    {
+      "id": "T17",
+      "pages": [
+        17
+      ],
+      "files": [
+        "source-assets/p17-t17-source.png",
+        "source-assets/p17-t17-source.txt",
+        "source-assets/p17-t17-cells.json"
+      ],
+      "pdf_rect": [
+        38.0,
+        230.0,
+        682.0,
+        378.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "요소",
+          "설명",
+          "예시"
+        ],
+        [
+          "목표(Goal)",
+          "무엇을 생성할지 명확히",
+          "“서비스 기획 요약”"
+        ],
+        [
+          "역할(Role)",
+          "모델에게 역할 부여",
+          "“너는 UX 기획 전문가다”"
+        ],
+        [
+          "맥락(Context)",
+          "배경 정보 제공",
+          "“우리 앱은 여행 추천 서비스다”"
+        ],
+        [
+          "형식(Format)",
+          "출력 형태 지정",
+          "“표로 정리해줘 / JSON으로 출력해줘”"
+        ],
+        [
+          "제약조건(Constraints)",
+          "길이, 톤, 언어 등 제한",
+          "“200자 이내, 한국어, 중립적 어조”"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p17-t17-source.png": "72ff490ff2aaa989154a4fe022bd0421a87aebe0902381db726531bb9716e505",
+        "source-assets/p17-t17-source.txt": "f8ae2afbe8adfef3a37b7a0c52b01cc213914c29cf95d956f825ca9694cb4642",
+        "source-assets/p17-t17-cells.json": "b3e03e47f79438f5fb6e4730f5d6a3746b9ef268b2efff8bf2a8d36f5c47d38f"
+      }
+    },
+    {
+      "id": "T19",
+      "pages": [
+        19
+      ],
+      "files": [
+        "source-assets/p19-t19-source.png",
+        "source-assets/p19-t19-source.txt",
+        "source-assets/p19-t19-cells.json"
+      ],
+      "pdf_rect": [
+        381.0,
+        150.0,
+        697.0,
+        274.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "구분",
+          "Zero-shot",
+          "Few-shot"
+        ],
+        [
+          "예시 제공 여부",
+          "없음",
+          "있음"
+        ],
+        [
+          "프롬프트 구성",
+          "“질문만 제시”",
+          "“예시 + 질문 제시”"
+        ],
+        [
+          "장점",
+          "단순, 빠름, 유연함",
+          "높은 정확도, 스타일 유지"
+        ],
+        [
+          "활용 상황",
+          "일반 지식 기반 요청",
+          "특정 형식·패턴 유지 필요 시"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p19-t19-source.png": "0f99bdb19101fd674e82f28a8fa5941b16ecadea7f7ac048b3fa8cdaff201dba",
+        "source-assets/p19-t19-source.txt": "4d09a889d97c230207b2f79dde5b831aea1b540062b174ff584c61785a966f3d",
+        "source-assets/p19-t19-cells.json": "95e7e8af51b70e47c6d85ea2f564041579af2f9c20892a5587a1cf9cc82be4ae"
+      }
+    },
+    {
+      "id": "T20",
+      "pages": [
+        20
+      ],
+      "files": [
+        "source-assets/p20-t20-source.png",
+        "source-assets/p20-t20-source.txt",
+        "source-assets/p20-t20-cells.json"
+      ],
+      "pdf_rect": [
+        91.0,
+        276.0,
+        629.0,
+        358.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "구분",
+          "프롬프트",
+          "결과 특징"
+        ],
+        [
+          "Non-Role",
+          "“이 앱을 평가해줘.”",
+          "단순한 피드백 중심"
+        ],
+        [
+          "Role",
+          "“너는 UX 디자이너야. 사용성 기준으로 평가해줘.”",
+          "구체적, 전문적, 사용자 중심의 답변"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p20-t20-source.png": "4b87f876bf29b0bdc5e72de04808f90b42375bbf14cc8066340499cf0cd4ea1d",
+        "source-assets/p20-t20-source.txt": "51d99e41c29f051469529d2d36bfd6a6bcc32a3b916d6fa5deda771aa29f054e",
+        "source-assets/p20-t20-cells.json": "28c513f7d7d65ac2d56f0c5327a9754ca81dd817ce5fe60bbb4db70e0f9aff8a"
+      }
+    },
+    {
+      "id": "T21",
+      "pages": [
+        21
+      ],
+      "files": [
+        "source-assets/p21-t21-source.png",
+        "source-assets/p21-t21-source.txt",
+        "source-assets/p21-t21-cells.json"
+      ],
+      "pdf_rect": [
+        375.0,
+        95.0,
+        708.0,
+        243.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "요소",
+          "설명",
+          "예시"
+        ],
+        [
+          "역할(Role)",
+          "AI의 정체성 설정",
+          "“너는 UX 디자이너다.”"
+        ],
+        [
+          "목표(Objective)",
+          "대화 목적 정의",
+          "“항상 사용자 문제를 해결하는 데 집중해라.”"
+        ],
+        [
+          "스타일(Style)",
+          "말투·톤 지정",
+          "“친근하고 간결하게 말하라.”"
+        ],
+        [
+          "출력 형식(Format)",
+          "일관된 구조 유지",
+          "“모든 답변을 표로 출력하라.”"
+        ],
+        [
+          "제약조건(Constraints)",
+          "금지·주의 규칙",
+          "“사실에 근거하지 않은 내용은 말하지 마라.”"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p21-t21-source.png": "d94c573231fe4fe24d58f6341d2265f6dd7cd659f5a80f8b2754b3aaa2f8fff5",
+        "source-assets/p21-t21-source.txt": "619c4e0646f8664a7cbe16d91c595c00ed7992152216d27b87df4d1ce2a28700",
+        "source-assets/p21-t21-cells.json": "93d4296e99daff486f0644bf8c269bc404d125a45fabd3f842448e9f78c8f95f"
+      }
+    },
+    {
+      "id": "T22-errors",
+      "pages": [
+        22
+      ],
+      "files": [
+        "source-assets/p22-t22-errors-source.png",
+        "source-assets/p22-t22-errors-source.txt",
+        "source-assets/p22-t22-errors-cells.json"
+      ],
+      "pdf_rect": [
+        352.0,
+        127.0,
+        708.0,
+        243.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "유형",
+          "원인",
+          "해결 방법"
+        ],
+        [
+          "과도한 출력",
+          "범위 미지정",
+          "“200자 이내로” 등 제한 추가"
+        ],
+        [
+          "반복 응답",
+          "맥락 혼선",
+          "이전 지시 초기화 후 재요청"
+        ],
+        [
+          "불완전한 형식",
+          "출력 예시 없음",
+          "예시 포맷(Few-shot) 제시"
+        ],
+        [
+          "이해 오류",
+          "용어 모호",
+          "구체적 설명 추가 (“여기서 UX는 사용자 경험을 의미”)"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p22-t22-errors-source.png": "fb0b486b71d07fd07a57b240b66a0e0e20e3a059e248846ff0899b89d3da8c5d",
+        "source-assets/p22-t22-errors-source.txt": "d8435dafb0f7ca1252d3b00df4287b707dcaec24e4249fb7eba6429978847ea5",
+        "source-assets/p22-t22-errors-cells.json": "306a6271c9c209f2a4d2b50611d5c2be72ee0a56255f3e434a559dfd18f5e4ec"
+      }
+    },
+    {
+      "id": "T22-steps",
+      "pages": [
+        22
+      ],
+      "files": [
+        "source-assets/p22-t22-steps-source.png",
+        "source-assets/p22-t22-steps-source.txt",
+        "source-assets/p22-t22-steps-cells.json"
+      ],
+      "pdf_rect": [
+        352.0,
+        266.0,
+        708.0,
+        389.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "단계",
+          "설명",
+          "예시"
+        ],
+        [
+          "① 결과 확인",
+          "예상과 다른 출력 검토",
+          "“답이 너무 길다”"
+        ],
+        [
+          "② 오류 유형 파악",
+          "모호함 / 누락 / 형식 불일치",
+          "“출력 형식이 지켜지지 않음”"
+        ],
+        [
+          "③ 원인 분석",
+          "프롬프트 내 지시 불명확",
+          "“요약 길이 제한이 없음”"
+        ],
+        [
+          "④ 개선 및 재시도",
+          "명확히 수정 후 재입력",
+          "“200자 이내로 요약해줘.”"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p22-t22-steps-source.png": "baa75f41c67e8fd30b4b4fbf7a1d07c2c6682df05b9c6701ef6cd1f2ceb2407a",
+        "source-assets/p22-t22-steps-source.txt": "845c98d373db94dbf504ea2a094fa67e35636fbfda571677cca1933f324f5d76",
+        "source-assets/p22-t22-steps-cells.json": "539cd2047eaee0cc46f085060a897fd91107b3d5a2da1ba0e1c2390ae2a8826f"
+      }
+    },
+    {
+      "id": "T24",
+      "pages": [
+        24
+      ],
+      "files": [
+        "source-assets/p24-t24-source.png",
+        "source-assets/p24-t24-source.txt",
+        "source-assets/p24-t24-cells.json"
+      ],
+      "pdf_rect": [
+        30.0,
+        138.0,
+        515.0,
+        311.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "구분",
+          "설명"
+        ],
+        [
+          "AI 통합 관리",
+          "Anthropic(Claude), OpenAI, Google Gemini 등 다양한 모델을 선택·교체 가능"
+        ],
+        [
+          "PRD 기반 태스크 자동 생성",
+          "/scripts/prd.txt 파일을 분석해 세부 개발 작업 자동 생성"
+        ],
+        [
+          "MCP (Model Control Protocol)",
+          "Cursor·VSCode에서 직접 Task Master 실행 (npx 연동)"
+        ],
+        [
+          "세 가지 모델 구조",
+          "Main / Research / Fallback 모델 구성으로 안정적 결과"
+        ],
+        [
+          "대화형 명령 지원",
+          "“다음 작업이 뭐야?”, “3번 태스크 구현 도와줘” 등 자연어 명령 처리"
+        ],
+        [
+          "CLI 명령어",
+          "task-master init, parse-prd, list, next, generate 등 명령 기반 제어 가능"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p24-t24-source.png": "391cd2fe1bd278c88e2b61cd3cd9d7a24e0d9066561cec7ba62dfda36158d182",
+        "source-assets/p24-t24-source.txt": "921ba7cd1c9d0944ebaad66808789bdfd652b0af17daa3e4166b45fe1ab9ea6a",
+        "source-assets/p24-t24-cells.json": "f16ce085daecf10021466cd4e4b851d2564a782705c4bd4e562d71fd22199d36"
+      }
+    },
+    {
+      "id": "T25",
+      "pages": [
+        25
+      ],
+      "files": [
+        "source-assets/p25-t25-source.png",
+        "source-assets/p25-t25-source.txt",
+        "source-assets/p25-t25-cells.json"
+      ],
+      "pdf_rect": [
+        286.0,
+        181.0,
+        704.0,
+        337.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "항목",
+          "Virtual DOM (React 기본)",
+          "React Hook Form"
+        ],
+        [
+          "렌더링 시점",
+          "값이 바뀔 때마다 setState() → 리렌더",
+          "값 변경 시 리렌더 없음 (DOM이 직접 저장)"
+        ],
+        [
+          "속도 개선 방식",
+          "변경 부분만 다시 그림(diffing)",
+          "변경 자체를 최소화 (uncontrolled input)"
+        ],
+        [
+          "폼 관리 방식",
+          "컨트롤드 컴포넌트 중심",
+          "언컨트롤드 컴포넌트 중심"
+        ],
+        [
+          "리렌더 발생 횟수",
+          "입력할 때마다",
+          "제출·검증 시에만"
+        ],
+        [
+          "대표 장점",
+          "전체 UI 업데이트 효율적",
+          "폼 입력/검증 속도 탁월"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p25-t25-source.png": "48d3298907ef60a9613997073f9927833ab5451b63da5a9320be7119fddb8f01",
+        "source-assets/p25-t25-source.txt": "b4850f71c87d3f2798ae8edd89b05805ac8280be2d0eb7e4ba13fd7305892f4b",
+        "source-assets/p25-t25-cells.json": "a76f8c444e66437ce8418ee2e952ea299738e898f2ec03980555c4a143f68fa6"
+      }
+    },
+    {
+      "id": "T26",
+      "pages": [
+        26
+      ],
+      "files": [
+        "source-assets/p26-t26-source.png",
+        "source-assets/p26-t26-source.txt",
+        "source-assets/p26-t26-cells.json"
+      ],
+      "pdf_rect": [
+        127.0,
+        156.0,
+        594.0,
+        329.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "구분",
+          "설명"
+        ],
+        [
+          "유틸리티 클래스 중심",
+          "bg-blue-500, text-center, p-4 등 조합으로 바로 스타일 적용"
+        ],
+        [
+          "빠른 개발 속도",
+          "CSS 파일 작성 없이 HTML/JSX 내에서 즉시 디자인 구현"
+        ],
+        [
+          "일관된 디자인 시스템",
+          "tailwind.config.js에서 색상·폰트·간격 등 테마 통일 관리"
+        ],
+        [
+          "반응형 디자인 내장",
+          "sm:, md:, lg: 접두사로 반응형 스타일 지정"
+        ],
+        [
+          "불필요한 코드 제거(Purge)",
+          "실제 사용된 클래스만 빌드 → 번들 크기 최소화"
+        ],
+        [
+          "생태계 확장성",
+          "daisyUI, Flowbite, shadcn/ui 등 UI 컴포넌트 라이브러리와 호환"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p26-t26-source.png": "b81e923654bf5c9f23944e203ea98c31f2f66cc452b9d877c346c807ba081b6e",
+        "source-assets/p26-t26-source.txt": "31183cfebe741a5a1ab455670f133e47762c148d74a217979e7bfef852ecd6f2",
+        "source-assets/p26-t26-cells.json": "d619c2685e7c38456ce267b785fee5c6dbdedae0447d352e4eb5905de9a1214b"
+      }
+    },
+    {
+      "id": "T27",
+      "pages": [
+        27
+      ],
+      "files": [
+        "source-assets/p27-t27-source.png",
+        "source-assets/p27-t27-source.txt",
+        "source-assets/p27-t27-cells.json"
+      ],
+      "pdf_rect": [
+        29.0,
+        173.0,
+        474.0,
+        321.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "항목",
+          "설명"
+        ],
+        [
+          "기반 기술",
+          "React, Tailwind CSS, Radix UI"
+        ],
+        [
+          "특징",
+          "라이브러리가 아니라 복사 가능한 소스 코드를 제공 (직접 프로젝트에 포함)"
+        ],
+        [
+          "장점",
+          "디자인 통일성, 커스터마이징 용이, TypeScript 친화적"
+        ],
+        [
+          "단점",
+          "자동 업데이트 없음 (직접 코드 관리 필요)"
+        ],
+        [
+          "대표 컴포넌트",
+          "Button, Input, Card, Modal, Tabs, Dropdown, Toast 등"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p27-t27-source.png": "c9a8968a002ea5a3a164ef598b42353a319db7f3ec91664acdf82f9180247663",
+        "source-assets/p27-t27-source.txt": "b7353ad8770e57b7f70cc25b9c2512b8466a8ca5e0c054f763a0974e0798206e",
+        "source-assets/p27-t27-cells.json": "78e8bdfc70dfe2e1c4014cf2213f7cd3abc48770335fab1a278d549b85f9ec64"
+      }
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "text": "2025학년도 2학기 실전웹서비스개발\n실전 웹서비스개발 ‒ 10주차\n인공지능과 웹 서비스 개발\n",
+      "note": "2025학년도 10주차 표지. 현재 2026학년도 9주차 표지로 재사용하지 않음."
+    },
+    {
+      "number": 2,
+      "text": "2025학년도 2학기 실전웹서비스개발\n인공지능 기술의 발전\n",
+      "note": "서비스 로고 합성 그림은 장식이라 제외."
+    },
+    {
+      "number": 3,
+      "text": "2025학년도 2학기 실전웹서비스개발\n인공지능 기술의 발전\n",
+      "note": "AI 정의와 봄·겨울 시간선. 시기·용어 및 개략 그래프라는 범위 조정 후 2.1에 활용."
+    },
+    {
+      "number": 4,
+      "text": "2025학년도 2학기 실전웹서비스개발\n튜링 테스트\n개념\n●\n“기계가 생각할 수 있는가?” — 앨런 튜링 (Alan Turing, 1950)\n●\n인간과 컴퓨터가 대화를 나눌 때, 사람이 기계와 인간을 구별하지 못한다면 그 컴퓨터는 “지능이 있다”고 판단.\n실험 방법\n의의\n●\n인공지능 연구의 철학적 출발점\n●\n“사고(thinking)”의 정의를 행동적 관찰로 전환\n●\n이후 Symbolic AI → Machine Learning → LLM으로 이어지는 기반\n역할\n설명\n질문자 (심사자)\n키보드로 익명 상대에게 질문\n피실험자 (기계)\n질문에 인간처럼 답변\n피실험자 (인간)\n동일한 질문에 답변\n판정 기준\n질문자가 누구(인간/기계)인지 구별하지 못하면 성공\n이미테이션 게임 2014\n튜링 테스트 실험\n",
+      "note": "튜링 테스트 관계 그림과 역할 표 후보. 영화 포스터 제외. 판별 결과의 의미 교정."
+    },
+    {
+      "number": 5,
+      "text": "2025학년도 2학기 실전웹서비스개발\n퍼셉트론 모델\n개념\n●\n프랑크 로젠블라트(Frank Rosenblatt)가 1957년에 제안한 초기 형태의 인공 신경망\n●\n인간의 뉴런을 모방한 최초의 인공지능 모델\n원리\n●\n입력 신호(Features)에 가중치(Weight)를 곱해 합산한 뒤\n●\n임계값(Threshold)을 기준으로 출력(Activation)을 결정하는 구조\n의의\n●\n뉴런의 계산 원리를 단순 모델로 구현\n●\n인공 신경망의 가장 기본 단위를 정의(딥러닝의 시초)\n●\n1960년대 AI 연구의 핵심 모델\n●\nXOR 문제 해결 불가\n퍼셉트론 모델\nXOR 문제\n",
+      "note": "퍼셉트론 입력·가중치·판단 그림 우선. OR/XOR 분류 경계는 보조 후보."
+    },
+    {
+      "number": 6,
+      "text": "2025학년도 2학기 실전웹서비스개발\n전문가 시스템\n개념\n●\n“인간 전문가의 지식을 컴퓨터가 대신 판단하도록 만든 AI 시스템”\n●\n특정 전문 영역의 규칙과 지식을 지식베이스(knowledge base)에 저장하고 추론엔진(inference engine)을 통해 문제를 해결\n원리\n●\n지식베이스에 전문가의 규칙(If‒Then 형태)을 저장\n●\n추론엔진이 입력된 문제를 분석해 규칙 적용\n●\n설명 모듈이 판단 근거를 사용자에게 제시\n의의\n●\n인간 전문가의 판단을 모방한 지식기반 AI의 시작\n●\n이후 지식 표현(Knowledge Representation), 추론(Reasoning) 연구로 발전\n●\n현재의 규칙 기반 챗봇, 의료진단 AI의 전신\n전문가 시스템\n",
+      "note": "전문가 시스템 구조도 직접 활용 우선."
+    },
+    {
+      "number": 7,
+      "text": "2025학년도 2학기 실전웹서비스개발\n머신 러닝\n개념\n●\n기계가 명시적 프로그래밍 없이, 데이터로부터 스스로 학습하는 기술\n●\n사람이 일일이 규칙을 입력하지 않아도 데이터 속 패턴을 학습하여 예측·분류·판단을 수행\n●\n인공지능(AI)의 핵심 하위 분야로, 현재 대부분의 AI 서비스의 기반이 되는 기술\n학습 방식\n●\n지도학습 (Supervised) - 정답(Label)이 있는 데이터로 학습\n●\n비지도학습 (Unsupervised) - 정답 없이 데이터 구조 학습\n●\n강화학습 (Reinforcement) - 보상을 통해 행동 최적화\n대표 알고리즘\n●\nDecision Tree\n●\nSupport Vector Machine\n●\nK-Nearest Neighbors, KNN\n●\nNaive Bayes Classiﬁer\n의의\n●\n데이터 중심 AI 패러다임의 시작\n●\n이후  딥러닝(Deep Learning)으로 발전하며  음성, 이미지, 텍스트 등 복잡한 데이터 처리 가능\n",
+      "note": "학습 방식 정의는 설명 참고. 포함 관계 그림은 2.10으로 이동."
+    },
+    {
+      "number": 8,
+      "text": "2025학년도 2학기 실전웹서비스개발\n힌튼(Hinton)의 연구\n제프리 힌튼(Geoﬀrey Hinton)\n●\n1986년 Backpropagation 재발견 및 학습 방법 정립\n●\n2006년 Deep Belief Network (DBN) 제안 → 다층 신경망의 부활\n●\n2012년 GPU·데이터 발전과 함께 딥러닝 붐이 폭발 (AlexNet)\n●\n2018년 튜링상 수상\n●\n2024년 노벨 물리학상 수상\n의의\n●\n힌튼의 연구는 머신러닝의 ʻ수작업 특징 추출’ 한계를 해결\n●\n다층 신경망이 자동으로 ʻ표현’을 학습 (Representation Learning)\n●\n딥러닝(CNN, RNN, Transformer)의 토대 마련 - 딥러닝의 아버지\nBackpropagation XOR 문제 해결\n",
+      "note": "단일/다층 연결 그림 직접 활용. 인물 사진·XOR 평면 변형은 제외. 역전파 과정 그림은 없음."
+    },
+    {
+      "number": 9,
+      "text": "2025학년도 2학기 실전웹서비스개발\n딥러닝\n개념\n●\n“데이터의 의미적 표현을 스스로 학습하는 다층 신경망 기반의 인공지능 기술”\n— Geoﬀrey Hinton (2006, Deep Belief Network)\n●\n머신러닝의 한 분야로, 다수의 은닉층(Hidden Layers) 을 통해 데이터 속 복잡한 패턴과 의미(Representation) 를 자동 학습\n●\n이미지, 음성, 텍스트 등 비정형 데이터 처리에 탁월\n주요 특징\n●\n2012년 AlexNet 이후 AI 혁명 본격화\n●\nRepresentation Learning: 데이터의 특징을 스스로 학습\n●\nEnd-to-End 학습: 입력→출력 전체를 통합적으로 최적화\n●\n대규모 데이터 + GPU 연산력으로 성능 급상승\n유형\n모델\n대표 응용\n이미지\nCNN\n얼굴 인식, 자율주행\n시퀀스\nRNN / LSTM\n음성 인식, 번역\n생성\nGAN\n이미지 생성, 딥페이크\nRNN 구조\n",
+      "note": "신경망 그림과 유형 표. RNN 캡션 오류·미도입 손실 용어를 교정해야 하며 주자료로는 8쪽 우선."
+    },
+    {
+      "number": 10,
+      "text": "2025학년도 2학기 실전웹서비스개발\nTransformer (2017, Vaswani et al.)\n개념\n●\n순차적 처리 없이 전체 문맥을 한 번에 학습하는 딥러닝 모델 구조\n●\nSelf-Attention 메커니즘을 통해 문장 내 모든 단어 간의 관계(Context) 를 병렬로 학습\n핵심 구성 요소\n●\nSelf-Attention: 단어 간 관계(문맥) 학습\n●\nPositional Encoding: 단어의 순서 정보 보존\n●\nMulti-Head Attention\n: 여러 관점에서 문맥을 병렬 학습\n●\nEncoder‒Decoder 구조: 입력 이해 → 출력 생성\n의의\n●\n기존 RNN/LSTM의 순차적 한계(Sequential Limitation) 를 극복\n●\nRNN 대비 병렬 학습 가능 → 속도 향상\n●\n문맥 이해 능력 강화 → 번역, 요약, 질의응답 등 자연어 처리 혁신\n●\n이후 GPT, BERT, Claude, Gemini 등 LLM의 기본 구조로 자리잡음\n문장 전체를 한 번에 본다\n예) The cat sat on the mat\n RNN은 단어를 순서대로 봤지만, \nTransformer는 모든 단어의 관계를 동시에 고려.  \n→ 긴 문맥도 이해 가능, 병렬 처리로 학습 속도 급상승.\n",
+      "note": "Transformer 흐름 골격 활용. 어텐션 수식 제외."
+    },
+    {
+      "number": 11,
+      "text": "2025학년도 2학기 실전웹서비스개발\n대규모 언어 모델 (LLM, Large Language Model)\n개념\n●\n딥러닝 기반의 초대규모 언어 모델\n●\n대규모 텍스트 데이터를 학습하여 언어의 패턴과 의미를 예측·생성\n●\n입력된 문맥(context) 을 바탕으로  다음 단어를 예측\n●\n방대한 데이터와 수십억 개의 파라미터(parameters) 를 학습하여  자연어 이해(NLU) 와 생성(NLG) 을 모두 수행\n핵심 기술 요소\n●\nTransformer: Attention 메커니즘으로 문맥 관계 학습\n●\nToken / Embedding: 단어를 수치화해 의미 공간에 매핑\n●\nParameter: 언어 패턴을 내재화한 학습된 가중치\n●\nFine-tuning / Instruction-tuning: 특정 과업에 맞게 모델을 재조정\n의의\n●\n언어 이해·요약·번역·코드 작성 등 범용 지능의 기초 모델\n●\n기존의 규칙 기반 AI에서 문맥 기반 AI로의 패러다임 전환\nLLM 동작 절차\n",
+      "note": "LLM 생성 흐름 활용. 다음 토큰과 반복 경로 보완. 확률 수식은 제외."
+    },
+    {
+      "number": 12,
+      "text": "2025학년도 2학기 실전웹서비스개발\nLLM 이해\n LLM은 “언어를 이해하는 기계”가 아니라 “언어 패턴을 예측하는 기계”.\n●\n수십억 문장에서 문맥 확률을 학습\n●\n언어의 통계적 구조를 예측\n●\n대규모 데이터 + GPU 학습으로 언어 이해 수준 도달\nLLM이 ʻ생각하는 것처럼’ 보이는 이유\n●\n실제로는 생각하지 않는다.  패턴 예측이 너무 정교해서 생각처럼 보일 뿐\n●\n다음에 올 단어를 예측\n●\n방대한 언어 패턴을 학습한 결과 인간처럼 보임\n●\nLLM은는 통계적 예측 엔진일 뿐, 의식 있는 존재가 아니다.\nLLM 동작 절차\n다음 단어 예측 게임\nQ: “오늘 날씨가 너무…” \n→ A: “좋아요”\n",
+      "note": "11쪽 그림 두 개의 반복. 별도 이미지 두 개로 다시 세지 않음. 언어 유창성과 근거의 구분만 참고."
+    },
+    {
+      "number": 13,
+      "text": "2025학년도 2학기 실전웹서비스개발\nLLM 엔진 비교\n●\nChatGPT → 창의적 생산성과 개발용 API에 강함\n○\n창의적 생산성과 개발용 API에 강함\n●\nClaude → 안전하고 논리적인 대화형 AI\n○\n안전하고 논리적인 대화형 AI\n●\nGemini → 검색·영상·멀티모달 융합형 AI\n○\n검색·영상·멀티모달 융합형 AI로 웹서비스 제작 과정에서 강점\n엔진\n개발사\n주요 특징\n강점 영역\nChatGPT (GPT-5)\nOpenAI\n코딩, 디자인 출력 강화, 더 나은 추론·정확성 증가\n범용 언어 생성\n개발자 생태계\nClaude 4\n(Opus 4.1, Sonnet 4.5)\nAnthropic\n“하이브리드 리즈닝” 기능, 장기 과제/코딩에 특화\n논리적 추론\n안전성\n장문 처리\nGemini 2.5 Pro\nGoogle \nDeepMind\n텍스트·이미지·오디오·비디오 멀티모달 지원, 대용량 문맥 처리\n멀티미디어 통합, 검색·코딩·융합 \n서비스\n",
+      "note": "작년 AI 서비스 비교표. 현재 제품 안내나 개념 도식으로 채택하지 않음."
+    },
+    {
+      "number": 14,
+      "text": "2025학년도 2학기 실전웹서비스개발\n웹 서비스 제작 방식의 변화\n과거\n현재\n미래\n개발자가 모든 로직을 직접 작성\nAI가 코드, 문서, UI를 자동 생성\n개발자는 “프롬프트 디자이너”가 됨\n정적 콘텐츠 중심\n대화형·지능형 서비스 중심\n자율적 에이전트 기반 서비스\n사용자 입력 → 결과 출력\n사용자 대화 → 맥락 유지 → 개인화 결과\n개인 맞춤형 지속 대화형 UX\nLLM이 바꾸는 개발 패러다임\n●\nAugmented Coding → 개발 과정에 AI 동반\n●\nAI API Integration → OpenAI, Gemini, Claude 등 엔진을 백엔드로 연결\n●\nAutonomous Agent → AI가 데이터 수집·요약·업데이트를 자동 수행\n●\nPrompt Engineering → UI/UX보다 “AI 행동 설계”가 핵심이 됨\n영역\n변화 방향\n개발(Dev)\n“코딩”에서 “설계 + 프롬프트”로 전환\n디자인(UI/UX)\n사용자가 AI와 상호작용하는 흐름 중심\n서비스 운영\n실시간 데이터·AI 모델 자동 업데이트\n콘텐츠 생성\nText → Image → Video 통합 자동화\n사용자 경험\nAI가 개인 맞춤형 도우미로 진화\n웹 서비스 제작의 미래\n",
+      "note": "개발 변화 표 두 개. 자동화와 개발자의 판단 대비 구도만 참고."
+    },
+    {
+      "number": 15,
+      "text": "2025학년도 2학기 실전웹서비스개발\n웹 서비스 개발을 위한 AI 활용 노하우\n",
+      "note": "Prompt Thinking 챕터 표지. 별도 애셋 없음."
+    },
+    {
+      "number": 16,
+      "text": "2025학년도 2학기 실전웹서비스개발\nPrompt Thinking\nAI를 활용해 기획·설계·개발 효율을 극대화하기 위한 사고 방식\nPrompt Engineering\n명확한 목적, 역할, 조건을 가진 명령 설계 기술\nChain of Thought (CoT)\n단계별 사고를 유도하여 논리적 출력 확보\nFew-shot / Zero-shot Learning\n예시를 통한 모델 학습 맥락 제공\nRole Prompting\n“너는 ~전문가다”로 역할 지정해 맥락 조정\nSystem Prompt Design\n모델 전체 톤·스타일을 결정하는 최상위 설정\nPrompt Debugging\n출력 결과를 기반으로 입력 구조를 개선하는 과정\n",
+      "note": "프롬프트 기법 목록 표. 현재 개념 순서에 맞게 각 주제의 개별 원본을 선택."
+    },
+    {
+      "number": 17,
+      "text": "2025학년도 2학기 실전웹서비스개발\n프롬프트 엔지니어링(Prompt Engineering)\nAI에게 명확하고 구조적으로 의도를 전달해 원하는 결과를 이끌어내는 기술\n●\nLLM은 인간의 언어를 명령문(prompt) 형태로 이해\n●\n따라서 무엇을, 어떤 방식으로, 어떤 톤으로 요청하느냐가 결과 품질을 결정\n●\n개발·기획 단계 모두에서 AI 활용 능력을 좌우하는 핵심 역량\n좋은 프롬프트의 원칙\n●\n명확하게(Make it explicit) — 모호한 단어 대신 구체적 표현\n●\n단계적으로(Decompose the task) — 복잡한 문제는 단계로 나누기\n●\n역할 지정(Role prompting) — 모델의 시점을 설정\n●\n피드백 루프(Iterate) — 결과를 기반으로 지속 개선\n요소\n설명\n예시\n목표(Goal)\n무엇을 생성할지 명확히\n“서비스 기획 요약”\n역할(Role)\n모델에게 역할 부여\n“너는 UX 기획 전문가다”\n맥락(Context)\n배경 정보 제공\n“우리 앱은 여행 추천 서비스다”\n형식(Format)\n출력 형태 지정\n“표로 정리해줘 / JSON으로 출력해줘”\n제약조건(Constraints)\n길이, 톤, 언어 등 제한\n“200자 이내, 한국어, 중립적 어조”\n",
+      "note": "프롬프트 구성 요소·예시 표. 4.6의 우선 재사용 자료."
+    },
+    {
+      "number": 18,
+      "text": "2025학년도 2학기 실전웹서비스개발\n사고의 사슬(Chain of Thought)\n복잡한 문제를 해결하기 위해, LLM이 스스로 단계별로 사고 과정을 전개하도록 유도하는 프롬프트 기법\n●\n단순히 정답만 생성하는 것이 아니라 생각의 과정을 먼저 표현하도록 지시\n●\n모델이 추론 과정을 내부적으로 전개함으로써 논리적 일관성과 문제 해결 품질을 크게 향상시킴\n예시\n●\n일반 프롬프트\n“3명의 학생이 12개의 사탕을 나누면 몇 개씩 가지게 되나요?” \n→ “4개” (정답만 출력)\n●\nCoT 프롬프트\n“단계별로 생각해보자. 총 12개의 사탕을 3명에게 똑같이 나누면, 각 학생이 몇 개를 가지는가?” \n→ “12 ÷ 3 = 4 → 따라서 각 학생은 4개를 가진다.”\n효과\n●\n논리 강화: 중간 사고 과정을 통해 오답 감소\n●\n투명성 향상: 모델의 추론 흐름을 관찰 가능\n●\n정확성 상승: 수학, 코딩, 계획 수립 등 복잡 문제에 유효\n",
+      "note": "CoT 사과 나누기 프롬프트와 3단계 그림. 추론 모델의 작동 증거가 아니므로 제외."
+    },
+    {
+      "number": 19,
+      "text": "2025학년도 2학기 실전웹서비스개발\nFew-shot / Zero-shot Learning\n모델이 학습되지 않은 새로운 과제를, 예시의 유무에 따라 이해하고 수행하는 능력\n●\nLLM은 사전학습을 통해 일반 지식을 내재화함\n●\n이후 프롬프트 안에 예시를 제시하느냐(Few-shot) 또는 없이 바로 요청하느냐(Zero-shot) 에 따라 응답 품질이 달라짐\n예시\n●\nZero-shot \n“이 문장을 한 줄로 요약해줘.\n문장: ʻ오늘 학교 식당에서 김치볶음밥을 먹었는데 맛있었다.’”\n→ “오늘 학교 식당에서 김치볶음밥을 먹었다.” (그냥 정보 요약)\n●\nFew-shot\n“아래 예시처럼 ʻ감정이 담긴 한 줄 후기’로 요약해줘.\n예시: ʻ버스가 늦게 와서 짜증났다.’ → ʻ지각해서 기분이 나빴다.’\n문장: ʻ오늘 학교 식당에서 김치볶음밥을 먹었는데 맛있었다.’”\n→ “점심이 만족스러워 기분이 좋았다.” (패턴+감정 표현 학습)\n활용\n●\nFew-shot은 데이터셋이 적을 때 강력한 “즉석 학습” 도구\n●\nPrompt 안에 입출력 예시(I/O pair) 를 제시하면 모델이 패턴과 형식을 스스로 일반화\n●\nCoT(Chain of Thought)와 결합 시 고난도 문제 해결력 극대화\n구분\nZero-shot\nFew-shot\n예시 제공 여부\n없음\n있음\n프롬프트 구성\n“질문만 제시”\n“예시 + 질문 제시”\n장점\n단순, 빠름, 유연함\n높은 정확도, 스타일 유지\n활용 상황\n일반 지식 기반 요청\n특정 형식·패턴 유지 필요 시\nFew-shot / Zero-shot 학습 비교\n",
+      "note": "제로샷/퓨샷 비교표와 프롬프트 예. 과제 조건을 같게 고쳐 4.7에 활용."
+    },
+    {
+      "number": 20,
+      "text": "2025학년도 2학기 실전웹서비스개발\n역할 프롬프팅(Role Prompting)\nAI에게 특정 역할(Role)을 부여하여, 응답의 시점·어조·전문성을 조정하는 프롬프트 기법\n●\nLLM은 ʻ누구의 관점으로 말해야 하는가?’ 를 지정받을 때 답변의 내용, 깊이, 표현 방식이 달라짐\n●\n단순 요청보다 맥락이 뚜렷하고 일관된 출력을 유도할 수 있음\n예시 \n●\n“너는 UX 기획 전문가야.\n 아래 서비스 설명을 읽고, 사용자 입장에서 개선 아이디어 3가지를 제시해줘.”\n효과\n●\n전문성 강화: 도메인 지식을 가진 시점으로 답변\n●\n톤·스타일 제어: 교수 / 개발자 / 마케터 등 말투 차이 조절\n●\n일관성 유지: 긴 대화에서도 동일한 관점 유지\n●\n팀 협업형 활용: “AI 팀원”처럼 역할 분담 가능\n구분\n프롬프트\n결과 특징\nNon-Role\n“이 앱을 평가해줘.”\n단순한 피드백 중심\nRole\n“너는 UX 디자이너야. 사용성 기준으로 평가해줘.”\n구체적, 전문적, 사용자 중심의 답변\n",
+      "note": "역할 프롬프트 전후 비교표. 4.6의 요소 표와 중복되므로 제외."
+    },
+    {
+      "number": 21,
+      "text": "2025학년도 2학기 실전웹서비스개발\n시스템 프롬프트 설계(System Prompt Design)\nAI의 전반적인 성격, 말투, 목표, 역할 범위를 설계하는 상위 지시문\n●\n일반 프롬프트는 “질문 단위 지시”\n●\n시스템 프롬프트는 모델의 행동 원칙과 세계관을 설정하는 기본 세팅값\n●\nLLM이 장시간 일관된 태도와 전문성을 유지하도록 만드는 핵심 기술\n구조 및 역할\n●\nSystem Prompt  →  AI의 전반적 성격·규칙 정의\n●\nUser Prompt    →  실제 요청 입력\n●\nAssistant Role →  System 규칙을 기반으로 응답\n예시 \n●\nSystem: “너는 창의적인 서비스 기획자이며, 답변은 항상 표 형식으로 제공한다.”\n●\nUser: “새로운 여행 앱 아이디어를 제시해줘.”\n●\nAI: 표로 정리된 여행 앱 아이디어 출력\n효과\n●\n장기 대화에서도 일관된 태도 유지\n●\n팀용 챗봇·도메인 특화 모델에 브랜드 톤 부여\n●\n특정 업무용 Custom GPT / Enterprise Agent 설계의 기반\n요소\n설명\n예시\n역할(Role)\nAI의 정체성 설정\n“너는 UX 디자이너다.”\n목표(Objective)\n대화 목적 정의\n“항상 사용자 문제를 해결하는 데 집중해라.”\n스타일(Style)\n말투·톤 지정\n“친근하고 간결하게 말하라.”\n출력 형식(Format)\n일관된 구조 유지\n“모든 답변을 표로 출력하라.”\n제약조건(Constraints)\n금지·주의 규칙\n“사실에 근거하지 않은 내용은 말하지 마라.”\nSystem Prompt Design 요소\n",
+      "note": "시스템 프롬프트 표·System/User/AI 예시. 반복 규칙의 발상만 참고; 프로젝트 지침 파일 예시는 없음."
+    },
+    {
+      "number": 22,
+      "text": "2025학년도 2학기 실전웹서비스개발\n프롬프트 디버깅(Prompt Debugging)\nLLM이 예상과 다른 출력을 낼 때, 원인을 분석하고 프롬프트를 수정·개선하는 과정\n●\nAI도 프롬프트가 모호하거나 구조가 불완전하면 오류를 낸다.\n●\n“좋은 프롬프트는 한 번에 완성되지 않는다.” → 디버깅 루프(Feedback Loop) 가 필수\n●\n개발자의 프롬프트 품질 개선 능력 = AI 활용 역량\n개선 예시\n●\nBefore\n“요약해줘.”  → 너무 길고 불필요한 내용 포함\n●\nAfter\n“너는 편집자야. 아래 글을 3문장으로, 200자 이내로 요약해줘. \n핵심 메시지 위주로.”\n → 명확하고 일관된 요약 결과 출력\n핵심 포인트\n●\n모호함을 제거하라\n●\n출력 형식과 제약을 구체화하라\n●\n프롬프트 수정은 실험의 반복이다\n단계\n설명\n예시\n① 결과 확인\n예상과 다른 출력 검토\n“답이 너무 길다”\n② 오류 유형 파악\n모호함 / 누락 / 형식 불일치\n“출력 형식이 지켜지지 않음”\n③ 원인 분석\n프롬프트 내 지시 불명확\n“요약 길이 제한이 없음”\n④ 개선 및 재시도\n명확히 수정 후 재입력\n“200자 이내로 요약해줘.”\n유형\n원인\n해결 방법\n과도한 출력\n범위 미지정\n“200자 이내로” 등 제한 추가\n반복 응답\n맥락 혼선\n이전 지시 초기화 후 재요청\n불완전한 형식\n출력 예시 없음\n예시 포맷(Few-shot) 제시\n이해 오류\n용어 모호\n구체적 설명 추가 (“여기서 UX는 사용자 경험을 의미”)\n주로 발생하는 오류 유형\nPrompt Debugging 절차\n①\n②\n③\n④\n",
+      "note": "프롬프트 수정 루프·오류 표·단계 표·Before/After 요청. 4.9에 공통 코드 사례로 바꾸어 활용."
+    },
+    {
+      "number": 23,
+      "text": "2025학년도 2학기 실전웹서비스개발\n웹서비스 개발을 위한유용한 AI 관련 도구들\n",
+      "note": "과제 연계 라이브러리 챕터 표지. 별도 애셋 없음."
+    },
+    {
+      "number": 24,
+      "text": "2025학년도 2학기 실전웹서비스개발\nTask Master - AI 기반 개발 업무 자동화 도구\nClaude·ChatGPT·Gemini 등 LLM을 연동해 PRD로부터 개발 작업을 자동으로 생성·관리하는 AI 작업 매니저\n●\nCursor / VS Code / Windsurf 등 주요 IDE와 통합되어 AI가 프로젝트를 이해하고, 다음 할 일(Task)을 안내\n특징\n활용 시나리오\n●\n개발팀: PRD 기반 자동 일정 생성 및 관리\n●\n개인 개발자: AI와 협업하는 프로젝트 플래너\n●\n교육: LLM 기반 개발 자동화 학습용 도구\n구분\n설명\nAI 통합 관리\nAnthropic(Claude), OpenAI, Google Gemini 등 다양한 모델을 선택·교체 가능\nPRD 기반 태스크 자동 생성\n/scripts/prd.txt 파일을 분석해 세부 개발 작업 자동 생성\nMCP (Model Control Protocol)\nCursor·VSCode에서 직접 Task Master 실행 (npx 연동)\n세 가지 모델 구조\nMain / Research / Fallback 모델 구성으로 안정적 결과\n대화형 명령 지원\n“다음 작업이 뭐야?”, “3번 태스크 구현 도와줘” 등 자연어 명령 처리\nCLI 명령어\ntask-master init, parse-prd, list, next, generate 등 명령 기반 제어 가능\nhttps://github.com/eighty9nine/task-master/\n",
+      "note": "TaskMaster 기능 표와 명령 이름. PRD/작업 분해 설명만 참고. MCP 풀네임 오류. 실행 코드 블록 없음."
+    },
+    {
+      "number": 25,
+      "text": "2025학년도 2학기 실전웹서비스개발\nReact Hook Form\nForm의  유효성을 검증하고, 불필요하게 화면이 계속 새로 그려지는 걸 막아주는 성능 향상 도구\n문제\n●\nReact에서 <input> 값을 관리하려면 useState 사용 시\n○\n사용자가 글자를 칠 때마다 setState()가 실행되어 컴포넌트 전체를 다시 그림\n○\n입력 필드가 많을수록 느려짐\nReact Hook Form 사용 시\n●\n각 입력값을 브라우저 DOM 자체에 저장\n●\n필요한 순간(검증·제출 등)에만 React에 알려줌\n●\n불필요한 리렌더링이 거의 없음 = 빠름·가벼움\n항목\nVirtual DOM (React 기본)\nReact Hook Form\n렌더링 시점\n값이 바뀔 때마다 setState() → 리렌더\n값 변경 시 리렌더 없음 (DOM이 직접 저장)\n속도 개선 방식\n변경 부분만 다시 그림(diﬃng)\n변경 자체를 최소화 (uncontrolled input)\n폼 관리 방식\n컨트롤드 컴포넌트 중심\n언컨트롤드 컴포넌트 중심\n리렌더 발생 횟수\n입력할 때마다\n제출·검증 시에만\n대표 장점\n전체 UI 업데이트 효율적\n폼 입력/검증 속도 탁월\nhttps://react-hook-form.com/\n",
+      "note": "React Hook Form 비교표. API 이름만 있고 구현 코드 없음. 현재 AI 흐름에서는 제외."
+    },
+    {
+      "number": 26,
+      "text": "2025학년도 2학기 실전웹서비스개발\nTailwind CSS\n디자인 시스템을 코드로 표현하는 유틸리티 클래스 기반 프레임워크\n●\nCSS를 직접 작성하지 않고, 클래스 이름으로 빠르고 일관된 UI 스타일링\n●\nCSS를 외우는 대신 조합한다는 철학에 기반한 프레임워크로, 디자인 속도·일관성·유지보수성을 크게 향상 시킴\n구분\n설명\n유틸리티 클래스 중심\nbg-blue-500, text-center, p-4 등 조합으로 바로 스타일 적용\n빠른 개발 속도\nCSS 파일 작성 없이 HTML/JSX 내에서 즉시 디자인 구현\n일관된 디자인 시스템\ntailwind.conﬁg.js에서 색상·폰트·간격 등 테마 통일 관리\n반응형 디자인 내장\nsm:, md:, lg: 접두사로 반응형 스타일 지정\n불필요한 코드 제거(Purge)\n실제 사용된 클래스만 빌드 → 번들 크기 최소화\n생태계 확장성\ndaisyUI, Flowbite, shadcn/ui 등 UI 컴포넌트 라이브러리와 호환\nhttps://tailwindcss.com/\n",
+      "note": "Tailwind CSS 표. 현재 강의의 개념 설명 범위 밖."
+    },
+    {
+      "number": 27,
+      "text": "2025학년도 2학기 실전웹서비스개발\nShadcn\nReact + Tailwind CSS 기반의 컴포넌트 라이브러리 템플릿 모음\n●\nTailwind 스타일이 입혀진 고품질 UI 컴포넌트 코드를 복붙해서 쓸 수 있게 해주는 도구\n●\n일반 UI 라이브러리(MUI, Chakra)는 컴포넌트를 가져다 쓰는 형태\n●\nShadcn/UI는 컴포넌트 코드를 내 프로젝트에 복사해 쓰는 형태\n○\n코드처럼 수정·확장 가능\n항목\n설명\n기반 기술\nReact, Tailwind CSS, Radix UI\n특징\n라이브러리가 아니라 복사 가능한 소스 코드를 제공 (직접 프로젝트에 포함)\n장점\n디자인 통일성, 커스터마이징 용이, TypeScript 친화적\n단점\n자동 업데이트 없음 (직접 코드 관리 필요)\n대표 컴포넌트\nButton, Input, Card, Modal, Tabs, Dropdown, Toast 등\nhttps://ui.shadcn.com/\n",
+      "note": "shadcn/ui 표. 현재 강의의 개념 설명 범위 밖."
+    },
+    {
+      "number": 28,
+      "text": "2025학년도 2학기 실전웹서비스개발\n개인 프로젝트 평가 가이드라인\n2025.11.9 기획서 제출(5)\n●\n웹 서비스 기획서(PRD: Product Requirement Document), 웹 서비스 원페이저(OnePager)\n2025.11.10 기획서 발표(5)\n●\n웹 서비스 원페이저(OnePager) 발표 ５분 이내\n2025.12.1(1차), 2025.12.８(2차) 개발 현황 발표(10)\n●\n발표 10분 이내, 현재 개발중인 기능 소개\n2025.12.21 프로젝트 결과 제출 평가(20)\n●\n서비스 링크, github 저장소, 서비스 소개서(포트폴리오 용)\n●\n프로그래밍: (10), 프론트엔드(2), 백엔드(2), Database(2), 기술적 완성도(4) - 다양한 기술의 활용\n●\n기획: (5), 참신성, 사업성, 볼륨\n●\nUX/UI:  (5), UX  구성, UI 디자인 완성도\n",
+      "note": "작년 과제 평가·제출 기한. 현재 본문 사례로 복사하지 않음."
+    },
+    {
+      "number": 29,
+      "text": "2025학년도 2학기 실전웹서비스개발\nQ&A\n",
+      "note": "Q&A. 별도 내용 애셋 없음."
+    }
+  ]
+}

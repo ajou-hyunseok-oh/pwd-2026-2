@@ -1,0 +1,25 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "kind": "cover",
+    "title": "실전 웹서비스개발 – 9주차",
+    "subtitle": "8주차 실습 리뷰 · 초안"
+  },
+  {
+    "number": 2,
+    "id": "chapter-01",
+    "kind": "chapter",
+    "title": "[단원 제목]",
+    "subtitle": "[단원 범위]",
+    "sources": []
+  },
+  {
+    "number": 3,
+    "id": "topic-01",
+    "kind": "content",
+    "title": "[슬라이드 제목]",
+    "subtitle": "[설명 범위]",
+    "sources": []
+  }
+]

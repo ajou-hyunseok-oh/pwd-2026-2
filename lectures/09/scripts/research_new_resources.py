@@ -1,0 +1,560 @@
+"""Preserve the research plan for the 60 Week 9 slides without reusable assets.
+
+This generates research records only. It does not modify the lecture deck.
+"""
+import argparse
+from collections import Counter
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'materials/new-resource-research'
+CHECKED_ON = '2026-11-07'
+
+
+def source(label, url, locator, finding, kind='official-documentation'):
+    return dict(label=label, url=url, locator=locator, finding=finding,
+                kind=kind, checked_on=CHECKED_ON, status='본문 확인')
+
+
+SOURCES = {
+    'ai-history': source('Stanford AI100 · A Short History of AI',
+        'https://ai100.stanford.edu/reports/2016-report/appendix-i-short-history-ai',
+        '분야의 형성·기호 추론·병행한 접근의 역사', '연구 과제와 구현 접근의 차이를 설명하는 근거.', 'institutional-report'),
+    'dartmouth-proposal': source('McCarthy 외 · Dartmouth proposal (1955)',
+        'https://www-formal.stanford.edu/jmc/history/dartmouth.pdf',
+        'PDF 1쪽 제목·1955-08-31 날짜·첫 문단; 렌더 육안 확인',
+        '1955년 작성된 제안이 1956년 여름 연구를 제안함. 텍스트 추출은 깨져 HTML판과 화면을 함께 대조.', 'primary-paper'),
+    'dartmouth-story': source('Dartmouth · The Founding and Future of AI',
+        'https://ai.dartmouth.edu/our-story', 'Where AI was Born / Defining a Field',
+        '1956년 모임의 기관 기록. 현재 캠퍼스 사진을 당시 모임 사진으로 쓰지 않음.', 'institutional-history'),
+    'ml-types': source('Google · What is Machine Learning?',
+        'https://developers.google.com/machine-learning/intro-to-ml/what-is-ml',
+        'Supervised learning / Unsupervised learning / Reinforcement learning',
+        '학습 유형의 입력·피드백 차이 확인. 클러스터의 의미는 사람이 해석.'),
+    'ml-training': source('Google · Supervised Learning',
+        'https://developers.google.com/machine-learning/intro-to-ml/supervised',
+        'Model / Training / Inference; Figures 1~3',
+        '예측·실제값 비교와 모델 갱신, 학습한 모델의 새 입력 처리를 구분.'),
+    'autograd': source('PyTorch · Automatic Differentiation with torch.autograd',
+        'https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html',
+        'Computing Gradients / More on Computational Graphs',
+        '역방향으로 기울기를 계산하는 과정과 이후 가중치 갱신을 구분.'),
+    'alexnet': source('Krizhevsky 외 · ImageNet Classification (2012)',
+        'https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf',
+        'PDF 8쪽 Figure 4 왼쪽; 렌더 육안 확인',
+        '사진 8개와 각 top-5 예측. 오른쪽 유사 이미지 검색은 별도 과제. 그림의 데이터는 ILSVRC-2010이며 논문 연도는 2012.', 'primary-paper'),
+    'alphago': source('Google DeepMind · AlphaGo',
+        'https://deepmind.google/research/alphago/', 'Our approach / The matches',
+        '사람 기보·자기 대국 학습과 정책/가치 신경망·탐색의 결합. 2016 이세돌 대국과 후속 AlphaGo Zero를 구분.', 'primary-project'),
+    'transformer': source('Vaswani 외 · Attention Is All You Need (2017)',
+        'https://arxiv.org/html/1706.03762v7',
+        '3.2 Attention / 3.4 Embeddings and Softmax / 3.5 Positional Encoding',
+        '토큰의 벡터 표현, 위치 정보, 관련성에 따른 가중 결합의 근거. 강의의 한국어 예시 수치는 별도 창작.', 'primary-paper'),
+    'bert': source('Devlin 외 · BERT (2019)',
+        'https://aclanthology.org/N19-1423.pdf', '서론 / 3.1 Pre-training BERT',
+        '원문 일부를 가리고 원래 토큰을 예측하는 학습 과제. 모든 언어 모델의 목표가 같지는 않음.', 'primary-paper'),
+    'gpt3': source('Brown 외 · Language Models are Few-Shot Learners (2020)',
+        'https://arxiv.org/abs/2005.14165', 'Abstract',
+        '자기회귀 언어 모델의 규모 확대와 문맥 예시 활용. 문맥에 예시를 넣는 것과 가중치 갱신은 구분.', 'primary-paper'),
+    'tokenizer': source('OpenAI Cookbook · How to count tokens with tiktoken',
+        'https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken',
+        'Encodings / encode / decode_single_token_bytes',
+        '문자열 분할은 인코딩에 의존. 문서는 archived 표시이므로 최신 모델 대응표는 사용하지 않고 명명된 인코딩을 로컬 실행.'),
+    'rag': source('Lewis 외 · Retrieval-Augmented Generation (2020)',
+        'https://arxiv.org/html/2005.11401v4', 'Figure 1 / 2 Methods',
+        '검색한 문서를 생성의 추가 문맥으로 사용. 원 논문의 학습·주변화 구조와 강의용 추론 흐름은 구분.', 'primary-paper'),
+    'codex-paper': source('Chen 외 · Evaluating Large Language Models Trained on Code (2021)',
+        'https://arxiv.org/abs/2107.03374', 'Abstract',
+        '코드로 추가 학습한 2021 Codex 모델. 현재 Codex 개발 에이전트 제품과 구분.', 'primary-paper'),
+    'copilot': source('GitHub · Getting code suggestions in your IDE',
+        'https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions',
+        'Getting code suggestions / Accepting or rejecting suggestions',
+        '편집기의 회색 제안을 사용자가 수락·거절. 최신 문서 화면을 2021 당시 UI로 표기하지 않음.'),
+    'instructgpt': source('Ouyang 외 · Training language models to follow instructions (2022)',
+        'https://arxiv.org/abs/2203.02155', '논문 PDF 3쪽 Figure 2; 렌더 육안 확인',
+        '시범 답안 지도학습과 선호 비교를 통한 학습을 분리. 완성 도식에는 아직 배우지 않은 RM/PPO 세부가 있음.', 'primary-paper'),
+    'js-string': source('ECMA-262 · String.prototype.trim / String length',
+        'https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim',
+        'String.prototype.trim / Properties of String Instances: length',
+        '앞뒤 공백 제거와 UTF-16 길이의 실행 의미. 예제 입력은 ASCII·완성형 한글로 제한.'),
+    'tool-calling': source('OpenAI · Function calling',
+        'https://developers.openai.com/api/docs/guides/function-calling',
+        'How it works / Tool calls / Tool call outputs',
+        '모델의 호출 요청과 애플리케이션의 실제 도구 실행·결과 반환은 다른 단계.'),
+    'sandbox': source('OpenAI · Sandbox',
+        'https://learn.chatgpt.com/docs/sandboxing', 'What the sandbox does / Sandboxing and approvals',
+        '실행 환경의 기술적 경계와 승인 정책을 구분. 프롬프트의 요청만으로 권한이 생기지 않음.'),
+    'agents': source('Anthropic · Building effective agents (2024-12-19)',
+        'https://www.anthropic.com/research/building-effective-agents',
+        'What are agents? / Agents',
+        '미리 정한 워크플로와 모델이 다음 행동을 결정하는 반복 구조의 구분.'),
+    'codex-cli': source('OpenAI · Codex CLI',
+        'https://developers.openai.com/codex/cli', 'Inspect, edit, and run code from your terminal',
+        '로컬 저장소 읽기·수정·명령 실행 기능. 화면과 설정은 시연 버전을 기준으로 재확인.'),
+    'claude-code': source('Anthropic · Claude Code overview',
+        'https://code.claude.com/docs/en/overview', 'Overview / Choose your environment',
+        '코드 읽기·편집·명령 실행을 지원하는 개발 도구.'),
+    'reasoning': source('OpenAI · Reasoning models',
+        'https://developers.openai.com/api/docs/guides/reasoning', 'Reasoning models / reasoning tokens',
+        '응답 이전의 추가 추론 계산. 내부 사고를 임의로 작성한 대화록으로 재현하지 않음.'),
+    'computer-use': source('OpenAI · Computer use',
+        'https://developers.openai.com/api/docs/guides/tools-computer-use',
+        'Get started with computer use / runtime loop',
+        '화면 관찰·동작 실행·새 화면 확인의 반복과 브라우저/데스크톱 실행 환경.'),
+    'mcp': source('MCP · Architecture overview',
+        'https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture',
+        'Participants / Layers / Data layer',
+        'Host 내부의 client와 server 연결, 기능 발견·요청·결과. 버전별 프로토콜 세부를 현재 강의에 불필요하게 늘리지 않음.'),
+    'context': source('Anthropic · Effective context engineering for AI agents (2025-09-29)',
+        'https://www.anthropic.com/research/effective-context-engineering-for-ai-agents',
+        'Context retrieval / Compaction / Structured note-taking',
+        '필요한 정보의 선별·적시 조회, 요약 압축과 별도 작업 기록. 압축에는 정보 손실 가능성.'),
+    'agents-md': source('OpenAI · Custom instructions with AGENTS.md',
+        'https://developers.openai.com/codex/guides/agents-md', 'How Codex discovers guidance / Layer project instructions',
+        '저장소 지침의 위치·범위. 지침 파일과 실행 환경 권한은 별도.'),
+    'claude-skills': source('Anthropic · Extend Claude with skills',
+        'https://code.claude.com/docs/en/skills', 'Introduction / Add supporting files',
+        'SKILL.md와 보조 자료, 필요한 때 본문을 읽는 방식.'),
+    'codex-skills': source('OpenAI · Build skills',
+        'https://learn.chatgpt.com/docs/build-skills', 'Progressive disclosure / skill directory',
+        '이름·설명에서 시작해 선택 시 SKILL.md·자료·선택적 스크립트를 읽는 구조.'),
+    'harness': source('Anthropic · Effective harnesses for long-running agents (2025-11-26)',
+        'https://www.anthropic.com/research/effective-harnesses-for-long-running-agents',
+        'Environment management / Feature list / Testing / Getting up to speed',
+        '작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.'),
+    'node-assert': source('Node.js · Assert', 'https://nodejs.org/api/assert.html',
+        'Strict assertion mode / assert.strictEqual', '실제값·기대값 비교. 표의 모든 입력을 로컬 실행.'),
+    'pw-locators': source('Playwright · Locators', 'https://playwright.dev/docs/locators',
+        'Quick Guide / Locate by role / Locate by label', '입력과 버튼을 사용자 관점의 이름으로 찾는 API.'),
+    'pw-assertions': source('Playwright · Assertions', 'https://playwright.dev/docs/test-assertions',
+        'Auto-retrying assertions / toHaveText', '관찰된 화면 상태를 기대 결과와 비교.'),
+    'pw-network': source('Playwright · Network', 'https://playwright.dev/docs/network',
+        'Network events / page.waitForResponse', '행동 전에 응답 대기를 등록하고 해당 요청의 응답을 검사.'),
+    'hooks': source('Anthropic · Automate actions with hooks',
+        'https://code.claude.com/docs/en/hooks-guide', 'How hooks work / Auto-format code after edits',
+        '수명 주기 이벤트의 명령 실행. PostToolUse/PreToolUse는 Claude Code의 이벤트명이며 React Hooks와 무관.'),
+    'teams': source('Anthropic · Orchestrate teams of Claude Code sessions',
+        'https://code.claude.com/docs/en/agent-teams', 'Compare with subagents / Architecture / Limitations',
+        '공유 작업 목록·메시지·조정 구조. 확인일 기준 실험 기능·기본 비활성; 재개 등 제한을 모든 제품의 공통 동작으로 일반화하지 않음.'),
+    'subagents': source('OpenAI · Subagents',
+        'https://learn.chatgpt.com/docs/agent-configuration/subagents',
+        'Core terms / Why subagent workflows help / Triggering subagent workflows',
+        '제한된 과제를 맡기고 결과를 모으는 작업. 병렬 쓰기에는 충돌·조정 비용이 있음.'),
+    'git-branches': source('Pro Git · Branches in a Nutshell',
+        'https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell',
+        'Creating a New Branch / Switching Branches',
+        '브랜치는 커밋을 가리키는 이동 가능한 참조. 새 폴더를 만드는 기능과 구분.'),
+    'git-worktree': source('Git · git-worktree', 'https://git-scm.com/docs/git-worktree',
+        'DESCRIPTION / add / list', '같은 저장소의 여러 작업 트리를 서로 다른 디렉터리에 구성.'),
+    'goals': source('OpenAI Cookbook · Using Goals in Codex',
+        'https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex',
+        'Goals vs prompts / How to write a Goal / Quickstart',
+        '검증 가능한 지속 목표와 경계·중단 조건. 지원 빌드 필요(문서상 Codex 0.128.0부터); 예약 시각과는 별개.'),
+    'scheduled': source('OpenAI · Scheduled tasks',
+        'https://developers.openai.com/codex/app/automations',
+        'Scheduled tasks / project-scoped scheduled tasks',
+        '반복 일정과 실행 환경·결과 검토. 로컬 프로젝트 작업은 컴퓨터와 앱 실행이 필요하며 클라우드 실행과 구분.'),
+}
+
+
+def plan(kind, bundle, asset, content, connection, caution, sources, local=()):
+    return dict(resource_type=kind, bundle=bundle, recommended_asset=asset,
+                construction_ko=content, connection_ko=connection,
+                learning_guard_ko=caution, source_ids=sources.split(), local_files=list(local))
+
+
+# Exact approved outline numbers. The generator derives title, paragraph, stable
+# ID, actual deck number and prerequisites from the current lecture data.
+PLANS = {
+    '1.1': plan('비교', 'history', '고정된 수 비교와 표현이 다른 문의의 두 열 비교',
+        '왼쪽: 10 > 5 → true. 오른쪽: 「배송은 언제 오나요?」「택배 도착일을 알려주세요」→ 같은 배송 시점 문의. 오른쪽은 해결할 과제의 예시로만 표시.',
+        '프로그래밍 경험에서 지능적 과제의 범위로 출발. 다음 1.2에서 수행을 어떻게 평가할지 질문을 좁힘.',
+        'LLM·학습 데이터·토큰·AI/ML/DL 포함 관계를 아직 넣지 않음. 규칙 프로그램이 AI가 될 수 없다는 이분법도 피함.', 'ai-history'),
+    '1.3': plan('원본 이미지', 'history', '1955 제안서 제목·날짜와 1956 모임의 두 지점 연표',
+        '제안서 PDF 1쪽의 제목과 날짜만 읽을 수 있게 발췌하는 후보. 1955 제안 → 1956 여름 공동 연구. 긴 원문은 한국어 한 문장 요약으로 별도 작성.',
+        '1.2의 평가 질문이 공동 연구 의제로 조직되는 사건을 보여 주고 1.4의 구현 접근으로 연결.',
+        '제안서 발행과 모임 연도를 합치지 않음. 2006 재회 사진·현재 캠퍼스 사진을 1956 당시 기록으로 쓰지 않음.', 'dartmouth-proposal dartmouth-story'),
+    '1.4': plan('도식', 'history', '사실 카드 → 규칙 적용 → 새 결론의 추론 경로',
+        '설명용 분류 체계: 사실 「A는 변 3개를 가진 닫힌 평면 도형」 + 규칙 「변 3개인 다각형은 삼각형」 → 결론 「A는 삼각형」. 사용한 규칙에 같은 색 표시.',
+        '연구 의제에서 명시적 지식 표현으로 이동. 1.5에서는 규칙 대신 수치 계산을 쓰는 병행 접근을 대비.',
+        '전문가 시스템 전체 구조·학습·역전파를 이 도식에 포함하지 않음.', 'ai-history'),
+    '2.2': plan('비교', 'messages', '사람이 정한 규칙과 데이터로 얻은 판단 기준의 입력 비교',
+        '같은 문의/광고 메시지 카드 사용. 왼쪽은 사람이 작성한 분류 조건 → 프로그램, 오른쪽은 분류 사례 → 학습 → 모델. 예측값은 실험 결과가 아닌 설명용 사례.',
+        '2.1의 규칙 관리 한계에서 판단 기준을 얻는 방식으로 이동. 2.3에서 학습 상자 내부를 확대.',
+        '분류 사례를 제시하되 지도학습이라는 유형 이름·신경망 구조를 먼저 정의하지 않음.', 'ml-types ml-training'),
+    '2.3': plan('도식', 'messages', '예측 → 정답과 비교 → 내부 값 조정의 순환',
+        '광고 메시지 1개를 넣어 처음의 오분류와 비교 결과를 보여 주고 모델 내부 수치가 바뀌는 화살표 표시. 연습 데이터와 아직 보지 않은 데이터를 구분.',
+        '2.2의 학습 상자를 확대. 2.4에서는 동일 모델을 고정해 새 입력을 처리.',
+        '정확도가 매번 단조 증가한다는 가짜 그래프·역전파 수식·구체 학습률 제외.', 'ml-training'),
+    '2.4': plan('도식', 'messages', '학습된 모델 고정 → 새 메시지 → 분류 결과',
+        '2.3과 같은 모델 모양에 「학습된 값 고정」 표시. 새 메시지 한 장만 통과시키며 갱신 화살표는 없음.',
+        '방금 본 학습과 입력 처리 시점의 차이를 시각적으로 비교. 이후 학습 유형의 차이를 살필 기준 제공.',
+        '추론(inference)을 5.6의 추론 모델(reasoning model)과 같은 뜻으로 설명하지 않음.', 'ml-training'),
+    '2.5': plan('표', 'messages', '메시지와 정답 열이 있는 학습 자료 표',
+        '「무료 쿠폰을 받으세요」/광고, 「내일 회의는 2시입니다」/일반 등 창작 예시 4행. 표 아래 새 메시지는 정답 칸을 비우고 모델 결과로 채움.',
+        '2.3의 비교 기준이 어디서 왔는지 명시. 2.6에서는 정답 열을 제거해 차이를 보임.',
+        '표 4행으로 충분한 실제 모델을 학습했다고 주장하지 않음. 성능 숫자·실제 이메일 개인정보 제외.', 'ml-training'),
+    '2.6': plan('도식', 'messages', '정답 없는 문의 카드 → 유사한 묶음 → 사람의 해석',
+        '배송 문의 2개·결제 문의 2개·계정 문의 2개의 창작 카드. 알고리즘 결과를 가정한 그룹 A/B/C에 모은 뒤 점선으로 「사람이 붙인 의미」 표시.',
+        '2.5의 정답 열 유무를 대비하고 2.7에서 행동 후 보상이라는 다른 피드백 도입.',
+        '그룹 이름이 학습 때 제공된 정답처럼 보이지 않게 함. 임베딩 좌표·클러스터 알고리즘 수학은 제외.', 'ml-types'),
+    '2.7': plan('도식', 'messages', '격자 이동 사례를 붙인 에이전트–환경 순환',
+        '에이전트 → 이동 행동 → 격자 환경 → 새 위치와 보상 → 에이전트. 도착 +1·벽 이동 0 같은 보상 규칙은 「설명용 설계」로 표시.',
+        '데이터의 정답 대신 행동 결과를 활용하는 학습을 설명. 2.12 AlphaGo의 자기 대국과 연결.',
+        '최적 경로를 실제로 학습한 결과처럼 표시하지 않음. 5장의 도구 사용 에이전트와 보상 학습을 동일시하지 않음.', 'ml-types'),
+    '2.9': plan('도식', 'network', '기존 2.8 신경망 위의 순방향 계산·역방향 영향 계산',
+        '이미 배치된 2.8의 2입력–2은닉–1출력 구조를 재사용. 출력과 목표 비교 → 오차의 영향 계산 화살표를 반대 방향으로 추가. 가중치 갱신은 도식 밖 별도 단계.',
+        '2.8의 연결 구조를 유지하면서 2.3의 내부 값 조정 원리를 구체화.',
+        'XOR 분류 경계로 역전파를 대신하지 않음. 미분을 이미 배웠다고 전제하는 수식·PyTorch 코드 제외.', 'autograd'),
+    '2.11': plan('원본 이미지', 'network', 'AlexNet Figure 4 왼쪽의 사진과 top-5 예측',
+        'PDF 8쪽 왼쪽 패널 중 1~2개 사례를 확대할 후보. 입력 사진·정답·예측 후보 순서를 읽고 데이터·깊은 신경망·계산 자원은 짧은 보조 설명.',
+        '2.10의 깊은 신경망이 이미지 분류에 쓰인 실제 사례. 다음 바둑 사례와 과제의 차이를 대비.',
+        '원본의 라벨/확률 막대 관계 유지. Figure 4는 ILSVRC-2010 이미지이며 2012 대회 결과표와 혼동 금지. CNN·pooling 구조 전체는 범위 밖.', 'alexnet'),
+    '2.12': plan('도식', 'network', '바둑판 입력 → 후보 수와 유리함 평가 → 탐색 → 다음 수',
+        '정책 신경망은 후보 수, 가치 신경망은 국면 평가로 역할 번역. 작은 보조 줄에 사람 기보 학습 → 자기 대국 개선. 공식 The matches의 2016 대국 사진은 선택 보조 후보.',
+        '이미지의 한 번 분류에서 여러 수를 고려하는 판단으로 확장. 3.1에서는 입력이 텍스트로 바뀜.',
+        '2016 AlphaGo를 사람 기보 없이 학습한 AlphaGo Zero로 묘사하지 않음. 정답 수·승률을 임의 생성한 바둑판은 쓰지 않음.', 'alphago'),
+    '3.1': plan('도식', 'language', '문장 앞부분과 여러 후속 표현 후보',
+        '「오늘 수업에서는」 뒤에 「함수를」「인공지능을」「웹을」 등 가능한 표현 카드. 확률을 측정하지 않았으므로 수치 막대는 생략.',
+        '2장의 이미지·바둑 입력에서 언어의 여러 가능한 표현으로 이동. 다음 장에서 입력 단위를 세분화.',
+        '단어 카드가 실제 토큰 분할이라는 인상을 주지 않음. 생성 반복과 샘플링은 3.9 이후.', 'gpt3'),
+    '3.2': plan('코드·실측 표', 'language', '실제 tokenizer의 조각·ID 대응표',
+        'cl100k_base에서 unhappiness! → un / h / appiness / !, ID 359 / 71 / 67391 / 0. 한글 사례는 보조 기록에 두고 UTF-8 조각이 갈라지는 점은 교사용 메모.',
+        '3.1의 텍스트를 처리 단위와 식별 번호로 바꾸고 3.3에서 벡터 표현으로 이어감.',
+        '모든 모델이 같은 분할을 한다거나 ID가 의미 크기라고 설명하지 않음. Python 라이브러리 사용법은 학습 목표가 아니므로 표를 우선.', 'tokenizer',
+        ('examples/inspect_tokens.py', 'examples/token-results.json')),
+    '3.3': plan('도식', 'language', '토큰 ID → 벡터 행 → 순서 정보 결합',
+        '3.2의 ID 359를 [0.2, -0.4, 0.7] 같은 3칸 벡터로 연결하되 「차원을 줄인 설명용 임의 수치」 표시. 위치 1/2는 별도 입력.',
+        'ID는 항목 구분, 벡터는 계산용 표현이라는 역할 차이를 보여 주고 3.4의 관계 계산으로 이동.',
+        '임의 벡터를 실제 모델에서 추출했다고 쓰지 않음. 축에 성별·감정 같은 고정 의미를 부여하지 않음.', 'transformer'),
+    '3.4': plan('도식', 'language', '문장 속 표현의 관련성을 강조하는 연결선',
+        '「민수는 우산을 폈다. 비가 그것 위로 떨어졌다.」에서 그것–우산의 관계를 굵은 선으로 표시. 실제 attention weight가 아닌 이해용 관계 표시.',
+        '3.3의 수치 표현들을 문맥에 따라 함께 참조함을 설명. 3.5 기존 Transformer 도식의 attention 상자로 연결.',
+        '문법적 관계 하나가 모델 내부 사고의 증거라고 쓰지 않음. Q/K/V 행렬·softmax 식은 넣지 않음.', 'transformer'),
+    '3.6': plan('도식', 'language', '원문에서 입력과 학습 목표를 만드는 두 예시',
+        '「오늘은 비가 온다」의 일부 가리기 → 가린 표현, 앞부분만 제공 → 이어질 표현. 각 행에서 목표도 원문에서 얻었다는 화살표 강조.',
+        '3.5의 구조를 어떻게 학습할지로 이동. 3.7에서 이 과제를 많은 문서에 반복 적용.',
+        '이미 완성된 목표 쌍을 퓨샷 프롬프트로 혼동하지 않음. masked/next-token을 모든 모델이 동시에 사용한다고 쓰지 않음.', 'bert gpt3'),
+    '3.7': plan('도식', 'language', '다양한 문서 → 자기지도 과제 → 반복 학습 → 기본 모델',
+        '직접 작성한 짧은 설명문·대화문·문서 조각 3종을 3.6의 입력/목표 생성 상자에 넣음. 모델 내부 값이 갱신되는 화살표 사용.',
+        '3.6의 과제를 큰 자료에 적용하는 학습 단계로 확장. 3.8에서 규모와 모델의 종류를 비교.',
+        '문서를 그대로 저장한 검색 창고처럼 표현하지 않음. 지시 튜닝·선호 학습은 4장까지 보류.', 'bert gpt3'),
+    '3.8': plan('비교', 'language', 'BERT와 GPT 계열의 학습 목표·주요 사용 방식 비교',
+        'BERT: 가린 표현의 문맥적 예측 / GPT 계열: 앞 문맥에서 다음 표현 예측. 별도 작은 구조로 모델 → 대화 UI를 붙인 서비스 구분. 세부 파라미터 경쟁 그래프는 생략.',
+        '3.7까지 배운 학습 방식으로 실제 계열을 구별하고 3.9에서 생성형 흐름에 집중.',
+        'BERT를 ChatGPT와 동일한 대화 서비스로 묘사하지 않음. 현재 모델의 규모·성능을 추정하지 않음.', 'bert gpt3'),
+    '3.10': plan('도식', 'language', '한 요청의 문맥을 채우는 유한 길이 띠',
+        '지침·앞 대화·첨부 문서·현재 질문·출력에 필요한 공간을 구분한 개략 띠. 각 폭은 실제 토큰 수가 아닌 구조 표현이라고 기록.',
+        '3.9의 누적 생성이 언제나 무한히 이어지지 않음을 보여 주고 3.11에서 문맥/근거의 한계로 이동.',
+        '숫자로 특정 제품 한도를 고정하지 않음. 파일 저장·모델 가중치·영구 기억을 같은 공간으로 그리지 않음.', 'context'),
+    '3.11': plan('비교', 'language', '제공된 문서와 근거 없는 답변의 대조',
+        '창작 문서 「모임은 금요일에 진행」와 답변 「금요일 14시」를 나란히 두고 14시의 근거가 없음을 표시. 「실제 모델 응답이 아닌 설명용 예시」 명시.',
+        '3.10의 입력 문맥에 없는 내용을 확신 있게 채울 수 있음을 드러내고 3.12의 근거 제공 흐름으로 연결.',
+        '최신 사실을 모르는 경우만 환각이라고 좁히지 않음. RAG가 항상 환각을 없앤다고 예고하지 않음.', 'instructgpt rag'),
+    '3.12': plan('도식', 'language', '질문 → 관련 문서 검색 → 근거를 문맥에 추가 → 답변',
+        '3.11의 질문에 대해 「금요일 15시」라고 적힌 별도 창작 문서를 찾아 제공하는 사례. 검색 문서 ID를 답변의 근거와 연결.',
+        '근거 없는 시간 답변을 어떤 입력으로 보완할지 설명. 4장으로 넘어갈 때는 같은 언어 모델의 코드 출력으로 관점 전환.',
+        '원 논문 Figure 1은 참고만 하고 학습 구조·MIPS 수식은 생략. MCP·도구 호출 API·에이전트의 자율 검색은 아직 넣지 않음.', 'rag'),
+    '4.1': plan('코드·도식', 'title', '설명 주석·함수 앞부분 → 코드 후보',
+        '이미 배운 JS 함수 모양으로 「제목이 비어 있는지 확인」 주석과 return title.length > 0; 후보를 보여 줌. 문자열 코드도 모델의 출력이라는 점에 집중.',
+        '3장의 텍스트 출력을 코드로 확장. 4.2에서 이 후보를 편집기에 제시하는 방식 소개.',
+        '1~20·공백 처리의 완성 요구사항은 4.8에서 설명. 2021 Codex 모델과 현재 Codex 제품을 혼동하지 않음.', 'codex-paper'),
+    '4.2': plan('화면 모식도', 'title', '회색 코드 제안과 수락·거절의 편집기 모식도',
+        '4.1의 짧은 코드 후보를 흐린 색으로 표시하고 사용자가 수락한 뒤 일반 코드로 바뀌는 두 상태. 실제 캡처를 쓸 경우 제품·날짜·편집기 기록.',
+        '코드 생성 능력과 개발자가 제안을 적용하는 인터페이스를 구분.',
+        '지금의 전체 에이전트 IDE 화면을 초기 자동완성 사례로 넣지 않음. 모식도는 제품의 실제 스크린샷으로 표기하지 않음.', 'copilot'),
+    '4.3': plan('도식', 'alignment', '요청·좋은 응답 쌍 → 추가 학습 → 요청을 따르는 모델',
+        'InstructGPT Figure 2의 첫 단계만 개념 참고. 창작 요청/응답 2쌍, 데이터가 가중치 갱신으로 연결되는 화살표. 추론 시 요청 입력은 별도 가는 화살표.',
+        '4.2의 코드 이어 쓰기에서 지시 의도에 맞춘 응답으로 이동. 다음은 여러 답 중 더 나은 답의 피드백.',
+        '프롬프트 문구를 바꾸는 행위와 지시 튜닝을 혼동하지 않음. 전체 Figure 2의 PPO·reward model은 아직 넣지 않음.', 'instructgpt'),
+    '4.4': plan('도식', 'alignment', '같은 요청의 답변 A/B → 사람의 비교 → 학습 신호',
+        '짧고 정확한 답과 요구를 놓친 답의 창작 카드. 사람의 비교 결과가 학습 절차로 전달되는 연결. 강화학습 적용은 이미 배운 보상 개념 수준의 보조 표시.',
+        '4.3의 시범 답안과 선호 비교 데이터의 차이를 보여 준 뒤 실제 대화형 개발로 이동.',
+        '현재 사용자의 좋아요 클릭이 즉시 해당 모델 가중치를 갱신한다고 쓰지 않음. 모든 최신 모델이 동일 RLHF 구현이라는 주장 제외.', 'instructgpt'),
+    '4.5': plan('도식', 'title', '사람과 대화 모델 사이의 수정 요청 왕복',
+        '개발자 요구 → 모델 코드 제안 → 개발자 복사·실행 → 관찰한 문제 전달. 로컬 코드/실행 상자는 개발자 쪽에 배치.',
+        '4.4까지의 학습된 응답 능력을 개발 과정에 적용. 4.6~4.7에서는 어떤 요청 정보를 제공할지 구체화.',
+        '자동 파일 수정·도구 호출·자동 테스트 러너를 대화 모델의 기본 기능처럼 그리지 않음.', 'codex-paper'),
+    '4.8': plan('코드·결과 표', 'title', '공통 제목 검사 함수와 입력별 기대 결과',
+        'isValidTitle의 trim·길이 조건·boolean 반환 4줄과 공지사항/빈 문자열/공백 3개의 결과. 수정 전 버전은 4.9와 5.5용으로 별도 보관.',
+        '4.6~4.7의 요구 조건·예시를 실제 코드와 대응. 4.9에서는 잘못된 제안이 나왔을 때의 수정으로 이어짐.',
+        '여기서는 자동화 테스트 문법을 먼저 설명하지 않음. JS length는 UTF-16 단위이므로 이모지·조합문자의 사용자 인식 글자 수를 보장한다고 쓰지 않음.', 'js-string',
+        ('examples/title-validation.mjs', 'examples/title-results.json')),
+    '5.1': plan('도식·JSON', 'agent', '모델·애플리케이션·도구의 요청/결과 왕복',
+        '가상의 read_file 요청 {path: "src/title.js"} → 앱이 도구 실행 → 파일 내용 반환. 요청과 실행 상자를 분리하고 JSON 전체 API 응답은 사용하지 않음.',
+        '4.9의 사람이 전달하던 파일 내용을 도구가 전달하는 구조. 5.2에서 같은 경로에 권한 경계를 추가.',
+        'JSON을 생성하는 것만으로 파일이 열리는 도식 금지. MCP 서버나 자율 반복은 아직 없음.', 'tool-calling', ('examples/tool-call.example.json',)),
+    '5.2': plan('표·도식', 'agent', '읽기·수정·명령·네트워크의 권한 경계',
+        '5.1의 앱–도구 사이에 실행 범위 확인을 추가. 읽기만 가능한 예와 수정까지 가능한 예의 결과 비교. 허용/승인 필요/차단은 환경별 예시.',
+        '호출 가능성과 실행 허용의 차이를 확정한 뒤 5.3의 반복 행동으로 이동.',
+        '모델의 약속·시스템 프롬프트를 OS 샌드박스처럼 설명하지 않음. 권한 해제를 시연 목표로 삼지 않음.', 'sandbox'),
+    '5.3': plan('도식', 'agent', '목표 → 행동 선택 → 도구 결과 관찰 → 다음 행동/종료',
+        '5.1의 호출 왕복을 하나의 실행 상자로 줄여 반복 고리에 삽입. 완료·진행 불가의 종료 경로 표시.',
+        '한 번의 호출에서 결과를 근거로 다음 행동을 선택하는 에이전트로 확장.',
+        '반복을 모델 가중치 학습으로 표시하지 않음. 테스트·Hooks·장기 목표 기능의 내부 구조를 미리 넣지 않음.', 'agents'),
+    '5.4': plan('표', 'agent', '개발자의 작업과 에이전트 도구의 대응',
+        '코드 확인–파일 읽기 / 변경–편집 / 동작 확인–터미널 명령의 3행. Claude Code·Codex는 해당 범주를 제공하는 제품 예로 작은 라벨만 사용.',
+        '5.3의 추상 도구 상자를 개발 환경의 구체적 기능으로 바꾸고 5.5에서 실행 사례 확인.',
+        '제품마다 다른 도구 이름·UI를 공통 API로 쓰지 않음. 최신 전체 대시보드 이미지는 학습 목적 대비 정보가 많아 제외.', 'codex-cli claude-code'),
+    '5.5': plan('코드·결과 표', 'title', '같은 공백 오류의 읽기–실행–수정–재실행',
+        '수정 전 함수에 공백 3개 → true, 수정 후 → false. 정상 제목 → true 유지. 실제 로컬 계산 결과와 가상의 에이전트 수행 순서를 분리해 라벨링.',
+        '4.9와 입력·기대값·버그를 유지하면서 수행 주체만 에이전트로 바꿈.',
+        '실제 Claude/Codex 세션을 실행한 로그로 꾸미지 않음. node:assert 문법은 7.5까지 보류하고 단일 호출의 결과만 표시.', 'js-string tool-calling',
+        ('examples/title-validation.mjs', 'examples/title-results.json')),
+    '5.6': plan('비교', 'agent', '입력 → 응답 전 계산 → 답변/행동의 과정 띠',
+        '짧은 계산과 더 많은 추론 계산의 개략 폭 비교. 수행 시간·계산량 증가와 문제 해결의 관계를 정성적으로 표현.',
+        '5.5의 실행 결과를 어떻게 검토하고 다음 행동을 정하는지에서 모델 계산 방식으로 시점을 전환.',
+        '만든 내부 독백·CoT 프롬프트를 실제 추론 모델의 사고로 보여 주지 않음. 성능 향상을 보장하는 수치 그래프 제외.', 'reasoning'),
+    '5.7': plan('화면 모식도', 'agent', '코드 텍스트와 오류 화면이 함께 들어가는 입력',
+        '동일한 제목 입력 화면에서 오류 안내가 잘린 상황을 설명용 화면으로 그림. 코드 텍스트와 화면 이미지가 모델로 들어가는 두 경로.',
+        '5.6의 판단에 제공하는 입력을 텍스트에서 이미지로 확대. 5.8에서 관찰 이후의 행동을 추가.',
+        '스크린샷 이해와 클릭 권한을 한 단계로 합치지 않음. 원인 진단 문구는 실제 모델 결과가 아닌 설명용 가설.', 'ml-types computer-use'),
+    '5.8': plan('화면 모식도', 'agent', '관찰 전 화면 → 클릭/입력 → 바뀐 화면 재확인',
+        '5.7의 입력 화면을 재사용. 입력 칸 선택·공지사항 입력·버튼 클릭의 행동 표시와 결과 화면을 연결.',
+        '이미지를 읽는 것에서 UI를 조작하고 확인하는 도구 반복으로 확장.',
+        '고정 좌표만 있으면 항상 성공하는 것처럼 표현하지 않음. 브라우저 자동 검증은 7.6에서 완료 기준과 연결해 설명.', 'computer-use'),
+    '5.9': plan('도식', 'agent', 'AI 앱 안의 MCP client와 외부 server의 연결',
+        '앱(host) 경계 안에 client 두 개, 바깥에 문서 server·파일 server. 기능 목록 확인 → 요청 → 결과의 통신 화살표. 로컬/원격은 보조 라벨.',
+        '서로 다른 도구들을 연결하는 공통 통신 방식으로 범위를 넓히고 다음 장의 프로젝트 자료 제공으로 연결.',
+        'Model Context Protocol 정확한 명칭 사용. 프로토콜 자체가 권한·자율성·정확성을 보장한다고 쓰지 않음.', 'mcp'),
+    '6.1': plan('도식', 'context', '게시글 프로젝트의 파일 관계와 실행 진입점',
+        '설명용 파일 지도: src/title.js ← UI PostForm.jsx / server/posts.js. package.json의 실행 명령은 실제 예제 앱 제작 후 확정. 파일 역할과 호출 방향만 표시.',
+        '5.5의 단일 함수에서 함수가 사용되는 프로젝트 맥락으로 확대.',
+        '현재 저장소에 이 앱 구조가 존재한다고 쓰지 않음. 새 프레임워크·데이터베이스 설정 방법을 설명하지 않음.', 'agents-md'),
+    '6.2': plan('도식', 'context', '전체 저장소에서 이번 작업에 필요한 정보만 선택',
+        '6.1 파일 지도에 제목 관련 코드·규칙·실행 방법을 강조. 필요할 때 읽기 → 현재 문맥에 추가. 관련 없는 이미지 폴더는 제외 예시.',
+        '프로젝트 정보의 종류에서 무엇을 언제 제공할지로 이동. 6.3의 지속 지침과 연결.',
+        '파일 전체를 무조건 프롬프트에 붙이는 방식이나 RAG와 동의어라는 설명 제외.', 'context'),
+    '6.4': plan('문서·도식', 'context', '스킬의 작은 폴더와 필요한 때 읽는 순서',
+        'title-check/SKILL.md + references/cases.txt + scripts/check-title.mjs의 설명용 구조. 이름/설명 확인 → 필요할 때 절차 본문 → 관련 자료 순서.',
+        '6.3의 상시 프로젝트 규칙과 특정 작업의 반복 절차를 구별.',
+        '이 파일을 실제 활성 스킬로 설치하지 않음. 모델 재학습·MCP 서버와 구분. 7.5의 assertion 코드는 아직 펼치지 않음.', 'claude-skills codex-skills'),
+    '6.5': plan('표', 'context', '변경·확인 근거·남은 일을 나눈 진행 기록',
+        '행 예: 제목 함수 공백 처리 수정 / 공백 3개 false·공지사항 true 확인 / 서버 저장과 UI는 미확인. 근거 파일과 실제 명령 기록 칸.',
+        '작업 절차와 실행 후 남기는 상태를 구분. 6.6에서 대화가 줄어도 보존할 정보가 됨.',
+        '아직 실행하지 않은 브라우저 검사를 통과로 표시하지 않음. Git 브랜치·자동화 테스트 목록은 후속 장.', 'harness', ('examples/title-results.json',)),
+    '6.6': plan('도식', 'context', '긴 작업 대화 → 핵심 요약 + 다시 읽을 원본 위치',
+        '유지: 목표·조건·결정·현재 파일·미완료 작업. 생략: 반복 출력·중복 메시지. 필요 시 원본을 재조회하는 역방향 점선.',
+        '6.5의 기록을 이용해 제한된 문맥을 관리하고 6.7에서 자료별 역할을 합침.',
+        '압축 후 정보가 완전히 보존된다거나 가중치에 저장된다는 표현 제외.', 'context'),
+    '6.7': plan('표', 'context', '프로젝트 맥락 자료의 역할별 대응표',
+        '규칙–AGENTS.md / 현재 코드–src/title.js / 절차–SKILL.md / 진행 상태–progress.txt. 제목 공백 처리 수정이라는 같은 작업에서 참조 시점 표시.',
+        '6.1~6.6의 자료를 중복 설명하지 않고 한 사례의 역할 관계로 정리.',
+        'CLAUDE.md·AGENTS.md·SKILL.md를 모든 도구가 동일하게 자동 적용한다고 쓰지 않음. 파일 이름은 제품별 예시.', 'agents-md claude-skills codex-skills context'),
+    '7.1': plan('표', 'verification', '모호한 요청을 입력·정상·오류 조건으로 구체화',
+        '입력 문자열, trim 후 1~20, 잘못된 제목 저장 금지, 저장 실패 시 성공 표시 금지의 4행. 구현 파일명은 아직 넣지 않음.',
+        '6장의 충분한 맥락 위에서 무엇을 만들지 정의. 다음 장에서 관찰 가능한 완료 기준으로 변환.',
+        '테스트 코드·구현 순서·병렬화를 명세와 섞지 않음. 글자 수의 실습 범위는 공통 함수 주석과 일치.', 'harness js-string'),
+    '7.2': plan('표', 'verification', '입력/상황 → 기대 결과 → 확인할 근거',
+        '공백 제목 → 저장 안 됨 / 정상 제목 → 성공 표시+저장 확인 / 저장 실패 → 오류 표시+성공 표시 없음. 이 장의 표는 기준이며 아직 모두 통과한 결과가 아님.',
+        '7.1의 요구를 확인 가능한 행동으로 바꿔 7.3 계획과 7.4 작업 분해의 기준으로 사용.',
+        '초록 체크를 미리 넣지 않음. 단위 테스트 통과만으로 저장 기능 완료라고 하지 않음.', 'harness'),
+    '7.5': plan('코드·결과 표', 'verification', '고정 기대값과 실제 결과를 비교하는 경계값 검사',
+        '빈 문자열·공백 3개·1·20·21글자 등 8개 사례와 node:assert의 핵심 비교 1줄. 수정 전 오류 2건, 수정 후 8건 통과의 로컬 결과 활용.',
+        '7.4의 작은 작업을 반복 가능한 검사로 연결하고 7.6에서 사용자 전체 동작으로 범위 확대.',
+        '테스트를 통과시키려고 기대값을 변경하지 않음. 8건의 함수 검사가 전체 서비스 품질의 증명은 아님.', 'node-assert js-string',
+        ('examples/check-title.mjs', 'examples/title-results.json')),
+    '7.6': plan('코드·화면 후보', 'verification', '입력 → 클릭 → HTTP 응답 → 저장/표시 확인',
+        'Playwright 발췌를 후보로 준비. 구현 후 성공·공백·서버 오류 3상태의 실제 화면 캡처와 요청 결과를 쌍으로 기록. 저장 자체는 별도 조회/서버 근거 필요.',
+        '7.5의 함수 검사를 UI–서버 연결까지 확장. 7.7의 구현·검증 반복에 두 검사 범위를 제공.',
+        '현재 발췌는 앱·서버가 없어 미실행. 네트워크 모킹으로 성공한 검사를 실제 DB 저장 검증으로 부르지 않음.', 'pw-locators pw-assertions pw-network harness',
+        ('examples/browser-check.fragment.txt',)),
+    '7.8': plan('도식', 'verification', '이벤트 → 등록한 검사 명령 → 결과 전달',
+        'Claude Code의 PostToolUse(Edit/Write)를 예로 명령 실행 시점 표시. 검사 실패 결과는 에이전트가 읽는 경로로 연결. 차단은 이벤트/설정별로 다르므로 별도 표시.',
+        '7.7의 검증 반복에서 특정 검사 시점을 시스템적으로 연결하는 방법.',
+        'React Hooks와 무관함을 한 번 명시. 검사를 실행하는 것과 종료/도구 실행을 막는 것은 별도; 모든 hook이 차단하지 않음.', 'hooks'),
+    '7.9': plan('도식', 'verification', '모델의 바깥에서 실행을 관리하는 하네스 경계',
+        '중앙 모델, 바깥 경계에 도구·실행 환경·작업 상태·검사·한도. 결과와 상태를 받아 다음 호출/재시도/종료를 관리하는 연결.',
+        '7.8의 이벤트도 포함하는 실행 기반 구조로 넓히고 7.10에서 사람이 근거를 리뷰.',
+        '모델 자체와 하네스를 동일시하지 않음. 아직 배우지 않은 멀티에이전트·worktree·Goals UI는 넣지 않음.', 'harness agents'),
+    '7.10': plan('코드·표', 'verification', 'trim 추가 코드 차이와 검사 근거의 대조',
+        '수정 전/후 함수에서 바뀐 줄만 강조. 같은 입력의 기대값·실제값 표를 붙여 요구사항 충족, 무관한 변경 유무를 읽게 함.',
+        '도구가 실행한 검사 결과를 사람이 코드 변경과 함께 평가. 7.11에서 기능 전체로 확장.',
+        '8.4의 브랜치/병합 전제 없이 파일 차이 개념만 사용. 실제 PR 리뷰 화면처럼 꾸미지 않음.', 'js-string node-assert',
+        ('examples/title-validation.mjs', 'examples/title-results.json')),
+    '7.11': plan('도식', 'verification', '명세 → 함수 → 서버 저장 → UI → 검증 → 리뷰',
+        '6.1 파일 지도와 7.2 완료 기준을 재사용해 순차 진행을 표시. 함수 확인/전체 등록 확인의 범위를 다른 색으로 나눔.',
+        '7장의 절차를 동일 게시글 기능에 적용한 기준 사례. 8.1에서 일부 작업을 독립적으로 나눌 출발점.',
+        '현재 구현 완료 화면이나 실제 검증 로그가 아님. 앱 제작 전에는 설명용 절차로 라벨링.', 'harness'),
+    '8.1': plan('도식·표', 'parallel', '합의한 인터페이스 아래 UI와 서버의 작업 경계',
+        '예시 계약 POST /posts, 요청 {title}, 성공 201·실패 400/500. UI 표시와 서버 검사/저장을 다른 영역에 배치하고 공유 계약에만 연결.',
+        '7.11의 순차 개발에서 독립 가능한 범위를 분리. 8.2에서 이를 다른 작업 주체에 맡김.',
+        '계약 합의 없이 완전 독립이라고 하지 않음. 브랜치·worktree 폴더는 8.4~8.5까지 보류.', 'subagents teams'),
+    '8.2': plan('도식', 'parallel', '주 에이전트 → 범위가 좁은 작업 → 근거를 포함한 결과 반환',
+        '주 에이전트가 제목 규칙 검사 하나를 맡기는 예. 입력: 목표·범위·필요 코드, 출력: 발견 사항·파일 위치·확인 결과. 하나의 위임부터 시작.',
+        '8.1의 경계를 실제로 위임하고 8.3에서 여러 작업의 조정 구조로 확장.',
+        '서브에이전트는 반드시 병렬 실행·파일 수정이라는 설명 제외. 별도 문맥이 사실 공유를 자동 보장하지 않음.', 'subagents'),
+    '8.3': plan('도식', 'parallel', '공유 작업 목록과 작업자 간 메시지가 있는 팀 구조',
+        'UI 작업자·서버 작업자·조정자와 공통 작업 목록. 요청/응답 변경 사실을 메시지로 공유하는 연결. Claude Code의 Compare with subagents 그림은 구조 참고 후보.',
+        '8.2의 결과 반환 중심 구조에 조정을 추가. 파일 충돌 가능성이 8.4의 변경 이력 분리 필요로 이어짐.',
+        'Claude Agent Teams는 확인일 기준 실험 기능·기본 비활성. Codex 서브에이전트와 제품 기능을 같다고 쓰지 않음.', 'teams subagents'),
+    '8.4': plan('도식', 'parallel', '공통 커밋에서 UI·서버 변경 이력이 갈라지는 그래프',
+        '공통 A에서 UI의 B와 서버의 C로 분기. main/ui/server 이름표는 커밋을 가리키는 참조로 그림. 아직 디렉터리를 그리지 않음.',
+        '8.3의 여러 변경을 이력으로 구분. 8.5에서 작업 폴더를 분리할 방법을 추가.',
+        '브랜치 생성이 폴더 복사나 충돌 해결 자체라는 표현 제외. Pro Git의 master 이름은 예제에 그대로 강제하지 않음.', 'git-branches'),
+    '8.5': plan('도식·명령', 'parallel', '같은 Git 저장소 + 서로 다른 폴더/브랜치',
+        'repo(main), post-ui(feature/ui), post-server(feature/server) 폴더와 공유 저장소 메타데이터. git worktree add -b feature/ui ../post-ui 명령 1줄 후보.',
+        '8.4의 이력 분리와 실제 작업 디렉터리 분리를 대응시켜 8.6 통합의 준비 상태 설명.',
+        'DB·포트·외부 서비스까지 격리되는 컨테이너처럼 그리지 않음. 명령은 clean 예제 저장소에서 실행해야 하며 현재 강의 저장소에서는 미실행.', 'git-worktree'),
+    '8.6': plan('도식', 'parallel', '각 작업 결과 → 변경 통합 → 계약/전체 동작 재검사',
+        'UI가 200만 성공으로 처리하고 서버가 201을 반환하는 통합 오류 예시. 파일 충돌이 없어도 기능 계약은 어긋날 수 있음을 표시.',
+        '8.1의 계약을 다시 검사하고 7장의 완료 기준을 통합 결과에 적용.',
+        '자동 merge 성공을 기능 성공으로 표시하지 않음. 다른 작업자의 변경을 지우는 해결법 제외.', 'git-worktree teams harness'),
+    '8.7': plan('문서·도식', 'long-running', '목표·완료 근거·범위·실행 한도와 계속/종료 판단',
+        '「제목 검사와 등록 성공/실패 기준 충족」 목표 카드, 증거·범위·한도 칸. 결과 확인 → 미완료면 다음 작업 / 충족하면 완료. /goal은 제품별 보조 예시.',
+        '8.6의 검증이 한 번에 끝나지 않을 때 유지할 목표를 정의.',
+        '무제한 자동 실행·항상 백그라운드 수행·예약 실행과 동일시하지 않음. Codex Goals 지원 빌드에서만 실제 명령 시연.', 'goals'),
+    '8.8': plan('도식', 'long-running', '중단 전 기록 → 재개 시 현재 상태 대조 → 남은 일',
+        '6.5 기록의 완료/미완료 상태, 실제 파일·작업 디렉터리·실행 환경을 대조. 파일이 바뀌었다면 이전 검사 결과를 다시 확인하는 분기.',
+        '8.7 목표를 유지해도 현재 코드 상태가 달라질 수 있음을 설명.',
+        '모든 제품에서 실행 중 프로세스·서브에이전트까지 그대로 복원된다는 설명 제외. 오래된 통과 기록을 현 상태의 증거로 쓰지 않음.', 'harness goals teams'),
+    '8.9': plan('비교·시간선', 'long-running', '예약 시각 → 실행 환경 확인 → 작업 → 결과 검토',
+        '예시: 매주 월요일 09:00 Asia/Seoul 제목 검사 실행 후 결과 기록. 같은 페이지에서 Hooks=실행 중 이벤트, Goals=완료할 결과, 예약=시작 시점을 작은 비교로 구분.',
+        '8.8의 재개 조건 위에 언제 시작할지 추가하고 8.10의 개발자 판단으로 마무리.',
+        '실제 예약은 생성하지 않음. 로컬 프로젝트는 컴퓨터·앱 실행 필요; 클라우드 작업과 환경 조건을 합치지 않음.', 'scheduled goals hooks'),
+}
+
+
+BUNDLES = {
+    'history': '역사·규칙: 제안서/연표와 사실→규칙→결론',
+    'messages': '메시지 자료: 같은 창작 메시지로 학습·추론·학습 유형 비교',
+    'network': '신경망: 기존 2.8 도식 확장과 AlexNet·AlphaGo 사례',
+    'language': '텍스트 처리: 문장·토큰·문서 근거를 단계별 확장',
+    'title': '제목 함수: 코드 생성·사람 수정·에이전트 수정의 공통 코드',
+    'alignment': '학습 피드백: 시범 답안과 선호 비교를 분리한 두 도식',
+    'agent': '도구 반복: 요청/실행/결과→권한→반복→UI/MCP',
+    'context': '프로젝트 자료: 같은 파일 지도·지침·절차·기록',
+    'verification': '검증: 같은 명세·완료 기준·함수 결과·등록 흐름',
+    'parallel': '병렬 작업: UI/서버 계약·위임·이력·폴더·통합',
+    'long-running': '지속 작업: 목표·상태 기록·재개·예약의 역할 구분',
+}
+
+DECISIONS = [
+    '조사 당시 본문 76장 중 기존 자료가 있는 16장을 유지하고 제목·부제만 있던 60장에 새 후보를 대응. 챕터 표지 8장과 주차 표지는 조사 대상에서 제외.',
+    '이 문서는 배치 전 조사·설계를 보존한 기록. 이후 실제 반영 상태와 선택·수정한 범위는 resource-placements.json과 slide-references.html에서 관리.',
+    '원문에 있는 그림 / 원리만 참고한 재작성 도식 / 직접 만든 교육용 사례 / 실제 실행한 출력 / 아직 필요한 캡처를 구분.',
+    '기본은 네이티브 HTML/SVG·표·짧은 코드. 생성형 장식 이미지나 모든 슬라이드의 제품 스크린샷은 준비하지 않음.',
+    '가장 먼저 제목 함수·메시지 자료·텍스트 처리·에이전트 반복·프로젝트 파일 지도를 만들고 후속 슬라이드에서 같은 요소를 확장. 슬라이드마다 다른 완성 앱을 도입하지 않음.',
+    '공통 함수는 문자열 입력·앞뒤 공백 제거·길이 1~20·boolean 결과. JS length는 UTF-16 단위이므로 예제는 ASCII/완성형 한글로 제한. 모든 Unicode 글자 수 처리는 별도 요구 정의 없이는 주장하지 않음.',
+    '타임라인은 기술의 발명 연도를 모두 의미하지 않음. Git·명세·테스트 등은 오래된 기법을 최근 에이전트 개발에 적용하는 맥락.',
+    '새 도식 라벨은 본문 반영 시 KO/EN 쌍으로 작성. 최신 사용자 지시에 따라 출처는 별도 레퍼런스 문서에서만 관리. 한글 비트맵 문구를 영문 화면에 그대로 두지 않음.',
+    '외부 그림의 접근 가능 여부와 재배포 조건은 별개. 원본 이미지를 실제 저장·공개하는 단계에서는 선택한 원본의 출처·표시 조건을 기록. 이번에는 출처 링크와 활용 범위만 확정.',
+]
+
+EXCLUDED = [
+    'AlexNet 전체 CNN 구조: 합성곱·pooling을 추가로 가르쳐야 하므로 현재 2.11의 학습 목적보다 복잡. Figure 4의 분류 결과를 우선.',
+    'InstructGPT Figure 2 전체 이미지: 4.3에서 아직 설명하지 않은 선호 학습·reward model·PPO가 선행. 첫 단계와 다음 단계를 분리 재작성.',
+    'RAG 원 논문 Figure 1의 전체 수식: 검색 근거를 입력으로 제공하는 핵심보다 retriever 학습·주변화 구조가 앞섬. 추론 흐름으로 단순화.',
+    'Attention heatmap 임의 수치: 실제 측정과 구분하기 어려움. 설명용 연결선으로 그리거나 실제 측정 환경까지 마련한 경우에만 값 사용.',
+    'LLM 규모/벤치마크 순위·제품 전체 UI·미래 전망 사진: 현재 한 개념 설명에 불필요한 세부와 유지 비용. 기능 관계 도식을 우선.',
+    '실제처럼 꾸민 Claude/Codex 수행 로그: 수행 주체 설명용 순서와 실제 로컬 코드 출력은 별도 라벨. 실제 세션 캡처는 후속 시연 때만 추가.',
+]
+
+
+def outputs():
+    para_path = ROOT / 'materials/paragraph-outline.json'
+    placed_path = ROOT / 'materials/resource-placements.json'
+    paragraphs = json.loads(para_path.read_text())
+    placements = json.loads(placed_path.read_text())
+    flat = [s for c in paragraphs['chapters'] for s in c['slides']]
+    placement_by_id = {s['id']: s for s in placements['slides']}
+    missing = [s for s in flat if not placement_by_id[s['id']]['assets']]
+    assert len(flat) == 76 and len(missing) == 60
+    assert set(PLANS) == {s['outline_number'] for s in missing}
+    order = {s['id']: i for i, s in enumerate(flat)}
+    rows = []
+    for slide in missing:
+        number = slide['outline_number']
+        p = PLANS[number]
+        assert all(s in SOURCES for s in p['source_ids']), number
+        assert p['bundle'] in BUNDLES
+        for req in slide['requires']:
+            if req in order:
+                assert order[req] < order[slide['id']], (number, req)
+        for rel in p['local_files']:
+            assert (OUT / rel).is_file(), (number, rel)
+        row = dict(outline_number=number, slide_number=placement_by_id[slide['id']]['slide_number'],
+                   id=slide['id'], title=slide['title'], lead=slide['lead'],
+                   paragraph_ko=slide['paragraph_ko'], requires=slide['requires'],
+                   previous_concept_id=slide['previous_concept_id'],
+                   **p, research_stage_status='배치 전 조사 후보',
+                   placement_status=placement_by_id[slide['id']]['status'],
+                   readiness='실행 자료 일부 준비' if p['local_files'] and number in {'3.2','4.8','5.5','6.5','7.5','7.10'} else '설계·출처 확인; 제작/캡처 후 검증 필요')
+        rows.append(row)
+    counts = dict(Counter(r['resource_type'] for r in rows))
+    title_results = json.loads((OUT / 'examples/title-results.json').read_text())
+    token_results = json.loads((OUT / 'examples/token-results.json').read_text())
+    assert title_results['corrected_function_passes'] == 8
+    assert token_results['encoding'] == 'cl100k_base'
+    data = dict(stage='new-resource-research', checked_on=CHECKED_ON,
+                body_slide_count=76, existing_resource_slide_count=16,
+                researched_slide_count=60, resource_type_counts=counts,
+                source_count=len(SOURCES), decisions=DECISIONS, excluded_candidates=EXCLUDED,
+                bundles=BUNDLES, sources=SOURCES, slides=rows,
+                verification=dict(coverage='60/60; 기존 반영 16장과 중복 없음',
+                                  source_method='공식 문서 본문·원 논문 확인; 대표 PDF 그림 3개 렌더 검토',
+                                  local_code='제목 검사 8건 통과; 의도적 오류 함수 2건 실패 확인',
+                                  tokenizer='tiktoken 0.14.0; cl100k_base; 영어·한국어 2개 입력 왕복 복원 확인',
+                                  browser_fragment='문서 대조만 완료; 예제 앱 부재로 미실행',
+                                  deck='이번 조사에서 HTML/번역/기존 배치 변경 없음; 화면 검증 서버 미실행'),
+                inputs={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in [para_path, placed_path]})
+
+    lines = ['9주차 · 나머지 60개 슬라이드의 새 자료 조사', f'확인일: {CHECKED_ON}', '',
+             '설계 번호는 챕터.항목, 화면 번호는 표지·챕터 표지를 포함한 실제 강의 번호.',
+             '배치 전의 권장 자료와 제작 조건을 보존한 기록. 현재 반영 상태·페이지별 레퍼런스는 상위 폴더의 resource-placements.json과 slide-references.html 참고.', '',
+             '조사 범위와 제작 방향', ''] + ['- ' + x for x in DECISIONS]
+    lines += ['', '준비 묶음 · 같은 사례와 도형을 재사용', '']
+    for key, value in BUNDLES.items():
+        nums = ', '.join(r['outline_number'] for r in rows if r['bundle'] == key)
+        lines.append(f'- {value}: {nums}')
+    lines += ['', '실제 확인한 코드 후보', '',
+              '- examples/title-validation.mjs: 수정 전/후 함수. check-title.mjs로 8개 입력 확인, 수정 후 8개 통과.',
+              '- examples/title-results.json: 실제 로컬 출력. 수정 전 공백 3개와 바깥 공백이 붙은 20글자에서 오류 재현.',
+              '- examples/inspect_tokens.py와 token-results.json: 명명된 인코딩의 실제 조각/ID. 영어 4토큰·한국어 8토큰.',
+              '- examples/tool-call.example.json: API 중립의 설명용 요청. 실제 호출 로그가 아님.',
+              '- examples/browser-check.fragment.txt: Playwright 공식 문서에 맞춘 발췌 후보. 실제 예제 앱과 서버 연결 전이므로 미실행.',
+              '', '슬라이드별 후보 요약', '', '| 설계 | 화면 | 제목 | 형식 | 권장 자료 |', '| --- | --- | --- | --- | --- |']
+    for r in rows:
+        lines.append(f'| {r["outline_number"]} | {r["slide_number"]} | {r["title"][0]} | {r["resource_type"]} | {r["recommended_asset"]} |')
+    for chapter in paragraphs['chapters']:
+        selected = [r for r in rows if r['outline_number'].startswith(str(chapter['number']) + '.')]
+        lines += ['', '=' * 72, f'{chapter["number"]:02d} · {chapter["title"][0]} · 새 후보 {len(selected)}장', '=' * 72]
+        for r in selected:
+            lines += ['', f'[{r["outline_number"]} / 화면 {r["slide_number"]}] {r["title"][0]}',
+                      f'학습 초점: {r["lead"][0]}', f'확정 문단: {r["paragraph_ko"]}',
+                      f'권장 자료: {r["recommended_asset"]} ({r["resource_type"]})',
+                      f'구성·활용: {r["construction_ko"]}', f'흐름 연결: {r["connection_ko"]}',
+                      f'선수 관계: {", ".join(r["requires"]) or "강의 출발"}',
+                      f'선행 설명·오해 방지: {r["learning_guard_ko"]}', f'준비 상태: {r["readiness"]}']
+            if r['local_files']:
+                lines.append('로컬 후보: ' + ', '.join(r['local_files']))
+            for sid in r['source_ids']:
+                s = SOURCES[sid]
+                lines.append(f'출처 [{sid}]: {s["label"]} / {s["locator"]}\n  {s["url"]}')
+    lines += ['', '채택하지 않은 후보와 이유', ''] + ['- ' + x for x in EXCLUDED]
+    lines += ['', '공식 출처 목록과 확인한 범위', '']
+    for sid, s in SOURCES.items():
+        lines += [f'[{sid}] {s["label"]}', s['url'], '확인 위치: ' + s['locator'], '판단: ' + s['finding'], '']
+    lines += ['검증·재현', '',
+              'python3 lectures/09/scripts/research_new_resources.py --check',
+              'node lectures/09/materials/new-resource-research/examples/check-title.mjs',
+              'uv run --with tiktoken==0.14.0 --no-project python lectures/09/materials/new-resource-research/examples/inspect_tokens.py',
+              '', '후속 반영 시: KO/EN 라벨 작성 → 공용 블록에 배치 → 실제 발표/인쇄/모바일 검증.',
+              '실제 앱 화면·제품 세션·Git 명령 후보는 해당 예제 환경이 준비된 뒤 실행·캡처하며, 이번 연구 기록과 구분.']
+    return {OUT / 'research.json': json.dumps(data, ensure_ascii=False, indent=2) + '\n',
+            OUT / 'research.ko.txt': '\n'.join(lines) + '\n'}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--check', action='store_true')
+    args = parser.parse_args()
+    for path, content in outputs().items():
+        if args.check:
+            assert path.read_text() == content, f'Stale {path}'
+        else:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(content)
+    print('Week 09 new resource research: 60 slides, 16 existing placements preserved.')

@@ -1,0 +1,587 @@
+9주차 · 페이지별 자료 레퍼런스
+
+표지·챕터 표지를 포함한 실제 화면 번호 기준. 설계 번호를 함께 표시.
+본문 76장: 기존 PDF 재사용 16장 + 새 자료 60장. 표지 9장은 외부 자료 없음.
+원본 발췌, 개념을 참고한 재작성, 설명용 화면, 실제 코드 실행값을 각 페이지에 구분.
+레퍼런스 링크와 수정 기록은 이 문서에서 관리하며 강의 본문과 숨김 노트에는 삽입하지 않음.
+
+1페이지 · 9주차 표지
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+2페이지 · 인공지능의 출발
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+3페이지 · 1.1 · 인공지능
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 과제 / 입력 / 필요한 처리. LLM·학습 데이터·토큰·AI/ML/DL 포함 관계를 아직 넣지 않음. 규칙 프로그램이 AI가 될 수 없다는 이분법도 피함.
+- Stanford AI100 · A Short History of AI: https://ai100.stanford.edu/reports/2016-report/appendix-i-short-history-ai
+  확인 위치: 분야의 형성·기호 추론·병행한 접근의 역사
+
+4페이지 · 1.2 · 튜링 테스트
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 역할 표를 편집형 한영 표로 변환. 판정 범위를 문자 대화에서 관찰한 행동으로 한정. 그림 I04-test는 같은 관계의 대안으로 보관.
+- PWD Week10 원본 PDF · 4쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=4
+  확인 위치: 원본 요소 재사용·수정
+
+5페이지 · 1.3 · 다트머스 연구 모임
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: PDF 1쪽 제목·작성자·날짜 부분만 발췌. 1955년 제안과 1956년 모임을 네이티브 흐름으로 구분. 페이지 전체는 사용하지 않음. 제안서 발행과 모임 연도를 합치지 않음. 2006 재회 사진·현재 캠퍼스 사진을 1956 당시 기록으로 쓰지 않음.
+- McCarthy 외 · Dartmouth proposal (1955): https://www-formal.stanford.edu/jmc/history/dartmouth.pdf
+  확인 위치: PDF 1쪽 제목·1955-08-31 날짜·첫 문단; 렌더 육안 확인
+- Dartmouth · The Founding and Future of AI: https://ai.dartmouth.edu/our-story
+  확인 위치: Where AI was Born / Defining a Field
+- 슬라이드에 배치한 개별 발췌 이미지: ../assets/new/dartmouth-proposal-heading.png
+  확인 위치: PDF 1쪽의 지정 영역 발췌
+
+6페이지 · 1.4 · 기호 기반 인공지능
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 기호로 표현한 사실과 명시적 규칙을 연결하는 분류 예시. 전문가 시스템 전체 구조·학습·역전파를 이 도식에 포함하지 않음.
+- Stanford AI100 · A Short History of AI: https://ai100.stanford.edu/reports/2016-report/appendix-i-short-history-ai
+  확인 위치: 분야의 형성·기호 추론·병행한 접근의 역사
+
+7페이지 · 1.5 · 퍼셉트론
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 오른쪽 입력·가중치·합산·판단 구조를 편집형 도식으로 재구성. 두 입력으로 단순화하고 임곗값 비교를 명시. 생물학 용어·일반 활성 함수 표기·XOR 보조 그림 제외.
+- PWD Week10 원본 PDF · 5쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=5
+  확인 위치: 원본 요소 재사용·수정
+
+8페이지 · 1.6 · 전문가 시스템
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 사용자·인터페이스·추론 엔진·지식 베이스·결과의 구성과 모든 연결을 유지한 편집형 도식. 한국어 비트맵의 영문 전용 문제를 해소.
+- PWD Week10 원본 PDF · 6쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=6
+  확인 위치: 원본 요소 재사용·수정
+
+9페이지 · 데이터로 학습하는 인공지능
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+10페이지 · 2.1 · AI 겨울
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 실측값처럼 보이는 곡선을 시기별 개략 시간선으로 정리. 1990년 머신러닝 최초 등장 표기와 미학습 딥러닝·생성형 AI 구간 제거.
+- PWD Week10 원본 PDF · 3쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=3
+  확인 위치: 원본 요소 재사용·수정
+
+11페이지 · 2.2 · 머신러닝
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 기준을 얻는 방식 / 준비하는 것 / 판단에 사용하는 것. 분류 사례를 제시하되 지도학습이라는 유형 이름·신경망 구조를 먼저 정의하지 않음.
+- Google · What is Machine Learning?: https://developers.google.com/machine-learning/intro-to-ml/what-is-ml
+  확인 위치: Supervised learning / Unsupervised learning / Reinforcement learning
+- Google · Supervised Learning: https://developers.google.com/machine-learning/intro-to-ml/supervised
+  확인 위치: Model / Training / Inference; Figures 1~3
+
+12페이지 · 2.3 · 모델의 학습
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 학습 데이터의 반복 처리 · 처음 보는 데이터에서의 성능은 별도 확인. 정확도가 매번 단조 증가한다는 가짜 그래프·역전파 수식·구체 학습률 제외.
+- Google · Supervised Learning: https://developers.google.com/machine-learning/intro-to-ml/supervised
+  확인 위치: Model / Training / Inference; Figures 1~3
+
+13페이지 · 2.4 · 모델의 추론
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 한 번의 추론 요청은 학습한 값의 갱신과 구분. 추론(inference)을 5.6의 추론 모델(reasoning model)과 같은 뜻으로 설명하지 않음.
+- Google · Supervised Learning: https://developers.google.com/machine-learning/intro-to-ml/supervised
+  확인 위치: Model / Training / Inference; Figures 1~3
+
+14페이지 · 2.5 · 지도학습
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 학습 메시지 / 제공된 정답. 표 4행으로 충분한 실제 모델을 학습했다고 주장하지 않음. 성능 숫자·실제 이메일 개인정보 제외.
+- Google · Supervised Learning: https://developers.google.com/machine-learning/intro-to-ml/supervised
+  확인 위치: Model / Training / Inference; Figures 1~3
+
+15페이지 · 2.6 · 비지도학습
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 역할·사례 비교 — 정답 없이 유사한 문의를 묶은 설명용 결과. 그룹 이름이 학습 때 제공된 정답처럼 보이지 않게 함. 임베딩 좌표·클러스터 알고리즘 수학은 제외.
+- Google · What is Machine Learning?: https://developers.google.com/machine-learning/intro-to-ml/what-is-ml
+  확인 위치: Supervised learning / Unsupervised learning / Reinforcement learning
+
+16페이지 · 2.7 · 강화학습
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 설명용 보상 규칙: 도착 +1 · 그 외 0 · 여러 행동에 걸친 누적 보상 추구. 최적 경로를 실제로 학습한 결과처럼 표시하지 않음. 5장의 도구 사용 에이전트와 보상 학습을 동일시하지 않음.
+- Google · What is Machine Learning?: https://developers.google.com/machine-learning/intro-to-ml/what-is-ml
+  확인 위치: Supervised learning / Unsupervised learning / Reinforcement learning
+
+17페이지 · 2.8 · 인공 신경망
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 단일 퍼셉트론과 2입력·2은닉·1출력 연결 구조를 보존한 편집형 도식. 한영 라벨을 분리하고 역전파·손실 용어는 추가하지 않음.
+- PWD Week10 원본 PDF · 8쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=8
+  확인 위치: 원본 요소 재사용·수정
+
+18페이지 · 2.9 · 역전파
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 2.8에서 배운 층 연결을 역할별 상자로 단순화하고 역방향의 영향 계산을 추가. 역전파와 별도 가중치 갱신을 구분. XOR 분류 경계로 역전파를 대신하지 않음. 미분을 이미 배웠다고 전제하는 수식·PyTorch 코드 제외.
+- PyTorch · Automatic Differentiation with torch.autograd: https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html
+  확인 위치: Computing Gradients / More on Computational Graphs
+
+19페이지 · 2.10 · 딥러닝
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: AI⊃ML⊃DL 포함 관계를 편집형 중첩 도식으로 유지. 뇌 유사성 대신 데이터 학습·여러 층 표현 학습으로 정의 교정. I09의 미학습 손실·함수·RNN 오기 자료는 대안에서 제외.
+- PWD Week10 원본 PDF · 7쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=7
+  확인 위치: 원본 요소 재사용·수정
+
+20페이지 · 2.11 · AlexNet의 이미지 분류
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: Figure 4 왼쪽의 표범 사례 하나를 발췌. 사진·정답·상위 5개 라벨·확률 막대를 유지하고 한영 후보 명칭을 별도 표로 추가. 확률 수치는 새로 만들지 않음. 원본 그림의 데이터는 ILSVRC-2010; 논문 발표 연도는 2012. 원본의 라벨/확률 막대 관계 유지. Figure 4는 ILSVRC-2010 이미지이며 2012 대회 결과표와 혼동 금지. CNN·pooling 구조 전체는 범위 밖.
+- Krizhevsky 외 · ImageNet Classification (2012): https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
+  확인 위치: PDF 8쪽 Figure 4 왼쪽; 렌더 육안 확인
+- 슬라이드에 배치한 개별 발췌 이미지: ../assets/new/alexnet-leopard-predictions.png
+  확인 위치: PDF 8쪽의 지정 영역 발췌
+
+21페이지 · 2.12 · AlphaGo의 바둑 판단
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 역할·사례 비교 — 바둑판 상태를 신경망과 탐색으로 처리. 2016 AlphaGo를 사람 기보 없이 학습한 AlphaGo Zero로 묘사하지 않음. 정답 수·승률을 임의 생성한 바둑판은 쓰지 않음.
+- Google DeepMind · AlphaGo: https://deepmind.google/research/alphago/
+  확인 위치: Our approach / The matches
+
+22페이지 · 대규모 언어 모델의 등장
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+23페이지 · 3.1 · 언어 모델
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 역할·사례 비교 — 문맥에 이어질 여러 표현의 가능성을 다루는 모델. 단어 카드가 실제 토큰 분할이라는 인상을 주지 않음. 생성 반복과 샘플링은 3.9 이후.
+- Brown 외 · Language Models are Few-Shot Learners (2020): https://arxiv.org/abs/2005.14165
+  확인 위치: Abstract
+
+24페이지 · 3.2 · 토큰
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 토큰 분할표 — cl100k_base의 실제 분할 결과 · 조각마다 대응하는 식별 번호. 모든 모델이 같은 분할을 한다거나 ID가 의미 크기라고 설명하지 않음. Python 라이브러리 사용법은 학습 목표가 아니므로 표를 우선.
+- OpenAI Cookbook · How to count tokens with tiktoken: https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken
+  확인 위치: Encodings / encode / decode_single_token_bytes
+- 공통 예제 · inspect_tokens.py: new-resource-research/examples/inspect_tokens.py
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+- 공통 예제 · token-results.json: new-resource-research/examples/token-results.json
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+25페이지 · 3.3 · 임베딩
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 벡터는 차원을 줄인 임의 예시 · 토큰 ID의 크기가 의미의 크기는 아님. 임의 벡터를 실제 모델에서 추출했다고 쓰지 않음. 축에 성별·감정 같은 고정 의미를 부여하지 않음.
+- Vaswani 외 · Attention Is All You Need (2017): https://arxiv.org/html/1706.03762v7
+  확인 위치: 3.2 Attention / 3.4 Embeddings and Softmax / 3.5 Positional Encoding
+
+26페이지 · 3.4 · 어텐션
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 관계도 — 관련성 설명용 연결선 · 실제 어텐션 가중치나 내부 사고의 기록은 아님. 문법적 관계 하나가 모델 내부 사고의 증거라고 쓰지 않음. Q/K/V 행렬·softmax 식은 넣지 않음.
+- Vaswani 외 · Attention Is All You Need (2017): https://arxiv.org/html/1706.03762v7
+  확인 위치: 3.2 Attention / 3.4 Embeddings and Softmax / 3.5 Positional Encoding
+
+27페이지 · 3.5 · Transformer
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 토큰·임베딩·어텐션·표현 변환 구도를 유지. 순서 정보와 층 반복을 보완하고 FFN을 역할로 풀어 표기. 원본 수식과 토큰 생성 반복은 넣지 않음.
+- PWD Week10 원본 PDF · 10쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=10
+  확인 위치: 원본 요소 재사용·수정
+
+28페이지 · 3.6 · 자기지도학습
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 원문에서 만든 과제 / 입력 / 학습 목표. 이미 완성된 목표 쌍을 퓨샷 프롬프트로 혼동하지 않음. masked/next-token을 모든 모델이 동시에 사용한다고 쓰지 않음.
+- Devlin 외 · BERT (2019): https://aclanthology.org/N19-1423.pdf
+  확인 위치: 서론 / 3.1 Pre-training BERT
+- Brown 외 · Language Models are Few-Shot Learners (2020): https://arxiv.org/abs/2005.14165
+  확인 위치: Abstract
+
+29페이지 · 3.7 · 사전 학습
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 문장을 그대로 찾는 검색 저장소와 구분되는 모델 학습. 문서를 그대로 저장한 검색 창고처럼 표현하지 않음. 지시 튜닝·선호 학습은 4장까지 보류.
+- Devlin 외 · BERT (2019): https://aclanthology.org/N19-1423.pdf
+  확인 위치: 서론 / 3.1 Pre-training BERT
+- Brown 외 · Language Models are Few-Shot Learners (2020): https://arxiv.org/abs/2005.14165
+  확인 위치: Abstract
+
+30페이지 · 3.8 · 대규모 언어 모델
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 계열 예시 / 학습 목표 예시 / 주요 활용. BERT를 ChatGPT와 동일한 대화 서비스로 묘사하지 않음. 현재 모델의 규모·성능을 추정하지 않음.
+- Devlin 외 · BERT (2019): https://aclanthology.org/N19-1423.pdf
+  확인 위치: 서론 / 3.1 Pre-training BERT
+- Brown 외 · Language Models are Few-Shot Learners (2020): https://arxiv.org/abs/2005.14165
+  확인 위치: Abstract
+
+31페이지 · 3.9 · 언어 모델의 문장 생성
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외.
+- PWD Week10 원본 PDF · 11쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=11
+  확인 위치: 원본 요소 재사용·수정
+- PWD Week10 원본 PDF · 12쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=12
+  확인 위치: 원본 요소 재사용·수정
+
+32페이지 · 3.10 · 컨텍스트 윈도
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 문맥 구성도 — 한 요청에서 처리할 수 있는 문맥의 한도 · 영역 비율은 개략 표현. 숫자로 특정 제품 한도를 고정하지 않음. 파일 저장·모델 가중치·영구 기억을 같은 공간으로 그리지 않음.
+- Anthropic · Effective context engineering for AI agents (2025-09-29): https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
+  확인 위치: Context retrieval / Compaction / Structured note-taking
+
+33페이지 · 3.11 · 언어 모델의 환각
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 입력 문서 / 생성된 답변 예 / 문서와 대조. 최신 사실을 모르는 경우만 환각이라고 좁히지 않음. RAG가 항상 환각을 없앤다고 예고하지 않음.
+- Ouyang 외 · Training language models to follow instructions (2022): https://arxiv.org/abs/2203.02155
+  확인 위치: 논문 PDF 3쪽 Figure 2; 렌더 육안 확인
+- Lewis 외 · Retrieval-Augmented Generation (2020): https://arxiv.org/html/2005.11401v4
+  확인 위치: Figure 1 / 2 Methods
+
+34페이지 · 3.12 · 검색 증강 생성
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 창작 문서의 설명용 흐름 · 잘못 검색한 문서나 해석 오류는 여전히 확인 필요. 원 논문 Figure 1은 참고만 하고 학습 구조·MIPS 수식은 생략. MCP·도구 호출 API·에이전트의 자율 검색은 아직 넣지 않음.
+- Lewis 외 · Retrieval-Augmented Generation (2020): https://arxiv.org/html/2005.11401v4
+  확인 위치: Figure 1 / 2 Methods
+
+35페이지 · 코드 생성과 대화형 개발 지원
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+36페이지 · 4.1 · 코드 생성 모델
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 코드 발췌 — 생성할 코드의 문맥. 1~20·공백 처리의 완성 요구사항은 4.8에서 설명. 2021 Codex 모델과 현재 Codex 제품을 혼동하지 않음.
+- Chen 외 · Evaluating Large Language Models Trained on Code (2021): https://arxiv.org/abs/2107.03374
+  확인 위치: Abstract
+
+37페이지 · 4.2 · 코드 자동 완성
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 편집기 모식도 — 자동 완성의 편집기 모식도 · 흐린 부분은 아직 수락하지 않은 제안; 단계도 — 제안을 적용하고 실행할 책임을 가진 개발자. 지금의 전체 에이전트 IDE 화면을 초기 자동완성 사례로 넣지 않음. 모식도는 제품의 실제 스크린샷으로 표기하지 않음.
+- GitHub · Getting code suggestions in your IDE: https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions
+  확인 위치: Getting code suggestions / Accepting or rejecting suggestions
+
+38페이지 · 4.3 · 지시 튜닝
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 학습 데이터로 모델을 조정하는 단계 · 사용 중 프롬프트 수정과 구분. 프롬프트 문구를 바꾸는 행위와 지시 튜닝을 혼동하지 않음. 전체 Figure 2의 PPO·reward model은 아직 넣지 않음.
+- Ouyang 외 · Training language models to follow instructions (2022): https://arxiv.org/abs/2203.02155
+  확인 위치: 논문 PDF 3쪽 Figure 2; 렌더 육안 확인
+
+39페이지 · 4.4 · 사람의 피드백을 통한 학습
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 시범 답안의 모방과 선호 비교는 서로 다른 학습 자료. 현재 사용자의 좋아요 클릭이 즉시 해당 모델 가중치를 갱신한다고 쓰지 않음. 모든 최신 모델이 동일 RLHF 구현이라는 주장 제외.
+- Ouyang 외 · Training language models to follow instructions (2022): https://arxiv.org/abs/2203.02155
+  확인 위치: 논문 PDF 3쪽 Figure 2; 렌더 육안 확인
+
+40페이지 · 4.5 · 대화형 개발 지원
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 파일 적용과 실행은 개발자가 담당하는 대화형 개발 과정. 자동 파일 수정·도구 호출·자동 테스트 러너를 대화 모델의 기본 기능처럼 그리지 않음.
+- Chen 외 · Evaluating Large Language Models Trained on Code (2021): https://arxiv.org/abs/2107.03374
+  확인 위치: Abstract
+
+41페이지 · 4.6 · 개발 프롬프트
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 요소·설명·예시 3열을 재사용. 서비스 기획 예시를 문자열 제목 검사로 통일. 역할 지정은 선택임을 표시하고 반환 형식·공백·길이 조건 명시.
+- PWD Week10 원본 PDF · 17쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=17
+  확인 위치: 원본 요소 재사용·수정
+
+42페이지 · 4.7 · 퓨샷 프롬프팅
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 원본 비교표의 예시 유무 구도 재사용. 두 조건의 과제와 요청을 동일하게 유지하고 제목 입출력 예시만 추가. 높은 정확도 보장 표현 제거.
+- PWD Week10 원본 PDF · 19쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=19
+  확인 위치: 원본 요소 재사용·수정
+
+43페이지 · 4.8 · 게시글 제목 검사 함수
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 코드 발췌 — 문자열 입력 · boolean 반환; 표 — 입력 / 기대 결과. 여기서는 자동화 테스트 문법을 먼저 설명하지 않음. JS length는 UTF-16 단위이므로 이모지·조합문자의 사용자 인식 글자 수를 보장한다고 쓰지 않음.
+- ECMA-262 · String.prototype.trim / String length: https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim
+  확인 위치: String.prototype.trim / Properties of String Instances: length
+- 공통 예제 · title-validation.mjs: new-resource-research/examples/title-validation.mjs
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+- 공통 예제 · title-results.json: new-resource-research/examples/title-results.json
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+44페이지 · 4.9 · 생성 코드의 수정
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 원본 단계표의 순서에 맞춰 결과 확인부터 시작. 요약 길이 사례를 공백 제목의 실제값·기대값 및 수정 후 재실행으로 교체. 사람이 실행·결과 전달하는 범위 유지.
+- PWD Week10 원본 PDF · 22쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22
+  확인 위치: 원본 요소 재사용·수정
+
+45페이지 · 도구를 사용하는 AI 에이전트
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+46페이지 · 5.1 · 도구 호출
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 호출 요청을 만드는 모델과 실제 실행하는 애플리케이션의 역할 구분; 코드 발췌 — 가상의 파일 읽기 도구 요청. JSON을 생성하는 것만으로 파일이 열리는 도식 금지. MCP 서버나 자율 반복은 아직 없음.
+- OpenAI · Function calling: https://developers.openai.com/api/docs/guides/function-calling
+  확인 위치: How it works / Tool calls / Tool call outputs
+- 공통 예제 · tool-call.example.json: new-resource-research/examples/tool-call.example.json
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+47페이지 · 5.2 · 도구 실행 권한
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 요청 / 환경의 범위 / 실행 결과. 모델의 약속·시스템 프롬프트를 OS 샌드박스처럼 설명하지 않음. 권한 해제를 시연 목표로 삼지 않음.
+- OpenAI · Sandbox: https://learn.chatgpt.com/docs/sandboxing
+  확인 위치: What the sandbox does / Sandboxing and approvals
+
+48페이지 · 5.3 · AI 에이전트의 작업 반복
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 관계도 — 결과에 따른 작업 반복 · 모델 가중치의 학습과는 별도. 반복을 모델 가중치 학습으로 표시하지 않음. 테스트·Hooks·장기 목표 기능의 내부 구조를 미리 넣지 않음.
+- Anthropic · Building effective agents (2024-12-19): https://www.anthropic.com/research/building-effective-agents
+  확인 위치: What are agents? / Agents
+
+49페이지 · 5.4 · 개발 환경의 도구
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 개발 작업 / 도구 범주 / 얻는 결과. 제품마다 다른 도구 이름·UI를 공통 API로 쓰지 않음. 최신 전체 대시보드 이미지는 학습 목적 대비 정보가 많아 제외.
+- OpenAI · Codex CLI: https://developers.openai.com/codex/cli
+  확인 위치: Inspect, edit, and run code from your terminal
+- Anthropic · Claude Code overview: https://code.claude.com/docs/en/overview
+  확인 위치: Overview / Choose your environment
+
+50페이지 · 5.5 · 제목 검사 함수의 자동 수정
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 코드 발췌 — 수정 전 · 공백 처리 누락; 코드 발췌 — 수정 후; 표 — 입력 / 수정 전 / 수정 후. 실제 Claude/Codex 세션을 실행한 로그로 꾸미지 않음. node:assert 문법은 7.5까지 보류하고 단일 호출의 결과만 표시.
+- ECMA-262 · String.prototype.trim / String length: https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim
+  확인 위치: String.prototype.trim / Properties of String Instances: length
+- OpenAI · Function calling: https://developers.openai.com/api/docs/guides/function-calling
+  확인 위치: How it works / Tool calls / Tool call outputs
+- 공통 예제 · title-validation.mjs: new-resource-research/examples/title-validation.mjs
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+- 공통 예제 · title-results.json: new-resource-research/examples/title-results.json
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+51페이지 · 5.6 · 추론 모델
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 어려운 과제에 더 많은 계산을 사용할 수 있는 모델. 만든 내부 독백·CoT 프롬프트를 실제 추론 모델의 사고로 보여 주지 않음. 성능 향상을 보장하는 수치 그래프 제외.
+- OpenAI · Reasoning models: https://developers.openai.com/api/docs/guides/reasoning
+  확인 위치: Reasoning models / reasoning tokens
+
+52페이지 · 5.7 · 멀티모달 모델
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 오류 메시지 일부가 보이는 설명용 화면과 CSS 발췌. 실제 서비스·제품 캡처나 모델의 실제 진단 결과가 아님. 스크린샷 이해와 클릭 권한을 한 단계로 합치지 않음. 원인 진단 문구는 실제 모델 결과가 아닌 설명용 가설.
+- Google · What is Machine Learning?: https://developers.google.com/machine-learning/intro-to-ml/what-is-ml
+  확인 위치: Supervised learning / Unsupervised learning / Reinforcement learning
+- OpenAI · Computer use: https://developers.openai.com/api/docs/guides/tools-computer-use
+  확인 위치: Get started with computer use / runtime loop
+
+53페이지 · 5.8 · 컴퓨터 사용
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 게시글 화면의 편집 가능한 모식도와 관찰·행동·확인 절차. 실제 제품 화면이나 실행 기록이 아님. 고정 좌표만 있으면 항상 성공하는 것처럼 표현하지 않음. 브라우저 자동 검증은 7.6에서 완료 기준과 연결해 설명.
+- OpenAI · Computer use: https://developers.openai.com/api/docs/guides/tools-computer-use
+  확인 위치: Get started with computer use / runtime loop
+
+54페이지 · 5.9 · Model Context Protocol
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 관계도 — Model Context Protocol · 도구·문맥의 통신 규약이며 실행 권한 자체는 별도. Model Context Protocol 정확한 명칭 사용. 프로토콜 자체가 권한·자율성·정확성을 보장한다고 쓰지 않음.
+- MCP · Architecture overview: https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture
+  확인 위치: Participants / Layers / Data layer
+
+55페이지 · 프로젝트 맥락과 작업 절차의 관리
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+56페이지 · 6.1 · 프로젝트 맥락
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 파일 예시 / 역할 / 연결. 현재 저장소에 이 앱 구조가 존재한다고 쓰지 않음. 새 프레임워크·데이터베이스 설정 방법을 설명하지 않음.
+- OpenAI · Custom instructions with AGENTS.md: https://developers.openai.com/codex/guides/agents-md
+  확인 위치: How Codex discovers guidance / Layer project instructions
+
+57페이지 · 6.2 · 컨텍스트 설계
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 모든 파일의 일괄 입력보다 관련 정보의 선택과 적시 조회. 파일 전체를 무조건 프롬프트에 붙이는 방식이나 RAG와 동의어라는 설명 제외.
+- Anthropic · Effective context engineering for AI agents (2025-09-29): https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
+  확인 위치: Context retrieval / Compaction / Structured note-taking
+
+58페이지 · 6.3 · 프로젝트 지침 파일
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 시스템 프롬프트 표의 반복 규칙 구성만 참고. 실제 프로젝트 지침 예시로 새로 구체화하고 시스템 메시지 우선순위와 실행 권한을 동일시하지 않음.
+- PWD Week10 원본 PDF · 21쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=21
+  확인 위치: 원본 요소 재사용·수정
+
+59페이지 · 6.4 · 에이전트 스킬
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 코드 발췌 — 반복 절차를 묶은 스킬 폴더 예시; 단계도 — 프로젝트의 상시 규칙과 구분되는 특정 작업의 반복 절차. 이 파일을 실제 활성 스킬로 설치하지 않음. 모델 재학습·MCP 서버와 구분. 7.5의 assertion 코드는 아직 펼치지 않음.
+- Anthropic · Extend Claude with skills: https://code.claude.com/docs/en/skills
+  확인 위치: Introduction / Add supporting files
+- OpenAI · Build skills: https://learn.chatgpt.com/docs/build-skills
+  확인 위치: Progressive disclosure / skill directory
+
+60페이지 · 6.5 · 작업 진행 기록
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 구분 / 남기는 기록. 아직 실행하지 않은 브라우저 검사를 통과로 표시하지 않음. Git 브랜치·자동화 테스트 목록은 후속 장.
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+- 공통 예제 · title-results.json: new-resource-research/examples/title-results.json
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+61페이지 · 6.6 · 컨텍스트 압축
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 요약으로 문맥을 줄이되 필요한 세부를 다시 확인할 경로 유지. 압축 후 정보가 완전히 보존된다거나 가중치에 저장된다는 표현 제외.
+- Anthropic · Effective context engineering for AI agents (2025-09-29): https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
+  확인 위치: Context retrieval / Compaction / Structured note-taking
+
+62페이지 · 6.7 · 게시글 프로젝트의 작업 맥락
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 자료 / 역할 / 제목 수정 작업에서의 용도. CLAUDE.md·AGENTS.md·SKILL.md를 모든 도구가 동일하게 자동 적용한다고 쓰지 않음. 파일 이름은 제품별 예시.
+- OpenAI · Custom instructions with AGENTS.md: https://developers.openai.com/codex/guides/agents-md
+  확인 위치: How Codex discovers guidance / Layer project instructions
+- Anthropic · Extend Claude with skills: https://code.claude.com/docs/en/skills
+  확인 위치: Introduction / Add supporting files
+- OpenAI · Build skills: https://learn.chatgpt.com/docs/build-skills
+  확인 위치: Progressive disclosure / skill directory
+- Anthropic · Effective context engineering for AI agents (2025-09-29): https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
+  확인 위치: Context retrieval / Compaction / Structured note-taking
+
+63페이지 · 구현과 검증의 자동화
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+64페이지 · 7.1 · 요구사항 명세
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 명세 항목 / 조건. 테스트 코드·구현 순서·병렬화를 명세와 섞지 않음. 글자 수의 실습 범위는 공통 함수 주석과 일치.
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+- ECMA-262 · String.prototype.trim / String length: https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim
+  확인 위치: String.prototype.trim / Properties of String Instances: length
+
+65페이지 · 7.2 · 완료 기준
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 상황 / 기대 동작 / 확인할 근거. 초록 체크를 미리 넣지 않음. 단위 테스트 통과만으로 저장 기능 완료라고 하지 않음.
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+
+66페이지 · 7.3 · 구현 계획
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: PRD에서 작업 순서를 만드는 발상 참고. TaskMaster 제품·CLI 대신 현재 게시글 사례의 선후 의존 관계로 구체화. MCP 오기와 제품 설정은 옮기지 않음.
+- PWD Week10 원본 PDF · 24쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24
+  확인 위치: 원본 요소 재사용·수정
+
+67페이지 · 7.4 · 작업 분해
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 작업 목록을 생성·관리한다는 발상을 현재 사례의 입력·완료 결과·확인 방법 표로 구체화. 작업 분해 전에 병렬화나 자동 테스트를 전제하지 않음.
+- PWD Week10 원본 PDF · 24쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24
+  확인 위치: 원본 요소 재사용·수정
+
+68페이지 · 7.5 · 자동화 테스트
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 코드 발췌 — 입력과 고정 기대값의 비교; 표 — 검사 범위 / 수정 후 결과. 테스트를 통과시키려고 기대값을 변경하지 않음. 8건의 함수 검사가 전체 서비스 품질의 증명은 아님.
+- Node.js · Assert: https://nodejs.org/api/assert.html
+  확인 위치: Strict assertion mode / assert.strictEqual
+- ECMA-262 · String.prototype.trim / String length: https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim
+  확인 위치: String.prototype.trim / Properties of String Instances: length
+- 공통 예제 · check-title.mjs: new-resource-research/examples/check-title.mjs
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+- 공통 예제 · title-results.json: new-resource-research/examples/title-results.json
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+69페이지 · 7.6 · 브라우저 검증
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: page/expect 및 실행 중인 예제 앱을 전제로 하는 Playwright 발췌. 저장소의 실제 게시글 서비스 구현·DB 검증 완료를 뜻하지 않음. 요청·응답·저장 확인 범위를 표로 분리. 현재 발췌는 앱·서버가 없어 미실행. 네트워크 모킹으로 성공한 검사를 실제 DB 저장 검증으로 부르지 않음.
+- Playwright · Locators: https://playwright.dev/docs/locators
+  확인 위치: Quick Guide / Locate by role / Locate by label
+- Playwright · Assertions: https://playwright.dev/docs/test-assertions
+  확인 위치: Auto-retrying assertions / toHaveText
+- Playwright · Network: https://playwright.dev/docs/network
+  확인 위치: Network events / page.waitForResponse
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+- 공통 예제 · browser-check.fragment.txt: new-resource-research/examples/browser-check.fragment.txt
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+70페이지 · 7.7 · 구현과 검증의 반복
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 4.9의 반복 구도를 에이전트 구현·테스트·브라우저 검증으로 확장. 남은 작업 진행·실패 수정 후 재검증·전체 완료의 분기를 구분. 아직 미학습인 Hooks·하네스는 넣지 않음.
+- PWD Week10 원본 PDF · 22쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22
+  확인 위치: 원본 요소 재사용·수정
+
+71페이지 · 7.8 · 에이전트 Hooks
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — Claude Code 예: PostToolUse의 Edit/Write 이후 검사 · 차단 여부는 이벤트·설정에 따름. React Hooks와 무관함을 한 번 명시. 검사를 실행하는 것과 종료/도구 실행을 막는 것은 별도; 모든 hook이 차단하지 않음.
+- Anthropic · Automate actions with hooks: https://code.claude.com/docs/en/hooks-guide
+  확인 위치: How hooks work / Auto-format code after edits
+
+72페이지 · 7.9 · 실행 하네스
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 관계도 — 모델·도구·상태·검사·한도를 연결하는 실행 기반. 모델 자체와 하네스를 동일시하지 않음. 아직 배우지 않은 멀티에이전트·worktree·Goals UI는 넣지 않음.
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+- Anthropic · Building effective agents (2024-12-19): https://www.anthropic.com/research/building-effective-agents
+  확인 위치: What are agents? / Agents
+
+73페이지 · 7.10 · 변경사항 리뷰
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 코드 발췌 — 변경 전; 코드 발췌 — 변경 후; 표 — 리뷰 기준 / 확인 근거. 8.4의 브랜치/병합 전제 없이 파일 차이 개념만 사용. 실제 PR 리뷰 화면처럼 꾸미지 않음.
+- ECMA-262 · String.prototype.trim / String length: https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim
+  확인 위치: String.prototype.trim / Properties of String Instances: length
+- Node.js · Assert: https://nodejs.org/api/assert.html
+  확인 위치: Strict assertion mode / assert.strictEqual
+- 공통 예제 · title-validation.mjs: new-resource-research/examples/title-validation.mjs
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+- 공통 예제 · title-results.json: new-resource-research/examples/title-results.json
+  확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
+
+74페이지 · 7.11 · 게시글 등록 기능의 개발
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 같은 게시글 기능을 조건·구현·검증·리뷰로 연결한 개발 절차. 현재 구현 완료 화면이나 실제 검증 로그가 아님. 앱 제작 전에는 설명용 절차로 라벨링.
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+
+75페이지 · 개발 작업의 병렬화와 지속 실행
+자료 유형: 외부 자료 없음
+수정·적용: 주차·챕터의 제목과 범위
+
+76페이지 · 8.1 · 독립적인 작업 범위
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 코드 발췌 — 먼저 합의하는 요청·응답 계약 예; 역할·사례 비교 — 공유 계약을 유지하면서 나눌 수 있는 작업 범위. 계약 합의 없이 완전 독립이라고 하지 않음. 브랜치·worktree 폴더는 8.4~8.5까지 보류.
+- OpenAI · Subagents: https://learn.chatgpt.com/docs/agent-configuration/subagents
+  확인 위치: Core terms / Why subagent workflows help / Triggering subagent workflows
+- Anthropic · Orchestrate teams of Claude Code sessions: https://code.claude.com/docs/en/agent-teams
+  확인 위치: Compare with subagents / Architecture / Limitations
+
+77페이지 · 8.2 · 서브에이전트
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 작은 작업의 위임 구조 · 반드시 병렬 실행이나 파일 수정을 뜻하지 않음. 서브에이전트는 반드시 병렬 실행·파일 수정이라는 설명 제외. 별도 문맥이 사실 공유를 자동 보장하지 않음.
+- OpenAI · Subagents: https://learn.chatgpt.com/docs/agent-configuration/subagents
+  확인 위치: Core terms / Why subagent workflows help / Triggering subagent workflows
+
+78페이지 · 8.3 · 에이전트 팀
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 관계도 — Claude Code의 Agent Teams는 실험 기능 · 제품별 제공 상태와 동작에 차이. Claude Agent Teams는 확인일 기준 실험 기능·기본 비활성. Codex 서브에이전트와 제품 기능을 같다고 쓰지 않음.
+- Anthropic · Orchestrate teams of Claude Code sessions: https://code.claude.com/docs/en/agent-teams
+  확인 위치: Compare with subagents / Architecture / Limitations
+- OpenAI · Subagents: https://learn.chatgpt.com/docs/agent-configuration/subagents
+  확인 위치: Core terms / Why subagent workflows help / Triggering subagent workflows
+
+79페이지 · 8.4 · Git 브랜치
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 관계도 — 변경 이력의 분리 · 브랜치 생성은 별도 작업 폴더 생성과 구분. 브랜치 생성이 폴더 복사나 충돌 해결 자체라는 표현 제외. Pro Git의 master 이름은 예제에 그대로 강제하지 않음.
+- Pro Git · Branches in a Nutshell: https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+  확인 위치: Creating a New Branch / Switching Branches
+
+80페이지 · 8.5 · Git worktree
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 폴더·브랜치 관계와 명령을 제시. 현재 저장소에서는 이 명령을 실행하지 않았으며 실제 사용 시 기존 커밋·겹치지 않는 브랜치/경로 필요. DB·포트·외부 서비스까지 격리되는 컨테이너처럼 그리지 않음. 명령은 clean 예제 저장소에서 실행해야 하며 현재 강의 저장소에서는 미실행.
+- Git · git-worktree: https://git-scm.com/docs/git-worktree
+  확인 위치: DESCRIPTION / add / list
+
+81페이지 · 8.6 · 병렬 변경의 통합
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 병합 성공과 기능의 정상 동작은 별도 확인; 표 — UI의 가정 / 서버의 응답 / 통합 문제. 자동 merge 성공을 기능 성공으로 표시하지 않음. 다른 작업자의 변경을 지우는 해결법 제외.
+- Git · git-worktree: https://git-scm.com/docs/git-worktree
+  확인 위치: DESCRIPTION / add / list
+- Anthropic · Orchestrate teams of Claude Code sessions: https://code.claude.com/docs/en/agent-teams
+  확인 위치: Compare with subagents / Architecture / Limitations
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+
+82페이지 · 8.7 · 지속 실행 목표
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 표 — 목표의 구성 / 게시글 기능의 예. 무제한 자동 실행·항상 백그라운드 수행·예약 실행과 동일시하지 않음. Codex Goals 지원 빌드에서만 실제 명령 시연.
+- OpenAI Cookbook · Using Goals in Codex: https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex
+  확인 위치: Goals vs prompts / How to write a Goal / Quickstart
+
+83페이지 · 8.8 · 장기 작업의 중단과 재개
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 상태가 바뀌었다면 이전 검사도 다시 확인 · 모든 프로세스의 자동 복원을 뜻하지 않음. 모든 제품에서 실행 중 프로세스·서브에이전트까지 그대로 복원된다는 설명 제외. 오래된 통과 기록을 현 상태의 증거로 쓰지 않음.
+- Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+  확인 위치: Environment management / Feature list / Testing / Getting up to speed
+- OpenAI Cookbook · Using Goals in Codex: https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex
+  확인 위치: Goals vs prompts / How to write a Goal / Quickstart
+- Anthropic · Orchestrate teams of Claude Code sessions: https://code.claude.com/docs/en/agent-teams
+  확인 위치: Compare with subagents / Architecture / Limitations
+
+84페이지 · 8.9 · 예약 자동화
+자료 유형: 공식 자료를 참고한 강의용 재구성
+수정·적용: 실제 배치 자료: 단계도 — 예약 예시 · 로컬 프로젝트 작업에는 컴퓨터와 앱의 실행이 필요; 표 — 기능 / 결정하는 것. 실제 예약은 생성하지 않음. 로컬 프로젝트는 컴퓨터·앱 실행 필요; 클라우드 작업과 환경 조건을 합치지 않음.
+- OpenAI · Scheduled tasks: https://developers.openai.com/codex/app/automations
+  확인 위치: Scheduled tasks / project-scoped scheduled tasks
+- OpenAI Cookbook · Using Goals in Codex: https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex
+  확인 위치: Goals vs prompts / How to write a Goal / Quickstart
+- Anthropic · Automate actions with hooks: https://code.claude.com/docs/en/hooks-guide
+  확인 위치: How hooks work / Auto-format code after edits
+
+85페이지 · 8.10 · AI 개발에서의 개발자 판단
+자료 유형: 기존 PDF 자료 재사용·수정
+수정·적용: 과거/현재/미래라는 단정적 전망을 자동화 범위와 개발자의 판단 비교로 재구성. 프롬프트 디자이너로의 대체 주장을 제거하고 현재 원고의 범위·검증·통합 판단 반영.
+- PWD Week10 원본 PDF · 14쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=14
+  확인 위치: 원본 요소 재사용·수정
+

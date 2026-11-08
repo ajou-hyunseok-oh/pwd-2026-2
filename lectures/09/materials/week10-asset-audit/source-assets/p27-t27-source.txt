@@ -1,0 +1,12 @@
+항목
+설명
+기반 기술
+React, Tailwind CSS, Radix UI
+특징
+라이브러리가 아니라 복사 가능한 소스 코드를 제공 (직접 프로젝트에 포함)
+장점
+디자인 통일성, 커스터마이징 용이, TypeScript 친화적
+단점
+자동 업데이트 없음 (직접 코드 관리 필요)
+대표 컴포넌트
+Button, Input, Card, Modal, Tabs, Dropdown, Toast 등

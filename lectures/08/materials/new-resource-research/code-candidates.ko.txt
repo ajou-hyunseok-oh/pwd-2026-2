@@ -1,0 +1,83 @@
+8주차 · 신규 코드 후보 5개
+
+자료 조사용 발췌. 실제 실습 코드를 변경하거나 DB/서버에 실행하지 않음.
+서버·DB·React 실행 조건, 관찰할 결과, 생략 범위를 함께 표기.
+본문은 먼저 개념을 설명하고 코드는 해당 개념의 사례로 배치. 모든 장에 코드 추가하지 않음.
+
+4.6 · rls-select
+출처 적용: 공식 SELECT 정책의 테이블·정책 이름을 FoodMap에 맞춘 발췌
+전제: Supabase Auth가 확인한 사용자 문맥. public.reports.user_id는 uuid. authenticated의 SELECT 기본 권한이 있고, 해당 역할은 RLS 적용 대상이며, 이 예시에서는 다른 허용 SELECT 정책이 없음.
+
+```sql
+alter table public.reports enable row level security;
+
+create policy "read own reports"
+on public.reports for select
+to authenticated
+using ((select auth.uid()) = user_id);
+```
+
+관찰 결과: 인증 사용자 ID와 user_id가 같은 행만 반환. 미인증 요청은 이 authenticated 정책의 허용 대상이 아님.
+범위: SELECT 전용. SQL을 그대로 실행해 모든 CRUD 보안이 완성되지 않음. 정책 결합·소유자·BYPASSRLS 예외는 제작 메모와 4.7에서 구분.
+근거: https://supabase.com/docs/guides/database/postgres/row-level-security / https://www.postgresql.org/docs/current/ddl-rowsecurity.html
+
+6.1 · input-check
+출처 적용: 입력 검증 원칙을 적용한 자체 FoodMap 코드 발췌
+전제: 서버가 요청을 파싱해 얻은 name, latitude 값. 숫자로 받는 JSON API 예시. 에러를 입력 오류 응답으로 바꾸는 핸들러는 생략.
+
+```javascript
+const nameOK = typeof name === 'string'
+  && name.trim().length > 0 && name.length <= 100;
+const latitudeOK = Number.isFinite(latitude)
+  && latitude >= -90 && latitude <= 90;
+
+if (!nameOK || !latitudeOK) {
+  throw new Error('Invalid report input');
+}
+```
+
+관찰 결과: [아주식당, 37.28] 통과 / [공백만, 37.28] 거부 / [아주식당, 91] 거부 / [아주식당, 문자열 37.28] 거부.
+범위: 100은 예시 길이. 인증·인가·다른 필드 검증을 대체하지 않으며 이 발췌만으로 API가 완성되지 않음.
+근거: https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html
+
+6.2 · parameter-query
+출처 적용: node-postgres의 매개변수화 API 사용법을 FoodMap 검색 사례로 변경
+전제: 서버의 연결된 node-postgres client, restaurants.name 열과 검색 문자열 searchTerm. await가 가능한 함수 안의 발췌.
+
+```javascript
+const result = await client.query(
+  'SELECT name FROM restaurants WHERE name = $1',
+  [searchTerm]
+);
+```
+
+관찰 결과: 검색어에 따옴표가 있어도 $1의 값으로 전달되어 SQL 구조를 바꾸지 않음. 결과 행 유무는 실제 데이터에 따름.
+범위: 이름 완전 일치 검색 예시. 테이블명·열명은 값 매개변수로 바꿀 수 없음. 입력 검증과 접근 권한도 별도 적용.
+근거: https://node-postgres.com/features/queries#parameterized-query
+
+6.3 · jsx-text
+출처 적용: 공식 문자열 children·HTML 주입 설명을 바탕으로 자체 작성
+전제: React 컴포넌트의 반환 JSX 일부. report.description은 사용자 입력 문자열이며 예시는 <strong>추천</strong>.
+
+```jsx
+<p>{report.description}</p>
+```
+
+관찰 결과: strong 요소를 생성하지 않고 <strong>추천</strong> 문자를 그대로 화면에 표시.
+범위: 텍스트 자식 문맥의 예시. 모든 URL·HTML·스크립트 출력 문맥을 자동 보호한다고 일반화하지 않음.
+근거: https://react.dev/reference/react-dom/components/common#dangerously-setting-the-inner-html
+
+7.6 · migration-expand
+출처 적용: 공식 마이그레이션 파일 개념을 FoodMap 제보 상태 열 추가로 적용
+전제: reports 테이블에 아직 review_status가 없는 가상의 이전 버전. 검토용 SQL이며 실제 현재 스키마에 대한 실행 지시가 아님.
+
+```sql
+-- 20261107_add_report_review_status.sql
+alter table public.reports
+add column review_status text;
+```
+
+관찰 결과: 열이 추가되며 기존 행의 새 열 값은 NULL. 즉시 모든 행에 상태가 생기는 것은 아님.
+범위: 확장 첫 단계. 기존 데이터 의미를 확인한 보완, 새 코드 배포, 제약 추가는 별도로 설계. 운영 환경 실행·복원 명령 제외.
+근거: https://supabase.com/docs/guides/deployment/database-migrations
+

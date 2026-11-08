@@ -1,0 +1,33 @@
+{
+  "count": 16,
+  "translations": [
+    {
+      "locale": "ko",
+      "checked": 239,
+      "mismatches": 0
+    },
+    {
+      "locale": "en",
+      "checked": 239,
+      "mismatches": 0
+    }
+  ],
+  "errors": [],
+  "issues": [],
+  "date": "2026-11-07",
+  "revision": "README development flow",
+  "interaction_checks": [
+    "ArrowRight",
+    "End",
+    "Home",
+    "KO/EN",
+    "home and review navigation",
+    "PDF button"
+  ],
+  "visual_checks": [
+    "KO permissions/types/settings/query/input/verification/persistence/client",
+    "EN types/verification/client/access",
+    "KO/EN print types/client",
+    "390px mobile client"
+  ]
+}

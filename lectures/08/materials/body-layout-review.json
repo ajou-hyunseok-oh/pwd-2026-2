@@ -1,0 +1,125 @@
+{
+  "stage": "completed-bodies-and-resources",
+  "reviewed_on": "2026-11-07",
+  "counts": {
+    "chapters": 7,
+    "content_slides": 60,
+    "total_slides": 68,
+    "pdf_resource_slides": 16,
+    "new_resource_slides": 44
+  },
+  "authoring": {
+    "source": "../scripts/slide_body.py",
+    "paragraph_correspondence": "slide-bodies.json",
+    "korean_body": "week-08-body.ko.txt",
+    "references": "slide-references.html",
+    "reference_location": "별도 레퍼런스 문서; 슬라이드·숨김 노트에 출처 없음"
+  },
+  "content_review": [
+    {
+      "range": "1.1–1.7",
+      "finding": "사용자 식별·계정·신뢰 경계 뒤에 인증을 배치. 해시와 솔트를 설명한 뒤 검증 흐름에 적용. 입력 화면의 계정 선택과 증거 제출을 본문의 두 역할에 대응."
+    },
+    {
+      "range": "2.1–2.10",
+      "finding": "요청의 무상태성 → 쿠키 전달 → 서버 세션 → 토큰 → 서명 → JWT 구조·검증 순서 보존. 검증·만료는 조건표와 시간축에 대응하고 브라우저 보관 여부와 서버 수용 여부를 구분."
+    },
+    {
+      "range": "3.1–3.8",
+      "finding": "OAuth의 접근 위임과 OIDC의 신원 전달을 분리. 코드 교환에 state·PKCE를 순서대로 추가하고 외부 계정의 iss/sub를 내부 ID로 연결. 서버 교환 사례의 메시지 방향과 검증 지점을 유지."
+    },
+    {
+      "range": "4.1–4.8",
+      "finding": "역할·소유 관계·기본 거부를 요청 권한 검사로 연결. RLS 예시의 SELECT 권한·적용 역할·다른 허용 정책 부재를 표시. API 키와 사용자 신원을 구분하고 특권 서버 경로의 인가 책임 설명."
+    },
+    {
+      "range": "5.1–5.7",
+      "finding": "사용자/관리 기능과 플랫폼 관리 권한의 범위를 분리. 검토 결정·공개 상태, 트랜잭션·중복 요청 처리를 각각 구분. 감사 로그의 행위자·대상·결과를 예시 행과 대응."
+    },
+    {
+      "range": "6.1–6.10",
+      "finding": "입력 검증 후 명령/데이터 분리와 텍스트/HTML 출력을 설명. 출처·사이트를 먼저 정의한 뒤 SOP·CORS·CSRF·쿠키 보호 속성에 적용. 전송과 응답 읽기를 구분하고 방어 수단별 보호 범위를 한정."
+    },
+    {
+      "range": "7.1–7.10",
+      "finding": "실행 환경과 사용자/관리 화면을 독립된 기준으로 설명. 설정·비밀정보·데이터 연결 대상의 분리를 코드와 환경 도식으로 대응. 배포·마이그레이션·모니터링·백업·롤백·복원의 대상과 호환성·보존 조건 구분."
+    }
+  ],
+  "layout_review": {
+    "definition_structure": "굵은 개념 - 정의, 아래에 들여쓴 세부 글머리표. 표·흐름·코드는 설명의 관계를 구체화하는 자료로 배치.",
+    "composition": "요청 흐름·코드는 설명 옆에, 짧은 비교표는 설명 아래에 넓게 배치. JWT 검증·만료·입력 검증은 중복 설명을 표로 통합.",
+    "diagram_adjustment": "시퀀스 메시지·검증 메모 길이에 따라 행 높이 자동 조정. state·PKCE의 영문 라벨을 의미를 유지하며 간결화.",
+    "manual_visual_inspection": "KO 본문 60장 전체 접촉 시트 확인. 변경한 비교표 재확인. EN JWT 검증·만료·state·PKCE·API 키·쿠키 속성·환경 설정 등 밀도 높은 장 확인. 인쇄 CORS·환경 분리, 모바일 상단과 끝부분 확인."
+  },
+  "validation": {
+    "shared_tests": "npm test --prefix packages/web-deck 통과: 13 lecture decks, 167 code blocks / 332 language variants, 8 structured decks",
+    "week08_code_format": "28 blocks / 56 language variants; 구문·공용 서식 검사 통과",
+    "source_checks": [
+      "build-slides.py",
+      "title_outline.py",
+      "paragraph_outline.py",
+      "body_review.py",
+      "audit_week6_assets.py",
+      "research_new_resources.py",
+      "resource_placements.py",
+      "slide_references.py"
+    ],
+    "source_check_result": "모든 --check 통과",
+    "render_audit": {
+      "count": 68,
+      "translations": [
+        {
+          "locale": "ko",
+          "checked": 1305,
+          "mismatches": 0
+        },
+        {
+          "locale": "en",
+          "checked": 1305,
+          "mismatches": 0
+        }
+      ],
+      "errors": [],
+      "issues": []
+    },
+    "sequence_and_reference_checks": {
+      "counts": {
+        "messages": 130,
+        "localNotes": 50,
+        "mobileRows": 180
+      },
+      "issues": [],
+      "structure": {
+        "contentSlides": 60,
+        "bodySlides": 60,
+        "hiddenSourceNotes": 0
+      },
+      "referenceSections": 60
+    },
+    "mobile_end_visibility": {
+      "checked": 136,
+      "issues": []
+    },
+    "pdf_pages": {
+      "ko": 68,
+      "en": 68,
+      "page_size_points": [
+        960,
+        540
+      ]
+    },
+    "evidence_directories": [
+      "/tmp/pwd08-body-final-3",
+      "/tmp/pwd08-body-final-2",
+      "/tmp/pwd08-body-final"
+    ],
+    "scope": "발표·인쇄·390px 모바일 화면 및 정적 검사. 코드 구현 내용은 변경하지 않았으며 운영 서비스나 DB에 실행하지 않음."
+  },
+  "temporary_server_cleanup": {
+    "pid": 29502,
+    "port": 4318,
+    "process_exited": true,
+    "connection_refused": true,
+    "listener_released": true
+  }
+}

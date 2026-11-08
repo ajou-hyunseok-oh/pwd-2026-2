@@ -148,7 +148,11 @@ async function processDeck(htmlPath) {
   if (targetIndex >= 0) assert.match(target || '', /^\d{2}$/, '--lecture requires a two-digit lecture number');
   const folders = fs.readdirSync(lectureRoot).filter((name) => /^\d{2}$/.test(name) && (!target || name === target)).sort();
   assert.ok(folders.length, 'No matching lecture folder');
-  for (const folder of folders) await processDeck(path.join(lectureRoot, folder, 'index.html'));
+  for (const folder of folders) {
+    await processDeck(path.join(lectureRoot, folder, 'index.html'));
+    const review = path.join(lectureRoot, folder, 'lab-review', 'index.html');
+    if (fs.existsSync(review)) await processDeck(review);
+  }
   if (!target) await processDeck(path.join(packageRoot, 'template', 'index.html'));
   if (errors.length) throw new Error(errors.join('\n'));
   console.log('Code examples: ' + blocks + ' blocks / ' + variants + ' language variants ' + (write ? 'formatted' : 'checked') + '; syntax checks passed');

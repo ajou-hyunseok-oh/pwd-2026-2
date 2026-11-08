@@ -12,6 +12,7 @@ const decode = text => text.replace(/&#(x[0-9a-f]+|\d+);|&(amp|lt|gt|quot|apos);
 let decks = 0;
 let preservedDecks = 0;
 const directories = Array.from({length: 9}, (_, index) => String(index + 5).padStart(2, '0'));
+for (const number of ['08', '09']) directories.push(number + '/lab-review');
 for (const entry of fs.readdirSync(path.join(root, 'lectures'), {withFileTypes: true})) {
   if (!entry.isDirectory() || !/^[a-z][a-z0-9-]*$/.test(entry.name)) continue;
   const indexPath = path.join(root, 'lectures', entry.name, 'index.html');
@@ -23,7 +24,8 @@ for (const directory of (process.env.AUTHORING_DECKS || '').split(',').map(value
   if (!directories.includes(directory)) directories.push(directory);
 }
 for (const number of directories) {
-  const week = Number(number);
+  const lectureNumber = number.split('/')[0];
+  const week = Number(lectureNumber);
   const directory = path.join(root, 'lectures', number);
   const html = fs.readFileSync(path.join(directory, 'index.html'), 'utf8');
   const supplement = html.match(/<body\b[^>]*data-wd-supplement="([^"]+)"/)?.[1];
@@ -94,7 +96,7 @@ for (const number of directories) {
       };
       const title = field('wd-lesson-title');
       field('wd-lesson-cover__subtitle');
-      const source = supplement ? `SUPPLEMENT · ${supplement}` : `LECTURE ${number}`;
+      const source = supplement ? `SUPPLEMENT · ${supplement}` : `LECTURE ${lectureNumber}`;
       assert.equal(field('wd-lesson-source').text, source, `${label}: wrong lecture or supplement identity`);
       if (supplement) {
         assert.equal(body.split(source).length - 1, 1, `${label}: repeated supplement label`);

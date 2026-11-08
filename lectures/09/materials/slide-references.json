@@ -1,0 +1,2373 @@
+{
+  "updated_on": "2026-11-07",
+  "slide_count": 85,
+  "content_count": 76,
+  "reused_resource_count": 16,
+  "new_resource_count": 60,
+  "numbering": "표지·챕터를 포함한 실제 화면의 1부터 시작하는 페이지 번호",
+  "source_location": "이 문서에서만 관리. 강의 본문·숨김 노트에는 출처 없음.",
+  "slides": [
+    {
+      "slide_number": 1,
+      "id": "cover",
+      "kind": "cover",
+      "title": "9주차 표지",
+      "slide_link": "../index.html#/1",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 2,
+      "id": "chapter-01",
+      "kind": "chapter",
+      "title": "인공지능의 출발",
+      "slide_link": "../index.html#/2",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 3,
+      "id": "artificial-intelligence",
+      "kind": "content",
+      "title": "인공지능",
+      "slide_link": "../index.html#/3",
+      "outline_number": "1.1",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 과제 / 입력 / 필요한 처리. LLM·학습 데이터·토큰·AI/ML/DL 포함 관계를 아직 넣지 않음. 규칙 프로그램이 AI가 될 수 없다는 이분법도 피함.",
+      "references": [
+        {
+          "label": "Stanford AI100 · A Short History of AI",
+          "url": "https://ai100.stanford.edu/reports/2016-report/appendix-i-short-history-ai",
+          "type": "institutional-report",
+          "section": "분야의 형성·기호 추론·병행한 접근의 역사",
+          "use": "연구 과제와 구현 접근의 차이를 설명하는 근거.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 과제 / 입력 / 필요한 처리."
+      ],
+      "chapter": 1,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 4,
+      "id": "turing-test",
+      "kind": "content",
+      "title": "튜링 테스트",
+      "slide_link": "../index.html#/4",
+      "outline_number": "1.2",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "역할 표를 편집형 한영 표로 변환. 판정 범위를 문자 대화에서 관찰한 행동으로 한정. 그림 I04-test는 같은 관계의 대안으로 보관.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 4쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=4",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "역할 표를 편집형 한영 표로 변환. 판정 범위를 문자 대화에서 관찰한 행동으로 한정. 그림 I04-test는 같은 관계의 대안으로 보관."
+        }
+      ],
+      "assets": [
+        "T04"
+      ],
+      "chapter": 1,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 5,
+      "id": "dartmouth",
+      "kind": "content",
+      "title": "다트머스 연구 모임",
+      "slide_link": "../index.html#/5",
+      "outline_number": "1.3",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "PDF 1쪽 제목·작성자·날짜 부분만 발췌. 1955년 제안과 1956년 모임을 네이티브 흐름으로 구분. 페이지 전체는 사용하지 않음. 제안서 발행과 모임 연도를 합치지 않음. 2006 재회 사진·현재 캠퍼스 사진을 1956 당시 기록으로 쓰지 않음.",
+      "references": [
+        {
+          "label": "McCarthy 외 · Dartmouth proposal (1955)",
+          "url": "https://www-formal.stanford.edu/jmc/history/dartmouth.pdf",
+          "type": "primary-paper",
+          "section": "PDF 1쪽 제목·1955-08-31 날짜·첫 문단; 렌더 육안 확인",
+          "use": "1955년 작성된 제안이 1956년 여름 연구를 제안함. 텍스트 추출은 깨져 HTML판과 화면을 함께 대조.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Dartmouth · The Founding and Future of AI",
+          "url": "https://ai.dartmouth.edu/our-story",
+          "type": "institutional-history",
+          "section": "Where AI was Born / Defining a Field",
+          "use": "1956년 모임의 기관 기록. 현재 캠퍼스 사진을 당시 모임 사진으로 쓰지 않음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "슬라이드에 배치한 개별 발췌 이미지",
+          "url": "../assets/new/dartmouth-proposal-heading.png",
+          "type": "local-image",
+          "section": "PDF 1쪽의 지정 영역 발췌",
+          "use": "원본 영역 발췌·비율 유지; 내용 합성·확률 변경 없음"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 발췌 이미지 — 공동 연구의 목표를 제시한 제안서; 단계도 — 완성 기술의 발표가 아닌 연구 분야의 출발."
+      ],
+      "chapter": 1,
+      "body_resource_status": "배치 완료",
+      "extracted_asset": {
+        "file": "assets/new/dartmouth-proposal-heading.png",
+        "url": "https://www-formal.stanford.edu/jmc/history/dartmouth.pdf",
+        "pdf_page": 1,
+        "crop_points": [
+          150,
+          155,
+          462,
+          323
+        ],
+        "source_sha256": "ae7efb8fdad2045dcfcf84811d20651aef448495c8b0dbf4461624996b1b6ea8",
+        "output_sha256": "2f5292a9450d112de9f7bb76779ac92b4c4bbf5f3b97e0b32e2733c135f59580",
+        "width": 1560,
+        "height": 840,
+        "transformation": "원본 영역 발췌·비율 유지; 내용 합성·확률 변경 없음"
+      }
+    },
+    {
+      "slide_number": 6,
+      "id": "symbolic-ai",
+      "kind": "content",
+      "title": "기호 기반 인공지능",
+      "slide_link": "../index.html#/6",
+      "outline_number": "1.4",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 기호로 표현한 사실과 명시적 규칙을 연결하는 분류 예시. 전문가 시스템 전체 구조·학습·역전파를 이 도식에 포함하지 않음.",
+      "references": [
+        {
+          "label": "Stanford AI100 · A Short History of AI",
+          "url": "https://ai100.stanford.edu/reports/2016-report/appendix-i-short-history-ai",
+          "type": "institutional-report",
+          "section": "분야의 형성·기호 추론·병행한 접근의 역사",
+          "use": "연구 과제와 구현 접근의 차이를 설명하는 근거.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 기호로 표현한 사실과 명시적 규칙을 연결하는 분류 예시."
+      ],
+      "chapter": 1,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 7,
+      "id": "perceptron",
+      "kind": "content",
+      "title": "퍼셉트론",
+      "slide_link": "../index.html#/7",
+      "outline_number": "1.5",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "오른쪽 입력·가중치·합산·판단 구조를 편집형 도식으로 재구성. 두 입력으로 단순화하고 임곗값 비교를 명시. 생물학 용어·일반 활성 함수 표기·XOR 보조 그림 제외.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 5쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=5",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "오른쪽 입력·가중치·합산·판단 구조를 편집형 도식으로 재구성. 두 입력으로 단순화하고 임곗값 비교를 명시. 생물학 용어·일반 활성 함수 표기·XOR 보조 그림 제외."
+        }
+      ],
+      "assets": [
+        "I05-unit"
+      ],
+      "chapter": 1,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 8,
+      "id": "expert-system",
+      "kind": "content",
+      "title": "전문가 시스템",
+      "slide_link": "../index.html#/8",
+      "outline_number": "1.6",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "사용자·인터페이스·추론 엔진·지식 베이스·결과의 구성과 모든 연결을 유지한 편집형 도식. 한국어 비트맵의 영문 전용 문제를 해소.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 6쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=6",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "사용자·인터페이스·추론 엔진·지식 베이스·결과의 구성과 모든 연결을 유지한 편집형 도식. 한국어 비트맵의 영문 전용 문제를 해소."
+        }
+      ],
+      "assets": [
+        "I06"
+      ],
+      "chapter": 1,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 9,
+      "id": "chapter-02",
+      "kind": "chapter",
+      "title": "데이터로 학습하는 인공지능",
+      "slide_link": "../index.html#/9",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 10,
+      "id": "ai-winter",
+      "kind": "content",
+      "title": "AI 겨울",
+      "slide_link": "../index.html#/10",
+      "outline_number": "2.1",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "실측값처럼 보이는 곡선을 시기별 개략 시간선으로 정리. 1990년 머신러닝 최초 등장 표기와 미학습 딥러닝·생성형 AI 구간 제거.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 3쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=3",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "실측값처럼 보이는 곡선을 시기별 개략 시간선으로 정리. 1990년 머신러닝 최초 등장 표기와 미학습 딥러닝·생성형 AI 구간 제거."
+        }
+      ],
+      "assets": [
+        "I03"
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 11,
+      "id": "machine-learning",
+      "kind": "content",
+      "title": "머신러닝",
+      "slide_link": "../index.html#/11",
+      "outline_number": "2.2",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 기준을 얻는 방식 / 준비하는 것 / 판단에 사용하는 것. 분류 사례를 제시하되 지도학습이라는 유형 이름·신경망 구조를 먼저 정의하지 않음.",
+      "references": [
+        {
+          "label": "Google · What is Machine Learning?",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+          "type": "official-documentation",
+          "section": "Supervised learning / Unsupervised learning / Reinforcement learning",
+          "use": "학습 유형의 입력·피드백 차이 확인. 클러스터의 의미는 사람이 해석.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Google · Supervised Learning",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/supervised",
+          "type": "official-documentation",
+          "section": "Model / Training / Inference; Figures 1~3",
+          "use": "예측·실제값 비교와 모델 갱신, 학습한 모델의 새 입력 처리를 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 기준을 얻는 방식 / 준비하는 것 / 판단에 사용하는 것."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 12,
+      "id": "training",
+      "kind": "content",
+      "title": "모델의 학습",
+      "slide_link": "../index.html#/12",
+      "outline_number": "2.3",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 학습 데이터의 반복 처리 · 처음 보는 데이터에서의 성능은 별도 확인. 정확도가 매번 단조 증가한다는 가짜 그래프·역전파 수식·구체 학습률 제외.",
+      "references": [
+        {
+          "label": "Google · Supervised Learning",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/supervised",
+          "type": "official-documentation",
+          "section": "Model / Training / Inference; Figures 1~3",
+          "use": "예측·실제값 비교와 모델 갱신, 학습한 모델의 새 입력 처리를 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 학습 데이터의 반복 처리 · 처음 보는 데이터에서의 성능은 별도 확인."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 13,
+      "id": "inference",
+      "kind": "content",
+      "title": "모델의 추론",
+      "slide_link": "../index.html#/13",
+      "outline_number": "2.4",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 한 번의 추론 요청은 학습한 값의 갱신과 구분. 추론(inference)을 5.6의 추론 모델(reasoning model)과 같은 뜻으로 설명하지 않음.",
+      "references": [
+        {
+          "label": "Google · Supervised Learning",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/supervised",
+          "type": "official-documentation",
+          "section": "Model / Training / Inference; Figures 1~3",
+          "use": "예측·실제값 비교와 모델 갱신, 학습한 모델의 새 입력 처리를 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 한 번의 추론 요청은 학습한 값의 갱신과 구분."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 14,
+      "id": "supervised-learning",
+      "kind": "content",
+      "title": "지도학습",
+      "slide_link": "../index.html#/14",
+      "outline_number": "2.5",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 학습 메시지 / 제공된 정답. 표 4행으로 충분한 실제 모델을 학습했다고 주장하지 않음. 성능 숫자·실제 이메일 개인정보 제외.",
+      "references": [
+        {
+          "label": "Google · Supervised Learning",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/supervised",
+          "type": "official-documentation",
+          "section": "Model / Training / Inference; Figures 1~3",
+          "use": "예측·실제값 비교와 모델 갱신, 학습한 모델의 새 입력 처리를 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 학습 메시지 / 제공된 정답."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 15,
+      "id": "unsupervised-learning",
+      "kind": "content",
+      "title": "비지도학습",
+      "slide_link": "../index.html#/15",
+      "outline_number": "2.6",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 역할·사례 비교 — 정답 없이 유사한 문의를 묶은 설명용 결과. 그룹 이름이 학습 때 제공된 정답처럼 보이지 않게 함. 임베딩 좌표·클러스터 알고리즘 수학은 제외.",
+      "references": [
+        {
+          "label": "Google · What is Machine Learning?",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+          "type": "official-documentation",
+          "section": "Supervised learning / Unsupervised learning / Reinforcement learning",
+          "use": "학습 유형의 입력·피드백 차이 확인. 클러스터의 의미는 사람이 해석.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 역할·사례 비교 — 정답 없이 유사한 문의를 묶은 설명용 결과."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 16,
+      "id": "reinforcement-learning",
+      "kind": "content",
+      "title": "강화학습",
+      "slide_link": "../index.html#/16",
+      "outline_number": "2.7",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 설명용 보상 규칙: 도착 +1 · 그 외 0 · 여러 행동에 걸친 누적 보상 추구. 최적 경로를 실제로 학습한 결과처럼 표시하지 않음. 5장의 도구 사용 에이전트와 보상 학습을 동일시하지 않음.",
+      "references": [
+        {
+          "label": "Google · What is Machine Learning?",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+          "type": "official-documentation",
+          "section": "Supervised learning / Unsupervised learning / Reinforcement learning",
+          "use": "학습 유형의 입력·피드백 차이 확인. 클러스터의 의미는 사람이 해석.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 설명용 보상 규칙: 도착 +1 · 그 외 0 · 여러 행동에 걸친 누적 보상 추구."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 17,
+      "id": "neural-network",
+      "kind": "content",
+      "title": "인공 신경망",
+      "slide_link": "../index.html#/17",
+      "outline_number": "2.8",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "단일 퍼셉트론과 2입력·2은닉·1출력 연결 구조를 보존한 편집형 도식. 한영 라벨을 분리하고 역전파·손실 용어는 추가하지 않음.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 8쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=8",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "단일 퍼셉트론과 2입력·2은닉·1출력 연결 구조를 보존한 편집형 도식. 한영 라벨을 분리하고 역전파·손실 용어는 추가하지 않음."
+        }
+      ],
+      "assets": [
+        "I08-network"
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 18,
+      "id": "backpropagation",
+      "kind": "content",
+      "title": "역전파",
+      "slide_link": "../index.html#/18",
+      "outline_number": "2.9",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "2.8에서 배운 층 연결을 역할별 상자로 단순화하고 역방향의 영향 계산을 추가. 역전파와 별도 가중치 갱신을 구분. XOR 분류 경계로 역전파를 대신하지 않음. 미분을 이미 배웠다고 전제하는 수식·PyTorch 코드 제외.",
+      "references": [
+        {
+          "label": "PyTorch · Automatic Differentiation with torch.autograd",
+          "url": "https://docs.pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html",
+          "type": "official-documentation",
+          "section": "Computing Gradients / More on Computational Graphs",
+          "use": "역방향으로 기울기를 계산하는 과정과 이후 가중치 갱신을 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 관계도 — 역전파: 영향 계산 · 가중치 갱신: 계산 결과를 이용한 조정."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 19,
+      "id": "deep-learning",
+      "kind": "content",
+      "title": "딥러닝",
+      "slide_link": "../index.html#/19",
+      "outline_number": "2.10",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "AI⊃ML⊃DL 포함 관계를 편집형 중첩 도식으로 유지. 뇌 유사성 대신 데이터 학습·여러 층 표현 학습으로 정의 교정. I09의 미학습 손실·함수·RNN 오기 자료는 대안에서 제외.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 7쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=7",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "AI⊃ML⊃DL 포함 관계를 편집형 중첩 도식으로 유지. 뇌 유사성 대신 데이터 학습·여러 층 표현 학습으로 정의 교정. I09의 미학습 손실·함수·RNN 오기 자료는 대안에서 제외."
+        }
+      ],
+      "assets": [
+        "I07"
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 20,
+      "id": "alexnet",
+      "kind": "content",
+      "title": "AlexNet의 이미지 분류",
+      "slide_link": "../index.html#/20",
+      "outline_number": "2.11",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "Figure 4 왼쪽의 표범 사례 하나를 발췌. 사진·정답·상위 5개 라벨·확률 막대를 유지하고 한영 후보 명칭을 별도 표로 추가. 확률 수치는 새로 만들지 않음. 원본 그림의 데이터는 ILSVRC-2010; 논문 발표 연도는 2012. 원본의 라벨/확률 막대 관계 유지. Figure 4는 ILSVRC-2010 이미지이며 2012 대회 결과표와 혼동 금지. CNN·pooling 구조 전체는 범위 밖.",
+      "references": [
+        {
+          "label": "Krizhevsky 외 · ImageNet Classification (2012)",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+          "type": "primary-paper",
+          "section": "PDF 8쪽 Figure 4 왼쪽; 렌더 육안 확인",
+          "use": "사진 8개와 각 top-5 예측. 오른쪽 유사 이미지 검색은 별도 과제. 그림의 데이터는 ILSVRC-2010이며 논문 연도는 2012.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "슬라이드에 배치한 개별 발췌 이미지",
+          "url": "../assets/new/alexnet-leopard-predictions.png",
+          "type": "local-image",
+          "section": "PDF 8쪽의 지정 영역 발췌",
+          "use": "원본 영역 발췌·비율 유지; 내용 합성·확률 변경 없음"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 발췌 이미지 — 입력 사진 · 실제 분류 · 상위 예측 후보; 표 — 예측 순위 / 후보."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료",
+      "extracted_asset": {
+        "file": "assets/new/alexnet-leopard-predictions.png",
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+        "pdf_page": 8,
+        "crop_points": [
+          246,
+          81,
+          292,
+          156.8
+        ],
+        "source_sha256": "90137160c57217953d5f61857e64ca58e85f06e1b13b4f475c918b1b582b9771",
+        "output_sha256": "e452fc8d2f10cba473180393cb63599f7e68a10b33f43388c2fc3e30e56c7b4e",
+        "width": 230,
+        "height": 379,
+        "transformation": "원본 영역 발췌·비율 유지; 내용 합성·확률 변경 없음"
+      }
+    },
+    {
+      "slide_number": 21,
+      "id": "alphago",
+      "kind": "content",
+      "title": "AlphaGo의 바둑 판단",
+      "slide_link": "../index.html#/21",
+      "outline_number": "2.12",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 역할·사례 비교 — 바둑판 상태를 신경망과 탐색으로 처리. 2016 AlphaGo를 사람 기보 없이 학습한 AlphaGo Zero로 묘사하지 않음. 정답 수·승률을 임의 생성한 바둑판은 쓰지 않음.",
+      "references": [
+        {
+          "label": "Google DeepMind · AlphaGo",
+          "url": "https://deepmind.google/research/alphago/",
+          "type": "primary-project",
+          "section": "Our approach / The matches",
+          "use": "사람 기보·자기 대국 학습과 정책/가치 신경망·탐색의 결합. 2016 이세돌 대국과 후속 AlphaGo Zero를 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 역할·사례 비교 — 바둑판 상태를 신경망과 탐색으로 처리."
+      ],
+      "chapter": 2,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 22,
+      "id": "chapter-03",
+      "kind": "chapter",
+      "title": "대규모 언어 모델의 등장",
+      "slide_link": "../index.html#/22",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 23,
+      "id": "language-model",
+      "kind": "content",
+      "title": "언어 모델",
+      "slide_link": "../index.html#/23",
+      "outline_number": "3.1",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 역할·사례 비교 — 문맥에 이어질 여러 표현의 가능성을 다루는 모델. 단어 카드가 실제 토큰 분할이라는 인상을 주지 않음. 생성 반복과 샘플링은 3.9 이후.",
+      "references": [
+        {
+          "label": "Brown 외 · Language Models are Few-Shot Learners (2020)",
+          "url": "https://arxiv.org/abs/2005.14165",
+          "type": "primary-paper",
+          "section": "Abstract",
+          "use": "자기회귀 언어 모델의 규모 확대와 문맥 예시 활용. 문맥에 예시를 넣는 것과 가중치 갱신은 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 역할·사례 비교 — 문맥에 이어질 여러 표현의 가능성을 다루는 모델."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 24,
+      "id": "tokens",
+      "kind": "content",
+      "title": "토큰",
+      "slide_link": "../index.html#/24",
+      "outline_number": "3.2",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 토큰 분할표 — cl100k_base의 실제 분할 결과 · 조각마다 대응하는 식별 번호. 모든 모델이 같은 분할을 한다거나 ID가 의미 크기라고 설명하지 않음. Python 라이브러리 사용법은 학습 목표가 아니므로 표를 우선.",
+      "references": [
+        {
+          "label": "OpenAI Cookbook · How to count tokens with tiktoken",
+          "url": "https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken",
+          "type": "official-documentation",
+          "section": "Encodings / encode / decode_single_token_bytes",
+          "use": "문자열 분할은 인코딩에 의존. 문서는 archived 표시이므로 최신 모델 대응표는 사용하지 않고 명명된 인코딩을 로컬 실행.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · inspect_tokens.py",
+          "url": "new-resource-research/examples/inspect_tokens.py",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        },
+        {
+          "label": "공통 예제 · token-results.json",
+          "url": "new-resource-research/examples/token-results.json",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 토큰 분할표 — cl100k_base의 실제 분할 결과 · 조각마다 대응하는 식별 번호."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 25,
+      "id": "embeddings",
+      "kind": "content",
+      "title": "임베딩",
+      "slide_link": "../index.html#/25",
+      "outline_number": "3.3",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 벡터는 차원을 줄인 임의 예시 · 토큰 ID의 크기가 의미의 크기는 아님. 임의 벡터를 실제 모델에서 추출했다고 쓰지 않음. 축에 성별·감정 같은 고정 의미를 부여하지 않음.",
+      "references": [
+        {
+          "label": "Vaswani 외 · Attention Is All You Need (2017)",
+          "url": "https://arxiv.org/html/1706.03762v7",
+          "type": "primary-paper",
+          "section": "3.2 Attention / 3.4 Embeddings and Softmax / 3.5 Positional Encoding",
+          "use": "토큰의 벡터 표현, 위치 정보, 관련성에 따른 가중 결합의 근거. 강의의 한국어 예시 수치는 별도 창작.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 벡터는 차원을 줄인 임의 예시 · 토큰 ID의 크기가 의미의 크기는 아님."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 26,
+      "id": "attention",
+      "kind": "content",
+      "title": "어텐션",
+      "slide_link": "../index.html#/26",
+      "outline_number": "3.4",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 관계도 — 관련성 설명용 연결선 · 실제 어텐션 가중치나 내부 사고의 기록은 아님. 문법적 관계 하나가 모델 내부 사고의 증거라고 쓰지 않음. Q/K/V 행렬·softmax 식은 넣지 않음.",
+      "references": [
+        {
+          "label": "Vaswani 외 · Attention Is All You Need (2017)",
+          "url": "https://arxiv.org/html/1706.03762v7",
+          "type": "primary-paper",
+          "section": "3.2 Attention / 3.4 Embeddings and Softmax / 3.5 Positional Encoding",
+          "use": "토큰의 벡터 표현, 위치 정보, 관련성에 따른 가중 결합의 근거. 강의의 한국어 예시 수치는 별도 창작.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 관계도 — 관련성 설명용 연결선 · 실제 어텐션 가중치나 내부 사고의 기록은 아님."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 27,
+      "id": "transformer",
+      "kind": "content",
+      "title": "Transformer",
+      "slide_link": "../index.html#/27",
+      "outline_number": "3.5",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "토큰·임베딩·어텐션·표현 변환 구도를 유지. 순서 정보와 층 반복을 보완하고 FFN을 역할로 풀어 표기. 원본 수식과 토큰 생성 반복은 넣지 않음.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 10쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=10",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "토큰·임베딩·어텐션·표현 변환 구도를 유지. 순서 정보와 층 반복을 보완하고 FFN을 역할로 풀어 표기. 원본 수식과 토큰 생성 반복은 넣지 않음."
+        }
+      ],
+      "assets": [
+        "I10-flow"
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 28,
+      "id": "self-supervision",
+      "kind": "content",
+      "title": "자기지도학습",
+      "slide_link": "../index.html#/28",
+      "outline_number": "3.6",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 원문에서 만든 과제 / 입력 / 학습 목표. 이미 완성된 목표 쌍을 퓨샷 프롬프트로 혼동하지 않음. masked/next-token을 모든 모델이 동시에 사용한다고 쓰지 않음.",
+      "references": [
+        {
+          "label": "Devlin 외 · BERT (2019)",
+          "url": "https://aclanthology.org/N19-1423.pdf",
+          "type": "primary-paper",
+          "section": "서론 / 3.1 Pre-training BERT",
+          "use": "원문 일부를 가리고 원래 토큰을 예측하는 학습 과제. 모든 언어 모델의 목표가 같지는 않음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Brown 외 · Language Models are Few-Shot Learners (2020)",
+          "url": "https://arxiv.org/abs/2005.14165",
+          "type": "primary-paper",
+          "section": "Abstract",
+          "use": "자기회귀 언어 모델의 규모 확대와 문맥 예시 활용. 문맥에 예시를 넣는 것과 가중치 갱신은 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 원문에서 만든 과제 / 입력 / 학습 목표."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 29,
+      "id": "pretraining",
+      "kind": "content",
+      "title": "사전 학습",
+      "slide_link": "../index.html#/29",
+      "outline_number": "3.7",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 문장을 그대로 찾는 검색 저장소와 구분되는 모델 학습. 문서를 그대로 저장한 검색 창고처럼 표현하지 않음. 지시 튜닝·선호 학습은 4장까지 보류.",
+      "references": [
+        {
+          "label": "Devlin 외 · BERT (2019)",
+          "url": "https://aclanthology.org/N19-1423.pdf",
+          "type": "primary-paper",
+          "section": "서론 / 3.1 Pre-training BERT",
+          "use": "원문 일부를 가리고 원래 토큰을 예측하는 학습 과제. 모든 언어 모델의 목표가 같지는 않음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Brown 외 · Language Models are Few-Shot Learners (2020)",
+          "url": "https://arxiv.org/abs/2005.14165",
+          "type": "primary-paper",
+          "section": "Abstract",
+          "use": "자기회귀 언어 모델의 규모 확대와 문맥 예시 활용. 문맥에 예시를 넣는 것과 가중치 갱신은 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 문장을 그대로 찾는 검색 저장소와 구분되는 모델 학습."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 30,
+      "id": "large-language-model",
+      "kind": "content",
+      "title": "대규모 언어 모델",
+      "slide_link": "../index.html#/30",
+      "outline_number": "3.8",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 계열 예시 / 학습 목표 예시 / 주요 활용. BERT를 ChatGPT와 동일한 대화 서비스로 묘사하지 않음. 현재 모델의 규모·성능을 추정하지 않음.",
+      "references": [
+        {
+          "label": "Devlin 외 · BERT (2019)",
+          "url": "https://aclanthology.org/N19-1423.pdf",
+          "type": "primary-paper",
+          "section": "서론 / 3.1 Pre-training BERT",
+          "use": "원문 일부를 가리고 원래 토큰을 예측하는 학습 과제. 모든 언어 모델의 목표가 같지는 않음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Brown 외 · Language Models are Few-Shot Learners (2020)",
+          "url": "https://arxiv.org/abs/2005.14165",
+          "type": "primary-paper",
+          "section": "Abstract",
+          "use": "자기회귀 언어 모델의 규모 확대와 문맥 예시 활용. 문맥에 예시를 넣는 것과 가중치 갱신은 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 계열 예시 / 학습 목표 예시 / 주요 활용."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 31,
+      "id": "text-generation",
+      "kind": "content",
+      "title": "언어 모델의 문장 생성",
+      "slide_link": "../index.html#/31",
+      "outline_number": "3.9",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 11쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=11",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외."
+        },
+        {
+          "label": "PWD Week10 원본 PDF · 12쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=12",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외."
+        }
+      ],
+      "assets": [
+        "I11-flow"
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 32,
+      "id": "context-window",
+      "kind": "content",
+      "title": "컨텍스트 윈도",
+      "slide_link": "../index.html#/32",
+      "outline_number": "3.10",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 문맥 구성도 — 한 요청에서 처리할 수 있는 문맥의 한도 · 영역 비율은 개략 표현. 숫자로 특정 제품 한도를 고정하지 않음. 파일 저장·모델 가중치·영구 기억을 같은 공간으로 그리지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Effective context engineering for AI agents (2025-09-29)",
+          "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+          "type": "official-documentation",
+          "section": "Context retrieval / Compaction / Structured note-taking",
+          "use": "필요한 정보의 선별·적시 조회, 요약 압축과 별도 작업 기록. 압축에는 정보 손실 가능성.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 문맥 구성도 — 한 요청에서 처리할 수 있는 문맥의 한도 · 영역 비율은 개략 표현."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 33,
+      "id": "hallucinations",
+      "kind": "content",
+      "title": "언어 모델의 환각",
+      "slide_link": "../index.html#/33",
+      "outline_number": "3.11",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 입력 문서 / 생성된 답변 예 / 문서와 대조. 최신 사실을 모르는 경우만 환각이라고 좁히지 않음. RAG가 항상 환각을 없앤다고 예고하지 않음.",
+      "references": [
+        {
+          "label": "Ouyang 외 · Training language models to follow instructions (2022)",
+          "url": "https://arxiv.org/abs/2203.02155",
+          "type": "primary-paper",
+          "section": "논문 PDF 3쪽 Figure 2; 렌더 육안 확인",
+          "use": "시범 답안 지도학습과 선호 비교를 통한 학습을 분리. 완성 도식에는 아직 배우지 않은 RM/PPO 세부가 있음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Lewis 외 · Retrieval-Augmented Generation (2020)",
+          "url": "https://arxiv.org/html/2005.11401v4",
+          "type": "primary-paper",
+          "section": "Figure 1 / 2 Methods",
+          "use": "검색한 문서를 생성의 추가 문맥으로 사용. 원 논문의 학습·주변화 구조와 강의용 추론 흐름은 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 입력 문서 / 생성된 답변 예 / 문서와 대조."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 34,
+      "id": "rag",
+      "kind": "content",
+      "title": "검색 증강 생성",
+      "slide_link": "../index.html#/34",
+      "outline_number": "3.12",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 창작 문서의 설명용 흐름 · 잘못 검색한 문서나 해석 오류는 여전히 확인 필요. 원 논문 Figure 1은 참고만 하고 학습 구조·MIPS 수식은 생략. MCP·도구 호출 API·에이전트의 자율 검색은 아직 넣지 않음.",
+      "references": [
+        {
+          "label": "Lewis 외 · Retrieval-Augmented Generation (2020)",
+          "url": "https://arxiv.org/html/2005.11401v4",
+          "type": "primary-paper",
+          "section": "Figure 1 / 2 Methods",
+          "use": "검색한 문서를 생성의 추가 문맥으로 사용. 원 논문의 학습·주변화 구조와 강의용 추론 흐름은 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 창작 문서의 설명용 흐름 · 잘못 검색한 문서나 해석 오류는 여전히 확인 필요."
+      ],
+      "chapter": 3,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 35,
+      "id": "chapter-04",
+      "kind": "chapter",
+      "title": "코드 생성과 대화형 개발 지원",
+      "slide_link": "../index.html#/35",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 36,
+      "id": "code-model",
+      "kind": "content",
+      "title": "코드 생성 모델",
+      "slide_link": "../index.html#/36",
+      "outline_number": "4.1",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 코드 발췌 — 생성할 코드의 문맥. 1~20·공백 처리의 완성 요구사항은 4.8에서 설명. 2021 Codex 모델과 현재 Codex 제품을 혼동하지 않음.",
+      "references": [
+        {
+          "label": "Chen 외 · Evaluating Large Language Models Trained on Code (2021)",
+          "url": "https://arxiv.org/abs/2107.03374",
+          "type": "primary-paper",
+          "section": "Abstract",
+          "use": "코드로 추가 학습한 2021 Codex 모델. 현재 Codex 개발 에이전트 제품과 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 생성할 코드의 문맥."
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 37,
+      "id": "code-completion",
+      "kind": "content",
+      "title": "코드 자동 완성",
+      "slide_link": "../index.html#/37",
+      "outline_number": "4.2",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 편집기 모식도 — 자동 완성의 편집기 모식도 · 흐린 부분은 아직 수락하지 않은 제안; 단계도 — 제안을 적용하고 실행할 책임을 가진 개발자. 지금의 전체 에이전트 IDE 화면을 초기 자동완성 사례로 넣지 않음. 모식도는 제품의 실제 스크린샷으로 표기하지 않음.",
+      "references": [
+        {
+          "label": "GitHub · Getting code suggestions in your IDE",
+          "url": "https://docs.github.com/en/copilot/how-tos/copilot-in-your-ide/copilot-for-common-tasks/get-ide-code-suggestions",
+          "type": "official-documentation",
+          "section": "Getting code suggestions / Accepting or rejecting suggestions",
+          "use": "편집기의 회색 제안을 사용자가 수락·거절. 최신 문서 화면을 2021 당시 UI로 표기하지 않음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 편집기 모식도 — 자동 완성의 편집기 모식도 · 흐린 부분은 아직 수락하지 않은 제안; 단계도 — 제안을 적용하고 실행할 책임을 가진 개발자."
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 38,
+      "id": "instruction-tuning",
+      "kind": "content",
+      "title": "지시 튜닝",
+      "slide_link": "../index.html#/38",
+      "outline_number": "4.3",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 학습 데이터로 모델을 조정하는 단계 · 사용 중 프롬프트 수정과 구분. 프롬프트 문구를 바꾸는 행위와 지시 튜닝을 혼동하지 않음. 전체 Figure 2의 PPO·reward model은 아직 넣지 않음.",
+      "references": [
+        {
+          "label": "Ouyang 외 · Training language models to follow instructions (2022)",
+          "url": "https://arxiv.org/abs/2203.02155",
+          "type": "primary-paper",
+          "section": "논문 PDF 3쪽 Figure 2; 렌더 육안 확인",
+          "use": "시범 답안 지도학습과 선호 비교를 통한 학습을 분리. 완성 도식에는 아직 배우지 않은 RM/PPO 세부가 있음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 학습 데이터로 모델을 조정하는 단계 · 사용 중 프롬프트 수정과 구분."
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 39,
+      "id": "human-feedback",
+      "kind": "content",
+      "title": "사람의 피드백을 통한 학습",
+      "slide_link": "../index.html#/39",
+      "outline_number": "4.4",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 시범 답안의 모방과 선호 비교는 서로 다른 학습 자료. 현재 사용자의 좋아요 클릭이 즉시 해당 모델 가중치를 갱신한다고 쓰지 않음. 모든 최신 모델이 동일 RLHF 구현이라는 주장 제외.",
+      "references": [
+        {
+          "label": "Ouyang 외 · Training language models to follow instructions (2022)",
+          "url": "https://arxiv.org/abs/2203.02155",
+          "type": "primary-paper",
+          "section": "논문 PDF 3쪽 Figure 2; 렌더 육안 확인",
+          "use": "시범 답안 지도학습과 선호 비교를 통한 학습을 분리. 완성 도식에는 아직 배우지 않은 RM/PPO 세부가 있음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 시범 답안의 모방과 선호 비교는 서로 다른 학습 자료."
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 40,
+      "id": "conversational-development",
+      "kind": "content",
+      "title": "대화형 개발 지원",
+      "slide_link": "../index.html#/40",
+      "outline_number": "4.5",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 파일 적용과 실행은 개발자가 담당하는 대화형 개발 과정. 자동 파일 수정·도구 호출·자동 테스트 러너를 대화 모델의 기본 기능처럼 그리지 않음.",
+      "references": [
+        {
+          "label": "Chen 외 · Evaluating Large Language Models Trained on Code (2021)",
+          "url": "https://arxiv.org/abs/2107.03374",
+          "type": "primary-paper",
+          "section": "Abstract",
+          "use": "코드로 추가 학습한 2021 Codex 모델. 현재 Codex 개발 에이전트 제품과 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 파일 적용과 실행은 개발자가 담당하는 대화형 개발 과정."
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 41,
+      "id": "development-prompt",
+      "kind": "content",
+      "title": "개발 프롬프트",
+      "slide_link": "../index.html#/41",
+      "outline_number": "4.6",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "요소·설명·예시 3열을 재사용. 서비스 기획 예시를 문자열 제목 검사로 통일. 역할 지정은 선택임을 표시하고 반환 형식·공백·길이 조건 명시.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 17쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=17",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "요소·설명·예시 3열을 재사용. 서비스 기획 예시를 문자열 제목 검사로 통일. 역할 지정은 선택임을 표시하고 반환 형식·공백·길이 조건 명시."
+        }
+      ],
+      "assets": [
+        "T17"
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 42,
+      "id": "few-shot-prompting",
+      "kind": "content",
+      "title": "퓨샷 프롬프팅",
+      "slide_link": "../index.html#/42",
+      "outline_number": "4.7",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "원본 비교표의 예시 유무 구도 재사용. 두 조건의 과제와 요청을 동일하게 유지하고 제목 입출력 예시만 추가. 높은 정확도 보장 표현 제거.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 19쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=19",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "원본 비교표의 예시 유무 구도 재사용. 두 조건의 과제와 요청을 동일하게 유지하고 제목 입출력 예시만 추가. 높은 정확도 보장 표현 제거."
+        }
+      ],
+      "assets": [
+        "T19"
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 43,
+      "id": "title-validation-case",
+      "kind": "content",
+      "title": "게시글 제목 검사 함수",
+      "slide_link": "../index.html#/43",
+      "outline_number": "4.8",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 코드 발췌 — 문자열 입력 · boolean 반환; 표 — 입력 / 기대 결과. 여기서는 자동화 테스트 문법을 먼저 설명하지 않음. JS length는 UTF-16 단위이므로 이모지·조합문자의 사용자 인식 글자 수를 보장한다고 쓰지 않음.",
+      "references": [
+        {
+          "label": "ECMA-262 · String.prototype.trim / String length",
+          "url": "https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim",
+          "type": "official-documentation",
+          "section": "String.prototype.trim / Properties of String Instances: length",
+          "use": "앞뒤 공백 제거와 UTF-16 길이의 실행 의미. 예제 입력은 ASCII·완성형 한글로 제한.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · title-validation.mjs",
+          "url": "new-resource-research/examples/title-validation.mjs",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        },
+        {
+          "label": "공통 예제 · title-results.json",
+          "url": "new-resource-research/examples/title-results.json",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 문자열 입력 · boolean 반환; 표 — 입력 / 기대 결과."
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 44,
+      "id": "code-revision",
+      "kind": "content",
+      "title": "생성 코드의 수정",
+      "slide_link": "../index.html#/44",
+      "outline_number": "4.9",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "원본 단계표의 순서에 맞춰 결과 확인부터 시작. 요약 길이 사례를 공백 제목의 실제값·기대값 및 수정 후 재실행으로 교체. 사람이 실행·결과 전달하는 범위 유지.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 22쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "원본 단계표의 순서에 맞춰 결과 확인부터 시작. 요약 길이 사례를 공백 제목의 실제값·기대값 및 수정 후 재실행으로 교체. 사람이 실행·결과 전달하는 범위 유지."
+        }
+      ],
+      "assets": [
+        "I22",
+        "T22-steps"
+      ],
+      "chapter": 4,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 45,
+      "id": "chapter-05",
+      "kind": "chapter",
+      "title": "도구를 사용하는 AI 에이전트",
+      "slide_link": "../index.html#/45",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 46,
+      "id": "tool-calling",
+      "kind": "content",
+      "title": "도구 호출",
+      "slide_link": "../index.html#/46",
+      "outline_number": "5.1",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 호출 요청을 만드는 모델과 실제 실행하는 애플리케이션의 역할 구분; 코드 발췌 — 가상의 파일 읽기 도구 요청. JSON을 생성하는 것만으로 파일이 열리는 도식 금지. MCP 서버나 자율 반복은 아직 없음.",
+      "references": [
+        {
+          "label": "OpenAI · Function calling",
+          "url": "https://developers.openai.com/api/docs/guides/function-calling",
+          "type": "official-documentation",
+          "section": "How it works / Tool calls / Tool call outputs",
+          "use": "모델의 호출 요청과 애플리케이션의 실제 도구 실행·결과 반환은 다른 단계.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · tool-call.example.json",
+          "url": "new-resource-research/examples/tool-call.example.json",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 호출 요청을 만드는 모델과 실제 실행하는 애플리케이션의 역할 구분; 코드 발췌 — 가상의 파일 읽기 도구 요청."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 47,
+      "id": "tool-permissions",
+      "kind": "content",
+      "title": "도구 실행 권한",
+      "slide_link": "../index.html#/47",
+      "outline_number": "5.2",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 요청 / 환경의 범위 / 실행 결과. 모델의 약속·시스템 프롬프트를 OS 샌드박스처럼 설명하지 않음. 권한 해제를 시연 목표로 삼지 않음.",
+      "references": [
+        {
+          "label": "OpenAI · Sandbox",
+          "url": "https://learn.chatgpt.com/docs/sandboxing",
+          "type": "official-documentation",
+          "section": "What the sandbox does / Sandboxing and approvals",
+          "use": "실행 환경의 기술적 경계와 승인 정책을 구분. 프롬프트의 요청만으로 권한이 생기지 않음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 요청 / 환경의 범위 / 실행 결과."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 48,
+      "id": "agent-loop",
+      "kind": "content",
+      "title": "AI 에이전트의 작업 반복",
+      "slide_link": "../index.html#/48",
+      "outline_number": "5.3",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 관계도 — 결과에 따른 작업 반복 · 모델 가중치의 학습과는 별도. 반복을 모델 가중치 학습으로 표시하지 않음. 테스트·Hooks·장기 목표 기능의 내부 구조를 미리 넣지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Building effective agents (2024-12-19)",
+          "url": "https://www.anthropic.com/research/building-effective-agents",
+          "type": "official-documentation",
+          "section": "What are agents? / Agents",
+          "use": "미리 정한 워크플로와 모델이 다음 행동을 결정하는 반복 구조의 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 관계도 — 결과에 따른 작업 반복 · 모델 가중치의 학습과는 별도."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 49,
+      "id": "development-tools",
+      "kind": "content",
+      "title": "개발 환경의 도구",
+      "slide_link": "../index.html#/49",
+      "outline_number": "5.4",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 개발 작업 / 도구 범주 / 얻는 결과. 제품마다 다른 도구 이름·UI를 공통 API로 쓰지 않음. 최신 전체 대시보드 이미지는 학습 목적 대비 정보가 많아 제외.",
+      "references": [
+        {
+          "label": "OpenAI · Codex CLI",
+          "url": "https://developers.openai.com/codex/cli",
+          "type": "official-documentation",
+          "section": "Inspect, edit, and run code from your terminal",
+          "use": "로컬 저장소 읽기·수정·명령 실행 기능. 화면과 설정은 시연 버전을 기준으로 재확인.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Claude Code overview",
+          "url": "https://code.claude.com/docs/en/overview",
+          "type": "official-documentation",
+          "section": "Overview / Choose your environment",
+          "use": "코드 읽기·편집·명령 실행을 지원하는 개발 도구.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 개발 작업 / 도구 범주 / 얻는 결과."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 50,
+      "id": "agent-repair-case",
+      "kind": "content",
+      "title": "제목 검사 함수의 자동 수정",
+      "slide_link": "../index.html#/50",
+      "outline_number": "5.5",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 코드 발췌 — 수정 전 · 공백 처리 누락; 코드 발췌 — 수정 후; 표 — 입력 / 수정 전 / 수정 후. 실제 Claude/Codex 세션을 실행한 로그로 꾸미지 않음. node:assert 문법은 7.5까지 보류하고 단일 호출의 결과만 표시.",
+      "references": [
+        {
+          "label": "ECMA-262 · String.prototype.trim / String length",
+          "url": "https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim",
+          "type": "official-documentation",
+          "section": "String.prototype.trim / Properties of String Instances: length",
+          "use": "앞뒤 공백 제거와 UTF-16 길이의 실행 의미. 예제 입력은 ASCII·완성형 한글로 제한.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "OpenAI · Function calling",
+          "url": "https://developers.openai.com/api/docs/guides/function-calling",
+          "type": "official-documentation",
+          "section": "How it works / Tool calls / Tool call outputs",
+          "use": "모델의 호출 요청과 애플리케이션의 실제 도구 실행·결과 반환은 다른 단계.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · title-validation.mjs",
+          "url": "new-resource-research/examples/title-validation.mjs",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        },
+        {
+          "label": "공통 예제 · title-results.json",
+          "url": "new-resource-research/examples/title-results.json",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 수정 전 · 공백 처리 누락; 코드 발췌 — 수정 후; 표 — 입력 / 수정 전 / 수정 후."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 51,
+      "id": "reasoning-models",
+      "kind": "content",
+      "title": "추론 모델",
+      "slide_link": "../index.html#/51",
+      "outline_number": "5.6",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 어려운 과제에 더 많은 계산을 사용할 수 있는 모델. 만든 내부 독백·CoT 프롬프트를 실제 추론 모델의 사고로 보여 주지 않음. 성능 향상을 보장하는 수치 그래프 제외.",
+      "references": [
+        {
+          "label": "OpenAI · Reasoning models",
+          "url": "https://developers.openai.com/api/docs/guides/reasoning",
+          "type": "official-documentation",
+          "section": "Reasoning models / reasoning tokens",
+          "use": "응답 이전의 추가 추론 계산. 내부 사고를 임의로 작성한 대화록으로 재현하지 않음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 어려운 과제에 더 많은 계산을 사용할 수 있는 모델."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 52,
+      "id": "multimodal-models",
+      "kind": "content",
+      "title": "멀티모달 모델",
+      "slide_link": "../index.html#/52",
+      "outline_number": "5.7",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "오류 메시지 일부가 보이는 설명용 화면과 CSS 발췌. 실제 서비스·제품 캡처나 모델의 실제 진단 결과가 아님. 스크린샷 이해와 클릭 권한을 한 단계로 합치지 않음. 원인 진단 문구는 실제 모델 결과가 아닌 설명용 가설.",
+      "references": [
+        {
+          "label": "Google · What is Machine Learning?",
+          "url": "https://developers.google.com/machine-learning/intro-to-ml/what-is-ml",
+          "type": "official-documentation",
+          "section": "Supervised learning / Unsupervised learning / Reinforcement learning",
+          "use": "학습 유형의 입력·피드백 차이 확인. 클러스터의 의미는 사람이 해석.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "OpenAI · Computer use",
+          "url": "https://developers.openai.com/api/docs/guides/tools-computer-use",
+          "type": "official-documentation",
+          "section": "Get started with computer use / runtime loop",
+          "use": "화면 관찰·동작 실행·새 화면 확인의 반복과 브라우저/데스크톱 실행 환경.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 화면과 함께 제공하는 코드 발췌; 화면 모식도 — 오류 안내 일부가 잘린 화면 모식도."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 53,
+      "id": "computer-use",
+      "kind": "content",
+      "title": "컴퓨터 사용",
+      "slide_link": "../index.html#/53",
+      "outline_number": "5.8",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "게시글 화면의 편집 가능한 모식도와 관찰·행동·확인 절차. 실제 제품 화면이나 실행 기록이 아님. 고정 좌표만 있으면 항상 성공하는 것처럼 표현하지 않음. 브라우저 자동 검증은 7.6에서 완료 기준과 연결해 설명.",
+      "references": [
+        {
+          "label": "OpenAI · Computer use",
+          "url": "https://developers.openai.com/api/docs/guides/tools-computer-use",
+          "type": "official-documentation",
+          "section": "Get started with computer use / runtime loop",
+          "use": "화면 관찰·동작 실행·새 화면 확인의 반복과 브라우저/데스크톱 실행 환경.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 화면 모식도 — 조작 대상 화면의 모식도; 단계도 — 관찰과 실제 조작·결과 확인의 반복."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 54,
+      "id": "mcp",
+      "kind": "content",
+      "title": "Model Context Protocol",
+      "slide_link": "../index.html#/54",
+      "outline_number": "5.9",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 관계도 — Model Context Protocol · 도구·문맥의 통신 규약이며 실행 권한 자체는 별도. Model Context Protocol 정확한 명칭 사용. 프로토콜 자체가 권한·자율성·정확성을 보장한다고 쓰지 않음.",
+      "references": [
+        {
+          "label": "MCP · Architecture overview",
+          "url": "https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture",
+          "type": "official-documentation",
+          "section": "Participants / Layers / Data layer",
+          "use": "Host 내부의 client와 server 연결, 기능 발견·요청·결과. 버전별 프로토콜 세부를 현재 강의에 불필요하게 늘리지 않음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 관계도 — Model Context Protocol · 도구·문맥의 통신 규약이며 실행 권한 자체는 별도."
+      ],
+      "chapter": 5,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 55,
+      "id": "chapter-06",
+      "kind": "chapter",
+      "title": "프로젝트 맥락과 작업 절차의 관리",
+      "slide_link": "../index.html#/55",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 56,
+      "id": "project-context",
+      "kind": "content",
+      "title": "프로젝트 맥락",
+      "slide_link": "../index.html#/56",
+      "outline_number": "6.1",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 파일 예시 / 역할 / 연결. 현재 저장소에 이 앱 구조가 존재한다고 쓰지 않음. 새 프레임워크·데이터베이스 설정 방법을 설명하지 않음.",
+      "references": [
+        {
+          "label": "OpenAI · Custom instructions with AGENTS.md",
+          "url": "https://developers.openai.com/codex/guides/agents-md",
+          "type": "official-documentation",
+          "section": "How Codex discovers guidance / Layer project instructions",
+          "use": "저장소 지침의 위치·범위. 지침 파일과 실행 환경 권한은 별도.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 파일 예시 / 역할 / 연결."
+      ],
+      "chapter": 6,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 57,
+      "id": "context-engineering",
+      "kind": "content",
+      "title": "컨텍스트 설계",
+      "slide_link": "../index.html#/57",
+      "outline_number": "6.2",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 모든 파일의 일괄 입력보다 관련 정보의 선택과 적시 조회. 파일 전체를 무조건 프롬프트에 붙이는 방식이나 RAG와 동의어라는 설명 제외.",
+      "references": [
+        {
+          "label": "Anthropic · Effective context engineering for AI agents (2025-09-29)",
+          "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+          "type": "official-documentation",
+          "section": "Context retrieval / Compaction / Structured note-taking",
+          "use": "필요한 정보의 선별·적시 조회, 요약 압축과 별도 작업 기록. 압축에는 정보 손실 가능성.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 모든 파일의 일괄 입력보다 관련 정보의 선택과 적시 조회."
+      ],
+      "chapter": 6,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 58,
+      "id": "project-instructions",
+      "kind": "content",
+      "title": "프로젝트 지침 파일",
+      "slide_link": "../index.html#/58",
+      "outline_number": "6.3",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "시스템 프롬프트 표의 반복 규칙 구성만 참고. 실제 프로젝트 지침 예시로 새로 구체화하고 시스템 메시지 우선순위와 실행 권한을 동일시하지 않음.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 21쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=21",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "시스템 프롬프트 표의 반복 규칙 구성만 참고. 실제 프로젝트 지침 예시로 새로 구체화하고 시스템 메시지 우선순위와 실행 권한을 동일시하지 않음."
+        }
+      ],
+      "assets": [
+        "T21"
+      ],
+      "chapter": 6,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 59,
+      "id": "agent-skills",
+      "kind": "content",
+      "title": "에이전트 스킬",
+      "slide_link": "../index.html#/59",
+      "outline_number": "6.4",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 코드 발췌 — 반복 절차를 묶은 스킬 폴더 예시; 단계도 — 프로젝트의 상시 규칙과 구분되는 특정 작업의 반복 절차. 이 파일을 실제 활성 스킬로 설치하지 않음. 모델 재학습·MCP 서버와 구분. 7.5의 assertion 코드는 아직 펼치지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Extend Claude with skills",
+          "url": "https://code.claude.com/docs/en/skills",
+          "type": "official-documentation",
+          "section": "Introduction / Add supporting files",
+          "use": "SKILL.md와 보조 자료, 필요한 때 본문을 읽는 방식.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "OpenAI · Build skills",
+          "url": "https://learn.chatgpt.com/docs/build-skills",
+          "type": "official-documentation",
+          "section": "Progressive disclosure / skill directory",
+          "use": "이름·설명에서 시작해 선택 시 SKILL.md·자료·선택적 스크립트를 읽는 구조.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 반복 절차를 묶은 스킬 폴더 예시; 단계도 — 프로젝트의 상시 규칙과 구분되는 특정 작업의 반복 절차."
+      ],
+      "chapter": 6,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 60,
+      "id": "progress-notes",
+      "kind": "content",
+      "title": "작업 진행 기록",
+      "slide_link": "../index.html#/60",
+      "outline_number": "6.5",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 구분 / 남기는 기록. 아직 실행하지 않은 브라우저 검사를 통과로 표시하지 않음. Git 브랜치·자동화 테스트 목록은 후속 장.",
+      "references": [
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · title-results.json",
+          "url": "new-resource-research/examples/title-results.json",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 구분 / 남기는 기록."
+      ],
+      "chapter": 6,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 61,
+      "id": "context-compaction",
+      "kind": "content",
+      "title": "컨텍스트 압축",
+      "slide_link": "../index.html#/61",
+      "outline_number": "6.6",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 요약으로 문맥을 줄이되 필요한 세부를 다시 확인할 경로 유지. 압축 후 정보가 완전히 보존된다거나 가중치에 저장된다는 표현 제외.",
+      "references": [
+        {
+          "label": "Anthropic · Effective context engineering for AI agents (2025-09-29)",
+          "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+          "type": "official-documentation",
+          "section": "Context retrieval / Compaction / Structured note-taking",
+          "use": "필요한 정보의 선별·적시 조회, 요약 압축과 별도 작업 기록. 압축에는 정보 손실 가능성.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 요약으로 문맥을 줄이되 필요한 세부를 다시 확인할 경로 유지."
+      ],
+      "chapter": 6,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 62,
+      "id": "project-context-case",
+      "kind": "content",
+      "title": "게시글 프로젝트의 작업 맥락",
+      "slide_link": "../index.html#/62",
+      "outline_number": "6.7",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 자료 / 역할 / 제목 수정 작업에서의 용도. CLAUDE.md·AGENTS.md·SKILL.md를 모든 도구가 동일하게 자동 적용한다고 쓰지 않음. 파일 이름은 제품별 예시.",
+      "references": [
+        {
+          "label": "OpenAI · Custom instructions with AGENTS.md",
+          "url": "https://developers.openai.com/codex/guides/agents-md",
+          "type": "official-documentation",
+          "section": "How Codex discovers guidance / Layer project instructions",
+          "use": "저장소 지침의 위치·범위. 지침 파일과 실행 환경 권한은 별도.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Extend Claude with skills",
+          "url": "https://code.claude.com/docs/en/skills",
+          "type": "official-documentation",
+          "section": "Introduction / Add supporting files",
+          "use": "SKILL.md와 보조 자료, 필요한 때 본문을 읽는 방식.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "OpenAI · Build skills",
+          "url": "https://learn.chatgpt.com/docs/build-skills",
+          "type": "official-documentation",
+          "section": "Progressive disclosure / skill directory",
+          "use": "이름·설명에서 시작해 선택 시 SKILL.md·자료·선택적 스크립트를 읽는 구조.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Effective context engineering for AI agents (2025-09-29)",
+          "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+          "type": "official-documentation",
+          "section": "Context retrieval / Compaction / Structured note-taking",
+          "use": "필요한 정보의 선별·적시 조회, 요약 압축과 별도 작업 기록. 압축에는 정보 손실 가능성.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 자료 / 역할 / 제목 수정 작업에서의 용도."
+      ],
+      "chapter": 6,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 63,
+      "id": "chapter-07",
+      "kind": "chapter",
+      "title": "구현과 검증의 자동화",
+      "slide_link": "../index.html#/63",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 64,
+      "id": "specification",
+      "kind": "content",
+      "title": "요구사항 명세",
+      "slide_link": "../index.html#/64",
+      "outline_number": "7.1",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 명세 항목 / 조건. 테스트 코드·구현 순서·병렬화를 명세와 섞지 않음. 글자 수의 실습 범위는 공통 함수 주석과 일치.",
+      "references": [
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "ECMA-262 · String.prototype.trim / String length",
+          "url": "https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim",
+          "type": "official-documentation",
+          "section": "String.prototype.trim / Properties of String Instances: length",
+          "use": "앞뒤 공백 제거와 UTF-16 길이의 실행 의미. 예제 입력은 ASCII·완성형 한글로 제한.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 명세 항목 / 조건."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 65,
+      "id": "acceptance-criteria",
+      "kind": "content",
+      "title": "완료 기준",
+      "slide_link": "../index.html#/65",
+      "outline_number": "7.2",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 상황 / 기대 동작 / 확인할 근거. 초록 체크를 미리 넣지 않음. 단위 테스트 통과만으로 저장 기능 완료라고 하지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 상황 / 기대 동작 / 확인할 근거."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 66,
+      "id": "implementation-plan",
+      "kind": "content",
+      "title": "구현 계획",
+      "slide_link": "../index.html#/66",
+      "outline_number": "7.3",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "PRD에서 작업 순서를 만드는 발상 참고. TaskMaster 제품·CLI 대신 현재 게시글 사례의 선후 의존 관계로 구체화. MCP 오기와 제품 설정은 옮기지 않음.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 24쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "PRD에서 작업 순서를 만드는 발상 참고. TaskMaster 제품·CLI 대신 현재 게시글 사례의 선후 의존 관계로 구체화. MCP 오기와 제품 설정은 옮기지 않음."
+        }
+      ],
+      "assets": [
+        "T24"
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 67,
+      "id": "task-decomposition",
+      "kind": "content",
+      "title": "작업 분해",
+      "slide_link": "../index.html#/67",
+      "outline_number": "7.4",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "작업 목록을 생성·관리한다는 발상을 현재 사례의 입력·완료 결과·확인 방법 표로 구체화. 작업 분해 전에 병렬화나 자동 테스트를 전제하지 않음.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 24쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "작업 목록을 생성·관리한다는 발상을 현재 사례의 입력·완료 결과·확인 방법 표로 구체화. 작업 분해 전에 병렬화나 자동 테스트를 전제하지 않음."
+        }
+      ],
+      "assets": [
+        "T24"
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 68,
+      "id": "automated-tests",
+      "kind": "content",
+      "title": "자동화 테스트",
+      "slide_link": "../index.html#/68",
+      "outline_number": "7.5",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 코드 발췌 — 입력과 고정 기대값의 비교; 표 — 검사 범위 / 수정 후 결과. 테스트를 통과시키려고 기대값을 변경하지 않음. 8건의 함수 검사가 전체 서비스 품질의 증명은 아님.",
+      "references": [
+        {
+          "label": "Node.js · Assert",
+          "url": "https://nodejs.org/api/assert.html",
+          "type": "official-documentation",
+          "section": "Strict assertion mode / assert.strictEqual",
+          "use": "실제값·기대값 비교. 표의 모든 입력을 로컬 실행.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "ECMA-262 · String.prototype.trim / String length",
+          "url": "https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim",
+          "type": "official-documentation",
+          "section": "String.prototype.trim / Properties of String Instances: length",
+          "use": "앞뒤 공백 제거와 UTF-16 길이의 실행 의미. 예제 입력은 ASCII·완성형 한글로 제한.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · check-title.mjs",
+          "url": "new-resource-research/examples/check-title.mjs",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        },
+        {
+          "label": "공통 예제 · title-results.json",
+          "url": "new-resource-research/examples/title-results.json",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 입력과 고정 기대값의 비교; 표 — 검사 범위 / 수정 후 결과."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 69,
+      "id": "browser-verification",
+      "kind": "content",
+      "title": "브라우저 검증",
+      "slide_link": "../index.html#/69",
+      "outline_number": "7.6",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "page/expect 및 실행 중인 예제 앱을 전제로 하는 Playwright 발췌. 저장소의 실제 게시글 서비스 구현·DB 검증 완료를 뜻하지 않음. 요청·응답·저장 확인 범위를 표로 분리. 현재 발췌는 앱·서버가 없어 미실행. 네트워크 모킹으로 성공한 검사를 실제 DB 저장 검증으로 부르지 않음.",
+      "references": [
+        {
+          "label": "Playwright · Locators",
+          "url": "https://playwright.dev/docs/locators",
+          "type": "official-documentation",
+          "section": "Quick Guide / Locate by role / Locate by label",
+          "use": "입력과 버튼을 사용자 관점의 이름으로 찾는 API.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Playwright · Assertions",
+          "url": "https://playwright.dev/docs/test-assertions",
+          "type": "official-documentation",
+          "section": "Auto-retrying assertions / toHaveText",
+          "use": "관찰된 화면 상태를 기대 결과와 비교.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Playwright · Network",
+          "url": "https://playwright.dev/docs/network",
+          "type": "official-documentation",
+          "section": "Network events / page.waitForResponse",
+          "use": "행동 전에 응답 대기를 등록하고 해당 요청의 응답을 검사.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · browser-check.fragment.txt",
+          "url": "new-resource-research/examples/browser-check.fragment.txt",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — Playwright · 실행 중인 예제 앱에 적용하는 발췌; 표 — 관찰 범위 / 확인하는 것."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 70,
+      "id": "implementation-verification-loop",
+      "kind": "content",
+      "title": "구현과 검증의 반복",
+      "slide_link": "../index.html#/70",
+      "outline_number": "7.7",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "4.9의 반복 구도를 에이전트 구현·테스트·브라우저 검증으로 확장. 남은 작업 진행·실패 수정 후 재검증·전체 완료의 분기를 구분. 아직 미학습인 Hooks·하네스는 넣지 않음.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 22쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "4.9의 반복 구도를 에이전트 구현·테스트·브라우저 검증으로 확장. 남은 작업 진행·실패 수정 후 재검증·전체 완료의 분기를 구분. 아직 미학습인 Hooks·하네스는 넣지 않음."
+        }
+      ],
+      "assets": [
+        "I22",
+        "T22-steps"
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 71,
+      "id": "agent-hooks",
+      "kind": "content",
+      "title": "에이전트 Hooks",
+      "slide_link": "../index.html#/71",
+      "outline_number": "7.8",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — Claude Code 예: PostToolUse의 Edit/Write 이후 검사 · 차단 여부는 이벤트·설정에 따름. React Hooks와 무관함을 한 번 명시. 검사를 실행하는 것과 종료/도구 실행을 막는 것은 별도; 모든 hook이 차단하지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Automate actions with hooks",
+          "url": "https://code.claude.com/docs/en/hooks-guide",
+          "type": "official-documentation",
+          "section": "How hooks work / Auto-format code after edits",
+          "use": "수명 주기 이벤트의 명령 실행. PostToolUse/PreToolUse는 Claude Code의 이벤트명이며 React Hooks와 무관.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — Claude Code 예: PostToolUse의 Edit/Write 이후 검사 · 차단 여부는 이벤트·설정에 따름."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 72,
+      "id": "execution-harness",
+      "kind": "content",
+      "title": "실행 하네스",
+      "slide_link": "../index.html#/72",
+      "outline_number": "7.9",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 관계도 — 모델·도구·상태·검사·한도를 연결하는 실행 기반. 모델 자체와 하네스를 동일시하지 않음. 아직 배우지 않은 멀티에이전트·worktree·Goals UI는 넣지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Building effective agents (2024-12-19)",
+          "url": "https://www.anthropic.com/research/building-effective-agents",
+          "type": "official-documentation",
+          "section": "What are agents? / Agents",
+          "use": "미리 정한 워크플로와 모델이 다음 행동을 결정하는 반복 구조의 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 관계도 — 모델·도구·상태·검사·한도를 연결하는 실행 기반."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 73,
+      "id": "change-review",
+      "kind": "content",
+      "title": "변경사항 리뷰",
+      "slide_link": "../index.html#/73",
+      "outline_number": "7.10",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 코드 발췌 — 변경 전; 코드 발췌 — 변경 후; 표 — 리뷰 기준 / 확인 근거. 8.4의 브랜치/병합 전제 없이 파일 차이 개념만 사용. 실제 PR 리뷰 화면처럼 꾸미지 않음.",
+      "references": [
+        {
+          "label": "ECMA-262 · String.prototype.trim / String length",
+          "url": "https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim",
+          "type": "official-documentation",
+          "section": "String.prototype.trim / Properties of String Instances: length",
+          "use": "앞뒤 공백 제거와 UTF-16 길이의 실행 의미. 예제 입력은 ASCII·완성형 한글로 제한.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Node.js · Assert",
+          "url": "https://nodejs.org/api/assert.html",
+          "type": "official-documentation",
+          "section": "Strict assertion mode / assert.strictEqual",
+          "use": "실제값·기대값 비교. 표의 모든 입력을 로컬 실행.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "공통 예제 · title-validation.mjs",
+          "url": "new-resource-research/examples/title-validation.mjs",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        },
+        {
+          "label": "공통 예제 · title-results.json",
+          "url": "new-resource-research/examples/title-results.json",
+          "type": "local-example",
+          "section": "실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌",
+          "use": "게시글 제목 공통 사례"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 변경 전; 코드 발췌 — 변경 후; 표 — 리뷰 기준 / 확인 근거."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 74,
+      "id": "post-feature-case",
+      "kind": "content",
+      "title": "게시글 등록 기능의 개발",
+      "slide_link": "../index.html#/74",
+      "outline_number": "7.11",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 같은 게시글 기능을 조건·구현·검증·리뷰로 연결한 개발 절차. 현재 구현 완료 화면이나 실제 검증 로그가 아님. 앱 제작 전에는 설명용 절차로 라벨링.",
+      "references": [
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 같은 게시글 기능을 조건·구현·검증·리뷰로 연결한 개발 절차."
+      ],
+      "chapter": 7,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 75,
+      "id": "chapter-08",
+      "kind": "chapter",
+      "title": "개발 작업의 병렬화와 지속 실행",
+      "slide_link": "../index.html#/75",
+      "outline_number": null,
+      "origin": "외부 자료 없음",
+      "adaptation": "주차·챕터의 제목과 범위",
+      "references": [],
+      "assets": []
+    },
+    {
+      "slide_number": 76,
+      "id": "independent-tasks",
+      "kind": "content",
+      "title": "독립적인 작업 범위",
+      "slide_link": "../index.html#/76",
+      "outline_number": "8.1",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 코드 발췌 — 먼저 합의하는 요청·응답 계약 예; 역할·사례 비교 — 공유 계약을 유지하면서 나눌 수 있는 작업 범위. 계약 합의 없이 완전 독립이라고 하지 않음. 브랜치·worktree 폴더는 8.4~8.5까지 보류.",
+      "references": [
+        {
+          "label": "OpenAI · Subagents",
+          "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+          "type": "official-documentation",
+          "section": "Core terms / Why subagent workflows help / Triggering subagent workflows",
+          "use": "제한된 과제를 맡기고 결과를 모으는 작업. 병렬 쓰기에는 충돌·조정 비용이 있음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Orchestrate teams of Claude Code sessions",
+          "url": "https://code.claude.com/docs/en/agent-teams",
+          "type": "official-documentation",
+          "section": "Compare with subagents / Architecture / Limitations",
+          "use": "공유 작업 목록·메시지·조정 구조. 확인일 기준 실험 기능·기본 비활성; 재개 등 제한을 모든 제품의 공통 동작으로 일반화하지 않음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 코드 발췌 — 먼저 합의하는 요청·응답 계약 예; 역할·사례 비교 — 공유 계약을 유지하면서 나눌 수 있는 작업 범위."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 77,
+      "id": "subagents",
+      "kind": "content",
+      "title": "서브에이전트",
+      "slide_link": "../index.html#/77",
+      "outline_number": "8.2",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 작은 작업의 위임 구조 · 반드시 병렬 실행이나 파일 수정을 뜻하지 않음. 서브에이전트는 반드시 병렬 실행·파일 수정이라는 설명 제외. 별도 문맥이 사실 공유를 자동 보장하지 않음.",
+      "references": [
+        {
+          "label": "OpenAI · Subagents",
+          "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+          "type": "official-documentation",
+          "section": "Core terms / Why subagent workflows help / Triggering subagent workflows",
+          "use": "제한된 과제를 맡기고 결과를 모으는 작업. 병렬 쓰기에는 충돌·조정 비용이 있음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 작은 작업의 위임 구조 · 반드시 병렬 실행이나 파일 수정을 뜻하지 않음."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 78,
+      "id": "agent-teams",
+      "kind": "content",
+      "title": "에이전트 팀",
+      "slide_link": "../index.html#/78",
+      "outline_number": "8.3",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 관계도 — Claude Code의 Agent Teams는 실험 기능 · 제품별 제공 상태와 동작에 차이. Claude Agent Teams는 확인일 기준 실험 기능·기본 비활성. Codex 서브에이전트와 제품 기능을 같다고 쓰지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Orchestrate teams of Claude Code sessions",
+          "url": "https://code.claude.com/docs/en/agent-teams",
+          "type": "official-documentation",
+          "section": "Compare with subagents / Architecture / Limitations",
+          "use": "공유 작업 목록·메시지·조정 구조. 확인일 기준 실험 기능·기본 비활성; 재개 등 제한을 모든 제품의 공통 동작으로 일반화하지 않음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "OpenAI · Subagents",
+          "url": "https://learn.chatgpt.com/docs/agent-configuration/subagents",
+          "type": "official-documentation",
+          "section": "Core terms / Why subagent workflows help / Triggering subagent workflows",
+          "use": "제한된 과제를 맡기고 결과를 모으는 작업. 병렬 쓰기에는 충돌·조정 비용이 있음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 관계도 — Claude Code의 Agent Teams는 실험 기능 · 제품별 제공 상태와 동작에 차이."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 79,
+      "id": "git-branches",
+      "kind": "content",
+      "title": "Git 브랜치",
+      "slide_link": "../index.html#/79",
+      "outline_number": "8.4",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 관계도 — 변경 이력의 분리 · 브랜치 생성은 별도 작업 폴더 생성과 구분. 브랜치 생성이 폴더 복사나 충돌 해결 자체라는 표현 제외. Pro Git의 master 이름은 예제에 그대로 강제하지 않음.",
+      "references": [
+        {
+          "label": "Pro Git · Branches in a Nutshell",
+          "url": "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell",
+          "type": "official-documentation",
+          "section": "Creating a New Branch / Switching Branches",
+          "use": "브랜치는 커밋을 가리키는 이동 가능한 참조. 새 폴더를 만드는 기능과 구분.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 관계도 — 변경 이력의 분리 · 브랜치 생성은 별도 작업 폴더 생성과 구분."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 80,
+      "id": "git-worktrees",
+      "kind": "content",
+      "title": "Git worktree",
+      "slide_link": "../index.html#/80",
+      "outline_number": "8.5",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "폴더·브랜치 관계와 명령을 제시. 현재 저장소에서는 이 명령을 실행하지 않았으며 실제 사용 시 기존 커밋·겹치지 않는 브랜치/경로 필요. DB·포트·외부 서비스까지 격리되는 컨테이너처럼 그리지 않음. 명령은 clean 예제 저장소에서 실행해야 하며 현재 강의 저장소에서는 미실행.",
+      "references": [
+        {
+          "label": "Git · git-worktree",
+          "url": "https://git-scm.com/docs/git-worktree",
+          "type": "official-documentation",
+          "section": "DESCRIPTION / add / list",
+          "use": "같은 저장소의 여러 작업 트리를 서로 다른 디렉터리에 구성.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 역할·사례 비교 — 같은 저장소를 공유하며 서로 다른 브랜치를 별도 폴더에 체크아웃; 코드 발췌 — 커밋이 있는 예제 저장소에서 실행하는 명령."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 81,
+      "id": "parallel-integration",
+      "kind": "content",
+      "title": "병렬 변경의 통합",
+      "slide_link": "../index.html#/81",
+      "outline_number": "8.6",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 병합 성공과 기능의 정상 동작은 별도 확인; 표 — UI의 가정 / 서버의 응답 / 통합 문제. 자동 merge 성공을 기능 성공으로 표시하지 않음. 다른 작업자의 변경을 지우는 해결법 제외.",
+      "references": [
+        {
+          "label": "Git · git-worktree",
+          "url": "https://git-scm.com/docs/git-worktree",
+          "type": "official-documentation",
+          "section": "DESCRIPTION / add / list",
+          "use": "같은 저장소의 여러 작업 트리를 서로 다른 디렉터리에 구성.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Orchestrate teams of Claude Code sessions",
+          "url": "https://code.claude.com/docs/en/agent-teams",
+          "type": "official-documentation",
+          "section": "Compare with subagents / Architecture / Limitations",
+          "use": "공유 작업 목록·메시지·조정 구조. 확인일 기준 실험 기능·기본 비활성; 재개 등 제한을 모든 제품의 공통 동작으로 일반화하지 않음.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 병합 성공과 기능의 정상 동작은 별도 확인; 표 — UI의 가정 / 서버의 응답 / 통합 문제."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 82,
+      "id": "persistent-goals",
+      "kind": "content",
+      "title": "지속 실행 목표",
+      "slide_link": "../index.html#/82",
+      "outline_number": "8.7",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 표 — 목표의 구성 / 게시글 기능의 예. 무제한 자동 실행·항상 백그라운드 수행·예약 실행과 동일시하지 않음. Codex Goals 지원 빌드에서만 실제 명령 시연.",
+      "references": [
+        {
+          "label": "OpenAI Cookbook · Using Goals in Codex",
+          "url": "https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex",
+          "type": "official-documentation",
+          "section": "Goals vs prompts / How to write a Goal / Quickstart",
+          "use": "검증 가능한 지속 목표와 경계·중단 조건. 지원 빌드 필요(문서상 Codex 0.128.0부터); 예약 시각과는 별개.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 표 — 목표의 구성 / 게시글 기능의 예."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 83,
+      "id": "pause-and-resume",
+      "kind": "content",
+      "title": "장기 작업의 중단과 재개",
+      "slide_link": "../index.html#/83",
+      "outline_number": "8.8",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 상태가 바뀌었다면 이전 검사도 다시 확인 · 모든 프로세스의 자동 복원을 뜻하지 않음. 모든 제품에서 실행 중 프로세스·서브에이전트까지 그대로 복원된다는 설명 제외. 오래된 통과 기록을 현 상태의 증거로 쓰지 않음.",
+      "references": [
+        {
+          "label": "Anthropic · Effective harnesses for long-running agents (2025-11-26)",
+          "url": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+          "type": "official-documentation",
+          "section": "Environment management / Feature list / Testing / Getting up to speed",
+          "use": "작업 상태 기록·기능별 진행·실제 사용자 동작 검증·다음 세션의 상태 복구. 강의의 게시글 사례는 독자적 적용 예시.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "OpenAI Cookbook · Using Goals in Codex",
+          "url": "https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex",
+          "type": "official-documentation",
+          "section": "Goals vs prompts / How to write a Goal / Quickstart",
+          "use": "검증 가능한 지속 목표와 경계·중단 조건. 지원 빌드 필요(문서상 Codex 0.128.0부터); 예약 시각과는 별개.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Orchestrate teams of Claude Code sessions",
+          "url": "https://code.claude.com/docs/en/agent-teams",
+          "type": "official-documentation",
+          "section": "Compare with subagents / Architecture / Limitations",
+          "use": "공유 작업 목록·메시지·조정 구조. 확인일 기준 실험 기능·기본 비활성; 재개 등 제한을 모든 제품의 공통 동작으로 일반화하지 않음.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 상태가 바뀌었다면 이전 검사도 다시 확인 · 모든 프로세스의 자동 복원을 뜻하지 않음."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 84,
+      "id": "scheduled-automation",
+      "kind": "content",
+      "title": "예약 자동화",
+      "slide_link": "../index.html#/84",
+      "outline_number": "8.9",
+      "origin": "공식 자료를 참고한 강의용 재구성",
+      "adaptation": "실제 배치 자료: 단계도 — 예약 예시 · 로컬 프로젝트 작업에는 컴퓨터와 앱의 실행이 필요; 표 — 기능 / 결정하는 것. 실제 예약은 생성하지 않음. 로컬 프로젝트는 컴퓨터·앱 실행 필요; 클라우드 작업과 환경 조건을 합치지 않음.",
+      "references": [
+        {
+          "label": "OpenAI · Scheduled tasks",
+          "url": "https://developers.openai.com/codex/app/automations",
+          "type": "official-documentation",
+          "section": "Scheduled tasks / project-scoped scheduled tasks",
+          "use": "반복 일정과 실행 환경·결과 검토. 로컬 프로젝트 작업은 컴퓨터와 앱 실행이 필요하며 클라우드 실행과 구분.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "OpenAI Cookbook · Using Goals in Codex",
+          "url": "https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex",
+          "type": "official-documentation",
+          "section": "Goals vs prompts / How to write a Goal / Quickstart",
+          "use": "검증 가능한 지속 목표와 경계·중단 조건. 지원 빌드 필요(문서상 Codex 0.128.0부터); 예약 시각과는 별개.",
+          "checked_on": "2026-11-07"
+        },
+        {
+          "label": "Anthropic · Automate actions with hooks",
+          "url": "https://code.claude.com/docs/en/hooks-guide",
+          "type": "official-documentation",
+          "section": "How hooks work / Auto-format code after edits",
+          "use": "수명 주기 이벤트의 명령 실행. PostToolUse/PreToolUse는 Claude Code의 이벤트명이며 React Hooks와 무관.",
+          "checked_on": "2026-11-07"
+        }
+      ],
+      "assets": [
+        "실제 배치 자료: 단계도 — 예약 예시 · 로컬 프로젝트 작업에는 컴퓨터와 앱의 실행이 필요; 표 — 기능 / 결정하는 것."
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    },
+    {
+      "slide_number": 85,
+      "id": "developer-judgment",
+      "kind": "content",
+      "title": "AI 개발에서의 개발자 판단",
+      "slide_link": "../index.html#/85",
+      "outline_number": "8.10",
+      "origin": "기존 PDF 자료 재사용·수정",
+      "adaptation": "과거/현재/미래라는 단정적 전망을 자동화 범위와 개발자의 판단 비교로 재구성. 프롬프트 디자이너로의 대체 주장을 제거하고 현재 원고의 범위·검증·통합 판단 반영.",
+      "references": [
+        {
+          "label": "PWD Week10 원본 PDF · 14쪽",
+          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=14",
+          "type": "local-pdf",
+          "section": "원본 요소 재사용·수정",
+          "use": "과거/현재/미래라는 단정적 전망을 자동화 범위와 개발자의 판단 비교로 재구성. 프롬프트 디자이너로의 대체 주장을 제거하고 현재 원고의 범위·검증·통합 판단 반영."
+        }
+      ],
+      "assets": [
+        "T14-time"
+      ],
+      "chapter": 8,
+      "body_resource_status": "배치 완료"
+    }
+  ]
+}

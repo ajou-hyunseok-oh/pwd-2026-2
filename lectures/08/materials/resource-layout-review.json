@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-07",
+  "stage": "all-resources-placed",
+  "coverage": {
+    "total_slides": 68,
+    "content_slides": 60,
+    "reused_resource_slides": 16,
+    "new_resource_slides": 44,
+    "title_only_slides": 0
+  },
+  "static_checks": [
+    "npm test --prefix packages/web-deck",
+    "build-slides.py --check",
+    "title_outline.py --check",
+    "paragraph_outline.py --check",
+    "resource_placements.py --check",
+    "research_new_resources.py --check",
+    "slide_references.py --check",
+    "git diff --check"
+  ],
+  "layout": {
+    "count": 68,
+    "translations": [
+      {
+        "locale": "ko",
+        "checked": 973,
+        "mismatches": 0
+      },
+      {
+        "locale": "en",
+        "checked": 973,
+        "mismatches": 0
+      }
+    ],
+    "errors": [],
+    "issues": []
+  },
+  "content_integrity": {
+    "sourcesAbsent": true,
+    "referencePages": 60,
+    "localReferences": [
+      {
+        "url": "http://127.0.0.1:4308/lectures/08/materials/%5BPWD%20Week6%5D%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%87%E1%85%A9%E1%84%8B%E1%85%A1%E1%86%AB.pdf",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4308/lectures/08/materials/new-resource-research/reference-figures/mdn-cors-simple.svg",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4308/lectures/08/materials/new-resource-research/reference-figures/mdn-cors-preflight.svg",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:4308/lectures/08/materials/new-resource-research/reference-figures/supabase-environments.svg",
+        "status": 200
+      }
+    ],
+    "arrowOverlaps": [],
+    "mobileSequenceOverlaps": [],
+    "referenceMobileOverflow": false
+  },
+  "mobile_scroll": [
+    {
+      "locale": "ko",
+      "slide": 45,
+      "canScroll": false,
+      "scrollTop": 0,
+      "lastVisible": true
+    },
+    {
+      "locale": "ko",
+      "slide": 54,
+      "canScroll": false,
+      "scrollTop": 0,
+      "lastVisible": true
+    },
+    {
+      "locale": "ko",
+      "slide": 62,
+      "canScroll": true,
+      "scrollTop": 449,
+      "lastVisible": true
+    },
+    {
+      "locale": "en",
+      "slide": 45,
+      "canScroll": true,
+      "scrollTop": 19,
+      "lastVisible": true
+    },
+    {
+      "locale": "en",
+      "slide": 54,
+      "canScroll": true,
+      "scrollTop": 12,
+      "lastVisible": true
+    },
+    {
+      "locale": "en",
+      "slide": 62,
+      "canScroll": true,
+      "scrollTop": 485,
+      "lastVisible": true
+    }
+  ],
+  "visual_review": {
+    "ko_new_resources": [
+      3,
+      4,
+      5,
+      7,
+      8,
+      11,
+      15,
+      18,
+      19,
+      24,
+      28,
+      29,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      57,
+      59,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68
+    ],
+    "en_samples": [
+      36,
+      45,
+      50,
+      54
+    ],
+    "print_samples": [
+      {
+        "locale": "ko",
+        "slide": 65
+      },
+      {
+        "locale": "en",
+        "slide": 54
+      }
+    ],
+    "mobile_samples": [
+      54,
+      62
+    ],
+    "notes": "신규 44장 육안 검토. CORS 라벨·화살표 간격, XSS의 병렬 분기, 중복 요청 결과 응답을 조정한 뒤 한영 전체 재검사. 환경 분리 모바일 마지막 DB·설명까지 스크롤 확인. 별도 레퍼런스 문서의 화면·로컬 링크 검토."
+  },
+  "learning_flow_review": [
+    "같은 사용자 u123·제보 r101을 계정→소유자 정책→운영 업무에서 재사용.",
+    "1.3에서 인증 방법을 앞당기지 않고 요청의 주장과 신뢰 경계만 표시. 해시 뒤에 솔트 추가.",
+    "ID 토큰·외부 액세스 토큰·FoodMap 로그인 자격의 목적지와 내부 계정 대응 분리.",
+    "RLS SELECT의 권한·검증된 사용자 문맥·UUID 표기 전제와 특권 키 예외 구분.",
+    "출처→사이트→SOP→CORS→CSRF 순서를 유지. 기본 요청과 조건부 사전 요청 구분.",
+    "사용자/관리자 기능과 개발/검증/운영 환경의 두 축 분리. 앱 롤백과 DB 복원 범위 분리."
+  ],
+  "code_checks": {
+    "input_validation": {
+      "executions": 10,
+      "all_expected_results_matched": true
+    },
+    "react_text_output": {
+      "runtime": "React 19.3.1",
+      "cases": 2,
+      "escaped_markup_without_strong_element": true
+    },
+    "query_rls_migration": "공식 문서의 API·SQL과 대조한 이론용 발췌. 실제 DB 또는 Auth 서비스에 연결하지 않음."
+  },
+  "limitations": [
+    "자료 배치 단계. 전체 개념 설명 문단은 후속 작성 대상.",
+    "FoodMap 화면·정책·관측값은 강의용 예시이며 실제 서비스 운영 결과가 아님."
+  ],
+  "local_server_cleanup": {
+    "pid": 19187,
+    "port": 4308,
+    "process_exited": true,
+    "listener_released": true
+  }
+}

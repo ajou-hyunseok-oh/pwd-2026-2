@@ -1,0 +1,98 @@
+/* Complete Week 9 bodies in the shared definition/detail hierarchy. */
+.wd-lesson-body { gap: 2rem; margin-top: 1.25rem; }
+.wd-lesson-body--visual { grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); }
+.wd-lesson-block { display: grid; gap: 1rem; align-content: start; }
+.wd-lesson-concepts { font-size: 1rem; line-height: 1.55; }
+.wd-lesson-concepts li { font-size: .91rem; line-height: 1.6; }
+.wd-lesson-concepts > div + div { margin-top: 1.2rem; }
+.wd-lesson-concepts--bulleted dd { margin-top: .45rem; margin-left: .2rem; }
+.wd-lesson-concepts--bulleted li + li { margin-top: .35rem; }
+.wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div + div { margin-top: 0; }
+.wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div:only-child { grid-column: 1 / -1; }
+.wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div:only-child ul { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; }
+.wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div:only-child li { margin-top: 0; }
+.w9-resource-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.w9-resource-column { display: grid; min-width: 0; gap: .75rem; align-content: start; }
+.wd-lesson-body :is(.w9-flow,.w9-groups,.w9-tokens,.w9-context,.w9-editor,.w9-screen,.w9-diagram,.w9-sets) { margin-top: 0; }
+.wd-lesson-body :is(.w9-caption,.w9-resource-note) { margin-top: .4rem !important; }
+.wd-lesson-body .w9-resource-note { margin-bottom: 0 !important; font-size: .8rem; }
+.wd-lesson-body .wd-lesson-table :is(th,td) { padding: .5rem .7rem; }
+.wd-lesson-body .w9-responsive-table td { white-space: normal; }
+.w9-responsive-table td > span:not(.w9-cell-label) { white-space: pre-line; }
+.wd-lesson-block > .wd-lesson-code-label,
+.w9-resource-column > .wd-lesson-code-label { margin-bottom: -.55rem !important; }
+.w9-resource-column pre + .wd-lesson-code-label { margin-top: .15rem !important; }
+.wd-lesson-body .w9-flow > ol > li { padding: .6rem 0; }
+.wd-lesson-body .w9-flow > ol > li::before { margin-bottom: .35rem; }
+.wd-lesson-body .w9-flow li p { margin-top: .4rem; }
+.wd-lesson-body .w9-return { padding: .4rem 0; }
+.wd-lesson-body .w9-diagram-canvas { max-width: 100%; }
+.wd-lesson-body .w9-diagram svg { max-height: 15rem; }
+.wd-lesson-body .w9-set { padding: .55rem 1rem; }
+.wd-lesson-body .w9-set > .w9-set { margin-top: .45rem; }
+.wd-lesson-body .w9-context ol { margin: .4rem 0; }
+.wd-lesson-body .w9-token-input { margin-bottom: .6rem !important; font-size: 1.4rem; }
+.wd-lesson-body .w9-tokens li { padding: 1rem 1.2rem; }
+.wd-lesson-body .w9-group-list > div { padding-top: .65rem; }
+.wd-lesson-body .w9-group-list p { margin-top: .5rem; }
+.wd-lesson-body--visual .w9-flow > ol,
+.w9-resource-column .w9-flow > ol { grid-template-columns: 1fr; gap: .45rem; }
+.wd-lesson-body--visual .w9-flow > ol > li,
+.w9-resource-column .w9-flow > ol > li { border-top: 0; border-left: 2px solid #90aa9a; padding: .45rem 0 .45rem 2rem; }
+.wd-lesson-body--visual .w9-flow > ol > li::before,
+.w9-resource-column .w9-flow > ol > li::before { position: absolute; left: .4rem; top: .55rem; }
+.wd-lesson-body--visual .w9-flow > ol > li + li::after,
+.w9-resource-column .w9-flow > ol > li + li::after { display: none; }
+.w9-resource-column .w9-groups .w9-group-list { grid-template-columns: 1fr; gap: 1rem; }
+[data-wd-slide="alexnet"] .wd-lesson-table :is(th,td) { padding: .35rem .7rem; }
+[data-wd-slide="alexnet"] .wd-lesson-figure img { max-height: 24rem; }
+[data-wd-slide="alexnet"] .w9-resource-row { gap: 1rem; grid-template-columns: 1.2fr 1fr; }
+[data-wd-slide="dartmouth"] .wd-lesson-figure { margin-top: 1rem; }
+[data-wd-slide="dartmouth"] .w9-flow > ol { grid-template-columns: repeat(2,minmax(0,1fr)); }
+
+/* Short comparisons and flows use a comfortable reading measure. */
+:is([data-wd-slide="artificial-intelligence"], [data-wd-slide="machine-learning"],
+    [data-wd-slide="self-supervision"], [data-wd-slide="large-language-model"],
+    [data-wd-slide="hallucinations"]) .wd-lesson-table :is(th,td) { padding: 1.1rem .8rem; }
+:is([data-wd-slide="symbolic-ai"], [data-wd-slide="inference"],
+    [data-wd-slide="embeddings"], [data-wd-slide="pretraining"],
+    [data-wd-slide="rag"], [data-wd-slide="instruction-tuning"],
+    [data-wd-slide="human-feedback"], [data-wd-slide="context-engineering"],
+    [data-wd-slide="context-compaction"], [data-wd-slide="post-feature-case"],
+    [data-wd-slide="subagents"], [data-wd-slide="pause-and-resume"]) .w9-flow { font-size: 1.1rem; }
+:is([data-wd-slide="symbolic-ai"], [data-wd-slide="inference"],
+    [data-wd-slide="embeddings"], [data-wd-slide="pretraining"],
+    [data-wd-slide="rag"], [data-wd-slide="instruction-tuning"],
+    [data-wd-slide="human-feedback"], [data-wd-slide="context-engineering"],
+    [data-wd-slide="context-compaction"], [data-wd-slide="post-feature-case"],
+    [data-wd-slide="subagents"], [data-wd-slide="pause-and-resume"]) .w9-flow > ol > li { padding: 1rem 0; font-size: 1.15rem; }
+:is([data-wd-slide="symbolic-ai"], [data-wd-slide="inference"],
+    [data-wd-slide="embeddings"], [data-wd-slide="pretraining"],
+    [data-wd-slide="rag"], [data-wd-slide="instruction-tuning"],
+    [data-wd-slide="human-feedback"], [data-wd-slide="context-engineering"],
+    [data-wd-slide="context-compaction"], [data-wd-slide="post-feature-case"],
+    [data-wd-slide="subagents"], [data-wd-slide="pause-and-resume"]) .w9-flow li p { font-size: 1rem; margin-top: .8rem; line-height: 1.65; }
+.wd-lesson-body--visual .w9-group-list { grid-template-columns: 1fr; gap: 1.5rem; }
+.wd-lesson-body--visual .w9-group-list > div { padding-top: 1rem; }
+.wd-lesson-body--visual .w9-context ol { flex-direction: column; }
+.wd-lesson-body--visual .w9-context li { padding: 1.1rem .7rem; }
+.wd-lesson-body--visual .w9-context li + li { border-left: 0; border-top: 1px solid #90aa9a; }
+[data-wd-slide="specification"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div:only-child ul { grid-template-columns: repeat(2,minmax(0,1fr)); gap: .4rem 2rem; }
+
+@media screen and (max-width:767px) {
+  .wd-lesson-body, .w9-resource-row,
+  .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts,
+  .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div:only-child ul { grid-template-columns: 1fr; }
+  .wd-lesson-body { gap: 1.8rem; }
+  .wd-lesson-concepts { font-size: 1.05rem; }
+  .wd-lesson-concepts li { font-size: 1rem; }
+  .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { gap: 1.2rem; }
+  .wd-lesson-body .w9-resource-note { font-size: .9rem; }
+  .wd-lesson-body .wd-lesson-table :is(th,td) { padding: .5rem .3rem; }
+  .wd-lesson-body .w9-flow > ol > li + li::after { top: -1.7rem; }
+  [data-wd-slide="alexnet"] .w9-resource-row { grid-template-columns: 1fr; }
+  [data-wd-slide="dartmouth"] .w9-flow > ol { grid-template-columns: 1fr; }
+  [data-wd-slide="specification"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div:only-child ul { grid-template-columns: 1fr; }
+  .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div:only-child ul { gap: .4rem; }
+}

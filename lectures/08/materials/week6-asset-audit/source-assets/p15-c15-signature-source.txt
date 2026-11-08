@@ -1,0 +1,1 @@
+HMACSHA256(base64Url(header)+"."+base64Url(payload), secret)

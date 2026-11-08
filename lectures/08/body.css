@@ -1,0 +1,106 @@
+/* Week 8 complete bodies: explanations and evidence share one composition. */
+.wd-lesson-body { gap: 2rem; margin-top: 1.25rem; }
+.wd-lesson-body--visual { grid-template-columns: minmax(0,.92fr) minmax(0,1.28fr); }
+.wd-lesson-block { display: grid; gap: 1rem; align-content: start; }
+.wd-lesson-concepts { font-size: 1rem; line-height: 1.6; }
+.wd-lesson-concepts li { font-size: .91rem; line-height: 1.6; }
+.wd-lesson-concepts > div + div { margin-top: 1.25rem; }
+.wd-lesson-concepts--bulleted li + li { margin-top: .4rem; }
+.wd-lesson-concepts--bulleted dd { margin-top: .45rem; margin-left: .25rem; }
+.wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts > div + div { margin-top: 0; }
+.wd-lesson-body--single > .wd-lesson-block { gap: 1.15rem; }
+.wd-lesson-body .w8-flow { margin-top: 0; }
+.wd-lesson-body .w8-resource-note, .wd-lesson-body .w8-caption { margin-top: .45rem !important; }
+.wd-lesson-body .wd-lesson-figure figcaption { margin-top: .45rem; }
+.wd-lesson-block > .w8-flow + .wd-lesson-table,
+.wd-lesson-block > .w8-timeline + .wd-lesson-table,
+.wd-lesson-block > pre + .wd-lesson-table { margin-top: 0; }
+.wd-lesson-block > .wd-lesson-code-label { margin-bottom: -.65rem !important; }
+.wd-lesson-block > pre + .wd-lesson-code-label { margin-top: .15rem !important; }
+.w8-resource-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.w8-resource-column { min-width: 0; }
+.wd-lesson-body .wd-lesson-table th,
+.wd-lesson-body .wd-lesson-table td { padding: .5rem .7rem; }
+.wd-lesson-body--single .w8-flow li { padding: .6rem 0; }
+.wd-lesson-body--single .w8-flow li::before { margin-bottom: .3rem; }
+.wd-lesson-body--single .w8-flow li p { margin-top: .4rem; }
+[data-wd-slide="jwt-validation"] .wd-lesson-table thead th:first-child { width: 24%; }
+[data-wd-slide="authentication"] .wd-lesson-table thead th:first-child { width: 30%; }
+[data-wd-slide="auth-expiry"] .wd-lesson-table thead th:first-child { width: 28%; }
+/* Short comparisons use the full measure and larger cells, not a narrow corner. */
+:is([data-wd-slide="user-account"], [data-wd-slide="role-access"],
+    [data-wd-slide="owner-access"], [data-wd-slide="token-signature"],
+    [data-wd-slide="api-keys"], [data-wd-slide="foodmap-policy"],
+    [data-wd-slide="admin-boundary"], [data-wd-slide="publication-state"])
+    .wd-lesson-table { font-size: .95rem; }
+:is([data-wd-slide="user-account"], [data-wd-slide="role-access"],
+    [data-wd-slide="owner-access"], [data-wd-slide="token-signature"],
+    [data-wd-slide="foodmap-policy"])
+    .wd-lesson-table :is(th,td) { padding: .85rem .8rem; }
+
+/* Vertical steps preserve chronological reading beside prose. */
+.wd-lesson-body--visual .w8-flow ol { grid-template-columns: 1fr; gap: .6rem; }
+.wd-lesson-body--visual .w8-flow li { border-top: 0; border-left: 3px solid #47725b; padding: .65rem .5rem .65rem 2.3rem; }
+.wd-lesson-body--visual .w8-flow li::before { position: absolute; left: .5rem; top: .8rem; }
+.wd-lesson-body--visual .w8-flow li + li::after { display: none; }
+.wd-lesson-body--visual .w8-flow li p { margin-top: .35rem; }
+.wd-lesson-body--visual .w8-timeline ol { grid-template-columns: 1fr; gap: 1.2rem; }
+.wd-lesson-body--visual .w8-timeline li { border-top: 0; border-left: 3px solid #47725b; padding: .2rem 0 .4rem 1.3rem; }
+.wd-lesson-body--visual .w8-timeline li::before { left: -.35rem; top: .2rem; }
+.wd-lesson-body--visual .w8-timeline li > p:last-child { margin-top: .3rem; }
+.wd-lesson-body--visual .w8-time { margin-bottom: .25rem !important; }
+
+/* The explanation replaces repeated labels, leaving the examples legible. */
+.wd-lesson-body--visual .w8-branch-children { gap: 1rem; }
+.wd-lesson-body--visual .w8-transaction { grid-template-columns: 1fr; gap: 1rem; }
+.wd-lesson-body--visual .w8-transaction-results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.wd-lesson-body--visual .w8-transaction-results > div + div { margin-top: 0; }
+.wd-lesson-body--visual .w8-login-example { margin: 0 auto; }
+.wd-lesson-body .w8-sequence .w8-actor { font-size: .8rem; }
+.wd-lesson-body .w8-sequence .w8-message-text { font-size: .78rem; }
+.wd-lesson-body .w8-messages > li { height: auto; padding-bottom: .45rem; }
+.wd-lesson-body .w8-message { position: relative; height: auto; min-height: 1.8rem; padding-bottom: .35rem; }
+.wd-lesson-body .w8-local { line-height: 1.35; }
+.wd-lesson-body .w8-local { position: relative; }
+.wd-lesson-body .w8-local[style*="right:0"] { margin-left: auto; }
+.wd-lesson-body .w8-sequence[data-actors="3"] .w8-actors,
+.wd-lesson-body .w8-sequence[data-actors="4"] .w8-actors { height: 3rem; }
+[data-wd-slide="jwt-structure"] .wd-lesson-figure { margin-bottom: 0; }
+[data-wd-slide="jwt-structure"] .wd-lesson-table { font-size: .88rem; }
+[data-wd-slide="jwt-structure"] .wd-lesson-table th,
+[data-wd-slide="jwt-structure"] .wd-lesson-table td { padding: .5rem .7rem; }
+[data-wd-slide="jwt-structure"] pre + .wd-lesson-code-label { margin-top: 0 !important; }
+[data-wd-slide="cookies"] pre + .wd-lesson-code-label { margin-top: 0 !important; }
+[data-wd-slide="cors"] .w8-resource-column:nth-child(2) .w8-flow ol { grid-template-columns: 1fr; gap: .25rem; }
+[data-wd-slide="cors"] .w8-resource-column:nth-child(2) .w8-flow li { border-top: 0; border-left: 2px solid #a8b8ae; padding: .3rem 0 .3rem 2rem; }
+[data-wd-slide="cors"] .w8-resource-column:nth-child(2) .w8-flow li::before { position: absolute; top: .45rem; left: .4rem; }
+[data-wd-slide="cors"] .w8-resource-column:nth-child(2) .w8-flow li::after { display: none; }
+[data-wd-slide="cors"] .w8-resource-column:nth-child(2) .w8-flow li p { margin-top: .2rem; }
+[data-wd-slide="environment-data"] .w8-environment-purpose { margin-bottom: .6rem !important; }
+[data-wd-slide="environment-data"] .w8-environment-ui p { padding: .6rem .4rem; }
+[data-wd-slide="environment-data"] .w8-environment-server,
+[data-wd-slide="environment-data"] .w8-environment-db { margin-top: 1.45rem; padding: .4rem; }
+[data-wd-slide="environment-data"] .w8-environment-server::before,
+[data-wd-slide="environment-data"] .w8-environment-db::before { top: -1.35rem; }
+.wd-lesson-body--single .w8-metric-title { min-height: auto; }
+.wd-lesson-body--single .w8-bar-track { height: 6.7rem; }
+.wd-lesson-body--single .w8-metric-range { margin-bottom: 1.1rem !important; }
+
+@media screen and (max-width:767px) {
+  .wd-lesson-body, .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts,
+  .w8-resource-row { grid-template-columns: 1fr; }
+  .wd-lesson-body { gap: 1.8rem; }
+  .wd-lesson-concepts { font-size: 1.05rem; }
+  .wd-lesson-concepts li { font-size: 1rem; }
+  .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { gap: 1.25rem; }
+  .wd-lesson-body .w8-message-text, .wd-lesson-body .w8-local { font-size: 1rem; }
+  .wd-lesson-body .w8-message, .wd-lesson-body .w8-local { position: static; min-height: 0; }
+  .wd-lesson-body .w8-messages > li, .wd-lesson-body .w8-message,
+  [data-wd-slide="oauth-state"] .w8-messages > li, [data-wd-slide="oauth-state"] .w8-message,
+  [data-wd-slide="pkce"] .w8-messages > li, [data-wd-slide="pkce"] .w8-message,
+  [data-wd-slide="cors"] .w8-messages > li, [data-wd-slide="cors"] .w8-message { height: auto; }
+  .wd-lesson-body--visual .w8-transaction-results { grid-template-columns: 1fr; }
+  .wd-lesson-body .wd-lesson-table { font-size: .8rem; }
+  .wd-lesson-body .wd-lesson-table :is(th,td) { padding: .5rem .3rem; }
+}

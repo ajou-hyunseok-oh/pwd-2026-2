@@ -1,0 +1,1038 @@
+{
+  "stage": "all-resources-placed",
+  "deck_slide_count": 85,
+  "resource_slide_count": 76,
+  "reused_resource_slide_count": 16,
+  "new_resource_slide_count": 60,
+  "title_only_slide_count": 0,
+  "placed_by_audit_status": {
+    "직접 활용": 2,
+    "수정 활용": 9,
+    "구조 참고": 5
+  },
+  "used_asset_ids": [
+    "I03",
+    "I05-unit",
+    "I06",
+    "I07",
+    "I08-network",
+    "I10-flow",
+    "I11-flow",
+    "I22",
+    "T04",
+    "T14-time",
+    "T17",
+    "T19",
+    "T21",
+    "T22-steps",
+    "T24"
+  ],
+  "resource_format": "편집형 HTML/SVG 도식·네이티브 표·코드·개별 발췌 이미지·한영 라벨",
+  "slides": [
+    {
+      "outline_number": "1.1",
+      "slide_number": 3,
+      "id": "artificial-intelligence",
+      "title": "인공지능",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 표 — 과제 / 입력 / 필요한 처리."
+    },
+    {
+      "outline_number": "1.2",
+      "slide_number": 4,
+      "id": "turing-test",
+      "title": "튜링 테스트",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "T04"
+      ],
+      "pages": [
+        4
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "역할 표를 편집형 한영 표로 변환. 판정 범위를 문자 대화에서 관찰한 행동으로 한정. 그림 I04-test는 같은 관계의 대안으로 보관."
+    },
+    {
+      "outline_number": "1.3",
+      "slide_number": 5,
+      "id": "dartmouth",
+      "title": "다트머스 연구 모임",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 발췌 이미지 — 공동 연구의 목표를 제시한 제안서; 단계도 — 완성 기술의 발표가 아닌 연구 분야의 출발."
+    },
+    {
+      "outline_number": "1.4",
+      "slide_number": 6,
+      "id": "symbolic-ai",
+      "title": "기호 기반 인공지능",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 기호로 표현한 사실과 명시적 규칙을 연결하는 분류 예시."
+    },
+    {
+      "outline_number": "1.5",
+      "slide_number": 7,
+      "id": "perceptron",
+      "title": "퍼셉트론",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I05-unit"
+      ],
+      "pages": [
+        5
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "오른쪽 입력·가중치·합산·판단 구조를 편집형 도식으로 재구성. 두 입력으로 단순화하고 임곗값 비교를 명시. 생물학 용어·일반 활성 함수 표기·XOR 보조 그림 제외."
+    },
+    {
+      "outline_number": "1.6",
+      "slide_number": 8,
+      "id": "expert-system",
+      "title": "전문가 시스템",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I06"
+      ],
+      "pages": [
+        6
+      ],
+      "original_audit_status": "직접 활용",
+      "correction": "사용자·인터페이스·추론 엔진·지식 베이스·결과의 구성과 모든 연결을 유지한 편집형 도식. 한국어 비트맵의 영문 전용 문제를 해소."
+    },
+    {
+      "outline_number": "2.1",
+      "slide_number": 10,
+      "id": "ai-winter",
+      "title": "AI 겨울",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I03"
+      ],
+      "pages": [
+        3
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "실측값처럼 보이는 곡선을 시기별 개략 시간선으로 정리. 1990년 머신러닝 최초 등장 표기와 미학습 딥러닝·생성형 AI 구간 제거."
+    },
+    {
+      "outline_number": "2.2",
+      "slide_number": 11,
+      "id": "machine-learning",
+      "title": "머신러닝",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 표 — 기준을 얻는 방식 / 준비하는 것 / 판단에 사용하는 것."
+    },
+    {
+      "outline_number": "2.3",
+      "slide_number": 12,
+      "id": "training",
+      "title": "모델의 학습",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 학습 데이터의 반복 처리 · 처음 보는 데이터에서의 성능은 별도 확인."
+    },
+    {
+      "outline_number": "2.4",
+      "slide_number": 13,
+      "id": "inference",
+      "title": "모델의 추론",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 한 번의 추론 요청은 학습한 값의 갱신과 구분."
+    },
+    {
+      "outline_number": "2.5",
+      "slide_number": 14,
+      "id": "supervised-learning",
+      "title": "지도학습",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 표 — 학습 메시지 / 제공된 정답."
+    },
+    {
+      "outline_number": "2.6",
+      "slide_number": 15,
+      "id": "unsupervised-learning",
+      "title": "비지도학습",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 역할·사례 비교 — 정답 없이 유사한 문의를 묶은 설명용 결과."
+    },
+    {
+      "outline_number": "2.7",
+      "slide_number": 16,
+      "id": "reinforcement-learning",
+      "title": "강화학습",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 단계도 — 설명용 보상 규칙: 도착 +1 · 그 외 0 · 여러 행동에 걸친 누적 보상 추구."
+    },
+    {
+      "outline_number": "2.8",
+      "slide_number": 17,
+      "id": "neural-network",
+      "title": "인공 신경망",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I08-network"
+      ],
+      "pages": [
+        8
+      ],
+      "original_audit_status": "직접 활용",
+      "correction": "단일 퍼셉트론과 2입력·2은닉·1출력 연결 구조를 보존한 편집형 도식. 한영 라벨을 분리하고 역전파·손실 용어는 추가하지 않음."
+    },
+    {
+      "outline_number": "2.9",
+      "slide_number": 18,
+      "id": "backpropagation",
+      "title": "역전파",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 관계도 — 역전파: 영향 계산 · 가중치 갱신: 계산 결과를 이용한 조정."
+    },
+    {
+      "outline_number": "2.10",
+      "slide_number": 19,
+      "id": "deep-learning",
+      "title": "딥러닝",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I07"
+      ],
+      "pages": [
+        7
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "AI⊃ML⊃DL 포함 관계를 편집형 중첩 도식으로 유지. 뇌 유사성 대신 데이터 학습·여러 층 표현 학습으로 정의 교정. I09의 미학습 손실·함수·RNN 오기 자료는 대안에서 제외."
+    },
+    {
+      "outline_number": "2.11",
+      "slide_number": 20,
+      "id": "alexnet",
+      "title": "AlexNet의 이미지 분류",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 발췌 이미지 — 입력 사진 · 실제 분류 · 상위 예측 후보; 표 — 예측 순위 / 후보."
+    },
+    {
+      "outline_number": "2.12",
+      "slide_number": 21,
+      "id": "alphago",
+      "title": "AlphaGo의 바둑 판단",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 역할·사례 비교 — 바둑판 상태를 신경망과 탐색으로 처리."
+    },
+    {
+      "outline_number": "3.1",
+      "slide_number": 23,
+      "id": "language-model",
+      "title": "언어 모델",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 역할·사례 비교 — 문맥에 이어질 여러 표현의 가능성을 다루는 모델."
+    },
+    {
+      "outline_number": "3.2",
+      "slide_number": 24,
+      "id": "tokens",
+      "title": "토큰",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 토큰 분할표 — cl100k_base의 실제 분할 결과 · 조각마다 대응하는 식별 번호."
+    },
+    {
+      "outline_number": "3.3",
+      "slide_number": 25,
+      "id": "embeddings",
+      "title": "임베딩",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 벡터는 차원을 줄인 임의 예시 · 토큰 ID의 크기가 의미의 크기는 아님."
+    },
+    {
+      "outline_number": "3.4",
+      "slide_number": 26,
+      "id": "attention",
+      "title": "어텐션",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 관계도 — 관련성 설명용 연결선 · 실제 어텐션 가중치나 내부 사고의 기록은 아님."
+    },
+    {
+      "outline_number": "3.5",
+      "slide_number": 27,
+      "id": "transformer",
+      "title": "Transformer",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I10-flow"
+      ],
+      "pages": [
+        10
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "토큰·임베딩·어텐션·표현 변환 구도를 유지. 순서 정보와 층 반복을 보완하고 FFN을 역할로 풀어 표기. 원본 수식과 토큰 생성 반복은 넣지 않음."
+    },
+    {
+      "outline_number": "3.6",
+      "slide_number": 28,
+      "id": "self-supervision",
+      "title": "자기지도학습",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 원문에서 만든 과제 / 입력 / 학습 목표."
+    },
+    {
+      "outline_number": "3.7",
+      "slide_number": 29,
+      "id": "pretraining",
+      "title": "사전 학습",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 단계도 — 문장을 그대로 찾는 검색 저장소와 구분되는 모델 학습."
+    },
+    {
+      "outline_number": "3.8",
+      "slide_number": 30,
+      "id": "large-language-model",
+      "title": "대규모 언어 모델",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 표 — 계열 예시 / 학습 목표 예시 / 주요 활용."
+    },
+    {
+      "outline_number": "3.9",
+      "slide_number": 31,
+      "id": "text-generation",
+      "title": "언어 모델의 문장 생성",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I11-flow"
+      ],
+      "pages": [
+        11,
+        12
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외."
+    },
+    {
+      "outline_number": "3.10",
+      "slide_number": 32,
+      "id": "context-window",
+      "title": "컨텍스트 윈도",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 문맥 구성도 — 한 요청에서 처리할 수 있는 문맥의 한도 · 영역 비율은 개략 표현."
+    },
+    {
+      "outline_number": "3.11",
+      "slide_number": 33,
+      "id": "hallucinations",
+      "title": "언어 모델의 환각",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 표 — 입력 문서 / 생성된 답변 예 / 문서와 대조."
+    },
+    {
+      "outline_number": "3.12",
+      "slide_number": 34,
+      "id": "rag",
+      "title": "검색 증강 생성",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 창작 문서의 설명용 흐름 · 잘못 검색한 문서나 해석 오류는 여전히 확인 필요."
+    },
+    {
+      "outline_number": "4.1",
+      "slide_number": 36,
+      "id": "code-model",
+      "title": "코드 생성 모델",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 생성할 코드의 문맥."
+    },
+    {
+      "outline_number": "4.2",
+      "slide_number": 37,
+      "id": "code-completion",
+      "title": "코드 자동 완성",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 편집기 모식도 — 자동 완성의 편집기 모식도 · 흐린 부분은 아직 수락하지 않은 제안; 단계도 — 제안을 적용하고 실행할 책임을 가진 개발자."
+    },
+    {
+      "outline_number": "4.3",
+      "slide_number": 38,
+      "id": "instruction-tuning",
+      "title": "지시 튜닝",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 학습 데이터로 모델을 조정하는 단계 · 사용 중 프롬프트 수정과 구분."
+    },
+    {
+      "outline_number": "4.4",
+      "slide_number": 39,
+      "id": "human-feedback",
+      "title": "사람의 피드백을 통한 학습",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 시범 답안의 모방과 선호 비교는 서로 다른 학습 자료."
+    },
+    {
+      "outline_number": "4.5",
+      "slide_number": 40,
+      "id": "conversational-development",
+      "title": "대화형 개발 지원",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 단계도 — 파일 적용과 실행은 개발자가 담당하는 대화형 개발 과정."
+    },
+    {
+      "outline_number": "4.6",
+      "slide_number": 41,
+      "id": "development-prompt",
+      "title": "개발 프롬프트",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "T17"
+      ],
+      "pages": [
+        17
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "요소·설명·예시 3열을 재사용. 서비스 기획 예시를 문자열 제목 검사로 통일. 역할 지정은 선택임을 표시하고 반환 형식·공백·길이 조건 명시."
+    },
+    {
+      "outline_number": "4.7",
+      "slide_number": 42,
+      "id": "few-shot-prompting",
+      "title": "퓨샷 프롬프팅",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "T19"
+      ],
+      "pages": [
+        19
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "원본 비교표의 예시 유무 구도 재사용. 두 조건의 과제와 요청을 동일하게 유지하고 제목 입출력 예시만 추가. 높은 정확도 보장 표현 제거."
+    },
+    {
+      "outline_number": "4.8",
+      "slide_number": 43,
+      "id": "title-validation-case",
+      "title": "게시글 제목 검사 함수",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 문자열 입력 · boolean 반환; 표 — 입력 / 기대 결과."
+    },
+    {
+      "outline_number": "4.9",
+      "slide_number": 44,
+      "id": "code-revision",
+      "title": "생성 코드의 수정",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I22",
+        "T22-steps"
+      ],
+      "pages": [
+        22
+      ],
+      "original_audit_status": "수정 활용",
+      "correction": "원본 단계표의 순서에 맞춰 결과 확인부터 시작. 요약 길이 사례를 공백 제목의 실제값·기대값 및 수정 후 재실행으로 교체. 사람이 실행·결과 전달하는 범위 유지."
+    },
+    {
+      "outline_number": "5.1",
+      "slide_number": 46,
+      "id": "tool-calling",
+      "title": "도구 호출",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 호출 요청을 만드는 모델과 실제 실행하는 애플리케이션의 역할 구분; 코드 발췌 — 가상의 파일 읽기 도구 요청."
+    },
+    {
+      "outline_number": "5.2",
+      "slide_number": 47,
+      "id": "tool-permissions",
+      "title": "도구 실행 권한",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 요청 / 환경의 범위 / 실행 결과."
+    },
+    {
+      "outline_number": "5.3",
+      "slide_number": 48,
+      "id": "agent-loop",
+      "title": "AI 에이전트의 작업 반복",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 관계도 — 결과에 따른 작업 반복 · 모델 가중치의 학습과는 별도."
+    },
+    {
+      "outline_number": "5.4",
+      "slide_number": 49,
+      "id": "development-tools",
+      "title": "개발 환경의 도구",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 개발 작업 / 도구 범주 / 얻는 결과."
+    },
+    {
+      "outline_number": "5.5",
+      "slide_number": 50,
+      "id": "agent-repair-case",
+      "title": "제목 검사 함수의 자동 수정",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 수정 전 · 공백 처리 누락; 코드 발췌 — 수정 후; 표 — 입력 / 수정 전 / 수정 후."
+    },
+    {
+      "outline_number": "5.6",
+      "slide_number": 51,
+      "id": "reasoning-models",
+      "title": "추론 모델",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 어려운 과제에 더 많은 계산을 사용할 수 있는 모델."
+    },
+    {
+      "outline_number": "5.7",
+      "slide_number": 52,
+      "id": "multimodal-models",
+      "title": "멀티모달 모델",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 화면과 함께 제공하는 코드 발췌; 화면 모식도 — 오류 안내 일부가 잘린 화면 모식도."
+    },
+    {
+      "outline_number": "5.8",
+      "slide_number": 53,
+      "id": "computer-use",
+      "title": "컴퓨터 사용",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 화면 모식도 — 조작 대상 화면의 모식도; 단계도 — 관찰과 실제 조작·결과 확인의 반복."
+    },
+    {
+      "outline_number": "5.9",
+      "slide_number": 54,
+      "id": "mcp",
+      "title": "Model Context Protocol",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 관계도 — Model Context Protocol · 도구·문맥의 통신 규약이며 실행 권한 자체는 별도."
+    },
+    {
+      "outline_number": "6.1",
+      "slide_number": 56,
+      "id": "project-context",
+      "title": "프로젝트 맥락",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 파일 예시 / 역할 / 연결."
+    },
+    {
+      "outline_number": "6.2",
+      "slide_number": 57,
+      "id": "context-engineering",
+      "title": "컨텍스트 설계",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 모든 파일의 일괄 입력보다 관련 정보의 선택과 적시 조회."
+    },
+    {
+      "outline_number": "6.3",
+      "slide_number": 58,
+      "id": "project-instructions",
+      "title": "프로젝트 지침 파일",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "T21"
+      ],
+      "pages": [
+        21
+      ],
+      "original_audit_status": "구조 참고",
+      "correction": "시스템 프롬프트 표의 반복 규칙 구성만 참고. 실제 프로젝트 지침 예시로 새로 구체화하고 시스템 메시지 우선순위와 실행 권한을 동일시하지 않음."
+    },
+    {
+      "outline_number": "6.4",
+      "slide_number": 59,
+      "id": "agent-skills",
+      "title": "에이전트 스킬",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 반복 절차를 묶은 스킬 폴더 예시; 단계도 — 프로젝트의 상시 규칙과 구분되는 특정 작업의 반복 절차."
+    },
+    {
+      "outline_number": "6.5",
+      "slide_number": 60,
+      "id": "progress-notes",
+      "title": "작업 진행 기록",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 구분 / 남기는 기록."
+    },
+    {
+      "outline_number": "6.6",
+      "slide_number": 61,
+      "id": "context-compaction",
+      "title": "컨텍스트 압축",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 요약으로 문맥을 줄이되 필요한 세부를 다시 확인할 경로 유지."
+    },
+    {
+      "outline_number": "6.7",
+      "slide_number": 62,
+      "id": "project-context-case",
+      "title": "게시글 프로젝트의 작업 맥락",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 자료 / 역할 / 제목 수정 작업에서의 용도."
+    },
+    {
+      "outline_number": "7.1",
+      "slide_number": 64,
+      "id": "specification",
+      "title": "요구사항 명세",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "설명 활용",
+      "correction": "실제 배치 자료: 표 — 명세 항목 / 조건."
+    },
+    {
+      "outline_number": "7.2",
+      "slide_number": 65,
+      "id": "acceptance-criteria",
+      "title": "완료 기준",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 상황 / 기대 동작 / 확인할 근거."
+    },
+    {
+      "outline_number": "7.3",
+      "slide_number": 66,
+      "id": "implementation-plan",
+      "title": "구현 계획",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "T24"
+      ],
+      "pages": [
+        24
+      ],
+      "original_audit_status": "구조 참고",
+      "correction": "PRD에서 작업 순서를 만드는 발상 참고. TaskMaster 제품·CLI 대신 현재 게시글 사례의 선후 의존 관계로 구체화. MCP 오기와 제품 설정은 옮기지 않음."
+    },
+    {
+      "outline_number": "7.4",
+      "slide_number": 67,
+      "id": "task-decomposition",
+      "title": "작업 분해",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "T24"
+      ],
+      "pages": [
+        24
+      ],
+      "original_audit_status": "구조 참고",
+      "correction": "작업 목록을 생성·관리한다는 발상을 현재 사례의 입력·완료 결과·확인 방법 표로 구체화. 작업 분해 전에 병렬화나 자동 테스트를 전제하지 않음."
+    },
+    {
+      "outline_number": "7.5",
+      "slide_number": 68,
+      "id": "automated-tests",
+      "title": "자동화 테스트",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 입력과 고정 기대값의 비교; 표 — 검사 범위 / 수정 후 결과."
+    },
+    {
+      "outline_number": "7.6",
+      "slide_number": 69,
+      "id": "browser-verification",
+      "title": "브라우저 검증",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — Playwright · 실행 중인 예제 앱에 적용하는 발췌; 표 — 관찰 범위 / 확인하는 것."
+    },
+    {
+      "outline_number": "7.7",
+      "slide_number": 70,
+      "id": "implementation-verification-loop",
+      "title": "구현과 검증의 반복",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "I22",
+        "T22-steps"
+      ],
+      "pages": [
+        22
+      ],
+      "original_audit_status": "구조 참고",
+      "correction": "4.9의 반복 구도를 에이전트 구현·테스트·브라우저 검증으로 확장. 남은 작업 진행·실패 수정 후 재검증·전체 완료의 분기를 구분. 아직 미학습인 Hooks·하네스는 넣지 않음."
+    },
+    {
+      "outline_number": "7.8",
+      "slide_number": 71,
+      "id": "agent-hooks",
+      "title": "에이전트 Hooks",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — Claude Code 예: PostToolUse의 Edit/Write 이후 검사 · 차단 여부는 이벤트·설정에 따름."
+    },
+    {
+      "outline_number": "7.9",
+      "slide_number": 72,
+      "id": "execution-harness",
+      "title": "실행 하네스",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 관계도 — 모델·도구·상태·검사·한도를 연결하는 실행 기반."
+    },
+    {
+      "outline_number": "7.10",
+      "slide_number": 73,
+      "id": "change-review",
+      "title": "변경사항 리뷰",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 변경 전; 코드 발췌 — 변경 후; 표 — 리뷰 기준 / 확인 근거."
+    },
+    {
+      "outline_number": "7.11",
+      "slide_number": 74,
+      "id": "post-feature-case",
+      "title": "게시글 등록 기능의 개발",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 같은 게시글 기능을 조건·구현·검증·리뷰로 연결한 개발 절차."
+    },
+    {
+      "outline_number": "8.1",
+      "slide_number": 76,
+      "id": "independent-tasks",
+      "title": "독립적인 작업 범위",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 코드 발췌 — 먼저 합의하는 요청·응답 계약 예; 역할·사례 비교 — 공유 계약을 유지하면서 나눌 수 있는 작업 범위."
+    },
+    {
+      "outline_number": "8.2",
+      "slide_number": 77,
+      "id": "subagents",
+      "title": "서브에이전트",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 작은 작업의 위임 구조 · 반드시 병렬 실행이나 파일 수정을 뜻하지 않음."
+    },
+    {
+      "outline_number": "8.3",
+      "slide_number": 78,
+      "id": "agent-teams",
+      "title": "에이전트 팀",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 관계도 — Claude Code의 Agent Teams는 실험 기능 · 제품별 제공 상태와 동작에 차이."
+    },
+    {
+      "outline_number": "8.4",
+      "slide_number": 79,
+      "id": "git-branches",
+      "title": "Git 브랜치",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 관계도 — 변경 이력의 분리 · 브랜치 생성은 별도 작업 폴더 생성과 구분."
+    },
+    {
+      "outline_number": "8.5",
+      "slide_number": 80,
+      "id": "git-worktrees",
+      "title": "Git worktree",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 역할·사례 비교 — 같은 저장소를 공유하며 서로 다른 브랜치를 별도 폴더에 체크아웃; 코드 발췌 — 커밋이 있는 예제 저장소에서 실행하는 명령."
+    },
+    {
+      "outline_number": "8.6",
+      "slide_number": 81,
+      "id": "parallel-integration",
+      "title": "병렬 변경의 통합",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 병합 성공과 기능의 정상 동작은 별도 확인; 표 — UI의 가정 / 서버의 응답 / 통합 문제."
+    },
+    {
+      "outline_number": "8.7",
+      "slide_number": 82,
+      "id": "persistent-goals",
+      "title": "지속 실행 목표",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 표 — 목표의 구성 / 게시글 기능의 예."
+    },
+    {
+      "outline_number": "8.8",
+      "slide_number": 83,
+      "id": "pause-and-resume",
+      "title": "장기 작업의 중단과 재개",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 상태가 바뀌었다면 이전 검사도 다시 확인 · 모든 프로세스의 자동 복원을 뜻하지 않음."
+    },
+    {
+      "outline_number": "8.9",
+      "slide_number": 84,
+      "id": "scheduled-automation",
+      "title": "예약 자동화",
+      "status": "새 자료 배치",
+      "origin": "new",
+      "assets": [],
+      "pages": [],
+      "original_audit_status": "대응 없음",
+      "correction": "실제 배치 자료: 단계도 — 예약 예시 · 로컬 프로젝트 작업에는 컴퓨터와 앱의 실행이 필요; 표 — 기능 / 결정하는 것."
+    },
+    {
+      "outline_number": "8.10",
+      "slide_number": 85,
+      "id": "developer-judgment",
+      "title": "AI 개발에서의 개발자 판단",
+      "status": "기존 자료 배치",
+      "origin": "reused",
+      "assets": [
+        "T14-time"
+      ],
+      "pages": [
+        14
+      ],
+      "original_audit_status": "구조 참고",
+      "correction": "과거/현재/미래라는 단정적 전망을 자동화 범위와 개발자의 판단 비교로 재구성. 프롬프트 디자이너로의 대체 주장을 제거하고 현재 원고의 범위·검증·통합 판단 반영."
+    }
+  ],
+  "deferred_assets": {
+    "I04-test": "1.2는 같은 역할·관찰 관계를 담은 T04 표 선택. 이미지의 단정적 판정 문구·작은 한글 라벨을 그대로 옮기지 않음.",
+    "I05-boundary": "1.5의 주자료 I05-unit에 집중. OR/XOR 이름과 분류 경계의 추가 설명이 필요한 보조 후보는 보관.",
+    "I09": "2.10에는 I07 포함 관계 선택. 2.8에서 이미 본 연결 구조에 손실 함수·노드 수·RNN 오기까지 추가하지 않음.",
+    "T22-errors": "4.9는 I22와 T22-steps를 하나의 반복 도식으로 통합. 오류 유형 표까지 중복 배치하지 않음."
+  },
+  "content_review": [
+    "1.2: 문자 대화에서 역할·판별 기준만 설명. 의식·모든 과제의 능력을 증명한다고 쓰지 않음.",
+    "1.5: 두 입력·가중치·합산·임곗값으로 단순화. 단일 계산 단위 이후에 층 연결을 도입하도록 역전파·손실 수식 제외.",
+    "1.6: 사용자→인터페이스→추론 엔진, 추론 엔진↔지식 베이스, 추론 엔진→결과→사용자의 원본 연결 보존.",
+    "2.1: 개략 시간선임을 명시. 시기를 ML 최초 등장으로 잘못 표현하지 않고 뒤 장의 딥러닝·생성형 AI는 생략.",
+    "2.8: 원본의 단일 단위와 2입력·2은닉·1출력 연결을 유지. 역전파의 영향 계산과 혼동할 그림 제외.",
+    "2.10: AI·머신러닝·딥러닝을 모두 배운 뒤 포함 관계 배치. 인간 뇌와 같다는 표현 교정.",
+    "3.5: 3.2~3.4의 토큰·임베딩·어텐션을 연결. 순서 정보·여러 층 반복은 구조 설명이며 3.9의 생성 반복과 구분.",
+    "3.9: 다음 단어를 다음 토큰으로 교정. 토큰 선택→입력에 추가→다시 계산 경로와 종료 조건 명시.",
+    "4.6~4.7: 문자열 입력, trim 후 1~20글자, boolean 결과를 같은 조건으로 사용. 퓨샷에만 예시 추가하며 요청 시 가중치 학습으로 설명하지 않음.",
+    "4.9: 실행 결과는 실제 프로젝트에서 수행했다고 주장하지 않는 설명용 사례. 개발자가 관찰한 입력·실제값·기대값을 전달하는 범위.",
+    "6.3: T21의 구성만 참고해 반복 지침 예시로 작성. 파일의 적용 범위와 실제 실행 권한 구분. 보고 형식 예시는 다음 장의 진행 기록 체계를 먼저 정의하지 않음.",
+    "7.3~7.4: 명세·완료 기준 뒤에 구현 순서와 작업 단위를 배치. 새 라이브러리·MCP 설정·병렬화·자동 테스트를 앞당겨 사용하지 않음.",
+    "7.7: 테스트·브라우저 검증을 배운 뒤 반복 도식에 포함. 전체 완료 시 종료, 현재 검사 통과 후 남은 작업 진행, 실패 수정 후 재검증의 경로를 구분. Hooks·하네스는 미리 정의하지 않음.",
+    "8.10: 원본의 단정적 미래 예측 대신 이미 배운 작업 범위·통합 비용·검증 근거·실행 한도의 판단을 비교.",
+    "원본 비트맵/표는 조사 폴더에 그대로 보존. 수업용 도식은 원본 관계를 편집형 HTML/SVG로 재구성. 한글 이미지가 영문 화면에 남지 않도록 모든 표시 문구에 공용 번역 적용.",
+    "설명 활용 13장과 대응 없음 47장에는 새 자료 60개를 추가. 메시지 분류→제목 검사→게시글 프로젝트의 공통 사례와 확정한 선수 순서를 유지.",
+    "원본 발췌 2개 외에는 네이티브 도식·표·코드 중심으로 구성. 설명용 화면·도구 호출과 실제 실행한 함수·토큰 결과를 구분.",
+    "출처는 materials/slide-references.html에 실제 화면 번호별로 기록. 슬라이드 본문과 숨김 노트에는 출처를 삽입하지 않음."
+  ]
+}

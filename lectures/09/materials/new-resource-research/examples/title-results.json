@@ -1,0 +1,67 @@
+{
+  "kind": "local-code-check",
+  "checked_on": "2026-11-07",
+  "node_version": "v26.13.0",
+  "case_count": 8,
+  "corrected_function_passes": 8,
+  "deliberate_baseline_failures": 2,
+  "note": "Actual local JavaScript output; no AI agent was run to create this trace.",
+  "rows": [
+    {
+      "label": "empty",
+      "input": "",
+      "expected": false,
+      "before": false,
+      "after": false
+    },
+    {
+      "label": "three spaces",
+      "input": "   ",
+      "expected": false,
+      "before": true,
+      "after": false
+    },
+    {
+      "label": "one character",
+      "input": "A",
+      "expected": true,
+      "before": true,
+      "after": true
+    },
+    {
+      "label": "twenty characters",
+      "input": "AAAAAAAAAAAAAAAAAAAA",
+      "expected": true,
+      "before": true,
+      "after": true
+    },
+    {
+      "label": "twenty-one characters",
+      "input": "AAAAAAAAAAAAAAAAAAAAA",
+      "expected": false,
+      "before": false,
+      "after": false
+    },
+    {
+      "label": "normal title",
+      "input": "공지사항",
+      "expected": true,
+      "before": true,
+      "after": true
+    },
+    {
+      "label": "padded normal title",
+      "input": "  공지사항  ",
+      "expected": true,
+      "before": true,
+      "after": true
+    },
+    {
+      "label": "padded twenty characters",
+      "input": "  AAAAAAAAAAAAAAAAAAAA  ",
+      "expected": true,
+      "before": false,
+      "after": true
+    }
+  ]
+}

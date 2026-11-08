@@ -1,0 +1,2 @@
+Set-Cookie: name=value; Expires=Tue, 21 Jan 2030 07:28:00 GMT; Path=/; Domain=example.com; Secure; HttpOnly; 
+SameSite=Lax

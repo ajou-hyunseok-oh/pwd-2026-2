@@ -1,0 +1,14 @@
+구분
+설명
+AI 통합 관리
+Anthropic(Claude), OpenAI, Google Gemini 등 다양한 모델을 선택·교체 가능
+PRD 기반 태스크 자동 생성
+/scripts/prd.txt 파일을 분석해 세부 개발 작업 자동 생성
+MCP (Model Control Protocol)
+Cursor·VSCode에서 직접 Task Master 실행 (npx 연동)
+세 가지 모델 구조
+Main / Research / Fallback 모델 구성으로 안정적 결과
+대화형 명령 지원
+“다음 작업이 뭐야?”, “3번 태스크 구현 도와줘” 등 자연어 명령 처리
+CLI 명령어
+task-master init, parse-prd, list, next, generate 등 명령 기반 제어 가능

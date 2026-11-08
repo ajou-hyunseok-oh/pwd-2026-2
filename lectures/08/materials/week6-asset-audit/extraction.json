@@ -1,0 +1,691 @@
+{
+  "source": "[PWD Week6] 웹 서비스 인증과 보안.pdf",
+  "sha256": "493a3bb228f5eb69bda308531254ba986eb5ced06b5a3c4b16fa289d8c459b1f",
+  "pdf_pages": 31,
+  "assets": [
+    {
+      "id": "I04",
+      "page": 4,
+      "files": [
+        "source-assets/p04-i04.jpg"
+      ],
+      "xref": 35,
+      "width": 1280,
+      "height": 720,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          214.8336639404297,
+          213.6968536376953,
+          505.1663818359375,
+          377.00787353515625
+        ]
+      ],
+      "sha256": {
+        "source-assets/p04-i04.jpg": "6c3151198a8a7ef81b72fc46c6811087df9ed90481116c5226083c7b8bbe6215"
+      }
+    },
+    {
+      "id": "I05",
+      "page": 5,
+      "files": [
+        "source-assets/p05-i05.png"
+      ],
+      "xref": 42,
+      "width": 923,
+      "height": 376,
+      "has_alpha": true,
+      "pdf_rects": [
+        [
+          136.18666076660156,
+          172.15158081054688,
+          583.8125610351562,
+          354.5000305175781
+        ]
+      ],
+      "sha256": {
+        "source-assets/p05-i05.png": "06a17fbef9f964f1f336c72ed0c9c39cccce03a2e150b7bd251d0471a5128aa3"
+      }
+    },
+    {
+      "id": "I06",
+      "page": 6,
+      "files": [
+        "source-assets/p06-i06.jpg"
+      ],
+      "xref": 52,
+      "width": 1651,
+      "height": 820,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          331.9566955566406,
+          112.23031616210938,
+          695.4568481445312,
+          292.7696228027344
+        ]
+      ],
+      "sha256": {
+        "source-assets/p06-i06.jpg": "3ca9a938ebc082a2ce78b0895cb09562d88335878e736650731d95dda1c05972"
+      }
+    },
+    {
+      "id": "I07",
+      "page": 7,
+      "files": [
+        "source-assets/p07-i07.jpg"
+      ],
+      "xref": 59,
+      "width": 1280,
+      "height": 717,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          331.5,
+          125.49014282226562,
+          683.0001220703125,
+          322.38385009765625
+        ]
+      ],
+      "sha256": {
+        "source-assets/p07-i07.jpg": "26476489692272c004dcd91178444149c1a609aa717b362bf02f08aa09258234"
+      }
+    },
+    {
+      "id": "I08",
+      "page": 8,
+      "files": [
+        "source-assets/p08-i08.png"
+      ],
+      "xref": 66,
+      "width": 961,
+      "height": 540,
+      "has_alpha": true,
+      "pdf_rects": [
+        [
+          150.94488525390625,
+          132.0570831298828,
+          569.05517578125,
+          367.0000305175781
+        ]
+      ],
+      "sha256": {
+        "source-assets/p08-i08.png": "5433a87d67b29b5f1e62f60541681820d5d78b9545bc00115679cc6f75064668"
+      }
+    },
+    {
+      "id": "I09-flow",
+      "page": 9,
+      "files": [
+        "source-assets/p09-i09-flow.jpg"
+      ],
+      "xref": 75,
+      "width": 693,
+      "height": 726,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          405.7736511230469,
+          84.8621826171875,
+          677.6240234375,
+          369.65740966796875
+        ]
+      ],
+      "sha256": {
+        "source-assets/p09-i09-flow.jpg": "91d28ec50deb7073a62f0ae600140e19b8d34cff08d15607c00d27689a7fcf46"
+      }
+    },
+    {
+      "id": "I09-login",
+      "page": 9,
+      "files": [
+        "source-assets/p09-i09-login.jpg"
+      ],
+      "xref": 76,
+      "width": 381,
+      "height": 628,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          303.08660888671875,
+          43.2342529296875,
+          392.0157470703125,
+          189.81686401367188
+        ]
+      ],
+      "sha256": {
+        "source-assets/p09-i09-login.jpg": "688e981bd7ed987594882ea6781ec6e3e4c1bb58e33d575b90a626a0c6d0f3af"
+      }
+    },
+    {
+      "id": "I11",
+      "page": 11,
+      "files": [
+        "source-assets/p11-i11.jpg"
+      ],
+      "xref": 89,
+      "width": 644,
+      "height": 681,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          428.4803161621094,
+          91.95077514648438,
+          678.1121826171875,
+          355.9251403808594
+        ]
+      ],
+      "sha256": {
+        "source-assets/p11-i11.jpg": "1fe5f30c2e048da98b66dfe95d3b82c68fcc622a34f4f509dd74516f89b6eb3f"
+      }
+    },
+    {
+      "id": "I13",
+      "page": 13,
+      "files": [
+        "source-assets/p13-i13.jpg"
+      ],
+      "xref": 102,
+      "width": 1280,
+      "height": 720,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          408.594482421875,
+          61.657562255859375,
+          695.4566040039062,
+          223.0157928466797
+        ]
+      ],
+      "sha256": {
+        "source-assets/p13-i13.jpg": "c062c760923c8120f909bb8c70961d5c9e3ff56be87f25ca2f4df50f430ef9a8"
+      }
+    },
+    {
+      "id": "I14",
+      "page": 14,
+      "files": [
+        "source-assets/p14-i14.jpg"
+      ],
+      "xref": 112,
+      "width": 885,
+      "height": 824,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          421.775634765625,
+          96.527587890625,
+          695.4566650390625,
+          351.34649658203125
+        ]
+      ],
+      "sha256": {
+        "source-assets/p14-i14.jpg": "980aa59587bf78ab0ab330da99620fa0138cc6049397b3374041ceb9e70afef5"
+      }
+    },
+    {
+      "id": "I15",
+      "page": 15,
+      "files": [
+        "source-assets/p15-i15.jpg"
+      ],
+      "xref": 119,
+      "width": 692,
+      "height": 164,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          341.49407958984375,
+          134.11416625976562,
+          684.224365234375,
+          215.33859252929688
+        ]
+      ],
+      "sha256": {
+        "source-assets/p15-i15.jpg": "520bee5e050018c0e08fdc932c29c5981dbaef1efa80e63c175c65e6ab6710b6"
+      }
+    },
+    {
+      "id": "I17",
+      "page": 17,
+      "files": [
+        "source-assets/p17-i17.jpg"
+      ],
+      "xref": 131,
+      "width": 1136,
+      "height": 582,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          307.46063232421875,
+          140.218505859375,
+          695.4567260742188,
+          339.0000305175781
+        ]
+      ],
+      "sha256": {
+        "source-assets/p17-i17.jpg": "8ee95603b86e3b502f43de0d91eee153351a1a29905bb5be8fe6fe69cdc9c0da"
+      }
+    },
+    {
+      "id": "I18",
+      "page": 18,
+      "files": [
+        "source-assets/p18-i18.jpg"
+      ],
+      "xref": 138,
+      "width": 1174,
+      "height": 629,
+      "has_alpha": false,
+      "pdf_rects": [
+        [
+          323.1771545410156,
+          139.0,
+          689.93310546875,
+          335.4999694824219
+        ]
+      ],
+      "sha256": {
+        "source-assets/p18-i18.jpg": "46a3d7cfe5df003fb5f4017cb6a2fc80ba688b8c6b25956cdb9437821780e6f0"
+      }
+    },
+    {
+      "id": "C12",
+      "page": 12,
+      "files": [
+        "source-assets/p12-c12-source.png",
+        "source-assets/p12-c12-source.txt"
+      ],
+      "pdf_rect": [
+        26.0,
+        272.0,
+        695.0,
+        325.0
+      ],
+      "text_rect": [
+        26.0,
+        272.0,
+        695.0,
+        325.0
+      ],
+      "render_dpi": 216,
+      "sha256": {
+        "source-assets/p12-c12-source.png": "dbdd64f3f04d842cf977df0e1af2cafc6ebd68eda6d1a9ae61fc214c81df0b96",
+        "source-assets/p12-c12-source.txt": "97765dde464e88d156b46c9aa57b111301832db6e83daeb55ff00a1a7173e84a"
+      }
+    },
+    {
+      "id": "C13",
+      "page": 13,
+      "files": [
+        "source-assets/p13-c13-source.png",
+        "source-assets/p13-c13-source.txt"
+      ],
+      "pdf_rect": [
+        338.0,
+        227.0,
+        706.0,
+        383.0
+      ],
+      "text_rect": [
+        340.0,
+        253.0,
+        704.0,
+        381.0
+      ],
+      "render_dpi": 216,
+      "sha256": {
+        "source-assets/p13-c13-source.png": "8cc32929b240dfeaf6106164dd4769ade61d323136a2a2061e4dd46bedc06b52",
+        "source-assets/p13-c13-source.txt": "acedea8428e77c6ed677826fca1b6ddca67ee2fcb7d746051fda2bc43297055e"
+      }
+    },
+    {
+      "id": "C13-object",
+      "page": 13,
+      "files": [
+        "source-assets/p13-c13-object-source.txt"
+      ],
+      "sha256": {
+        "source-assets/p13-c13-object-source.txt": "cfac6fca3ac440a47c214e87883366bd1df4e3ffc0e0da22191c95d5a8494d96"
+      }
+    },
+    {
+      "id": "C15-header",
+      "page": 15,
+      "files": [
+        "source-assets/p15-c15-header-source.txt"
+      ],
+      "sha256": {
+        "source-assets/p15-c15-header-source.txt": "891cb7f22942fb1eb965e52eae1fbb4ed695c3e2e6bcf7f6bad82928170d190e"
+      }
+    },
+    {
+      "id": "C15-payload",
+      "page": 15,
+      "files": [
+        "source-assets/p15-c15-payload-source.txt"
+      ],
+      "sha256": {
+        "source-assets/p15-c15-payload-source.txt": "16ef5b012f87d2258950c8de161be43df62e30b32fef2cac4cfd5ab0ca4e6637"
+      }
+    },
+    {
+      "id": "C15-signature",
+      "page": 15,
+      "files": [
+        "source-assets/p15-c15-signature-source.txt"
+      ],
+      "sha256": {
+        "source-assets/p15-c15-signature-source.txt": "6b4bf4549a4d1c2f70661f8fb28aa60cb5ef13a93e1cc45acad0f73d064530c3"
+      }
+    },
+    {
+      "id": "T16",
+      "page": 16,
+      "files": [
+        "source-assets/p16-t16-source.png",
+        "source-assets/p16-t16-source.txt"
+      ],
+      "pdf_rect": [
+        46.0,
+        120.0,
+        674.0,
+        303.0
+      ],
+      "text_rect": [
+        46.0,
+        120.0,
+        674.0,
+        303.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "항목",
+          "세션(Session)",
+          "JWT(Stateless)"
+        ],
+        [
+          "상태 저장",
+          "서버 스토어 필요",
+          "불필요"
+        ],
+        [
+          "스케일",
+          "스토어 공유 필요",
+          "수평 확장 유리"
+        ],
+        [
+          "무효화",
+          "스토어에서 즉시 삭제",
+          "블랙리스트/짧은 만료/버전필드 필요"
+        ],
+        [
+          "노출 시 위험",
+          "세션ID만 노출",
+          "사용자 정보·권한 서버 노출 가능"
+        ],
+        [
+          "적합",
+          "전통 웹/내부",
+          "SPA/모바일/API 게이트웨이"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p16-t16-source.png": "880ccd68bee5912bc380c58d7735162e8421e3dbde58a9f2bc0b6318ce2d1511",
+        "source-assets/p16-t16-source.txt": "5fe213cda5d0042edce0ba750d75ce3e9054559837a82d8b3856db2c21bc3680"
+      }
+    },
+    {
+      "id": "T27-global",
+      "page": 27,
+      "files": [
+        "source-assets/p27-t27-global-source.png",
+        "source-assets/p27-t27-global-source.txt"
+      ],
+      "pdf_rect": [
+        26.0,
+        90.0,
+        683.0,
+        234.0
+      ],
+      "text_rect": [
+        26.0,
+        90.0,
+        683.0,
+        234.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "구분",
+          "서비스명",
+          "제공 방식 / 특징"
+        ],
+        [
+          "Google",
+          "Google OAuth 2.0",
+          "Gmail, YouTube, Calendar 등과 통합 / 가장 보편적"
+        ],
+        [
+          "GitHub",
+          "GitHub OAuth Apps",
+          "개발자 계정 로그인 / Access Token으로 사용자 Repo 접근 가능"
+        ],
+        [
+          "Facebook (Meta)",
+          "Facebook Login",
+          "SNS 프로필 기반 로그인 / Pixel·광고 연계 기능"
+        ],
+        [
+          "Apple",
+          "Sign in with Apple",
+          "개인정보 최소화 / iOS, macOS 통합 로그인"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p27-t27-global-source.png": "7e84489517414872b7d9b746a6ee71529f8bacab0c6bc274dc577eca5242b890",
+        "source-assets/p27-t27-global-source.txt": "7762f1b35c63dad6bae704d1bfbdd025270fea521e1b44b08c052b7a7d0c73b9"
+      }
+    },
+    {
+      "id": "T27-korea",
+      "page": 27,
+      "files": [
+        "source-assets/p27-t27-korea-source.png",
+        "source-assets/p27-t27-korea-source.txt"
+      ],
+      "pdf_rect": [
+        26.0,
+        268.0,
+        683.0,
+        361.0
+      ],
+      "text_rect": [
+        26.0,
+        268.0,
+        683.0,
+        361.0
+      ],
+      "render_dpi": 216,
+      "table_cells": [
+        [
+          "구분",
+          "서비스명",
+          "제공 방식 / 특징"
+        ],
+        [
+          "NAVER",
+          "네이버 아이디로 로그인",
+          "대한민국에서 가장 많이 사용되는 OAuth / SNS·쇼핑 등 다목적"
+        ],
+        [
+          "Kakao",
+          "카카오계정 로그인",
+          "카카오톡 연계 / 친구 목록·메시지 전송 등 API 제공"
+        ]
+      ],
+      "sha256": {
+        "source-assets/p27-t27-korea-source.png": "c45cff0a0efee0b46b05f5fdc4e68b3f6208708f291b276072164cac28b0cf36",
+        "source-assets/p27-t27-korea-source.txt": "cb224a6aa32ebede8e0fea8527ca8572959a0d3379d90470f5769e0642822c4a"
+      }
+    }
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "text": "2025학년도 2학기 실전웹서비스개발\n실전 웹서비스개발 ‒ 6주차\n웹 서비스 인증과 보안\n",
+      "note": "2025학년도 6주차 표지. 이번 표지로 재사용하지 않음."
+    },
+    {
+      "number": 2,
+      "text": "2025학년도 2학기 실전웹서비스개발\n학습 목표\n●\n웹 서비스에서 인증의 필요성\n●\n웹 서비스 인증의 흐름과 종류\n●\n웹 서비스 운영\n●\n웹 서비스 인증 시스템 구현\n",
+      "note": "학습 목표 텍스트. 별도 시각 자료 없음."
+    },
+    {
+      "number": 3,
+      "text": "2025학년도 2학기 실전웹서비스개발\n웹 서비스에서 인증이 필요한 이유\n상태 유지\n●\nHTTP는 무상태 → 사용자 식별 필요\n보안 강화\n●\n권한이 없는 기능과 데이터 접근 차단\n권한 제어\n●\n역할(Role)별 접근 제한\n개인화\n●\n사용자 맞춤 데이터\n감사 로그\n●\n추적 가능성 확보\n",
+      "note": "인증 필요성 텍스트. 도입 설명의 근거로 활용."
+    },
+    {
+      "number": 4,
+      "text": "2025학년도 2학기 실전웹서비스개발\n상태 유지\nHTTP 프로토콜의 무상태(stateless)성\n●\nHTTP 프로토콜은 요청(Request)과 응답(Response)이 끝나면 연결 정보를 기억하지 않음\n●\n서버는 “이 요청이 누구로부터 왔는지”를 자동으로 알 수 없음\n●\n사용자가 로그인하더라도, 다음 요청 시 “이전 로그인 정보”가 사라짐\n→ 인증 토큰이나 세션을 이용해 사용자를 식별\n",
+      "note": "서버 확장 비교 그림은 제외. HTTP 설명은 개념 교정 후 활용."
+    },
+    {
+      "number": 5,
+      "text": "2025학년도 2학기 실전웹서비스개발\n보안(Security)\n●\n인증이 없으면 누구나 임의로 데이터에 접근 가능\n●\n게시물 삭제, 결제 정보, 개인정보 노출 등의 위험 발생\n→ 사용자가 누구인지 확인하는 절차가 반드시 필요\n",
+      "note": "WAF 그림은 제외. 인증과 인가를 한 문제로 처리하는 설명도 분리 필요."
+    },
+    {
+      "number": 6,
+      "text": "2025학년도 2학기 실전웹서비스개발\n권한(Authorization) 제어\n서비스는 사용자마다 권한이 다름\n●\n인증(Authentication): “누구인가?”\n●\n권한(Authorization): “무엇을 할 수 있는가?”\nEx)\n●\n일반 사용자\n○\n맛집 제보\n○\n맛집 조회\n●\n관리자 \n○\n맛집 인증, 거절\n○\n맛집 생성, 조회, 수정, 삭제\n",
+      "note": "인증/인가 그림과 역할별 FoodMap 기능 목록 활용."
+    },
+    {
+      "number": 7,
+      "text": "2025학년도 2학기 실전웹서비스개발\n개인화 서비스(Personalization Service)\n로그인한 사용자를 식별해\n●\n내 피드\n●\n내 주문내역\n●\n내 설정\n→ 인증은 사용자별 맞춤 데이터 제공의 출발점\n",
+      "note": "개인화 엔진 그림은 제외. 개인 기록의 필요성 문장은 참고."
+    },
+    {
+      "number": 8,
+      "text": "2025학년도 2학기 실전웹서비스개발\n트래킹 및 감사 로그(Audit Log)\n●\n누가 언제 어떤 행동을 했는지 기록\n●\n보안 사고 대응, 이상 행동 탐지\n",
+      "note": "감사 로그의 장점 그림은 제외. 기록 목적 문장 활용."
+    },
+    {
+      "number": 9,
+      "text": "2025학년도 2학기 실전웹서비스개발\n웹 서비스 인증의 흐름\n서버는 전달받은 로그인 정보를 DB에 저장된 사용자 정보와 비교\n→ 일치하면 \"인증 성공\", 불일치하면 \"인증 실패\"\n인증에 성공하면 서버는 사용자가 로그인한 상태임을 기억하기 위해\n세션, 쿠키, JWT 등을 이용해 인증 정보를 저장\n→ 이후 요청에서는 이 인증 정보를 통해 사용자를 식별\n사용자는 아이디(ID)와 비밀번호(Password) 같은 자격 증명을 \n클라이언트(브라우저나 앱)에서 입력\n",
+      "note": "로그인 화면과 3단계 흐름도 각각 추출. 해당 학습 범위만 발췌."
+    },
+    {
+      "number": 10,
+      "text": "2025학년도 2학기 실전웹서비스개발\n인증의 종류\n인증 정보를 저장·유지하는 방식에 따라\n●\n세션 기반 인증 (Session-based Authentication)\n●\n토큰 기반 인증 (Token-based Authentication)\n●\nOAuth 2.0 기반 인증 (Third-party Authentication)\n",
+      "note": "세션·토큰·OAuth를 같은 분류로 나열하므로 현재 개념 구조에 채택하지 않음."
+    },
+    {
+      "number": 11,
+      "text": "2025학년도 2학기 실전웹서비스개발\n세션 기반 인증 (Session-based Authentication)\n세션 ID를 쿠키에 담아 전송하여 사용자 식별\n저장 위치\n●\n서버 메모리(DB)에 세션 정보 저장\n대표 사용 사례\n●\n전통적인 웹 (PHP, JSP, Express+EJS 등)\n특징\n●\n장점: 단순, 안정적, 서버가 모든 상태를 관리\n●\n단점: 서버 확장(스케일아웃)에 불리 → 세션 동기화 필요\n●\n사용 예시: 로그인 유지, 관리자 페이지\n",
+      "note": "세션 요청 시퀀스 재사용 우선. 오른쪽 잘린 라벨 확인."
+    },
+    {
+      "number": 12,
+      "text": "2025학년도 2학기 실전웹서비스개발\n쿠키(Cookie)\nHTTP 무상태성을 보완하기 위해 브라우저가 도메인별로 저장하는 작은 문자열\n●\n서버가 Set-Cookie 헤더로 내려주면 브라우저가 저장\n●\n같은 도메인으로의 요청에 자동으로 Cookie 헤더로 보냄\n●\n세션 식별, 로그인 유지, 트래킹/설정 저장에 사용\n●\n크기 제한(관례): 쿠키 1개 ≈ 4KB 내외, 도메인당 수십~수백 개(브라우저별 상이).\nSet-Cookie: name=value; Expires=Tue, 21 Jan 2030 07:28:00 GMT; Path=/; Domain=example.com; Secure; HttpOnly; \nSameSite=Lax\n",
+      "note": "쿠키 헤더 코드 재사용 우선. 학습 단계에 따라 속성 분리."
+    },
+    {
+      "number": 13,
+      "text": "2025학년도 2학기 실전웹서비스개발\n세션(Session)\nHTTP의 무상태성 때문에 사용자 상태를 서버에 저장\n●\n브라우저에는 상태를 찾기 위한 키(세션ID)만 쿠키로 보관.\n●\n서버 상태 저장형 인증\n구성요소\n●\n세션 스토어\n○\n세션 데이터 저장소(메모리, MongoDB 등)\n○\n서버 재시작/스케일아웃 대비하려면 외부 스토어 권장\n●\n세션 객체\n○\n{ userId, role, cart, ... } 같은 사용자 상태\n○\n스토어에 보관, 서버에서만 읽기/수정\n●\n세션 ID\n○\n난수/암호학적 토큰 (예: sid=abc123...)\n○\n브라우저 쿠키에 저장(HttpOnly; Secure)\nconst sessionConfig = {\n    secret: process.env.SESSION_SECRET || 'your-secret-key-change-in-production',\n    resave: false,\n    saveUninitialized: false,\n    cookie: {\n      maxAge: 1000 * 60 * 60 * 24 * 7, // 7일\n      httpOnly: true,\n      secure: process.env.NODE_ENV === 'production', // HTTPS에서만 쿠키 전송\n      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',\n    },\n  };\n세션 설정\n",
+      "note": "세션 저장 위치 그림, 설정 객체, 짧은 세션 객체 예를 각각 추출."
+    },
+    {
+      "number": 14,
+      "text": "2025학년도 2학기 실전웹서비스개발\n토큰 기반 인증 (Token-based Authentication)\n토큰을 인증(Authorization) 헤더로 전송하여 사용자 식별\n저장 위치\n●\n클라이언트(브라우저/앱) 로컬 저장소\n대표 사용 사례\n●\nSPA, 모바일 앱, REST API 서버\n특징\n●\n장점\n○\n서버 상태를 저장하지 않아 수평 확장에 유리\n○\n다양한 클라이언트(웹/앱)에서 사용 가능\n●\n단점\n○\n토큰 탈취 시 위험\n○\n만료시간·재발급 로직 필요\n",
+      "note": "토큰 요청 시퀀스의 골격 활용. JWT 검증과 저장 위치 표현 수정."
+    },
+    {
+      "number": 15,
+      "text": "2025학년도 2학기 실전웹서비스개발\nJWT(JSON Web Token)\n서버 상태를 저장하지 않고(stateless) 사용자 신원을 토큰 자체에 담아 전달하는 방식\n●\n문자열 형태 (각 부분은 Base64URL 인코딩)\n토큰 구조\n●\nHeader\n○\n서명 알고리즘(HS256/RS256 등), 타입\n○\n{\"alg\":\"HS256\",\"typ\":\"JWT\"}\n●\nPayload\n○\n사용자·권한·만료 등 정보\n○\n{\"sub\":\"u123\",\"role\":\"user\",\"iat\":...,\"exp\":...}\n●\nSignature\n○\n위변조 방지를 위한 서명\n○\nHMACSHA256(base64Url(header)+\".\"+base64Url(payload), secret)\n",
+      "note": "JWT 구조 그림·JSON·서명 식을 분리. 서명 식은 필수 자료에서 제외."
+    },
+    {
+      "number": 16,
+      "text": "2025학년도 2학기 실전웹서비스개발\n세션 vs JWT\n항목\n세션(Session)\nJWT(Stateless)\n상태 저장\n서버 스토어 필요\n불필요\n스케일\n스토어 공유 필요\n수평 확장 유리\n무효화\n스토어에서 즉시 삭제\n블랙리스트/짧은 만료/버전필드 필요\n노출 시 위험\n세션ID만 노출\n사용자 정보·권한 서버 노출 가능\n적합\n전통 웹/내부\nSPA/모바일/API 게이트웨이\n",
+      "note": "비교표의 무효화 관점만 발췌. 전체 이분법 표는 그대로 사용하지 않음."
+    },
+    {
+      "number": 17,
+      "text": "2025학년도 2학기 실전웹서비스개발\nOAuth 2.0 기반 인증 (Third-party Authentication)\nOAuth Provider가 발급한 Access Token으로 사용자 인증\n저장 위치\n●\n외부 인증 서버(Google, Naver, Kakao 등)\n대표 사용 사례\n●\n소셜 로그인, API 연동 서비스\n특징\n●\n장점\n○\n비밀번호 저장 불필요 (보안 ↑)\n○\n다양한 플랫폼과 계정 연동 가능\n●\n단점\n○\n구현 구조 복잡, 리다이렉트·토큰 관리 필요\n●\n사용 예시\n○\nGoogle, Apple, Facebook, Naver, Kakao 로그인\n",
+      "note": "OAuth 참여자·코드 흐름의 대안 원본. 토큰 응답과 브라우저 경유를 명확히 해야 함."
+    },
+    {
+      "number": 18,
+      "text": "2025학년도 2학기 실전웹서비스개발\nOAuth(Open Authorization) 2.0\nOAuth 2.0(Open Authorization 2.0, OAuth2)은 인증을 위한 개방형 표준 프로토콜\n●\nThird-Party 프로그램에게 리소스 소유자를 대신하여 리소스 서버에서 제공하는 자원에 대한 접근 권한을 위임하는 방식\n주요 용어\n●\nclient_id / client_secret\n○\n클라이언트 자격증명. \n○\n서버에 등록 시 발급받아 인증에 사용\n●\nredirect_uri\n○\n서버가 인증 결과(code/token)를 보낼 콜백 URL\n●\nresponse_type\n○\n서버 부여 방식 지정\n●\nexpires_in\n○\n토큰 유효시간(초 단위)\n",
+      "note": "3.4~3.6 공통 시퀀스 원본. state 검사·PKCE 변환·조건부 ID 토큰 표현 보강."
+    },
+    {
+      "number": 19,
+      "text": "2025학년도 2학기 실전웹서비스개발\n웹서비스 보안과 운영\n",
+      "note": "보안·운영 챕터 표지. 현재 챕터 디자인으로 대체되어 재사용 대상 아님."
+    },
+    {
+      "number": 20,
+      "text": "2025학년도 2학기 실전웹서비스개발\n일반적인 웹 공격\n스크립트 주입(Cross-Site Scripting, XSS)\n●\n웹페이지에 악성 JavaScript 코드를 삽입해 다른 사용자의 브라우저에서 그 코드를 실행\n●\nXSS로 발생할 수 있는 피해\n○\n세션 쿠키나 JWT 토큰 탈취\n○\n사용자 계정 도용\n○\n악성 스크립트 삽입으로 피싱 페이지 전환\n○\n관리자 계정 탈취를 통한 데이터 유출\n요청 위조(Cross-Site Request Forgery, CSRF)\n●\n사용자가 이미 로그인된 상태를 악용해 공격자가 의도한 요청을 사용자의 브라우저에서 몰래 실행하도록 만드는 공격\nSQL Injection\n●\n공격자가 입력값에 악성 SQL문을 삽입해 애플리케이션의 데이터베이스 쿼리를 조작·조회·변경하거나 권한을 탈취하는 공격\nBrute Force 공격\n●\n공격자가 자동화 도구로 가능한 비밀번호를 무작위·순차적으로 대입해 계정에 무단 접근을 시도하는 공격\nDirectory Traversal\n●\n경로 조작을 이용해 서버 파일 시스템의 의도치 않은 파일(예: /etc/passwd, 비밀 키 파일)을 읽거나 접근하는 공격\n",
+      "note": "공격 정의 텍스트만 있음. 공격 그림·실행 코드 없음. Directory Traversal은 현재 60장 범위 밖."
+    },
+    {
+      "number": 21,
+      "text": "2025학년도 2학기 실전웹서비스개발\n환경 설정 및 비밀정보 관리\n환경변수(.env)\n●\nAPI Key, JWT Secret, OAuth Client Secret 등 저장\n●\n코드에 직접 작성 금지 (.gitignore 필수)\nGitHub 공개 저장소 주의\n●\n.env나 토큰이 푸시되면 즉시 폐기\n●\n과거 커밋에도 남을 수 있음 → 재발급 필요\n배포 환경 분리\n●\ndev/stage/prod 환경별 Secret 구분\n●\n동일 키를 모든 환경에서 사용하지 않기\n",
+      "note": "환경·비밀정보 관리 텍스트만 있음. 설정/환경 분리 설명의 근거."
+    },
+    {
+      "number": 22,
+      "text": "2025학년도 2학기 실전웹서비스개발\n인증 토큰 관리(JWT, Access Token 등)\n짧은 만료시간 설정\n●\nAccess Token은 15~60분 이내 권장 (금융 서비스 10 ~ 15분)\n●\nRefresh Token 관리\n○\n더 길게(예: 수일~수주) 유지하되, 안전하게 보관·회수 가능해야 함\n토큰 저장 위치\n●\n가능하면 HttpOnly + Secure Cookie 사용(JS에서 접근 불가)\n●\nlocalStorage는  악성 스크립트에 취약\n토큰 탈취 방지\n●\nHTTPS 필수, 토큰 로그 출력 금지\n●\n콘솔/네트워크탭에 남지 않도록\n로그아웃 처리\n●\n토큰 블랙리스트 또는 만료로 무효화\n●\n클라이언트에서만 삭제 X\n",
+      "note": "토큰 수명·보관·로그아웃 텍스트만 있음. 고정 만료 권장 수치와 네트워크 탭 은폐 문구는 제외."
+    },
+    {
+      "number": 23,
+      "text": "2025학년도 2학기 실전웹서비스개발\n세션 및 쿠키 설정\n쿠키 속성 설정\n●\nJS 접근 차단, HTTPS만 전송\n●\nSecure : 플래그가 설정된 쿠키는 HTTPS(암호화된 연결) 일 때만 브라우저가 서버로 전송\n○\n네트워크에서 트래픽을 가로채는 공격자(중간자, MITM)가 쿠키를 훔치는 걸 막아줌\n○\n특히 인증 쿠키나 토큰을 HTTP로 보내면 심각한 계정 탈취 위험이 있음\n●\nHttpOnly : 플래그가 있으면 브라우저의 JavaScript에서 해당 쿠키에 접근(읽기/쓰기) 불가\n○\nXSS 공격이 성공하더라도, 공격 스크립트가 쿠키(예: 세션ID, 리프레시 토큰)를 직접 읽어 서버로 전송하는 것을 막음\n○\nXSS로 인한 토큰탈취 위험을 크게 줄이는 핵심 수단\n●\nSameSite : 교차 사이트 요청(cross-site requests) 시 브라우저에서 전송될지 여부를 제어\n○\nSameSite=Strict - 동일 사이트(same-site) 요청에서만 쿠키 전송\n○\nSameSite=Lax - 위 수준 네비게이션(GET 링크 클릭, 주소창 진입) 같은 “안전한” 탐색에서는 쿠키 전송 허용\n○\nSameSite=Non - 교차 사이트에서도 항상 전송\n세션 스토리지 관리\n●\n외부 스토어 권장\n●\n서버 재시작 시 세션 손실 방지\n자동 로그아웃 (Timeout)\n●\n장기 미사용 세션 종료\n●\n일정 시간 후 세션 만료 처리\n",
+      "note": "쿠키 속성·외부 스토어·Timeout 텍스트. SameSite=Non 오타와 항상 전송 표현 교정."
+    },
+    {
+      "number": 24,
+      "text": "2025학년도 2학기 실전웹서비스개발\n로그와 모니터링\n민감정보 로그 금지\n●\n비밀번호, 토큰, 이메일 전체 로그 X\n●\n마스크 처리\n보안 이벤트 모니터링\n●\n로그인 실패, 권한 오류 등 기록\n●\n이상 패턴 탐지(Alert)\n감사 로그 분리 저장\n●\n운영 로그와 분리, 장기 보존\n●\nAWS CloudWatch, ELK Stack 등 활용\n",
+      "note": "로그/모니터링 텍스트. 실제 로그 행·대시보드·지표 그림 없음."
+    },
+    {
+      "number": 25,
+      "text": "2025학년도 2학기 실전웹서비스개발\n실습\n",
+      "note": "실습 챕터 표지. 별도 실습 세션 범위."
+    },
+    {
+      "number": 26,
+      "text": "2025학년도 2학기 실전웹서비스개발\nPassport.js\nNode.js/Express용 인증 미들웨어\n●\n다양한 인증 관련 기능(로컬, OAuth, JWT 등)을 플러그인 형태로 연결해 로그인 흐름을 쉽게 구현 가능\n핵심 개념\n●\nStrategy: 인증 방식별 로직 구현 (예: passport-local, passport-github, passport-jwt)\n●\nMiddleware: Express 미들웨어처럼 app.use(passport.initialize()) 등으로 사용\n●\nserializeUser / deserializeUser: 세션 기반일 때 사용자 객체를 세션에 저장/복원하는 함수\n●\n유연성: 플러그인 방식이라 로컬 로그인, OAuth(구글/깃허브), 토큰 기반(JWT) 모두 가능\n장점\n●\n전략 분리로 구현 간결 → 여러 로그인 방식 동시 지원 쉬움\n●\n커뮤니티 전략이 많아(구현 재사용) 빠르게 연동 가능\n",
+      "note": "Passport 개념과 짧은 API 표기만 있음. 완전한 로그인 구현 코드 없음. 현재 이론 필수 자료에서 제외."
+    },
+    {
+      "number": 27,
+      "text": "2025학년도 2학기 실전웹서비스개발\n국외 주요 OAuth 2.0 로그인 제공 서비스\n구분\n서비스명\n제공 방식 / 특징\n Google\nGoogle OAuth 2.0\nGmail, YouTube, Calendar 등과 통합 / 가장 보편적\n GitHub\nGitHub OAuth Apps\n개발자 계정 로그인 / Access Token으로 사용자 Repo 접근 가능\n Facebook (Meta)\nFacebook Login\nSNS 프로필 기반 로그인 / Pixel·광고 연계 기능\n Apple\nSign in with Apple\n개인정보 최소화 / iOS, macOS 통합 로그인\n구분\n서비스명\n제공 방식 / 특징\nNAVER\n네이버 아이디로 로그인\n대한민국에서 가장 많이 사용되는 OAuth / SNS·쇼핑 등 다목적\nKakao\n카카오계정 로그인\n카카오톡 연계 / 친구 목록·메시지 전송 등 API 제공\n국외\n국내\n",
+      "note": "국외/국내 제공자 표 2개. 이름 중심으로 발췌 가능."
+    },
+    {
+      "number": 28,
+      "text": "2025학년도 2학기 실전웹서비스개발\nGoogle\nhttps://console.cloud.google.com/\n",
+      "note": "Google 콘솔 URL만 있음. 콘솔 화면 캡처가 아님."
+    },
+    {
+      "number": 29,
+      "text": "2025학년도 2학기 실전웹서비스개발\nNaver\nhttps://developers.naver.com/\n",
+      "note": "Naver 개발자 URL만 있음. 설정 화면 캡처가 아님."
+    },
+    {
+      "number": 30,
+      "text": "2025학년도 2학기 실전웹서비스개발\n과제 개요\n캠퍼스 푸드맵 인증 구현 및 운영 환경 구축\n학습 목표\n●\n웹 서비스에서 인증의 필요성\n●\n인증의 흐름과 종류\n●\n웹 서비스 운영\n●\n웹 서비스 인증 구현\n필수 구현 사항\n●\n유저 유형 추가\n●\n유저 권한에 따른 기능 구현\n●\n구글 로그인\n●\n네이버 로그인\n마감일\n●\n10월 19일 23시 59분까지\nGitHub URL(저장소 각각 제출)\n●\n(예: https://github.com/username/pwd-week6-server)\n●\n(예: https://github.com/username/pwd-week6-client)\nReact App URL(Render 서버 연동)\n●\n(예: https://pwd-week6-[username].onrender.com)\n●\n(예: https://pwd-week6-[username].netlify.app)\n●\n(예: https://pwd-week6-[username].vercel.app)\n●\nnetlify, vercel 배포한 링크만 제출\n",
+      "note": "이전 실습 과제와 제출 기한·URL. 이번 이론 자료로 복사하지 않음."
+    },
+    {
+      "number": 31,
+      "text": "2025학년도 2학기 실전웹서비스개발\nQ&A\n",
+      "note": "Q&A 표지. 재사용할 개념 자료 없음."
+    }
+  ]
+}

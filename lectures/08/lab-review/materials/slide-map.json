@@ -1,0 +1,199 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "kind": "cover",
+    "title": "실전 웹서비스개발 – 8주차",
+    "subtitle": "7주차 실습 리뷰 · FoodMap의 DB 영구 저장"
+  },
+  {
+    "number": 2,
+    "id": "storage",
+    "kind": "content",
+    "title": "맛집 데이터의 저장 위치",
+    "subtitle": "기존 API 계약을 유지하고 서버 메모리를 DB로 교체",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/services/restaurants.service.ts",
+      "https://supabase.com/docs/guides/api"
+    ]
+  },
+  {
+    "number": 3,
+    "id": "table",
+    "kind": "content",
+    "title": "맛집 테이블의 저장 규칙",
+    "subtitle": "열의 자료형·제약조건·기본값으로 행의 구조 정의",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/supabase/schema.sql",
+      "https://www.postgresql.org/docs/current/ddl-identity-columns.html"
+    ]
+  },
+  {
+    "number": 4,
+    "id": "db-access",
+    "kind": "content",
+    "title": "DB에 접근할 서버 권한 준비",
+    "subtitle": "테이블 생성 후 서버 역할에 조회·등록 권한 부여",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/supabase/schema.sql",
+      "https://supabase.com/docs/guides/getting-started/api-keys"
+    ]
+  },
+  {
+    "number": 5,
+    "id": "seed",
+    "kind": "content",
+    "title": "초기 데이터와 초기화의 차이",
+    "subtitle": "비어 있는 DB에만 원본을 넣는 시드와 기존 행을 교체하는 초기화",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/supabase/schema.sql",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/supabase/seed.sql",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/services/restaurants.service.ts",
+      "materials/sql-evidence.json"
+    ]
+  },
+  {
+    "number": 6,
+    "id": "types",
+    "kind": "content",
+    "title": "DB 행과 등록 입력의 타입",
+    "subtitle": "테이블의 열 구조를 TypeScript와 SDK에 전달",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/types/database.types.ts"
+    ]
+  },
+  {
+    "number": 7,
+    "id": "connection",
+    "kind": "content",
+    "title": "서버의 Supabase 연결 설정",
+    "subtitle": ".env를 읽은 뒤 프로젝트 URL·서버 키로 SDK 객체 준비",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/config/supabase.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/server.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://supabase.com/docs/guides/getting-started/api-keys"
+    ]
+  },
+  {
+    "number": 8,
+    "id": "mapping",
+    "kind": "content",
+    "title": "DB 행을 기존 API 형식으로 변환",
+    "subtitle": "저장소의 열 이름을 바꾸어도 클라이언트 응답 형식 유지",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/models/restaurant.model.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/controllers/restaurants.controller.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/types/database.types.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md"
+    ]
+  },
+  {
+    "number": 9,
+    "id": "query",
+    "kind": "content",
+    "title": "DB 목록 조회와 HTTP 응답",
+    "subtitle": "GET /api/restaurants의 DB 조회 결과를 기존 응답으로 반환",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/services/restaurants.service.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/controllers/restaurants.controller.ts",
+      "materials/sql-evidence.json",
+      "https://supabase.com/docs/reference/javascript/select"
+    ]
+  },
+  {
+    "number": 10,
+    "id": "create-input",
+    "kind": "content",
+    "title": "요청 입력을 DB 행으로 구성",
+    "subtitle": "클라이언트 필드를 DB 열에 대응시켜 등록할 row 준비",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/services/restaurants.service.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/controllers/restaurants.controller.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/types/database.types.ts"
+    ]
+  },
+  {
+    "number": 11,
+    "id": "create",
+    "kind": "content",
+    "title": "새 맛집의 DB 등록",
+    "subtitle": "입력 확인 후 행을 저장하고 DB가 생성한 ID로 201 응답",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/services/restaurants.service.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/controllers/restaurants.controller.ts",
+      "materials/sql-evidence.json"
+    ]
+  },
+  {
+    "number": 12,
+    "id": "errors",
+    "kind": "content",
+    "title": "DB 요청의 실패 처리",
+    "subtitle": "입력·조회 대상·DB 실패를 구분해 HTTP 오류로 전달",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/config/supabase.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/utils/asyncHandler.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/middleware/error.middleware.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/app.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/scripts/check-db.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/controllers/restaurants.controller.ts"
+    ]
+  },
+  {
+    "number": 13,
+    "id": "verification",
+    "kind": "content",
+    "title": "서버 구현 후 연결 검증",
+    "subtitle": "로컬 검사·빌드를 마친 뒤 실제 DB 읽기와 API 조회 확인",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/scripts/check-db.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/package.json",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/tests/schema.postgres.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/tests/restaurants.routes.test.ts"
+    ]
+  },
+  {
+    "number": 14,
+    "id": "persistence",
+    "kind": "content",
+    "title": "재시작 후 데이터 보존 확인",
+    "subtitle": "등록 응답의 같은 ID를 서버 종료 전후에 조회",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/tests/schema.postgres.ts",
+      "materials/sql-evidence.json"
+    ]
+  },
+  {
+    "number": 15,
+    "id": "client",
+    "kind": "content",
+    "title": "React 화면까지 데이터 연동 확인",
+    "subtitle": "등록한 같은 ID를 DB·API 응답·목록과 상세 화면에서 대조",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/README.md",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7-client/blob/6f8237fb43822576ad11970696c3779c6530b858/src/services/api.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7-client/blob/6f8237fb43822576ad11970696c3779c6530b858/src/pages/ListPage.tsx"
+    ]
+  },
+  {
+    "number": 16,
+    "id": "access",
+    "kind": "content",
+    "title": "현재 API의 사용자 권한 검사 범위",
+    "subtitle": "DB의 서버 접근 제한과 HTTP 호출자의 권한 확인은 별도 책임",
+    "sources": [
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/supabase/schema.sql",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/routes/restaurants.routes.ts",
+      "https://github.com/ajou-hyunseok-oh/pwd-week7/blob/9954b9715ce0fe12ca15ac35dcd802e95c9bece1/src/app.ts",
+      "materials/sql-evidence.json",
+      "https://supabase.com/docs/guides/getting-started/api-keys"
+    ]
+  }
+]

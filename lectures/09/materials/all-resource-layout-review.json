@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-07",
+  "stage": "all-resources-placed",
+  "coverage": {
+    "deck_pages": 85,
+    "content_pages": 76,
+    "reused_resources": 16,
+    "new_resources": 60
+  },
+  "layout": {
+    "count": 85,
+    "translations": [
+      {
+        "locale": "ko",
+        "checked": 997,
+        "mismatches": 0
+      },
+      {
+        "locale": "en",
+        "checked": 997,
+        "mismatches": 0
+      }
+    ],
+    "errors": [],
+    "issues": []
+  },
+  "extra_checks": {
+    "svgLabels": 152,
+    "referenceSections": 85,
+    "referenceDestination": "#/69",
+    "errors": [],
+    "issues": []
+  },
+  "visual_review": {
+    "contact_sheets": "한영 각 85장 검토; 변경된 5·54쪽은 최종 전체 크기 화면에서 재확인",
+    "full_size_samples": [
+      "ko-05",
+      "ko-68",
+      "en-20",
+      "en-54",
+      "en-69"
+    ],
+    "mobile_samples": [
+      "ko-54",
+      "ko-69",
+      "en-05",
+      "en-80"
+    ],
+    "print_samples": [
+      "ko-05",
+      "en-05",
+      "ko-54",
+      "en-54",
+      "ko-69",
+      "en-69"
+    ],
+    "mobile_code_horizontal_scroll": "예제 68·69·80쪽의 코드 끝까지 스크롤 가능 확인",
+    "corrections": [
+      "다트머스 제목 끝 글자가 잘리지 않도록 발췌 범위 확대",
+      "MCP 호스트 경계와 설명 라벨 간격 조정"
+    ]
+  },
+  "print_pdf": {
+    "ko_pages": 85,
+    "en_pages": 85,
+    "page_points": [
+      960,
+      540
+    ]
+  },
+  "references": {
+    "pages": 85,
+    "content_pages_with_links": 76,
+    "cover_pages_without_external_material": 9,
+    "reference_links": 120,
+    "local_links_checked_over_http": 32,
+    "in_slide_sources": 0,
+    "hidden_source_notes": 0,
+    "desktop_and_mobile_bounds": "passed",
+    "page_69_return_link": "passed"
+  },
+  "code": {
+    "blocks": 13,
+    "language_variants": 26,
+    "format_and_syntax": "passed",
+    "title_cases_passed": 8,
+    "deliberate_baseline_failures": 2,
+    "browser_fragment": "예제 앱 부재로 미실행; 화면·도구 호출은 설명용"
+  },
+  "static_checks": [
+    "npm test --prefix packages/web-deck",
+    "title_outline.py --check",
+    "paragraph_outline.py --check",
+    "audit_week10_assets.py --check",
+    "resource_placements.py --check",
+    "research_new_resources.py --check",
+    "slide_references.py --check",
+    "build-slides.py --check",
+    "git diff --check"
+  ],
+  "server": {
+    "started_by_this_task": true,
+    "pid": 38783,
+    "port": 4399,
+    "process_exited": true,
+    "port_listener_cleared": true
+  },
+  "review_output": "/tmp/pwd-week09-new-resources",
+  "generated_file_sha256": {
+    "index.html": "4ee43e51dced86bb73d6e85d21a0252a45475eb9af32ff8beaa389f084066880",
+    "lecture-content.js": "e4109634f762a3c4f09d5950aa55c04783e2c5cead7f047e12d48ee37913ae80",
+    "resources.css": "2a00605da7c399de46e9083b74601bc306b323f862c713c831f902e5e2d2efa9",
+    "materials/slide-references.html": "d901f2793c7f34d7e7e6986098a9071eead2f63bfef5075aafa97352fd716cb7",
+    "materials/slide-references.json": "45cc9c6d5f145fb0fec6a73a5ad17c3a97097a2b05b7a3bf6e3f02cb5908a272",
+    "assets/new/dartmouth-proposal-heading.png": "2f5292a9450d112de9f7bb76779ac92b4c4bbf5f3b97e0b32e2733c135f59580",
+    "assets/new/alexnet-leopard-predictions.png": "e452fc8d2f10cba473180393cb63599f7e68a10b33f43388c2fc3e30e56c7b4e"
+  }
+}

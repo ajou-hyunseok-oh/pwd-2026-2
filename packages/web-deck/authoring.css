@@ -18,6 +18,11 @@
 .wd-lesson-concepts ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .18rem; color: #43564a; }
 .wd-lesson-concepts li { font-size: .88rem; }
 .wd-lesson-concepts li::marker { color: #85968b; }
+/* Explicit bullets for new authoring scaffolds; existing decks keep their lists. */
+.wd-lesson-concepts--bulleted dd { margin-left: 1rem; }
+.wd-lesson-concepts--bulleted ul { display: block; list-style: disc; padding-left: 1.1rem; }
+.wd-lesson-concepts--bulleted li + li { margin-top: .25rem; }
+.wd-lesson-placeholder { display: grid; place-items: center; min-height: 16rem; padding: 1.5rem; border: 1px dashed var(--wd-line); color: var(--wd-muted); font-size: .88rem; line-height: 1.55; text-align: center; overflow-wrap: anywhere; }
 .wd-lesson-code-label { font-size: .7rem; font-weight: 650; color: #536159; line-height: 1.4; margin-bottom: .4rem !important; overflow-wrap: anywhere; }
 .wd-lesson-slide .wd-code { margin: 0; font-size: .7rem; line-height: 1.45; padding: .75rem .8rem; max-height: none; font-family: Consolas, 'Liberation Mono', Menlo, 'SFMono-Regular', monospace; background: #000; color: #00ff00; border: 0; border-radius: 0; }
 .wd-lesson-slide .wd-code :is(code,.token) { color: #00ff00; background: transparent; text-shadow: none; }

@@ -42,6 +42,8 @@
 
 ## 재사용할 구현
 
+8·9주차의 내용 없는 초안은 [공통 작성 틀](scaffolds.md)을 사용한다. 전주 실습 리뷰와 해당 주 강의를 별도 덱으로 두며, `scripts/lesson.py`와 공통 생성기로 표지·단원·본문 형식과 한영 번역을 함께 관리한다.
+
 `packages/web-deck/authoring.css`를 공용 CSS 다음에 불러온다. 본문 섹션은 `.wd-lesson-slide.wd-slide--content`, 본문은 `.wd-lesson-body`, 정의 묶음은 `.wd-lesson-concepts`를 사용한다. 개념의 `dt > strong`과 `dd`를 분리한다. 제목에 `nowrap`을 강제하지 않는다. 좁은 화면은 한 열이며 코드의 가로 스크롤을 허용한다.
 
 05의 생성기에서 클래스·블록 렌더링과 검증 경로를 재사용한다. `05/scripts/title_outline.py`는 확정된 개념별 제목, `slide_body.py`는 해당 개념의 본문 블록을 정의하고, `lesson.py`에서 둘을 조합한다. 설명 개수나 코드를 자동으로 채우는 고정 패턴은 두지 않는다. 내용에 특화된 레이아웃은 회차별 CSS에 추가한다. `data-wd-authoring="v1"`을 덱 루트에 표시하면 공용 하네스 검사 대상이 된다. 공용 블록 형식으로 새 본문을 작성할 때 이 표시를 사용한다. 원본 보존 덱에 이 형식이나 본문 규칙을 강제하지 않는다.

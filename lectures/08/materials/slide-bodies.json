@@ -1,0 +1,3304 @@
+{
+  "stage": "completed-bilingual-bodies",
+  "slide_count": 68,
+  "content_count": 60,
+  "languages": [
+    "ko",
+    "en"
+  ],
+  "references": "slide-references.html",
+  "review": "body-layout-review.json",
+  "slides": [
+    {
+      "slide_number": 3,
+      "outline_number": "1.1",
+      "id": "identity-need",
+      "title": [
+        "서비스의 사용자 식별",
+        "Identifying Service Users"
+      ],
+      "requires": [
+        "prior-web",
+        "prior-data"
+      ],
+      "approved_paragraph_ko": "지난주에는 FoodMap의 맛집 데이터를 서버와 데이터베이스에 저장해 다시 조회할 수 있게 했다. 여기에 사용자의 제보를 연결하려면 데이터의 내용뿐 아니라 누가 그 데이터를 보냈는지도 구분해야 한다. 사용자 식별은 여러 요청과 기록을 같은 사람에게 연결하는 출발점이며, 데이터가 저장되어 있다는 사실만으로 요청자의 신원이 확인되지는 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "사용자 식별 - 요청과 사람의 연결",
+            "User identification - link requests to people"
+          ],
+          "details": [
+            [
+              "같은 사용자의 여러 요청과 기록을 하나의 기준으로 연결",
+              "Associate a user’s requests and records through one identity"
+            ],
+            [
+              "저장된 내용과 그 내용을 보낸 사람을 구분",
+              "Distinguish stored content from the person who submitted it"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "데이터 관계의 확장 - 기록에 작성자 연결",
+            "Extending data relationships - associate an author"
+          ],
+          "details": [
+            [
+              "맛집 정보에 사용자 제보를 연결하면 작성자 식별도 필요",
+              "Adding user reports to place data also requires identifying authors"
+            ],
+            [
+              "데이터의 존재만으로 요청자의 신원이 확인되지는 않음",
+              "The existence of a record does not verify the requester’s identity"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table",
+          "resource-flow"
+        ]
+      ]
+    },
+    {
+      "slide_number": 4,
+      "outline_number": "1.2",
+      "id": "user-account",
+      "title": [
+        "사용자 계정",
+        "User Accounts"
+      ],
+      "requires": [
+        "identity-need",
+        "prior-data"
+      ],
+      "approved_paragraph_ko": "사용자 계정은 서비스가 한 사용자를 지속적으로 구분하기 위해 관리하는 기록이다. 고유한 사용자 ID를 기준으로 이름과 연락처 같은 정보를 연결하면 표시 이름이 바뀌어도 같은 사용자의 기록을 유지할 수 있다. FoodMap의 제보도 이름 문자열보다 사용자 ID에 연결하는 편이 안정적이며, 이 ID는 사용자를 가리키는 값이다.",
+      "body_groups": [
+        {
+          "term": [
+            "사용자 계정 - 한 사용자를 구분하는 기록",
+            "User account - a record identifying one user"
+          ],
+          "details": [
+            [
+              "고유한 사용자 ID를 기준으로 이름·연락처 등 연결",
+              "Associate names and contact details with a unique user ID"
+            ],
+            [
+              "표시 이름이 바뀌어도 같은 ID로 계정 유지",
+              "Keep the same account ID when the display name changes"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "고유 ID - 사용자 기록의 연결 기준",
+            "Unique ID - a stable link between records"
+          ],
+          "details": [
+            [
+              "제보의 작성자를 이름 문자열 대신 사용자 ID로 저장",
+              "Store the author’s user ID rather than a name string"
+            ],
+            [
+              "ID는 사용자를 가리키는 값이며 신원 증명과는 별개",
+              "An ID identifies an account but does not prove who is using it"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 5,
+      "outline_number": "1.3",
+      "id": "trust-boundary",
+      "title": [
+        "클라이언트 입력의 신뢰 경계",
+        "The Trust Boundary for Client Input"
+      ],
+      "requires": [
+        "user-account",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "요청에 사용자 ID가 들어 있어도 그 값을 보낸 사람이 해당 계정의 사용자라고 바로 판단할 수는 없다. 브라우저에서 보내는 값은 사용자가 바꿀 수 있으므로 서버는 클라이언트의 주장과 직접 확인한 사실을 구분해야 한다. FoodMap 요청의 작성자 ID를 다른 사람의 값으로 바꾸는 사례는 식별자를 전달하는 것만으로 신원을 증명할 수 없음을 보여준다.",
+      "body_groups": [
+        {
+          "term": [
+            "신뢰 경계 - 주장과 확인된 사실의 구분",
+            "Trust boundary - separate claims from verified facts"
+          ],
+          "details": [
+            [
+              "클라이언트가 보내는 값은 사용자가 변경 가능",
+              "Users can alter values sent by the client"
+            ],
+            [
+              "서버는 요청의 사용자 ID를 그대로 신뢰할 수 없음",
+              "A server cannot simply trust a user ID supplied in a request"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "요청의 주장 - 확인이 필요한 입력",
+            "Request claims - input requiring verification"
+          ],
+          "details": [
+            [
+              "다른 계정의 ID를 아는 것만으로 그 계정의 사용자가 되지는 않음",
+              "Knowing another account’s ID does not make someone its user"
+            ],
+            [
+              "요청자를 확인할 근거를 서버에서 별도로 판단",
+              "The server needs separate evidence to establish the requester’s identity"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 6,
+      "outline_number": "1.4",
+      "id": "authentication",
+      "title": [
+        "사용자 인증",
+        "User Authentication"
+      ],
+      "requires": [
+        "user-account",
+        "trust-boundary"
+      ],
+      "approved_paragraph_ko": "사용자 인증은 요청자가 주장하는 계정에 대해 적절한 증거를 제시하는지 확인하는 과정이다. 비밀번호 방식에서는 서버가 계정을 찾은 뒤 그 계정의 비밀번호를 알고 있다는 증거를 검증한다. 검증에 성공하면 서버는 요청을 확인된 사용자 ID와 연결할 수 있으며, 사용자 ID를 알고 있다는 사실과 그 계정의 사용자라는 사실을 구분하게 된다.",
+      "body_groups": [
+        {
+          "term": [
+            "사용자 인증 - 계정에 대한 증거의 검증",
+            "Authentication - verify evidence for an account"
+          ],
+          "details": [
+            [
+              "요청자가 주장한 계정을 찾은 뒤 적절한 증거 확인",
+              "Find the claimed account, then verify appropriate evidence"
+            ],
+            [
+              "비밀번호 방식에서는 해당 계정의 비밀번호 지식 검증",
+              "Password authentication verifies knowledge of that account’s password"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "인증 결과 - 확인된 사용자와 요청의 연결",
+            "Authentication result - associate a verified user"
+          ],
+          "details": [
+            [
+              "검증에 성공한 요청을 서버가 확인한 사용자 ID에 연결",
+              "Associate a successful request with the user ID verified by the server"
+            ],
+            [
+              "계정 식별과 그 계정의 사용자임을 증명하는 과정은 구분",
+              "Account identification and proof of identity are distinct steps"
+            ]
+          ]
+        }
+      ],
+      "composition": "aux",
+      "resource_blocks": [
+        [
+          "table"
+        ],
+        [
+          "login-screen"
+        ]
+      ]
+    },
+    {
+      "slide_number": 7,
+      "outline_number": "1.5",
+      "id": "password-hash",
+      "title": [
+        "비밀번호 해시",
+        "Password Hashing"
+      ],
+      "requires": [
+        "authentication"
+      ],
+      "approved_paragraph_ko": "비밀번호 해시는 비밀번호에서 계산한 검증용 값으로, 서버가 원문 비밀번호를 그대로 보관하지 않고도 입력을 확인하는 데 사용한다. 비밀번호 저장에는 반복적인 추측의 비용을 높이도록 설계한 전용 해시 함수를 사용한다. 로그인할 때는 저장된 원문을 꺼내 비교하는 대신 입력한 비밀번호가 저장된 검증 정보와 일치하는지 확인하며, 해시가 유출되어도 추측 위험까지 사라지는 것은 아니다.",
+      "body_groups": [
+        {
+          "term": [
+            "비밀번호 해시 - 원문 대신 보관하는 검증값",
+            "Password hash - stored verification data"
+          ],
+          "details": [
+            [
+              "입력에서 계산한 값을 저장해 원문 보관을 피하는 구조",
+              "Store a value derived from the input instead of the plaintext"
+            ],
+            [
+              "로그인 입력이 저장된 검증 정보와 일치하는지 확인",
+              "Check whether a login input matches the stored verification data"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "전용 해시 함수 - 반복 추측의 비용 증가",
+            "Password hashing function - make guessing costly"
+          ],
+          "details": [
+            [
+              "비밀번호 저장을 위해 설계한 계산 비용이 큰 함수 사용",
+              "Use a deliberately costly function designed for password storage"
+            ],
+            [
+              "해시가 유출되어도 비밀번호 추측 위험은 남아 있음",
+              "Disclosure of hashes still permits password-guessing attempts"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "resource-flow",
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 8,
+      "outline_number": "1.6",
+      "id": "password-salt",
+      "title": [
+        "비밀번호 솔트",
+        "Password Salts"
+      ],
+      "requires": [
+        "password-hash",
+        "user-account"
+      ],
+      "approved_paragraph_ko": "솔트는 비밀번호를 해시할 때 함께 사용하는 무작위 값으로, 같은 비밀번호를 선택한 계정들도 서로 다른 해시 결과를 갖게 한다. 솔트는 해시와 함께 보관할 수 있으며, 입력을 검증할 때 해당 계정에 저장된 솔트를 다시 사용한다. 두 사용자가 같은 비밀번호를 쓰더라도 저장 결과가 같지 않으므로, 한 번 계산한 추측 결과를 여러 계정에 그대로 대입하기 어려워진다.",
+      "body_groups": [
+        {
+          "term": [
+            "솔트 - 해시 계산에 더하는 무작위 값",
+            "Salt - a random value included in hashing"
+          ],
+          "details": [
+            [
+              "같은 비밀번호도 계정별로 서로 다른 해시 생성",
+              "Generate different hashes for accounts using the same password"
+            ],
+            [
+              "한 번 계산한 추측 결과를 여러 계정에 재사용하기 어렵게 구성",
+              "Make it harder to reuse one computed guess across many accounts"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "솔트의 보관 - 검증에 재사용할 정보",
+            "Stored salt - information reused for verification"
+          ],
+          "details": [
+            [
+              "비밀키와 달리 해시와 함께 보관 가능",
+              "Unlike a secret key, a salt may be stored alongside the hash"
+            ],
+            [
+              "검증할 때 해당 계정에 저장된 솔트를 다시 사용",
+              "Reuse the salt stored for the account when verifying a password"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table",
+          "resource-flow"
+        ]
+      ]
+    },
+    {
+      "slide_number": 9,
+      "outline_number": "1.7",
+      "id": "password-login",
+      "title": [
+        "비밀번호 로그인",
+        "Password Login"
+      ],
+      "requires": [
+        "authentication",
+        "password-hash",
+        "password-salt"
+      ],
+      "approved_paragraph_ko": "비밀번호 로그인은 계정 조회와 비밀번호 검증을 거쳐 요청자의 사용자 ID를 확정하는 흐름이다. 가입할 때 비밀번호 해시와 솔트 등 검증 정보를 저장하고, 로그인할 때 입력한 비밀번호를 해당 정보와 함께 검증 함수에 전달한다. 검증에 성공하면 FoodMap 서버가 확인한 사용자 ID가 얻어지며, 여기까지의 결과는 현재 로그인 요청에서 사용자를 확인했다는 사실이다.",
+      "body_groups": [
+        {
+          "term": [
+            "비밀번호 로그인 - 계정 조회와 입력 검증",
+            "Password login - find the account and verify input"
+          ],
+          "details": [
+            [
+              "가입 시 해시·솔트 등 비밀번호 검증 정보 저장",
+              "Store password verification data, including hash and salt, at signup"
+            ],
+            [
+              "로그인 시 입력과 저장 정보를 검증 함수에 전달",
+              "Pass the entered password and stored data to a verification function"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "검증 성공 - 현재 요청의 사용자 확인",
+            "Successful verification - identify the current requester"
+          ],
+          "details": [
+            [
+              "서버가 조회한 계정의 사용자 ID를 인증 결과로 사용",
+              "Use the ID of the server-verified account as the authentication result"
+            ],
+            [
+              "이 단계의 결과는 현재 로그인 요청에서 확인한 신원",
+              "This establishes identity for the current login request"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-flow"
+        ]
+      ]
+    },
+    {
+      "slide_number": 11,
+      "outline_number": "2.1",
+      "id": "http-stateless",
+      "title": [
+        "HTTP의 무상태성",
+        "HTTP Statelessness"
+      ],
+      "requires": [
+        "password-login",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "현재 로그인 요청에서 사용자를 확인했더라도 그 결과가 새 HTTP 요청에 자동으로 붙지는 않는다. HTTP는 각각의 요청만으로 이전 인증 결과를 보장하지 않으므로, 애플리케이션이 요청 사이를 연결할 정보를 별도로 관리해야 한다. FoodMap의 로그인 직후 맛집 목록을 다시 요청하는 상황을 통해, 한 번의 사용자 확인과 여러 요청에 걸친 로그인 유지가 다른 문제임을 이해한다.",
+      "body_groups": [
+        {
+          "term": [
+            "HTTP 무상태성 - 요청 사이의 자동 연결 부재",
+            "HTTP statelessness - no automatic link across requests"
+          ],
+          "details": [
+            [
+              "한 요청에서 확인한 인증 결과가 다음 요청에 자동 첨부되지 않음",
+              "Authentication established in one request is not automatically carried into the next"
+            ],
+            [
+              "서버는 새 요청에서 사용자를 확인할 정보를 다시 필요로 함",
+              "The server needs information to identify the user of each new request"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "로그인 유지 - 애플리케이션의 상태 연결",
+            "Login continuity - state managed by the application"
+          ],
+          "details": [
+            [
+              "사용자 확인과 여러 요청의 로그인 유지는 서로 다른 문제",
+              "Verifying a user and preserving login across requests are separate problems"
+            ],
+            [
+              "요청 사이를 연결할 정보를 애플리케이션에서 별도로 관리",
+              "The application manages information linking requests to the authenticated user"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 12,
+      "outline_number": "2.2",
+      "id": "cookies",
+      "title": [
+        "쿠키",
+        "Cookies"
+      ],
+      "requires": [
+        "http-stateless"
+      ],
+      "approved_paragraph_ko": "쿠키는 브라우저가 값을 저장했다가 정해진 조건에 맞는 요청에 첨부하는 기능이다. 서버가 응답의 Set-Cookie로 값을 전달하면 브라우저는 이를 저장하고, 전송 조건을 만족하는 이후 요청의 Cookie에 포함할 수 있다. 쿠키 자체가 사용자의 신원을 확인하는 것은 아니며, 서버와 브라우저가 요청 사이에 값을 주고받을 수 있도록 하는 수단이다.",
+      "body_groups": [
+        {
+          "term": [
+            "쿠키 - 브라우저의 값 보관·첨부 기능",
+            "Cookie - browser storage and request attachment"
+          ],
+          "details": [
+            [
+              "응답의 Set-Cookie로 받은 값을 브라우저에 보관",
+              "The browser stores a value received through Set-Cookie"
+            ],
+            [
+              "전송 조건에 맞는 요청의 Cookie 헤더에 값 첨부",
+              "It attaches the value in Cookie headers on eligible requests"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "전달 수단 - 신원 확인과 구분되는 역할",
+            "Transport mechanism - distinct from identity verification"
+          ],
+          "details": [
+            [
+              "쿠키 자체가 사용자의 신원을 확인하지는 않음",
+              "A cookie does not verify a user’s identity by itself"
+            ],
+            [
+              "서버는 전달받은 값의 의미와 유효성을 별도로 판단",
+              "The server determines the meaning and validity of the received value"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence",
+          "code",
+          "code"
+        ]
+      ]
+    },
+    {
+      "slide_number": 13,
+      "outline_number": "2.3",
+      "id": "server-session",
+      "title": [
+        "서버 세션",
+        "Server-Side Sessions"
+      ],
+      "requires": [
+        "cookies",
+        "password-login"
+      ],
+      "approved_paragraph_ko": "서버 세션은 로그인 상태를 서버에 보관하고 임의의 세션 식별자로 그 상태를 찾아 사용하는 구조다. 로그인에 성공하면 서버는 세션 식별자와 사용자 ID를 연결해 저장하고 식별자를 쿠키로 전달한다. 이후 FoodMap 요청에 식별자가 돌아오면 서버는 저장된 세션을 조회해 사용자를 확인하므로, 브라우저가 보낸 사용자 ID를 그대로 믿을 필요가 없다.",
+      "body_groups": [
+        {
+          "term": [
+            "서버 세션 - 서버에 보관한 로그인 상태",
+            "Server session - login state stored on the server"
+          ],
+          "details": [
+            [
+              "로그인 성공 후 임의 세션 ID와 사용자 ID를 연결해 저장",
+              "After login, associate a random session ID with the verified user ID"
+            ],
+            [
+              "브라우저에는 상태를 찾을 세션 ID를 쿠키로 전달",
+              "Send the session ID to the browser in a cookie"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "세션 조회 - 식별자로 저장 상태 확인",
+            "Session lookup - resolve the identifier to stored state"
+          ],
+          "details": [
+            [
+              "이후 요청의 세션 ID로 서버 기록을 조회",
+              "Look up the server record using the ID on later requests"
+            ],
+            [
+              "브라우저가 주장한 사용자 ID 대신 서버의 연결 기록 사용",
+              "Use the server’s association rather than a client-supplied user ID"
+            ]
+          ]
+        }
+      ],
+      "composition": "aux",
+      "resource_blocks": [
+        [
+          "code"
+        ],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 14,
+      "outline_number": "2.4",
+      "id": "auth-token",
+      "title": [
+        "인증 토큰",
+        "Authentication Tokens"
+      ],
+      "requires": [
+        "server-session",
+        "trust-boundary",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "토큰은 이후 요청을 처리할 때 제시하는 자격정보이며, 서버의 확인을 거쳐 사용자나 접근 자격과 연결된다. 세션 식별자처럼 서버의 기록을 찾아야 의미를 알 수 있는 토큰도 있고, 토큰 자체에 확인할 정보를 담는 형식도 있다. API에 제시하는 액세스 토큰은 요청 헤더 등으로 전달할 수 있으며, 토큰의 형식과 전달 수단은 구분해서 선택한다.",
+      "body_groups": [
+        {
+          "term": [
+            "토큰 - 요청에 제시하는 자격정보",
+            "Token - a credential presented with a request"
+          ],
+          "details": [
+            [
+              "서버의 검증을 거쳐 사용자 또는 접근 자격에 연결",
+              "After validation, associate the token with a user or access grant"
+            ],
+            [
+              "세션 식별자도 서버 기록을 조회하는 토큰의 한 형태",
+              "A session identifier is a token that resolves to a server record"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "형식과 전달 - 서로 다른 선택 기준",
+            "Format and transport - separate design choices"
+          ],
+          "details": [
+            [
+              "서버 기록을 찾는 형식과 정보를 직접 담는 형식 존재",
+              "Some formats reference server state; others carry information directly"
+            ],
+            [
+              "액세스 토큰은 요청 헤더 등으로 API에 전달 가능",
+              "An access token may be sent to an API in a request header"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 15,
+      "outline_number": "2.5",
+      "id": "token-signature",
+      "title": [
+        "토큰의 서명",
+        "Token Signatures"
+      ],
+      "requires": [
+        "auth-token"
+      ],
+      "approved_paragraph_ko": "토큰에 사용자 정보를 직접 담으면 그 내용을 사용자가 바꾸지 않았는지 확인할 방법이 필요하다. 서명은 발급자가 관리하는 암호학적 키를 이용해 검증 가능한 값을 붙이는 방식이며, 수신자는 신뢰하는 발급자의 검증 키와 방법으로 무결성을 확인한다. FoodMap 사용자 ID를 임의로 바꾼 토큰은 검증에 실패하도록 만들 수 있지만, 서명만으로 토큰 내용이 숨겨지는 것은 아니다.",
+      "body_groups": [
+        {
+          "term": [
+            "서명 - 토큰의 무결성을 확인하는 검증값",
+            "Signature - evidence of token integrity"
+          ],
+          "details": [
+            [
+              "발급자가 관리하는 키로 토큰 내용에 대응하는 값 생성",
+              "The issuer uses its key to produce a value tied to the token content"
+            ],
+            [
+              "수신자는 신뢰하는 발급자의 키와 방법으로 검증",
+              "The recipient verifies it using a trusted issuer’s key and method"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "보호 범위 - 변조 탐지와 내용 공개의 구분",
+            "Protection scope - tamper detection and visibility"
+          ],
+          "details": [
+            [
+              "내용만 바꾼 토큰은 기존 서명과 일치하지 않아 검증 실패",
+              "Changing the content without a valid signature causes verification to fail"
+            ],
+            [
+              "서명은 암호화와 달리 내용의 비밀성을 보장하지 않음",
+              "Signing, unlike encryption, does not keep the content confidential"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 16,
+      "outline_number": "2.6",
+      "id": "jwt-structure",
+      "title": [
+        "JWT의 구조",
+        "JWT Structure"
+      ],
+      "requires": [
+        "token-signature",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "JWT는 사용자에 관한 주장과 유효 조건을 JSON 기반으로 담는 토큰 형식이다. 이 강의의 서명형 JWT는 서명 방식 등을 나타내는 헤더, 주장들을 담는 페이로드, 변조를 확인하는 서명으로 구성된다. 페이로드의 sub는 사용자 식별자, iss는 발급자, aud는 토큰을 받을 대상, exp는 만료 시각을 나타내며, 내용은 읽을 수 있으므로 비밀번호 같은 비밀을 넣지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "JWT - 주장과 유효 조건을 담는 토큰 형식",
+            "JWT - a format for claims and validity conditions"
+          ],
+          "details": [
+            [
+              "서명형 JWT는 헤더·페이로드·서명의 세 부분으로 구성",
+              "A signed JWT contains a header, payload and signature"
+            ],
+            [
+              "페이로드에 사용자 식별자와 발급·수신·만료 조건 포함",
+              "The payload can include identity, issuer, audience and expiration claims"
+            ],
+            [
+              "내용은 읽을 수 있으므로 비밀번호 등 비밀정보 제외",
+              "The content is readable, so passwords and other secrets must be excluded"
+            ]
+          ]
+        }
+      ],
+      "composition": "jwt",
+      "resource_blocks": [
+        [
+          "table"
+        ],
+        [
+          "figure",
+          "code",
+          "code"
+        ]
+      ]
+    },
+    {
+      "slide_number": 17,
+      "outline_number": "2.7",
+      "id": "jwt-validation",
+      "title": [
+        "JWT 검증",
+        "JWT Validation"
+      ],
+      "requires": [
+        "jwt-structure",
+        "trust-boundary"
+      ],
+      "approved_paragraph_ko": "JWT의 내용을 읽는 것과 그 내용을 신뢰하는 것은 별도의 단계다. 서버는 미리 허용한 서명 방식과 신뢰하는 키로 서명을 검증하고, 발급자와 수신 대상이 예상과 일치하며 유효 시간이 지나지 않았는지 확인한다. 이 조건을 통과한 뒤에만 토큰의 사용자 식별자를 요청 처리에 사용하므로, 형식이 맞거나 사용자 ID가 보인다는 이유만으로 인증에 성공하지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "JWT 검증 - 주장을 신뢰할 조건 확인",
+            "JWT validation - determine whether to trust claims"
+          ],
+          "details": [
+            [
+              "내용을 읽는 디코딩과 신뢰를 결정하는 검증은 별도",
+              "Reading decoded claims does not establish their validity"
+            ],
+            [
+              "서명·발급자·수신 대상·만료를 모두 통과한 신원만 사용",
+              "Use the subject only after signature, issuer, audience and expiration checks pass"
+            ]
+          ]
+        }
+      ],
+      "composition": "aux",
+      "resource_blocks": [
+        [
+          "table"
+        ],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 18,
+      "outline_number": "2.8",
+      "id": "auth-expiry",
+      "title": [
+        "인증 상태의 만료",
+        "Authentication Expiration"
+      ],
+      "requires": [
+        "server-session",
+        "jwt-validation"
+      ],
+      "approved_paragraph_ko": "인증 상태의 만료는 과거의 인증 결과를 신뢰할 수 있는 시간을 제한하는 장치다. 서버 세션은 마지막 활동이나 생성 시점을 기준으로 종료할 수 있고, JWT는 exp에 기록된 시각을 기준으로 유효성을 판단한다. 서버의 인증 상태가 만료되었다면 브라우저에 식별자나 토큰이 남아 있더라도 유효한 인증으로 받아들이지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "인증 만료 - 과거 인증을 신뢰하는 시간 제한",
+            "Authentication expiration - limit trust in prior login"
+          ],
+          "details": [
+            [
+              "한 번 확인한 인증 결과의 효력을 무기한 유지하지 않음",
+              "A successful login is not trusted indefinitely"
+            ],
+            [
+              "브라우저에 값이 남아 있어도 만료된 자격은 거부",
+              "Reject expired credentials even if still stored in the browser"
+            ],
+            [
+              "만료 기준은 클라이언트 변경에 의존하지 않고 서버에서 적용",
+              "Enforce expiration on the server, independent of client changes"
+            ]
+          ]
+        }
+      ],
+      "composition": "expiry",
+      "resource_blocks": [
+        [
+          "table"
+        ],
+        [
+          "resource-timeline"
+        ]
+      ]
+    },
+    {
+      "slide_number": 19,
+      "outline_number": "2.9",
+      "id": "refresh-token",
+      "title": [
+        "리프레시 토큰",
+        "Refresh Tokens"
+      ],
+      "requires": [
+        "auth-expiry",
+        "auth-token"
+      ],
+      "approved_paragraph_ko": "액세스 토큰의 수명을 짧게 유지하면서 매번 비밀번호를 입력하지 않게 하려면 새 토큰을 발급받는 절차가 필요하다. 리프레시 토큰은 이 갱신에 사용하는 별도의 자격정보로, 일반 데이터 API 대신 인증 시스템에 제출한다. 인증 시스템이 갱신 자격을 확인하면 새 액세스 토큰을 발급하며, 토큰을 계속 발급받는 데 악용될 수 있는 갱신 자격은 별도로 보호해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "리프레시 토큰 - 새 액세스 토큰 발급 자격",
+            "Refresh token - a credential for issuing new access tokens"
+          ],
+          "details": [
+            [
+              "짧은 액세스 토큰 수명과 반복 로그인 부담을 함께 고려",
+              "Support short access-token lifetimes without repeated password entry"
+            ],
+            [
+              "일반 데이터 API가 아닌 인증 시스템에 제출",
+              "Submit it to the authentication system, not the data API"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "갱신 절차 - 별도 자격 검증 후 재발급",
+            "Renewal - validate a separate credential before issuance"
+          ],
+          "details": [
+            [
+              "인증 시스템이 갱신 자격을 확인한 뒤 새 토큰 발급",
+              "The authentication system verifies renewal credentials before issuing a new token"
+            ],
+            [
+              "계속된 토큰 발급에 악용될 수 있으므로 갱신 자격도 보호",
+              "Protect the refresh credential because it can be abused to obtain more tokens"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 20,
+      "outline_number": "2.10",
+      "id": "logout",
+      "title": [
+        "로그아웃과 인증 철회",
+        "Logout and Revocation"
+      ],
+      "requires": [
+        "server-session",
+        "refresh-token",
+        "jwt-validation"
+      ],
+      "approved_paragraph_ko": "로그아웃은 브라우저의 로그인 표시를 지우는 데서 끝나지 않고 사용하던 자격정보의 효력을 종료하는 과정이다. 서버 세션은 서버의 연결 기록을 무효화할 수 있고, 토큰 방식은 보관한 토큰을 제거하면서 갱신 자격도 철회한다. 다만 서명과 유효 조건만으로 검증하는 JWT는 이미 발급된 토큰이 만료까지 유효할 수 있으므로, 즉시 차단이 필요하면 서버에서 철회 여부를 추가로 확인하는 설계가 필요하다.",
+      "body_groups": [
+        {
+          "term": [
+            "로그아웃 - 사용하던 자격정보의 효력 종료",
+            "Logout - end the validity of login credentials"
+          ],
+          "details": [
+            [
+              "브라우저의 로그인 표시나 보관값 삭제만으로 종료되지 않음",
+              "Clearing the login display or browser storage alone is insufficient"
+            ],
+            [
+              "서버 기록·갱신 자격 등 실제 수용 지점에서 효력 종료",
+              "End access where credentials are accepted, including session and renewal records"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "철회 범위 - 방식별로 다른 종료 시점",
+            "Revocation scope - different mechanisms end differently"
+          ],
+          "details": [
+            [
+              "세션 기록 무효화와 새 액세스 토큰의 발급 중단을 구분",
+              "Distinguish invalidating a session from stopping new access-token issuance"
+            ],
+            [
+              "이미 발급된 JWT는 만료 또는 추가 철회 검사까지 유효할 수 있음",
+              "An issued JWT may remain valid until expiration or an additional revocation check"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 22,
+      "outline_number": "3.1",
+      "id": "identity-provider",
+      "title": [
+        "외부 인증 제공자",
+        "External Identity Providers"
+      ],
+      "requires": [
+        "authentication",
+        "password-login"
+      ],
+      "approved_paragraph_ko": "사용자를 확인하는 일을 서비스가 직접 수행하지 않고 외부 인증 제공자에게 맡길 수도 있다. 외부 제공자는 자신의 계정으로 사용자를 인증하고, FoodMap은 그 제공자가 전달한 결과를 검증해 활용한다. 이 구조에서는 외부 계정의 비밀번호를 FoodMap이 받아 저장하지 않으며, 외부 제공자의 책임과 서비스 내부 계정 관리의 책임이 나뉜다.",
+      "body_groups": [
+        {
+          "term": [
+            "외부 인증 제공자 - 사용자 확인을 맡는 서비스",
+            "Identity provider - a service that authenticates users"
+          ],
+          "details": [
+            [
+              "제공자가 자신의 계정으로 사용자를 인증",
+              "The provider authenticates users with its own accounts"
+            ],
+            [
+              "연결하는 서비스는 전달받은 인증 결과를 검증해 활용",
+              "The relying service verifies and uses the authentication result"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "책임의 분리 - 외부 인증과 내부 계정 관리",
+            "Separate responsibilities - authentication and local accounts"
+          ],
+          "details": [
+            [
+              "외부 계정의 비밀번호를 연결 서비스가 받아 저장하지 않음",
+              "The relying service does not receive or store the external account password"
+            ],
+            [
+              "서비스 내부의 사용자 기록과 기능은 해당 서비스에서 관리",
+              "The service remains responsible for its own user records and features"
+            ]
+          ]
+        }
+      ],
+      "composition": "provider",
+      "resource_blocks": [
+        [],
+        [
+          "login-screen",
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 23,
+      "outline_number": "3.2",
+      "id": "oauth-delegation",
+      "title": [
+        "OAuth의 접근 권한 위임",
+        "OAuth Access Delegation"
+      ],
+      "requires": [
+        "identity-provider",
+        "auth-token",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "외부 서비스와 연결할 때는 먼저 그 서비스의 데이터에 접근할 자격을 위임받는 구조를 이해해야 한다. OAuth는 사용자가 동의한 범위인 scope 안에서 애플리케이션이 외부 API를 호출하도록 액세스 토큰을 발급하는 체계다. 예를 들어 FoodMap은 외부 계정의 비밀번호를 받지 않고 허용된 프로필 정보에 접근할 수 있으며, 이 접근 위임만으로 서비스의 사용자 신원 확인 절차 전체가 정의되지는 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "OAuth - 외부 API 접근 권한의 위임",
+            "OAuth - delegated access to an external API"
+          ],
+          "details": [
+            [
+              "사용자가 동의한 범위에서 앱의 데이터 접근 허용",
+              "Allow an application to access data within the user-approved scope"
+            ],
+            [
+              "외부 비밀번호를 넘기지 않고 액세스 토큰으로 API 호출",
+              "Call the API with an access token without sharing the external password"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "scope - 위임받은 접근 범위",
+            "Scope - the extent of delegated access"
+          ],
+          "details": [
+            [
+              "앱이 사용할 수 있는 데이터·기능의 범위 표현",
+              "Describe the data and operations the application may access"
+            ],
+            [
+              "접근 위임만으로 사용자 신원 확인 절차 전체가 정의되지는 않음",
+              "Delegated access alone does not define the entire user authentication process"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 24,
+      "outline_number": "3.3",
+      "id": "oidc",
+      "title": [
+        "OIDC의 사용자 인증",
+        "User Authentication with OIDC"
+      ],
+      "requires": [
+        "oauth-delegation",
+        "jwt-validation"
+      ],
+      "approved_paragraph_ko": "OIDC는 OAuth 기반의 흐름에 사용자 인증 결과를 전달하는 규칙을 더한 체계다. 제공자가 OIDC를 지원하면 서비스는 ID 토큰의 서명과 발급자, 수신 대상, 유효 조건을 검증해 누구의 인증 결과인지 확인할 수 있다. ID 토큰은 사용자의 신원을 전달하고 외부 API용 액세스 토큰은 외부 데이터 접근에 사용되므로, 두 토큰의 목적과 받아들이는 대상을 구분한다.",
+      "body_groups": [
+        {
+          "term": [
+            "OIDC - OAuth에 더한 사용자 인증 규칙",
+            "OIDC - identity rules built on OAuth"
+          ],
+          "details": [
+            [
+              "제공자가 지원하면 ID 토큰으로 인증 결과 전달",
+              "A supporting provider conveys an authentication result in an ID token"
+            ],
+            [
+              "서비스는 서명·발급자·수신 대상·유효 조건을 검증",
+              "The service checks the signature, issuer, audience and validity conditions"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "토큰의 목적 - 신원과 외부 접근의 구분",
+            "Token purpose - identity versus external API access"
+          ],
+          "details": [
+            [
+              "ID 토큰은 서비스를 위한 사용자 인증 결과",
+              "The ID token conveys an authentication result to the service"
+            ],
+            [
+              "외부 액세스 토큰은 대상 외부 API의 데이터 접근에 사용",
+              "The access token is used to access data at the external API"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-branches"
+        ]
+      ]
+    },
+    {
+      "slide_number": 25,
+      "outline_number": "3.4",
+      "id": "authorization-code",
+      "title": [
+        "인가 코드 흐름",
+        "The Authorization Code Flow"
+      ],
+      "requires": [
+        "oidc",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "인가 코드 흐름은 브라우저로 전달받은 짧은 수명의 일회용 코드를 토큰과 교환하는 절차다. FoodMap 서버가 교환을 맡는 사례에서는 사용자가 외부 인증 화면을 거친 뒤 등록된 복귀 주소로 돌아오고, 서버가 전달된 코드를 제공자의 토큰 발급 창구에 제출한다. 코드는 해당 애플리케이션과 복귀 주소 등의 조건에 연결되며, 사용자는 외부 계정의 비밀번호를 FoodMap에 전달하지 않고 인증 결과를 이어갈 수 있다.",
+      "body_groups": [
+        {
+          "term": [
+            "인가 코드 - 토큰과 교환하는 일회용 값",
+            "Authorization code - a one-time value exchanged for tokens"
+          ],
+          "details": [
+            [
+              "외부 인증 후 브라우저가 등록된 복귀 주소로 코드 전달",
+              "After external authentication, the browser carries a code to the registered redirect URI"
+            ],
+            [
+              "짧은 수명의 코드는 앱·복귀 주소 등의 조건에 연결",
+              "The short-lived code is bound to conditions such as the client and redirect URI"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "서버의 교환 - 코드로 토큰 발급 요청",
+            "Server-side exchange - request tokens using the code"
+          ],
+          "details": [
+            [
+              "서비스 서버가 제공자의 토큰 발급 창구에 코드 제출",
+              "The service server submits the code to the provider’s token endpoint"
+            ],
+            [
+              "제공자가 코드·클라이언트 조건을 검증한 뒤 토큰 반환",
+              "The provider checks the code and client conditions before returning tokens"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 26,
+      "outline_number": "3.5",
+      "id": "oauth-state",
+      "title": [
+        "로그인 요청의 state",
+        "State in Login Requests"
+      ],
+      "requires": [
+        "authorization-code"
+      ],
+      "approved_paragraph_ko": "외부 화면을 거쳐 돌아온 응답은 실제로 이 브라우저에서 시작한 로그인 요청에 대한 응답인지 확인해야 한다. state는 요청을 시작할 때 예측하기 어려운 일회용 값을 만들어 해당 브라우저의 로그인 시도에 연결하고, 복귀한 값과 대조하는 데 사용한다. 값이 없거나 일치하지 않으면 연결을 중단하며, state의 일치는 사용자 신원이나 토큰 서명 검증을 대신하지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "state - 시작한 요청과 복귀 응답의 연결값",
+            "state - bind the returning response to its initiating request"
+          ],
+          "details": [
+            [
+              "로그인 시작 시 예측하기 어려운 일회용 값 생성",
+              "Generate an unpredictable, one-time value when login starts"
+            ],
+            [
+              "값을 해당 브라우저의 로그인 시도와 연결해 임시 보관",
+              "Temporarily bind the value to that browser’s login attempt"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "왕복값 검증 - 요청 연결의 확인",
+            "Round-trip validation - verify the request association"
+          ],
+          "details": [
+            [
+              "복귀한 값이 없거나 시작한 값과 다르면 연결 중단",
+              "Stop if the returned value is missing or differs from the initiating value"
+            ],
+            [
+              "일치 여부는 사용자 신원·토큰 서명 검증을 대신하지 않음",
+              "A match does not replace identity or token signature validation"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 27,
+      "outline_number": "3.6",
+      "id": "pkce",
+      "title": [
+        "인가 코드의 PKCE 보호",
+        "Protecting Authorization Codes with PKCE"
+      ],
+      "requires": [
+        "authorization-code",
+        "oauth-state"
+      ],
+      "approved_paragraph_ko": "PKCE는 인가 코드를 얻은 쪽이 그 코드를 발급받기 위한 요청을 시작한 쪽인지 확인하도록 교환 절차를 보호한다. 로그인 시도마다 비밀로 보관할 검증값을 만들고 그 값의 해시를 먼저 전달한 뒤, 코드를 교환할 때 원래 검증값을 제시한다. 제공자는 받은 검증값으로 해시를 다시 계산해 앞서 받은 값과 비교하므로, 코드만 가로챈 상대는 교환에 필요한 증거를 갖추지 못한다.",
+      "body_groups": [
+        {
+          "term": [
+            "PKCE - 인가 코드의 교환을 묶는 증명",
+            "PKCE - proof binding an authorization code to its requester"
+          ],
+          "details": [
+            [
+              "로그인마다 verifier를 생성해 교환 전까지 비밀로 보관",
+              "Create a verifier for each login attempt and keep it secret until the exchange"
+            ],
+            [
+              "verifier를 변환한 challenge를 인가 요청에 먼저 전달",
+              "Send a challenge derived from the verifier with the authorization request"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "교환 시 확인 - 처음 요청과 같은 증명 비교",
+            "Exchange check - verify the original proof"
+          ],
+          "details": [
+            [
+              "제공자가 제출된 verifier를 변환해 저장된 challenge와 대조",
+              "The provider transforms the submitted verifier and compares it with the stored challenge"
+            ],
+            [
+              "코드만 가로챈 상대는 교환에 필요한 verifier가 없음",
+              "An attacker holding only the code lacks the verifier required for exchange"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 28,
+      "outline_number": "3.7",
+      "id": "account-link",
+      "title": [
+        "외부 계정과 서비스 계정의 연결",
+        "Linking External and Local Accounts"
+      ],
+      "requires": [
+        "oidc",
+        "pkce",
+        "user-account",
+        "prior-data"
+      ],
+      "approved_paragraph_ko": "외부 인증 결과를 검증한 뒤에는 외부의 사용자 식별자를 FoodMap 내부 계정에 연결해야 한다. OIDC에서는 발급자와 그 발급자가 부여한 사용자 식별자의 조합을 기준으로 외부 계정을 구분하고, 이를 내부 사용자 ID에 대응시킨다. 표시 이름이나 이메일이 같다는 이유만으로 서로 다른 계정을 자동으로 합치지 않으며, 연결된 내부 ID를 기준으로 FoodMap의 제보와 사용자 기록을 유지한다.",
+      "body_groups": [
+        {
+          "term": [
+            "계정 연결 - 외부 신원을 내부 ID에 대응",
+            "Account association - map external identity to an internal ID"
+          ],
+          "details": [
+            [
+              "검증한 발급자 iss와 사용자 식별자 sub의 조합 사용",
+              "Use the verified combination of issuer iss and subject sub"
+            ],
+            [
+              "연결된 내부 ID를 기준으로 서비스의 제보·사용자 기록 유지",
+              "Keep service reports and user records associated with the internal ID"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "연결 기준 - 이름·이메일과 신원의 구분",
+            "Association criteria - identity is more than profile data"
+          ],
+          "details": [
+            [
+              "다른 발급자가 같은 sub 값을 부여할 수 있음",
+              "Different issuers can assign the same sub value"
+            ],
+            [
+              "이름·이메일 일치만으로 자동 병합하지 않으며 양쪽 계정 확인 필요",
+              "Matching names or emails alone cannot merge accounts; verify both accounts"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table",
+          "resource-flow"
+        ]
+      ]
+    },
+    {
+      "slide_number": 29,
+      "outline_number": "3.8",
+      "id": "social-session",
+      "title": [
+        "소셜 로그인 이후의 서비스 인증",
+        "Service Authentication After Social Login"
+      ],
+      "requires": [
+        "account-link",
+        "server-session",
+        "auth-token"
+      ],
+      "approved_paragraph_ko": "외부 계정이 내부 사용자 ID에 연결되면 FoodMap은 앞서 배운 세션이나 토큰 방식으로 자신의 로그인 상태를 만들 수 있다. 이후 FoodMap API 요청은 서비스가 받아들이는 로그인 자격으로 처리하고, 외부 제공자의 액세스 토큰은 필요한 외부 API 접근에 사용한다. 이렇게 하면 비밀번호 로그인과 소셜 로그인 모두 확인된 내부 사용자 ID라는 공통 결과로 이어진다.",
+      "body_groups": [
+        {
+          "term": [
+            "서비스 인증 - 확인된 내부 계정의 로그인 유지",
+            "Service authentication - maintain login for the internal account"
+          ],
+          "details": [
+            [
+              "외부 신원을 검증한 뒤 연결된 내부 사용자 ID 확인",
+              "Verify the external identity and resolve it to an internal user ID"
+            ],
+            [
+              "서비스가 자신의 세션 또는 토큰으로 로그인 상태 생성",
+              "The service establishes login using its own session or token"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "공통 결과 - 로그인 방식과 내부 사용자 구분",
+            "Common result - one internal identity across login methods"
+          ],
+          "details": [
+            [
+              "비밀번호·소셜 로그인 모두 확인된 내부 ID로 요청 연결",
+              "Password and social login both associate requests with a verified internal ID"
+            ],
+            [
+              "외부 액세스 토큰은 필요한 외부 API 접근에만 사용",
+              "Use the external access token for the relevant external API"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 31,
+      "outline_number": "4.1",
+      "id": "authorization",
+      "title": [
+        "요청의 인가",
+        "Request Authorization"
+      ],
+      "requires": [
+        "social-session",
+        "authentication"
+      ],
+      "approved_paragraph_ko": "인가는 확인된 사용자가 특정 대상에 특정 행동을 해도 되는지 판단하는 과정이다. 서버는 누가 요청했는지에 더해 무엇을 대상으로 어떤 작업을 하려는지 확인하고 서비스의 허용 규칙을 적용한다. FoodMap에 로그인했다는 사실만으로 모든 제보를 수정할 수 있는 것은 아니며, 사용자 확인 이후에 요청별 허용 여부를 판단해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "인가 - 대상과 행동의 허용 여부 판단",
+            "Authorization - decide whether an action on a target is allowed"
+          ],
+          "details": [
+            [
+              "인증으로 확인한 사용자에게 서비스의 허용 규칙 적용",
+              "Apply service permission rules to the authenticated user"
+            ],
+            [
+              "누가 · 무엇을 대상으로 · 어떤 작업을 하는지 함께 확인",
+              "Consider who is requesting, which resource is targeted and what action is intended"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "요청별 판단 - 로그인 이후의 권한 확인",
+            "Per-request decision - verify permission after login"
+          ],
+          "details": [
+            [
+              "로그인 성공만으로 모든 데이터의 수정 권한이 생기지는 않음",
+              "Successful login does not grant permission to edit every record"
+            ],
+            [
+              "같은 사용자라도 대상과 행동에 따라 허용 범위가 달라짐",
+              "The same user may have different permissions for different resources and actions"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "figure"
+        ]
+      ]
+    },
+    {
+      "slide_number": 32,
+      "outline_number": "4.2",
+      "id": "role-access",
+      "title": [
+        "역할 기반 접근 제어",
+        "Role-Based Access Control"
+      ],
+      "requires": [
+        "authorization"
+      ],
+      "approved_paragraph_ko": "역할 기반 접근 제어는 사용자에게 역할을 부여하고 그 역할에 허용된 기능을 연결하는 방식이다. FoodMap의 일반 사용자는 제보 기능을 사용하고 운영자는 전체 제보 조회 같은 관리 기능을 사용하도록 범위를 정할 수 있다. 역할에는 업무에 필요한 최소한의 권한을 부여하며, 역할 정보는 사용자가 요청에 임의로 적은 값이 아니라 서버가 신뢰하는 기록을 기준으로 확인한다.",
+      "body_groups": [
+        {
+          "term": [
+            "역할 기반 제어 - 역할과 기능 권한의 연결",
+            "Role-based control - connect roles to permissions"
+          ],
+          "details": [
+            [
+              "사용자에게 역할을 부여하고 역할별 허용 기능 정의",
+              "Assign users roles and define the operations each role may perform"
+            ],
+            [
+              "일반 사용자와 운영자의 업무에 맞춰 권한 범위 구분",
+              "Define permissions around the responsibilities of members and operators"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "최소 권한 - 업무에 필요한 범위만 부여",
+            "Least privilege - grant only what the job requires"
+          ],
+          "details": [
+            [
+              "역할 정보는 서버가 신뢰하는 기록에서 확인",
+              "Resolve roles from records trusted by the server"
+            ],
+            [
+              "요청에 임의로 적은 운영자 표시만으로 권한을 높이지 않음",
+              "A client-supplied operator flag must not elevate access"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 33,
+      "outline_number": "4.3",
+      "id": "owner-access",
+      "title": [
+        "소유자 기반 접근 제어",
+        "Ownership-Based Access Control"
+      ],
+      "requires": [
+        "authorization",
+        "role-access",
+        "user-account",
+        "prior-data"
+      ],
+      "approved_paragraph_ko": "같은 역할을 가진 사용자라도 각자가 접근할 수 있는 데이터는 다를 수 있다. 소유자 기반 접근 제어는 인증으로 확인한 사용자 ID와 대상 행에 저장된 소유자 ID를 비교해 허용 범위를 정한다. FoodMap에서는 자신의 제보만 조회하거나 수정하도록 정할 수 있으며, 제보를 저장할 때부터 서버가 확인한 사용자 ID를 소유자로 연결해야 이 판단의 근거가 유지된다.",
+      "body_groups": [
+        {
+          "term": [
+            "소유자 기반 제어 - 사용자와 행의 관계 확인",
+            "Ownership-based control - check the user’s relation to a row"
+          ],
+          "details": [
+            [
+              "인증된 사용자 ID와 대상 행의 소유자 ID 비교",
+              "Compare the authenticated user ID with the target row’s owner ID"
+            ],
+            [
+              "같은 역할의 사용자라도 자신의 데이터만 허용 가능",
+              "Users with the same role can still be limited to their own records"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "소유 정보 - 접근 판단을 위한 저장 기준",
+            "Ownership data - a stored basis for access decisions"
+          ],
+          "details": [
+            [
+              "데이터 저장 시 서버가 확인한 사용자 ID를 소유자로 연결",
+              "Associate the server-verified user ID as owner when saving a record"
+            ],
+            [
+              "조회·수정에서도 해당 관계를 다시 확인한 뒤 처리",
+              "Check that relationship again when processing reads and edits"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 34,
+      "outline_number": "4.4",
+      "id": "default-deny",
+      "title": [
+        "기본 거부 정책",
+        "Deny by Default"
+      ],
+      "requires": [
+        "role-access",
+        "owner-access"
+      ],
+      "approved_paragraph_ko": "접근 정책에는 규칙이 없거나 판단에 필요한 정보가 부족할 때 어떻게 처리할지도 포함되어야 한다. 기본 거부 정책은 명시적으로 허용된 조건을 충족하지 못한 요청을 거부하는 원칙이다. FoodMap에서는 알 수 없는 역할이나 확인되지 않은 소유 관계를 임의로 허용하지 않으며, 로그인 없이 가능한 맛집 공개 조회도 별도의 허용 규칙으로 표현한다.",
+      "body_groups": [
+        {
+          "term": [
+            "기본 거부 - 명시적 허용 외의 요청 차단",
+            "Default deny - reject requests not explicitly allowed"
+          ],
+          "details": [
+            [
+              "허용 조건이 충족된 요청만 처리",
+              "Process only requests that meet an explicit allow condition"
+            ],
+            [
+              "규칙 없음·정보 부족·알 수 없는 역할은 거부로 판단",
+              "Deny requests with no applicable rule, missing information or an unknown role"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "허용 규칙 - 공개 기능도 포함하는 정책",
+            "Allow rules - policies also cover public features"
+          ],
+          "details": [
+            [
+              "로그인 없는 공개 조회도 허용 조건으로 표현",
+              "Define unauthenticated public reads as an explicit permission"
+            ],
+            [
+              "기본 거부가 모든 기능의 로그인 강제를 뜻하지는 않음",
+              "Default deny does not require login for every feature"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-branches"
+        ]
+      ]
+    },
+    {
+      "slide_number": 35,
+      "outline_number": "4.5",
+      "id": "api-access",
+      "title": [
+        "API 접근 제어",
+        "API Access Control"
+      ],
+      "requires": [
+        "default-deny",
+        "jwt-validation",
+        "trust-boundary"
+      ],
+      "approved_paragraph_ko": "접근 정책은 실제 데이터 처리를 수행하는 서버에서 요청마다 적용되어야 한다. 서버는 로그인 자격을 검증해 사용자를 확인하고, 대상 데이터와 요청 행동에 대한 권한을 검사한 뒤 작업을 수행한다. FoodMap 화면에서 수정 버튼을 숨겼더라도 사용자가 API 요청을 직접 보낼 수 있으므로, 화면의 표시 조건과 서버의 인가 검사는 각각 자신의 역할을 맡는다.",
+      "body_groups": [
+        {
+          "term": [
+            "API 접근 제어 - 실제 처리 경계의 권한 검사",
+            "API access control - check permission at the processing boundary"
+          ],
+          "details": [
+            [
+              "서버가 요청마다 로그인 자격을 검증해 사용자 확인",
+              "Validate the login credential and identify the user on each request"
+            ],
+            [
+              "행동과 대상의 권한을 확인한 뒤 데이터 처리",
+              "Check permission for the action and resource before accessing data"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "화면과 서버 - 표시 조건과 강제 조건의 구분",
+            "UI and server - visibility versus enforcement"
+          ],
+          "details": [
+            [
+              "버튼을 숨겨도 사용자는 API 요청을 직접 전송 가능",
+              "Users can send API requests directly even when a button is hidden"
+            ],
+            [
+              "권한 없는 요청은 서버에서 데이터 처리 전에 중단",
+              "The server stops unauthorized requests before data processing"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 36,
+      "outline_number": "4.6",
+      "id": "rls",
+      "title": [
+        "행 수준 보안 정책",
+        "Row-Level Security Policies"
+      ],
+      "requires": [
+        "api-access",
+        "owner-access",
+        "prior-data"
+      ],
+      "approved_paragraph_ko": "행 수준 보안인 RLS는 데이터베이스가 테이블의 개별 행에 접근 조건을 적용하는 기능이다. 테이블의 기본 접근 권한에 더해 RLS 적용 대상 요청에 행 정책을 검사하며, 검증된 사용자 정보와 행의 소유자를 비교하는 규칙을 만들 수 있다. FoodMap의 자기 제보 조회 정책을 DB에서도 표현할 수 있지만, 정책이 판단에 필요한 사용자 정보를 전달받는 구조와 적용 범위를 함께 확인해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "RLS - 데이터베이스의 행별 접근 조건",
+            "RLS - row-level access conditions in the database"
+          ],
+          "details": [
+            [
+              "테이블의 기본 권한에 더해 적용 대상 행의 정책 검사",
+              "Check row policies in addition to basic table permissions"
+            ],
+            [
+              "조건이 참인 행만 요청의 접근 범위에 포함",
+              "Include only rows whose policy condition evaluates to true"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "사용자 문맥 - 정책이 판단할 검증된 정보",
+            "User context - verified information used by policies"
+          ],
+          "details": [
+            [
+              "검증된 사용자 ID와 저장된 소유자 ID를 비교 가능",
+              "Compare the verified user identity with the stored owner ID"
+            ],
+            [
+              "사용자 정보의 전달 구조와 RLS 적용 역할을 함께 확인",
+              "Check both how user context is supplied and which roles are subject to RLS"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "code",
+          "resource-note",
+          "table",
+          "resource-note"
+        ]
+      ]
+    },
+    {
+      "slide_number": 37,
+      "outline_number": "4.7",
+      "id": "api-keys",
+      "title": [
+        "API 키의 권한 범위",
+        "The Authority of API Keys"
+      ],
+      "requires": [
+        "rls",
+        "auth-token",
+        "api-access"
+      ],
+      "approved_paragraph_ko": "API 키는 애플리케이션이 API에 접근할 때 사용하는 자격정보로, 로그인한 개인의 신원과는 역할이 다르다. Supabase에서는 공개 가능한 키와 서버 전용 권한 키의 권한 범위가 다르며, 서버 전용 secret 키는 RLS를 우회할 수 있다. FoodMap 서버가 이런 키로 DB에 접근한다면 서버가 각 사용자의 요청을 먼저 인가해야 하고, 키를 브라우저에 노출해서는 안 된다.",
+      "body_groups": [
+        {
+          "term": [
+            "API 키 - 애플리케이션의 접근 자격",
+            "API key - a credential for application access"
+          ],
+          "details": [
+            [
+              "로그인한 개인의 신원과 애플리케이션 접근 자격은 별개",
+              "Application access credentials and a signed-in user’s identity are distinct"
+            ],
+            [
+              "공개 가능한 키와 서버 전용 키의 권한 범위 구분",
+              "Distinguish publishable keys from privileged server-only keys"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "특권 서버 경로 - API의 인가 책임",
+            "Privileged server path - the API must enforce authorization"
+          ],
+          "details": [
+            [
+              "Supabase secret 키는 RLS를 우회하는 특권 접근 가능",
+              "A Supabase secret key permits privileged access that bypasses RLS"
+            ],
+            [
+              "브라우저 노출을 막고 서버에서 사용자별 요청 권한 검사",
+              "Keep it out of the browser and authorize each user request on the server"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 38,
+      "outline_number": "4.8",
+      "id": "foodmap-policy",
+      "title": [
+        "FoodMap의 접근 정책",
+        "FoodMap Access Policies"
+      ],
+      "requires": [
+        "role-access",
+        "owner-access",
+        "default-deny",
+        "api-access",
+        "rls",
+        "api-keys"
+      ],
+      "approved_paragraph_ko": "FoodMap의 접근 정책은 사용자 종류, 요청 행동, 대상 데이터의 관계를 한 표에 모아 확인할 수 있다. 공개 맛집 목록은 비로그인 사용자에게 허용하고, 개인 제보는 작성자에게 조회·수정을 허용하며, 전체 제보 조회는 운영자에게 허용하는 식으로 규칙을 정한다. 각 규칙이 API와 적용 대상 DB 정책에서 어떻게 지켜지는지 확인하면 화면의 기능과 실제 데이터 접근 범위를 일치시킬 수 있다.",
+      "body_groups": [
+        {
+          "term": [
+            "접근 정책 - 행위자·행동·대상의 허용 규칙",
+            "Access policy - rules for actors, actions and resources"
+          ],
+          "details": [
+            [
+              "공개 조회·개인 제보·관리 기능에 필요한 조건을 함께 명세",
+              "Specify conditions for public reads, personal reports and admin functions"
+            ],
+            [
+              "화면의 기능 범위와 실제 데이터 접근 범위를 일치",
+              "Align visible functionality with actual data access"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "정책 적용 - API와 DB의 역할 확인",
+            "Policy enforcement - identify API and DB responsibilities"
+          ],
+          "details": [
+            [
+              "API 검사와 RLS 적용 경로의 DB 조건을 각각 확인",
+              "Check API authorization and the DB conditions on paths subject to RLS"
+            ],
+            [
+              "조회 정책만으로 수정 등 다른 작업의 권한이 완성되지는 않음",
+              "A read policy alone does not define permissions for edits or other operations"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 40,
+      "outline_number": "5.1",
+      "id": "admin-system",
+      "title": [
+        "사용자 서비스와 관리자 시스템",
+        "User Services and Administration Systems"
+      ],
+      "requires": [
+        "foodmap-policy",
+        "prior-ui"
+      ],
+      "approved_paragraph_ko": "관리자 시스템은 운영자가 서비스 전체를 관리하는 업무를 수행하도록 구성한 기능과 화면이다. FoodMap의 맛집 탐색·제보 기능은 이용자의 활동에 맞추고, 전체 제보 조회와 관리 기능은 운영자의 업무에 맞춰 구분한다. 두 영역은 서버나 데이터베이스를 함께 사용할 수도 있지만, 진입 화면을 나누는 것과 별개로 관리 요청에는 운영자 권한을 적용해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "관리자 시스템 - 운영 업무를 위한 기능과 화면",
+            "Admin system - features and screens for service operations"
+          ],
+          "details": [
+            [
+              "사용자의 탐색·제보와 운영자의 전체 제보 관리를 구분",
+              "Separate user exploration and reporting from operator management of all reports"
+            ],
+            [
+              "업무 대상과 처리 목적에 맞춰 화면 구성",
+              "Organize each screen around the records and tasks it serves"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "공통 기반 - 기능 분리와 권한 경계",
+            "Shared infrastructure - distinct functions and permissions"
+          ],
+          "details": [
+            [
+              "사용자 영역과 관리자 영역은 서버·DB 공유 가능",
+              "User and admin areas may share the same server and database"
+            ],
+            [
+              "관리 화면의 진입과 별개로 모든 관리 요청에 운영자 권한 적용",
+              "Enforce operator permission on every admin request, regardless of how the screen is entered"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "resource-workspaces"
+        ]
+      ]
+    },
+    {
+      "slide_number": 41,
+      "outline_number": "5.2",
+      "id": "admin-boundary",
+      "title": [
+        "관리자 권한의 경계",
+        "Administrator Permission Boundaries"
+      ],
+      "requires": [
+        "admin-system",
+        "role-access",
+        "api-keys"
+      ],
+      "approved_paragraph_ko": "운영자라는 이름이 모든 시스템의 권한을 한꺼번에 뜻하지는 않는다. FoodMap의 제보를 관리하는 권한과 DB 구조를 바꾸거나 배포 계정을 관리하는 권한은 서로 다른 대상에 대한 권한이다. 관리자 시스템에는 해당 업무에 필요한 기능만 제공하고, 서비스 내부의 운영자 역할을 부여했다는 이유로 서버 전용 키나 클라우드 관리 권한까지 전달하지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "관리 권한 - 시스템별로 다른 업무 범위",
+            "Administrative authority - a different scope in each system"
+          ],
+          "details": [
+            [
+              "서비스 운영·DB 구조 변경·배포 계정 관리는 서로 다른 권한",
+              "Service operations, database schema changes and deployment accounts require different authority"
+            ],
+            [
+              "역할 이름이 같아도 관리 대상과 허용 기능은 별도",
+              "A similar role name does not imply the same targets or allowed operations"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "업무 한정 - 필요한 관리 기능만 제공",
+            "Job scope - expose only the necessary management functions"
+          ],
+          "details": [
+            [
+              "서비스 운영자에게 서버 전용 키나 플랫폼 소유 권한을 자동 전달하지 않음",
+              "An app operator role must not automatically expose server keys or platform ownership"
+            ],
+            [
+              "각 시스템에서 담당 업무에 필요한 권한을 별도로 부여",
+              "Grant the authority required for the task within each relevant system"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 42,
+      "outline_number": "5.3",
+      "id": "workflow-state",
+      "title": [
+        "운영 업무의 상태 전이",
+        "State Transitions in Administrative Workflows"
+      ],
+      "requires": [
+        "admin-boundary",
+        "authorization"
+      ],
+      "approved_paragraph_ko": "운영 업무는 처리 대상의 현재 상태와 그 상태에서 허용되는 변경으로 표현할 수 있다. FoodMap의 제보는 검토 대기에서 승인 또는 반려로 이동하도록 정하고, 서버는 운영자 권한과 현재 상태가 모두 조건에 맞는지 확인한 뒤 변경한다. 이렇게 하면 버튼을 누르는 동작이 어떤 업무 결정을 뜻하는지 명확해지고, 이미 처리한 제보를 다시 처리할 수 있는지도 정책으로 정할 수 있다.",
+      "body_groups": [
+        {
+          "term": [
+            "상태 전이 - 업무 상태의 허용된 변경",
+            "State transition - an allowed change in workflow state"
+          ],
+          "details": [
+            [
+              "현재 상태와 그 상태에서 가능한 다음 상태를 함께 정의",
+              "Define the current state and which next states are allowed"
+            ],
+            [
+              "제보는 검토 대기에서 승인 또는 반려로 이동하는 예시",
+              "A report can move from pending review to approval or rejection"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "전이 조건 - 권한과 현재 상태의 확인",
+            "Transition conditions - verify authority and current state"
+          ],
+          "details": [
+            [
+              "서버가 운영자 권한과 대상의 현재 상태를 모두 검사",
+              "The server checks both operator authority and the target’s current state"
+            ],
+            [
+              "이미 처리된 제보의 재처리 가능 여부도 업무 정책으로 결정",
+              "The workflow policy also determines whether processed reports may be handled again"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-branches"
+        ]
+      ]
+    },
+    {
+      "slide_number": 43,
+      "outline_number": "5.4",
+      "id": "publication-state",
+      "title": [
+        "콘텐츠 공개 상태",
+        "Content Publication Status"
+      ],
+      "requires": [
+        "workflow-state",
+        "owner-access"
+      ],
+      "approved_paragraph_ko": "검토 결과는 제보를 받아들였는지를 나타내고, 공개 상태는 콘텐츠를 일반 이용자에게 보여줄지를 나타낸다. 두 상태를 구분하면 승인된 맛집이라도 정보 확인 중에는 비공개로 둘 수 있고, 문제가 발견되면 승인 이력을 유지한 채 노출만 중지할 수 있다. 따라서 FoodMap의 공개 목록은 승인 여부만 확인하지 않고 서비스가 정한 공개 조건까지 만족하는 데이터를 대상으로 구성한다.",
+      "body_groups": [
+        {
+          "term": [
+            "검토 결과 - 제보를 받아들였는지의 판단",
+            "Review result - decide whether to accept a report"
+          ],
+          "details": [
+            [
+              "승인·반려는 운영자가 내린 검토 결정의 기록",
+              "Approval or rejection records the operator’s review decision"
+            ],
+            [
+              "노출을 중지해도 기존 검토 이력은 유지 가능",
+              "Review history can remain even when visibility is disabled"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "공개 상태 - 이용자에게 보여줄지의 판단",
+            "Publication state - decide whether users can see content"
+          ],
+          "details": [
+            [
+              "승인된 내용도 정보 확인 중에는 비공개로 유지 가능",
+              "Approved content may remain hidden while information is checked"
+            ],
+            [
+              "공개 목록은 검토 결과와 서비스의 공개 조건을 함께 적용",
+              "The public list applies both review status and the service’s visibility rules"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 44,
+      "outline_number": "5.5",
+      "id": "admin-transaction",
+      "title": [
+        "운영 작업의 트랜잭션",
+        "Transactions for Administrative Actions"
+      ],
+      "requires": [
+        "workflow-state",
+        "publication-state",
+        "prior-transaction"
+      ],
+      "approved_paragraph_ko": "하나의 운영 결정이 여러 데이터 변경을 요구할 때는 일부만 반영되는 상황을 막아야 한다. 지난주에 배운 트랜잭션으로 제보의 승인 상태 변경과 맛집 데이터 등록을 같은 DB 작업에 묶으면 둘 다 성공하거나 둘 다 취소되게 할 수 있다. 이 보장은 같은 트랜잭션 안의 변경에 적용되므로 브라우저 저장소와 서버 API를 따로 변경하는 동작까지 자동으로 묶어 주지는 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "트랜잭션 - 여러 변경을 하나의 작업으로 처리",
+            "Transaction - treat related changes as one operation"
+          ],
+          "details": [
+            [
+              "하나의 운영 결정에 필요한 DB 변경을 같은 범위에 묶음",
+              "Group database changes required by one operational decision"
+            ],
+            [
+              "모두 성공하면 반영하고 하나라도 실패하면 함께 취소",
+              "Commit all changes on success; roll them back together on failure"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "보장 범위 - 같은 DB 트랜잭션의 변경",
+            "Guarantee scope - changes in the same DB transaction"
+          ],
+          "details": [
+            [
+              "제보 승인과 맛집 등록 중 한쪽만 남는 상태 방지",
+              "Prevent a report approval or a place insertion from being left on its own"
+            ],
+            [
+              "별도 외부 API·브라우저 저장소 변경까지 자동으로 묶이지 않음",
+              "Separate external API calls and browser storage changes are not automatically included"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-transaction"
+        ]
+      ]
+    },
+    {
+      "slide_number": 45,
+      "outline_number": "5.6",
+      "id": "idempotency",
+      "title": [
+        "중복 요청의 처리",
+        "Handling Duplicate Requests"
+      ],
+      "requires": [
+        "admin-transaction",
+        "workflow-state"
+      ],
+      "approved_paragraph_ko": "트랜잭션으로 한 번의 처리를 일관되게 만들었더라도 같은 요청이 다시 도착하면 결과가 중복될 수 있다. 멱등성은 같은 작업을 반복 요청해도 그 작업의 효과가 한 번 수행한 결과와 같도록 처리하는 성질이다. FoodMap의 승인 작업을 구분하는 식별자와 처리 결과를 서버에 기록하고 DB의 중복 제약 등을 함께 사용하면, 응답을 받지 못해 재전송해도 같은 맛집을 다시 만들지 않도록 설계할 수 있다.",
+      "body_groups": [
+        {
+          "term": [
+            "멱등성 - 반복 요청에도 같은 작업 효과 유지",
+            "Idempotency - preserve one operation’s effect across retries"
+          ],
+          "details": [
+            [
+              "응답 유실·재시도에 따라 같은 요청이 여러 번 도착 가능",
+              "Lost responses and retries can deliver the same request more than once"
+            ],
+            [
+              "트랜잭션의 원자성과 중복 실행 방지는 서로 다른 보장",
+              "Transaction atomicity and duplicate-execution prevention are different guarantees"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "처리 기록 - 작업 식별자와 결과의 연결",
+            "Execution record - associate an operation key with its result"
+          ],
+          "details": [
+            [
+              "서버에 작업 식별자·처리 결과를 기록해 재요청에 활용",
+              "Record an operation key and result for handling retries"
+            ],
+            [
+              "요청 일치 확인·DB 중복 제약·원자적 기록을 함께 적용",
+              "Combine payload matching, uniqueness constraints and atomic result recording"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 46,
+      "outline_number": "5.7",
+      "id": "audit-log",
+      "title": [
+        "감사 로그",
+        "Audit Logs"
+      ],
+      "requires": [
+        "idempotency",
+        "user-account"
+      ],
+      "approved_paragraph_ko": "감사 로그는 운영 업무의 결과뿐 아니라 누가 어떤 대상을 언제 어떻게 처리했는지 남기는 기록이다. FoodMap의 제보 승인에는 운영자 ID, 제보 ID, 행동, 결과, 시각과 필요한 사유를 연결해 이후에 변경 경위를 확인할 수 있게 한다. 이 기록에는 비밀번호나 토큰 원문을 넣지 않으며, 조회와 변경 권한도 제한해 운영 기록 자체가 임의로 훼손되지 않도록 관리한다.",
+      "body_groups": [
+        {
+          "term": [
+            "감사 로그 - 운영 변경의 경위를 남기는 기록",
+            "Audit log - a record of operational changes"
+          ],
+          "details": [
+            [
+              "행위자·대상·행동·결과·시각을 연결해 변경 경위 확인",
+              "Link actor, target, action, outcome and time to explain a change"
+            ],
+            [
+              "업무 판단을 설명할 사유가 필요하면 함께 보관",
+              "Include a reason when it is needed to explain the operational decision"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "기록 보호 - 추적 가능한 정보의 유지",
+            "Log protection - preserve trustworthy evidence"
+          ],
+          "details": [
+            [
+              "비밀번호·토큰 원문 등 재사용 가능한 비밀정보는 제외",
+              "Exclude passwords, raw tokens and other reusable secrets"
+            ],
+            [
+              "조회·변경 권한을 제한해 운영 기록의 임의 훼손 방지",
+              "Restrict reading and modification to prevent tampering with the record"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 48,
+      "outline_number": "6.1",
+      "id": "input-validation",
+      "title": [
+        "입력 검증",
+        "Input Validation"
+      ],
+      "requires": [
+        "trust-boundary",
+        "api-access"
+      ],
+      "approved_paragraph_ko": "사용자와 권한을 확인한 요청이라도 그 안의 데이터가 서비스에서 처리할 수 있는 값인지는 따로 검증해야 한다. 입력 검증은 서버가 필수 항목, 자료형, 길이와 허용 범위를 확인해 잘못된 값을 거부하는 절차다. FoodMap에서는 맛집 이름의 길이와 좌표 범위를 검사할 수 있으며, 브라우저의 입력 제한을 통과했다는 이유만으로 서버 검증을 생략하지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "입력 검증 - 처리 조건에 맞는 값의 확인",
+            "Input validation - check acceptable values"
+          ],
+          "details": [
+            [
+              "사용자·권한이 확인되어도 입력 데이터의 유효성은 별도",
+              "Authorized users can still submit invalid data"
+            ],
+            [
+              "필수 항목·자료형·길이·허용 범위를 서버에서 검사",
+              "Check required fields, types, lengths and ranges on the server"
+            ],
+            [
+              "브라우저의 입력 제한을 통과했어도 서버 검증은 필요",
+              "Browser checks do not replace server validation"
+            ]
+          ]
+        }
+      ],
+      "composition": "input",
+      "resource_blocks": [
+        [
+          "table",
+          "resource-note"
+        ],
+        [
+          "code"
+        ]
+      ]
+    },
+    {
+      "slide_number": 49,
+      "outline_number": "6.2",
+      "id": "sql-injection",
+      "title": [
+        "SQL 인젝션",
+        "SQL Injection"
+      ],
+      "requires": [
+        "input-validation",
+        "prior-sql"
+      ],
+      "approved_paragraph_ko": "SQL 인젝션은 입력 데이터가 SQL 명령문의 일부로 해석되어 원래 의도와 다른 조회나 변경을 유발하는 문제다. FoodMap의 검색어를 SQL 문자열에 직접 이어 붙이면 데이터와 명령의 경계가 흐려질 수 있다. 매개변수화된 쿼리는 명령의 구조와 입력값을 분리해 값을 데이터로 처리하게 하므로, 입력 형식을 검사하는 것과 함께 DB 접근 경로에서 적용해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "SQL 인젝션 - 입력이 명령문으로 해석되는 문제",
+            "SQL injection - input interpreted as part of a command"
+          ],
+          "details": [
+            [
+              "검색어를 SQL 문자열에 결합하면 데이터와 명령의 경계가 흐려짐",
+              "Concatenating search input into SQL blurs the boundary between data and commands"
+            ],
+            [
+              "의도하지 않은 조회나 변경으로 이어질 수 있음",
+              "This can cause queries or changes beyond the intended operation"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "매개변수 쿼리 - 명령 구조와 값의 분리",
+            "Parameterized query - separate command structure from values"
+          ],
+          "details": [
+            [
+              "SQL 구조를 고정하고 입력값은 별도 매개변수로 전달",
+              "Keep SQL structure fixed and send input through separate parameters"
+            ],
+            [
+              "입력 형식 검사와 함께 DB 접근 경로에서 적용",
+              "Use parameterization in the database access path alongside input validation"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "code",
+          "resource-note"
+        ]
+      ]
+    },
+    {
+      "slide_number": 50,
+      "outline_number": "6.3",
+      "id": "xss",
+      "title": [
+        "크로스 사이트 스크립팅",
+        "Cross-Site Scripting"
+      ],
+      "requires": [
+        "input-validation",
+        "prior-ui"
+      ],
+      "approved_paragraph_ko": "사용자 입력이 명령으로 해석되는 문제는 데이터베이스뿐 아니라 브라우저 화면에서도 발생한다. XSS는 공격자가 넣은 내용이 웹 페이지의 실행 코드로 처리되어 사용자의 브라우저에서 서비스의 기능에 영향을 주는 공격이다. FoodMap의 제보 설명은 기본적으로 텍스트로 출력하고, HTML을 허용할 필요가 있다면 허용 요소를 제한하는 정제 과정을 적용해 입력 내용과 실행 코드를 구분해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "XSS - 사용자 콘텐츠가 실행 코드가 되는 공격",
+            "XSS - user-supplied content becoming executable code"
+          ],
+          "details": [
+            [
+              "입력한 내용이 페이지의 코드로 해석되면 브라우저에서 악성 동작 가능",
+              "Content interpreted as page code can perform malicious actions in the browser"
+            ],
+            [
+              "서버에 저장된 내용도 신뢰할 수 있는 출력으로 자동 변환되지 않음",
+              "Storing content on the server does not automatically make it safe to render"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "출력 처리 - 텍스트와 HTML 해석의 구분",
+            "Output handling - distinguish text from HTML interpretation"
+          ],
+          "details": [
+            [
+              "일반 제보 설명은 텍스트로 출력해 입력과 실행을 분리",
+              "Render ordinary report descriptions as text to keep data separate from execution"
+            ],
+            [
+              "HTML이 필요하면 허용 요소를 제한하는 정제 과정 적용",
+              "If HTML is needed, sanitize it to allow only permitted content"
+            ]
+          ]
+        }
+      ],
+      "composition": "xss",
+      "resource_blocks": [
+        [
+          "code"
+        ],
+        [
+          "resource-branches",
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 51,
+      "outline_number": "6.4",
+      "id": "origin",
+      "title": [
+        "웹 출처",
+        "Web Origins"
+      ],
+      "requires": [
+        "xss",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "브라우저에서 실행되는 코드의 접근 범위를 이해하려면 먼저 웹 출처를 구분해야 한다. 출처는 URL의 프로토콜, 호스트, 포트의 조합으로 정해지며, 경로가 달라도 이 조합이 같으면 같은 출처다. FoodMap 화면과 API가 서로 다른 호스트나 포트에서 제공되면 다른 출처가 되므로, 같은 서비스가 운영한다는 사실과 브라우저의 경계 판단은 별개다.",
+      "body_groups": [
+        {
+          "term": [
+            "출처 - 프로토콜·호스트·포트의 조합",
+            "Origin - a combination of scheme, host and port"
+          ],
+          "details": [
+            [
+              "세 요소가 같으면 경로가 달라도 같은 출처",
+              "The same three components mean the same origin even when paths differ"
+            ],
+            [
+              "HTTPS 기본 포트 443의 생략 여부는 출처를 바꾸지 않음",
+              "Omitting HTTPS’s default port 443 does not change the origin"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "브라우저의 경계 - 운영 주체와 독립된 기준",
+            "Browser boundary - independent of who operates a service"
+          ],
+          "details": [
+            [
+              "같은 서비스의 화면·API라도 호스트나 포트가 다르면 다른 출처",
+              "A service’s UI and API have different origins if their hosts or ports differ"
+            ],
+            [
+              "출처 판정에는 URL 경로를 포함하지 않음",
+              "The URL path is not part of origin comparison"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 52,
+      "outline_number": "6.5",
+      "id": "site",
+      "title": [
+        "브라우저의 사이트 구분",
+        "How Browsers Distinguish Sites"
+      ],
+      "requires": [
+        "origin"
+      ],
+      "approved_paragraph_ko": "브라우저는 출처와 함께 사이트라는 더 넓은 경계도 사용한다. 쿠키 정책에서 사용하는 사이트는 프로토콜과 등록 가능한 도메인을 기준으로 구분하므로, HTTPS의 app.example.com과 api.example.com은 출처가 다르지만 같은 사이트다. 등록 가능한 도메인은 example.com이나 example.co.kr 같은 단위이며, 포트와 하위 도메인의 차이가 출처와 사이트 판정에서 다르게 반영된다는 점을 구분해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "사이트 - 프로토콜과 등록 가능한 도메인",
+            "Site - scheme and registrable domain"
+          ],
+          "details": [
+            [
+              "쿠키 정책에 쓰이는 사이트는 출처보다 넓은 경계",
+              "The site boundary used by cookie policies is broader than an origin"
+            ],
+            [
+              "하위 도메인·포트 차이는 같은 사이트 안에 포함 가능",
+              "Different subdomains or ports can belong to the same site"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "출처와 비교 - 서로 다른 경계의 판정",
+            "Comparison with origin - two distinct boundaries"
+          ],
+          "details": [
+            [
+              "HTTPS의 app.example.com과 api.example.com은 같은 사이트",
+              "HTTPS app.example.com and api.example.com are same-site"
+            ],
+            [
+              "등록 가능 도메인은 example.com·example.co.kr 같은 단위",
+              "Registrable domains include units such as example.com and example.co.kr"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 53,
+      "outline_number": "6.6",
+      "id": "same-origin-policy",
+      "title": [
+        "동일 출처 정책",
+        "The Same-Origin Policy"
+      ],
+      "requires": [
+        "origin",
+        "site"
+      ],
+      "approved_paragraph_ko": "동일 출처 정책은 한 출처에서 실행되는 스크립트가 다른 출처의 자원을 읽거나 조작하는 범위를 제한하는 브라우저의 보안 원칙이다. 다른 사이트에서 실행한 코드가 사용자의 FoodMap 응답을 마음대로 읽지 못하게 하는 것이 대표적인 역할이다. 다만 다른 출처로 보내는 모든 요청을 막는 것은 아니므로, 응답을 읽을 수 있는지와 요청이 서버에 도착할 수 있는지는 구분해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "동일 출처 정책 - 스크립트의 접근 범위 제한",
+            "Same-origin policy - restrict script access across origins"
+          ],
+          "details": [
+            [
+              "한 출처의 코드가 다른 출처의 자원을 읽거나 조작하는 범위 제한",
+              "Limit one origin’s code from reading or manipulating resources from another"
+            ],
+            [
+              "외부 페이지가 사용자의 서비스 응답을 마음대로 읽는 동작 차단",
+              "Prevent an external page from freely reading a user’s service responses"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "전송과 읽기 - 별도로 판단하는 동작",
+            "Sending and reading - separately controlled operations"
+          ],
+          "details": [
+            [
+              "교차 출처 요청 자체가 모두 차단되는 것은 아님",
+              "Not all cross-origin requests are blocked from being sent"
+            ],
+            [
+              "서버 도착 여부와 스크립트의 응답 읽기 가능 여부를 구분",
+              "Distinguish a request reaching the server from script being able to read its response"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 54,
+      "outline_number": "6.7",
+      "id": "cors",
+      "title": [
+        "CORS",
+        "CORS"
+      ],
+      "requires": [
+        "same-origin-policy",
+        "api-access"
+      ],
+      "approved_paragraph_ko": "FoodMap 화면과 API의 출처가 다르면 서버가 허용한 범위에서 브라우저가 응답을 읽을 수 있도록 CORS를 설정할 수 있다. 서버는 허용할 출처 등을 응답 헤더로 알리고 브라우저가 그 조건을 적용하며, 일부 요청은 실제 요청 전에 허용 여부를 먼저 확인한다. CORS는 브라우저의 교차 출처 접근 규칙이므로 API에 직접 보내는 요청의 사용자 인증이나 권한 검사를 대신하지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "CORS - 허용한 출처에 응답 읽기를 개방",
+            "CORS - permit approved origins to read responses"
+          ],
+          "details": [
+            [
+              "서버가 응답 헤더로 허용 출처 등을 알리면 브라우저가 적용",
+              "The server declares permissions in response headers and the browser enforces them"
+            ],
+            [
+              "일부 요청은 실제 전송 전에 OPTIONS로 허용 조건 확인",
+              "Some requests check permission with OPTIONS before sending the actual request"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "적용 범위 - 브라우저의 교차 출처 접근",
+            "Scope - cross-origin access in the browser"
+          ],
+          "details": [
+            [
+              "모든 요청에 사전 확인이 필요한 것은 아님",
+              "Not every request requires a preflight check"
+            ],
+            [
+              "API 인증·인가를 대신하지 않으며 직접 요청은 별도 통제",
+              "It does not replace API authentication or authorization; direct requests still need controls"
+            ]
+          ]
+        }
+      ],
+      "composition": "cors",
+      "resource_blocks": [
+        [
+          "resource-row"
+        ]
+      ]
+    },
+    {
+      "slide_number": 55,
+      "outline_number": "6.8",
+      "id": "csrf",
+      "title": [
+        "크로스 사이트 요청 위조",
+        "Cross-Site Request Forgery"
+      ],
+      "requires": [
+        "cors",
+        "site",
+        "cookies",
+        "server-session",
+        "workflow-state"
+      ],
+      "approved_paragraph_ko": "응답을 읽지 못해도 요청을 보낼 수 있다는 점은 로그인된 브라우저에서 중요한 문제가 된다. CSRF는 다른 페이지가 사용자의 의도와 다른 요청을 유발하고, 브라우저가 조건에 따라 자동 첨부한 로그인 쿠키를 서버가 받아들이는 상황을 악용한다. FoodMap의 관리 요청에는 허용된 요청 출처와 공격자가 알 수 없는 확인값을 검증하는 방어 등을 적용해, 로그인 자격이 있다는 사실에 더해 허용된 경로의 요청인지 확인한다.",
+      "body_groups": [
+        {
+          "term": [
+            "CSRF - 로그인 자격의 자동 첨부를 악용",
+            "CSRF - exploit automatically attached login credentials"
+          ],
+          "details": [
+            [
+              "다른 페이지가 사용자의 의도와 다른 상태 변경 요청 유발",
+              "Another page triggers a state-changing request the user did not intend"
+            ],
+            [
+              "브라우저가 조건에 맞는 로그인 쿠키를 요청에 첨부할 수 있음",
+              "The browser may attach login cookies that are eligible for that request"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "요청 검증 - 로그인 여부에 더한 경로 확인",
+            "Request validation - check more than login status"
+          ],
+          "details": [
+            [
+              "허용된 요청 출처와 공격자가 알 수 없는 CSRF 확인값 검증",
+              "Verify an allowed request origin and a CSRF token unavailable to the attacker"
+            ],
+            [
+              "확인에 실패하면 서버에서 상태 변경 거부",
+              "Reject the state change on the server when validation fails"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-sequence"
+        ]
+      ]
+    },
+    {
+      "slide_number": 56,
+      "outline_number": "6.9",
+      "id": "cookie-protection",
+      "title": [
+        "쿠키의 보호 속성",
+        "Cookie Protection Attributes"
+      ],
+      "requires": [
+        "site",
+        "csrf",
+        "xss",
+        "cookies",
+        "prior-web"
+      ],
+      "approved_paragraph_ko": "쿠키 보호 속성은 이미 배운 전송 경계와 공격 경로에 맞춰 쿠키의 사용 범위를 제한한다. Secure는 HTTPS 전송으로, HttpOnly는 스크립트의 쿠키 읽기 접근 제한으로, SameSite는 사이트 관계에 따른 쿠키 첨부 제한으로 작동한다. 각 속성은 보호하는 범위가 다르므로 HttpOnly가 페이지 안의 모든 악성 동작을 막거나 SameSite만으로 모든 요청 위조를 해결한다고 판단하지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "쿠키 보호 속성 - 전송·접근 범위의 제한",
+            "Cookie attributes - limit transport and access"
+          ],
+          "details": [
+            [
+              "연결 방식·스크립트 접근·사이트 관계에 따라 각기 다른 범위 보호",
+              "Protect transport, script access and cross-site delivery"
+            ],
+            [
+              "필요한 전송 조건에 맞춰 속성을 함께 설정",
+              "Combine attributes according to the required delivery conditions"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "보호의 한계 - 공격 경로에 맞춘 추가 방어",
+            "Protection limits - other defenses are still required"
+          ],
+          "details": [
+            [
+              "HttpOnly가 페이지 안의 모든 악성 동작을 막지는 않음",
+              "HttpOnly does not block all malicious page actions"
+            ],
+            [
+              "SameSite만으로 모든 요청 위조가 해결되지는 않음",
+              "SameSite alone cannot prevent every forged request"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "code",
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 57,
+      "outline_number": "6.10",
+      "id": "login-rate-limit",
+      "title": [
+        "로그인 시도 제한",
+        "Limiting Login Attempts"
+      ],
+      "requires": [
+        "cookie-protection",
+        "password-login",
+        "input-validation"
+      ],
+      "approved_paragraph_ko": "브라우저 경계와 쿠키를 보호하더라도 공격자가 로그인 API에 비밀번호를 반복해서 제출하는 시도는 별도로 통제해야 한다. 로그인 시도 제한은 계정과 요청 출처 등의 기준으로 일정 시간의 실패 횟수나 요청 속도를 관찰하고 지연 또는 제한을 적용하는 방식이다. FoodMap에서는 정상 사용자의 재시도 여지를 두면서 자동 추측 비용을 높이고, 공격자가 타인의 계정을 계속 잠그는 방식으로 제한을 악용하지 못하도록 기준을 정한다.",
+      "body_groups": [
+        {
+          "term": [
+            "로그인 시도 제한 - 반복 추측의 속도 통제",
+            "Login throttling - control the rate of repeated guesses"
+          ],
+          "details": [
+            [
+              "관찰 구간의 실패 횟수·요청 속도를 기준으로 지연 또는 제한",
+              "Apply delays or limits based on failures and request rate in an observation window"
+            ],
+            [
+              "계정과 요청 출처 등 여러 기준으로 반복 시도 관측",
+              "Observe repeated attempts using account and request-source information"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "제한 정책 - 보안과 정상 재시도의 균형",
+            "Throttling policy - balance defense and legitimate retries"
+          ],
+          "details": [
+            [
+              "정상 사용자가 다시 시도할 여지를 남기면서 추측 비용 증가",
+              "Raise the cost of guessing while allowing legitimate users to retry"
+            ],
+            [
+              "타인의 계정을 계속 잠그는 방식의 악용 가능성 고려",
+              "Consider abuse that repeatedly locks another person’s account"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-timeline"
+        ]
+      ]
+    },
+    {
+      "slide_number": 59,
+      "outline_number": "7.1",
+      "id": "environments",
+      "title": [
+        "개발·검증·운영 환경",
+        "Development, Staging, and Production"
+      ],
+      "requires": [
+        "admin-system",
+        "prior-deploy"
+      ],
+      "approved_paragraph_ko": "보안 기능을 갖춘 서비스도 개발 중인 변경이 실제 사용자에게 바로 영향을 주면 안정적으로 운영하기 어렵다. 개발 환경은 변경을 만드는 공간, 검증 환경은 배포 전에 동작을 확인하는 공간, 운영 환경은 실제 사용자에게 서비스를 제공하는 공간으로 구분한다. 각 환경 안에 사용자 화면과 관리자 화면이 함께 있을 수 있으므로, 업무에 따른 기능 분리와 실행 목적에 따른 환경 분리는 서로 다른 기준이다.",
+      "body_groups": [
+        {
+          "term": [
+            "환경 분리 - 실행 목적별 공간의 구분",
+            "Environment separation - separate spaces by execution purpose"
+          ],
+          "details": [
+            [
+              "개발은 변경 작성, 검증은 배포 전 확인, 운영은 실제 서비스 제공",
+              "Development creates changes, staging verifies them, and production serves real users"
+            ],
+            [
+              "개발 중인 변경이 실제 사용자에게 바로 영향을 주지 않도록 구성",
+              "Keep changes under development from immediately affecting real users"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "기능과 환경 - 서로 다른 두 분리 기준",
+            "Function and environment - two independent dimensions"
+          ],
+          "details": [
+            [
+              "각 환경 안에 사용자 화면과 관리자 화면이 함께 존재 가능",
+              "User and admin interfaces may coexist within each environment"
+            ],
+            [
+              "관리자 화면을 따로 만드는 것만으로 실행 환경이 분리되지는 않음",
+              "Creating a separate admin screen does not separate execution environments"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "resource-environments"
+        ]
+      ]
+    },
+    {
+      "slide_number": 60,
+      "outline_number": "7.2",
+      "id": "environment-config",
+      "title": [
+        "환경별 설정",
+        "Environment-Specific Configuration"
+      ],
+      "requires": [
+        "environments",
+        "api-keys",
+        "authorization-code"
+      ],
+      "approved_paragraph_ko": "환경을 나누어도 애플리케이션 코드는 공통으로 유지하고 실행에 필요한 설정을 환경별로 달리할 수 있다. FoodMap의 API 주소, DB 연결 대상, 외부 로그인 복귀 주소와 사용하는 자격정보를 설정으로 분리하면 같은 코드가 각 환경의 구성 요소에 연결된다. 환경 변수는 이런 값을 전달하는 한 방법이며, 어떤 값이 브라우저에 전달되고 어떤 값이 서버에서만 사용되는지도 구분해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "환경 설정 - 같은 코드에 전달하는 실행 값",
+            "Environment configuration - runtime values for the same code"
+          ],
+          "details": [
+            [
+              "코드는 공통으로 유지하고 연결 대상과 자격정보를 환경별로 구분",
+              "Keep application code common while separating connection targets and credentials by environment"
+            ],
+            [
+              "API 주소·DB 연결·외부 로그인 복귀 주소 등을 설정으로 관리",
+              "Manage API URLs, database connections and external-login redirect URIs as configuration"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "설정 전달 - 사용 위치에 맞춘 값 주입",
+            "Configuration delivery - inject values where they are used"
+          ],
+          "details": [
+            [
+              "환경 변수는 실행 설정을 전달하는 한 방법",
+              "Environment variables are one way to supply runtime configuration"
+            ],
+            [
+              "브라우저에 전달할 값과 서버에서만 사용할 값을 구분",
+              "Distinguish values delivered to browsers from values used only on servers"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "code",
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 61,
+      "outline_number": "7.3",
+      "id": "secret-management",
+      "title": [
+        "비밀정보 관리",
+        "Secret Management"
+      ],
+      "requires": [
+        "environment-config",
+        "api-keys",
+        "token-signature"
+      ],
+      "approved_paragraph_ko": "환경별 설정 중 서버 전용 키와 같은 비밀정보는 보관 장소와 전달 경로를 제한해야 한다. 환경 변수에 넣었더라도 브라우저용 코드에 포함되어 배포되면 사용자가 읽을 수 있으므로, 비밀정보는 서버에서 관리하고 저장소와 로그에 남기지 않는다. 키가 유출되면 해당 키를 폐기하고 새 키를 적용해야 하며, 공개된 파일에서 문자열만 삭제해도 이전 키의 효력이 사라지는 것은 아니다.",
+      "body_groups": [
+        {
+          "term": [
+            "비밀정보 관리 - 보관 장소와 전달 경로 제한",
+            "Secret management - restrict storage and delivery paths"
+          ],
+          "details": [
+            [
+              "서버 전용 키는 서버에서만 사용하고 저장소·로그 노출 방지",
+              "Keep server-only keys on the server and out of repositories and logs"
+            ],
+            [
+              "환경 변수라도 브라우저 번들에 포함되면 사용자가 읽을 수 있음",
+              "An environment variable becomes readable if included in a browser bundle"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "노출 대응 - 기존 자격 폐기와 새 값 적용",
+            "Exposure response - revoke and replace credentials"
+          ],
+          "details": [
+            [
+              "공개 파일에서 문자열만 삭제해도 기존 키의 효력은 유지",
+              "Deleting a string from a public file does not invalidate the existing key"
+            ],
+            [
+              "유출된 키를 폐기하고 안전한 경로로 새 키 주입",
+              "Revoke the exposed key and inject a replacement through a secure path"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "table",
+          "resource-flow"
+        ]
+      ]
+    },
+    {
+      "slide_number": 62,
+      "outline_number": "7.4",
+      "id": "environment-data",
+      "title": [
+        "환경별 데이터 분리",
+        "Separating Data Across Environments"
+      ],
+      "requires": [
+        "secret-management",
+        "environments",
+        "prior-data"
+      ],
+      "approved_paragraph_ko": "서로 다른 주소로 실행되는 서비스가 같은 데이터베이스에 연결되어 있다면 개발 작업이 운영 데이터에 영향을 줄 수 있다. 환경별 데이터 분리는 저장소와 접근 자격을 구분해 개발·검증 작업이 운영 데이터에 닿지 않도록 하는 구성이다. FoodMap의 테스트 제보 초기화는 테스트 DB에서만 수행되도록 만들고, 환경을 전환할 때 실제 연결 대상도 함께 확인해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "데이터 분리 - 환경별 저장소·자격의 구분",
+            "Data separation - dedicated stores and credentials"
+          ],
+          "details": [
+            [
+              "주소가 달라도 같은 DB를 사용하면 운영 데이터에 영향 가능",
+              "Different service URLs can still affect production data if they share a database"
+            ],
+            [
+              "개발·검증 작업이 운영 저장소에 닿지 않도록 연결 분리",
+              "Separate connections so development and testing cannot reach production stores"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "연결 확인 - 설정 이름보다 실제 대상 검증",
+            "Connection verification - check the actual destination"
+          ],
+          "details": [
+            [
+              "환경 전환 시 실제 연결된 DB와 사용하는 자격정보 확인",
+              "Verify the connected database and credentials when changing environments"
+            ],
+            [
+              "테스트 제보 초기화는 테스트 DB에서만 수행",
+              "Reset test reports only in the test database"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "resource-environments"
+        ]
+      ]
+    },
+    {
+      "slide_number": 63,
+      "outline_number": "7.5",
+      "id": "deployment",
+      "title": [
+        "서비스 배포",
+        "Service Deployment"
+      ],
+      "requires": [
+        "environment-data",
+        "environment-config",
+        "prior-deploy"
+      ],
+      "approved_paragraph_ko": "서비스 배포는 검증한 코드와 대상 환경의 설정을 실제 실행 환경에 반영하는 과정이다. FoodMap은 검증 환경에서 로그인과 데이터 조회, 관리 기능을 확인한 뒤 운영 환경에 해당 버전을 적용한다. 배포 후에도 적용된 버전과 연결 대상을 확인하고 주요 요청이 정상 처리되는지 살펴야 하며, 서버 프로세스가 실행 중이라는 사실만으로 서비스 전체의 정상 동작을 판단하지 않는다.",
+      "body_groups": [
+        {
+          "term": [
+            "배포 - 검증한 코드·설정의 실행 환경 반영",
+            "Deployment - apply verified code and configuration"
+          ],
+          "details": [
+            [
+              "검증 환경에서 로그인·조회·관리 기능의 동작 확인",
+              "Check login, reads and administrative actions in staging"
+            ],
+            [
+              "확인한 버전과 대상 환경의 설정을 운영에 적용",
+              "Apply the verified version with the production environment’s configuration"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "배포 후 확인 - 실제 요청의 정상 처리 점검",
+            "Post-deployment verification - exercise real service paths"
+          ],
+          "details": [
+            [
+              "배포 버전·연결 대상을 확인하고 주요 요청 재검증",
+              "Verify the deployed version and connections, then exercise key requests"
+            ],
+            [
+              "프로세스 실행만으로 서비스 전체의 정상 동작을 판단하지 않음",
+              "A running process alone does not prove that the whole service works"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-flow"
+        ]
+      ]
+    },
+    {
+      "slide_number": 64,
+      "outline_number": "7.6",
+      "id": "db-migration",
+      "title": [
+        "데이터베이스 마이그레이션",
+        "Database Migrations"
+      ],
+      "requires": [
+        "deployment",
+        "prior-data",
+        "workflow-state"
+      ],
+      "approved_paragraph_ko": "서비스 변경이 새 열이나 제약조건을 요구하면 코드 배포와 함께 데이터베이스 구조의 변경도 관리해야 한다. 마이그레이션은 이런 변경을 순서와 이력이 있는 작업으로 남겨 각 환경에 일관되게 적용하는 방식이다. FoodMap에 제보 처리 상태 열을 추가한다면 기존 행의 값을 어떻게 채울지와 이전 코드가 변경된 구조에서도 동작하는지를 확인하고, 그 조건에 맞춰 DB 변경과 앱 배포의 실행 순서를 정한다.",
+      "body_groups": [
+        {
+          "term": [
+            "마이그레이션 - 순서와 이력이 있는 DB 변경",
+            "Migration - an ordered, recorded database change"
+          ],
+          "details": [
+            [
+              "열·제약조건 등의 변경을 작업 이력으로 관리",
+              "Record changes such as new columns and constraints"
+            ],
+            [
+              "각 환경에 같은 구조 변경을 일관된 순서로 적용",
+              "Apply the same schema changes to each environment in a consistent order"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "호환성 - 기존 데이터와 이전 코드의 고려",
+            "Compatibility - account for existing data and older code"
+          ],
+          "details": [
+            [
+              "기존 행을 어떻게 보완할지와 이전 코드의 동작 가능성 확인",
+              "Plan how to backfill existing rows and whether older code still works"
+            ],
+            [
+              "DB 변경·새 코드 적용·제약 보강의 순서를 조건에 맞춰 결정",
+              "Order schema changes, new code and constraints according to compatibility needs"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "code",
+          "resource-note",
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 65,
+      "outline_number": "7.7",
+      "id": "monitoring",
+      "title": [
+        "운영 모니터링",
+        "Operational Monitoring"
+      ],
+      "requires": [
+        "db-migration",
+        "audit-log",
+        "login-rate-limit"
+      ],
+      "approved_paragraph_ko": "배포와 DB 변경이 끝난 뒤에는 서비스가 실제로 어떻게 동작하는지 지속적으로 관찰해야 한다. 운영 모니터링은 오류 기록과 응답 시간, 실패율 같은 지표를 모아 정상 상태의 변화와 장애 징후를 파악하는 활동이다. FoodMap에서는 로그인 실패 증가나 DB 연결 오류를 확인할 수 있으며, 운영자의 변경 경위를 남기는 감사 로그와 함께 보되 각 기록의 목적은 구분한다.",
+      "body_groups": [
+        {
+          "term": [
+            "운영 모니터링 - 서비스 상태 변화의 관측",
+            "Operational monitoring - observe changes in service health"
+          ],
+          "details": [
+            [
+              "응답 시간·실패율 같은 지표로 정상 상태의 변화 파악",
+              "Use response times and failure rates to detect changes from normal behavior"
+            ],
+            [
+              "오류 기록으로 어떤 요청과 구성 요소에 문제가 있었는지 확인",
+              "Use error logs to identify affected requests and components"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "기록의 목적 - 상태 관측과 변경 추적의 구분",
+            "Record purpose - health observation versus change history"
+          ],
+          "details": [
+            [
+              "감사 로그는 운영자의 행동, 모니터링은 서비스 동작을 관찰",
+              "Audit logs trace operator actions; monitoring observes service behavior"
+            ],
+            [
+              "배포 시점과 오류 증가를 비교하되 시간 일치만으로 원인 확정 불가",
+              "Compare errors with deployment times without treating timing alone as proof of cause"
+            ]
+          ]
+        }
+      ],
+      "composition": "wide",
+      "resource_blocks": [
+        [
+          "resource-metrics",
+          "resource-note"
+        ]
+      ]
+    },
+    {
+      "slide_number": 66,
+      "outline_number": "7.8",
+      "id": "backup",
+      "title": [
+        "데이터 백업",
+        "Data Backups"
+      ],
+      "requires": [
+        "monitoring",
+        "environment-data",
+        "prior-data"
+      ],
+      "approved_paragraph_ko": "운영 상태를 관찰해 문제를 발견하더라도 이미 삭제되거나 손상된 데이터가 저절로 돌아오지는 않는다. 백업은 이런 상황에 대비해 특정 시점의 데이터를 별도 사본으로 보관하는 준비이며, 보관 주기와 기간, 접근 권한과 복원 가능성을 함께 관리한다. FoodMap은 어느 시점까지의 데이터를 확보하는지와 그 이후 얼마나 잃을 수 있는지 정하고, 사본이 존재한다는 사실에 더해 실제로 사용할 수 있는 상태인지 확인해야 한다.",
+      "body_groups": [
+        {
+          "term": [
+            "백업 - 특정 시점 데이터의 별도 사본",
+            "Backup - a separate copy of data at a point in time"
+          ],
+          "details": [
+            [
+              "삭제·손상에 대비해 복원에 사용할 데이터를 보관",
+              "Retain data that can be used to recover from deletion or corruption"
+            ],
+            [
+              "사본의 주기·보관 기간·접근 권한을 함께 관리",
+              "Manage copy frequency, retention and access permissions"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "복원 가능성 - 사본의 범위와 사용 가능 여부",
+            "Recoverability - the copy’s coverage and usability"
+          ],
+          "details": [
+            [
+              "마지막 사본 이후 변경 중 얼마나 잃을 수 있는지 확인",
+              "Determine how much data after the latest copy could be lost"
+            ],
+            [
+              "사본이 있다는 사실에 더해 실제 복원 가능한지 검증",
+              "Verify that a copy can actually be restored, not merely that it exists"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-timeline",
+          "resource-note"
+        ]
+      ]
+    },
+    {
+      "slide_number": 67,
+      "outline_number": "7.9",
+      "id": "rollback",
+      "title": [
+        "배포 롤백",
+        "Deployment Rollback"
+      ],
+      "requires": [
+        "deployment",
+        "db-migration",
+        "monitoring",
+        "backup"
+      ],
+      "approved_paragraph_ko": "배포한 코드나 설정이 장애의 원인이라면 이전에 동작하던 버전으로 되돌리는 롤백을 고려할 수 있다. FoodMap 서버를 이전 버전으로 바꾸기 전에는 이미 적용한 DB 구조와 그 버전이 호환되는지 확인해야 한다. 코드를 되돌리는 동작이 변경된 DB 구조나 삭제된 데이터까지 자동으로 되돌리지는 않으므로, 장애 원인과 되돌릴 대상을 구분해 대응한다.",
+      "body_groups": [
+        {
+          "term": [
+            "롤백 - 이전에 동작하던 배포 버전으로 복귀",
+            "Rollback - return to a previously working deployment"
+          ],
+          "details": [
+            [
+              "코드·설정 변경이 장애 원인일 때 이전 버전 복귀 고려",
+              "Consider reverting when a code or configuration change caused the incident"
+            ],
+            [
+              "이전 앱과 현재 DB 구조·설정의 호환성 확인",
+              "Check the old application’s compatibility with the current schema and settings"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "복귀 대상 - 배포 버전과 데이터의 구분",
+            "Rollback target - distinguish deployments from data"
+          ],
+          "details": [
+            [
+              "코드 복귀가 DB 구조와 삭제된 데이터를 자동 복구하지는 않음",
+              "Reverting code does not automatically restore schemas or deleted data"
+            ],
+            [
+              "장애 원인과 되돌릴 대상을 먼저 구분해 대응",
+              "Choose the response after identifying the cause and the target to reverse"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "table"
+        ]
+      ]
+    },
+    {
+      "slide_number": 68,
+      "outline_number": "7.10",
+      "id": "restore",
+      "title": [
+        "데이터 복원",
+        "Data Restoration"
+      ],
+      "requires": [
+        "backup",
+        "rollback",
+        "environment-data"
+      ],
+      "approved_paragraph_ko": "장애의 대상이 데이터라면 확보한 백업을 이용해 필요한 상태를 되살리는 복원 절차가 필요하다. 복원할 시점을 정하고 격리된 환경에서 데이터와 서비스 동작을 확인한 뒤 반영 범위를 결정하며, 그 시점 이후에 발생한 정상 변경을 어떻게 보존할지도 검토한다. FoodMap의 잘못 삭제된 제보를 복구하는 사례를 통해, 이전 코드로 돌아가는 대응과 데이터 자체를 되살리는 대응을 구분한다.",
+      "body_groups": [
+        {
+          "term": [
+            "데이터 복원 - 사본으로 필요한 상태 회복",
+            "Data restoration - recover the required state from a copy"
+          ],
+          "details": [
+            [
+              "손상 범위와 복원할 시점을 결정한 뒤 사본 선택",
+              "Determine the damage and recovery point before selecting a backup"
+            ],
+            [
+              "격리된 환경에서 데이터 내용과 서비스 동작 검증",
+              "Verify the restored data and application behavior in an isolated environment"
+            ]
+          ]
+        },
+        {
+          "term": [
+            "반영 범위 - 이후 정상 변경의 보존",
+            "Application scope - preserve valid later changes"
+          ],
+          "details": [
+            [
+              "백업 시점 이후 정상적으로 저장된 기록을 별도 검토",
+              "Review valid records created after the backup point"
+            ],
+            [
+              "필요한 기록의 병합 또는 전환 범위를 정한 뒤 무결성 확인",
+              "Choose a merge or switchover scope and verify integrity after applying it"
+            ]
+          ]
+        }
+      ],
+      "composition": "side",
+      "resource_blocks": [
+        [],
+        [
+          "resource-flow"
+        ]
+      ]
+    }
+  ]
+}

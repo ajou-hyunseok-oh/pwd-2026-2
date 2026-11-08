@@ -1,0 +1,26 @@
+7.6 브라우저 검증의 코드 후보 · 아직 실행하지 않은 Playwright 발췌
+
+전제: Playwright Test의 page/expect, 실행 중인 예제 앱, 제목 label,
+등록 button, role=status/alert, POST /posts, 성공 201 응답.
+현재 저장소에 이 예제 앱이 구현돼 있다는 뜻이 아니다.
+
+await page.getByLabel('제목').fill('  공지사항  ');
+const responsePromise = page.waitForResponse(response =>
+  response.url().endsWith('/posts') &&
+  response.request().method() === 'POST'
+);
+await page.getByRole('button', { name: '등록', exact: true }).click();
+const response = await responsePromise;
+expect(response.status()).toBe(201);
+await expect(page.getByRole('status')).toHaveText('등록 완료');
+
+이 발췌가 확인하는 것: 입력·클릭·HTTP 응답·사용자 표시.
+별도 확인할 것: 응답 본문의 제목, 실제 저장 결과, 재조회 결과,
+잘못된 제목에서 저장 요청/저장이 발생하지 않는지, 서버 저장 실패 표시.
+서버 오류 분기는 route로 500을 반환하도록 한 UI 검사와 실제 서버 실패 검사를 구분한다.
+슬라이드에서는 전체 코드를 한 번에 넣지 않고 입력/클릭/표시 확인 3줄을 우선 사용한다.
+
+공식 근거:
+https://playwright.dev/docs/locators
+https://playwright.dev/docs/test-assertions
+https://playwright.dev/docs/network

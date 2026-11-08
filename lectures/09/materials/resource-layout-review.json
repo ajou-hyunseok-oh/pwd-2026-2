@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-07",
+  "stage": "reused-resources-placed",
+  "layout": {
+    "count": 85,
+    "translations": [
+      {
+        "locale": "ko",
+        "checked": 406,
+        "mismatches": 0
+      },
+      {
+        "locale": "en",
+        "checked": 406,
+        "mismatches": 0
+      }
+    ],
+    "errors": [],
+    "issues": []
+  },
+  "diagram_labels": {
+    "checked": 90,
+    "issues": [],
+    "keyboardNavigation": "passed"
+  },
+  "visual_review": {
+    "resource_slides": [
+      4,
+      7,
+      8,
+      10,
+      17,
+      19,
+      27,
+      31,
+      41,
+      42,
+      44,
+      58,
+      66,
+      67,
+      70,
+      85
+    ],
+    "languages": [
+      "ko",
+      "en"
+    ],
+    "print_samples": [
+      "ko-31",
+      "ko-42",
+      "en-70"
+    ],
+    "mobile_samples": [
+      "ko-19",
+      "ko-31",
+      "ko-42",
+      "en-67",
+      "en-70"
+    ],
+    "mobile_last_table_row_accessible": true,
+    "changes": [
+      "영문 노드 라벨 여백 확대",
+      "공백 입력을 공백 3개로 명시",
+      "완료·남은 작업·실패 수정 경로 구분",
+      "모바일 4열 표의 항목별 표시"
+    ]
+  },
+  "print_pdf": {
+    "ko_pages": 85,
+    "en_pages": 85,
+    "page_points": [
+      960,
+      540
+    ]
+  },
+  "static_checks": [
+    "npm test --prefix packages/web-deck",
+    "title_outline.py --check",
+    "paragraph_outline.py --check",
+    "audit_week10_assets.py --check",
+    "resource_placements.py --check",
+    "build-slides.py --check",
+    "git diff --check"
+  ],
+  "server": {
+    "started_by_this_task": true,
+    "pid": 10343,
+    "port": 4399,
+    "process_exited": true,
+    "port_listener_cleared": true
+  },
+  "generated_file_sha256": {
+    "index.html": "8ecd5dda4d20d893c066d5acba0caed8cda9429634e2069357358bb77bb65209",
+    "lecture-content.js": "fd5db35b12b053edd0312dccbe02cd5213d37a15f5135dd7b9756bffcaa3abfd",
+    "resources.css": "7ca9c4e2216f19afc58a6301b192c6d426366009ab36e74bf2c25aa24ce0baed"
+  }
+}

@@ -1,0 +1,545 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "kind": "cover",
+    "title": "실전 웹서비스개발 – 8주차",
+    "subtitle": "웹 서비스 인증과 보안"
+  },
+  {
+    "number": 2,
+    "id": "chapter-01",
+    "kind": "chapter",
+    "title": "사용자 인증의 원리",
+    "subtitle": "요청한 사용자의 신원을 확인하는 원리",
+    "sources": []
+  },
+  {
+    "number": 3,
+    "id": "identity-need",
+    "kind": "content",
+    "title": "서비스의 사용자 식별",
+    "subtitle": "저장된 데이터와 요청한 사용자를 연결할 필요",
+    "sources": []
+  },
+  {
+    "number": 4,
+    "id": "user-account",
+    "kind": "content",
+    "title": "사용자 계정",
+    "subtitle": "서비스 안에서 같은 사용자를 구분하는 고유 식별자",
+    "sources": []
+  },
+  {
+    "number": 5,
+    "id": "trust-boundary",
+    "kind": "content",
+    "title": "클라이언트 입력의 신뢰 경계",
+    "subtitle": "사용자가 보낸 주장과 서버가 확인한 사실의 구분",
+    "sources": []
+  },
+  {
+    "number": 6,
+    "id": "authentication",
+    "kind": "content",
+    "title": "사용자 인증",
+    "subtitle": "계정에 대한 증거를 확인해 요청자의 신원을 판단하는 과정",
+    "sources": []
+  },
+  {
+    "number": 7,
+    "id": "password-hash",
+    "kind": "content",
+    "title": "비밀번호 해시",
+    "subtitle": "비밀번호 원문 대신 검증용 값을 생성해 저장하는 원리",
+    "sources": []
+  },
+  {
+    "number": 8,
+    "id": "password-salt",
+    "kind": "content",
+    "title": "비밀번호 솔트",
+    "subtitle": "같은 비밀번호도 서로 다른 해시가 되도록 더하는 계정별 값",
+    "sources": []
+  },
+  {
+    "number": 9,
+    "id": "password-login",
+    "kind": "content",
+    "title": "비밀번호 로그인",
+    "subtitle": "입력한 비밀번호를 저장된 검증 정보와 대조하는 흐름",
+    "sources": []
+  },
+  {
+    "number": 10,
+    "id": "chapter-02",
+    "kind": "chapter",
+    "title": "로그인 상태의 유지",
+    "subtitle": "이후 요청에서도 인증된 사용자를 식별하는 방법",
+    "sources": []
+  },
+  {
+    "number": 11,
+    "id": "http-stateless",
+    "kind": "content",
+    "title": "HTTP의 무상태성",
+    "subtitle": "이전 요청의 인증 결과가 새 요청에 자동으로 이어지지 않는 특성",
+    "sources": []
+  },
+  {
+    "number": 12,
+    "id": "cookies",
+    "kind": "content",
+    "title": "쿠키",
+    "subtitle": "브라우저가 값을 저장하고 조건에 맞는 요청에 첨부하는 방식",
+    "sources": []
+  },
+  {
+    "number": 13,
+    "id": "server-session",
+    "kind": "content",
+    "title": "서버 세션",
+    "subtitle": "세션 식별자로 서버에 보관한 로그인 상태를 찾는 구조",
+    "sources": []
+  },
+  {
+    "number": 14,
+    "id": "auth-token",
+    "kind": "content",
+    "title": "인증 토큰",
+    "subtitle": "이후 요청에서 인증 결과를 확인하는 데 사용하는 증표",
+    "sources": []
+  },
+  {
+    "number": 15,
+    "id": "token-signature",
+    "kind": "content",
+    "title": "토큰의 서명",
+    "subtitle": "키를 이용해 토큰의 변조 여부와 발급 주체를 확인하는 원리",
+    "sources": []
+  },
+  {
+    "number": 16,
+    "id": "jwt-structure",
+    "kind": "content",
+    "title": "JWT의 구조",
+    "subtitle": "서명된 토큰에 사용자 정보와 유효 조건을 담는 형식",
+    "sources": []
+  },
+  {
+    "number": 17,
+    "id": "jwt-validation",
+    "kind": "content",
+    "title": "JWT 검증",
+    "subtitle": "서명과 발급 조건을 확인해 토큰의 수용 여부를 판단하는 과정",
+    "sources": []
+  },
+  {
+    "number": 18,
+    "id": "auth-expiry",
+    "kind": "content",
+    "title": "인증 상태의 만료",
+    "subtitle": "한 번 확인한 인증 결과를 계속 신뢰할 수 있는 시간의 제한",
+    "sources": []
+  },
+  {
+    "number": 19,
+    "id": "refresh-token",
+    "kind": "content",
+    "title": "리프레시 토큰",
+    "subtitle": "비밀번호 재입력 없이 새 액세스 토큰을 발급받는 자격정보",
+    "sources": []
+  },
+  {
+    "number": 20,
+    "id": "logout",
+    "kind": "content",
+    "title": "로그아웃과 인증 철회",
+    "subtitle": "인증 방식에 따라 사용 중인 로그인 자격을 종료하는 방법",
+    "sources": []
+  },
+  {
+    "number": 21,
+    "id": "chapter-03",
+    "kind": "chapter",
+    "title": "외부 인증과 소셜 로그인",
+    "subtitle": "외부 서비스의 인증 결과와 서비스 사용자 계정의 연결",
+    "sources": []
+  },
+  {
+    "number": 22,
+    "id": "identity-provider",
+    "kind": "content",
+    "title": "외부 인증 제공자",
+    "subtitle": "다른 서비스가 확인한 사용자 신원을 활용하는 구조",
+    "sources": []
+  },
+  {
+    "number": 23,
+    "id": "oauth-delegation",
+    "kind": "content",
+    "title": "OAuth의 접근 권한 위임",
+    "subtitle": "사용자가 동의한 범위의 외부 API 접근을 허용하는 방식",
+    "sources": []
+  },
+  {
+    "number": 24,
+    "id": "oidc",
+    "kind": "content",
+    "title": "OIDC의 사용자 인증",
+    "subtitle": "외부 인증 제공자의 ID 토큰으로 사용자 신원을 확인하는 방식",
+    "sources": []
+  },
+  {
+    "number": 25,
+    "id": "authorization-code",
+    "kind": "content",
+    "title": "인가 코드 흐름",
+    "subtitle": "브라우저가 전달한 임시 코드를 토큰으로 교환하는 과정",
+    "sources": []
+  },
+  {
+    "number": 26,
+    "id": "oauth-state",
+    "kind": "content",
+    "title": "로그인 요청의 state",
+    "subtitle": "로그인을 시작한 요청과 돌아온 응답을 연결하는 값",
+    "sources": []
+  },
+  {
+    "number": 27,
+    "id": "pkce",
+    "kind": "content",
+    "title": "인가 코드의 PKCE 보호",
+    "subtitle": "코드 발급 요청과 코드 교환 요청을 같은 시작 주체에 연결하는 증명",
+    "sources": []
+  },
+  {
+    "number": 28,
+    "id": "account-link",
+    "kind": "content",
+    "title": "외부 계정과 서비스 계정의 연결",
+    "subtitle": "인증 제공자와 사용자 식별자로 내부 계정을 연결하는 기준",
+    "sources": []
+  },
+  {
+    "number": 29,
+    "id": "social-session",
+    "kind": "content",
+    "title": "소셜 로그인 이후의 서비스 인증",
+    "subtitle": "외부 인증 결과를 서비스의 로그인 상태로 이어가는 과정",
+    "sources": []
+  },
+  {
+    "number": 30,
+    "id": "chapter-04",
+    "kind": "chapter",
+    "title": "권한과 데이터 접근 제어",
+    "subtitle": "사용자에게 허용할 기능과 데이터의 범위",
+    "sources": []
+  },
+  {
+    "number": 31,
+    "id": "authorization",
+    "kind": "content",
+    "title": "요청의 인가",
+    "subtitle": "사용자·행동·대상을 기준으로 요청 허용 여부를 결정하는 과정",
+    "sources": []
+  },
+  {
+    "number": 32,
+    "id": "role-access",
+    "kind": "content",
+    "title": "역할 기반 접근 제어",
+    "subtitle": "역할에 부여된 권한으로 기능 사용 범위를 정하는 방식",
+    "sources": []
+  },
+  {
+    "number": 33,
+    "id": "owner-access",
+    "kind": "content",
+    "title": "소유자 기반 접근 제어",
+    "subtitle": "요청자와 데이터 소유자의 관계로 접근 범위를 정하는 방식",
+    "sources": []
+  },
+  {
+    "number": 34,
+    "id": "default-deny",
+    "kind": "content",
+    "title": "기본 거부 정책",
+    "subtitle": "명시적으로 허용한 규칙이 없으면 요청을 거부하는 기준",
+    "sources": []
+  },
+  {
+    "number": 35,
+    "id": "api-access",
+    "kind": "content",
+    "title": "API 접근 제어",
+    "subtitle": "서버가 요청마다 사용자와 대상 데이터의 권한을 확인하는 구조",
+    "sources": []
+  },
+  {
+    "number": 36,
+    "id": "rls",
+    "kind": "content",
+    "title": "행 수준 보안 정책",
+    "subtitle": "데이터베이스의 각 행에 접근 규칙을 적용하는 방식",
+    "sources": []
+  },
+  {
+    "number": 37,
+    "id": "api-keys",
+    "kind": "content",
+    "title": "API 키의 권한 범위",
+    "subtitle": "애플리케이션의 API 접근 자격과 사용자 인증의 구분",
+    "sources": []
+  },
+  {
+    "number": 38,
+    "id": "foodmap-policy",
+    "kind": "content",
+    "title": "FoodMap의 접근 정책",
+    "subtitle": "역할과 데이터 소유 관계를 조합한 요청별 허용 기준",
+    "sources": []
+  },
+  {
+    "number": 39,
+    "id": "chapter-05",
+    "kind": "chapter",
+    "title": "관리자 시스템과 운영 업무",
+    "subtitle": "운영자의 권한을 서비스 관리 업무로 연결하는 구조",
+    "sources": []
+  },
+  {
+    "number": 40,
+    "id": "admin-system",
+    "kind": "content",
+    "title": "사용자 서비스와 관리자 시스템",
+    "subtitle": "이용자의 서비스 이용과 운영자의 관리 업무를 나누는 구조",
+    "sources": []
+  },
+  {
+    "number": 41,
+    "id": "admin-boundary",
+    "kind": "content",
+    "title": "관리자 권한의 경계",
+    "subtitle": "서비스 운영에 필요한 권한을 업무 범위에 맞게 제한하는 기준",
+    "sources": []
+  },
+  {
+    "number": 42,
+    "id": "workflow-state",
+    "kind": "content",
+    "title": "운영 업무의 상태 전이",
+    "subtitle": "제보의 처리 상태와 허용 가능한 변경을 정의하는 방식",
+    "sources": []
+  },
+  {
+    "number": 43,
+    "id": "publication-state",
+    "kind": "content",
+    "title": "콘텐츠 공개 상태",
+    "subtitle": "검토 결과와 사용자에게 보이는 상태를 구분하는 기준",
+    "sources": []
+  },
+  {
+    "number": 44,
+    "id": "admin-transaction",
+    "kind": "content",
+    "title": "운영 작업의 트랜잭션",
+    "subtitle": "함께 성공해야 하는 데이터 변경을 하나의 작업으로 묶는 원리",
+    "sources": []
+  },
+  {
+    "number": 45,
+    "id": "idempotency",
+    "kind": "content",
+    "title": "중복 요청의 처리",
+    "subtitle": "같은 운영 요청이 반복되어도 결과가 중복되지 않도록 하는 기준",
+    "sources": []
+  },
+  {
+    "number": 46,
+    "id": "audit-log",
+    "kind": "content",
+    "title": "감사 로그",
+    "subtitle": "운영자의 작업 주체·대상·결과를 남기는 기록",
+    "sources": []
+  },
+  {
+    "number": 47,
+    "id": "chapter-06",
+    "kind": "chapter",
+    "title": "웹 공격과 방어 원리",
+    "subtitle": "인증과 데이터 처리 과정의 위협과 보호 원리",
+    "sources": []
+  },
+  {
+    "number": 48,
+    "id": "input-validation",
+    "kind": "content",
+    "title": "입력 검증",
+    "subtitle": "서버가 받은 데이터의 형식과 허용 범위를 확인하는 절차",
+    "sources": []
+  },
+  {
+    "number": 49,
+    "id": "sql-injection",
+    "kind": "content",
+    "title": "SQL 인젝션",
+    "subtitle": "입력값이 SQL 명령으로 해석될 때의 위험과 방어 원리",
+    "sources": []
+  },
+  {
+    "number": 50,
+    "id": "xss",
+    "kind": "content",
+    "title": "크로스 사이트 스크립팅",
+    "subtitle": "사용자 입력이 웹 페이지의 코드로 실행될 때의 위험",
+    "sources": []
+  },
+  {
+    "number": 51,
+    "id": "origin",
+    "kind": "content",
+    "title": "웹 출처",
+    "subtitle": "프로토콜·호스트·포트로 웹 자원의 경계를 구분하는 기준",
+    "sources": []
+  },
+  {
+    "number": 52,
+    "id": "site",
+    "kind": "content",
+    "title": "브라우저의 사이트 구분",
+    "subtitle": "등록 가능한 도메인과 프로토콜을 기준으로 한 사이트 경계",
+    "sources": []
+  },
+  {
+    "number": 53,
+    "id": "same-origin-policy",
+    "kind": "content",
+    "title": "동일 출처 정책",
+    "subtitle": "다른 출처의 응답을 스크립트가 읽는 범위를 제한하는 원칙",
+    "sources": []
+  },
+  {
+    "number": 54,
+    "id": "cors",
+    "kind": "content",
+    "title": "CORS",
+    "subtitle": "서버가 허용한 출처에 브라우저의 응답 읽기를 허용하는 방식",
+    "sources": []
+  },
+  {
+    "number": 55,
+    "id": "csrf",
+    "kind": "content",
+    "title": "크로스 사이트 요청 위조",
+    "subtitle": "브라우저가 자동으로 보내는 인증정보를 이용한 요청 위조",
+    "sources": []
+  },
+  {
+    "number": 56,
+    "id": "cookie-protection",
+    "kind": "content",
+    "title": "쿠키의 보호 속성",
+    "subtitle": "쿠키의 전송과 스크립트 접근 범위를 제한하는 설정",
+    "sources": []
+  },
+  {
+    "number": 57,
+    "id": "login-rate-limit",
+    "kind": "content",
+    "title": "로그인 시도 제한",
+    "subtitle": "반복되는 인증 요청의 횟수와 속도를 제어하는 방어",
+    "sources": []
+  },
+  {
+    "number": 58,
+    "id": "chapter-07",
+    "kind": "chapter",
+    "title": "환경 분리와 서비스 운영",
+    "subtitle": "개발·운영 환경의 분리와 서비스의 변경·복구",
+    "sources": []
+  },
+  {
+    "number": 59,
+    "id": "environments",
+    "kind": "content",
+    "title": "개발·검증·운영 환경",
+    "subtitle": "실험과 검증이 실제 사용자 서비스에 영향을 주지 않도록 나누는 실행 공간",
+    "sources": []
+  },
+  {
+    "number": 60,
+    "id": "environment-config",
+    "kind": "content",
+    "title": "환경별 설정",
+    "subtitle": "같은 코드를 다른 주소와 자격정보로 실행하는 구성",
+    "sources": []
+  },
+  {
+    "number": 61,
+    "id": "secret-management",
+    "kind": "content",
+    "title": "비밀정보 관리",
+    "subtitle": "외부에 공개되면 안 되는 자격정보의 보관과 교체",
+    "sources": []
+  },
+  {
+    "number": 62,
+    "id": "environment-data",
+    "kind": "content",
+    "title": "환경별 데이터 분리",
+    "subtitle": "개발·검증 작업이 운영 데이터에 닿지 않도록 저장소를 분리하는 기준",
+    "sources": []
+  },
+  {
+    "number": 63,
+    "id": "deployment",
+    "kind": "content",
+    "title": "서비스 배포",
+    "subtitle": "검증한 코드와 설정을 대상 환경에 반영하는 과정",
+    "sources": []
+  },
+  {
+    "number": 64,
+    "id": "db-migration",
+    "kind": "content",
+    "title": "데이터베이스 마이그레이션",
+    "subtitle": "데이터베이스 구조의 변경을 순서와 이력으로 관리하는 방식",
+    "sources": []
+  },
+  {
+    "number": 65,
+    "id": "monitoring",
+    "kind": "content",
+    "title": "운영 모니터링",
+    "subtitle": "오류와 서비스 지표로 운영 상태를 파악하는 관찰",
+    "sources": []
+  },
+  {
+    "number": 66,
+    "id": "backup",
+    "kind": "content",
+    "title": "데이터 백업",
+    "subtitle": "운영 데이터의 사본과 복원 가능성을 확보하는 준비",
+    "sources": []
+  },
+  {
+    "number": 67,
+    "id": "rollback",
+    "kind": "content",
+    "title": "배포 롤백",
+    "subtitle": "문제가 있는 배포를 이전 코드와 설정으로 되돌리는 대응",
+    "sources": []
+  },
+  {
+    "number": 68,
+    "id": "restore",
+    "kind": "content",
+    "title": "데이터 복원",
+    "subtitle": "백업을 사용해 손상되거나 유실된 데이터를 되살리는 절차",
+    "sources": []
+  }
+]

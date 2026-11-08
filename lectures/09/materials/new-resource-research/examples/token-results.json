@@ -1,0 +1,80 @@
+{
+  "encoding": "cl100k_base",
+  "tiktoken_version": "0.14.0",
+  "checked_on": "2026-11-07",
+  "note": "One named encoding, not all models. Some tokens contain incomplete UTF-8 bytes.",
+  "examples": [
+    {
+      "text": "unhappiness!",
+      "token_count": 4,
+      "tokens": [
+        {
+          "id": 359,
+          "text_if_complete_utf8": "un",
+          "bytes_hex": "756e"
+        },
+        {
+          "id": 71,
+          "text_if_complete_utf8": "h",
+          "bytes_hex": "68"
+        },
+        {
+          "id": 67391,
+          "text_if_complete_utf8": "appiness",
+          "bytes_hex": "617070696e657373"
+        },
+        {
+          "id": 0,
+          "text_if_complete_utf8": "!",
+          "bytes_hex": "21"
+        }
+      ]
+    },
+    {
+      "text": "제목: 안녕하세요!",
+      "token_count": 8,
+      "tokens": [
+        {
+          "id": 38187,
+          "text_if_complete_utf8": "제",
+          "bytes_hex": "eca09c"
+        },
+        {
+          "id": 88708,
+          "text_if_complete_utf8": "목",
+          "bytes_hex": "ebaaa9"
+        },
+        {
+          "id": 25,
+          "text_if_complete_utf8": ":",
+          "bytes_hex": "3a"
+        },
+        {
+          "id": 96270,
+          "text_if_complete_utf8": " 안",
+          "bytes_hex": "20ec9588"
+        },
+        {
+          "id": 75265,
+          "text_if_complete_utf8": null,
+          "bytes_hex": "eb85"
+        },
+        {
+          "id": 243,
+          "text_if_complete_utf8": null,
+          "bytes_hex": "95"
+        },
+        {
+          "id": 92245,
+          "text_if_complete_utf8": "하세요",
+          "bytes_hex": "ed9598ec84b8ec9a94"
+        },
+        {
+          "id": 0,
+          "text_if_complete_utf8": "!",
+          "bytes_hex": "21"
+        }
+      ]
+    }
+  ]
+}

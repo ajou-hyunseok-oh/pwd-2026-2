@@ -1,0 +1,88 @@
+/* Week 9 resources. Typography, tables, and code styling stay shared. */
+.w9-groups, .w9-tokens, .w9-context, .w9-editor, .w9-screen { margin: .6rem 0 0; }
+.w9-group-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.8rem; }
+.w9-groups[data-groups="2"] .w9-group-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.w9-group-list > div { border-top: 3px solid #47725b; padding-top: 1rem; }
+.w9-group-list strong { font-size: 1.05rem; color: #263e30; }
+.w9-group-list p { font-size: .95rem; line-height: 1.7; margin-top: .8rem; white-space: pre-line; word-break: keep-all; }
+.w9-token-input { font-family: Consolas,monospace; font-size: 1.7rem; margin-bottom: 1.5rem !important; }
+.w9-tokens ol { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); list-style: none; padding: 0; gap: 1rem; }
+.w9-tokens li { border: 1px solid #90aa9a; padding: 1.4rem; background: #f3f7f4; }
+.w9-tokens strong { font-family: Consolas,monospace; font-size: 1.5rem; }
+.w9-tokens li p { margin-top: .8rem; color: #536159; font-size: .9rem; }
+.w9-context ol { display: flex; list-style: none; margin: 2rem 0; padding: 0; border: 2px solid #47725b; }
+.w9-context li { flex: 1; padding: 1.7rem .7rem; font-size: .95rem; text-align: center; background: #eef5ef; }
+.w9-context li + li { border-left: 1px solid #90aa9a; }
+.w9-context li:last-child { background: #fff; }
+.w9-editor-code { padding: 1rem; background: #000; color: #00ff00; font: .7rem/1.45 Consolas,'Liberation Mono',monospace; white-space: pre; }
+.w9-editor-suggestion { color: #9bada2; }
+.w9-screen-surface { max-width: 27rem; padding: 1.4rem; border: 1px solid #90aa9a; background: #fbfcfa; }
+.w9-screen-surface > strong { font-size: 1.1rem; }
+.w9-screen-label { margin: 1.1rem 0 .4rem !important; font-size: .85rem; }
+.w9-screen-input { border: 1px solid #94a69a; background: white; padding: .65rem; font-size: .95rem; }
+.w9-screen-button { display: inline-block; padding: .5rem 1.1rem; background: #33664b; color: white; margin-top: 1rem; font-size: .85rem; }
+.w9-screen-result { margin-top: .8rem; color: #64452c; font-size: .9rem; }
+[data-wd-slide="alexnet"] .wd-lesson-figure img { max-height: 22rem; border: 0; }
+[data-wd-slide="dartmouth"] .wd-lesson-figure img { border: 0; }
+.wd-lesson-body--split .w9-flow > ol { grid-template-columns: 1fr; gap: .55rem; }
+.wd-lesson-body--split .w9-flow > ol > li { padding: .45rem 0 .45rem 2rem; border-top: 0; border-left: 2px solid #90aa9a; font-size: .95rem; }
+.wd-lesson-body--split .w9-flow > ol > li::before { position: absolute; left: .4rem; top: .55rem; }
+.wd-lesson-body--split .w9-flow > ol > li + li::after { content: none; }
+.wd-lesson-body--split .w9-flow li p { margin-top: .3rem; }
+.w9-caption { margin-top: .75rem !important; color: #536159; font-size: .78rem; line-height: 1.5; word-break: keep-all; }
+.w9-resource-note { margin: .8rem 0 !important; color: #43564a; font-size: .9rem; line-height: 1.6; white-space: pre-line; word-break: keep-all; }
+.w9-flow { margin: .8rem 0 0; }
+.w9-flow > ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem; counter-reset: phase; }
+.w9-flow[data-steps="4"] > ol { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.w9-flow[data-steps="2"] > ol { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.w9-flow > ol > li { position: relative; border-top: 3px solid #47725b; padding: .8rem 0; font-size: 1rem; line-height: 1.5; counter-increment: phase; word-break: keep-all; }
+.w9-flow > ol > li::before { content: counter(phase,decimal-leading-zero); display: block; color: #47725b; font-size: .78rem; font-weight: 700; margin-bottom: .65rem; }
+.w9-flow > ol > li + li::after { content: '→'; position: absolute; top: 3rem; left: -1.5rem; color: #47725b; }
+.w9-flow li p { margin-top: .65rem; color: #43564a; font-size: .88rem; white-space: pre-line; }
+.w9-return { border-bottom: 2px solid #779582; padding: .7rem 0; text-align: center; color: #346747; font-size: .85rem; }
+.w9-return::before { content: '↶ '; }
+.w9-diagram { margin: .4rem 0 0; }
+.w9-diagram-canvas { max-width: 54rem; }
+.w9-diagram svg { display: block; width: 100%; height: auto; max-height: 21rem; overflow: visible; }
+.w9-edge { fill: none; stroke: #47725b; stroke-width: 2; }
+.w9-frame { fill: none; stroke: #90aa9a; stroke-width: 1.5; stroke-dasharray: 7 5; }
+.w9-box { fill: #f3f7f4; stroke: #8ba394; stroke-width: 1.5; }
+.w9-unit { fill: #e4efe8; stroke: #47725b; stroke-width: 2; }
+.w9-svg-title { fill: #263e30; font-size: 23px; font-weight: 700; }
+.w9-svg-body { fill: #43564a; font-size: 18px; }
+.w9-diagram-mobile { display: none; }
+.w9-cell-label { display: none; }
+.w9-sets { margin: .6rem 0 0; max-width: 49rem; }
+.w9-set { border: 2px solid #90aa9a; padding: .8rem 1.2rem; background: #f8faf8; }
+.w9-set > strong { font-size: 1.05rem; color: #263e30; }
+.w9-set > p { font-size: .86rem; color: #43564a; margin-top: .25rem !important; }
+.w9-set > .w9-set { margin: .75rem 0 0 3rem; background: #eef5ef; }
+.w9-set > .w9-set > .w9-set { background: #dfeee3; }
+[data-lecture="09"] .wd-lesson-table td { white-space: pre-line; }
+[data-wd-slide="development-prompt"] .wd-lesson-table th:first-child { width: 20%; }
+[data-wd-slide="development-prompt"] .wd-lesson-table th:nth-child(2) { width: 25%; }
+[data-wd-slide="project-instructions"] .wd-lesson-table th:first-child { width: 23%; }
+[data-wd-slide="task-decomposition"] .wd-lesson-table th:first-child { width: 18%; }
+@media screen and (max-width:767px) {
+  .w9-flow > ol, .w9-flow[data-steps="4"] > ol, .w9-flow[data-steps="2"] > ol { grid-template-columns: 1fr; gap: 1.5rem; }
+  .w9-group-list, .w9-groups[data-groups="2"] .w9-group-list { grid-template-columns: 1fr; }
+  .w9-tokens ol { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .w9-tokens li { padding: 1rem; }
+  .w9-context ol { flex-direction: column; margin: 1rem 0; }
+  .w9-context li + li { border-left: 0; border-top: 1px solid #90aa9a; }
+  .w9-context li { padding: .8rem; }
+  .w9-editor-code { font-size: 14px; overflow-x: auto; }
+  .w9-flow > ol > li + li::after { content: '↓'; left: 50%; top: -1.9rem; }
+  .w9-flow li p, .w9-resource-note { font-size: 1rem; }
+  .w9-diagram-canvas { display: none; }
+  .w9-diagram-mobile { display: grid; gap: .9rem; padding-left: 1.5rem; margin: 0; color: #263e30; font-size: 1rem; line-height: 1.6; }
+  .w9-caption { font-size: .85rem; }
+  .w9-set { padding: .8rem; }
+  .w9-set > .w9-set { margin-left: .65rem; }
+  .w9-set > p { font-size: .9rem; }
+  .w9-responsive-table table, .w9-responsive-table tbody, .w9-responsive-table tr { display: block; }
+  .w9-responsive-table thead { display: none; }
+  .w9-responsive-table tr { margin-bottom: 1.2rem; border-top: 2px solid #90aa9a; }
+  .w9-responsive-table :is(th,td), [data-wd-slide="task-decomposition"] .w9-responsive-table th:first-child { display: grid; grid-template-columns: 5.8rem minmax(0,1fr); gap: .6rem; width: 100%; padding: .65rem 0; font-size: .95rem; overflow-wrap: normal; }
+  .w9-cell-label { display: block; color: #536159; font-size: .85rem; font-weight: 650; }
+}

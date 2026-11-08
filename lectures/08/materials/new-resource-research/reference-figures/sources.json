@@ -1,0 +1,20 @@
+[
+  {
+    "file": "mdn-cors-simple.svg",
+    "url": "https://mdn.github.io/shared-assets/images/diagrams/http/cors/simple-request.svg",
+    "sha256": "b7a1337ee79535aa9c34d9150b2ef604e4b4140d4417b5f1cd03542bb5d09291",
+    "bytes": 20699
+  },
+  {
+    "file": "mdn-cors-preflight.svg",
+    "url": "https://mdn.github.io/shared-assets/images/diagrams/http/cors/preflight-correct.svg",
+    "sha256": "a8850312b5ca83da2f070c2e96522d1d3405c5889cd1bcaef2a2e14244595395",
+    "bytes": 25852
+  },
+  {
+    "file": "supabase-environments.svg",
+    "url": "https://supabase.com/docs/img/local-dev-environment--light.svg",
+    "sha256": "5824b76c7a68af9311924aae343e984e5d44be227b44c35cc65b3c32d6a3fa4f",
+    "bytes": 21013
+  }
+]

@@ -1,0 +1,15 @@
+구분
+서비스명
+제공 방식 / 특징
+ Google
+Google OAuth 2.0
+Gmail, YouTube, Calendar 등과 통합 / 가장 보편적
+ GitHub
+GitHub OAuth Apps
+개발자 계정 로그인 / Access Token으로 사용자 Repo 접근 가능
+ Facebook (Meta)
+Facebook Login
+SNS 프로필 기반 로그인 / Pixel·광고 연계 기능
+ Apple
+Sign in with Apple
+개인정보 최소화 / iOS, macOS 통합 로그인

@@ -1,0 +1,12 @@
+Prompt Engineering
+명확한 목적, 역할, 조건을 가진 명령 설계 기술
+Chain of Thought (CoT)
+단계별 사고를 유도하여 논리적 출력 확보
+Few-shot / Zero-shot Learning
+예시를 통한 모델 학습 맥락 제공
+Role Prompting
+“너는 ~전문가다”로 역할 지정해 맥락 조정
+System Prompt Design
+모델 전체 톤·스타일을 결정하는 최상위 설정
+Prompt Debugging
+출력 결과를 기반으로 입력 구조를 개선하는 과정
