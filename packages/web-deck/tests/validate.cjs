@@ -67,7 +67,7 @@ for (let week = 1; week <= 13; week += 1) {
       // The instructor explicitly requested the original Week 2 assignment questions.
       const preservedAssignmentQuestion = number === '02' && /^w2_43_requirements_items[0-2]$/.test(key);
       // '인가' here is the approved authorization noun, not a question ending.
-      const authorizationNounTitle = number === '08' && key === 'authorization_title' && value === '요청의 인가';
+      const authorizationNounTitle = number === '08' && key === 'authorization_title' && ['요청의 인가', '인증과 인가'].includes(value);
       if (!preservedAssignmentQuestion && !authorizationNounTitle) {
         assert.doesNotMatch(
           value,
@@ -93,7 +93,7 @@ for (let week = 1; week <= 13; week += 1) {
   const sourcePdfManifest = html.match(/data-wd-source-(?:pdf|elements)="([^"]+)"/)?.[1];
   const expectedSlideCount = sourcePdfManifest
     ? JSON.parse(fs.readFileSync(path.resolve(path.dirname(lecturePath), sourcePdfManifest), 'utf8')).page_count
-    : ({ 1: 28, 2: 54, 3: 50, 4: 24, 5: 65, 7: 56, 8: 68, 9: 85 }[week] || 1);
+    : ({ 1: 28, 2: 54, 3: 50, 4: 24, 5: 65, 7: 56, 8: 44, 9: 85 }[week] || 1);
   assert.equal((html.match(/data-wd-slide=/g) || []).length, expectedSlideCount, `Lecture ${number} has the wrong slide count`);
   assert.match(html, /packages\/web-deck\/web-deck\.css/, `Lecture ${number} is missing package CSS`);
   assert.match(html, /packages\/web-deck\/web-deck\.js/, `Lecture ${number} is missing package JS`);

@@ -443,16 +443,22 @@ add column review_status text;''',
 
 
 def outputs():
-    plan = proposal()
+    plan = proposal(historical=True)
     concepts = [s for c in plan['chapters'] for s in c['concepts']]
     by_number = {s['outline_number']: s for s in concepts}
     by_id = {s['id']: s for s in concepts}
-    placements = json.loads((ROOT/'materials/resource-placements.json').read_text())
-    remaining = {s['id'] for s in placements['slides'] if not s['assets']}
-    slide_map = json.loads((ROOT/'materials/slide-map.json').read_text())
-    screens = {s['id']: s['number'] for s in slide_map}
-    paragraphs = json.loads((ROOT/'materials/paragraph-outline.json').read_text())
-    paragraphs = {s['id']: s['paragraph_ko'] for c in paragraphs['chapters'] for s in c['slides']}
+    # Original 60-slide research is historical, not the active classroom scope.
+    from audit_week6_assets import SLIDE_MAP
+    from paragraph_outline import HISTORICAL_PARAGRAPHS
+    remaining = {by_number[r['outline_number']]['id'] for r in SLIDE_MAP if not r['assets']}
+    screens = {}
+    number = 2
+    for chapter in plan['chapters']:
+        number += 1
+        for slide in chapter['concepts']:
+            screens[slide['id']] = number
+            number += 1
+    paragraphs = HISTORICAL_PARAGRAPHS
     sources = {s['id']: s for s in SOURCES}
     codes = {s['id']: s for s in CODE_CANDIDATES}
     figures = json.loads((DEST/'reference-figures/sources.json').read_text())

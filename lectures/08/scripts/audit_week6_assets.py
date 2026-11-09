@@ -260,7 +260,7 @@ def extract():
 
 
 def report():
-    outline = proposal()
+    outline = proposal(historical=True)
     slides = [dict(chapter=ch['number'],**s) for ch in outline['chapters'] for s in ch['concepts']]
     assert [s['outline_number'] for s in slides] == [m['outline_number'] for m in SLIDE_MAP]
     assert set(PAGE_NOTES) == set(range(1,32))

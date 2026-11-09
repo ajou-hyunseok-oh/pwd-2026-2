@@ -1,0 +1,20 @@
+{
+  "reviewed_on": "2026-11-09",
+  "slide": 6,
+  "id": "authentication",
+  "scope": "05번의 증거 필요성에서 계정 지정·서버 증거 검증·인증 판단으로 전개",
+  "reasoning": "일반 본문에서 계정 지정 정보와 별도 증거의 역할을 구분하고 서버를 검증 주체로 명시. 검증 성공 시 현재 인증 요청을 사용자 ID에 연결하며, 실패 시 계정 존재와 무관하게 해당 사용자로 인정하지 않음을 설명. 해시·솔트·세션과 구체적인 권한 규칙은 선행 설명하지 않음.",
+  "example_correspondence": "원래 로그인 화면을 복원하고 04번 minsu@example.com·u123 계정 재사용. 상단 일반 설명 아래 왼쪽 로그인 화면과 오른쪽 계정 지정 → 서버 비밀번호 증거 검증 → 성공 시 u123 인정/실패 시 거부 흐름을 함께 배치. 별도 입력 역할 표의 의미는 일반 본문·로그인 화면 캡션·흐름에 유지. 현재 인증 요청의 사용자 확인과 로그인 상태 유지·작업 권한은 별도임을 명시. 실제 인증 요청을 실행한 결과가 아닌 개념 사례.",
+  "validation": {
+    "title_outline_check": "passed",
+    "paragraph_outline_check": "passed",
+    "body_review_check": "passed",
+    "resource_placements_check": "passed",
+    "slide_references_check": "passed",
+    "web_deck_validate": "passed",
+    "git_diff_check": "passed",
+    "slide06_ko_en_screen_print_mobile": "passed: 실제 브라우저 파일 URL 렌더. 발표·1280×720 인쇄 경계와 본문 열 겹침 검사, 390px 모바일 가로 넘침 검사. KO/EN 발표 캡처 육안 검토 완료.",
+    "full_npm_test": "미실행: 앞선 실행에서 prettier 의존성 누락 및 python3 실행 경로 문제 확인. 이번 검증은 위 개별 검사와 수정된 06번 화면에 한정."
+  },
+  "server": "파일 URL 검증으로 웹 서버 실행 없음"
+}

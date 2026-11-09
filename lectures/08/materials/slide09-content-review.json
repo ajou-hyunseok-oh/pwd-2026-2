@@ -1,0 +1,20 @@
+{
+  "reviewed_on": "2026-11-09",
+  "slide": 9,
+  "id": "password-login",
+  "scope": "06번의 인증 필요성 반복보다, 서버가 어느 계정의 저장 정보로 검증하는지에 집중",
+  "reasoning": "이메일로 계정 조회 → 그 계정의 해시·솔트 확보 → 입력 비밀번호와 저장 정보를 검증 함수에 전달 → 조회·검증한 계정의 ID를 현재 요청의 인증 결과로 사용. 입력 비밀번호와 해시 문자열을 직접 비교하거나 복호화하는 것으로 설명하지 않음. 상태 유지·권한 부여는 범위 밖으로 유지.",
+  "example_correspondence": "04·06번 minsu@example.com·u123 및 08번 salt-A·hash-A 재사용. 기존 도식을 로그인 입력·계정/저장 정보 조회·검증 함수·현재 요청의 사용자 판단의 4단계로 보강. 조회한 계정과 검증 정보의 소속 관계를 표시하며, 계정이 없거나 검증이 실패하면 인증 거부. 실제 인증 요청 실행 결과가 아닌 개념 사례.",
+  "validation": {
+    "title_outline_check": "passed",
+    "paragraph_outline_check": "passed",
+    "body_review_check": "passed",
+    "resource_placements_check": "passed",
+    "slide_references_check": "passed",
+    "web_deck_validate": "passed",
+    "git_diff_check": "passed",
+    "slide09_ko_en_screen_print_mobile": "passed: 실제 브라우저 파일 URL 렌더. 발표·1280×720 인쇄 경계와 390px 모바일 가로 넘침 검사. KO/EN 발표 캡처 육안 검토 완료.",
+    "full_npm_test": "미실행: 앞선 실행에서 prettier 의존성 누락 및 python3 실행 경로 문제 확인. 이번 검증은 위 개별 검사와 수정된 09번 화면에 한정."
+  },
+  "server": "파일 URL 검증으로 웹 서버 실행 없음"
+}

@@ -1,0 +1,18 @@
+{
+  "reviewed_on": "2026-11-09",
+  "slide": 4,
+  "id": "user-account",
+  "scope": "03번의 맛집 생성 요청에서 계정과 사용자 ID의 역할로 연결",
+  "reasoning": "계정은 사용자 정보를 함께 관리하는 기록으로, 사용자 ID는 계정을 구분하고 요청을 연결하는 고유 기준으로 정의. 이름의 동일·변경과 별개인 식별 기준을 설명하고 ID 자체가 요청자의 신원 증명은 아니라는 경계를 유지. 인증 수단·권한 판단의 상세 규칙은 선행 설명하지 않음.",
+  "example_correspondence": "이름이 모두 민수인 두 계정에 서로 다른 ID와 이메일을 배치하여 계정의 구성과 구분을 표시. 03번에서 사용한 POST /api/restaurants의 요청 A·B를 각 ID에 연결. 계정과 요청의 관계를 보이는 확장 설계 예시임을 본문 아래에 명시하며 7주차 구현 결과로 제시하지 않음.",
+  "validation": {
+    "title_outline_check": "passed",
+    "paragraph_outline_check": "passed",
+    "body_review_check": "passed",
+    "web_deck_validate": "passed",
+    "git_diff_check": "passed",
+    "slide04_ko_en_screen_print_mobile": "passed: 실제 브라우저 파일 URL 렌더. 발표·1280×720 인쇄 경계, 390px 모바일 가로 넘침 검사. KO/EN 발표 캡처 육안 검토 완료.",
+    "full_npm_test": "미실행: 앞선 실행에서 prettier 의존성 누락 및 python3 실행 경로 문제 확인. 이번 검증은 위 개별 검사와 수정된 04번 화면에 한정."
+  },
+  "server": "파일 URL 검증으로 웹 서버 실행 없음"
+}

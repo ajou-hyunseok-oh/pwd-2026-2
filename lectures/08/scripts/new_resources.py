@@ -33,118 +33,122 @@ def timeline(events, caption):
 
 
 BROWSER, SERVER = P('브라우저', 'Browser'), P('FoodMap 서버', 'FoodMap server')
-API, AUTH = P('데이터 API', 'Data API'), P('인증 시스템', 'Auth system')
+API, AUTH = P('데이터 API', 'Data API'), P('인증 시스템', 'Authentication service')
 
 RESOURCES = {
     'identity-need': resource(
-        table([P('저장된 기록', 'Stored record'), P('현재 알 수 있는 정보', 'Known information'), P('추가로 필요한 연결', 'Missing association')], [
-            [P('맛집 place-01', 'Place place-01'), P('이름 · 위치', 'Name and location'), P('해당 맛집에 대한 제보', 'Reports about this place')],
-            [P('제보 r101', 'Report r101'), P('맛집 정보 · 제보 내용', 'Place and report details'), P('제보한 사용자', 'The submitting user')],
+        table([P('맛집 생성 요청 사례', 'Restaurant creation request'), P('호출 API', 'API endpoint'),
+               P('7주차 서버의 처리', 'Week 7 server behavior')], [
+            [P('실제 맛집 정보 등록', 'Add a real restaurant'), P('POST /api/restaurants'),
+             P('입력 검증 후 DB 저장 · 요청 사용자 확인 없음', 'Validate input and save to the database without authenticating the user')],
+            [P('입력 형식만 맞춘 허위 맛집 등록', 'Add a fictitious restaurant using valid input'), P('POST /api/restaurants'),
+             P('입력 검증을 통과하면 DB 저장 · 요청 사용자 확인 없음', 'Save if input validation passes, without authenticating the user')],
         ]),
-        flow([(P('사용자 u123', 'User u123'), P('같은 사람의 여러 요청', 'Multiple requests by one person')),
-              (P('사용자와 기록 연결', 'Associate user and record'), P('누가 보냈는지 구분', 'Identify the sender')),
-              (P('제보 r101', 'Report r101'), P('사용자에게 연결된 기록', 'A record associated with a user'))],
-             P('FoodMap 데이터 관계의 확장 예시', 'An example extension of FoodMap data relationships'))),
+        note('서비스의 데이터 작업을 사용자에 따라 다르게 허용하려면, 먼저 누구의 요청인지 구분할 수 있어야 한다.',
+             'To enforce user-specific permissions, first identify the user making the request.')),
     'user-account': resource(
-        table([P('시점', 'When'), P('사용자 ID', 'User ID'), P('표시 이름', 'Display name'), P('제보의 사용자 ID', 'User ID on report')], [
-            [P('변경 전', 'Before'), P('u123'), P('민수', 'Minsu'), P('r101 → u123')],
-            [P('이름 변경 후', 'After renaming'), P('u123'), P('민수의 맛지도', 'Minsu’s Food Map'), P('r101 → u123')],
+        table([P('계정의 사용자 ID', 'User ID'), P('표시 이름', 'Display name'),
+               P('이메일', 'Email'), P('연결할 맛집 생성 요청', 'Associated creation request')], [
+            [P('u123'), P('민수', 'Minsu'), P('minsu@example.com'), P('요청 A · POST /api/restaurants', 'Request A · POST /api/restaurants')],
+            [P('u999'), P('민수', 'Minsu'), P('other@example.com'), P('요청 B · POST /api/restaurants', 'Request B · POST /api/restaurants')],
         ]),
-        note('고유 ID를 기준으로 유지되는 계정과 데이터의 연결', 'A stable account ID preserves the link to stored data')),
+        note('같은 이름의 계정을 고유 ID로 구분하고 맛집 생성 요청을 연결하는 설계 예시',
+             'Design example: use IDs to distinguish users with the same name and associate their requests')),
     'trust-boundary': resource(
         Q([BROWSER, SERVER], [
-            M(0, 0, '요청에 userId=u123 입력', 'Set userId=u123 in a request'),
-            M(0, 0, '보내기 전에 u999로 변경 가능', 'Can change it to u999 before sending', focus=True),
-            M(0, 1, '요청 본문 · userId=u999', 'Request body · userId=u999'),
-            M(1, 1, '수신한 주장\n신원 확인의 근거가 별도로 필요', 'Received claim\nIdentity still needs evidence', focus=True),
-        ], P('신뢰 경계 · 클라이언트가 보낸 값과 서버가 확인한 사실의 구분',
-             'Trust boundary · client-supplied values and server-verified facts'))),
+            M(0, 0, '맛집 생성 요청 작성\nuserId=u123', 'Prepare a restaurant creation request\nuserId=u123'),
+            M(0, 0, '전송 전 다른 계정의 ID로 변경\nuserId=u999', 'Replace with another account’s ID\nuserId=u999', focus=True),
+            M(0, 1, 'POST /api/restaurants\n요청 본문 · userId=u999', 'POST /api/restaurants\nRequest body · userId=u999'),
+            M(1, 1, '이 값만 믿고 u999에 연결하면\n다른 계정의 요청으로 오인 가능', 'Trusting this value can link\nthe request to the wrong account', focus=True),
+        ], P('요청 본문의 ID로 계정을 연결한다고 가정한 사례',
+             'Hypothetical design: link an account using the ID in the request body'))),
     'password-hash': resource(
-        flow([(P('비밀번호 입력', 'Password input'), P('가입 또는 로그인 시 입력', 'Entered at signup or login')),
-              (P('비밀번호 전용 해시', 'Password hashing'), P('추측 비용을 높이는 계산', 'Computation that makes guessing costly')),
-              (P('검증 정보 저장', 'Store verification data'), P('원문 대신 비교에 필요한 값', 'Data for verification, not plaintext'))],
-             P('저장값을 복호화하는 대신 입력과의 일치 여부 검증', 'Verify a match to the input without decrypting a stored password')),
-        table([P('저장 방식', 'Storage method'), P('유출 시 의미', 'Effect of disclosure')], [
+        flow([(P('비밀번호 설정', 'Set a password'), P('u123 계정의 비밀번호 입력', 'Enter a password for u123')),
+              (P('전용 해시 함수', 'Password hashing function'), P('검증값 계산', 'Compute the password hash')),
+              (P('해시 보관', 'Store the hash'), P('u123 → hash-A', 'u123 → hash-A'))],
+             P('hash-A는 검증값을 나타내는 설명용 기호', 'hash-A is a placeholder for a password hash')),
+        table([P('저장 방식', 'Storage method'), P('DB 유출 시', 'If the database is compromised')], [
             [P('비밀번호 원문', 'Plaintext password'), P('비밀번호 자체가 노출', 'The password itself is exposed')],
-            [P('비밀번호 해시', 'Password hash'), P('추측과 검증 시도는 여전히 가능', 'Guessing and verification attempts remain possible')],
+            [P('비밀번호 해시', 'Password hash'), P('원문은 직접 드러나지 않음 · 추측 공격은 가능', 'No direct plaintext exposure; password guessing remains possible')],
         ])),
     'password-salt': resource(
-        table([P('계정', 'Account'), P('입력 비밀번호', 'Password'), P('계정별 솔트', 'Per-account salt'), P('검증 정보', 'Verification data')], [
-            [P('u123'), P('same-password'), P('salt-A'), P('salt-A + hash-A')],
-            [P('u456'), P('same-password'), P('salt-B'), P('salt-B + hash-B')],
-        ]),
-        flow([(P('서로 다른 솔트', 'Different salts'), P('계정마다 생성한 무작위 값', 'A random value generated per account')),
-              (P('서로 다른 해시', 'Different hashes'), P('같은 비밀번호도 다른 결과', 'Different results for the same password')),
-              (P('검증 시 재사용', 'Reuse for verification'), P('해당 계정에 저장된 솔트 사용', 'Use the salt stored for that account'))],
-             P('salt-A·hash-A 등은 도식용 기호 · 솔트는 해시와 함께 보관 가능',
-               'salt-A and hash-A are symbolic labels · salts may be stored with hashes'))),
+        table([P('계정', 'Account'), P('설정 시 입력 비밀번호', 'Password entered at setup'), P('저장할 솔트', 'Salt to store'), P('저장할 해시', 'Hash to store')], [
+            [P('u123'), P('same-password'), P('salt-A'), P('hash-A')],
+            [P('u999'), P('same-password'), P('salt-B'), P('hash-B')],
+        ])),
     'http-stateless': resource(
         Q([BROWSER, SERVER], [
             M(0, 1, '① 로그인 요청', '① Login request'),
-            M(1, 1, '현재 요청의 사용자 확인', 'Identify user for this request'),
-            M(1, 0, '로그인 결과', 'Login result', reply=True),
-            M(0, 1, '② 새로운 맛집 조회 요청', '② New request for places', focus=True),
-            M(1, 1, '이전 인증 결과가\n자동으로 포함되지 않음', 'Previous authentication is\nnot included automatically', focus=True),
-        ], P('요청 사이의 사용자 연결 정보는 애플리케이션에서 별도로 관리',
-             'The application manages the information linking a user across requests'))),
+            M(1, 1, '비밀번호 검증 성공\n현재 요청의 사용자 u123', 'Password verified\nUser for this request: u123'),
+            M(1, 0, '로그인 결과', 'Authentication result', reply=True),
+            M(0, 1, '② 맛집 생성 요청\n사용자를 확인할 정보 없음', '② Create a restaurant\nNo user credential attached', focus=True),
+            M(1, 1, '이 요청도 u123의 요청인지\n판단할 근거 부족', 'Insufficient evidence that\nthis request is from u123', focus=True),
+        ], P('로그인 유지 수단을 아직 적용하지 않은 상황',
+             'Example without a mechanism for maintaining login state'))),
     'token-signature': resource(
-        table([P('검증할 증표', 'Credential to verify'), P('신뢰하는 키로 검증', 'Verify with a trusted key'), P('판단', 'Result')], [
-            [P('사용자 u123 + 발급된 서명', 'User u123 + issued signature'), P('내용과 서명의 일치', 'Content and signature match'), P('무결성 확인', 'Integrity verified')],
-            [P('사용자 u999 + 기존 서명', 'User u999 + unchanged signature'), P('내용만 바뀌어 불일치', 'Modified content no longer matches'), P('검증 실패', 'Verification fails')],
+        table([P('토큰의 사용자 정보', 'User data in token'), P('첨부된 서명', 'Attached signature'), P('신뢰하는 키로 검증', 'Verification with a trusted key')], [
+            [P('u123 · 발급 당시 내용', 'u123 · original content'), P('signature-A'), P('서명 검증 성공', 'Signature verification passes')],
+            [P('u999 · 사용자 정보 변경', 'u999 · altered user data'), P('signature-A · 그대로 사용', 'signature-A · unchanged'), P('서명 검증 실패', 'Signature verification fails')],
         ]),
         note('검증자는 신뢰하는 발급자의 키와 방법을 사용 · 서명만으로 내용이 숨겨지지는 않음',
              'Verification uses a trusted issuer’s key and method · signing does not hide the content')),
     'auth-expiry': resource(
-        timeline([(P('09:00'), P('인증 상태 생성', 'Authentication established'), P('세션 또는 JWT 발급', 'Session or JWT issued')),
-                  (P('09:30'), P('유효 기간 종료', 'Validity ends'), P('서버 세션 종료 또는 exp 도달', 'Session expires or exp is reached')),
-                  (P('09:31'), P('같은 값으로 요청', 'Request with the same value'), P('서버의 인증 수용 거부', 'Server rejects the credential'))],
-                 P('시간은 설명용 예시 · 브라우저의 보관 여부와 서버의 유효성 판단은 별도',
-                   'Illustrative times · browser storage and server validity are separate')),
+        timeline([(P('09:00'), P('u123 로그인 성공', 'u123 logs in'), P('세션 또는 JWT 발급', 'Session or JWT issued')),
+                  (P('09:10'), P('유효 기간 내 요청', 'Request before expiration'), P('다른 검증도 통과 → 인증 자격 수용', 'Other checks also pass → credential accepted')),
+                  (P('09:30'), P('유효 기간 종료', 'Credentials expire'), P('세션의 최대 수명 또는 JWT의 exp 도달', 'Session maximum lifetime or JWT exp reached')),
+                  (P('09:31'), P('같은 값으로 다시 요청', 'Request again with the same value'), P('값이 남아 있어도 만료로 인증 거부', 'Rejected as expired, even if still stored'))],
+                 None),
         table([P('방식', 'Method'), P('만료 판단의 기준', 'Expiration criteria')], [
-            [P('서버 세션', 'Server session'), P('마지막 활동 이후의 시간 · 생성 이후의 최대 수명', 'Idle time and maximum lifetime since creation')],
-            [P('JWT'), P('서명과 발급 조건 검증에 포함되는 exp', 'exp checked along with signature and other claims')],
+            [P('서버 세션', 'Server-side session'), P('비활동 시간 · 생성 후 최대 수명', 'Idle timeout and absolute session lifetime')],
+            [P('JWT'), P('exp에 기록된 만료 시각', 'Expiration time recorded in exp')],
         ])),
     'refresh-token': resource(
         Q([BROWSER, API, AUTH], [
-            M(0, 1, '액세스 토큰으로 데이터 요청', 'Data request with access token'),
+            M(0, 1, '액세스 토큰 A로 데이터 요청', 'Data request with access token A'),
             M(1, 0, '만료된 토큰 거부', 'Expired token rejected', reply=True),
             M(0, 2, '리프레시 토큰으로 갱신 요청', 'Refresh request with refresh token', focus=True),
-            M(2, 2, '갱신 자격 확인', 'Validate renewal credentials'),
-            M(2, 0, '새 액세스 토큰', 'New access token', reply=True),
-            M(0, 1, '새 액세스 토큰으로 재요청', 'Retry with new access token'),
-        ], P('갱신 자격은 인증 시스템에 제출 · 데이터 API에는 액세스 토큰 제출',
-             'Refresh credentials go to the auth system · the data API receives access tokens'))),
+            M(2, 2, '갱신 자격 확인\n만료·철회 시 거부', 'Validate the refresh token\nReject if expired or revoked'),
+            M(2, 0, '검증 성공 시 새 액세스 토큰 B', 'New access token B if valid', reply=True),
+            M(0, 1, '새 액세스 토큰 B로 재요청', 'Retry with new access token B'),
+        ], P('로그인 시 리프레시 토큰도 발급받아 보관한 사례 · 갱신용 자격도 보호 필요',
+             'Example with a refresh token issued at login; refresh tokens also require protection'))),
     'oidc': resource(
-        branches(P('외부 제공자', 'External provider'), P('OIDC를 지원하는 인증 결과', 'Authentication using OIDC'), [
-            (P('ID 토큰 → FoodMap', 'ID token → FoodMap'), P('신원 확인\n서명 · iss · aud · exp 검증', 'Identify the user\nVerify signature, iss, aud and exp')),
-            (P('액세스 토큰 → 외부 API', 'Access token → external API'), P('허용된 외부 데이터 접근\n대상 API의 접근 조건 확인', 'Access approved external data\nThe target API checks access conditions')),
-        ], P('토큰의 목적과 받아들이는 대상을 함께 구분', 'Distinguish both the token’s purpose and its intended recipient'))),
+        table([P('토큰', 'Token'), P('확인하는 곳', 'Verified by'), P('사용 목적', 'Purpose')], [
+            [P('ID 토큰', 'ID token'), P('FoodMap 서버', 'FoodMap server'), P('외부 제공자가 인증한 사용자 확인', 'Identify the user authenticated by the provider')],
+            [P('액세스 토큰', 'Access token'), P('외부 프로필 API', 'External profile API'), P('허용된 프로필 정보 읽기', 'Read the permitted profile information')],
+        ]),
+        right=[flow([(P('외부 제공자가 ID 토큰 전달', 'The provider sends an ID token'),
+                      P('외부 제공자의 사용자 인증 결과를 FoodMap 서버에 전달', 'Send the provider’s user authentication result to the FoodMap server')),
+                     (P('FoodMap 서버가 토큰 검증', 'The FoodMap server validates it'),
+                      P('서명·발급자·수신 대상·만료 등 확인', 'Check signature, issuer, audience and expiry')),
+                     (P('FoodMap 서버가 사용자 확인', 'The FoodMap server identifies the user'),
+                      P('검증 성공 시 해당 외부 계정의 사용자로 확인', 'If valid, identify the user of that external account'))],
+                    P('검증 실패 시 인증 결과 거부', 'Reject the result if validation fails'))]),
     'account-link': resource(
         table([P('발급자 iss', 'Issuer iss'), P('외부 ID sub', 'External ID sub'), P('내부 사용자 ID', 'Internal user ID')], [
             [P('provider-A'), P('42'), P('u123')],
             [P('provider-B'), P('42'), P('u456')],
         ]),
-        flow([(P('외부 신원 검증', 'Verify external identity'), P('발급자와 사용자 ID의 조합', 'Issuer and subject together')),
-              (P('내부 계정 대응', 'Map to an internal account'), P('확인된 연결 기록 조회', 'Look up the verified association')),
-              (P('서비스 기록 연결', 'Associate service records'), P('내부 ID로 제보 유지', 'Keep reports linked by internal ID'))],
-             P('이메일·표시 이름 일치만으로 자동 병합하지 않음 · 연결 추가 시 양쪽 계정 확인',
-               'Matching email or name is insufficient for merging · linking requires verification of both accounts'))),
+        flow([(P('ID 토큰 검증', 'Validate the ID token'), P('서명·발급자·수신 대상·만료', 'Signature, issuer, audience, expiry')),
+              (P('연결 기록 조회', 'Look up the association'), P('검증된 provider-A + 42', 'Verified provider-A + 42')),
+              (P('내부 계정 확인', 'Identify the local account'), P('연결된 사용자 u123', 'Associated user u123'))],
+             P('이미 연결된 외부 계정으로 로그인하는 사례',
+               'Signing in with an external account already linked to the service'))),
     'social-session': resource(
         Q([P('외부 제공자', 'External provider'), SERVER, BROWSER], [
-            M(0, 1, '외부 인증 결과', 'External authentication result'),
-            M(1, 1, '검증 후 내부 계정 u123 연결', 'Verify and map to internal user u123'),
+            M(0, 1, 'ID 토큰 · provider-A / 42', 'ID token · provider-A / 42'),
+            M(1, 1, 'ID 토큰 검증 후\n연결 기록에서 u123 확인', 'Verify ID token\nFind linked user u123'),
             M(1, 2, 'FoodMap 세션 또는 토큰 발급', 'Issue FoodMap session or token', reply=True, focus=True),
-            M(2, 1, 'FoodMap 로그인 자격으로 API 요청', 'Call API with FoodMap credentials', focus=True),
-            M(1, 1, '서비스가 수용하는 자격 검증', 'Validate the service credential'),
+            M(2, 1, '맛집 생성 요청 + FoodMap 로그인 자격', 'Create restaurant + FoodMap credentials', focus=True),
+            M(1, 1, 'FoodMap 자격 검증\n현재 요청의 사용자 u123', 'Verify FoodMap credentials\nUser for this request: u123'),
         ], P('외부 제공자의 액세스 토큰은 해당 외부 API 접근에 사용',
              'The external provider’s access token is used for its external API'))),
     'role-access': resource(
-        table([P('확인된 역할', 'Verified role'), P('제보 작성', 'Submit report'), P('전체 제보 조회', 'View all reports')], [
-            [P('일반 사용자', 'Member'), P('허용', 'Allow'), P('거부', 'Deny')],
-            [P('운영자', 'Operator'), P('허용', 'Allow'), P('허용', 'Allow')],
+        table([P('확인된 역할', 'Verified role'), P('제보 작성', 'Submit report'), P('맛집 생성', 'Create place'), P('전체 제보 조회', 'View all reports')], [
+            [P('일반 사용자', 'Regular user'), P('허용', 'Allow'), P('거부', 'Deny'), P('거부', 'Deny')],
+            [P('운영자', 'Operator'), P('허용', 'Allow'), P('허용', 'Allow'), P('허용', 'Allow')],
         ]),
-        note('FoodMap 예시 정책 · 역할은 서버가 신뢰하는 기록에서 확인',
-             'Example FoodMap policy · roles come from records trusted by the server')),
+        note('FoodMap 정책 설계 예시', 'Example FoodMap policy design')),
     'owner-access': resource(
         concepts('소유자 검사 - 요청자와 대상 데이터의 관계 확인', 'Ownership check - verify the requester’s relation to the target',
                  P('인증으로 확인한 사용자 ID와 행에 저장된 소유자 ID 비교',
@@ -152,22 +156,25 @@ RESOURCES = {
         table([P('확인된 요청자', 'Verified requester'), P('대상 제보', 'Target report'), P('저장된 소유자', 'Stored owner'), P('조회·수정', 'Read or edit')], [
             [P('u123'), P('r101'), P('u123'), P('허용', 'Allow')],
             [P('u123'), P('r102'), P('u456'), P('거부', 'Deny')],
-        ])),
+        ]), note('확장 설계 예시 · 일반 사용자는 본인 제보만 조회·수정',
+                 'Extended design example · members may read or edit only their own reports')),
     'default-deny': resource(
         branches(P('요청의 허용 조건 확인', 'Check the allow condition'),
-                 P('행동 · 역할 · 대상 데이터의 관계', 'Action, role and relation to target data'), [
-            (P('조건 충족 → 허용', 'Condition met → allow'), P('정해진 공개 조회\n확인된 역할·소유 관계', 'Defined public reads\nVerified role or ownership')),
-            (P('그 밖의 경우 → 거부', 'Otherwise → deny'), P('규칙 없음 · 정보 부족\n알 수 없는 역할', 'No rule or missing information\nUnknown role')),
-        ], P('공개 조회도 명시적인 허용 규칙에 포함', 'Public reads are also covered by an explicit allow rule'))),
+                 P('규칙이 요구하는 역할·소유 관계 검사', 'Check the role or ownership required by the rule'), [
+            (P('조건 충족 → 허용', 'Condition met → allow'), P('공개 맛집 조회\n로그인 없이도 공개 규칙 충족', 'Read public places\nPublic-read rule met without login')),
+            (P('조건 불충족 → 거부', 'Condition not met → deny'), P('일반 사용자 u123의 r102 수정\n저장된 소유자는 u456', 'Member u123 edits r102\nStored owner is u456')),
+        ], P('허용 규칙이 없거나 필요한 근거를 확인하지 못한 요청도 거부',
+             'Also deny when no allow rule applies or required evidence cannot be verified'))),
     'api-access': resource(
         Q([P('사용자 요청', 'User request'), API, P('DB')], [
-            M(0, 1, '화면 버튼 없이도 직접 API 요청 가능', 'Can call the API without a UI button'),
-            M(1, 1, '① 로그인 자격 검증', '① Validate login credential'),
-            M(1, 1, '② 행동·대상의 권한 확인\n실패 시 처리 중단', '② Check action and target\nStop if unauthorized', focus=True),
-            M(1, 2, '허용된 요청만 데이터 처리', 'Process only authorized requests'),
-            M(2, 1, '처리 결과', 'Result', reply=True),
+            M(0, 1, '맛집 생성 API 직접 요청', 'Call the create-place API directly'),
+            M(1, 1, '① 로그인 자격 검증\n실패 → 생성 거부', '① Verify login credential\nInvalid → deny creation'),
+            M(1, 1, '② 신뢰하는 역할 확인\n운영자가 아니면 생성 거부', '② Check trusted role\nNot an operator → deny', focus=True),
+            M(1, 2, '허용된 경우에만 맛집 생성', 'Create a place only if allowed'),
+            M(2, 1, '생성 결과', 'Creation result', reply=True),
             M(1, 0, '응답', 'Response', reply=True),
-        ], P('화면의 표시 조건과 서버의 접근 제어는 서로 다른 역할', 'UI visibility and server access control serve different roles'))),
+        ], P('FoodMap 맛집 생성 사례 · 버튼 표시와 관계없이 서버에서 권한 검사',
+             'FoodMap creation example · server permission checks apply regardless of button visibility'))),
     'rls': resource(
         code(P('Supabase · 자기 제보 SELECT 정책', 'Supabase · read-own-report policy'),
              'alter table public.reports\n  enable row level security;\n\ncreate policy "read own reports"\non public.reports for select\nto authenticated\nusing ((select auth.uid()) = user_id);', width=48),
@@ -180,21 +187,22 @@ RESOURCES = {
         ]), note('u123·u456은 UUID의 축약 표시 · auth.uid()는 Supabase Auth가 검증한 사용자 ID',
                  'u123 and u456 abbreviate UUIDs · auth.uid() is the identity verified by Supabase Auth')]),
     'api-keys': resource(
-        table([P('자격정보', 'Credential'), P('식별·권한의 대상', 'Identity or authority'), P('배치 위치', 'Placement'), P('DB 접근', 'Database access')], [
-            [P('publishable key'), P('애플리케이션', 'Application'), P('브라우저 사용 가능', 'May be used in browser'), P('사용자 문맥과 RLS 정책 적용', 'User context and RLS policies apply')],
-            [P('secret key'), P('서버의 특권 접근', 'Privileged server access'), P('서버 전용', 'Server only'), P('RLS 우회 가능 · API 인가 필요', 'Bypasses RLS · API authorization required')],
-            [P('사용자 JWT', 'User JWT'), P('로그인한 사용자', 'Signed-in user'), P('해당 사용자의 요청', 'That user’s requests'), P('검증된 사용자 정보 제공', 'Provides verified user context')],
+        table([P('Supabase 자격정보', 'Supabase credential'), P('식별·권한의 대상', 'Identity or authority'), P('사용 방식', 'Usage'), P('DB 접근', 'Database access')], [
+            [P('publishable key'), P('애플리케이션', 'Application'), P('단독: anon · JWT와 함께: authenticated', 'Alone: anon · with JWT: authenticated'), P('활성화된 RLS 정책 적용', 'Subject to enabled RLS policies')],
+            [P('secret key'), P('서버의 특권 접근', 'Privileged server access'), P('서버 전용', 'Server only'), P('RLS 우회 · API 권한 검사', 'Bypasses RLS · authorize in API')],
+            [P('사용자 JWT', 'User JWT'), P('로그인한 사용자', 'Signed-in user'), P('공개 앱 키와 함께 전송', 'Send with publishable app key'), P('검증 후 사용자 문맥 제공', 'Verified user context')],
         ]),
         note('공개 가능한 앱 키만으로 로그인한 개인의 신원이 증명되지는 않음',
              'A publishable application key alone does not prove a user’s identity')),
     'foodmap-policy': resource(
         table([P('행위자 · 행동', 'Actor and action'), P('대상', 'Target'), P('API 검사', 'API check'), P('RLS 적용 경로의 조건', 'Condition on an RLS path')], [
             [P('누구나 · 맛집 조회', 'Anyone · read places'), P('공개 목록', 'Public list'), P('공개 조회 규칙', 'Public-read rule'), P('공개 대상 행', 'Publicly readable rows')],
-            [P('작성자 · 제보 조회·수정', 'Author · read or edit report'), P('본인의 제보', 'Own reports'), P('사용자 ID = 소유자 ID', 'User ID = owner ID'), P('소유자 일치 · 작업별 정책', 'Owner match · policy for each operation')],
+            [P('운영자 · 맛집 생성', 'Operator · create place'), P('새 맛집', 'New place'), P('신뢰하는 운영자 역할', 'Trusted operator role'), P('운영자 조건의 INSERT 정책', 'Operator-only INSERT policy')],
+            [P('작성자 · 제보 조회·수정', 'Author · read or edit report'), P('본인의 제보', 'Own reports'), P('사용자 ID = 소유자 ID', 'User ID = owner ID'), P('소유자 일치 · 작업별 정책', 'Owner policy per operation')],
             [P('운영자 · 전체 제보 조회', 'Operator · read all reports'), P('전체 제보', 'All reports'), P('신뢰하는 운영자 역할', 'Trusted operator role'), P('검증된 운영자 문맥', 'Verified operator context')],
         ]),
-        note('FoodMap 설계 예시 · 특권 키 경로에서는 API가 정책 적용 · SELECT 정책만으로 수정 권한까지 완성되지 않음',
-             'Example policy · the API enforces rules on a privileged-key path · SELECT policies do not grant edit access')),
+        note('FoodMap 확장 설계 예시 · 특권 키 경로의 권한 검사는 API에서 수행',
+             'Extended FoodMap design example · the API authorizes privileged-key requests')),
 }
 
 RESOURCES.update({
@@ -407,4 +415,38 @@ RESOURCES.update({
                'Example recovery of deleted reports · choose a method supported by the data store'))),
 })
 
-assert len(RESOURCES) == 44
+
+
+# Active, implementation-aligned Chapter 3. Earlier definitions are historical.
+from chapter03_content import MEDIA as CHAPTER3_MEDIA
+RESOURCES.pop('oidc')
+RESOURCES['account-link']['columns'] = CHAPTER3_MEDIA['account-link']
+RESOURCES['social-session']['columns'] = CHAPTER3_MEDIA['social-session']
+
+# Active beginner-facing Chapter 4.
+from chapter04_content import MEDIA as CHAPTER4_MEDIA
+RESOURCES.pop('default-deny')
+RESOURCES.pop('rls')
+RESOURCES.pop('foodmap-policy')
+RESOURCES['role-access']['columns'] = CHAPTER4_MEDIA['role-access']
+RESOURCES['owner-access']['columns'] = CHAPTER4_MEDIA['owner-access']
+RESOURCES['api-access']['columns'] = CHAPTER4_MEDIA['api-access']
+RESOURCES['api-keys']['columns'] = CHAPTER4_MEDIA['api-keys']
+
+# Active beginner-facing Chapter 5.
+from chapter05_content import MEDIA as CHAPTER5_MEDIA
+for ident in ('admin-boundary','publication-state','audit-log'):
+    RESOURCES.pop(ident)
+for ident, columns in CHAPTER5_MEDIA.items():
+    RESOURCES[ident] = dict(layout='single', columns=columns)
+
+# Web attacks and defenses are deferred to next week's lecture.
+from curriculum_scope import DEFERRED_SECURITY_IDS
+for ident in DEFERRED_SECURITY_IDS:
+    RESOURCES.pop(ident, None)
+
+from chapter06_content import MEDIA as CHAPTER6_MEDIA, RETIRED as CHAPTER6_RETIRED
+for ident in CHAPTER6_RETIRED:
+    RESOURCES.pop(ident)
+for ident, columns in CHAPTER6_MEDIA.items():
+    RESOURCES[ident] = dict(layout='single', columns=columns)
