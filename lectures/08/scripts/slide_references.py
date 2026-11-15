@@ -10,6 +10,10 @@ from new_resources import RESOURCES as NEW
 from research_new_resources import ROWS, SOURCES
 from reused_resources import RESOURCES as REUSED, PDF
 from title_outline import proposal
+from chapter03_content import SOURCES as CHAPTER3_SOURCES
+from chapter04_content import SOURCES as CHAPTER4_SOURCES
+from chapter05_content import SOURCES as CHAPTER5_SOURCES
+from chapter06_content import SOURCES as CHAPTER6_SOURCES
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -23,7 +27,12 @@ def outputs():
         for s in chapter['concepts']:
             ident = s['id']
             refs = []
-            if ident in REUSED:
+            if chapter['number'] in (3,4,5,6):
+                refs = [dict(label=label, url=url, type='official-document', use='초심자 실습 흐름과 용어 검토') for label, url in {3:CHAPTER3_SOURCES,4:CHAPTER4_SOURCES,5:CHAPTER5_SOURCES,6:CHAPTER6_SOURCES}[chapter['number']]]
+                adaptation = s['example']
+                origin = '실제 8주차 프로젝트 코드와 공식 문서 기반'
+                assets = [f'chapter{chapter["number"]:02}_content.py']
+            elif ident in REUSED:
                 resource = REUSED[ident]
                 for page in resource['pages']:
                     refs.append(dict(label=f'PWD Week6 원본 PDF · {page}쪽',
@@ -37,7 +46,8 @@ def outputs():
                 assets = resource['assets']
             else:
                 assert ident in NEW
-                r = research[s['outline_number']]
+                source_number = f"{chapter.get('source_number', chapter['number'])}.{s['outline_number'].split('.')[1]}"
+                r = research[source_number]
                 for sid in r['source_ids']:
                     src = sources[sid]
                     refs.append(dict(label=src['title'], url=src['url'], type='official-document',
@@ -52,16 +62,16 @@ def outputs():
             rows.append(dict(slide_number=numbers[ident], outline_number=s['outline_number'],
                              id=ident, title=s['title'][0], chapter=chapter['number'],
                              origin=origin, assets=assets, adaptation=adaptation, references=refs))
-    assert len(rows) == 60 and all(r['references'] for r in rows)
+    assert len(rows) == 37 and all(r['references'] for r in rows)
     assert all(not s.get('sources') and not s.get('note') for s in SLIDES)
     for r in rows:
         for ref in r['references']:
             assert ref['url'].startswith(('https://', quote(PDF), 'new-resource-research/'))
     data = dict(updated_on='2026-11-07', numbering='표지·챕터 표지를 포함한 실제 화면의 1부터 시작하는 번호',
-                slide_count=68, content_count=60, reference_location='이 문서만 사용. 슬라이드 본문·숨김 노트에 출처 없음.', slides=rows)
+                slide_count=44, content_count=37, reference_location='이 문서만 사용. 슬라이드 본문·숨김 노트에 출처 없음.', slides=rows)
     intro = ['8주차 · 페이지별 자료 레퍼런스', '',
              '표지·챕터 표지를 포함한 화면 번호 기준. 설계 번호(예: 4.6)를 함께 표시.',
-             '본문 60장의 자료 출처와 수정 내용을 기록. 표지 1장과 챕터 표지 7장은 별도 외부 자료 없음.',
+             '본문 37장의 자료 출처와 수정 내용을 기록. 표지 1장과 챕터 표지 6장은 별도 외부 자료 없음.',
              'FoodMap 데이터·화면·정책·관측값은 강의용 사례이며 원문 자료의 실제 화면·측정 결과가 아님.',
              '레퍼런스는 이 문서에서 관리하며 슬라이드 화면과 숨김 노트에는 삽입하지 않음.', '']
     lines = list(intro)
@@ -107,4 +117,4 @@ if __name__ == '__main__':
             assert path.read_text() == content, f'Stale {path}'
         else:
             path.write_text(content)
-    print('Week 8 references: 60 content pages, sources separated from deck HTML and notes.')
+    print('Week 8 references: 37 content pages, sources separated from deck HTML and notes.')

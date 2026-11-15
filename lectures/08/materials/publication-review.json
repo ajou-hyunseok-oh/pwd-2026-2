@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-09",
+  "scope": "8주차 공개 및 GitHub Pages 배포",
+  "release_manifest": "released-lectures.txt에 08 추가",
+  "calendar_title": "웹 서비스 인증과 운영",
+  "links": [
+    "lectures/08/lab-review/index.html",
+    "lectures/08/index.html"
+  ],
+  "structure": "전체44장·본문37장·6개 챕터",
+  "validation": {
+    "full_suite": "npm test --prefix packages/web-deck 통과: 13개 덱 정적 검사, 173개 코드 블록·344개 언어 변형, 작성 하네스",
+    "windows_note": "기존 6주차 작업 파일의 CRLF를 검사 중에만 원본 해시와 일치하는 LF로 맞춘 후 원래 상태로 복구. 6주차 변경은 커밋하지 않음.",
+    "harness": "승인된 8주차 사용자 식별 동기 문장만 정확한 키·문자열로 예외 적용. HTML 기본값 비교는 CRLF를 브라우저와 같이 LF로 정규화.",
+    "generators": "제목·문단·본문·자료 배치·출처 --check 통과",
+    "published_build": "node scripts/build-pages.mjs로 01~08만 공개. 캘린더 제목·두 링크·9주차 비공개·8주차44장·한영 제목 확인",
+    "screenshots": ".tmp/week08-publish",
+    "english_review": "english-final-review.json의 영문132뷰 검증 유지",
+    "server": "file:// 검증. 로컬 웹 서버를 실행하지 않음"
+  },
+  "deployment": "main 푸시 후 Deploy GitHub Pages 워크플로 실행 및 공개 주소 확인 예정"
+}

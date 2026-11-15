@@ -1,0 +1,116 @@
+{
+  "reviewed_on": "2026-11-09",
+  "chapter": 6,
+  "slides": "39~44 (표지 1장·본문 5장)",
+  "counts": {
+    "previous_total": 49,
+    "current_total": 44,
+    "previous_content": 42,
+    "current_content": 37
+  },
+  "source_of_truth": "scripts/chapter06_content.py",
+  "scope": {
+    "assessment": "본문 10장을 로컬·배포 환경 → 환경변수 → 빌드·배포 → 주소 설정 → 동작 확인의 5장으로 통합.",
+    "boundary": "로컬과 배포가 같은 Supabase를 공유할 수 있는 실제 실습 구조. 별도 검증 환경·마이그레이션·백업·복원·지표 분석은 보충 자료. 보안 심화는 다음 주.",
+    "caution": "서버·클라이언트 소스와 실습서를 읽어 대조한 설명. 실환경 배포·로그인·DB 변경 실행 결과가 아님."
+  },
+  "slide_reviews": [
+    {
+      "number": 40,
+      "id": "environments",
+      "purpose": "내 컴퓨터 실행과 외부 주소 제공의 구분",
+      "example": "로컬 브라우저·Express와 배포 Vercel·Render·Supabase의 역할",
+      "content_assessment": "실행 환경은 프로그램이 동작하는 장소와 설정이다. 로컬 환경에서는 학생의 컴퓨터에서 Vite 개발 화면과 Express 서버를 실행한다. 배포 환경에서는 Vercel이 화면 파일을 제공하고 Render가 Express를 실행한다. 브라우저 SDK는 Supabase Auth로 인증을 요청하고 업무 요청은 Express를 거쳐 Supabase DB로 처리한다. 로컬과 배포 환경에 같은 Supabase 프로젝트를 설정하면 인증 계정과 업무 데이터를 공유할 수 있다. 별도 검증 환경이나 환경별 DB가 자동 구성된다고 설명하지 않는다. 도식의 화살표는 업무 요청 경로의 요약이며 Auth 직접 통신은 챕터3에서 배운 경로다."
+    },
+    {
+      "number": 41,
+      "id": "environment-config",
+      "purpose": "실행 위치에 맞춘 API·Supabase 연결값",
+      "example": "클라이언트 .env.local·서버 .env → 배포 서비스의 환경변수",
+      "content_assessment": "환경변수는 코드 밖에서 전달하는 이름과 설정값이며 .env 파일은 로컬 값을 저장하는 파일이다. 클라이언트는 .env.local의 VITE_API_BASE_URL·VITE_SUPABASE_URL·VITE_SUPABASE_PUBLISHABLE_KEY를 Vite에서 읽는다. 서버는 dotenv/config로 .env를 읽고 SUPABASE_URL·SUPABASE_SECRET_KEY·CLIENT_URL을 사용한다. 배포 서비스의 환경변수는 로컬 파일과 별도로 등록한다. 클라이언트와 서버의 Supabase URL은 같은 프로젝트를 가리키고 키는 각 실행 주체에 맞는 종류를 사용한다. Secret key를 VITE_ 변수에 넣지 않는다. 키 유출 대응 심화는 다음 주 보안 강의 범위다."
+    },
+    {
+      "number": 42,
+      "id": "deployment",
+      "purpose": "화면 파일 생성과 API 서버 실행의 구분",
+      "example": "React → Vite build → dist → Vercel / TypeScript → build → dist/server.js → Render npm start",
+      "content_assessment": "빌드는 소스를 실행·제공할 파일로 변환하는 과정이고 dist는 빌드 결과 폴더다. npm run build는 각 프로젝트의 package.json에 정의한 명령으로 클라이언트는 Vite 정적 파일을 만들고 서버는 TypeScript를 JavaScript로 변환한다. 현재 서버 빌드에는 copy-data.ts 실행도 포함되며 본문은 주 흐름을 발췌한다. Vercel은 dist의 화면 파일을 제공하고 Render는 npm start로 node dist/server.js를 실행해 API 요청을 받는다. 개발에서는 npm run dev를 사용한다. 클라이언트 설정 변경은 개발 서버 재시작 또는 배포 재빌드, 서버 실행값 변경은 프로세스 재시작으로 반영한다. Supabase SQL은 DB에서 별도 실행하므로 Git 업로드나 빌드만으로 테이블·함수가 바뀌지 않는다."
+    },
+    {
+      "number": 43,
+      "id": "deployment-urls",
+      "purpose": "API 연결 주소와 인증 후 돌아올 주소의 구분",
+      "example": "VITE_API_BASE_URL·CLIENT_URL·Site URL·Redirect URLs와 /auth/callback 연결",
+      "content_assessment": "API 기본 주소는 업무 요청을 보낼 Express 주소이며 VITE_API_BASE_URL에는 본인의 Render HTTPS 기본 주소를 넣는다. api.jsx가 /api/... 경로를 붙이므로 기본 주소에 /api를 중복 추가하지 않는다. CLIENT_URL은 화면의 프로토콜·호스트·포트로 이뤄진 기본 주소이며 경로나 끝 슬래시 없이 Vercel 주소를 등록한다. Supabase Site URL은 배포 화면 기본 주소이고 Redirect URLs에는 해당 주소의 /auth/callback을 등록한다. authApi.js는 window.location.origin에 /auth/callback을 붙여 redirectTo로 보낸다. vercel.json의 rewrite는 직접 접근도 index.html로 연결한다. 외부 제공자에서 Supabase로 돌아오는 콜백과 Supabase에서 Vercel로 돌아오는 주소는 다르다. 이 장은 배포 설정 적용이며 OAuth 전체 흐름과 CORS 원리는 반복하지 않는다."
+    },
+    {
+      "number": 44,
+      "id": "monitoring",
+      "purpose": "서버 응답부터 로그인·제보·승인까지 확인",
+      "example": "/health → 맛집 조회 → 로그인 → 제보 → 승인 / Network·서버 로그로 오류 위치 확인",
+      "content_assessment": "상태 확인 요청 health check는 서버 응답 여부를 확인하는 요청이다. 현재 app.ts의 /health는 {status:ok}를 반환하고 Supabase를 조회하지 않으므로 이 성공만으로 DB·Auth·승인 정상 여부를 판단할 수 없다. 공개 맛집 조회로 업무 DB 요청을 확인하고 이메일·Google·네이버 로그인과 내 프로필 확인, 일반 사용자의 제보 및 관리자의 승인 후 맛집 반영을 점검한다. 새로고침·로그아웃·재로그인도 확인한다. 브라우저 Network는 요청 주소·HTTP 상태와 응답을, Render 로그는 서버 실행과 오류 기록을 확인하는 도구다. 별도 함수에 기록하지 않은 모든 요청이 서버 로그에 자동 남는다고 설명하지 않는다. p95와 실패율 차트·상관관계 분석은 보충 자료다. 실제 배포 실행 결과가 아닌 구현 코드와 실습서의 점검 경로를 도식화했다."
+    }
+  ],
+  "implementation_evidence": [
+    "pwd-week8-client/src/config/environment.js",
+    "pwd-week8-client/src/config/supabase.js",
+    "pwd-week8-client/src/services/api.jsx",
+    "pwd-week8-client/src/services/authApi.js",
+    "pwd-week8-client/package.json",
+    "pwd-week8-client/vercel.json",
+    "pwd-week8-client/README.md 10절",
+    "pwd-week8-server/server.ts",
+    "pwd-week8-server/src/app.ts",
+    "pwd-week8-server/src/config/supabase.ts",
+    "pwd-week8-server/package.json",
+    "pwd-week8-server/scripts/check-db.ts",
+    "pwd-week8-server/supabase/schema.sql",
+    "pwd-week8-server/README.md 10절"
+  ],
+  "official_sources": [
+    {
+      "label": "Vite Environment Variables",
+      "url": "https://vite.dev/guide/env-and-mode"
+    },
+    {
+      "label": "Vite Production Build",
+      "url": "https://vite.dev/guide/build"
+    },
+    {
+      "label": "Supabase Redirect URLs",
+      "url": "https://supabase.com/docs/guides/auth/redirect-urls"
+    },
+    {
+      "label": "Render Express Deployment",
+      "url": "https://render.com/docs/deploy-node-express-app"
+    },
+    {
+      "label": "Vercel Vite",
+      "url": "https://vercel.com/docs/frameworks/frontend/vite"
+    }
+  ],
+  "supplement": "chapter06-supplement.ko.txt",
+  "validation": {
+    "languages": [
+      "ko",
+      "en"
+    ],
+    "views": 36,
+    "modes": [
+      "1312×818 발표(슬라이드1280×720)",
+      "1280×720 인쇄",
+      "390×844 모바일"
+    ],
+    "failures": 0,
+    "warnings": 0,
+    "visual_review": "한영 발표·인쇄·모바일 하단 연락 시트 육안 검토. 모든 모바일 슬라이드 스크롤 끝 도달 검사.",
+    "artifacts": ".tmp/chapter06-beginner",
+    "static": "validate.cjs·git diff --check 통과",
+    "generators": "제목·문단·본문·배치·출처 --check 통과",
+    "reproducible": "HTML·한영 번역·슬라이드 맵 재생성 해시 동일",
+    "suite_limit": "npm test --prefix packages/web-deck는 validate 통과 뒤 prettier 모듈 부재로 중단",
+    "server": "file://로 검증하여 로컬 웹 서버를 실행하지 않음",
+    "runtime_limit": "실환경 배포·로그인·DB 변경은 실행하지 않음. 기존 실습의 코드와 실습서 및 공식 문서를 읽어 설명을 대조."
+  },
+  "final_assessment": "정의 → 실제 설정·빌드·배포·동작 확인 도식의 순서. SESSION_SECRET와 reports.review_status 가상 예시를 본문에서 제거하고 실제 변수·명령·주소 사용. 별도 검증 환경 및 DB 자동 분리를 가정하지 않음. 보안 공격·방어 챕터는 복원하지 않음."
+}

@@ -1,0 +1,49 @@
+챕터 4 보충 자료 — 접근 제어의 심화 범위
+
+현재 수업 본문: 28~32페이지. 용어 정의와 실제 권한 검사·본인 정보 처리·서버 DB 접근을 중심으로 설명.
+
+1. 일반적인 소유자 기반 접근 제어
+요청자와 데이터의 소유자 ID를 비교해 조회·수정 범위를 정하는 방식.
+이번 실습의 본문 사례는 PUT /api/users/profile의 검증된 req.auth.id 사용.
+일반 사용자의 자기 제보 조회·수정 API는 현재 구현된 기능이 아님.
+제보 생성 시 서버가 확인한 사용자 정보를 작성자로 저장하는 것과 제보 조회 권한은 별도.
+
+2. RLS 정책 작성
+32페이지 본문에서는 사용자 토큰·브라우저 키·서버 키의 구분에 집중하며, RLS 정의와 우회 경로는 이 보충 자료에서 설명한다.
+RLS(Row Level Security)는 DB 행별 접근 조건을 적용하는 기능.
+테이블 권한과 행 정책은 서로 다른 검사이며 RLS 활성화만으로 모든 요청이 허용되는 것은 아님.
+직접 사용자 문맥으로 Data API를 호출하는 설계에서는 적절한 SELECT·INSERT·UPDATE·DELETE 정책이 필요.
+UPDATE의 대상 행 조건과 변경 뒤 값의 조건은 구분해 설계.
+현재 실습은 업무 테이블의 anon·authenticated 권한을 회수하고 Express의 Secret key 경로로 접근.
+이 구조를 브라우저의 사용자별 RLS 정책 예시와 혼합하지 않음.
+
+3. 프로그램의 접근 자격과 사용자 역할
+Publishable key는 브라우저 SDK에서, Secret key는 서버에서 사용.
+사용자 액세스 토큰은 어떤 사용자의 요청인지 확인하는 별도 자격.
+profiles.user_type의 admin은 FoodMap 서비스 역할이며 DB의 service_role과 다른 개념.
+Secret key의 특권 요청은 RLS를 우회하므로 서버의 요청별 인가가 필수.
+관리자 화면을 쓰는 사용자에게 서버 전용 키를 전달하지 않음.
+
+4. 기본 거부와 오류 구분
+요청에 필요한 조건을 확인하지 못하면 작업 실행 중단.
+공개 맛집 조회는 명시적으로 로그인 없이 허용한 기능.
+현재 코드에서 토큰 누락·무효는 401, 관리자 역할 부족은 403.
+프로필 누락·비활성은 403, 인증 서비스 장애는 503일 수 있으므로 모든 오류를 401로 처리하지 않음.
+승인 대상 상태, 마지막 관리자 보호, 트랜잭션 등 업무 조건은 이후 관리자 업무 챕터의 범위.
+
+구현 근거
+pwd-week8-server/src/routes/restaurants.routes.ts
+pwd-week8-server/src/routes/users.routes.ts
+pwd-week8-server/src/routes/submissions.routes.ts
+pwd-week8-server/src/middleware/auth.middleware.ts
+pwd-week8-server/src/controllers/users.controller.ts
+pwd-week8-server/src/services/users.service.ts
+pwd-week8-server/src/config/supabase.ts
+pwd-week8-server/supabase/schema.sql
+pwd-week8-client/src/components/AdminRoute.jsx
+
+공식 자료
+https://expressjs.com/en/guide/using-middleware.html
+https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
+https://supabase.com/docs/guides/getting-started/api-keys
+https://supabase.com/docs/guides/database/postgres/row-level-security

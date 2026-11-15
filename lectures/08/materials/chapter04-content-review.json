@@ -1,0 +1,219 @@
+{
+  "reviewed_on": "2026-11-09",
+  "chapter": 4,
+  "slides": "27~32 (표지 1장, 본문 5장)",
+  "purpose": "초심자가 용어를 정의하고 실제 요청의 인증·인가·본인 데이터·DB 접근 경로를 설명",
+  "counts": {
+    "previous_total": 65,
+    "current_total": 62,
+    "previous_body": 57,
+    "current_body": 54
+  },
+  "source_of_truth": "scripts/chapter04_content.py",
+  "slide_reviews": [
+    {
+      "number": 28,
+      "id": "authorization",
+      "purpose": "사용자 확인과 작업 허용 판단의 구분",
+      "example": "맛집 생성 요청에서 로그인 사용자 확인 후 관리자 역할을 별도 판단",
+      "content_assessment": "인증은 요청한 사용자를 확인하는 과정이고 인가는 그 사용자에게 특정 작업을 허용할지 판단하는 과정이다. 챕터 3의 토큰 검증·프로필 조회 결과를 이어받되 로그인 성공 자체가 맛집 생성 허용을 뜻하지 않음을 설명한다. 본문 정의 뒤 사용자 확인 → 관리자 역할 검사 → 허용된 맛집 생성의 흐름을 배치한다. 실제 restaurants.routes.ts의 isAuthenticated·requireAdmin·controller.create 순서가 근거다."
+    },
+    {
+      "number": 29,
+      "id": "role-access",
+      "purpose": "일반 사용자와 관리자의 기능 사용 범위",
+      "example": "실제 라우트에 맞춘 공개 조회·본인 정보·제보 작성·관리 작업의 권한 표",
+      "content_assessment": "역할은 사용자의 기능 사용 범위를 구분하는 기준이며 실습의 user와 admin을 일반 사용자와 관리자로 정의한다. 역할은 클라이언트가 적어 보낸 표시가 아니라 서버가 조회한 profiles.user_type에서 확인한다. 공개 맛집 조회, 본인 프로필 수정, 로그인 사용자의 제보 작성, 관리자 맛집·제보 관리와 역할 변경을 실제 라우트에 맞춰 비교한다. 일반 사용자의 자기 제보 조회·수정은 현재 실습 기능이 아니므로 허용 기능에 넣지 않는다. 관리자 작업은 추가 업무 조건에도 제한될 수 있으며 역할만으로 모든 DB 변경이 무조건 성공한다고 설명하지 않는다."
+    },
+    {
+      "number": 30,
+      "id": "owner-access",
+      "purpose": "서버가 확인한 사용자 ID로 수정 대상 결정",
+      "example": "PUT /api/users/profile → req.auth.id → 같은 ID의 profiles 수정",
+      "content_assessment": "본인 정보는 인증된 사용자 ID에 연결된 개인 데이터다. req.auth는 인증 검사 뒤 요청에 연결한 프로필 정보이며 req.auth.id는 서버가 확인한 ID다. 브라우저는 이름·이미지 입력을 보내지만 서버의 users.controller.ts는 updateProfile(req.auth.id, req.body)를 호출하고 users.service.ts가 같은 ID의 profiles 행만 수정한다. 본문의 userId는 신뢰하지 않을 입력을 설명하는 이름이며 실제 요청에 그 필드를 요구하는 것은 아니다. 가상의 제보 소유자 정책 대신 현재 구현의 본인 프로필 수정을 사례로 사용한다."
+    },
+    {
+      "number": 31,
+      "id": "api-access",
+      "purpose": "요청한 기능을 실행하기 전 인증과 관리자 권한 검사",
+      "example": "POST /api/restaurants → isAuthenticated → requireAdmin → controller.create",
+      "content_assessment": "미들웨어는 요청한 기능 실행 전에 공통 조건을 확인하는 함수다. POST /api/restaurants는 isAuthenticated로 Bearer 토큰·프로필·활성 상태를 확인하고 requireAdmin으로 req.auth.userType을 검사한 뒤 controller.create를 실행한다. 필요한 검사에 실패하면 다음 단계로 진행하지 않는다. 토큰 누락·무효는 401, 관리자 역할 부족은 403으로 구분한다. 실제 구현은 프로필 누락·비활성에 403, 인증 서비스 장애에 503도 사용할 수 있으므로 모든 실패를 두 상태로 일반화하지 않는다. React의 AdminRoute는 화면 접근을 안내하지만 서버 권한 검사를 대신하지 않는다."
+    },
+    {
+      "number": 32,
+      "id": "api-keys",
+      "purpose": "사용자 토큰과 서버 전용 키의 역할 구분",
+      "example": "브라우저의 사용자 토큰 → Express 인가 → Secret key로 DB 접근. RLS와 현재 접근 경로의 차이",
+      "content_assessment": "API 키는 프로그램의 Supabase 프로젝트 접근 자격이며 개인 사용자의 액세스 토큰과 구분한다. 브라우저 SDK는 Publishable key, Express의 getSupabase는 SUPABASE_SECRET_KEY를 사용한다. RLS는 Row Level Security, DB의 행별 접근 제어다. 현재 schema.sql은 업무 테이블의 RLS를 활성화하면서 anon·authenticated의 테이블 권한을 회수하고 service_role에만 업무 접근을 허용한다. 이 서버 특권 경로는 RLS를 우회하므로 Express의 사용자·역할 검사와 검증된 본인 ID 선택이 필요하다. 브라우저가 직접 업무 테이블에 접근하는 사용자별 RLS 정책 사례와 현재 경로를 섞지 않는다. 프로젝트의 admin 역할과 DB의 service_role은 다른 기준이며 Secret key를 브라우저에 전달하지 않는다."
+    }
+  ],
+  "reevaluation": {
+    "assessment": "본문 8장을 5장으로 통합. 용어 정의 → 실제 허용 기능 → 본인 ID → 미들웨어 흐름 → 키와 DB 경로 순서.",
+    "boundary": "클라이언트·서버·DB의 책임을 구분하고 실제 구현과 확장 설계를 혼합하지 않음. RLS SQL·DB 역할 체계·범용 소유자 정책은 보충 자료. 승인 업무 조건과 트랜잭션은 챕터 5.",
+    "caution": "코드·스키마를 읽어 대조한 내용이며 실환경 로그인·DB 변경 테스트 결과가 아님. Secret key를 가진 서버에서 별도 인가를 수행하는 현재 구조를 설명."
+  },
+  "implementation_evidence": [
+    "pwd-week8-server/src/routes/restaurants.routes.ts",
+    "pwd-week8-server/src/routes/users.routes.ts",
+    "pwd-week8-server/src/routes/submissions.routes.ts",
+    "pwd-week8-server/src/middleware/auth.middleware.ts",
+    "pwd-week8-server/src/controllers/users.controller.ts",
+    "pwd-week8-server/src/services/users.service.ts",
+    "pwd-week8-server/src/config/supabase.ts",
+    "pwd-week8-server/supabase/schema.sql",
+    "pwd-week8-client/src/components/AdminRoute.jsx"
+  ],
+  "supplement": "materials/chapter04-supplement.ko.txt",
+  "validation": {
+    "generators": "title_outline, paragraph_outline, body_review, resource_placements, slide_references --check passed",
+    "screen_print_mobile": "Passed: 36 KO/EN presentation, print and mobile views, no failures or warnings; mobile end reachable.",
+    "visual_review": "Chapter-wide presentation and mobile-bottom contact sheets inspected; print and full-size examples checked separately.",
+    "evidence": ".tmp/chapter04-beginner/validation.json and PNGs; .tmp/check-chapter04-beginner.cjs",
+    "full_npm_test": "validate passed; code-examples stopped because prettier is missing; subsequent global authoring checks did not run.",
+    "regeneration": "Passed: generated HTML and translations unchanged after rebuilding; KO/EN keys match; five Chapter 4 body IDs and 62 total slides verified."
+  },
+  "server": "File URLs used. No local web server started.",
+  "historical_review": {
+    "reviewed_on": "2026-11-09",
+    "chapter": 4,
+    "slides": "30~38 (표지 1장, 본문 8장)",
+    "purpose": "인증으로 확인한 요청자에게 어떤 행동과 데이터 접근을 허용할지 정하고, 그 규칙을 API와 적용 대상 DB 경로에서 강제하는 원리 이해",
+    "learning_outcomes": [
+      "사용자 확인과 특정 작업의 허용 판단을 구분",
+      "역할·소유 관계·공개 범위를 이용해 명시적인 허용 규칙 정의",
+      "화면의 버튼 표시와 서버의 권한 검사를 구분",
+      "RLS의 행별 정책, 검증된 사용자 문맥, 특권 키 경로의 API 인가 책임 설명"
+    ],
+    "connection": "챕터 1은 식별·인증이 필요한 이유, 챕터 2는 이후 요청의 사용자 확인, 챕터 3은 외부 인증을 내부 계정과 서비스 로그인 자격으로 연결했다. 29번의 맛집 생성 요청에서 u123을 확인했더라도 생성 권한은 별도 판단해야 한다. 챕터 4는 그 판단 기준과 강제 위치를 설명하여 03번의 공개 생성 문제를 회수한다. 허용된 운영자의 구체적인 관리 업무·상태 전이는 챕터 5에 남긴다.",
+    "evidence_scope": "맛집 공개 조회·운영자 생성 및 제보 작성·운영자 전체 조회는 현재 8주차 서버 라우트와 인증 미들웨어를 읽어 대조했다. 제보 소유자별 조회·수정, reports 테이블의 RLS 및 종합표의 RLS 경로는 확장 설계·개념 사례다. 실제 실습에 모든 정책이 구현되었다고 주장하지 않으며 실제 로그인·DB 변경·RLS 실행 테스트는 하지 않았다. u123 등은 관계를 설명하는 식별자이고 RLS 사례에서는 UUID 축약 표기를 유지한다.",
+    "slide_reviews": [
+      {
+        "number": 30,
+        "id": "chapter-04",
+        "purpose": "사용자 확인에서 행동·데이터 접근 허용과 강제로 이어지는 챕터 범위 안내",
+        "finding": "기존 리드는 허용 범위에 집중되어 인증 이후라는 연결과 뒤쪽 강제 지점이 약함",
+        "change": "리드를 확인한 사용자에게 허용할 행동·데이터와 이를 강제하는 접근 제어로 정리"
+      },
+      {
+        "number": 31,
+        "id": "authorization",
+        "purpose": "인증 결과와 작업 허용 여부의 차이 설명",
+        "finding": "일반 원리와 인증·인가 비교 이미지는 적절하지만 이전 요청과의 사례 연결이 추상적",
+        "change": "본문과 원본 이미지를 보존하고 캡션을 u123 확인 뒤에도 맛집 생성 허용은 별도 판단한다는 설명으로 변경. 역할 규칙은 32번에 배치"
+      },
+      {
+        "number": 32,
+        "id": "role-access",
+        "purpose": "역할에 필요한 기능만 부여하고 신뢰할 수 있는 역할 기록으로 판단",
+        "finding": "역할과 최소 권한 설명은 적절하나 03·29번의 맛집 생성 문제를 표에서 확인할 수 없음",
+        "change": "기존 제보 작성·전체 조회 열을 보존하며 맛집 생성 열 추가. 일반 사용자 거부·운영자 허용을 비교하고 FoodMap 정책 설계 예시임을 표시"
+      },
+      {
+        "number": 33,
+        "id": "owner-access",
+        "purpose": "같은 역할 안에서도 요청자와 데이터 소유 관계에 따라 접근을 구분",
+        "finding": "u123의 r101 허용·r102 거부는 본문과 잘 대응하나 현재 실습의 소유자 기능으로 오해할 가능성",
+        "change": "본문과 표를 유지하고 일반 사용자의 자기 제보 조회·수정이라는 확장 설계 범위를 표시. 저장 시 서버가 확인한 사용자 ID를 연결한다는 신뢰 조건 보존"
+      },
+      {
+        "number": 34,
+        "id": "default-deny",
+        "purpose": "명시적인 허용 규칙을 만족하지 않는 요청은 거부한다는 원칙 설명",
+        "finding": "알 수 없는 역할을 일괄 거부한다는 표현은 로그인 없는 공개 조회와 충돌. 기존 도식은 본문을 일반적으로 반복",
+        "change": "해당 규칙이 요구하는 정보를 확인하지 못할 때 거부하도록 범위 한정. 공개 맛집 조회 허용과 일반 사용자 u123의 타인 제보 r102 수정 거부를 대비. 적용할 허용 규칙이 없는 요청도 거부함을 유지"
+      },
+      {
+        "number": 35,
+        "id": "api-access",
+        "purpose": "화면과 무관하게 서버가 각 요청의 허용 규칙을 강제함을 설명",
+        "finding": "모든 요청에서 로그인 자격을 검증한다는 문구가 공개 조회와 충돌. 추상적인 처리 흐름으로는 허용·거부 결과가 불분명",
+        "change": "인증이 필요한 요청의 자격 검증과 모든 요청의 권한 검사를 구분. 맛집 생성 API 직접 호출 → 자격 검증 실패 시 거부 → 신뢰하는 역할이 운영자가 아니면 거부 → 허용된 경우에만 DB 생성으로 구체화. 권한 확인용 정보 조회까지 금지하는 듯한 '데이터 처리 전' 표현을 '요청한 작업 실행 전'으로 정리"
+      },
+      {
+        "number": 36,
+        "id": "rls",
+        "purpose": "DB가 검증된 사용자 문맥과 행의 소유자를 비교해 조회 결과를 제한하는 사례 설명",
+        "finding": "SELECT SQL과 반환 행 표는 정확하나 일반적인 접근이라는 표현과 사용자 문맥 전달 조건을 더 분명히 할 필요",
+        "change": "조회 시 정책 조건을 만족한 행만 결과에 포함한다고 한정. DB 요청에도 검증된 사용자 문맥 전달과 RLS 적용 역할이 필요함을 명시. 기존 SQL, u123의 r101·r103 반환과 r102 제외, 기본 SELECT 권한·다른 허용 정책 없음·UUID 축약 조건 보존"
+      },
+      {
+        "number": 37,
+        "id": "api-keys",
+        "purpose": "앱의 접근 자격과 개인의 인증 결과를 구분하고 DB 요청 경로별 권한 차이 설명",
+        "finding": "공개 키와 사용자 JWT가 함께 사용될 수 있다는 관계가 약함. RLS 우회 가능이라는 표현으로 특권 경로의 책임이 흐려짐",
+        "change": "Supabase 자격정보 표로 범위를 명시하고 publishable key 단독 anon·사용자 JWT와 함께 authenticated를 표시. 사용자 JWT는 검증 후 사용자 문맥을 제공하며 특권 secret key 요청은 RLS를 우회하므로 API에서 인가하도록 정리. 서버 전용과 노출 방지 조건 유지"
+      },
+      {
+        "number": 38,
+        "id": "foodmap-policy",
+        "purpose": "역할·소유 관계·기본 거부·강제 지점을 하나의 FoodMap 정책으로 통합",
+        "finding": "종합 구조는 적절하지만 맛집 생성 정책과 실제 구현·확장 설계 구분이 부족. 영문 오른쪽 소제목이 너무 길어 잘려 보임",
+        "change": "운영자의 맛집 생성 행 추가로 03번 문제 회수. 공개 조회·생성·개인 제보 조건을 구분하고 요청 경로별 강제 지점으로 본문 축약. RLS 적용 경로 열과 작업별 정책 조건 유지. 확장 설계 및 특권 경로의 API 인가 범위를 표시하고 영문 소제목 축약. 화면 재평가에서 영문 하단 넘침을 발견하여 양쪽 본문과 소유자 정책 셀을 간결화한 뒤 재검증"
+      }
+    ],
+    "reevaluation": {
+      "flow": "인증과 인가의 구분 → 역할별 기능 → 소유 관계별 데이터 → 기본 거부 → API 강제 → DB 행별 정책 → 키에 따른 경로 차이 → 통합 정책",
+      "role_separation": "31번은 판단의 필요성, 32~34번은 허용 기준, 35번은 서버의 실행 경계, 36번은 DB 행 조건, 37번은 자격정보별 DB 경로 차이, 38번은 전체 기준의 종합 적용을 설명한다.",
+      "preservation": "제목·순서·장수·공용 스타일과 31번 원본 인증/인가 이미지를 보존. 33번 소유자 비교, 36번 SQL·반환 표의 의미와 조건 유지. 승인·공개 상태와 운영 업무는 챕터 5에 남김.",
+      "technical_scope": "API 인가 판단에 필요한 프로필·소유 관계 조회는 가능하며, 허용 판단 이후에 요청한 보호 작업을 실행한다. RLS는 활성화된 테이블과 적용 역할에서 정책을 추가로 검사하며 기본 테이블 권한을 대체하지 않는다. 36번은 SELECT 전용 사례이고 생성·수정은 작업별 정책이 필요하다. RLS 우회 특권 경로에서는 API의 사용자별 권한 검사가 필요하다.",
+      "final_assessment": "챕터 전체를 다시 읽고 화면을 검증한 결과, 앞 챕터에서 u123으로 확인한 요청에 별도 인가가 필요하다는 도입과 03번 공개 생성 문제의 해결 범위가 연결된다. 32~34번의 허용 기준을 35번 API와 36번 DB의 강제 위치로 확장하고 37번에서 경로별 책임을 구분한 뒤 38번에서 종합한다. 공개 조회에 로그인 강제, SELECT의 수정 권한 확대, 특권 키에 RLS 자동 적용, 제보 확장 설계의 실습 구현 오인 가능성을 정리했다. 38번 영문 하단 넘침은 본문·표 축약으로 해결했으며 구체적인 내용·화면 문제가 남지 않았다. 공용 검사 전체 완료를 뜻하지는 않으며 환경 제한은 아래에 별도 기록한다.",
+      "remaining_content_issues": []
+    },
+    "implementation_evidence": [
+      {
+        "file": "../pwd-week8-server/src/routes/restaurants.routes.ts",
+        "supports": "맛집 GET 공개, POST·PUT·DELETE는 isAuthenticated와 requireAdmin 뒤 컨트롤러 실행"
+      },
+      {
+        "file": "../pwd-week8-server/src/middleware/auth.middleware.ts",
+        "supports": "Supabase getUser로 토큰 검증, profiles 조회로 활성 사용자와 신뢰하는 역할 확인, requireAdmin에서 관리자 외 거부"
+      },
+      {
+        "file": "../pwd-week8-server/src/routes/submissions.routes.ts",
+        "supports": "제보 작성은 인증 사용자, 이후 조회·관리 경로는 관리자 검사. 일반 사용자의 자기 제보 조회·수정은 이 라우트에 구현된 기능으로 주장하지 않음"
+      },
+      {
+        "file": "../pwd-week8-server/src/config/supabase.ts",
+        "supports": "서버가 SUPABASE_SECRET_KEY 환경 설정을 사용하는 클라이언트 생성. 실제 비밀값을 읽거나 노출하지 않고 소스만 확인"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+        "supports": "최소 권한·기본 거부·모든 요청의 권한 검사·서버의 강제"
+      },
+      {
+        "url": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+        "supports": "검증된 사용자 문맥과 auth.uid(), SELECT·INSERT·UPDATE 정책 범위, 기본 권한과 RLS의 관계"
+      },
+      {
+        "url": "https://supabase.com/docs/guides/getting-started/api-keys",
+        "supports": "publishable key의 anon/authenticated 문맥, secret key의 service_role 및 BYPASSRLS, 앱 자격과 사용자 JWT의 역할 구분"
+      },
+      {
+        "url": "https://www.postgresql.org/docs/current/ddl-rowsecurity.html",
+        "supports": "RLS 적용 역할·기본 거부·작업별 정책과 여러 정책의 조합"
+      }
+    ],
+    "validation": {
+      "status": "내용 재평가와 챕터 화면 검증 완료. 전체 공용 검사에는 아래 제한이 남음.",
+      "title_outline_check": "passed",
+      "paragraph_outline_check": "passed",
+      "body_review_check": "passed",
+      "resource_placements_check": "passed",
+      "slide_references_check": "passed",
+      "web_deck_validate": "passed: package and 13 lecture decks",
+      "regeneration": "passed: 최종 생성 전후 index.html·lecture-content.js SHA-256 일치. 검증한 화면과 최종 파일 동일.",
+      "scope": "passed: 변경 전 SLIDES 스냅샷과 비교하여 변경은 30~38번에 한정. 전체 68장·본문 60장, 챕터 4 표지 1장·본문 8장 순서와 개수 유지.",
+      "locale_keys": "passed: KO/EN 1308개 키 일치",
+      "git_diff_check": "passed",
+      "screen_print_mobile": "passed: 30~38번 KO/EN 발표·1280×720 인쇄·390px 모바일 54뷰. 최종 실패·경고 0. 텍스트·표·도식 경계, 메시지 상자 겹침, 이미지 로딩, 가로 넘침 검사.",
+      "visual_review": "passed: 변경 전·후 KO/EN 발표 18뷰 전체 육안 확인. 최종 변경한 37·38번 12뷰 재검사 및 발표 4뷰 추가 육안 검토. 모바일 18뷰 모두 하단 스크롤 도달, 대표 31·35·36·37·38번 하단 확인. 31 원본 이미지, 35 시퀀스, 36 코드·표·주석, 37 자격정보 비교, 38 정책 종합표 정상.",
+      "iteration": "37번 표의 명사 '인가'를 정적 검사가 의문문 종결로 판정하여 'API 권한 검사'로 동의어 교정. 37번 anon과 JWT 병행 사용에 구분점 추가. 38EN 발표·인쇄에서 발견한 하단 넘침은 글꼴이나 CSS 변경 없이 본문 및 소유자 정책 셀 축약으로 해결. 기존 42뷰와 수정 후 12뷰를 합쳐 최종 54뷰 기록 유지.",
+      "full_npm_test": "미완료: validate 통과 후 prettier 모듈 누락으로 code-examples 검사 중단. 후속 authoring 검사는 실행되지 않음. 앞선 챕터 2에서 확인한 범위 밖 06 원본 대조 실패는 이번에 재검사하거나 수정하지 않음. 최종 생성물의 validate는 별도로 다시 통과.",
+      "browser_evidence": ".tmp/chapter04-before 및 .tmp/chapter04-current의 검증 JSON·캡처. 최종 validation.json 54뷰, 최초 실패 validation-initial.json, 수정 후 validation-targeted.json 12뷰. 검사 스크립트 .tmp/check-chapter04.cjs. 임시 자료이며 강의 본문에 노출하지 않음."
+    },
+    "server_lifecycle": "화면 검증은 file:// 기반으로 진행. 이 작업에서 로컬 웹 서버를 시작하지 않음.",
+    "method": "lectures/authoring/chapter-review.md의 장별 목적 설정 → 코드·기술 근거 확인 → 본문·사례 평가·수정 → 한영 생성·화면 검증 → 챕터 전체 재평가 절차 적용"
+  }
+}

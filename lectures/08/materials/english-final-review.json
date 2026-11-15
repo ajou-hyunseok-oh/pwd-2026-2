@@ -1,0 +1,1388 @@
+{
+  "reviewed_on": "2026-11-09",
+  "scope": "8주차 영문 전체44장의 제목·리드·정의·도식·표·코드 라벨 최종 검토와 교정",
+  "slide_count": 44,
+  "changed_translation_entries": 257,
+  "content_preservation": {
+    "korean": "한국어 전체 번역 딕셔너리 값·키를 변경 전과 대조하여 동일 확인",
+    "code": "한영 공통 코드·URL·필드·식별자 문자열을 변경 전과 대조하여 동일 확인",
+    "structure": "44장·6개 챕터·본문37장과 안정적인 ID·번역 키 유지",
+    "layout": "영문 두 줄 actor 이름에 필요한 여백만 영어 전용 CSS로 보완"
+  },
+  "terminology": [
+    {
+      "ko": "제보",
+      "en": "submission",
+      "reason": "맛집 등록 검토 요청. 신고나 보고서로 오해할 report를 사용하지 않고 실제 submissions API·테이블과 일치"
+    },
+    {
+      "ko": "토큰 갱신",
+      "en": "token refresh",
+      "reason": "refresh token과 함께 OAuth의 일반 용어로 통일"
+    },
+    {
+      "ko": "JWT 정보 항목",
+      "en": "claims",
+      "reason": "JWT 표준 용어. header·payload·signature와 구분"
+    },
+    {
+      "ko": "서버 보관 세션",
+      "en": "server-side session",
+      "reason": "SDK session object와 구분"
+    },
+    {
+      "ko": "비밀번호 검증",
+      "en": "credential verification / password verification",
+      "reason": "증거를 evidence로 반복 직역하지 않고 문맥에 맞춰 구분"
+    },
+    {
+      "ko": "트랜잭션 반영·취소",
+      "en": "commit / roll back",
+      "reason": "DB 동작의 통용 용어 사용; 명사 rollback과 동사 roll back 구분"
+    },
+    {
+      "ko": "인증·인가",
+      "en": "authentication / authorization",
+      "reason": "identity와permission 판단을 구분"
+    },
+    {
+      "ko": "로그인 복귀 주소",
+      "en": "redirect URL / callback URL",
+      "reason": "OAuth·Supabase 설정 문맥에 맞게 사용"
+    },
+    {
+      "ko": "브라우저 요청 확인 탭",
+      "en": "Network panel",
+      "reason": "개발자 도구 명칭에 맞춤"
+    }
+  ],
+  "title_verification": {
+    "ko": "웹 서비스 인증과 운영",
+    "en": "Web Service Authentication and Operations",
+    "result": "표지·브라우저 제목·목차 및 슬라이드 제목에서 보안/Security 없음"
+  },
+  "references": [
+    {
+      "label": "OAuth 2.0 Authorization Framework",
+      "url": "https://www.rfc-editor.org/rfc/rfc6749"
+    },
+    {
+      "label": "JSON Web Token",
+      "url": "https://www.rfc-editor.org/rfc/rfc7519"
+    },
+    {
+      "label": "Supabase User Sessions",
+      "url": "https://supabase.com/docs/guides/auth/sessions"
+    },
+    {
+      "label": "PostgreSQL Transactions",
+      "url": "https://www.postgresql.org/docs/current/tutorial-transactions.html"
+    }
+  ],
+  "validation": {
+    "rendered_views": 132,
+    "language": "en",
+    "modes": [
+      "44장 발표1312×818",
+      "44장 인쇄1280×720",
+      "44장 모바일390×844"
+    ],
+    "failures": 0,
+    "warnings": 0,
+    "visual_review": "전체44장 발표 연락 시트4개와 밀도가 높은 장의 인쇄·모바일 캡처 육안 확인. 모바일 전체 스크롤 끝 도달 검증.",
+    "artifacts": ".tmp/week08-english-final",
+    "static": "validate.cjs·git diff --check 통과",
+    "generators": "제목·문단·본문·배치·출처 --check 통과",
+    "reproducibility": "HTML·번역·슬라이드 맵 재생성 해시 일치",
+    "full_suite_limit": "npm test --prefix packages/web-deck는 validate 통과 후 prettier 모듈 부재로 중단",
+    "runtime_scope": "강의 파일 렌더·대조 검증. 실제 로그인·배포·DB 변경은 실행하지 않음.",
+    "server": "file:// 검증. 로컬 웹 서버를 실행하지 않음"
+  },
+  "changes": [
+    {
+      "key": "identity_need_title",
+      "before": "Identifying Service Users",
+      "after": "Identifying Users"
+    },
+    {
+      "key": "identity_need_lead",
+      "before": "Why stored data needs to be associated with the requesting user",
+      "after": "Associating data operations with the user making the request"
+    },
+    {
+      "key": "identity_need_b0_0_0_term",
+      "before": "Creation without identifying callers - anyone can add service data",
+      "after": "Unauthenticated creation - anyone can add application data"
+    },
+    {
+      "key": "identity_need_b0_0_0_detail0",
+      "before": "Valid input format and whether a creation request should be allowed are separate questions",
+      "after": "Valid input does not establish permission to create a record"
+    },
+    {
+      "key": "identity_need_b0_0_0_detail1",
+      "before": "Without distinguishing callers, actions cannot be restricted by user",
+      "after": "Without identifying the caller, the server cannot enforce user-specific permissions"
+    },
+    {
+      "key": "identity_need_b0_0_1_term",
+      "before": "User identification - associate a request with a service user",
+      "after": "User identification - associate a request with a user account"
+    },
+    {
+      "key": "identity_need_b0_0_1_detail0",
+      "before": "Distinguish which user requested the creation of data",
+      "after": "Identify the user requesting a new record"
+    },
+    {
+      "key": "identity_need_b0_0_1_detail1",
+      "before": "Link requests to users as a starting point for deciding whether actions are allowed",
+      "after": "Associate requests with users before checking permissions"
+    },
+    {
+      "key": "identity_need_b0_1_h1",
+      "before": "API called",
+      "after": "API endpoint"
+    },
+    {
+      "key": "identity_need_b0_1_r0_0",
+      "before": "Register a real restaurant",
+      "after": "Add a real restaurant"
+    },
+    {
+      "key": "identity_need_b0_1_r0_2",
+      "before": "Validate input, then save to the DB; no user verification",
+      "after": "Validate input and save to the database without authenticating the user"
+    },
+    {
+      "key": "identity_need_b0_1_r1_0",
+      "before": "Register a fictitious restaurant with valid input format",
+      "after": "Add a fictitious restaurant using valid input"
+    },
+    {
+      "key": "identity_need_b0_1_r1_2",
+      "before": "Save to the DB if input validation passes; no user verification",
+      "after": "Save if input validation passes, without authenticating the user"
+    },
+    {
+      "key": "identity_need_b0_2",
+      "before": "To allow data operations differently by user, first establish which user a request belongs to.",
+      "after": "To enforce user-specific permissions, first identify the user making the request."
+    },
+    {
+      "key": "user_account_b0_0_0_term",
+      "before": "User account - the service’s user record",
+      "after": "User account - an application record representing a user"
+    },
+    {
+      "key": "user_account_b0_0_1_term",
+      "before": "User ID - a unique reference for accounts and requests",
+      "after": "User ID - a unique identifier linking accounts and requests"
+    },
+    {
+      "key": "user_account_b0_1_h0",
+      "before": "Account user ID",
+      "after": "User ID"
+    },
+    {
+      "key": "user_account_b0_1_h3",
+      "before": "Restaurant request to link",
+      "after": "Associated creation request"
+    },
+    {
+      "key": "user_account_b0_2",
+      "before": "Design example: distinguish same-name accounts by ID and link creation requests",
+      "after": "Design example: use IDs to distinguish users with the same name and associate their requests"
+    },
+    {
+      "key": "trust_boundary_b0_0_0_term",
+      "before": "Trust boundary - user-controlled input meets server processing",
+      "after": "Trust boundary - the boundary between user-controlled input and server-side processing"
+    },
+    {
+      "key": "trust_boundary_b0_0_0_detail1",
+      "before": "Input arriving at the server is a claim until verified",
+      "after": "Treat client input as untrusted until validated"
+    },
+    {
+      "key": "trust_boundary_b0_0_1_term",
+      "before": "A claimed user ID - verify before linking an account",
+      "after": "Claimed user ID - authenticate the caller before associating an account"
+    },
+    {
+      "key": "trust_boundary_b0_0_1_detail1",
+      "before": "Verify separate evidence before linking the request to that account",
+      "after": "Verify authentication credentials before associating the request with the account"
+    },
+    {
+      "key": "trust_boundary_b1_0_row0",
+      "before": "Create a restaurant request\nuserId=u123",
+      "after": "Prepare a restaurant creation request\nuserId=u123"
+    },
+    {
+      "key": "authentication_lead",
+      "before": "Verifying evidence for an account to establish the requester’s identity",
+      "after": "Verifying account credentials to authenticate the requester"
+    },
+    {
+      "key": "authentication_b0_0_0_term",
+      "before": "Authentication - verify evidence for an account",
+      "after": "Authentication - verify a user’s credentials"
+    },
+    {
+      "key": "authentication_b0_0_0_detail0",
+      "before": "Email specifies the account the server checks",
+      "after": "The email address identifies the account to authenticate"
+    },
+    {
+      "key": "authentication_b0_0_0_detail1",
+      "before": "The server verifies separate evidence, such as a password",
+      "after": "The server verifies the account’s credentials, such as a password"
+    },
+    {
+      "key": "authentication_b0_0_1_term",
+      "before": "Authentication result - accept or reject identity",
+      "after": "Authentication result - establish or reject the claimed identity"
+    },
+    {
+      "key": "authentication_b0_0_1_detail0",
+      "before": "Success: accept the user ID for this login request",
+      "after": "Success: authenticate this login request as the account’s user"
+    },
+    {
+      "key": "authentication_b0_0_1_detail1",
+      "before": "Failure: reject even if the account exists",
+      "after": "Failure: reject authentication even if the account exists"
+    },
+    {
+      "key": "authentication_b0_1_0_0_caption",
+      "before": "Email specifies the account; password supplies evidence",
+      "after": "The email identifies the account; the password is the credential"
+    },
+    {
+      "key": "authentication_b0_1_1_0_0_title",
+      "before": "Specify the account",
+      "after": "Identify the account"
+    },
+    {
+      "key": "authentication_b0_1_1_0_0_body",
+      "before": "Email: minsu@example.com\nAccount for the server to check: u123",
+      "after": "Email: minsu@example.com\nAccount to authenticate: u123"
+    },
+    {
+      "key": "authentication_b0_1_1_0_1_title",
+      "before": "Server verifies the evidence",
+      "after": "Verify the credentials"
+    },
+    {
+      "key": "authentication_b0_1_1_0_1_body",
+      "before": "Verify whether the entered password\nis valid evidence for account u123",
+      "after": "Verify the submitted password\nagainst account u123’s stored credentials"
+    },
+    {
+      "key": "authentication_b0_1_1_0_2_title",
+      "before": "Decide authentication success or failure",
+      "after": "Return the authentication result"
+    },
+    {
+      "key": "authentication_b0_1_1_0_2_body",
+      "before": "Success → accept u123 for this request\nFailure → reject the claim to be u123",
+      "after": "Success → authenticate this request as u123\nFailure → reject authentication"
+    },
+    {
+      "key": "authentication_b0_1_1_0_caption",
+      "before": "Identity for this authentication request; session continuity and permissions are separate",
+      "after": "Authentication applies to this request; session management and authorization are separate"
+    },
+    {
+      "key": "password_hash_lead",
+      "before": "Storing a verification value instead of the original password",
+      "after": "Storing a password hash instead of the plaintext password"
+    },
+    {
+      "key": "password_hash_b0_0_0_term",
+      "before": "Password hash - stored verification data",
+      "after": "Password hash - a derived value used to verify a password"
+    },
+    {
+      "key": "password_hash_b0_0_0_detail1",
+      "before": "Designed to resist recovering the original password",
+      "after": "Designed to make recovering the plaintext password computationally difficult"
+    },
+    {
+      "key": "password_hash_b0_0_1_term",
+      "before": "Password verification - check input using stored data",
+      "after": "Password verification - check a submitted password against the stored hash"
+    },
+    {
+      "key": "password_hash_b0_0_1_detail0",
+      "before": "At login, pass the entered password and stored data to verification",
+      "after": "At login, pass the submitted password and stored hash data to a verification function"
+    },
+    {
+      "key": "password_hash_b0_1_1_body",
+      "before": "Derive a verification value",
+      "after": "Compute the password hash"
+    },
+    {
+      "key": "password_hash_b0_1_caption",
+      "before": "hash-A is a symbolic verification value",
+      "after": "hash-A is a placeholder for a password hash"
+    },
+    {
+      "key": "password_hash_b0_2_h1",
+      "before": "If the DB leaks",
+      "after": "If the database is compromised"
+    },
+    {
+      "key": "password_salt_title",
+      "before": "Password Salts",
+      "after": "Password Salting"
+    },
+    {
+      "key": "password_salt_b0_0_0_term",
+      "before": "Without salt - identical inputs give identical hashes",
+      "after": "Unsalted hashing - identical inputs produce identical hashes"
+    },
+    {
+      "key": "password_login_title",
+      "before": "Password Login",
+      "after": "Password-Based Login"
+    },
+    {
+      "key": "password_login_lead",
+      "before": "Verify a password using the hash and salt of the account found by email",
+      "after": "Look up the account by email and verify its password using the stored hash and salt"
+    },
+    {
+      "key": "password_login_b0_0_1_term",
+      "before": "Password verification - check input against that account’s data",
+      "after": "Password verification - check the submitted password against the account’s stored hash"
+    },
+    {
+      "key": "password_login_b0_0_1_detail0",
+      "before": "Pass the entered password and stored hash and salt to verification",
+      "after": "Pass the submitted password, stored hash and salt to the verification function"
+    },
+    {
+      "key": "password_login_b1_0_caption",
+      "before": "Identity is established for this login request; continuity across requests is separate",
+      "after": "This login request establishes identity; maintaining authentication across requests is separate"
+    },
+    {
+      "key": "chapter_02_lead",
+      "before": "Identifying users on later requests and managing expiration, renewal and logout",
+      "after": "Authenticating subsequent requests and handling expiration, token refresh and logout"
+    },
+    {
+      "key": "http_stateless_b0_0_1_term",
+      "before": "Login continuity - state managed by the application",
+      "after": "Login state - authentication state maintained by the application"
+    },
+    {
+      "key": "http_stateless_b0_0_1_detail0",
+      "before": "Verifying a user and preserving login across requests are separate problems",
+      "after": "Authenticating a user and maintaining login state across requests are separate concerns"
+    },
+    {
+      "key": "http_stateless_b1_0_row2",
+      "before": "Login result",
+      "after": "Authentication result"
+    },
+    {
+      "key": "http_stateless_b1_0_caption",
+      "before": "Example before a login-continuity mechanism is applied",
+      "after": "Example without a mechanism for maintaining login state"
+    },
+    {
+      "key": "cookies_lead",
+      "before": "Small browser-stored data carried automatically in later requests",
+      "after": "Small pieces of browser-stored data sent automatically with matching requests"
+    },
+    {
+      "key": "cookies_b0_0_0_term",
+      "before": "Cookie - small data stored by the browser",
+      "after": "Cookie - a small piece of data stored by the browser"
+    },
+    {
+      "key": "cookies_b0_0_0_detail1",
+      "before": "The server requests storage with a Set-Cookie response header",
+      "after": "The server uses the Set-Cookie response header to ask the browser to store a cookie"
+    },
+    {
+      "key": "cookies_b0_0_1_term",
+      "before": "Role - automatically carry stored values in later requests",
+      "after": "Role - send stored values automatically with matching requests"
+    },
+    {
+      "key": "cookies_b0_0_2_term",
+      "before": "Uses - purposes served by the stored values",
+      "after": "Uses - session management, personalization and analytics"
+    },
+    {
+      "key": "cookies_b1_0_actor1",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "cookies_b1_0_route0",
+      "before": "Service server → Browser",
+      "after": "Application server → Browser"
+    },
+    {
+      "key": "cookies_b1_0_route2",
+      "before": "Browser → Service server",
+      "after": "Browser → Application server"
+    },
+    {
+      "key": "server_session_title",
+      "before": "Sessions",
+      "after": "Server-Side Sessions"
+    },
+    {
+      "key": "server_session_lead",
+      "before": "Looking up server-held login state using a session identifier",
+      "after": "Using a session ID to look up server-side login state"
+    },
+    {
+      "key": "server_session_b0_0_0_term",
+      "before": "Session - per-user state managed on the server",
+      "after": "Server-side session - per-user state stored on the server"
+    },
+    {
+      "key": "server_session_b0_0_1_term",
+      "before": "Role - link requests to the same server-held state",
+      "after": "Role - link requests to shared session state"
+    },
+    {
+      "key": "server_session_b0_0_1_detail0",
+      "before": "Look up a valid record using the session ID received via a cookie or other transport",
+      "after": "Use the session ID from a cookie or other transport to find a valid session"
+    },
+    {
+      "key": "server_session_b0_0_1_detail1",
+      "before": "Identify the requester from the user ID recorded at login",
+      "after": "Read the user ID recorded when the session was created"
+    },
+    {
+      "key": "server_session_b0_0_2_detail0",
+      "before": "Login state : retain authenticated user information",
+      "after": "Login state: retain authenticated user information"
+    },
+    {
+      "key": "server_session_b0_0_2_detail1",
+      "before": "Shopping carts : retain items selected before purchase",
+      "after": "Shopping carts: retain items before checkout"
+    },
+    {
+      "key": "server_session_b0_0_2_detail2",
+      "before": "Multi-step tasks : retain input and progress between steps",
+      "after": "Multi-step tasks: retain input and progress"
+    },
+    {
+      "key": "server_session_b1_0_actor1",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "server_session_b1_0_route0",
+      "before": "Browser → Service server",
+      "after": "Browser → Application server"
+    },
+    {
+      "key": "server_session_b1_0_route1",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "server_session_b1_0_route2",
+      "before": "Service server → Browser",
+      "after": "Application server → Browser"
+    },
+    {
+      "key": "server_session_b1_0_route3",
+      "before": "Browser → Service server",
+      "after": "Browser → Application server"
+    },
+    {
+      "key": "server_session_b1_0_route4",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "server_session_b1_0_route5",
+      "before": "Service server → Browser",
+      "after": "Application server → Browser"
+    },
+    {
+      "key": "server_session_b1_0_row5",
+      "before": "Request result",
+      "after": "Response"
+    },
+    {
+      "key": "auth_token_b0_0_1_term",
+      "before": "Role - establish identity or access",
+      "after": "Role - authenticate requests or demonstrate access rights"
+    },
+    {
+      "key": "auth_token_b0_0_1_detail0",
+      "before": "The server validates the token to establish identity or access",
+      "after": "The server validates the token before accepting the identity or access rights it represents"
+    },
+    {
+      "key": "auth_token_b0_0_2_term",
+      "before": "Uses - state lookup and API access by token type",
+      "after": "Uses - session lookup or API access, depending on token type"
+    },
+    {
+      "key": "auth_token_b0_0_2_detail0",
+      "before": "Session ID : a token for looking up server-held session state",
+      "after": "Session ID : a token for looking up server-side session state"
+    },
+    {
+      "key": "auth_token_b0_0_2_detail1",
+      "before": "Access token : a token presenting API access credentials",
+      "after": "Access token : a credential presented to an API"
+    },
+    {
+      "key": "auth_token_b1_0_actor1",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "auth_token_b1_0_route0",
+      "before": "Browser → Service server",
+      "after": "Browser → Application server"
+    },
+    {
+      "key": "auth_token_b1_0_route1",
+      "before": "Service server → Browser",
+      "after": "Application server → Browser"
+    },
+    {
+      "key": "auth_token_b1_0_route2",
+      "before": "Browser → Service server",
+      "after": "Browser → Application server"
+    },
+    {
+      "key": "auth_token_b1_0_route3",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "token_signature_b0_0_0_term",
+      "before": "Need - trust in information carried by a token",
+      "after": "Purpose - verify the integrity of token contents"
+    },
+    {
+      "key": "token_signature_b0_0_1_term",
+      "before": "Signature - evidence generated with the issuer’s key",
+      "after": "Signature - an integrity check generated with the issuer’s key"
+    },
+    {
+      "key": "token_signature_b0_0_1_detail2",
+      "before": "A signature alone does not establish confidentiality, expiry or permission",
+      "after": "A valid signature alone does not establish confidentiality, token validity or permission"
+    },
+    {
+      "key": "jwt_structure_lead",
+      "before": "A standard token format for conveying JSON-based information and conditions",
+      "after": "A standard token format for representing JSON claims"
+    },
+    {
+      "key": "jwt_structure_b0_0_0_detail0",
+      "before": "Standard JSON-based format for information and conditions",
+      "after": "A JSON-based standard for user data and validity claims"
+    },
+    {
+      "key": "jwt_structure_b0_0_1_detail0",
+      "before": "Header : token type and signing method",
+      "after": "Header : token type and signing algorithm"
+    },
+    {
+      "key": "jwt_structure_b0_0_1_detail1",
+      "before": "Payload : information and validity conditions",
+      "after": "Payload : claims about the subject and token validity"
+    },
+    {
+      "key": "jwt_structure_b0_0_1_detail2",
+      "before": "Signature : detect header or payload changes",
+      "after": "Signature : verify the integrity of the header and payload"
+    },
+    {
+      "key": "jwt_validation_b0_0_1_detail0",
+      "before": "Also check issuer, audience and expiry",
+      "after": "Also check issuer, audience and expiration"
+    },
+    {
+      "key": "jwt_validation_b0_1_0_0_actor1",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "jwt_validation_b0_1_0_0_route0",
+      "before": "Browser → Service server",
+      "after": "Browser → Application server"
+    },
+    {
+      "key": "jwt_validation_b0_1_0_0_route1",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "jwt_validation_b0_1_0_0_route2",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "jwt_validation_b0_1_0_0_route3",
+      "before": "Service server",
+      "after": "Application server"
+    },
+    {
+      "key": "jwt_validation_b0_1_0_0_row3",
+      "before": "All pass → accept user u123\nFailure → reject authentication",
+      "after": "All checks pass → authenticate as u123\nAny check fails → reject authentication"
+    },
+    {
+      "key": "jwt_validation_b0_1_0_0_caption",
+      "before": "JWT validation identifies the user · permission to create a place is checked separately",
+      "after": "JWT validation authenticates the user; permission to create a restaurant is checked separately"
+    },
+    {
+      "key": "jwt_validation_b0_1_1_0_r3_0",
+      "before": "exp · expiry",
+      "after": "exp · expiration"
+    },
+    {
+      "key": "auth_expiry_title",
+      "before": "Authentication Expiration",
+      "after": "Session and Token Expiration"
+    },
+    {
+      "key": "auth_expiry_lead",
+      "before": "Limiting how long a previous authentication remains valid",
+      "after": "Limiting how long authentication credentials remain valid"
+    },
+    {
+      "key": "auth_expiry_b0_0_1_term",
+      "before": "Expiration - the end of server-defined validity",
+      "after": "Expiration - the end of a server-defined validity period"
+    },
+    {
+      "key": "auth_expiry_b0_0_1_detail1",
+      "before": "The server enforces expiry regardless of browser storage",
+      "after": "The server enforces expiration regardless of browser storage"
+    },
+    {
+      "key": "auth_expiry_b0_1_r0_0",
+      "before": "Server session",
+      "after": "Server-side session"
+    },
+    {
+      "key": "auth_expiry_b0_1_r0_1",
+      "before": "Idle time and maximum lifetime since creation",
+      "after": "Idle timeout and absolute session lifetime"
+    },
+    {
+      "key": "auth_expiry_b1_0_1_title",
+      "before": "Request before expiry",
+      "after": "Request before expiration"
+    },
+    {
+      "key": "auth_expiry_b1_0_2_title",
+      "before": "Validity ends",
+      "after": "Credentials expire"
+    },
+    {
+      "key": "refresh_token_b0_0_0_term",
+      "before": "Need - avoid repeated login after token expiry",
+      "after": "Need - avoid repeated login after token expiration"
+    },
+    {
+      "key": "refresh_token_b0_0_1_detail0",
+      "before": "Access token : present access credentials to the data API",
+      "after": "Access token : authenticate requests to the data API"
+    },
+    {
+      "key": "refresh_token_b0_0_1_detail1",
+      "before": "Refresh token : present renewal credentials to the auth system",
+      "after": "Refresh token : request a new access token from the authentication service"
+    },
+    {
+      "key": "refresh_token_b0_0_2_term",
+      "before": "Renewal - validate credentials and issue a new token",
+      "after": "Token refresh - validate the refresh token and issue a new access token"
+    },
+    {
+      "key": "refresh_token_b0_0_2_detail1",
+      "before": "Reject expired or revoked renewal credentials; login is required",
+      "after": "If the refresh token is expired or revoked, require the user to log in again"
+    },
+    {
+      "key": "refresh_token_b1_0_actor2",
+      "before": "Auth system",
+      "after": "Authentication service"
+    },
+    {
+      "key": "refresh_token_b1_0_route2",
+      "before": "Browser → Auth system",
+      "after": "Browser → Authentication service"
+    },
+    {
+      "key": "refresh_token_b1_0_route3",
+      "before": "Auth system",
+      "after": "Authentication service"
+    },
+    {
+      "key": "refresh_token_b1_0_row3",
+      "before": "Check renewal credential\nReject if expired or revoked",
+      "after": "Validate the refresh token\nReject if expired or revoked"
+    },
+    {
+      "key": "refresh_token_b1_0_route4",
+      "before": "Auth system → Browser",
+      "after": "Authentication service → Browser"
+    },
+    {
+      "key": "refresh_token_b1_0_caption",
+      "before": "Example with a refresh token issued at login · protect renewal credentials too",
+      "after": "Example with a refresh token issued at login; refresh tokens also require protection"
+    },
+    {
+      "key": "logout_b0_0_0_detail0",
+      "before": "Clear browser credentials and end the session or renewal credentials on the server",
+      "after": "Clear stored browser credentials and invalidate the server session or revoke refresh tokens"
+    },
+    {
+      "key": "logout_b0_0_1_term",
+      "before": "Revocation - invalidate credentials or block renewal",
+      "after": "Revocation - invalidate credentials or stop token refresh"
+    },
+    {
+      "key": "logout_b0_0_1_detail0",
+      "before": "Invalidate a session or block new tokens before natural expiry",
+      "after": "Invalidate a session or block new tokens before natural expiration"
+    },
+    {
+      "key": "logout_b0_1_r0_2",
+      "before": "Copies held elsewhere are a separate concern",
+      "after": "Copies elsewhere may remain valid"
+    },
+    {
+      "key": "logout_b0_1_r1_2",
+      "before": "Reject authentication on requests using sid-A",
+      "after": "Reject requests that use sid-A"
+    },
+    {
+      "key": "logout_b0_1_r2_1",
+      "before": "Revoke renewal credentials",
+      "after": "Revoke the refresh token"
+    },
+    {
+      "key": "logout_b0_1_r3_1",
+      "before": "Check expiry; also check revocation for immediate blocking",
+      "after": "Check expiration and, for immediate rejection, revocation"
+    },
+    {
+      "key": "logout_b0_1_r3_2",
+      "before": "Blocking renewal alone may leave B valid until expiry",
+      "after": "Token B may remain valid until it expires after refresh is revoked"
+    },
+    {
+      "key": "chapter_03_title",
+      "before": "External Authentication and Social Login",
+      "after": "External Identity Providers and Social Login"
+    },
+    {
+      "key": "chapter_03_lead",
+      "before": "External login terms and FoodMap authentication with Supabase Auth and its SDK",
+      "after": "Social login in FoodMap with Supabase Auth and the browser SDK"
+    },
+    {
+      "key": "identity_provider_b0_0_0_term",
+      "before": "Identity provider - authenticates an external account",
+      "after": "Identity provider - a service that authenticates users of an external account"
+    },
+    {
+      "key": "identity_provider_b0_0_1_detail1",
+      "before": "The SDK is an auth library; it starts login and handles the return in the browser",
+      "after": "The SDK is an authentication library that starts login and handles the callback in the browser"
+    },
+    {
+      "key": "identity_provider_b1_0_caption",
+      "before": "Choosing an external login in FoodMap",
+      "after": "Choosing a social login provider in FoodMap"
+    },
+    {
+      "key": "identity_provider_b1_1_r1_1",
+      "before": "Connect external login and issue service tokens",
+      "after": "Integrate social login and issue application access tokens"
+    },
+    {
+      "key": "identity_provider_b1_1_r2_1",
+      "before": "Auth requests and login result storage",
+      "after": "Authentication requests and session persistence"
+    },
+    {
+      "key": "oauth_delegation_b0_0_0_term",
+      "before": "OAuth 2.0 - a framework for granting access to resources",
+      "after": "OAuth 2.0 - an authorization framework for delegated resource access"
+    },
+    {
+      "key": "oauth_delegation_b0_0_1_term",
+      "before": "OIDC (OpenID Connect) - authentication built on OAuth 2.0",
+      "after": "OIDC (OpenID Connect) - an authentication layer built on OAuth 2.0"
+    },
+    {
+      "key": "oauth_delegation_b0_1_h2",
+      "before": "Handling in this project",
+      "after": "Used in this project"
+    },
+    {
+      "key": "oauth_delegation_b0_1_r0_1",
+      "before": "Access data at the external API",
+      "after": "Access the provider’s API"
+    },
+    {
+      "key": "authorization_code_b0_0_0_term",
+      "before": "Callback - the destination after external authentication",
+      "after": "Callback URL - where the browser returns after external authentication"
+    },
+    {
+      "key": "authorization_code_b0_0_1_term",
+      "before": "Authorization code and SDK session - return value and login result",
+      "after": "Authorization code and SDK session - an exchange code and an authenticated session"
+    },
+    {
+      "key": "authorization_code_b0_0_1_detail0",
+      "before": "The code is a one-time exchange value; the SDK session holds tokens and user data",
+      "after": "An authorization code is exchanged once for tokens; the SDK session object contains tokens and user data"
+    },
+    {
+      "key": "authorization_code_b0_1_row3",
+      "before": "External result returns through the browser",
+      "after": "The provider redirects the browser back to Supabase Auth"
+    },
+    {
+      "key": "authorization_code_b0_1_caption",
+      "before": "After external authentication, Supabase Auth provides the FoodMap login result",
+      "after": "Supabase Auth establishes the FoodMap session after external authentication"
+    },
+    {
+      "key": "account_link_title",
+      "before": "Auth Accounts and FoodMap Profiles",
+      "after": "Authentication Accounts and FoodMap Profiles"
+    },
+    {
+      "key": "account_link_lead",
+      "before": "Linking authentication and service data with the same user ID",
+      "after": "Linking authentication records and application data using the same user ID"
+    },
+    {
+      "key": "account_link_b0_0_0_term",
+      "before": "Auth account and profile - login data and service data",
+      "after": "Authentication account and profile - authentication data and application data"
+    },
+    {
+      "key": "account_link_b0_0_1_detail0",
+      "before": "The auth account and profile share a UUID; reports reference that ID",
+      "after": "The auth account and profile share a UUID; submissions reference that ID"
+    },
+    {
+      "key": "account_link_b0_1_r2_1",
+      "before": "Reports submitted by the user",
+      "after": "Submissions submitted by the user"
+    },
+    {
+      "key": "social_session_lead",
+      "before": "Browser token attachment and user verification by Express",
+      "after": "The browser sends an access token; Express authenticates the request"
+    },
+    {
+      "key": "social_session_b0_0_0_term",
+      "before": "Bearer token - login credentials attached to an API request",
+      "after": "Bearer token - an access credential included in an API request"
+    },
+    {
+      "key": "social_session_b0_0_0_detail0",
+      "before": "The browser attaches the Supabase access token in Authorization, separately from provider tokens",
+      "after": "The browser sends the Supabase access token in the Authorization header, not a provider token"
+    },
+    {
+      "key": "social_session_b0_1_actor3",
+      "before": "Profile DB",
+      "after": "Profiles table"
+    },
+    {
+      "key": "social_session_b0_1_route3",
+      "before": "FoodMap server → Profile DB",
+      "after": "FoodMap server → Profiles table"
+    },
+    {
+      "key": "social_session_b0_1_route4",
+      "before": "Profile DB → FoodMap server",
+      "after": "Profiles table → FoodMap server"
+    },
+    {
+      "key": "chapter_04_lead",
+      "before": "Roles, own-profile data, middleware and server-side permission checks",
+      "after": "User roles, profile updates, middleware and server-side authorization"
+    },
+    {
+      "key": "role_access_title",
+      "before": "User Roles and Allowed Operations",
+      "after": "User Roles and Permissions"
+    },
+    {
+      "key": "role_access_lead",
+      "before": "Which operations members and administrators may use",
+      "after": "Operations available to regular users and administrators"
+    },
+    {
+      "key": "role_access_b0_0_0_term",
+      "before": "Role - a user category that determines available operations",
+      "after": "Role - a user classification that determines permissions"
+    },
+    {
+      "key": "role_access_b0_0_0_detail0",
+      "before": "In this project, user means member and admin means administrator",
+      "after": "In this project, user is a regular user and admin is an administrator"
+    },
+    {
+      "key": "role_access_b0_1_h2",
+      "before": "Member",
+      "after": "Regular user"
+    },
+    {
+      "key": "role_access_b0_1_r1_2",
+      "before": "Own only",
+      "after": "Own profile only"
+    },
+    {
+      "key": "role_access_b0_1_r1_3",
+      "before": "Own only",
+      "after": "Own profile only"
+    },
+    {
+      "key": "role_access_b0_1_r2_0",
+      "before": "Submit a report",
+      "after": "Create a submission"
+    },
+    {
+      "key": "role_access_b0_1_r4_0",
+      "before": "View, approve, reject or delete reports",
+      "after": "View, approve, reject or delete submissions"
+    },
+    {
+      "key": "owner_access_title",
+      "before": "Working with Your Own Profile",
+      "after": "Updating Your Own Profile"
+    },
+    {
+      "key": "owner_access_b0_0_0_term",
+      "before": "Own profile - personal data linked to the authenticated user ID",
+      "after": "User profile - personal data associated with the authenticated user"
+    },
+    {
+      "key": "api_access_b0_0_1_term",
+      "before": "UI and server - button visibility and request permission",
+      "after": "UI visibility and server-side authorization - separate responsibilities"
+    },
+    {
+      "key": "api_access_b0_0_1_detail0",
+      "before": "A request can bypass a hidden button; the server must check permission",
+      "after": "Users can send requests directly even if a button is hidden; the server must enforce permissions"
+    },
+    {
+      "key": "api_access_b0_1_3_body",
+      "before": "Run the permitted restaurant creation",
+      "after": "Create the restaurant after authorization succeeds"
+    },
+    {
+      "key": "api_access_b0_1_caption",
+      "before": "Missing or invalid token: 401 · Missing admin permission: 403",
+      "after": "Missing or invalid token: 401 · Insufficient admin privileges: 403"
+    },
+    {
+      "key": "api_keys_lead",
+      "before": "Separate user tokens from the server-only key",
+      "after": "Distinguish user access tokens, publishable keys and secret keys"
+    },
+    {
+      "key": "api_keys_b0_0_1_term",
+      "before": "User access token - credentials a signed-in user presents to an API",
+      "after": "User access token - a credential used to authenticate a signed-in user’s API requests"
+    },
+    {
+      "key": "api_keys_b0_1_caption",
+      "before": "Access service data through Express · Direct browser access to these tables is blocked",
+      "after": "Access application data through Express; direct browser access to these tables is blocked"
+    },
+    {
+      "key": "chapter_05_title",
+      "before": "Administration Systems and Workflows",
+      "after": "Admin Interfaces and Workflows"
+    },
+    {
+      "key": "chapter_05_lead",
+      "before": "Report states, approval, transactions and repeated requests",
+      "after": "Submission states, approval, transactions and repeated requests"
+    },
+    {
+      "key": "admin_system_title",
+      "before": "User Reports and Admin Tasks",
+      "after": "User Submissions and Admin Tasks"
+    },
+    {
+      "key": "admin_system_lead",
+      "before": "Separate a registration request from adding service data",
+      "after": "Submitting a restaurant for review and adding it to the public list"
+    },
+    {
+      "key": "admin_system_b0_0_0_term",
+      "before": "Report - restaurant information a user asks to register",
+      "after": "Submission - restaurant information submitted by a user for review"
+    },
+    {
+      "key": "admin_system_b0_0_0_detail0",
+      "before": "Written by a signed-in user; stored as pending with the server-verified author",
+      "after": "Submitted by a signed-in user and saved as pending under the authenticated user’s ID"
+    },
+    {
+      "key": "admin_system_b0_0_1_term",
+      "before": "Admin task - review reports and update service data",
+      "after": "Admin task - review submissions and manage application data"
+    },
+    {
+      "key": "admin_system_b0_0_1_detail0",
+      "before": "Saving a report and creating a restaurant are separate; approval creates the restaurant",
+      "after": "Saving a submission and creating a restaurant are separate; approval creates the restaurant"
+    },
+    {
+      "key": "admin_system_b0_1_actor0",
+      "before": "User UI",
+      "after": "User interface"
+    },
+    {
+      "key": "admin_system_b0_1_actor2",
+      "before": "Admin UI",
+      "after": "Admin interface"
+    },
+    {
+      "key": "admin_system_b0_1_route0",
+      "before": "User UI → Express server",
+      "after": "User interface → Express server"
+    },
+    {
+      "key": "admin_system_b0_1_row0",
+      "before": "Submit report · POST /api/submissions",
+      "after": "Create submission · POST /api/submissions"
+    },
+    {
+      "key": "admin_system_b0_1_row1",
+      "before": "Verify author and store as pending",
+      "after": "Identify the submitter and save with pending status"
+    },
+    {
+      "key": "admin_system_b0_1_route2",
+      "before": "Admin UI → Express server",
+      "after": "Admin interface → Express server"
+    },
+    {
+      "key": "admin_system_b0_1_row2",
+      "before": "Request reports with admin permission",
+      "after": "Request submissions with admin permission"
+    },
+    {
+      "key": "admin_system_b0_1_route3",
+      "before": "Express server → Admin UI",
+      "after": "Express server → Admin interface"
+    },
+    {
+      "key": "admin_system_b0_1_row3",
+      "before": "Return reports for review",
+      "after": "Return submissions for review"
+    },
+    {
+      "key": "admin_system_b0_1_caption",
+      "before": "Saving a report alone does not add it to the public restaurant list",
+      "after": "Saving a submission alone does not add it to the public restaurant list"
+    },
+    {
+      "key": "workflow_state_title",
+      "before": "Report Processing States",
+      "after": "Submission Review Status"
+    },
+    {
+      "key": "workflow_state_lead",
+      "before": "Review outcomes: pending, approved and rejected",
+      "after": "Review status: pending, approved and rejected"
+    },
+    {
+      "key": "workflow_state_b0_0_0_term",
+      "before": "Status - the current processing stage of a report",
+      "after": "Status - the current processing stage of a submission"
+    },
+    {
+      "key": "workflow_state_b0_0_0_detail0",
+      "before": "pending: awaiting review · approved: accepted · rejected: declined",
+      "after": "pending: awaiting review · approved: accepted for listing · rejected: not accepted"
+    },
+    {
+      "key": "workflow_state_b0_0_1_term",
+      "before": "Review record - the administrator and time of review",
+      "after": "Review metadata - the reviewer and review timestamp"
+    },
+    {
+      "key": "workflow_state_b0_1_body",
+      "before": "The administrator reviews the report and chooses an action",
+      "after": "The administrator reviews the submission and chooses an action"
+    },
+    {
+      "key": "workflow_state_b0_1_0_body",
+      "before": "Create restaurant + save approval and review record",
+      "after": "Create a restaurant and save the approval and review metadata"
+    },
+    {
+      "key": "workflow_state_b0_1_1_body",
+      "before": "Save rejection and review record without creating a restaurant",
+      "after": "Save the rejection and review metadata without creating a restaurant"
+    },
+    {
+      "key": "workflow_state_b0_1_caption",
+      "before": "New approval or rejection starts from pending · Deletion is a separate operation",
+      "after": "Only pending submissions can be newly approved or rejected; deletion is separate"
+    },
+    {
+      "key": "approval_flow_title",
+      "before": "How Report Approval Works",
+      "after": "How Submission Approval Works"
+    },
+    {
+      "key": "approval_flow_lead",
+      "before": "From the admin UI through the server and DB function to the result",
+      "after": "From the admin interface through Express and the database function to the response"
+    },
+    {
+      "key": "approval_flow_b0_0_0_term",
+      "before": "RPC (Remote Procedure Call) - call a function in a remote program",
+      "after": "RPC (Remote Procedure Call) - invoke a function on a remote system"
+    },
+    {
+      "key": "approval_flow_b0_0_0_detail1",
+      "before": ":id in /api/submissions/:id/approve is replaced with the selected report’s ID",
+      "after": ":id in /api/submissions/:id/approve is replaced with the selected submission’s ID"
+    },
+    {
+      "key": "approval_flow_b0_1_actor0",
+      "before": "Admin UI",
+      "after": "Admin interface"
+    },
+    {
+      "key": "approval_flow_b0_1_route0",
+      "before": "Admin UI → Express server",
+      "after": "Admin interface → Express server"
+    },
+    {
+      "key": "approval_flow_b0_1_row3",
+      "before": "Check admin and report state → process approval",
+      "after": "Verify admin privileges and submission status → approve"
+    },
+    {
+      "key": "approval_flow_b0_1_route5",
+      "before": "Express server → Admin UI",
+      "after": "Express server → Admin interface"
+    },
+    {
+      "key": "approval_flow_b0_1_row5",
+      "before": "Success → refresh report and restaurant lists",
+      "after": "Success → refresh submission and restaurant lists"
+    },
+    {
+      "key": "admin_transaction_lead",
+      "before": "Commit restaurant creation and report updates together, or undo both",
+      "after": "Commit restaurant creation and the submission update together, or roll back both"
+    },
+    {
+      "key": "admin_transaction_b0_0_0_term",
+      "before": "Transaction - a unit that groups database changes",
+      "after": "Transaction - a single, all-or-nothing unit of database work"
+    },
+    {
+      "key": "admin_transaction_b0_0_0_detail0",
+      "before": "Commit all changes on success; undo the operation’s changes if an error occurs",
+      "after": "Commit all changes on success; roll back the transaction if any step fails"
+    },
+    {
+      "key": "admin_transaction_b0_0_0_detail1",
+      "before": "Prevent a single approval request from leaving only the restaurant or only the report update",
+      "after": "Prevent partial updates: restaurant creation and the submission update must succeed together"
+    },
+    {
+      "key": "admin_transaction_b0_1_op0",
+      "before": "① Create a restaurant from the report in restaurants",
+      "after": "① Create a restaurant from the submission in restaurants"
+    },
+    {
+      "key": "admin_transaction_b0_1_0_title",
+      "before": "All succeed → commit together",
+      "after": "All steps succeed → commit"
+    },
+    {
+      "key": "admin_transaction_b0_1_0_result",
+      "before": "Restaurant creation + report approval and review record",
+      "after": "Restaurant creation + submission approval and review metadata"
+    },
+    {
+      "key": "admin_transaction_b0_1_1_title",
+      "before": "An error → undo all changes",
+      "after": "Any step fails → roll back"
+    },
+    {
+      "key": "admin_transaction_b0_1_1_result",
+      "before": "Keep the DB state from before this approval operation",
+      "after": "Leave the database unchanged by this approval attempt"
+    },
+    {
+      "key": "idempotency_b0_0_1_detail0",
+      "before": "An approved report returns its existing restaurant without creating another",
+      "after": "For an approved submission, return the linked restaurant without creating another"
+    },
+    {
+      "key": "idempotency_b0_1_title",
+      "before": "Approval request for the same report",
+      "after": "Approval request for the same submission"
+    },
+    {
+      "key": "idempotency_b0_1_body",
+      "before": "The DB function checks the current report state",
+      "after": "The DB function checks the current submission state"
+    },
+    {
+      "key": "idempotency_b0_1_0_body",
+      "before": "Create a restaurant and save approval",
+      "after": "Create a restaurant and mark the submission approved"
+    },
+    {
+      "key": "idempotency_b0_1_2_body",
+      "before": "Reject approval; do not create a restaurant",
+      "after": "Reject the request; do not create a restaurant"
+    },
+    {
+      "key": "chapter_07_title",
+      "before": "Environment Separation and Service Operations",
+      "after": "Deployment Environments and Operations"
+    },
+    {
+      "key": "chapter_07_lead",
+      "before": "Project settings, build, deployment, URL connections and verification",
+      "after": "Configuration, builds, deployment, endpoint setup and functional verification"
+    },
+    {
+      "key": "environments_b0_0_0_term",
+      "before": "Execution environment - where and how a program runs",
+      "after": "Runtime environment - where a program runs and the configuration it uses"
+    },
+    {
+      "key": "environments_b0_0_1_term",
+      "before": "Local and deployed environments - own computer and public access",
+      "after": "Local and deployed environments - development on your computer and hosted access"
+    },
+    {
+      "key": "environments_b0_1_0_body",
+      "before": "Own browser → dev UI :5173\nExpress server :3000 → Supabase",
+      "after": "Browser → local dev server :5173\nExpress server :3000 → Supabase"
+    },
+    {
+      "key": "environment_config_title",
+      "before": "Environment Variables and Connections",
+      "after": "Environment Variables and Connection Settings"
+    },
+    {
+      "key": "environment_config_b0_0_1_detail0",
+      "before": "Use .env.local for the client and .env for the server; register hosted settings separately",
+      "after": "Use .env.local for the client and .env for the server; configure deployment environment variables separately"
+    },
+    {
+      "key": "environment_config_b0_1_1_row2",
+      "before": "CLIENT_URL → Base URL of the client UI",
+      "after": "CLIENT_URL → Client origin"
+    },
+    {
+      "key": "deployment_lead",
+      "before": "Creating browser files and running the API server",
+      "after": "Building frontend assets and running the API server"
+    },
+    {
+      "key": "deployment_b0_0_0_term",
+      "before": "Build - convert source into files to run or serve",
+      "after": "Build - compile and bundle source code into deployable files"
+    },
+    {
+      "key": "deployment_b0_0_0_detail0",
+      "before": "Run npm run build; dist is the folder containing its output",
+      "after": "Run npm run build; dist is the build output directory"
+    },
+    {
+      "key": "deployment_b0_1_1_title",
+      "before": "Generate dist",
+      "after": "Build output: dist"
+    },
+    {
+      "key": "deployment_b0_1_caption",
+      "before": "Client setting changes → restart local dev / rebuild for deployment",
+      "after": "Client configuration changes → restart the dev server locally or rebuild the deployment"
+    },
+    {
+      "key": "deployment_b0_2_1_title",
+      "before": "Generate server files",
+      "after": "Compile to JavaScript"
+    },
+    {
+      "key": "deployment_urls_lead",
+      "before": "Separate the API address from the login return address",
+      "after": "Distinguish the API base URL from the authentication redirect URL"
+    },
+    {
+      "key": "deployment_urls_b0_0_1_term",
+      "before": "Login return URL - where the browser returns after authentication",
+      "after": "Redirect URL - where the browser returns after authentication"
+    },
+    {
+      "key": "deployment_urls_b0_1_row1",
+      "before": "Register the Vercel base URL in CLIENT_URL",
+      "after": "Set CLIENT_URL to the Vercel origin"
+    },
+    {
+      "key": "deployment_urls_b0_1_caption",
+      "before": "Supabase Site URL: Vercel base URL · Redirect URLs: that URL with /auth/callback",
+      "after": "Supabase Site URL: Vercel app URL · Redirect URLs: the app URL with /auth/callback"
+    },
+    {
+      "key": "monitoring_lead",
+      "before": "Verify server responses, login, reports and approval",
+      "after": "Verify server responses, login, submissions and approval"
+    },
+    {
+      "key": "monitoring_b0_0_1_term",
+      "before": "Network and logs - request inspection and server records",
+      "after": "Network panel and logs - HTTP requests and server activity"
+    },
+    {
+      "key": "monitoring_b0_0_1_detail0",
+      "before": "Network is the browser developer tools tab for inspecting requests; logs are records written by the server",
+      "after": "The browser’s Network panel shows HTTP requests; server logs record runtime events"
+    },
+    {
+      "key": "monitoring_b0_1_3_title",
+      "before": "Report and approval",
+      "after": "Submission and approval"
+    },
+    {
+      "key": "monitoring_b0_1_3_body",
+      "before": "Member submits a report\nAdmin approves → check restaurant",
+      "after": "User submits restaurant details\nAdmin approves → verify the restaurant"
+    }
+  ]
+}

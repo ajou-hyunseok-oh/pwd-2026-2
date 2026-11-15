@@ -1,0 +1,35 @@
+챕터 3 보충 자료 — 프로토콜 내부 처리
+
+현재 수업 본문: 22~26페이지, 실습 필수 용어와 실제 Supabase Auth·SDK·Express 흐름.
+이 자료는 직접 인증 시스템을 확장할 때 참고할 범위이며 실습 선행 학습으로 요구하지 않음.
+
+1. state
+외부 로그인을 시작한 브라우저의 시도와 돌아온 응답을 연결하는 확인값.
+요청 보호에 사용할 때는 예측하기 어려운 일회용 값을 해당 시도와 안전하게 연결하고 검증해야 함.
+FoodMap Express 서버가 실제로 state를 직접 생성·보관하는 구현은 아님.
+React의 상태 변수 state와 OAuth 요청 매개변수 state는 구분.
+
+2. PKCE
+인가 코드 발급 요청과 코드 교환 요청을 연결해 코드 오용을 막는 보호 절차.
+현재 src/config/supabase.js는 flowType: "pkce"를 설정하고 복귀 페이지는 SDK의 exchangeCodeForSession을 사용.
+학생이 verifier·challenge·해시 계산을 직접 작성하는 실습은 아님.
+보호 절차를 생략해도 된다는 뜻은 아니며 인증 서비스·SDK가 맡는 처리와 직접 작성할 코드를 구분.
+
+3. ID 토큰 검증과 외부 계정 연결
+ID 토큰의 서명·발급자·수신 대상·만료 등을 검증하고 nonce를 사용했다면 반환값도 확인해야 함.
+모든 외부 로그인이 OIDC를 사용한다고 일반화하지 않음.
+이번 실습은 외부 인증 결과를 Supabase Auth가 처리하며 FoodMap은 검증된 Auth 사용자 ID로 profiles 조회.
+FoodMap이 외부 제공자의 식별자 조합을 직접 저장하거나 계정을 수동 병합하는 구현은 아님.
+이메일·이름이 같다는 이유만으로 별도 계정을 수동 병합하지 않음.
+
+공식 자료
+OAuth 2.0: https://www.rfc-editor.org/rfc/rfc6749.html
+OAuth 보안 권고: https://www.rfc-editor.org/rfc/rfc9700.html
+OIDC: https://openid.net/specs/openid-connect-core-1_0.html
+PKCE: https://www.rfc-editor.org/rfc/rfc7636.html
+Supabase PKCE: https://supabase.com/docs/guides/auth/sessions/pkce-flow
+
+자료 이력
+기존 week6-asset-audit와 new-resource-research는 본문 60장·전체 68장 시점의 조사 기록.
+현재 본문·페이지 번호·배치는 slide-map.json, slide-bodies.json, resource-placements.json을 기준으로 확인.
+활성 챕터 3 작성 원본: scripts/chapter03_content.py.

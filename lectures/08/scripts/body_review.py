@@ -13,7 +13,7 @@ def outputs():
     slides = {slide['id']: (number, slide) for number, slide in enumerate(SLIDES, 2)}
     rows = []
     lines = ['8주차 · 완성 본문과 문단 대응', '',
-             '본문 60장 · 한영 정의와 글머리표 · 기존 자료 16장 + 신규 자료 44장.',
+             '본문 37장 · 한영 정의와 글머리표 · 챕터 3은 실제 구현 중심 5장.',
              '확정 문단과 선수 개념은 보존하고 설명·자료의 배치를 슬라이드별로 구성.',
              '출처: slide-references.html · 화면 검토: body-layout-review.json', '']
     seen = set()
@@ -41,8 +41,8 @@ def outputs():
                 lines.append(group['term'][0])
                 lines.extend('  • ' + detail[0] for detail in group['details'])
             lines += ['', '자료 배치: ' + row['composition'], '']
-    assert len(rows) == len(BODY) == 60
-    data = dict(stage='completed-bilingual-bodies', slide_count=68, content_count=60,
+    assert len(rows) == len(BODY) == 37
+    data = dict(stage='completed-bilingual-bodies', slide_count=44, content_count=37,
                 languages=['ko', 'en'], references='slide-references.html',
                 review='body-layout-review.json', slides=rows)
     return {root/'materials/slide-bodies.json': json.dumps(data, ensure_ascii=False, indent=2)+'\n',
@@ -58,4 +58,4 @@ if __name__ == '__main__':
             assert path.read_text() == content, f'Stale {path}'
         else:
             path.write_text(content)
-    print('Week 8 bodies: 60 bilingual explanations with resources and approved prerequisites.')
+    print('Week 8 bodies: 37 bilingual explanations with resources and approved prerequisites.')

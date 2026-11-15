@@ -1,0 +1,18 @@
+{
+  "reviewed_on": "2026-11-09",
+  "slide": 8,
+  "id": "password-salt",
+  "scope": "07번 해시 저장의 한계에서 솔트 필요성과 계정별 저장 결과 비교로 연결",
+  "reasoning": "솔트 없이 같은 조건에서 같은 비밀번호를 해시하면 동일한 결과가 되어 추측 계산을 여러 계정에 재사용할 수 있음을 먼저 설명. 무작위 솔트로 저장 결과를 달리하는 역할, 해시와 함께 보관하여 검증에 재사용하는 관계로 연결. 비밀키 비교와 중복 도식 제거. 솔트를 개별 비밀번호 추측 자체를 막는 수단으로 설명하지 않음.",
+  "example_correspondence": "u123·u999가 같은 비밀번호를 입력하지만 서로 다른 salt-A·salt-B 및 hash-A·hash-B를 갖는 표. 솔트와 해시는 별도 열로 구분하고 입력 비밀번호는 설정 시 값임을 표시. 후속 사용자 지시에 따라 표 아래 기호·원문 저장 관련 문구 제거. 실제 해시 계산 결과가 아닌 개념 사례.",
+  "validation": {
+    "title_outline_check": "passed",
+    "paragraph_outline_check": "passed",
+    "body_review_check": "passed",
+    "web_deck_validate": "passed",
+    "git_diff_check": "passed",
+    "slide08_ko_en_screen_print_mobile": "passed: 실제 브라우저 파일 URL 렌더. 발표·1280×720 인쇄 경계와 390px 모바일 가로 넘침 검사. KO/EN 발표 캡처 육안 검토 완료.",
+    "full_npm_test": "미실행: 앞선 실행에서 prettier 의존성 누락 및 python3 실행 경로 문제 확인. 이번 검증은 위 개별 검사와 수정된 08번 화면에 한정."
+  },
+  "server": "파일 URL 검증으로 웹 서버 실행 없음"
+}

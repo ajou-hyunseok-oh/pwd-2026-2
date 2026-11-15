@@ -1,0 +1,45 @@
+{
+  "updated_on": "2026-11-09",
+  "request": "보안은 다음 주 강의로 분리하고 이번 주 슬라이드에서 제거",
+  "removed": {
+    "chapter": "기존 챕터 6 웹 공격과 방어 원리",
+    "old_pages": "39~49",
+    "cover": 1,
+    "content": 10,
+    "ids": [
+      "cookie-protection",
+      "cors",
+      "csrf",
+      "input-validation",
+      "login-rate-limit",
+      "origin",
+      "same-origin-policy",
+      "site",
+      "sql-injection",
+      "xss"
+    ]
+  },
+  "retained": "이번 실습의 로그인·인증·권한 검사·제보 승인과 환경 운영",
+  "current": {
+    "total": 49,
+    "chapters": 6,
+    "body": 42,
+    "chapter6": "환경 분리와 서비스 운영",
+    "chapter6_start": 39,
+    "subtitle": [
+      "웹 서비스 인증과 운영",
+      "Web Service Authentication and Operations"
+    ]
+  },
+  "preservation": "기존 원고·자료의 정의와 최초 조사 기록은 작성 소스에 보존. 다음 주 덱에는 아직 반영하지 않음.",
+  "validation": {
+    "static": "validate.cjs 및 git diff --check 통과",
+    "generators": "제목·문단·본문·자료 배치·출처의 --check 통과",
+    "structure": "제외한 10개 ID가 활성 덱·목차·본문·배치·출처에서 제거됨; 챕터 번호1~6과 전체49장 확인",
+    "screens": "한영 × 발표·인쇄·390px 모바일 × 표지·승인 마지막·다음 챕터·환경 첫 장·마지막 장 = 30뷰, 실패·경고0",
+    "artifacts": ".tmp/security-deferred",
+    "reproducibility": "HTML·번역·슬라이드 맵 재생성 해시 동일",
+    "server": "file:// 검증. 로컬 웹 서버를 실행하지 않음",
+    "full_suite": "직전 실행에서 prettier 미설치로 전체 npm test 중단; 이번에는 공용 정적 검사와 화면·생성 검사 수행"
+  }
+}

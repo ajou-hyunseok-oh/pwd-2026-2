@@ -1,6 +1,55 @@
 /* Week 8 complete bodies: explanations and evidence share one composition. */
 .wd-lesson-body { gap: 2rem; margin-top: 1.25rem; }
+[data-wd-slide="role-access"] .wd-lesson-table thead th:first-child { width: 40%; }
+[data-wd-slide="role-access"] .wd-lesson-body .wd-lesson-table :is(th,td) { padding: .4rem .7rem; }
+[data-wd-slide="role-access"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { grid-template-columns: 1fr; }
+@media screen and (max-width: 767px) {
+  [data-wd-slide="role-access"] .wd-lesson-body .wd-lesson-table :is(th,td) { padding: .5rem .3rem; }
+}
+@media (min-width: 768px) {
+  [data-wd-slide="api-access"] .wd-lesson-body .w8-flow ol { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
+[data-wd-slide="identity-provider"] .wd-lesson-table thead th:first-child { width: 35%; }
+[data-wd-slide="social-session"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { grid-template-columns: 1fr; }
 .wd-lesson-body--visual { grid-template-columns: minmax(0,.92fr) minmax(0,1.28fr); }
+@media (min-width: 768px) {
+  [data-wd-slide="auth-token"] .wd-lesson-body--visual {
+    grid-template-columns: minmax(0,1.06fr) minmax(0,1.14fr);
+    gap: 1.5rem;
+  }
+  [data-wd-slide="auth-expiry"] .wd-lesson-body--visual {
+    grid-template-columns: minmax(0,1.06fr) minmax(0,1.14fr);
+    gap: 1.5rem;
+  }
+  [data-wd-slide="auth-expiry"] .wd-lesson-table th:first-child {
+    width: 22%;
+  }
+  [data-wd-slide="refresh-token"] .wd-lesson-body--visual {
+    grid-template-columns: minmax(0,1.12fr) minmax(0,1.08fr);
+    gap: 1.5rem;
+  }
+  [data-wd-slide="http-stateless"] .wd-lesson-body--visual {
+    grid-template-columns: minmax(0,1.35fr) minmax(0,.85fr);
+  }
+  [data-wd-slide="http-stateless"] .w8-local { width: 60% !important; }
+  :is([data-wd-slide="http-stateless"], [data-wd-slide="cookies"])
+    .wd-lesson-body--visual > .wd-lesson-block:last-child {
+    position: relative;
+    left: -2rem;
+  }
+  [data-wd-slide="cookies"] .wd-lesson-body--visual {
+    grid-template-columns: minmax(0,1.35fr) minmax(0,.85fr);
+  }
+  [data-wd-slide="cookies"] .wd-lesson-body--visual > .wd-lesson-block:last-child {
+    width: 90%;
+    justify-self: end;
+    left: -3rem;
+  }
+  [data-wd-slide="cookies"] .w8-actor:last-child {
+    width: 30%;
+    transform: translateX(-66.666%);
+  }
+}
 .wd-lesson-block { display: grid; gap: 1rem; align-content: start; }
 .wd-lesson-concepts { font-size: 1rem; line-height: 1.6; }
 .wd-lesson-concepts li { font-size: .91rem; line-height: 1.6; }
@@ -20,6 +69,27 @@
 .wd-lesson-block > pre + .wd-lesson-code-label { margin-top: .15rem !important; }
 .w8-resource-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
 .w8-resource-column { min-width: 0; }
+[data-wd-slide="identity-provider"] .wd-lesson-body .w8-flow ol { grid-template-columns: 1fr; gap: .5rem; }
+[data-wd-slide="identity-provider"] .wd-lesson-body .w8-flow li { border-top: 0; border-left: 3px solid #47725b; padding: .3rem .5rem .3rem 2.3rem; }
+[data-wd-slide="identity-provider"] .wd-lesson-body .w8-flow li::before { position: absolute; left: .5rem; top: .45rem; }
+[data-wd-slide="identity-provider"] .wd-lesson-body .w8-flow li + li::after { display: none; }
+[data-wd-slide="identity-provider"] .wd-lesson-body .w8-flow li p { margin-top: .15rem; }
+[data-wd-slide="password-hash"] .wd-lesson-table thead th:first-child { width: 22%; }
+[data-wd-slide="authentication"] .w8-resource-row { grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); }
+[data-wd-slide="authentication"] .w8-login-example { margin: 0 auto; }
+[data-wd-slide="authentication"] .wd-lesson-body .w8-flow { margin-top: 0; }
+[data-wd-slide="authentication"] .wd-lesson-body .w8-flow ol { grid-template-columns: 1fr; gap: .5rem; }
+[data-wd-slide="authentication"] .wd-lesson-body .w8-flow li { border-top: 0; border-left: 3px solid #47725b; padding: .3rem .5rem .3rem 2.3rem; }
+[data-wd-slide="authentication"] .wd-lesson-body .w8-flow li::before { position: absolute; left: .5rem; top: .45rem; }
+[data-wd-slide="authentication"] .wd-lesson-body .w8-flow li + li::after { display: none; }
+[data-wd-slide="authentication"] .wd-lesson-body .w8-flow li p { margin-top: .15rem; }
+[data-wd-slide="authentication"] .w8-login-screen { padding: .8rem 1.4rem; }
+[data-wd-slide="authentication"] .w8-login-heading { margin-bottom: .6rem !important; }
+[data-wd-slide="authentication"] .w8-input-value + .w8-input-label { margin-top: .65rem !important; }
+[data-wd-slide="authentication"] .w8-login-submit { margin-top: .8rem !important; }
+@media screen and (max-width: 767px) {
+  [data-wd-slide="authentication"] .w8-resource-row { grid-template-columns: 1fr; }
+}
 .wd-lesson-body .wd-lesson-table th,
 .wd-lesson-body .wd-lesson-table td { padding: .5rem .7rem; }
 .wd-lesson-body--single .w8-flow li { padding: .6rem 0; }
@@ -45,11 +115,25 @@
 .wd-lesson-body--visual .w8-flow li::before { position: absolute; left: .5rem; top: .8rem; }
 .wd-lesson-body--visual .w8-flow li + li::after { display: none; }
 .wd-lesson-body--visual .w8-flow li p { margin-top: .35rem; }
+[data-wd-slide="password-login"] .wd-lesson-body .w8-flow ol { gap: .4rem; }
+[data-wd-slide="password-login"] .wd-lesson-body .w8-flow li { padding: .4rem .5rem .4rem 2.3rem; }
+[data-wd-slide="password-login"] .wd-lesson-body .w8-flow li::before { top: .55rem; }
 .wd-lesson-body--visual .w8-timeline ol { grid-template-columns: 1fr; gap: 1.2rem; }
 .wd-lesson-body--visual .w8-timeline li { border-top: 0; border-left: 3px solid #47725b; padding: .2rem 0 .4rem 1.3rem; }
 .wd-lesson-body--visual .w8-timeline li::before { left: -.35rem; top: .2rem; }
 .wd-lesson-body--visual .w8-timeline li > p:last-child { margin-top: .3rem; }
 .wd-lesson-body--visual .w8-time { margin-bottom: .25rem !important; }
+[data-wd-slide="auth-expiry"] .w8-timeline ol { gap: .75rem; }
+
+[data-wd-slide="identity-need"] .w8-resource-note {
+  padding: .75rem 1rem;
+  border-left: 4px solid #256747;
+  background: #edf3ef;
+  color: #263e30;
+  font-size: .94rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
 
 /* The explanation replaces repeated labels, leaving the examples legible. */
 .wd-lesson-body--visual .w8-branch-children { gap: 1rem; }
@@ -66,10 +150,29 @@
 .wd-lesson-body .w8-local[style*="right:0"] { margin-left: auto; }
 .wd-lesson-body .w8-sequence[data-actors="3"] .w8-actors,
 .wd-lesson-body .w8-sequence[data-actors="4"] .w8-actors { height: 3rem; }
+[data-wd-slide="oauth-delegation"] .wd-lesson-body .w8-sequence[data-actors="4"] .w8-actors { height: 5rem; }
+[data-wd-slide="oauth-delegation"] .w8-actor { white-space: pre-line; }
+[data-wd-slide="oauth-delegation"] .wd-lesson-concepts > div + div { margin-top: 1rem; }
+[data-wd-slide="oidc"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { grid-template-columns: 1fr; gap: .8rem; }
+[data-wd-slide="oidc"] .wd-lesson-body .w8-flow ol { grid-template-columns: 1fr; gap: .5rem; }
+[data-wd-slide="oidc"] .wd-lesson-body .w8-flow li { border-top: 0; border-left: 3px solid #47725b; padding: .3rem .5rem .3rem 2.3rem; }
+[data-wd-slide="oidc"] .wd-lesson-body .w8-flow li::before { position: absolute; left: .5rem; top: .45rem; }
+[data-wd-slide="oidc"] .wd-lesson-body .w8-flow li + li::after { display: none; }
+[data-wd-slide="oidc"] .wd-lesson-body .w8-flow li p { margin-top: .15rem; }
+[data-wd-slide="oidc"] .wd-lesson-table thead th:first-child { width: 25%; }
+[data-wd-slide="oidc"] .wd-lesson-table thead th:nth-child(2) { width: 35%; }
+[data-wd-slide="authorization-code"] .wd-lesson-body .w8-messages > .w8-sequence-phase { padding: .35rem .6rem; margin: .4rem 0 .6rem; background: #edf3ef; color: #263e30; font-weight: 700; font-size: .85rem; }
+[data-wd-slide="authorization-code"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { grid-template-columns: 1fr; }
+@media (min-width: 768px) {
+  [data-wd-slide="authorization-code"] .wd-lesson-body .w8-sequence[data-actors="3"] .w8-actors { height: 2rem; }
+  [data-wd-slide="authorization-code"] .wd-lesson-body .w8-messages > li { padding-bottom: .15rem; }
+  [data-wd-slide="authorization-code"] .wd-lesson-body .w8-message { min-height: 1.3rem; padding-bottom: .2rem; }
+  [data-wd-slide="authorization-code"] .wd-lesson-body .w8-messages > .w8-sequence-phase { padding: .1rem .6rem; margin: .1rem 0 .3rem; }
+}
 [data-wd-slide="jwt-structure"] .wd-lesson-figure { margin-bottom: 0; }
 [data-wd-slide="jwt-structure"] .wd-lesson-table { font-size: .88rem; }
 [data-wd-slide="jwt-structure"] .wd-lesson-table th,
-[data-wd-slide="jwt-structure"] .wd-lesson-table td { padding: .5rem .7rem; }
+[data-wd-slide="jwt-structure"] .wd-lesson-table td { padding: .35rem .7rem; }
 [data-wd-slide="jwt-structure"] pre + .wd-lesson-code-label { margin-top: 0 !important; }
 [data-wd-slide="cookies"] pre + .wd-lesson-code-label { margin-top: 0 !important; }
 [data-wd-slide="cors"] .w8-resource-column:nth-child(2) .w8-flow ol { grid-template-columns: 1fr; gap: .25rem; }
@@ -103,4 +206,21 @@
   .wd-lesson-body--visual .w8-transaction-results { grid-template-columns: 1fr; }
   .wd-lesson-body .wd-lesson-table { font-size: .8rem; }
   .wd-lesson-body .wd-lesson-table :is(th,td) { padding: .5rem .3rem; }
+}
+/* Three report states share one decision row on presentation and print screens. */
+@media (min-width: 768px) {
+  [data-wd-slide="idempotency"] .w8-branch-children { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+[data-wd-slide="approval-flow"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts,
+[data-wd-slide="admin-transaction"] .wd-lesson-body--single > .wd-lesson-block > .wd-lesson-concepts { grid-template-columns: 1fr; }
+/* Connection settings retain readable type with compact card spacing. */
+[data-wd-slide="environment-config"] .w8-workspace { padding: .8rem 1rem; }
+[data-wd-slide="environment-config"] .w8-workspace li { padding: .55rem 0; overflow-wrap: anywhere; }
+@media (min-width: 768px) {
+  [data-wd-slide="monitoring"] .w8-flow ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+/* Allow two-line English actor names without touching the first message. */
+@media (min-width: 768px) {
+  html[lang="en"] .wd-lesson-body .w8-sequence[data-actors="2"] .w8-actors { height: 3.2rem; }
 }

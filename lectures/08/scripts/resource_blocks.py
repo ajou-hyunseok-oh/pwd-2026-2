@@ -8,6 +8,17 @@ of an implemented FoodMap application.
 
 def render_resource(item, key, tr):
     kind = item['kind']
+    if kind == 'table':
+        head = ''.join(tr(f'{key}_h{i}', cell, 'th', attrs=' scope="col"')
+                       for i, cell in enumerate(item['head']))
+        rows = []
+        for i, row in enumerate(item['rows']):
+            assert len(row) == len(item['head']), key
+            rows.append('<tr>' + ''.join(
+                tr(f'{key}_r{i}_{j}', cell, 'th' if j == 0 else 'td',
+                   attrs=' scope="row"' if j == 0 else '')
+                for j, cell in enumerate(row)) + '</tr>')
+        return '<table class="wd-lesson-table"><thead><tr>' + head + '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table>'
     if kind == 'resource-row':
         parts = ['<div class="w8-resource-row">']
         for i, column in enumerate(item['columns']):
@@ -35,7 +46,10 @@ def render_resource(item, key, tr):
             parts += ['<li>', tr(f'{key}_{i}_time', event['time'], 'p', 'w8-time'),
                       tr(f'{key}_{i}_title', event['title'], 'strong'),
                       tr(f'{key}_{i}_detail', event['detail']), '</li>']
-        return '\n'.join(parts + ['</ol>', tr(key+'_caption', item['caption'], 'figcaption', 'w8-caption'), '</figure>'])
+        parts.append('</ol>')
+        if item.get('caption'):
+            parts.append(tr(key+'_caption', item['caption'], 'figcaption', 'w8-caption'))
+        return '\n'.join(parts + ['</figure>'])
     if kind == 'resource-workspaces':
         parts = ['<figure class="w8-workspaces"><div class="w8-workspace-panes">']
         for i, pane in enumerate(item['panes']):
@@ -62,8 +76,8 @@ def render_resource(item, key, tr):
             parts += ['<div class="w8-environment">', tr(f'{key}_{i}_title', title, 'p', 'w8-environment-title'),
                       tr(f'{key}_{i}_purpose', purpose, 'p', 'w8-environment-purpose'),
                       '<div class="w8-environment-ui">',
-                      tr(f'{key}_{i}_user', ('사용자 화면', 'User UI')),
-                      tr(f'{key}_{i}_admin', ('관리자 화면', 'Admin UI')), '</div>']
+                      tr(f'{key}_{i}_user', ('사용자 화면', 'User interface')),
+                      tr(f'{key}_{i}_admin', ('관리자 화면', 'Admin interface')), '</div>']
             if item['database']:
                 parts += ['<div class="w8-environment-server">',
                           tr(f'{key}_{i}_server', ('해당 환경의 서버', 'Server for this environment')), '</div>',
@@ -96,7 +110,7 @@ def render_resource(item, key, tr):
                 parts.append(tr(f'{key}_provider{i}', pair, 'p', 'w8-provider-choice'))
         else:
             for i, (label, value) in enumerate([
-                (('이메일', 'Email'), ('student@example.com',) * 2),
+                (('이메일', 'Email'), (item.get('email', 'student@example.com'),) * 2),
                 (('비밀번호', 'Password'), ('••••••••',) * 2),
             ]):
                 parts.append(tr(f'{key}_field{i}', label, 'p', 'w8-input-label'))
@@ -127,6 +141,8 @@ def render_resource(item, key, tr):
         parts.append(f'<div class="w8-lifeline" style="left:{position(i):g}%" aria-hidden="true"></div>')
     parts.append('<ol class="w8-messages">')
     for i, row in enumerate(rows):
+        if row.get('phase'):
+            parts.append(tr(f'{key}_phase{i}', row['phase'], 'li', 'w8-sequence-phase'))
         start, end = row['from'], row['to']
         assert 0 <= start < count and 0 <= end < count
         note = start == end

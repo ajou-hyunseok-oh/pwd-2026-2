@@ -1,0 +1,18 @@
+{
+  "reviewed_on": "2026-11-09",
+  "slide": 5,
+  "id": "trust-boundary",
+  "scope": "03번의 맛집 생성 요청과 04번의 계정·ID 연결에서, 클라이언트 입력만으로 연결을 확정할 수 없는 이유로 전개",
+  "reasoning": "첫 설명 묶음은 사용자가 제어하는 클라이언트 입력과 서버 처리 영역의 신뢰 경계 및 입력의 검증 전 지위를 설명. 두 번째 묶음은 ID의 존재가 요청자의 신원 증명이 아님과 별도 증거의 필요성을 도출. 구체적인 인증 방식·토큰·권한 규칙은 설명하지 않음.",
+  "example_correspondence": "맛집 생성 요청 작성 → userId를 u123에서 다른 계정의 u999로 변경 → POST /api/restaurants 전송 → 값을 그대로 신뢰하면 잘못된 계정에 연결할 위험의 순서. 04번의 두 계정 ID와 03번의 생성 API를 재사용. 요청 본문의 ID로 계정을 연결한다고 가정한 사례임을 캡션에 명시하며 7주차 구현으로 제시하지 않음.",
+  "validation": {
+    "title_outline_check": "passed",
+    "paragraph_outline_check": "passed",
+    "body_review_check": "passed",
+    "web_deck_validate": "passed",
+    "git_diff_check": "passed",
+    "slide05_ko_en_screen_print_mobile": "passed: 실제 브라우저 파일 URL 렌더. 발표·1280×720 인쇄 경계와 본문 열 겹침 검사, 390px 모바일 가로 넘침 검사. KO/EN 발표 캡처 육안 검토 완료.",
+    "full_npm_test": "미실행: 앞선 실행에서 prettier 의존성 누락 및 python3 실행 경로 문제 확인. 이번 검증은 위 개별 검사와 수정된 05번 화면에 한정."
+  },
+  "server": "파일 URL 검증으로 웹 서버 실행 없음"
+}

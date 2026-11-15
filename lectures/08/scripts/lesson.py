@@ -9,7 +9,7 @@ assert not RESOURCES.keys() & NEW_RESOURCES.keys()
 
 SLIDES = []
 for chapter in proposal()['chapters']:
-    SLIDES.append(CHAPTER_SLIDES[chapter['number'] - 1])
+    SLIDES.append(CHAPTER_SLIDES[chapter.get('source_number', chapter['number']) - 1])
     for item in chapter['concepts']:
         media = RESOURCES.get(item['id']) or NEW_RESOURCES.get(item['id'])
         assert media, item['id']
@@ -18,5 +18,5 @@ for chapter in proposal()['chapters']:
         # Source URLs and adaptation history belong only in the separate
         # page-reference document, including the earlier 16 PDF adaptations.
         SLIDES.append(slide)
-assert len(SLIDES) == 67
+assert len(SLIDES) == 43
 assert {s['id'] for s in SLIDES if s['kind'] == 'content'} == BODY.keys()

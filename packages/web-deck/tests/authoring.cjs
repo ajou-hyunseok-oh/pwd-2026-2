@@ -6,7 +6,7 @@ const assert = require('node:assert/strict');
 const {execFileSync} = require('node:child_process');
 const validateImports = require('./authoring-imports.cjs');
 const root = path.resolve(__dirname, '../../..');
-const decode = text => text.replace(/&#(x[0-9a-f]+|\d+);|&(amp|lt|gt|quot|apos);/gi, (_, n, name) =>
+const decode = text => text.replace(/\r\n?/g, '\n').replace(/&#(x[0-9a-f]+|\d+);|&(amp|lt|gt|quot|apos);/gi, (_, n, name) =>
   n ? String.fromCodePoint(n[0].toLowerCase() === 'x' ? parseInt(n.slice(1), 16) : Number(n)) :
     ({amp: '&', lt: '<', gt: '>', quot: '"', apos: "'"})[name.toLowerCase()]);
 let decks = 0;
@@ -65,7 +65,10 @@ for (const number of directories) {
         assert.ok(typeof text === 'string' && text.trim(), `${label}: missing ${locale}.${key}`);
         if (!originalContent) assert.doesNotMatch(text, /다음\s*(?:연결|슬라이드|섹션|장에서는)|이어서 살펴볼|제작 의도|검토 작업|\b(?:up next|connection to the next section)\b/i,
           `${label}: production/transition prose in ${locale}.${key}`);
-        if (!originalContent && locale === 'ko') assert.doesNotMatch(text, /(?:한다|된다|이다|있다|없다|않는다|바뀐다|나타난다|해진다)\.$/,
+        // The instructor approved this full-sentence motivation in Week 8.
+        const approvedIdentificationMotivation = number === '08' && key === 'identity_need_b0_2'
+          && text === '서비스의 데이터 작업을 사용자에 따라 다르게 허용하려면, 먼저 누구의 요청인지 구분할 수 있어야 한다.';
+        if (!originalContent && locale === 'ko' && !approvedIdentificationMotivation) assert.doesNotMatch(text, /(?:한다|된다|이다|있다|없다|않는다|바뀐다|나타난다|해진다)\.$/,
           `${label}: use concise noun phrases in ${key}`);
       }
     }

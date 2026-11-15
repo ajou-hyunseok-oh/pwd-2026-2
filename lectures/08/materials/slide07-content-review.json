@@ -1,0 +1,18 @@
+{
+  "reviewed_on": "2026-11-09",
+  "slide": 7,
+  "id": "password-hash",
+  "scope": "06번의 비밀번호 증거 검증에서 원문 저장의 위험과 해시 보관·검증 원리로 연결",
+  "reasoning": "사용자 간결화 요청 반영. 본문은 해시 정의·계정 저장·복원 저항성·로그인 시 검증의 핵심 세 항목으로 축약. 계산 비용 설명과 별도 로그인 흐름도 제거. 입력 비밀번호를 해시 문자열과 직접 비교하거나 해시를 복호화하는 것으로 설명하지 않음. 솔트와 전체 로그인 구현은 후속 장에 유지.",
+  "example_correspondence": "u123 계정의 설정 → 전용 함수 → 해시 보관 도식 하나와 원문/해시 유출 비교 표 유지. hash-A는 설명용 기호. 표는 직접 원문 노출 방지와 남는 추측 공격 가능성만 간결히 비교. 실제 비밀번호 계산·인증 실행 결과가 아닌 개념 사례. 기존 압축용 여백·줄간격 조정을 제거해 기본 배치로 복귀.",
+  "validation": {
+    "title_outline_check": "passed",
+    "paragraph_outline_check": "passed",
+    "body_review_check": "passed",
+    "web_deck_validate": "passed",
+    "git_diff_check": "passed",
+    "slide07_ko_en_screen_print_mobile": "passed: 실제 브라우저 파일 URL 렌더. 발표·1280×720 인쇄 경계와 390px 모바일 가로 넘침 검사. KO/EN 발표 캡처 육안 검토 완료.",
+    "full_npm_test": "미실행: 앞선 실행에서 prettier 의존성 누락 및 python3 실행 경로 문제 확인. 이번 검증은 위 개별 검사와 수정된 07번 화면에 한정."
+  },
+  "server": "파일 URL 검증으로 웹 서버 실행 없음"
+}
