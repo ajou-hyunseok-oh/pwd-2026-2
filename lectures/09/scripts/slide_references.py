@@ -3,6 +3,7 @@ import argparse
 import html
 import json
 from pathlib import Path
+from unicodedata import normalize
 from urllib.parse import quote
 
 from lesson import SLIDES
@@ -32,14 +33,14 @@ def outputs():
         ident = slide['id']
         refs, artifacts = [], []
         row = dict(slide_number=number,id=ident,kind=slide['kind'],title=slide['title'][0],
-                   slide_link='../index.html#/'+str(number),outline_number=None,
+                   slide_link='../legacy/index.html#/'+str(number),outline_number=None,
                    origin='외부 자료 없음',adaptation='주차·챕터의 제목과 범위',references=refs,assets=artifacts)
         if ident in concepts:
             chapter,s = concepts[ident]
             row.update(chapter=chapter,outline_number=s['outline_number'])
             if ident in REUSED:
                 resource = REUSED[ident]
-                refs += [dict(label=f'PWD Week10 원본 PDF · {page}쪽',url=quote(PDF)+'#page='+str(page),
+                refs += [dict(label=f'PWD Week10 원본 PDF · {page}쪽',url=quote(normalize('NFC', PDF))+'#page='+str(page),
                               type='local-pdf',section='원본 요소 재사용·수정',use=resource['correction']) for page in resource['pages']]
                 refs += [dict(label=url,url=url,type='official-document',section='내용 검토·수정 근거',use='보완 근거')
                          for url in resource['sources'][1:] if url.startswith('https://')]

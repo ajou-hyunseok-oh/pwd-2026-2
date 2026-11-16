@@ -198,6 +198,17 @@
   font-weight: 700;
 }
 
+/* The handoff example uses the standard compact flow beside a code block. */
+[data-wd-slide="pause-and-resume"] .w9-resource-column .w9-flow > ol > li {
+  padding: .45rem 0 .45rem 2rem;
+  font-size: 1rem;
+}
+
+[data-wd-slide="pause-and-resume"] .w9-resource-column .w9-flow li p {
+  margin-top: .4rem;
+  line-height: 1.5;
+}
+
 @media screen and (max-width: 767px) {
   [data-wd-slide="deep-learning"] .w9-sets .w9-diagram-canvas {
     display: block;

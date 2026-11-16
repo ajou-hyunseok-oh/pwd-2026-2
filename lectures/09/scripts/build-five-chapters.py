@@ -12,7 +12,7 @@ from slide_body import BODY, compose
 
 
 LECTURE = Path(__file__).resolve().parents[1]
-DESTINATION = LECTURE / 'current'
+DESTINATION = LECTURE
 sys.path.insert(0, str(LECTURE.parent / 'authoring'))
 from deck_builder import build
 
@@ -54,7 +54,6 @@ def link_shared_images(columns):
         for block in column:
             if block['kind'] == 'figure':
                 assert (LECTURE / block['src']).is_file(), block['src']
-                block['src'] = '../' + block['src']
             elif block['kind'] == 'resource-row':
                 link_shared_images(block['columns'])
 
@@ -102,4 +101,4 @@ def lesson():
 if __name__ == '__main__':
     subtitle, slides = lesson()
     build(DESTINATION, 9, subtitle, slides, render_extra=render_resource,
-          stylesheets=('../resources.css', '../body.css', 'lecture.css'))
+          stylesheets=('resources.css', 'body.css', 'lecture.css'))

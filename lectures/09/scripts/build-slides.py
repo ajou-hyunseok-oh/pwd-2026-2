@@ -1,12 +1,6 @@
-"""Build this deck from lesson.py using the shared Week 6/7 format."""
-import sys
+"""Build the canonical Week 9 deck."""
+import runpy
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'authoring'))
-from deck_builder import build
-from lesson import WEEK, SUBTITLE, SLIDES
-from resource_blocks import render_resource
-
 if __name__ == '__main__':
-    build(Path(__file__).resolve().parents[1], WEEK, SUBTITLE, SLIDES,
-          render_extra=render_resource, stylesheets=('resources.css','body.css'))
+    runpy.run_path(str(Path(__file__).with_name('build-five-chapters.py')), run_name='__main__')

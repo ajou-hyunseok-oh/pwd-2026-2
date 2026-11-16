@@ -2,22 +2,25 @@
 
 ## 5개 챕터 강의
 
-- [인공지능의 발전과 에이전트를 활용한 웹 개발](../current/index.html) · 주차 표지 1장, 챕터 표지 5장, 본문 43장
+- [인공지능의 발전과 에이전트를 활용한 웹 개발](../index.html) · 주차 표지 1장, 챕터 표지 5장, 본문 43장
 - [강의 계획서](week-09-five-chapter-outline.txt) · 한영 제목·부제, 기존 화면 대응, 장별 근거와 흐름 검토. 챕터 부제는 계획서에 기록
+- 정본: `../index.html`, `../lecture-content.js`, `../lecture.css`, `slide-map.json`. 표준 생성 명령은 `python3 lectures/09/scripts/build-slides.py`이며 `--check`로 생성 일치 확인
 - 제작 원본은 [본문 및 자료 편집](../scripts/five_chapter_content.py)과 [생성기](../scripts/build-five-chapters.py). 기존 한영 도식·표·이미지·코드 및 공용 작성 스타일 재사용
 - 발표 화면에서 한 줄로 간결하게 쓸 수 있는 설명은 한 줄을 우선한다. 문장의 의미를 살려 다듬고, 필요하면 본문 폭을 넓히고 오른쪽 참고 자료의 폭을 조정한다. 좁은 화면에서는 자연스럽게 줄바꿈한다.
 - 저장소 루트에서 `python3 -X utf8 lectures/09/scripts/build-five-chapters.py` 실행. 생성 일치 확인은 같은 명령에 `--check` 추가
-- 제목 검사의 실제 실행 결과는 [기존 예제 검사](new-resource-research/examples/check-title.mjs)에 근거. 게시글 등록의 응답·재조회·화면 결과는 교육용 검증 설계
+- 2챕터의 제목 검사 실행 결과는 [기존 예제 검사](new-resource-research/examples/check-title.mjs)에 근거. 2026-11-16 최신 요청에 따라 28쪽 이후는 각 개념에 맞춘 다양한 사례로 구성
+- 37쪽 배송비·45쪽 사진 삭제 권한의 실행 가능한 원본은 `diverse-examples/`에 보관. `node lectures/09/materials/diverse-examples/check-examples.mjs`로 실제 반환값과 경계 오류 검출을 확인. [실행 결과](diverse-examples/results.json) 외의 앱 사례는 설명용 설계·검증 시나리오
+- [현행 챕터 검토](week-09-five-chapter-review.ko.txt)에 장별 역할·사례 선택 이유·실행 범위 기록
 
 ## 기존 85장 강의와 참고 자료
 
-- [기존 강의 · 참고용](../index.html) · [8주차 실습 리뷰 초안](../lab-review/index.html)
+- [기존 강의 · 참고용](../legacy/index.html) · [8주차 실습 리뷰 초안](../lab-review/index.html)
 - 강의 화면: 「인공지능의 발전과 에이전트를 활용한 소프트웨어 개발」의 주차 표지 1장·챕터 8장·본문 76장, 총 85장. KO/EN 설명 본문과 기존 자료 16장·새 자료 60장의 배치 완료
 - [완성 본문과 확정 문단의 대응](week-09-body.ko.txt) · [한영 본문 데이터](slide-bodies.json) · [본문 화면 검토](body-layout-review.json)
 - [페이지별 자료 레퍼런스](slide-references.html) · [텍스트](slide-references.ko.txt) · [데이터](slide-references.json): 실제 화면 1~85페이지 기준. 출처는 본문·숨김 노트에 표시하지 않고 별도 문서에서 관리
 - 실습 리뷰: 표지·단원 표지·빈 본문 3장의 초안. 실제 실습 내용은 미작성
 - 편집 원본: `../scripts/lesson.py`, `../scripts/chapters.py`, `../scripts/slide_body.py`, `../scripts/reused_resources.py`, `../scripts/new_resources.py`, `../scripts/resource_blocks.py`. 본문 배치는 `../body.css`. 실습 리뷰는 `../lab-review/scripts/lesson.py`
-- 생성: 저장소 루트에서 `python3 lectures/09/scripts/build-slides.py`, `python3 lectures/09/lab-review/scripts/build-slides.py`
+- 생성: 저장소 루트에서 `python3 lectures/09/scripts/build-legacy.py`, `python3 lectures/09/lab-review/scripts/build-slides.py`
 - [공통 작성 틀과 블록 사용법](../../authoring/scaffolds.md) · [작성 하네스](../../authoring/README.md)
 
 ## 확정한 챕터
@@ -85,7 +88,7 @@
 - 개발 프롬프트·퓨샷·코드 수정 예시는 공통 제목 조건에 통일. 공백 입력을 빈 문자열과 혼동하지 않도록 ‘공백 3개’로 표기
 - 대안 선택: 1.2는 I04-test 대신 T04 표, 1.5는 I05-unit 중심, 2.10은 I09 대신 I07 포함 관계, 4.9는 I22/T22-steps를 하나의 순환 흐름으로 통합. 다른 후보와 제외 자료는 조사 폴더에 보존
 - 제작 원본: `../scripts/reused_resources.py`, `../scripts/resource_blocks.py`, `../resources.css`. 공용 생성기·05 형식·08의 자료 배치 방식을 재사용하며 공용 CSS는 변경하지 않음
-- 재생성: `python3 lectures/09/scripts/build-slides.py`, `python3 lectures/09/scripts/resource_placements.py`. 각각 `--check` 지원
+- 재생성: `python3 lectures/09/scripts/build-legacy.py`, `python3 lectures/09/scripts/resource_placements.py`. 각각 `--check` 지원
 - 이 우선 반영 단계에서는 16장만 배치. 이후 새 자료 60장의 배치 상태는 아래 전체 자료 반영 기록에서 확인
 
 ## 재사용 자료 16장 배치 당시 검증 · 2026-11-07
@@ -140,7 +143,7 @@
 
 ## 검증 기록 · 2026-11-06
 
-- `python3 lectures/09/scripts/build-slides.py --check`: 9장 재생성 일치
+- `python3 lectures/09/scripts/build-slides.py --check`: 당시 9장 재생성 일치(정본 교체 전 명령)
 - `node packages/web-deck/scripts/code-examples.cjs --write --lecture 09`: 코드 블록 없음
 - `npm test --prefix packages/web-deck`: 공용 정적 검사 통과
 - `LECTURE=09`로 공용 `authoring-layout.cjs` 실행: 한·영 각 9장의 발표·인쇄·390px 모바일 검사 통과. 언어별 번역 바인딩 28개 일치, 실행 오류·레이아웃 문제 0건

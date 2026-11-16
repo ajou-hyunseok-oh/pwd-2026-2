@@ -1,5 +1,6 @@
 """Explanations and teaching resources adapted for the five-chapter deck."""
 from json import dumps
+from pathlib import Path
 
 from new_resources import C, F, R
 from new_resources import RESOURCES as NEW_RESOURCES
@@ -8,8 +9,13 @@ from reused_resources import RESOURCES as REUSED_RESOURCES
 from slide_body import B, G
 
 
-TITLE_LENGTH = P('공백 제거 후 String.length 기준 1~20', 'Trim outer whitespace, then require String.length of 1–20')
 HAS_TITLE_LENGTH_CHECK = 'return title.length > 0 && title.length <= 20;'
+EXAMPLE_DIR = Path(__file__).resolve().parents[1] / 'materials/diverse-examples'
+DELIVERY_FEE_EXAMPLE = (EXAMPLE_DIR / 'delivery-fee.mjs').read_text().rstrip()
+PHOTO_SOURCE = (EXAMPLE_DIR / 'photo-permissions.mjs').read_text().strip()
+PHOTO_BEFORE, PHOTO_AFTER = (part.replace('export ', '').replace('before(', 'canDelete(').replace('after(', 'canDelete(')
+                              for part in PHOTO_SOURCE.split('\n\n'))
+
 DEEP_LEARNING_SETS = REUSED_RESOURCES['deep-learning']['columns'][0][0]
 
 EXPLANATIONS = {
@@ -191,30 +197,59 @@ EXPLANATIONS = {
             'Each client exchanges requests and results with its server'),
           P('호스트는 받은 결과를 모델의 다음 판단에 활용',
             'The host passes results to the model for its next decision'))),
+    'context-window': B('side',
+        G('컨텍스트 윈도 - 한 요청에서 처리할 토큰의 한도', 'Context window - the token limit for one request',
+          P('지침·대화·코드·도구 결과를 입력 문맥에 함께 포함', 'Instructions, chat, code, and tool results share the input context'),
+          P('저장된 기록 전체와 지금 모델에 전달된 문맥을 구분', 'Distinguish stored history from context supplied now')),
+        G('컨텍스트 롯 (Context Rot) - 긴 문맥의 성능 저하', 'Context rot - less accurate use of long context',
+          P('한도 이내에서도 필요한 조건을 놓치거나 잘못 연결할 가능성', 'Relevant conditions may be missed or misapplied even within the limit')),
+        G('/compact - 대화를 요약해 문맥 공간 확보', '/compact - summarize the chat to free context',
+          P('Codex CLI·Claude Code의 대화 입력창에서 실행', 'Run in the Codex CLI or Claude Code chat input'),
+          P('같은 작업을 이어갈 때 활용 · 요약 후 핵심 조건 재확인', 'Use to continue the task; recheck key conditions after summarizing'))),
     'context-engineering': B('wide',
-        G('컨텍스트 엔지니어링 - 작업에 필요한 정보를 고르고 제공하는 설계', 'Context engineering - select and supply information needed for the task',
-          P('지침·코드·도구 결과 중 현재 판단에 필요한 내용을 문맥에 포함', 'Include the instructions, code, and tool results that matter to the current decision'),
-          P('파일 위치나 요약을 먼저 제시하고 실제 구현은 필요할 때 조회', 'Start with locations or summaries and inspect the actual implementation when needed')),
-        G('2025년 9월 공개 사례 - 실행 단계마다 문맥을 관리', 'September 2025 example - manage context across steps',
-          P('에이전트가 도구를 반복해 사용할수록 새 실행 결과의 선별이 중요', 'Repeated tool use makes it important to select which new results to carry forward'))),
+        G('컨텍스트 엔지니어링 - 모델이 참고할 자료를 선택·갱신하는 설계',
+          'Context engineering - select and update what the model can use',
+          P('문맥 한도와 컨텍스트 롯을 고려해 현재 판단에 필요한 정보 선별',
+            'Select relevant information within context limits, accounting for context rot'),
+          P('지침·관련 코드·실행 결과를 함께 제공해 판단의 근거 구성',
+            'Use instructions, relevant code, and results to guide decisions')),
+        G('문맥 관리 - 필요한 자료는 조회하고 누적된 기록은 정리',
+          'Context management - retrieve needed details and organize history',
+          P('코드 수정과 재실행 뒤 바뀐 코드·새 결과를 문맥에 반영',
+            'Refresh context with updated code and test results'))),
     'project-instructions': B('wide',
-        G('저장소 지침 - 작업마다 반복 적용할 프로젝트 규칙', 'Repository instructions - project rules reused across tasks',
-          P('실행 명령과 파일 규칙을 짧게 기록하고 상세 문서 위치를 안내', 'Record commands and file conventions and point to detailed documentation')),
-        G('적용 범위 - 실행 도구가 읽는 경로와 지침', 'Application scope - instructions read by the agent tool',
-          P('AGENTS.md는 지원하는 도구가 읽는 저장소 지침의 예', 'AGENTS.md is an example of repository guidance read by supporting tools'),
-          P('파일 수정과 외부 전송의 허용 범위는 실행 환경에서 관리', 'The execution environment controls editing and external data transfer permissions'))),
-    'agent-skills': B('paired',
-        G('에이전트 스킬 - 다시 쓸 수 있는 작업 절차 묶음', 'Agent skill - a reusable package for a procedure',
-          P('SKILL.md에 이름·설명·지침을 두고 필요한 경우 자료와 실행 스크립트 추가', 'Put the name, description, and instructions in SKILL.md; add resources and scripts as needed'),
-          P('지원 도구는 작업에 맞는 설명을 보고 필요한 절차를 읽음', 'Supporting tools match descriptions to tasks and load the relevant procedure')),
-        G('2025년 공개 - 작업 절차의 재사용과 이식', '2025 publication - reuse procedures across tools',
-          P('10월 Agent Skills 소개, 12월 개방형 규격 공개', 'Agent Skills introduced in October and published as an open format in December'))),
+        G('저장소 지침 - 에이전트의 공통 작업 규칙',
+          'Repository instructions - shared rules for agent work',
+          P('Markdown 파일에 반복할 규칙과 참고 문서 위치를 기록',
+            'Record reusable rules and documentation pointers in Markdown'),
+          P('지침 파일 예 · Codex: AGENTS.md · Claude Code: CLAUDE.md',
+            'Examples · Codex: AGENTS.md; Claude Code: CLAUDE.md')),
+        G('지침의 적용 - 파일 내용을 모델의 작업 문맥에 포함',
+          'Applying guidance - include it in the model’s context',
+          P('작업 위치에 적용되는 지침을 읽어 반복 작업에 활용',
+            'Read the guidance that applies to the working location'),
+          P('에이전트는 안내된 문서를 조회하고 검사·보고 규칙을 적용',
+            'The agent follows references and applies testing and reporting rules'))),
+    'agent-skills': B('wide',
+        G('에이전트 스킬 - 특정 작업에 맞춰 선택하는 절차 묶음',
+          'Agent skill - a procedure selected for a specific task',
+          P('SKILL.md에 사용 조건과 수행 방법을 기록하고 필요한 자료를 함께 구성',
+            'Put usage conditions and instructions in SKILL.md; bundle resources as needed')),
+        G('선택적 읽기 - 필요한 절차를 작업 문맥에 추가',
+          'Selective loading - add the procedure when it is needed',
+          P('이름·설명으로 적합성을 판단한 뒤 선택한 SKILL.md 본문을 읽음',
+            'Use the name and description to choose a skill, then read its full instructions'),
+          P('31쪽의 공통 지침을 바탕으로 현재 작업에 맞는 수행 방법을 추가',
+            'Add task-specific methods alongside the shared guidance from slide 31'))),
     'specification': B('wide',
-        G('명세 주도 개발 - 구현의 출발점이 되는 동작 기준', 'Spec-driven development - start implementation from behavioral requirements',
-          P('허용할 입력, 기대할 기능 동작, 실패했을 때의 처리를 기록', 'Record accepted inputs, expected behavior, and failure handling'),
-          P('명세를 바탕으로 구현 계획과 확인할 조건을 구체화', 'Use the specification to derive an implementation plan and checks')),
-        G('2025년 9월 Spec Kit - 명세를 에이전트 작업에 적용한 사례', 'September 2025 Spec Kit - an application to agent work',
-          P('명세에서 계획과 작업 목록을 도출하는 절차를 도구로 제공', 'Provides a toolkit for deriving plans and tasks from a specification'))),
+        G('명세 주도 개발 - 합의한 명세를 기준으로 개발하는 방식',
+          'Spec-driven development - develop from an agreed specification',
+          P('기능의 입력·동작·거부 조건을 정하고 계획·구현·검증에 활용',
+            'Define inputs, behavior, and rejection rules to guide planning, code, and checks')),
+        G('스킬과 명세 - 작업 절차에 기능의 목표를 연결',
+          'Skills and specs - connect procedures with feature goals',
+          P('스킬은 수행 절차를 제공 · 명세는 이번 기능의 목표 동작을 정의',
+            'A skill supplies a procedure; the specification defines the feature’s target behavior'))),
     'browser-verification': B('wide',
         G('종단 간 검증 - 연결된 기능의 전체 경로 확인', 'End-to-end verification - check the full connected workflow',
           P('사용자 입력을 시작으로 요청·서버 처리·화면 표시를 연속 확인', 'Start from user input and follow the request, server handling, and UI feedback'),
@@ -265,11 +300,63 @@ EXPLANATIONS = {
         G('위임 범위의 확대 - 2026년 공개 사례에서 본 전망', 'Broader delegation - an outlook based on 2026 examples',
           P('작업이 길어질수록 다른 실행에서 확인할 수 있는 상태와 근거가 필요', 'Longer tasks need state and evidence that can be checked in a later run'),
           P('공유 저장소나 배포에 영향을 주는 작업은 수용과 승인 지점을 정의', 'Define acceptance and approval points for work affecting a shared repository or deployment'))),
+    'acceptance-criteria': B('wide',
+        G('관찰 가능한 조건 - 완료 판단의 기준', 'Observable conditions - criteria for completion',
+          P('명세의 동작을 입력·결과·확인 근거로 구체화', 'Turn specified behavior into inputs, outcomes, and evidence'),
+          P('정상 사용뿐 아니라 거부·실패 상황도 포함', 'Include accepted, rejected, and failed operations')),
+        G('완료의 증거 - 요구한 결과를 다시 확인할 근거', 'Completion evidence - a way to recheck the required result',
+          P('화면 표시와 실제 저장 상태를 각각 확인', 'Check the displayed outcome and persisted state separately'))),
+    'task-decomposition': B('wide',
+        G('작업 단위 - 결과를 확인할 수 있는 변경 범위', 'Task unit - a change with a checkable result',
+          P('큰 기능을 입력·산출물·확인 방법이 분명한 단위로 구분', 'Split a feature into units with clear inputs, outputs, and checks')),
+        G('의존 관계 - 앞 작업의 결과를 다음 작업에 연결', 'Dependencies - connect one output to the next task',
+          P('다음 작업이 필요로 하는 데이터 형식과 동작을 먼저 결정', 'Define the data format and behavior needed by downstream work'),
+          P('각 산출물을 모아 전체 기능의 완료 기준과 대조', 'Compare the combined deliverables with the feature’s criteria'))),
+    'automated-tests': B('wide',
+        G('기대값 비교 - 반복 가능한 프로그램 검사', 'Expected-value comparison - repeatable program checks',
+          P('준비한 입력의 실제 결과를 고정된 기대값과 비교', 'Compare actual outputs with fixed expectations')),
+        G('경계값 - 동작이 달라지는 조건의 바로 전·해당 값·바로 다음', 'Boundary values - just below, at, and above a threshold',
+          P('변경 후 같은 검사로 조건의 누락이나 기존 동작의 손상 탐지', 'Rerun checks after changes to detect missing conditions or regressions'))),
+    'change-review': B('wide',
+        G('변경 근거 - 코드 차이를 요구사항과 대조', 'Change evidence - compare the diff with requirements',
+          P('새 조건이 필요한 대상을 구분하며 기존 허용 동작도 유지하는지 확인', 'Check that new conditions distinguish cases and preserve intended access')),
+        G('검증 범위 - 허용·거부 사례를 함께 확인', 'Verification scope - check both allowed and denied cases',
+          P('성공 사례만으로 수용하지 않고 실패해야 할 입력도 대조', 'Check cases that must fail as well as cases that must succeed'))),
+    'parallel-integration': B('wide',
+        G('변경 결합 - 공통 계약에 맞춰 결과 연결', 'Combining changes - connect outputs under one contract',
+          P('각 변경을 합치고 겹치는 수정의 충돌 해결', 'Combine changes and resolve overlapping edits'),
+          P('요청·응답의 구조뿐 아니라 값의 의미·단위도 확인', 'Check data structure, meaning, and units')),
+        G('통합 검증 - 결합한 상태에서의 동작 확인', 'Integration verification - test the combined state',
+          P('개별 검사의 통과가 전체 동작을 보장하지는 않음', 'Passing separate checks does not guarantee correct integration'),
+          P('통합한 코드에서 입력부터 최종 표시까지 다시 검증', 'Recheck the full path from input to final display'))),
 }
 
 
 # Adapt diagrams and tables when their original labels assume a different scope.
 RESOURCES = {
+    'context-window': R(dict(kind='resource-context',
+        items=[P('지침 · 행사 안내 답변', 'Instructions · event guidance'),
+               P('앞 대화 · 방문 날짜', 'History · visit date'),
+               P('자료 · 일정표와 장소 조회', 'Data · schedule and venues'),
+               P('질문 · 우천 시 장소', 'Question · rain location'),
+               P('응답을 생성할 공간', 'Space for the response')],
+        caption=P('행사 안내 챗봇의 문맥 예시 · 영역 비율은 개략 표현',
+                  'Example event chatbot context; proportions are schematic'))),
+    'context-engineering': R(
+        N('다크 모드가 새로고침 뒤 풀리는 오류 · 문맥 구성 예시',
+          'Dark mode resets on reload · an illustrative context design'),
+        dict(F([
+            ('관련 자료 선택', 'Select relevant material',
+             '테마 설정 코드·저장 규칙·재현 순서\n상품 이미지와 결제 기록은 제외',
+             'Theme code, save rules, reproduction steps\nExclude product images and payment logs'),
+            ('현재 문맥 구성', 'Build current context',
+             '요구 · 선택한 테마 유지\n현상 · 새로고침하면 밝은 화면\n코드 · 저장값을 읽는 위치',
+             'Goal · preserve the chosen theme\nSymptom · light mode after reload\nCode · where the saved setting is read'),
+            ('실행 후 갱신', 'Update after running',
+             '변경한 코드·새 관찰 결과 반영\n재확인 · 새로고침 후 선택 유지',
+             'Include changed code and new observations\nRecheck the theme after reload'),
+        ], '테마 오류 판단에 필요한 정보의 선택과 갱신',
+           'Select and update evidence for a theme-setting bug'), show_caption=False)),
     'turing-test': R(dict(diagram(
         (1040, 254), P('문자 대화에서 사람 조건과 기계 조건의 오답 빈도 비교', 'Compare the judge’s error rates across human and machine conditions in written conversation'),
         [
@@ -631,7 +718,7 @@ RESOURCES = {
                'function hasTitle(title) {\n'
                f'  {HAS_TITLE_LENGTH_CHECK}\n'
                '}\n\n'
-               'console.log(hasTitle("   ")); // true',
+               "console.log(hasTitle('   ')); // true",
                width=52)],
             [T([P('공백 3개 입력', 'Three spaces'),
                 P('실제 · 22쪽 코드', 'Actual · p. 22'),
@@ -746,58 +833,203 @@ RESOURCES = {
         ]),
         frames=[dict(rect=(13, 6, 543, 267), text=P('호스트 · AI 개발 앱', 'Host · AI development app'))],
         show_caption=False)),
-    'project-instructions': R(T([P('저장소 지침의 항목', 'Repository guidance'), P('게시글 프로젝트의 예', 'Post-project example')], [
-        [P('작업 범위', 'Scope'), P('게시글 기능과 연결된 파일', 'Files connected to post handling')],
-        [P('문서 위치', 'Documentation'), P('제목 규칙과 API 응답 조건을 설명한 문서', 'Rules for titles and API responses')],
-        [P('검사 방법', 'Checks'), P('제목 검사 스크립트와 앱 실행 안내', 'Title-check script and app startup instructions')],
-        [P('결과 기록', 'Reporting'), P('바꾼 파일, 실행한 검사, 남은 확인', 'Changed files, checks performed, and open questions')],
+    'project-instructions': R(C(
+        '레시피 서비스의 작업 규칙 · AGENTS.md / CLAUDE.md 본문 예시',
+        'Recipe service rules · sample content for AGENTS.md / CLAUDE.md',
+        '# 레시피 서비스 작업 규칙\n\n'
+        '- 화면은 src/components의 공용 컴포넌트를 재사용한다.\n'
+        '- 재료 단위는 docs/units.md의 표기를 따른다.\n'
+        '- 코드를 변경한 뒤 npm test로 검사한다.\n'
+        '- 변경 파일과 확인한 결과를 보고한다.',
+        '# Recipe service conventions\n\n'
+        '- Reuse shared UI components from src/components.\n'
+        '- Follow ingredient units documented in docs/units.md.\n'
+        '- Run npm test after changing code.\n'
+        '- Report changed files and verified results.',
+        language='text', width=64)),
+    'specification': R(
+        N('스터디룸 예약 · 명세를 개발에 사용하는 흐름 예시',
+          'Study-room booking · an illustrative specification-driven workflow'),
+        dict(F([
+            ('명세 합의', 'Agree on the specification',
+             '입력 · 방·날짜·1시간 슬롯\n빈 슬롯 예약·내 예약 목록 표시\n같은 방·날짜·슬롯의 중복 거부\n본인 예약 취소 후 슬롯 재개방',
+             'Room, date, one-hour slot\nBook an open slot; show My bookings\nReject duplicates for that room/date/slot\nCancel own booking; reopen the slot'),
+            ('구현 계획', 'Plan the implementation',
+             '예약 상태·소유자 데이터 설계\n중복 확인·저장 처리 설계\n예약 목록·취소 화면 설계',
+             'Design booking and ownership data\nPlan duplicate checks and saving\nDesign the booking list and cancellation'),
+            ('구현·검증', 'Implement and verify',
+             '계획에 따라 예약 기능 구현\n정상 예약·내 목록 표시 확인\n중복 거부·취소 후 재예약 확인',
+             'Implement the planned booking flow\nCheck booking creation and My bookings\nCheck duplicate rejection and rebooking after cancellation'),
+        ], '명세를 기준으로 계획을 세우고 구현한 동작을 대조',
+           'Plan from the specification and compare the resulting behavior'), show_caption=False),
+        N('2025년 9월 공개 · GitHub Spec Kit는 명세 기반 개발을 돕는 도구 모음',
+          'Released September 2025 · GitHub Spec Kit supports specification-driven development')),
+    'acceptance-criteria': R(
+        N('프로필 사진 변경 · PNG·최대 2MB를 허용하는 수업용 기준',
+          'Profile photo upload · teaching policy: PNG, up to 2 MB'),
+        T([P('입력·상황', 'Input / condition'), P('기대 동작', 'Expected behavior'), P('확인 근거', 'Evidence')], [
+            [P('1MB PNG 선택', 'Select a 1 MB PNG'), P('사진 저장·프로필 갱신', 'Save and show the new photo'), P('새로고침 뒤 같은 사진 표시', 'The photo remains after reload')],
+            [P('3MB PNG 선택', 'Select a 3 MB PNG'), P('용량 초과 안내·기존 사진 유지', 'Show size error; keep the old photo'), P('오류 문구·저장된 사진 미변경', 'Error message; stored photo unchanged')],
+            [P('업로드 중 서버 실패', 'Server fails during upload'), P('실패 안내·재시도 제공', 'Show failure and offer retry'), P('실패 응답·성공 표시 없음', 'Failed response; no success state')],
+        ])),
+    'browser-verification': R(
+        N('영화 즐겨찾기 · 정상 저장 경로의 검증 시나리오',
+          'Movie favorites · verification of the successful save path'),
+        T([P('검증 단계', 'Verification step'), P('확인할 동작·근거', 'Behavior / evidence to check')], [
+            [P('사용자 조작', 'User action'), P('영화 카드의 별 버튼 클릭', 'Click the star on a movie card')],
+            [P('요청과 응답', 'Request and response'), P('선택한 영화 ID 전송·저장 성공 응답', 'Send the chosen movie ID; receive save success')],
+            [P('화면 표시', 'UI feedback'), P('별 채움·즐겨찾기 목록에 영화 표시', 'Fill the star; show the movie in Favorites')],
+            [P('저장 확인', 'Persistence check'), P('페이지를 다시 열어도 같은 영화가 목록에 존재', 'Reopen the page and check that the movie remains')],
+        ])),
+    'agent-evals': R(
+        N('날씨 대시보드 오류 수정 에이전트 · 평가 계획 예시',
+          'Weather dashboard repair agent · evaluation plan, not measured results'),
+        T([P('고정할 항목', 'Fixed element'), P('평가 설계', 'Evaluation design')], [
+            [P('과제 집합', 'Task set'), P('로딩 멈춤·빈 검색 결과·오류 안내 누락', 'Stuck loading, empty search, and missing error messages')],
+            [P('출발 환경', 'Starting state'), P('과제별 결함 코드와 모의 날씨 응답을 매번 복원', 'Reset the buggy code and mock weather responses for each trial')],
+            [P('반복 시도', 'Repeated trials'), P('과제별 5회 · 같은 도구와 시간 한도', 'Five trials per task with the same tools and time limit')],
+            [P('채점과 분석', 'Grading and analysis'), P('수정 성공·기존 동작 유지 · 실패한 도구 기록 분석', 'Grade the fix and regressions; inspect failed tool traces')],
+        ])),
+    'agent-orchestration': R(
+        N('축제 안내 사이트 · 역할별 산출물과 전달 관계의 설계 예시',
+          'Festival website · example roles, deliverables, and handoffs'),
+        dict(diagram((1120,250), P('기획 결과를 일정표와 장소 안내 담당에게 전달하고 검증 담당이 두 결과를 확인', 'Planning feeds schedule and venue work; verification checks both results'), [
+            box((10,88,250,76), P('기획 담당', 'Planner'), P('섹션 · 완료 기준', 'Sections · criteria')),
+            box((385,10,330,76), P('일정표 담당', 'Schedule agent'), P('일정 데이터 · 일정 화면', 'Schedule data and UI')),
+            box((385,164,330,76), P('장소 안내 담당', 'Venue agent'), P('장소 정보 · 지도 링크', 'Venues and map links')),
+            box((850,88,260,76), P('검증 담당', 'Verifier'), P('일정 일치 · 링크 확인', 'Check dates and links')),
+        ], [edge('M260 126 H315 V48 H380'), edge('M315 126 V202 H380'),
+            edge('M715 48 H785 V126 H845'), edge('M715 202 H785 V126')], [
+            P('기획 담당이 공통 섹션과 완료 기준을 두 담당에게 전달', 'The planner supplies common sections and criteria to both agents'),
+            P('일정표와 장소 안내를 독립적으로 작성', 'Schedule and venue work proceed independently'),
+            P('검증 담당이 두 산출물의 날짜·장소·링크를 함께 확인', 'The verifier checks dates, venues, and links across both outputs'),
+        ], P('공유 기준으로 분담하고 근거를 모아 검증', 'Coordinate with shared criteria and verify combined evidence')), show_caption=False)),
+    'continuous-integration': R(
+        N('수업 시간표 앱의 PR · 변경마다 동일하게 실행할 검사 예시',
+          'Timetable app PR · repeatable checks for every change'),
+        dict(F([
+            ('변경 제출', 'Submit a change', '주간 시간표 화면 수정\n검사 코드도 함께 제출', 'Update the weekly timetable\nInclude its checks'),
+            ('빌드·테스트', 'Build and test', '같은 환경에서 실행\n시간 겹침 처리 검사', 'Use a consistent environment\nTest overlapping classes'),
+            ('결과 검토', 'Review results', 'PR에 결과·로그 연결\n실패 시 수정 후 재검사', 'Attach results and logs\nFix and rerun on failure'),
+            ('공통 브랜치에 통합', 'Integrate', '검사·리뷰를 통과한\n작은 변경 합치기', 'Merge small changes\nafter checks and review'),
+        ], '시간표 변경의 반복 검사를 CI에 연결', 'CI checks for timetable changes'), show_caption=False)),
+    'agentic-workflows': R(
+        N('설치 안내 문서의 깨진 링크 제보 · 이슈 조사 워크플로 예시',
+          'Broken installation-guide link · example issue-investigation workflow'),
+        dict(F([
+            ('새 이슈 등록', 'New issue arrives', '사용자가 깨진 링크와 방문 경로 제보', 'A user reports the broken link and navigation path'),
+            ('에이전트 조사', 'Agent investigates', '해당 문서·대상 주소·중복 이슈 확인', 'Inspect the page, destination, and duplicate issues'),
+            ('검토할 결과 제안', 'Propose findings', '재현 경로·원인 후보\n문서 수정안·분류 라벨 제안', 'Reproduction steps and likely cause\nPropose a doc fix and issue label'),
+        ], '이벤트를 시작점으로 조사와 제안을 수행', 'Use an event to trigger investigation and proposals'), show_caption=False)),
+    'agentic-engineering': R(
+        N('학식 메뉴 서비스의 모바일 사용성 개선 · 개발 단계별 적용 예시',
+          'Mobile usability of a campus-menu service · example development lifecycle'),
+        dict(F([
+            ('계획', 'Plan', '좁은 화면의 읽기·조작 기준 합의', 'Agree on reading and interaction criteria'),
+            ('구현', 'Build', '요일 필터·메뉴 카드 개선', 'Improve day filters and menu cards'),
+            ('검증', 'Verify', '360px 화면·키보드 조작 확인', 'Check a 360 px screen and keyboard use'),
+            ('운영 관찰', 'Observe', '실패 로그·사용 의견에서 후속 과제 선택', 'Choose follow-up work from errors and feedback'),
+        ], '목표부터 운영 근거까지 연결한 개발', 'Development from goals to operational evidence'), show_caption=False)),
+    'agent-delegation-outlook': R(
+        N('위임 범위가 커질 때의 과제별 확인 기준 · 설계 예시',
+          'Checks for broader delegation · illustrative tasks'),
+        T([P('위임할 작업', 'Delegated task'), P('남길 상태·근거', 'State and evidence'), P('개발자의 판단', 'Developer decision')], [
+            [P('상품 이미지 100개 최적화', 'Optimize 100 product images'), P('완료 목록·원본 경로·화질 비교', 'Completed list, originals, quality comparison'), P('원본 보존·품질 기준 충족', 'Preserve originals and meet quality criteria')],
+            [P('외부 API 버전 교체', 'Migrate an external API version'), P('호출 위치·변경 계약·검사 결과', 'Call sites, changed contract, check results'), P('호환성·실패 처리 확인', 'Confirm compatibility and failure handling')],
+            [P('공개 서비스 배포', 'Deploy a public service'), P('시험 환경 결과·되돌릴 버전', 'Staging evidence and rollback version'), P('배포 시점·수용 여부 결정', 'Decide timing and acceptance')],
+        ])),
+    'agent-skills': R(dict(kind='resource-row', columns=[
+        [C('release-notes/SKILL.md · 설명용 예시',
+           'release-notes/SKILL.md · illustrative example',
+           '---\nname: release-notes\ndescription: 새 버전의 변경 안내를 작성할 때 사용\n---\n'
+           '1. changes.txt의 변경과 근거 링크를 확인한다.\n'
+           '2. 새 기능과 오류 수정을 나눠 정리한다.\n'
+           '3. release-notes.md 초안을 작성한다.',
+           '---\nname: release-notes\ndescription: Draft release notes for a new version.\n---\n'
+           '1. Read changes and source links in changes.txt.\n'
+           '2. Group new features and bug fixes.\n'
+           '3. Write a draft to release-notes.md.',
+           language='text', width=56)],
+        [dict(F([
+            ('사용 조건 확인', 'Check when to use it',
+             '새 버전의 변경 안내 작성 요청', 'A request for release notes'),
+            ('SKILL.md 본문 읽기', 'Read SKILL.md',
+             '분류·요약·작성 순서 확인', 'Read the grouping and writing procedure'),
+            ('필요한 자료 활용', 'Use supporting material',
+             'changes.txt에서 변경 근거 조회', 'Read change evidence in changes.txt'),
+        ], '릴리스 노트 작성 스킬의 선택과 사용',
+           'Select and use a release-notes skill'), show_caption=False)],
     ])),
-    'specification': R(T([P('명세 항목', 'Requirement'), P('게시글 등록의 동작', 'Post submission behavior')], [
-        [P('제목 입력', 'Title input'), P('문자열 제목 · 앞뒤 공백 제거', 'A string title with outer whitespace trimmed')],
-        [P('유효 범위', 'Valid range'), TITLE_LENGTH],
-        [P('제목 오류', 'Invalid title'), P('등록 거부 · 게시글 미저장', 'Reject the submission and leave storage unchanged')],
-        [P('저장 성공·실패', 'Storage success or failure'), P('성공 시 저장 후 성공 안내 · 실패 시 오류 표시', 'Save before showing success; show an error if storage fails')],
+    'task-decomposition': R(
+        N('교내 분실물 검색 기능 · 의존 관계에 따른 작업 분해 예시',
+          'Campus lost-and-found search · example task dependencies'),
+        dict(kind='resource-wide-table', head=[P('작업', 'Task'), P('필요한 입력', 'Input'), P('산출물', 'Deliverable'), P('확인 방법', 'Check')], rows=[
+            [P('검색 처리', 'Search logic'), P('분실물 목록·검색어', 'Item list and query'), P('이름이 일치하는 결과 목록', 'Matching items'), P('일치 결과 있음·없음 비교', 'Query with and without matches')],
+            [P('검색 화면', 'Search UI'), P('검색 처리의 입력·출력 형식', 'Search input/output format'), P('검색창·결과 카드', 'Search field and result cards'), P('입력한 검색어에 맞는 카드 표시', 'Cards match the entered query')],
+            [P('빈 결과 안내', 'Empty state'), P('검색 결과가 빈 목록인 경우', 'An empty search result'), P('안내 문구·검색어 초기화', 'Message and clear-query action'), P('초기화 뒤 전체 목록 표시', 'Clearing restores all items')],
+        ])),
+    'automated-tests': R(
+        N('배송비 정책 · 30,000원 이상 무료, 미만은 3,000원인 수업용 예시',
+          'Teaching policy · free delivery from KRW 30,000; otherwise KRW 3,000'),
+        dict(kind='resource-row', columns=[
+            [C('delivery-fee.mjs · 0 이상인 정수 금액 입력',
+               'delivery-fee.mjs · nonnegative integer amounts',
+               DELIVERY_FEE_EXAMPLE, language='javascript', width=56)],
+            [T([P('주문 금액', 'Order total'), P('실제 배송비', 'Actual fee')], [
+                [P('29,999원', 'KRW 29,999'), P('3,000원', 'KRW 3,000')],
+                [P('30,000원', 'KRW 30,000'), P('0원', 'KRW 0')],
+                [P('30,001원', 'KRW 30,001'), P('0원', 'KRW 0')],
+            ]), N('로컬 실행 3건 통과 · 경계 조건을 >로 바꾸면 30,000원 검사 실패',
+                  'All 3 cases passed locally; changing >= to > fails at 30,000')],
+        ])),
+    'execution-harness': R(
+        N('미로 게임의 벽 통과 오류 수정 · 에이전트에 연결할 실행 환경 예시',
+          'Fixing a maze game’s wall-crossing bug · illustrative runtime setup'),
+        dict(diagram((1040,270), P('미로 게임 수정에 필요한 도구·상태·관찰·실행 제한', 'Tools, state, observations, and limits for fixing a maze game'), [
+            box((380,98,280,74), P('게임 수정 에이전트', 'Game-fixing agent'), P('다음 행동 판단', 'Choose the next action')),
+            box((10,10,270,74), P('도구·환경', 'Tools and runtime'), P('파일 편집 · 게임 실행', 'Edit files · run the game')),
+            box((760,10,270,74), P('작업 상태', 'Work state'), P('벽 통과 재현 위치', 'Wall-crossing location')),
+            box((10,186,270,74), P('관찰·검사', 'Observe and check'), P('키 입력 · 충돌 결과', 'Key input · collision result')),
+            box((760,186,270,74), P('실행 제한', 'Execution limits'), P('시간 한도 · 오류 시 중단', 'Time limit · stop on errors')),
+        ], [dict(edge('M280 47 H330 V125 H375'), both=True), dict(edge('M760 47 H710 V125 H665'), both=True),
+            edge('M280 223 H330 V145 H375'), edge('M760 223 H710 V145 H665')], [
+            P('파일 편집·게임 실행 도구를 에이전트에 연결', 'Connect file editing and a runnable game to the agent'),
+            P('재현 위치를 저장하고 키 입력에 따른 충돌 결과를 관찰', 'Save the reproduction location and observe collisions after key input'),
+            P('관찰 결과를 다음 판단에 돌려주고 시간·오류 한도 관리', 'Return observations to the agent and enforce time and error limits'),
+        ], P('모델을 둘러싼 실행 기반의 구성', 'Infrastructure around the model')), show_caption=False)),
+    'pause-and-resume': R(dict(kind='resource-row', columns=[
+        [C('대학 홈페이지 다국어 전환 · 인수인계 기록 예시',
+           'University site localization · sample handoff record',
+           '# progress.md\n목표: 한국어·영어 화면 제공\n완료: 메뉴·첫 화면 번역\n확인: 메뉴의 언어 전환\n남음: 교과목 안내·푸터 번역\n재개: 현재 파일과 번역 목록 대조',
+           '# progress.md\nGoal: Korean and English pages\nDone: navigation and home page\nChecked: navigation language switch\nRemaining: course pages and footer\nResume: compare files and translation list',
+           language='text', width=56)],
+        [dict(F([
+            ('기록 읽기', 'Read the handoff', '완료·남은 범위 파악', 'Identify done and remaining work'),
+            ('현재 상태 대조', 'Check current state', '중단 중 바뀐 화면·문구 확인', 'Look for changed pages and text'),
+            ('남은 작업 재개', 'Resume remaining work', '교과목 안내부터 번역·확인', 'Translate and check the course pages'),
+        ], '이전 기록과 현재 파일을 대조한 뒤 재개', 'Resume after comparing notes with current files'), show_caption=False)],
     ])),
-    'acceptance-criteria': R(T([P('입력·상황', 'Input or situation'), P('기대 동작', 'Expected behavior'), P('확인 근거', 'Evidence')], [
-        [P('공백 3개 제출', 'Submit three spaces'), P('제목 오류로 등록 거부', 'Reject the invalid title'), P('거부 응답 · 새 게시글 없음', 'Rejection response and no new post')],
-        [P('앞뒤 공백이 있는 정상 제목', 'Valid title with outer spaces'), P('정리한 제목 저장 후 성공 안내', 'Save the trimmed title and report success'), P('재조회한 제목 · 성공 문구', 'Retrieved title and success message')],
-        [P('서버 저장 실패', 'Storage fails'), P('저장 실패 안내', 'Show a storage error'), P('실패 응답 · 오류 문구', 'Failure response and error message')],
-    ])),
-    'browser-verification': R(T([P('게시글 등록 경로', 'Post submission path'), P('기대 관찰값 · 설계 예', 'Expected observation · example design')], [
-        [P('입력과 제출', 'Input and submit'), P('제목 “  공지사항  ” 입력 후 등록 버튼 클릭', 'Enter “  Notice  ” and select Submit')],
-        [P('서버 응답', 'Server response'), P('POST /posts → 201과 생성된 게시글 ID 반환', 'POST /posts → 201 with the new post ID')],
-        [P('저장 결과', 'Persistence'), P('반환된 ID로 다시 조회 → 정리된 제목 “공지사항” 확인', 'Fetch by the returned ID → confirm the trimmed title “Notice”')],
-        [P('화면 표시', 'UI feedback'), P('“등록 완료” 표시 확인', 'Check that “Submitted” appears')],
-    ])),
-    'agent-evals': R(T([P('평가 항목', 'Evaluation component'), P('게시글 과제의 예', 'Post task example')], [
-        [P('과제·환경', 'Task and environment'), P('같은 시작 코드에서 제목 검사 결함 수정', 'Fix a title-validation bug from the same starting code')],
-        [P('채점 기준', 'Grader'), P('공백 제목 거부 · 정상 제목 허용 · 기존 테스트 통과', 'Reject whitespace-only titles, accept valid titles, preserve existing tests')],
-        [P('반복 시도', 'Trials'), P('같은 조건에서 여러 번 실행해 결과와 실패 유형 비교', 'Compare outcomes and failure types across repeated runs')],
-    ])),
-    'agent-orchestration': R(F([
-        ('계획', 'Plan', '명세에서 작업 범위와 확인 기준 도출', 'Derive scope and checks from the specification'),
-        ('구현', 'Implement', '계획을 바탕으로 코드 변경과 실행 근거 작성', 'Produce changes and execution evidence'),
-        ('평가', 'Evaluate', '사용 흐름을 실행해 확인 기준에 대조', 'Run the user workflow and compare with the criteria'),
-    ], '계획·구현·평가 에이전트의 역할 분담', 'Roles of planning, implementation, and evaluation agents')),
-    'continuous-integration': R(F([
-        ('변경 제출', 'Submit change', '코드와 테스트를 리뷰할 변경에 포함', 'Submit code and tests for review'),
-        ('자동 실행', 'Run checks', '같은 환경에서 빌드·테스트 실행', 'Run build and tests in a common environment'),
-        ('결과 기록', 'Record results', '실패 항목과 실행 로그를 변경에 연결', 'Attach failures and logs to the change'),
-    ], '변경 제출 시 자동 검사를 실행하는 CI 예', 'Example CI checks when a change is submitted')),
-    'agentic-workflows': R(F([
-        ('CI 검사 실패', 'CI check fails', '설정한 이벤트가 작업을 시작', 'A configured event starts the work'),
-        ('에이전트 조사', 'Agent investigates', '허용된 범위의 로그와 변경을 확인', 'Inspect logs and changes within the allowed scope'),
-        ('결과 제안', 'Propose an outcome', '원인 후보와 재현 방법을 보고', 'Report likely causes and steps to reproduce'),
-    ], 'CI 실패 분석을 저장소 절차와 연결하는 예', 'Example of CI failure analysis within a repository workflow')),
-    'agentic-engineering': R(F([
-        ('계획', 'Plan', '목표와 확인 기준 결정', 'Define goals and acceptance criteria'),
-        ('구현', 'Build', '정해진 범위의 코드 변경을 수행', 'Implement changes within the agreed scope'),
-        ('검증', 'Verify', '테스트와 코드 리뷰로 변경 확인', 'Check changes through tests and review'),
-        ('운영 관찰', 'Observe', '로그에서 다음 개선의 근거 수집', 'Use runtime evidence to guide the next improvement'),
-    ], '계획·구현·검증·운영 관찰의 연결', 'Plan, build, verify, and observe')),
-    'agent-delegation-outlook': R(T([P('위임할 작업', 'Delegated work'), P('다음 결정을 위한 정보', 'Evidence for the next decision')], [
-        [P('중단 후에 이어갈 구현', 'Implementation resumed later'), P('진행 상태 · 변경 파일 · 남은 확인', 'Progress · changed files · checks still due')],
-        [P('화면과 서버를 합치는 변경', 'Change spanning UI and server'), P('요청·응답 계약 · 등록 흐름 검증 결과', 'API contract · end-to-end submission evidence')],
-        [P('공유 환경에 적용할 변경', 'Change to a shared environment'), P('승인 주체 · 수용 조건 · 시험 환경의 결과', 'Approver · acceptance criteria · results from a test environment')],
-    ])),
+    'parallel-integration': R(
+        N('음악 재생목록 · UI와 서버가 duration의 단위를 다르게 해석한 예',
+          'Music playlist · UI and server interpret duration in different units'),
+        T([P('UI의 가정', 'UI assumption'), P('서버의 응답', 'Server response'), P('통합 시 문제', 'Integration failure')], [
+            [P('duration은 초 단위', 'duration is in seconds'), P('duration: 180000\n밀리초 단위', 'duration: 180000\nin milliseconds'), P('3분 곡을 3,000분으로 표시', 'A 3-minute track appears as 3,000 minutes')],
+        ]),
+        dict(F([
+            ('계약 합의', 'Agree on the contract', 'durationSeconds: 180\n단위를 이름에 명시', 'durationSeconds: 180\nMake the unit explicit'),
+            ('변경 결합', 'Combine changes', '서버 변환·UI 읽기 함께 반영', 'Combine server conversion and UI reading'),
+            ('전체 흐름 재검사', 'Check the full path', '실제 응답으로 3:00 표시 확인', 'Use the response to verify a 3:00 display'),
+        ], '개별 구현을 같은 데이터 계약으로 연결', 'Join independent implementations with a shared contract'), show_caption=False)),
+    'change-review': R(
+        N('사진 삭제 권한 · user는 서버 인증 결과 또는 null, ownerId는 저장된 소유자 ID',
+          'Photo deletion · user is authenticated server-side or null; ownerId is stored data'),
+        dict(kind='resource-row', columns=[
+            [C('변경 전 · 로그인 여부만 확인', 'Before · checks only sign-in', PHOTO_BEFORE, width=56)],
+            [C('변경 후 · 사진 소유자 확인', 'After · checks ownership', PHOTO_AFTER, width=56)],
+        ]),
+        T([P('요청자', 'Requester'), P('변경 전', 'Before'), P('변경 후 · 로컬 실행', 'After · local execution')], [
+            [P('소유자 u1', 'Owner u1'), P('true'), P('true')],
+            [P('다른 사용자 u2', 'Another user u2'), P('true'), P('false')],
+            [P('미로그인', 'Anonymous'), P('false'), P('false')],
+        ])),
 }

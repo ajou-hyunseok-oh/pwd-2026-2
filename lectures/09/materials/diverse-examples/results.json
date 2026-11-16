@@ -1,0 +1,24 @@
+{
+  "delivery": {
+    "cases": 3,
+    "passed": 3,
+    "incorrectBoundaryDetected": true
+  },
+  "photoPermission": [
+    {
+      "name": "owner",
+      "before": true,
+      "after": true
+    },
+    {
+      "name": "another user",
+      "before": true,
+      "after": false
+    },
+    {
+      "name": "anonymous",
+      "before": false,
+      "after": false
+    }
+  ]
+}

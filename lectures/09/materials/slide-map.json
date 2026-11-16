@@ -4,678 +4,528 @@
     "id": "cover",
     "kind": "cover",
     "title": "실전 웹서비스개발 – 9주차",
-    "subtitle": "인공지능의 발전과 에이전트를 활용한 소프트웨어 개발"
+    "subtitle": "인공지능의 발전과 에이전트를 활용한 웹 개발"
   },
   {
     "number": 2,
     "id": "chapter-01",
     "kind": "chapter",
-    "title": "인공지능 연구의 출발",
-    "subtitle": "1950~1970년대 · 기계 지능의 평가와 규칙·신경망을 이용한 초기 구현",
+    "title": "인공지능의 출발과 데이터 학습",
+    "subtitle": "",
     "sources": []
   },
   {
     "number": 3,
-    "id": "artificial-intelligence",
+    "id": "turing-test",
     "kind": "content",
-    "title": "인공지능",
-    "subtitle": "인식·언어 이해·문제 해결을 기계로 수행하는 방법의 연구",
-    "sources": []
+    "title": "튜링의 모방 게임",
+    "subtitle": "‘기계가 생각하는가’를 문자 대화에서 관찰하고 비교할 수 있는 질문으로 전환",
+    "sources": [
+      "https://academic.oup.com/mind/article/LIX/236/433/986238"
+    ]
   },
   {
     "number": 4,
-    "id": "turing-test",
-    "kind": "content",
-    "title": "튜링 테스트",
-    "subtitle": "문자 대화에서 사람과 기계를 구별할 수 있는지 평가",
-    "sources": []
-  },
-  {
-    "number": 5,
     "id": "dartmouth",
     "kind": "content",
     "title": "다트머스 인공지능 연구 모임",
-    "subtitle": "1955년 제안과 1956년 모임에서 공유한 기계 지능 연구 의제",
-    "sources": []
+    "subtitle": "기계의 행동을 관찰하는 질문에서 지능적 행동을 구현하는 공동 연구로",
+    "sources": [
+      "https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html",
+      "https://ai.dartmouth.edu/our-story"
+    ]
+  },
+  {
+    "number": 5,
+    "id": "symbolic-ai",
+    "kind": "content",
+    "title": "기호 기반 인공지능 (Symbolic AI)",
+    "subtitle": "초기 AI의 한 가지 문제 해결 방식 · 사실을 기호로 표현하고 규칙으로 추론",
+    "sources": [
+      "https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html",
+      "https://ai.dartmouth.edu/our-story",
+      "https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai/with-2021-annotations"
+    ]
   },
   {
     "number": 6,
-    "id": "symbolic-ai",
+    "id": "perceptron",
     "kind": "content",
-    "title": "기호 기반 인공지능",
-    "subtitle": "기호로 표현한 사실에 규칙을 적용해 결론 도출",
-    "sources": []
+    "title": "퍼셉트론 (Perceptron)",
+    "subtitle": "입력의 가중합을 임곗값과 비교하는 이진 판단의 기본 모형",
+    "sources": [
+      "https://doi.org/10.1037/h0042519"
+    ]
   },
   {
     "number": 7,
-    "id": "perceptron",
+    "id": "expert-system",
     "kind": "content",
-    "title": "퍼셉트론",
-    "subtitle": "입력의 가중합을 임곗값과 비교해 두 결과 중 하나를 선택",
-    "sources": []
+    "title": "전문가 시스템 (Expert System)",
+    "subtitle": "기호 기반 AI의 응용 · 전문가의 판단 기준을 규칙으로 적용",
+    "sources": [
+      "https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai/with-2021-annotations",
+      "https://people.dbmi.columbia.edu/shortliffe/Buchanan-Shortliffe-1984/Chapter-04.pdf"
+    ]
   },
   {
     "number": 8,
-    "id": "expert-system",
+    "id": "ai-winter",
     "kind": "content",
-    "title": "전문가 시스템",
-    "subtitle": "분야별 지식 기반과 추론 엔진을 이용한 판단",
-    "sources": []
+    "title": "AI 겨울 (AI Winter)",
+    "subtitle": "AI 연구 지원과 투자가 줄어든 시기 · 전문가 시스템의 확산과 유지 부담",
+    "sources": [
+      "https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai/with-2021-annotations",
+      "https://web.cs.wpi.edu/Research/aidg/CS540/papers/McDermott-R1-XCON.pdf",
+      "https://cdn.aaai.org/AAAI/1987/AAAI87-148.pdf",
+      "https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/10005.htm"
+    ]
   },
   {
     "number": 9,
-    "id": "chapter-02",
-    "kind": "chapter",
-    "title": "데이터 학습과 신경망",
-    "subtitle": "1980년대~2016년 · 모델을 학습시키는 방법과 이미지 분류·바둑 적용 사례",
-    "sources": []
+    "id": "machine-learning",
+    "kind": "content",
+    "title": "머신러닝 (Machine Learning)",
+    "subtitle": "판단 기준을 얻는 또 다른 방법 · 데이터에서 과제에 필요한 패턴 학습",
+    "sources": [
+      "https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai/with-2021-annotations",
+      "https://www.deeplearningbook.org/contents/ml.html",
+      "https://doi.org/10.1007/BF00994018"
+    ]
   },
   {
     "number": 10,
-    "id": "ai-winter",
+    "id": "inference",
     "kind": "content",
-    "title": "AI 겨울",
-    "subtitle": "기대에 못 미친 성과가 연구 지원 위축으로 이어진 시기",
-    "sources": []
+    "title": "모델 추론 (Model Inference)",
+    "subtitle": "학습한 모델에 새 입력을 넣어 결과를 계산하는 과정",
+    "sources": [
+      "https://www.deeplearningbook.org/contents/ml.html",
+      "https://developers.google.com/machine-learning/crash-course/production-ml-systems/static-vs-dynamic-inference",
+      "https://doi.org/10.1007/BF00994018"
+    ]
   },
   {
     "number": 11,
-    "id": "machine-learning",
+    "id": "deep-learning",
     "kind": "content",
-    "title": "머신러닝",
-    "subtitle": "데이터에서 모델의 판단 기준을 얻는 방법",
-    "sources": []
+    "title": "딥러닝 (Deep Learning)",
+    "subtitle": "여러 층의 신경망으로 과제에 유용한 표현을 학습하는 접근",
+    "sources": [
+      "https://www.deeplearningbook.org/contents/intro.html",
+      "https://www.deeplearningbook.org/contents/mlp.html"
+    ]
   },
   {
     "number": 12,
-    "id": "training",
+    "id": "backpropagation",
     "kind": "content",
-    "title": "모델 학습",
-    "subtitle": "모델의 예측을 평가하고 내부 값을 반복 조정",
-    "sources": []
+    "title": "역전파 (Backpropagation)",
+    "subtitle": "예측 오차를 바탕으로 각 층의 가중치 조정 방향을 계산",
+    "sources": [
+      "https://doi.org/10.1038/323533a0",
+      "https://doi.org/10.1162/neco.2006.18.7.1527",
+      "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf"
+    ]
   },
   {
     "number": 13,
-    "id": "inference",
+    "id": "alexnet",
     "kind": "content",
-    "title": "모델 추론",
-    "subtitle": "학습한 내부 값으로 새 입력의 결과를 계산",
-    "sources": []
+    "title": "AlexNet의 이미지 분류 (Image Classification with AlexNet)",
+    "subtitle": "2012년 ImageNet 대회에서 성과를 낸 심층 신경망의 이미지 분류",
+    "sources": [
+      "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+      "https://www.image-net.org/challenges/LSVRC/2012/index.php"
+    ]
   },
   {
     "number": 14,
-    "id": "supervised-learning",
-    "kind": "content",
-    "title": "지도학습",
-    "subtitle": "입력과 정답을 짝지어 예측의 기준으로 사용",
-    "sources": []
-  },
-  {
-    "number": 15,
-    "id": "unsupervised-learning",
-    "kind": "content",
-    "title": "비지도학습",
-    "subtitle": "정답 표시가 없는 데이터에서 유사성과 구조를 탐색",
-    "sources": []
-  },
-  {
-    "number": 16,
-    "id": "reinforcement-learning",
-    "kind": "content",
-    "title": "강화학습",
-    "subtitle": "행동의 결과를 바탕으로 장기 보상을 높이는 방법 학습",
-    "sources": []
-  },
-  {
-    "number": 17,
-    "id": "neural-network",
-    "kind": "content",
-    "title": "인공 신경망",
-    "subtitle": "한 층의 출력을 다음 층의 입력으로 전달하는 계산 구조",
-    "sources": []
-  },
-  {
-    "number": 18,
-    "id": "backpropagation",
-    "kind": "content",
-    "title": "역전파",
-    "subtitle": "출력 쪽에서 계산을 거슬러 가중치 변화가 오차에 미치는 영향 파악",
-    "sources": []
-  },
-  {
-    "number": 19,
-    "id": "deep-learning",
-    "kind": "content",
-    "title": "딥러닝",
-    "subtitle": "여러 층의 신경망에서 과제에 유용한 특징을 학습",
-    "sources": []
-  },
-  {
-    "number": 20,
-    "id": "alexnet",
-    "kind": "content",
-    "title": "AlexNet의 이미지 분류",
-    "subtitle": "2012년 대규모 이미지 분류 대회에서 확인한 딥러닝의 성과",
-    "sources": []
-  },
-  {
-    "number": 21,
     "id": "alphago",
     "kind": "content",
     "title": "AlphaGo의 바둑 수 선택",
     "subtitle": "신경망의 수·형세 평가와 탐색을 결합한 다음 수 선택",
+    "sources": [
+      "https://deepmind.google/research/alphago/",
+      "https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf"
+    ]
+  },
+  {
+    "number": 15,
+    "id": "chapter-02",
+    "kind": "chapter",
+    "title": "언어 모델에서 코딩 에이전트로",
+    "subtitle": "",
     "sources": []
+  },
+  {
+    "number": 16,
+    "id": "language-model",
+    "kind": "content",
+    "title": "언어 모델 (Language Model)",
+    "subtitle": "주어진 문맥에서 어떤 텍스트가 들어맞을지 계산하는 모델",
+    "sources": [
+      "https://arxiv.org/abs/2005.14165"
+    ]
+  },
+  {
+    "number": 17,
+    "id": "tokens",
+    "kind": "content",
+    "title": "토큰 (Token)",
+    "subtitle": "이어질 표현을 예측할 때 모델이 문맥을 읽는 단위",
+    "sources": [
+      "https://arxiv.org/abs/1706.03762",
+      "https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken",
+      "https://aclanthology.org/P16-1162/",
+      "https://developers.openai.com/api/docs/pricing"
+    ]
+  },
+  {
+    "number": 18,
+    "id": "attention",
+    "kind": "content",
+    "title": "어텐션 (Attention)",
+    "subtitle": "관련도에 따라 다른 토큰 위치의 정보를 가중해 반영하는 계산",
+    "sources": [
+      "https://arxiv.org/abs/1706.03762"
+    ]
+  },
+  {
+    "number": 19,
+    "id": "transformer",
+    "kind": "content",
+    "title": "트랜스포머(Transformer)",
+    "subtitle": "어텐션과 위치별 표현 변환을 층으로 반복하는 신경망 구조",
+    "sources": [
+      "https://arxiv.org/abs/1706.03762"
+    ]
+  },
+  {
+    "number": 20,
+    "id": "text-generation",
+    "kind": "content",
+    "title": "다음 토큰을 이용한 텍스트 생성 (Next-Token Text Generation)",
+    "subtitle": "선택한 토큰을 문맥에 추가하며 출력을 순서대로 생성",
+    "sources": [
+      "https://arxiv.org/abs/2005.14165",
+      "https://arxiv.org/abs/1706.03762",
+      "https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken"
+    ]
+  },
+  {
+    "number": 21,
+    "id": "code-completion",
+    "kind": "content",
+    "title": "코드 자동 완성 (Code Completion)",
+    "subtitle": "편집 중인 코드의 주변 문맥을 바탕으로 다음 코드 제안",
+    "sources": [
+      "https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/"
+    ]
   },
   {
     "number": 22,
-    "id": "chapter-03",
-    "kind": "chapter",
-    "title": "대규모 언어 모델의 학습과 생성",
-    "subtitle": "2017~2020년 · 텍스트의 표현부터 Transformer의 사전 학습과 생성까지",
-    "sources": []
+    "id": "conversational-development",
+    "kind": "content",
+    "title": "대화형 개발 지원 (Conversational Development Assistance)",
+    "subtitle": "자연어 요청과 후속 대화로 코드의 조건과 응답을 구체화",
+    "sources": [
+      "https://openai.com/index/chatgpt/",
+      "https://github.blog/news-insights/product-news/github-copilot-x-the-ai-powered-developer-experience/"
+    ]
   },
   {
     "number": 23,
-    "id": "language-model",
+    "id": "development-prompt",
     "kind": "content",
-    "title": "언어 모델",
-    "subtitle": "주어진 문맥에서 빈 곳이나 다음에 올 표현을 예측",
-    "sources": []
+    "title": "프롬프트 설계 (Prompt Engineering)",
+    "subtitle": "목표·제약·기대 결과를 요청에 담아 구현할 동작을 구체화",
+    "sources": [
+      "https://developers.openai.com/api/docs/guides/prompt-engineering"
+    ]
   },
   {
     "number": 24,
-    "id": "tokens",
+    "id": "code-revision",
     "kind": "content",
-    "title": "토큰",
-    "subtitle": "텍스트를 처리 단위로 나누고 각 조각을 번호에 대응",
-    "sources": []
+    "title": "실행 결과에 근거한 코드 수정",
+    "subtitle": "hasTitle에 공백 3개를 넣어 실행하고, 결과를 근거로 수정 요청",
+    "sources": [
+      "https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type"
+    ]
   },
   {
     "number": 25,
-    "id": "embeddings",
+    "id": "tool-calling",
     "kind": "content",
-    "title": "토큰 임베딩",
-    "subtitle": "토큰 ID를 모델이 계산에 사용할 벡터로 변환",
-    "sources": []
+    "title": "도구 호출 (Tool Calling)",
+    "subtitle": "모델이 작업을 요청하고 실행 환경이 도구를 실행해 결과를 전달",
+    "sources": [
+      "https://www.anthropic.com/research/building-effective-agents",
+      "https://developers.openai.com/api/docs/guides/function-calling#the-tool-calling-flow"
+    ]
   },
   {
     "number": 26,
-    "id": "attention",
+    "id": "agent-loop",
     "kind": "content",
-    "title": "어텐션",
-    "subtitle": "위치 간 관련도를 계산해 다른 토큰의 정보를 가중 반영",
-    "sources": []
+    "title": "에이전트 루프 (Agent Loop)",
+    "subtitle": "도구 실행 결과를 관찰해 다음 행동이나 종료를 결정",
+    "sources": [
+      "https://www.anthropic.com/research/building-effective-agents"
+    ]
   },
   {
     "number": 27,
-    "id": "transformer",
+    "id": "mcp",
     "kind": "content",
-    "title": "Transformer",
-    "subtitle": "어텐션과 위치별 표현 변환을 여러 층에서 반복하는 구조",
-    "sources": []
+    "title": "모델 컨텍스트 프로토콜 (Model Context Protocol, MCP)",
+    "subtitle": "AI 앱을 외부 도구와 자료에 연결하는 공통 규약",
+    "sources": [
+      "https://www.anthropic.com/news/model-context-protocol",
+      "https://modelcontextprotocol.io/docs/learn/architecture"
+    ]
   },
   {
     "number": 28,
-    "id": "self-supervision",
-    "kind": "content",
-    "title": "자기지도학습",
-    "subtitle": "가린 부분이나 뒤에 이어지는 표현을 원문에서 학습 목표로 구성",
+    "id": "chapter-03",
+    "kind": "chapter",
+    "title": "에이전트에 맥락과 작업 기준을 주는 방법",
+    "subtitle": "",
     "sources": []
   },
   {
     "number": 29,
-    "id": "pretraining",
+    "id": "context-window",
     "kind": "content",
-    "title": "사전 학습",
-    "subtitle": "폭넓은 텍스트로 여러 과제에 활용할 기반 모델을 학습",
-    "sources": []
+    "title": "컨텍스트 윈도 (Context Window)",
+    "subtitle": "한 요청에서 모델이 처리할 수 있는 토큰의 범위",
+    "sources": [
+      "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents",
+      "https://learn.chatgpt.com/docs/developer-commands#keep-transcripts-lean-with-compact",
+      "https://code.claude.com/docs/en/commands"
+    ]
   },
   {
     "number": 30,
-    "id": "large-language-model",
+    "id": "context-engineering",
     "kind": "content",
-    "title": "대규모 언어 모델",
-    "subtitle": "데이터·모델·계산 규모를 늘려 여러 언어 과제에 활용",
-    "sources": []
+    "title": "컨텍스트 엔지니어링 (Context Engineering)",
+    "subtitle": "제한된 문맥에 필요한 정보를 담고 작업 진행에 맞춰 갱신",
+    "sources": [
+      "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    ]
   },
   {
     "number": 31,
-    "id": "text-generation",
+    "id": "project-instructions",
     "kind": "content",
-    "title": "다음 토큰을 이용한 텍스트 생성",
-    "subtitle": "선택한 토큰을 문맥에 추가하며 출력을 순서대로 생성",
-    "sources": []
+    "title": "저장소 지침 (Repository Instructions)",
+    "subtitle": "반복해서 필요한 지침을 파일로 남겨 작업 문맥에 재사용",
+    "sources": [
+      "https://openai.com/index/harness-engineering/",
+      "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+      "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+      "https://code.claude.com/docs/en/memory#claudemd-files"
+    ]
   },
   {
     "number": 32,
-    "id": "context-window",
+    "id": "agent-skills",
     "kind": "content",
-    "title": "컨텍스트 윈도",
-    "subtitle": "한 요청에서 지침·대화·자료와 출력에 사용할 수 있는 토큰 범위",
-    "sources": []
+    "title": "에이전트 스킬 (Agent Skills)",
+    "subtitle": "특정 작업의 절차와 필요한 자료를 묶어 재사용",
+    "sources": [
+      "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "https://agentskills.io/specification"
+    ]
   },
   {
     "number": 33,
-    "id": "hallucinations",
+    "id": "specification",
     "kind": "content",
-    "title": "언어 모델의 환각",
-    "subtitle": "사실과 다르거나 근거가 부족한 내용을 그럴듯하게 생성",
-    "sources": []
+    "title": "명세 주도 개발 (Spec-Driven Development)",
+    "subtitle": "기능의 동작을 명세로 합의하고 계획·구현·검증의 기준으로 활용",
+    "sources": [
+      "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "https://agentskills.io/specification",
+      "https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/",
+      "https://github.com/github/spec-kit"
+    ]
   },
   {
     "number": 34,
-    "id": "rag",
+    "id": "acceptance-criteria",
     "kind": "content",
-    "title": "검색 증강 생성(RAG)",
-    "subtitle": "질문과 관련된 외부 문서를 찾아 답변을 생성할 때 참조",
-    "sources": []
+    "title": "완료 기준",
+    "subtitle": "기능의 요구사항을 관찰할 수 있는 입력·결과·확인 근거로 구체화",
+    "sources": [
+      "https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/",
+      "https://github.com/github/spec-kit",
+      "https://www.anthropic.com/research/demystifying-evals-for-ai-agents"
+    ]
   },
   {
     "number": 35,
     "id": "chapter-04",
     "kind": "chapter",
-    "title": "코드 생성과 대화형 개발 지원",
-    "subtitle": "2021~2023년 · 코드 자동 완성에서 자연어 요청과 실행 결과를 통한 수정으로",
+    "title": "에이전트가 구현하고 검증하는 환경",
+    "subtitle": "",
     "sources": []
   },
   {
     "number": 36,
-    "id": "code-model",
+    "id": "task-decomposition",
     "kind": "content",
-    "title": "코드 생성 모델",
-    "subtitle": "함수 설명과 주변 코드에 맞춰 구현 후보를 생성",
-    "sources": []
+    "title": "작업 분해",
+    "subtitle": "구현 계획을 결과와 검증 방법이 분명한 변경 단위로 구분",
+    "sources": [
+      "https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/",
+      "https://github.com/github/spec-kit"
+    ]
   },
   {
     "number": 37,
-    "id": "code-completion",
+    "id": "automated-tests",
     "kind": "content",
-    "title": "코드 자동 완성",
-    "subtitle": "편집기에서 커서 주변을 바탕으로 다음 코드를 제안",
-    "sources": []
+    "title": "자동화 테스트",
+    "subtitle": "미리 정한 입력으로 코드를 자동 실행하고 실제 결과를 기대값과 비교하는 검사",
+    "sources": [
+      "https://www.anthropic.com/research/demystifying-evals-for-ai-agents",
+      "https://nodejs.org/api/assert.html#assertstrictequalactual-expected-message"
+    ]
   },
   {
     "number": 38,
-    "id": "instruction-tuning",
+    "id": "browser-verification",
     "kind": "content",
-    "title": "지시 튜닝",
-    "subtitle": "요청과 응답 예시로 모델을 추가 학습해 지시 수행 능력을 높이는 방법",
-    "sources": []
+    "title": "종단 간 검증",
+    "subtitle": "사용자 입력부터 서버 처리·저장·최종 화면까지 연결된 기능의 전체 경로를 확인하는 검증",
+    "sources": [
+      "https://playwright.dev/docs/test-assertions",
+      "https://playwright.dev/docs/network",
+      "https://www.anthropic.com/research/demystifying-evals-for-ai-agents"
+    ]
   },
   {
     "number": 39,
-    "id": "human-feedback",
+    "id": "execution-harness",
     "kind": "content",
-    "title": "사람의 피드백을 활용한 학습",
-    "subtitle": "같은 요청에 대한 여러 응답의 평가를 학습에 반영",
-    "sources": []
+    "title": "하네스 엔지니어링",
+    "subtitle": "모델이 도구를 쓰고 결과를 검사하며 실패를 처리할 실행 환경 설계",
+    "sources": [
+      "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+      "https://openai.com/index/harness-engineering/",
+      "https://developers.openai.com/blog/codex-as-a-platform"
+    ]
   },
   {
     "number": 40,
-    "id": "conversational-development",
+    "id": "pause-and-resume",
     "kind": "content",
-    "title": "대화형 개발 지원",
-    "subtitle": "코드 작성을 요청하고 추가 조건과 실행 결과를 대화로 전달",
-    "sources": []
+    "title": "장기 작업의 재개",
+    "subtitle": "진행 기록을 현재 환경과 대조해 남은 작업부터 이어가는 방식",
+    "sources": [
+      "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents"
+    ]
   },
   {
     "number": 41,
-    "id": "development-prompt",
+    "id": "agent-evals",
     "kind": "content",
-    "title": "개발 프롬프트",
-    "subtitle": "목표·입력·제약·출력을 명시해 구현할 동작을 전달",
-    "sources": []
+    "title": "에이전트 평가(Evals)",
+    "subtitle": "정해진 과제와 채점 기준으로 에이전트의 수행을 여러 실행에서 측정",
+    "sources": [
+      "https://www.anthropic.com/research/demystifying-evals-for-ai-agents"
+    ]
   },
   {
     "number": 42,
-    "id": "few-shot-prompting",
+    "id": "agent-orchestration",
     "kind": "content",
-    "title": "퓨샷 프롬프팅",
-    "subtitle": "요청에 입력·출력 예시를 넣어 조건의 해석을 구체화",
-    "sources": []
+    "title": "에이전트 오케스트레이션",
+    "subtitle": "과제에 따라 여러 에이전트의 역할과 결과 전달을 조정",
+    "sources": [
+      "https://www.anthropic.com/research/harness-design-long-running-apps"
+    ]
   },
   {
     "number": 43,
-    "id": "title-validation-case",
+    "id": "parallel-integration",
     "kind": "content",
-    "title": "게시글 제목 검사 함수",
-    "subtitle": "앞뒤 공백을 제거한 제목의 길이로 유효 여부를 판정",
-    "sources": []
+    "title": "병렬 변경의 통합",
+    "subtitle": "나누어 만든 변경을 공통 계약에 맞춰 합치고 전체 기능의 동작을 확인하는 과정",
+    "sources": [
+      "https://playwright.dev/docs/test-assertions",
+      "https://playwright.dev/docs/network",
+      "https://openai.com/index/harness-engineering/",
+      "https://developers.openai.com/blog/codex-as-a-platform"
+    ]
   },
   {
     "number": 44,
-    "id": "code-revision",
-    "kind": "content",
-    "title": "실행 결과에 근거한 코드 수정",
-    "subtitle": "공백 입력의 실제 결과와 기대 결과를 비교해 수정 요청",
+    "id": "chapter-05",
+    "kind": "chapter",
+    "title": "저장소 개발 흐름으로 들어온 에이전트",
+    "subtitle": "",
     "sources": []
   },
   {
     "number": 45,
-    "id": "chapter-05",
-    "kind": "chapter",
-    "title": "AI 에이전트의 도구 사용",
-    "subtitle": "2022~2024년 · 도구를 호출하고 실행 결과를 바탕으로 다음 행동을 결정하는 구조",
-    "sources": []
+    "id": "change-review",
+    "kind": "content",
+    "title": "변경 리뷰",
+    "subtitle": "코드 차이와 검증 결과를 요구사항에 대조해 수용 여부 판단",
+    "sources": [
+      "https://docs.github.com/en/pull-requests/reference/pull-request-reviews",
+      "https://docs.github.com/en/actions/get-started/continuous-integration",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#validate-the-permissions-on-every-request"
+    ]
   },
   {
     "number": 46,
-    "id": "tool-calling",
+    "id": "continuous-integration",
     "kind": "content",
-    "title": "도구 호출",
-    "subtitle": "모델의 호출 요청을 받아 외부에서 실행하고 결과를 되돌려주는 방식",
-    "sources": []
+    "title": "지속적 통합(CI)",
+    "subtitle": "코드 변경을 자주 통합하며 빌드와 테스트로 변경을 확인",
+    "sources": [
+      "https://docs.github.com/en/pull-requests/reference/pull-request-reviews",
+      "https://docs.github.com/en/actions/get-started/continuous-integration"
+    ]
   },
   {
     "number": 47,
-    "id": "tool-permissions",
+    "id": "agentic-workflows",
     "kind": "content",
-    "title": "도구 실행 권한",
-    "subtitle": "실행 환경이 적용하는 파일 접근·수정·외부 전송 범위",
-    "sources": []
+    "title": "에이전트 기반 워크플로",
+    "subtitle": "저장소의 이벤트에 연결된 절차에서 에이전트가 조사하고 결과를 제안",
+    "sources": [
+      "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/"
+    ]
   },
   {
     "number": 48,
-    "id": "agent-loop",
+    "id": "agentic-engineering",
     "kind": "content",
-    "title": "에이전트의 실행 루프",
-    "subtitle": "도구 실행 결과를 관찰해 다음 행동이나 종료를 결정하는 반복 구조",
-    "sources": []
+    "title": "에이전틱 엔지니어링",
+    "subtitle": "계획·구현·검토에 에이전트를 연결하고 개발자가 위임과 수용을 판단",
+    "sources": [
+      "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/"
+    ]
   },
   {
     "number": 49,
-    "id": "development-tools",
+    "id": "agent-delegation-outlook",
     "kind": "content",
-    "title": "에이전트의 개발 도구",
-    "subtitle": "파일 읽기·편집과 터미널 실행을 에이전트에 연결",
-    "sources": []
-  },
-  {
-    "number": 50,
-    "id": "agent-repair-case",
-    "kind": "content",
-    "title": "에이전트의 제목 검사 함수 수정",
-    "subtitle": "에이전트가 파일을 읽고 공백 오류를 재현·수정한 뒤 다시 실행",
-    "sources": []
-  },
-  {
-    "number": 51,
-    "id": "reasoning-models",
-    "kind": "content",
-    "title": "추론 모델",
-    "subtitle": "여러 조건을 검토하거나 해법을 찾는 데 응답 계산을 추가로 사용",
-    "sources": []
-  },
-  {
-    "number": 52,
-    "id": "multimodal-models",
-    "kind": "content",
-    "title": "멀티모달 모델",
-    "subtitle": "텍스트와 화면 이미지의 정보를 함께 처리하고 관계를 파악",
-    "sources": []
-  },
-  {
-    "number": 53,
-    "id": "computer-use",
-    "kind": "content",
-    "title": "에이전트의 화면 조작",
-    "subtitle": "화면을 관찰하고 조작한 뒤 바뀐 상태를 다시 확인",
-    "sources": []
-  },
-  {
-    "number": 54,
-    "id": "mcp",
-    "kind": "content",
-    "title": "Model Context Protocol(MCP)",
-    "subtitle": "AI 앱의 클라이언트가 외부 도구와 자료를 제공하는 서버와 연결되는 규약",
-    "sources": []
-  },
-  {
-    "number": 55,
-    "id": "chapter-06",
-    "kind": "chapter",
-    "title": "에이전트의 프로젝트 맥락 관리",
-    "subtitle": "2025년 · 저장소 정보와 작업 지침을 선별하고 진행 상태를 이어가는 방법",
-    "sources": []
-  },
-  {
-    "number": 56,
-    "id": "project-context",
-    "kind": "content",
-    "title": "프로젝트 맥락",
-    "subtitle": "파일 역할과 호출 관계를 파악해 수정 범위를 결정",
-    "sources": []
-  },
-  {
-    "number": 57,
-    "id": "context-engineering",
-    "kind": "content",
-    "title": "컨텍스트 설계",
-    "subtitle": "현재 작업에 필요한 정보를 먼저 제공하고 상세 자료는 필요할 때 조회",
-    "sources": []
-  },
-  {
-    "number": 58,
-    "id": "project-instructions",
-    "kind": "content",
-    "title": "프로젝트 지침 파일",
-    "subtitle": "저장소에서 공통으로 적용할 실행 방법과 작업 규칙의 기록",
-    "sources": []
-  },
-  {
-    "number": 59,
-    "id": "agent-skills",
-    "kind": "content",
-    "title": "에이전트 스킬",
-    "subtitle": "반복 작업의 지침에 필요한 참고 자료와 스크립트를 묶어 재사용",
-    "sources": []
-  },
-  {
-    "number": 60,
-    "id": "progress-notes",
-    "kind": "content",
-    "title": "작업 진행 기록",
-    "subtitle": "완료 여부를 판단할 변경·실행 결과와 남은 작업을 기록",
-    "sources": []
-  },
-  {
-    "number": 61,
-    "id": "context-compaction",
-    "kind": "content",
-    "title": "컨텍스트 압축",
-    "subtitle": "긴 작업 이력에서 목표·결정·현재 상태를 추려 문맥으로 유지",
-    "sources": []
-  },
-  {
-    "number": 62,
-    "id": "project-context-case",
-    "kind": "content",
-    "title": "제목 검사 수정의 프로젝트 맥락",
-    "subtitle": "제목 수정에 필요한 지침·코드·작업 절차·검증 기록을 연결",
-    "sources": []
-  },
-  {
-    "number": 63,
-    "id": "chapter-07",
-    "kind": "chapter",
-    "title": "명세에 따른 구현과 검증",
-    "subtitle": "2025년 후반~2026년 · 명세를 작업으로 나누고 실행 결과로 완료 여부를 판단하는 과정",
-    "sources": []
-  },
-  {
-    "number": 64,
-    "id": "specification",
-    "kind": "content",
-    "title": "요구사항 명세",
-    "subtitle": "입력 조건과 저장 성공·실패 시의 동작을 정의",
-    "sources": []
-  },
-  {
-    "number": 65,
-    "id": "acceptance-criteria",
-    "kind": "content",
-    "title": "완료 기준",
-    "subtitle": "예상 동작을 입력·결과·확인 근거로 구체화",
-    "sources": []
-  },
-  {
-    "number": 66,
-    "id": "implementation-plan",
-    "kind": "content",
-    "title": "구현 계획",
-    "subtitle": "파일과 기능의 의존 관계를 바탕으로 변경 순서를 결정",
-    "sources": []
-  },
-  {
-    "number": 67,
-    "id": "task-decomposition",
-    "kind": "content",
-    "title": "작업 분해",
-    "subtitle": "계획을 산출물과 확인 방법이 명확한 단위로 나누기",
-    "sources": []
-  },
-  {
-    "number": 68,
-    "id": "automated-tests",
-    "kind": "content",
-    "title": "자동화 테스트",
-    "subtitle": "같은 입력을 반복 실행해 실제 결과와 고정된 기대값을 비교",
-    "sources": []
-  },
-  {
-    "number": 69,
-    "id": "browser-verification",
-    "kind": "content",
-    "title": "브라우저 검증",
-    "subtitle": "사용자 입력을 재현하고 화면·응답·저장 결과를 각각 확인",
-    "sources": []
-  },
-  {
-    "number": 70,
-    "id": "implementation-verification-loop",
-    "kind": "content",
-    "title": "구현과 검증의 반복",
-    "subtitle": "작은 변경을 검사한 결과에 따라 수정·다음 작업·종료를 결정",
-    "sources": []
-  },
-  {
-    "number": 71,
-    "id": "agent-hooks",
-    "kind": "content",
-    "title": "에이전트 훅(Hooks)",
-    "subtitle": "도구 실행 전이나 편집 후 같은 사건에 검사 등 정해진 동작을 연결",
-    "sources": []
-  },
-  {
-    "number": 72,
-    "id": "execution-harness",
-    "kind": "content",
-    "title": "실행 하네스",
-    "subtitle": "모델과 도구·상태·검사 결과를 연결해 실행부터 종료까지 관리",
-    "sources": []
-  },
-  {
-    "number": 73,
-    "id": "change-review",
-    "kind": "content",
-    "title": "변경 사항 리뷰",
-    "subtitle": "코드 차이와 검증 근거를 요구사항 및 변경 범위와 대조",
-    "sources": []
-  },
-  {
-    "number": 74,
-    "id": "post-feature-case",
-    "kind": "content",
-    "title": "게시글 등록 기능의 순차 개발",
-    "subtitle": "제목 검사·서버 저장·화면 표시를 차례로 구현하고 전체 등록을 검증",
-    "sources": []
-  },
-  {
-    "number": 75,
-    "id": "chapter-08",
-    "kind": "chapter",
-    "title": "병렬 개발과 장기 작업 관리",
-    "subtitle": "2026년 · 분리한 변경을 통합하고 여러 실행에 걸쳐 목표와 진행 상태를 관리",
-    "sources": []
-  },
-  {
-    "number": 76,
-    "id": "independent-tasks",
-    "kind": "content",
-    "title": "병렬 개발을 위한 작업 분리",
-    "subtitle": "변경 범위를 나누고 화면과 서버 사이의 요청·응답을 먼저 합의",
-    "sources": []
-  },
-  {
-    "number": 77,
-    "id": "subagents",
-    "kind": "content",
-    "title": "서브에이전트",
-    "subtitle": "목표와 자료를 전달해 하위 작업을 맡기고 별도 맥락에서 나온 결과를 회수",
-    "sources": []
-  },
-  {
-    "number": 78,
-    "id": "agent-teams",
-    "kind": "content",
-    "title": "에이전트 팀",
-    "subtitle": "역할과 진행 상태를 공유해 여러 에이전트의 작업을 조정",
-    "sources": []
-  },
-  {
-    "number": 79,
-    "id": "git-branches",
-    "kind": "content",
-    "title": "Git 브랜치",
-    "subtitle": "화면과 서버의 변경을 별도 커밋 이력으로 관리",
-    "sources": []
-  },
-  {
-    "number": 80,
-    "id": "git-worktrees",
-    "kind": "content",
-    "title": "Git worktree",
-    "subtitle": "한 저장소의 서로 다른 브랜치를 별도 디렉터리에서 편집",
-    "sources": []
-  },
-  {
-    "number": 81,
-    "id": "parallel-integration",
-    "kind": "content",
-    "title": "병렬 변경의 통합",
-    "subtitle": "화면과 서버 변경을 합친 상태에서 전체 게시글 등록을 다시 검증",
-    "sources": []
-  },
-  {
-    "number": 82,
-    "id": "persistent-goals",
-    "kind": "content",
-    "title": "지속 실행 목표",
-    "subtitle": "여러 단계에 걸쳐 완료 근거와 허용 범위·실행 한도를 유지",
-    "sources": []
-  },
-  {
-    "number": 83,
-    "id": "pause-and-resume",
-    "kind": "content",
-    "title": "장기 작업의 중단과 재개",
-    "subtitle": "진행 기록을 현재 파일·환경과 대조해 남은 작업부터 이어가기",
-    "sources": []
-  },
-  {
-    "number": 84,
-    "id": "scheduled-automation",
-    "kind": "content",
-    "title": "예약 자동화",
-    "subtitle": "정해진 시점에 작업을 시작하고 실행 결과를 기록",
-    "sources": []
-  },
-  {
-    "number": 85,
-    "id": "developer-judgment",
-    "kind": "content",
-    "title": "AI 활용 개발에서의 개발자 판단",
-    "subtitle": "요구와 의존성에 맞춰 위임하고 변경과 검증 근거를 보고 수용 여부 판단",
-    "sources": []
+    "title": "에이전트 위임의 다음 과제",
+    "subtitle": "더 긴 작업을 맡길 때 필요한 상태 기록·검증 근거·승인 지점",
+    "sources": [
+      "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+      "https://openai.com/index/harness-engineering/",
+      "https://developers.openai.com/blog/codex-as-a-platform",
+      "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+      "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/"
+    ]
   }
 ]

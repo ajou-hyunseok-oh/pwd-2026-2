@@ -57,7 +57,7 @@ EN · From Language Models to Coding Agents | From generating text to suggesting
 | 26 | 48~50 | 에이전트 루프 (Agent Loop) / Agent Loop | 도구 실행 결과를 관찰해 다음 행동이나 종료를 결정 / Using tool results to choose the next action or stop | 25쪽의 도구 결과 반환에서 이어져 제목 검사 결과를 기대값과 비교. 불일치는 코드 수정 후 재실행으로, 두 입력의 일치는 완료 보고로 연결. [L07, X01] |
 | 27 | 54 | 모델 컨텍스트 프로토콜 (Model Context Protocol, MCP) / Model Context Protocol (MCP) | AI 앱을 외부 도구와 자료에 연결하는 공통 규약 / A common protocol connecting AI applications to external tools and resources | 26쪽의 제목 검사 작업을 이어 파일 읽기와 검사 실행을 같은 규약으로 요청하고 결과를 받는 두 연결을 표시. 호스트·클라이언트·서버의 역할을 연결마다 설명. [M01, M15] |
 
-챕터 연결 · 제목 오류를 재현하는 데 성공해도 실제 저장소의 호출 위치와 규칙을 알아야 범위를 정할 수 있다. 도구로 정보를 가져올 수 있게 된 지점에서, 어떤 정보를 지금 제공할지의 문제로 넘어간다.
+챕터 연결 · 도구로 가져온 정보도 모델에 전달할 문맥의 일부다. 다양한 개발 작업에서 무엇을 읽고, 어떤 규칙과 목표를 제공할지의 문제로 넘어간다.
 
 
 03. 에이전트에 맥락과 작업 기준을 주는 방법 · 화면 28
@@ -67,12 +67,12 @@ EN · Giving Agents Context and Criteria | Second half of 2025 · Relevant repos
 
 | 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
 | --- | --- | --- | --- | --- |
-| 29 | 32 | 컨텍스트 윈도 / Context Window | 한 요청에서 모델이 처리할 수 있는 토큰의 범위 / The token limit for what a model can process in a request | 토큰 단위의 한도. 입력·출력에 대한 세부 산정은 모델과 인터페이스에 따라 달라 특정 수치를 제시하지 않음. [L02, M02] |
-| 30 | 56~57 | 컨텍스트 엔지니어링 / Context Engineering | 작업 단계에 맞춰 지침·코드·도구 결과를 선별해 제공 / Selecting instructions, code, and tool results for each stage of a task | 2025년 9월 29일 공개 글의 역할과 일치. 제목 함수와 호출 위치를 함께 조회하는 사례로 설명. [M02] |
-| 31 | 58 | 저장소 지침 / Repository Instructions | 프로젝트의 공통 작업 규칙과 관련 문서 위치를 저장소에 기록 / Recording shared working rules and documentation pointers in the repository | AGENTS.md는 지원 도구에서 쓰이는 예. 저장소 지침의 적용 범위와 실행 권한은 별개의 층위. [M03, M09] |
-| 32 | 59 | 에이전트 스킬 / Agent Skills | 특정 작업의 절차와 필요한 자료를 묶어 재사용 / Packaging a task procedure and its supporting materials for reuse | 2025년 10월 소개, 12월 개방형 표준 공개. SKILL.md는 필수, 참고 자료와 스크립트는 필요에 따라 포함. [M04] |
-| 33 | 64 | 명세 주도 개발 / Spec-Driven Development | 기능이 지켜야 할 동작을 명세로 정하고 계획과 구현의 기준으로 활용 / Using a behavior specification to guide planning and implementation | GitHub가 2025년 9월 공개한 Spec Kit는 코딩 에이전트 적용 사례. 2025년을 명세 작성 관행의 발명 시점으로 제시하지 않음. [M05] |
-| 34 | 65 | 완료 기준 / Acceptance Criteria | 기능의 요구사항을 관찰할 수 있는 입력·결과·확인 근거로 구체화 / Turning requirements into observable inputs, outcomes, and evidence | 게시글 거부 응답과 미저장 여부는 수업에서 정한 기준. 화면 메시지와 저장 상태의 근거를 따로 읽음. [M05, M08, X02] |
+| 29 | 32 | 컨텍스트 윈도 (Context Window) / Context Window | 한 요청에서 모델이 처리할 수 있는 토큰의 범위 / The token limit for what a model can process in a request | 행사 안내 챗봇의 방문 날짜·일정표·우천 시 장소 질문으로 한 요청의 문맥 구성을 설명한다. 입력과 응답 공간의 비율은 개략 표현이다. 컨텍스트 윈도·컨텍스트 롯·/compact의 기존 개념 설명은 유지한다. [L02, M02, M16, M17] |
+| 30 | 56~57 | 컨텍스트 엔지니어링 (Context Engineering) / Context Engineering | 제한된 문맥에 필요한 정보를 담고 작업 진행에 맞춰 갱신 / Selecting useful information for limited context and updating it as work progresses | 29쪽의 한도와 정보 활용 문제에서 필요한 자료를 선별·갱신하는 설계로 연결한다. 다크 모드가 새로고침 뒤 풀리는 오류를 이용해 테마 코드·저장 규칙·재현 순서 선택, 현재 문맥 구성, 수정 후 관찰 반영을 구분한다. 실제 앱 실행 기록이 아닌 문맥 구성 예시다. 지정한 /compact 반복 문장 삭제와 영어 병기를 유지한다. [M02] |
+| 31 | 58 | 저장소 지침 (Repository Instructions) / Repository Instructions | 반복해서 필요한 지침을 파일로 남겨 작업 문맥에 재사용 / Saving recurring guidance in a file for reuse in the working context | 30쪽의 문맥 관리에서 반복할 작업 규칙을 Markdown 파일로 재사용하는 관계다. 지침 파일의 대표 예로 Codex의 AGENTS.md와 Claude Code의 CLAUDE.md를 함께 표시한다. 레시피 서비스의 공용 UI·재료 단위 문서·검사·보고 규칙을 두 파일에 적을 수 있는 공통 본문 예시로 제시한다. 파일과 경로는 설명용이며 실제 저장소 지침 파일을 생성하지 않는다. 도구별로 지원 파일이 배타적이라는 의미로 설명하지 않는다. [M03, M18, M21] |
+| 32 | 59 | 에이전트 스킬 (Agent Skills) / Agent Skills | 특정 작업의 절차와 필요한 자료를 묶어 재사용 / Packaging a task procedure and its supporting materials for reuse | 31쪽의 프로젝트 공통 지침과 특정 작업에 맞춰 선택하는 스킬을 적용 범위·읽는 시점으로 구분한다. 릴리스 노트 작성 SKILL.md의 name·description은 선택 조건, 본문은 변경 확인·분류·초안 작성 절차다. 이름·설명 확인 → 본문 읽기 → 필요한 자료 활용을 예시와 대응한다. 실제 스킬 설치나 파일 생성은 하지 않았다. 스크립트·보조 자료가 필수라는 오해를 피한다. 영어 병기 유지. [M04] |
+| 33 | 64 | 명세 주도 개발 (Spec-Driven Development) / Spec-Driven Development | 기능의 동작을 명세로 합의하고 계획·구현·검증의 기준으로 활용 / Use agreed behavior to guide planning, implementation, and verification | 32쪽의 수행 절차를 제공하는 스킬에서 이번 기능의 목표 동작을 정의하는 명세로 연결한다. 명세 주도 개발을 합의한 명세를 기준으로 개발하는 방식으로 정의한다. 스터디룸 예약의 네 기존 조건을 유지하고 명세 합의 → 구현 계획 → 구현·검증의 흐름으로 제시한다. 예약·소유자 데이터, 중복 확인·저장 처리, 목록·취소 화면의 계획이 정상 예약·목록 표시·중복 거부·취소 후 재예약 확인으로 이어진다. 흐름은 설명용이며 실제 앱 실행 기록이 아니다. GitHub Spec Kit의 2025년 9월 공개 시기는 짧은 보조 설명으로 배치한다. [M04, M05] |
+| 34 | 65 | 완료 기준 / Acceptance Criteria | 기능의 요구사항을 관찰할 수 있는 입력·결과·확인 근거로 구체화 / Turning requirements into observable inputs, outcomes, and evidence | 프로필 사진 업로드에 PNG·최대 2MB라는 수업용 정책을 적용한다. 정상 저장·용량 초과·서버 실패를 입력, 기대 동작, 확인 근거로 구체화한다. 33쪽에서 정한 동작을 어떻게 관찰 가능한 조건으로 바꾸는지 별도 사례로 설명한다. 표는 완료 기준이며 측정 결과가 아니다. [M05, M08] |
 
 챕터 연결 · 현재 저장소의 규칙과 코드를 찾고, 목표 동작과 완료 근거를 정했다. 다음 챕터에서는 그 근거를 얻을 수 있도록 작업 순서와 실행 환경을 구성한다.
 
@@ -84,14 +84,14 @@ EN · Environments for Agent Implementation and Verification | Late 2025 to 2026
 
 | 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
 | --- | --- | --- | --- | --- |
-| 36 | 66~67 | 작업 분해 / Task Decomposition | 구현 계획을 결과와 검증 방법이 분명한 변경 단위로 구분 / Dividing an implementation plan into changes with clear outcomes and checks | Spec Kit의 명세→계획→작업 흐름을 참고. 제목 검사, 서버 처리, 화면 표시의 의존 관계를 사례에 적용. [M05] |
-| 37 | 68 | 자동화 테스트 / Automated Testing | 제목 검사 함수의 반환값을 기대값과 반복해서 비교 / Repeatedly comparing the title validator’s output with expected values | 범위를 함수 동작으로 한정. 기존 Node 예제는 공백·경계 길이 포함 8건. 예제의 String.length는 UTF-16 코드 단위. [X01, M08, M14] |
-| 38 | 69, 74 | 종단 간 검증 / End-to-End Verification | 게시글 등록 흐름에서 사용자 입력·서버 응답·저장 결과를 확인 / Checking user input, the server response, and persisted data in the post submission flow | 범위 설계의 예. 기존 슬라이드의 Playwright 발췌는 성공 문구를 직접 확인하며, 실제 저장 근거에는 별도의 조회나 상태 확인이 필요. [M06, M08, X02] |
-| 39 | 70, 72 | 하네스 엔지니어링 / Harness Engineering | 모델이 도구를 쓰고 결과를 검사하며 실패를 처리할 실행 환경 설계 / Designing the environment for tool use, verification, and failure handling | 에이전트 하네스는 실행 루프·도구·상태를 관리하는 시스템. 저장소 수준의 하네스 설계는 테스트·앱 실행·로그 같은 관찰 수단까지 포함할 수 있음. [M07, M09] |
-| 40 | 60, 82~83 | 장기 작업의 재개 / Resuming Long-Running Work | 진행 기록을 현재 환경과 대조해 남은 작업부터 이어가는 방식 / Resuming unfinished work after checking saved progress against the current environment | 2025년 11월 26일 사례는 세션 경계를 넘기 위해 작업 목록·진행 기록·커밋을 활용. 재시작 후 현재 상태를 다시 확인하는 흐름. [M07] |
-| 41 | 신규 · 69쪽과 연계 | 에이전트 평가(Evals) / Agent Evals | 정해진 과제와 채점 기준으로 에이전트의 수행을 여러 실행에서 측정 / Measuring agent performance across runs using defined tasks and grading criteria | 2026년 1월 9일 공개 글의 과제·시도·채점 구조. 제품 테스트를 평가의 채점에 쓸 수 있으며, 평가 대상은 에이전트의 수행. [M08] |
-| 42 | 76~78 | 에이전트 오케스트레이션 / Agent Orchestration | 과제에 따라 여러 에이전트의 역할과 결과 전달을 조정 / Coordinating multiple agents’ roles and handoffs for a task | 2026년 3월 24일 공개된 계획·구현·평가 에이전트 실험이 근거. 역할 분담은 병렬 실행과 별개의 설계 선택. [M10] |
-| 43 | 76, 81 | 병렬 변경의 통합 / Integrating Parallel Changes | 합의한 요청·응답 형식에 맞춰 변경을 합치고 등록 흐름을 재검증 / Combining changes under a shared API contract and retesting the submission flow | 화면·서버 병렬 작업은 강의 사례. 개별 통과와 통합 통과의 검증 범위를 구분. [M06, M09, X02] |
+| 36 | 66~67 | 작업 분해 / Task Decomposition | 구현 계획을 결과와 검증 방법이 분명한 변경 단위로 구분 / Dividing an implementation plan into changes with clear outcomes and checks | 교내 분실물 검색을 검색 처리·화면·빈 결과 안내로 나눈다. 각 작업의 입력·산출물·확인 방법을 대응하고, 앞 작업의 입력·출력 형식과 빈 목록 상태가 뒤 작업의 전제가 되는 관계를 보여준다. 34쪽의 관찰 가능한 결과를 변경 단위별로 나누는 개념 연결이다. [M05] |
+| 37 | 68 | 자동화 테스트 / Automated Testing | 미리 정한 입력으로 코드를 자동 실행하고 실제 결과를 기대값과 비교하는 검사 / Automatically running code with predefined inputs and comparing actual results with expected values | 배송비가 30,000원에서 바뀌는 정책으로 경계 바로 전·해당 값·바로 다음의 단언을 설명한다. 입력은 0 이상의 정수 원화 금액이다. 본문에 표시한 delivery-fee.mjs를 직접 실행해 세 반환값을 확인했고 >=를 >로 바꾼 오류를 30,000원 검사가 검출했다. 36쪽의 확인 방법을 자동 반복하는 사례다. [M08, M19, X03] |
+| 38 | 69, 74 | 종단 간 검증 / End-to-End Verification | 사용자 입력부터 서버 처리·저장·최종 화면까지 연결된 기능의 전체 경로를 확인하는 검증 / Verifying the full path from user input through server processing, storage, and UI results | 영화 즐겨찾기의 별 클릭 → 영화 ID 요청 → 화면 표시 → 페이지를 다시 열어 저장 확인으로 검사 범위를 넓힌다. 표는 정상 저장 경로의 설계 예시이며 실제 앱 실행 증거가 아니다. 본문은 성공·거부·실패 검증의 일반 원칙을 유지한다. [M06, M08] |
+| 39 | 70, 72 | 하네스 엔지니어링 / Harness Engineering | 모델이 도구를 쓰고 결과를 검사하며 실패를 처리할 실행 환경 설계 / Designing the environment for tool use, verification, and failure handling | 미로 게임의 벽 통과 오류로 에이전트에 연결할 파일 편집·게임 실행·재현 위치·충돌 관찰·실행 제한을 구체화한다. 도구 결과와 상태는 에이전트의 다음 판단에 연결하고 실행 제한도 에이전트에 적용되는 방향으로 표시한다. 37~38쪽 검사를 가능하게 하는 실행 환경의 설계 예시다. [M07, M09] |
+| 40 | 60, 82~83 | 장기 작업의 재개 / Resuming Long-Running Work | 진행 기록을 현재 환경과 대조해 남은 작업부터 이어가는 방식 / Resuming unfinished work after checking saved progress against the current environment | 대학 홈페이지 다국어 전환의 progress.md 예시로 세션 밖에 남길 목표·완료·확인·남은 범위를 보여준다. 기록 읽기 → 현재 파일 대조 → 교과목 안내부터 재개로 연결한다. 기록의 완료 표현은 예시 속 상태이며 실제 홈페이지 작업 기록이 아니다. [M07] |
+| 41 | 신규 · 69쪽과 연계 | 에이전트 평가(Evals) / Agent Evals | 정해진 과제와 채점 기준으로 에이전트의 수행을 여러 실행에서 측정 / Measuring agent performance across runs using defined tasks and grading criteria | 날씨 대시보드 오류 수정의 평가 계획으로 과제 집합·초기 환경 복원·과제별 5회·성공과 회귀 채점을 구분한다. 숫자는 평가 설계이며 측정 성과가 아니다. 프로그램 결과를 확인하는 37쪽 검사와 에이전트 수행의 반복 평가를 구분한다. [M08] |
+| 42 | 76~78 | 에이전트 오케스트레이션 / Agent Orchestration | 과제에 따라 여러 에이전트의 역할과 결과 전달을 조정 / Coordinating multiple agents’ roles and handoffs for a task | 축제 안내 사이트의 기획 → 일정표·장소 안내 분담 → 검증으로 역할별 산출물과 전달을 보여준다. 공유 기준은 앞 단계에서 전달하고 두 결과를 함께 검사한다. 도식 범위를 역할·전달 관계로 표시했으며 실제 병렬 에이전트를 실행한 기록이 아니다. [M10] |
+| 43 | 76, 81 | 병렬 변경의 통합 / Integrating Parallel Changes | 나누어 만든 변경을 공통 계약에 맞춰 합치고 전체 기능의 동작을 확인하는 과정 / Combining separate changes under a shared contract and checking how the whole feature behaves | 음악 재생목록에서 UI는 초, 서버는 밀리초로 duration을 해석하는 통합 오류를 제시한다. 180000을 초로 표시하면 3분 곡이 3000분이 된다. durationSeconds: 180으로 계약 합의 → 양쪽 변경 결합 → 3:00 확인의 설계 예다. 역할 분담과 통합 동작 검증의 차이를 드러낸다. [M06, M09] |
 
 챕터 연결 · 테스트를 통과한 변경을 얻었으면, 이제 팀이 그 변경을 수용할 근거와 저장소에 반복 적용할 절차가 필요하다. 한 세션의 실행 루프에서 공동 개발 절차로 시야를 넓힌다.
 
@@ -103,11 +103,11 @@ EN · Agents in Repository Workflows | Late 2026 · Change review, repository au
 
 | 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
 | --- | --- | --- | --- | --- |
-| 45 | 73, 85 | 변경 리뷰 / Change Review | 코드 차이와 검증 결과를 요구사항에 대조해 수용 여부 판단 / Comparing the diff and verification evidence with requirements before accepting a change | PR 리뷰의 피드백·승인·수정 요청에 대응. 수업 사례는 완료 기준에서 확인할 근거를 함께 검토. [M11, X02] |
-| 46 | 68, 70, 72 | 지속적 통합(CI) / Continuous Integration (CI) | 코드 변경을 자주 통합하며 빌드와 테스트로 변경을 확인 / Integrating changes frequently and checking them through builds and tests | GitHub Actions는 구현 사례. 자동 검사와 통합을 설명하며 자동 배포는 범위 밖. [M11] |
-| 47 | 84와 부분 대응 · 공개 사례 신규 | 에이전트 기반 워크플로 / Agentic Workflows | 저장소의 이벤트에 연결된 절차에서 에이전트가 조사하고 결과를 제안 / Using agents to investigate events and propose outcomes in repository workflows | GitHub의 동명 프로젝트는 2026년 10월 28일 정식 공개. CI 실패 분석은 공식 예시. 실행 방식과 결과 적용 권한은 워크플로 설정에 의존. [M12] |
-| 48 | 85와 부분 대응 · 용어 신규 | 에이전틱 엔지니어링 / Agentic Engineering | 계획·구현·검토에 에이전트를 연결하고 개발자가 위임과 수용을 판단 / Incorporating agents into planning, implementation, and review while retaining developer judgment | 2026년 11월 6일 GitHub 안내서에서 사용한 포괄 용어. 용어의 창안 날짜나 단일 표준 방법론으로 제시하지 않음. [M13] |
-| 49 | 85와 부분 대응 · 전망 신규 | 에이전트 위임의 다음 과제 / What Comes Next for Agent Delegation | 더 긴 작업을 맡길 때 필요한 상태 기록·검증 근거·승인 지점 / Progress records, verification evidence, and approval points for longer delegated work | 공개 사례에서 뽑은 전망과 설계 질문. 채택 속도나 보급 범위에 대한 예측 수치 없이, 위임 범위가 커지는 경우의 조건으로 서술. [M07, M09, M12, M13] |
+| 45 | 73, 85 | 변경 리뷰 / Change Review | 코드 차이와 검증 결과를 요구사항에 대조해 수용 여부 판단 / Comparing the diff and verification evidence with requirements before accepting a change | 사진 삭제 권한을 로그인 여부만 확인하던 코드에서 소유자 ID까지 확인하는 코드로 바꿔 리뷰한다. user는 신뢰할 서버 인증 결과 또는 null, photo.ownerId는 저장된 소유자 ID라는 전제다. 소유자 허용 유지·다른 사용자 거부·미로그인 거부의 실제 함수 결과를 비교했다. 전체 인증 시스템의 검증으로 확대하지 않는다. [M11, M20, X03] |
+| 46 | 68, 70, 72 | 지속적 통합(CI) / Continuous Integration (CI) | 코드 변경을 자주 통합하며 빌드와 테스트로 변경을 확인 / Integrating changes frequently and checking them through builds and tests | 수업 시간표 앱의 PR로 변경 제출 → 같은 환경에서 빌드·시간 겹침 검사 → 결과·로그 검토 → 작은 변경 통합을 보여준다. 반복 검사와 공통 브랜치 통합을 함께 표시한다. 실행한 파이프라인이 아닌 구성 예시다. [M11] |
+| 47 | 84와 부분 대응 · 공개 사례 신규 | 에이전트 기반 워크플로 / Agentic Workflows | 저장소의 이벤트에 연결된 절차에서 에이전트가 조사하고 결과를 제안 / Using agents to investigate events and propose outcomes in repository workflows | 설치 안내의 깨진 링크 이슈를 시작점으로 문서·대상 주소·중복 이슈를 조사하고 수정안·분류 라벨을 제안한다. 46쪽의 고정 검사와 구분되는 조사·판단 역할을 드러낸다. 도식은 수업용 워크플로이며 실제 이슈를 등록하거나 메시지를 보내지 않았다. [M12] |
+| 48 | 85와 부분 대응 · 용어 신규 | 에이전틱 엔지니어링 / Agentic Engineering | 계획·구현·검토에 에이전트를 연결하고 개발자가 위임과 수용을 판단 / Incorporating agents into planning, implementation, and review while retaining developer judgment | 학식 메뉴의 모바일 사용성 개선을 계획·구현·검증·운영 관찰에 연결한다. 좁은 화면의 기준, 요일 필터·메뉴 카드, 360px·키보드 확인, 오류·의견에 근거한 후속 과제를 대응한다. 한 번의 코드 생성에서 개발 단계별 위임·수용으로 관점을 넓히는 설계 예시다. [M13] |
+| 49 | 85와 부분 대응 · 전망 신규 | 에이전트 위임의 다음 과제 / What Comes Next for Agent Delegation | 더 긴 작업을 맡길 때 필요한 상태 기록·검증 근거·승인 지점 / Progress records, verification evidence, and approval points for longer delegated work | 상품 이미지 일괄 최적화·외부 API 교체·공개 배포의 서로 다른 근거와 개발자 판단을 비교한다. 작업 범위가 넓어질 때 상태 기록·검증·수용 지점을 정한다는 결론이다. 작업량과 사례는 수업용이며 보급률이나 성과 전망 수치가 아니다. [M07, M09, M12, M13] |
 
 강의 마무리 · 튜링이 기계 지능의 문제를 관찰할 수 있는 행동으로 바꿨듯, 수업의 마지막에서는 에이전트가 완성했다고 보고한 일을 관찰할 수 있는 소프트웨어의 동작으로 묻는다. 이 연결은 강의의 비유이며, 역사적 인과관계에 관한 주장이 아니다.
 
@@ -116,8 +116,8 @@ EN · Agents in Repository Workflows | Late 2026 · Change review, repository au
 
 1. 기술의 계보와 강의 순서를 구분한다. 기호 기반과 학습 기반은 함께 발전했다. 2012년과 2016년 사례는 성과의 시점이고, 2025~2026년 사례는 개념이 실제 개발에 적용되어 공개된 시점이다.
 2. 정보가 부족해서 생기는 문제, 목표가 모호해서 생기는 문제, 실행 결과를 관찰할 수 없어서 생기는 문제를 각각 30쪽 컨텍스트 엔지니어링, 33쪽 명세 주도 개발, 39쪽 하네스 엔지니어링으로 이어 붙인다.
-3. 게시글 사례는 24쪽 공백 오류 → 26쪽 재현·수정 → 34쪽 완료 기준 → 37~38쪽 함수·전체 등록 검증 → 43쪽 합친 코드의 재확인 → 45쪽 리뷰 순서로 발전한다. 같은 사례가 장마다 다른 판단을 보여준다.
-4. 38쪽 검증 범위는 저장을 포함한다. 본문 작성 단계에서 기존 성공 문구 발췌를 재사용하면 저장 확인 근거를 별도로 제시해야 한다. 강의용 전체 앱 사례는 현재 예시 설계로 취급한다.
+3. 2챕터의 제목 검사 사례는 27쪽까지 유지한다. 28쪽 이후는 개념에 맞춘 다양한 사례로 전환한다. 맥락·규칙·절차 → 목표 동작·완료 근거 → 실행·검증·협업 → 리뷰·자동화·수용의 개념 관계로 장 사이를 연결한다.
+4. 표와 도식의 앱 동작은 설명용 설계·검증 시나리오다. 37쪽 배송비 함수와 45쪽 사진 삭제 권한 함수만 로컬 실행 결과를 표시한다. 38쪽은 영화 즐겨찾기의 정상 저장 경로를 화면·요청·응답·다시 열기로 확인할 시나리오다.
 5. 긴 실행을 이어가는 문제와 여러 역할을 조정하는 문제는 다르다. 40쪽 뒤에 42쪽을 배치하되, 41쪽에서 수행을 측정하는 기준을 먼저 확보한다. 49쪽은 확인된 2026년 사례에 근거한 조건부 전망이다.
 
 
@@ -233,3 +233,22 @@ new-resource-research/examples/check-title.mjs
 week-09-body.ko.txt · 기존 64~65, 69, 74, 76, 81쪽
 new-resource-research/examples/browser-check.fragment.txt
 ../scripts/new_resources.py · specification, acceptance-criteria, browser-verification
+
+[M16] OpenAI Docs, Codex CLI /compact 명령, 2026-11-16 확인
+https://learn.chatgpt.com/docs/developer-commands#keep-transcripts-lean-with-compact
+[M17] Anthropic, Claude Code Commands, /compact 설명, 2026-11-16 확인
+https://code.claude.com/docs/en/commands
+[M18] OpenAI Docs, Custom instructions with AGENTS.md, 지침 읽기·프로젝트별 적용, 2026-11-16 확인
+https://learn.chatgpt.com/docs/agent-configuration/agents-md
+
+[M19] Node.js 공식 문서, strict assertion과 기대값 비교
+https://nodejs.org/api/assert.html#assertstrictequalactual-expected-message
+[M20] OWASP Authorization Cheat Sheet, 서버 요청별 권한 확인
+https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html#validate-the-permissions-on-every-request
+[M21] Claude Code 공식 문서, CLAUDE.md의 역할·프로젝트 위치·문맥 로딩, 2026-11-16 확인
+https://code.claude.com/docs/en/memory#claudemd-files
+[X03] 28쪽 이후 개념별 수업 예제와 로컬 실행 근거
+diverse-examples/delivery-fee.mjs
+diverse-examples/photo-permissions.mjs
+diverse-examples/check-examples.mjs
+diverse-examples/results.json
