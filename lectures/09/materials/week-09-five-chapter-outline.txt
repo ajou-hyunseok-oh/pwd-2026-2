@@ -1,0 +1,235 @@
+9주차 · 5개 챕터 제목·부제 검토본
+사실 확인 기준일 2026-11-16
+
+구성 · 주차 표지 1장 + 챕터 표지 5장 + 본문 제목 43장 = 49장
+기존 85장 강의 · ../index.html
+기존 장 번호의 기준 · slide-map.json
+
+주차 표지
+KO · 실전 웹서비스개발 – 9주차 | 인공지능의 발전과 에이전트를 활용한 웹 개발
+EN · Practical Web Service Development – Week 9 | The Evolution of AI and Web Development with Agents
+검토 · 2026학년도 2학기 주차형 표지. 부제는 AI의 역사와 게시글 등록 사례의 범위를 나타냄.
+
+표의 첫 번호는 새 화면 번호. 대괄호 안은 아래 출처 ID.
+기존 화면은 새 장을 설계할 때 직접 참조한 범위. 새 사례의 동작 조건은 예시 명세에 해당.
+
+
+01. 인공지능의 출발과 데이터 학습 · 화면 02
+KO · 인공지능의 출발과 데이터 학습 | 기계 지능의 평가에서 이미지 분류와 바둑의 성과까지
+EN · The Beginnings of AI and Learning from Data | From evaluating machine intelligence to milestones in image classification and Go
+검토 · 기존 챕터 1·2 통합. 기호·규칙과 가중치 기반 판단을 초기의 병행 접근으로 소개하고, 두 성과를 데이터 학습의 서로 다른 적용으로 묶음. [H03, H08, H09]
+
+| 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
+| --- | --- | --- | --- | --- |
+| 03 | 4 | 튜링의 모방 게임 / Turing’s Imitation Game | ‘기계가 생각하는가’를 문자 대화에서 관찰하고 비교할 수 있는 질문으로 전환 / Reframing “Can machines think?” as a comparison of behavior in written conversation | 질문을 바꾼 이유, 사람끼리 하는 게임이 비교 기준인 이유, 남녀 판별 규칙 순서. 게임 속 예시 질문은 원문 1절 인용. [H01, §1] |
+| 04 | 5 | 다트머스 인공지능 연구 모임 / The Dartmouth AI Research Project | 기계의 행동을 관찰하는 질문에서 지능적 행동을 구현하는 공동 연구로 / From observing machine behavior to studying how to implement intelligence | 03쪽의 관찰과 04쪽의 구현을 연결. 제안서 첫 두 문단의 공동 연구 가설과 목적을 설명. 4항에 근거해 가능한 답을 모두 시험하는 것보다 효율적인 풀이를 소개하고, 5항의 자기 개선은 별도 과제로 다룸. 제안서 이미지와 1956년 모임의 시간선 유지. [H02] |
+| 05 | 6 | 기호 기반 인공지능 (Symbolic AI) / Symbolic AI | 초기 AI의 한 가지 문제 해결 방식 · 사실을 기호로 표현하고 규칙으로 추론 / One approach to problem solving in early AI · represent facts as symbols and apply rules | 다트머스의 문제 해결 과제를 이어받아 지식 표현과 추론의 역할을 설명. [H02, 2항·4항. H03, Knowledge Representation and Reasoning] |
+| 06 | 7 | 퍼셉트론 (Perceptron) / The Perceptron | 입력의 가중합을 임곗값과 비교하는 이진 판단의 기본 모형 / A basic binary decision model that compares a weighted sum of inputs with a threshold | 단순한 이진 퍼셉트론을 설명. 1958년 원 논문의 시스템을 입문용 모델로 단순화. [H04] |
+| 07 | 8 | 전문가 시스템 (Expert System) / Expert Systems | 기호 기반 AI의 응용 · 전문가의 판단 기준을 규칙으로 적용 / An application of symbolic AI · apply rules that capture expert judgment | MYCIN의 실제 규칙 036에 나온 세 조건을 충족하는 설명용 입력으로 지식 기반과 추론 엔진의 역할을 설명. [H03, expert systems. H10, §4.1.2, Fig. 4-3] |
+| 08 | 10 | AI 겨울 (AI Winter) / AI Winters | AI 연구 지원과 투자가 줄어든 시기 · 전문가 시스템의 확산과 유지 부담 / Periods of declining AI funding and investment · expert system adoption and upkeep | 07쪽의 MYCIN에서 기업 운영 사례 XCON으로 연결. 시간선에서 1970년대 일부 위축, 1980년대 상용화 기대 회복, 1980년대 후반의 재위축을 설명. [H03, H11, H12, H13] |
+| 09 | 11~12 | 머신러닝 (Machine Learning) / Machine Learning | 판단 기준을 얻는 또 다른 방법 · 데이터에서 과제에 필요한 패턴 학습 / Another way to obtain decision criteria · learn patterns from data | 초기 AI부터 연구한 데이터 기반 학습을 소개. 강의자의 휴대폰 우하단 팜 노이즈 제거 경험으로 데이터 수집, 노이즈 영역 레이블링, SVM 분류 모델 학습을 설명. [H03, H05 §5.1.3, H14] |
+| 10 | 12~13 | 모델 추론 (Model Inference) / Model Inference | 학습한 모델에 새 입력을 넣어 결과를 계산하는 과정 / Using a trained model to compute a result for a new input | 09쪽 사례를 이어받아 새 터치 데이터에서 학습된 SVM으로 팜 노이즈를 판정하고 해당 입력을 제외하는 과정을 설명. [H05, H06, H14] |
+| 11 | 17, 19 | 딥러닝 (Deep Learning) / Deep Learning | 여러 층의 신경망으로 과제에 유용한 표현을 학습하는 접근 / Learning task-relevant representations across multiple neural network layers | 원본 자료 I09를 단순화한 신경망 그림에서 연결 가중치의 역할을 설명. [H07, Fig. 1.2–1.4; H17, §6.2–6.3] |
+| 12 | 18 | 역전파 (Backpropagation) / Backpropagation | 예측 오차를 바탕으로 각 층의 가중치 조정 방향을 계산 / Use prediction error to determine how to adjust weights across layers | 11쪽의 층 구조를 이어받아 손실을 정의하고 역전파와 가중치 갱신을 표범 사진의 예시로 구분. 하단에 힌튼의 1986년 역전파, 2006년 층별 학습, 2012년 AlexNet 공동 연구를 정리. [H15, H16, H08] |
+| 13 | 20 | AlexNet의 이미지 분류 (Image Classification with AlexNet) / Image Classification with AlexNet | 2012년 ImageNet 대회에서 성과를 낸 심층 신경망의 이미지 분류 / Deep neural network image classification that achieved strong results at ImageNet in 2012 | 이미지 분류 부문의 제출물, 채점 기준, 순위를 과제·채점·결과 순서로 설명. 그림 4의 2010년 표범 사진과 예측표에 상위 5개 후보의 채점 기준을 적용. [H08, §6·표 2·그림 4; H18, Task 1] |
+| 14 | 21 | AlphaGo의 바둑 수 선택 / Move Selection in AlphaGo | 신경망의 수·형세 평가와 탐색을 결합한 다음 수 선택 / Choosing a move by combining neural network evaluation with search | AlexNet의 범주 후보 평가에서 바둑의 수 후보 평가로 연결. 현재 바둑판, 후보 A·B, 상대 응수 이후 바둑판, 최종 선택 도식으로 탐색에 쓰이는 정책·가치 신경망의 역할을 설명. [H09, H19, 그림 3·5] |
+
+챕터 연결 · 이미지에서 범주를 고르고 바둑에서 수를 고르는 사례를 본 뒤, 언어에서는 현재 문맥에 어떤 표현이 들어맞는지를 묻는다. AlphaGo에서 Transformer로 이어지는 기술 계보를 전제하지 않는다.
+
+
+02. 언어 모델에서 코딩 에이전트로 · 화면 15
+KO · 언어 모델에서 코딩 에이전트로 | 텍스트 생성에서 코드 제안과 도구를 통한 실행으로
+EN · From Language Models to Coding Agents | From generating text to suggesting code and acting through tools
+검토 · 기존 챕터 3·4와 5의 도구 실행 부분 통합. 생성 방식, 개발자의 요청, 실행 주체의 변화 순서. [L01, L03, L05, L07]
+
+| 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
+| --- | --- | --- | --- | --- |
+| 16 | 23, 30 | 언어 모델 (Language Model) / Language Model | 주어진 문맥에서 어떤 텍스트가 들어맞을지 계산하는 모델 / A model that estimates what text fits a given context | 14쪽의 다음 수 후보 평가에서 이어질 표현의 가능성 계산으로 연결. 두 문장 앞부분에 동일한 후속 표현을 대입하고 문맥에 따른 차이를 정성적으로 비교. [L01] |
+| 17 | 24~25 | 토큰 (Token) / Token | 이어질 표현을 예측할 때 모델이 문맥을 읽는 단위 / The units a model reads to predict what comes next | 고정된 토큰 목록의 조각 조합, ID로 임베딩을 찾는 과정, 입력과 출력 토큰 수를 기준으로 계산하는 API 비용을 실제 분할 예시에 연결. [L03, §3.4; L09, L10, L11] |
+| 18 | 26 | 어텐션 (Attention) / Attention | 관련도에 따라 다른 토큰 위치의 정보를 가중해 반영하는 계산 / Weighting information from other token positions according to relevance | 임베딩에서 시작해 위치 간 관련도로 가중치를 정하고, 위치별 정보에 가중치를 곱해 합산하는 흐름을 우산 예시로 설명. [L03, §3.2] |
+| 19 | 27 | 트랜스포머(Transformer) / Transformer | 어텐션과 위치별 표현 변환을 층으로 반복하는 신경망 구조 / A neural architecture that stacks attention and per-position transformations | 18쪽의 어텐션 가중합을 층 안의 연산으로 연결하고 1층 출력을 2층에서 다시 계산하는 흐름을 표시. 같은 층 안의 위치별 병렬 처리와 GPU의 행렬 병렬 연산을 연결. [L03, §§3.1–3.3·§4] |
+| 20 | 31 | 다음 토큰을 이용한 텍스트 생성 (Next-Token Text Generation) / Next-Token Text Generation | 선택한 토큰을 문맥에 추가하며 출력을 순서대로 생성 / Generating output in sequence by appending each chosen token to the context | 19쪽에서 얻은 문맥 표현으로 후보 확률을 계산하고, 예시에서 선택한 토큰을 붙인 결과를 다음 예측 입력으로 쓰는 절차를 보여줌. [L01; L03, §§3·3.4; L09] |
+| 21 | 36~37 | 코드 자동 완성 (Code Completion) / Code Completion | 편집 중인 코드의 주변 문맥을 바탕으로 다음 코드 제안 / Suggesting code from the context around the editor cursor | 20쪽의 다음 토큰 예측을 코드 제안에 연결. 함수 이름·매개변수·주석을 문맥으로 표시하고 커서 위치에 제안된 return 줄을 구분. 2021년 Copilot 기술 프리뷰를 공개 사례로 소개. [L04] |
+| 22 | 40 | 대화형 개발 지원 (Conversational Development Assistance) / Conversational Development Assistance | 자연어 요청과 후속 대화로 코드의 조건과 응답을 구체화 / Refining code requests and responses through natural-language dialogue | 21쪽의 hasTitle을 이어받아 첫 요청, 첫 제안, 길이 제한 후속 요청, 수정 제안을 보여줌. 2022년 ChatGPT 코드 대화와 2023년 Copilot Chat을 공개 사례로 제시. [L05] |
+| 23 | 41~43 | 프롬프트 설계 (Prompt Engineering) / Prompt Engineering | 목표·제약·기대 결과를 요청에 담아 구현할 동작을 구체화 / Specifying goals, constraints, and expected behavior in a prompt | 22쪽 hasTitle의 길이 제한에 앞뒤 공백 처리와 기대값을 더함. 표의 오른쪽 열을 목표, 제약, 기대 결과, 입출력 예시 순으로 읽어 하나의 요청을 완성. [L06] |
+| 24 | 43~44 | 실행 결과에 근거한 코드 수정 / Revising Code from Execution Feedback | hasTitle에 공백 3개를 넣어 실행하고, 결과를 근거로 수정 요청 / Run hasTitle with three spaces and use the result to request a fix | 22쪽의 hasTitle 수정 제안을 23쪽의 공백 3개 예시로 실행. 길이 3과 0, 실제 true와 기대값 false를 대조하고 수정 요청과 재실행을 보여줌. [M14, X01] |
+| 25 | 46~47 | 도구 호출 (Tool Calling) / Tool Calling | 모델이 작업을 요청하고 실행 환경이 도구를 실행해 결과를 전달 / The model requests an action, and the runtime executes the tool and returns the result | 24쪽 제목 검사 수정분을 커밋하는 예시로 연결. 모델의 터미널 도구 요청, 환경의 허용 여부 확인과 실행, 결과 반환을 보여줌. [L07, L12] |
+| 26 | 48~50 | 에이전트 루프 (Agent Loop) / Agent Loop | 도구 실행 결과를 관찰해 다음 행동이나 종료를 결정 / Using tool results to choose the next action or stop | 25쪽의 도구 결과 반환에서 이어져 제목 검사 결과를 기대값과 비교. 불일치는 코드 수정 후 재실행으로, 두 입력의 일치는 완료 보고로 연결. [L07, X01] |
+| 27 | 54 | 모델 컨텍스트 프로토콜 (Model Context Protocol, MCP) / Model Context Protocol (MCP) | AI 앱을 외부 도구와 자료에 연결하는 공통 규약 / A common protocol connecting AI applications to external tools and resources | 26쪽의 제목 검사 작업을 이어 파일 읽기와 검사 실행을 같은 규약으로 요청하고 결과를 받는 두 연결을 표시. 호스트·클라이언트·서버의 역할을 연결마다 설명. [M01, M15] |
+
+챕터 연결 · 제목 오류를 재현하는 데 성공해도 실제 저장소의 호출 위치와 규칙을 알아야 범위를 정할 수 있다. 도구로 정보를 가져올 수 있게 된 지점에서, 어떤 정보를 지금 제공할지의 문제로 넘어간다.
+
+
+03. 에이전트에 맥락과 작업 기준을 주는 방법 · 화면 28
+KO · 에이전트에 맥락과 작업 기준을 주는 방법 | 2025년 하반기 · 필요한 저장소 정보, 재사용할 절차, 확인 가능한 완료 기준
+EN · Giving Agents Context and Criteria | Second half of 2025 · Relevant repository information, reusable procedures, and observable acceptance criteria
+검토 · 기존 챕터 6에 챕터 7의 명세·완료 기준을 결합. 2025년 하반기의 공개 사례를 기준으로 삼되, 컨텍스트 윈도와 명세의 개념은 이전부터 존재. [M02, M04, M05]
+
+| 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
+| --- | --- | --- | --- | --- |
+| 29 | 32 | 컨텍스트 윈도 / Context Window | 한 요청에서 모델이 처리할 수 있는 토큰의 범위 / The token limit for what a model can process in a request | 토큰 단위의 한도. 입력·출력에 대한 세부 산정은 모델과 인터페이스에 따라 달라 특정 수치를 제시하지 않음. [L02, M02] |
+| 30 | 56~57 | 컨텍스트 엔지니어링 / Context Engineering | 작업 단계에 맞춰 지침·코드·도구 결과를 선별해 제공 / Selecting instructions, code, and tool results for each stage of a task | 2025년 9월 29일 공개 글의 역할과 일치. 제목 함수와 호출 위치를 함께 조회하는 사례로 설명. [M02] |
+| 31 | 58 | 저장소 지침 / Repository Instructions | 프로젝트의 공통 작업 규칙과 관련 문서 위치를 저장소에 기록 / Recording shared working rules and documentation pointers in the repository | AGENTS.md는 지원 도구에서 쓰이는 예. 저장소 지침의 적용 범위와 실행 권한은 별개의 층위. [M03, M09] |
+| 32 | 59 | 에이전트 스킬 / Agent Skills | 특정 작업의 절차와 필요한 자료를 묶어 재사용 / Packaging a task procedure and its supporting materials for reuse | 2025년 10월 소개, 12월 개방형 표준 공개. SKILL.md는 필수, 참고 자료와 스크립트는 필요에 따라 포함. [M04] |
+| 33 | 64 | 명세 주도 개발 / Spec-Driven Development | 기능이 지켜야 할 동작을 명세로 정하고 계획과 구현의 기준으로 활용 / Using a behavior specification to guide planning and implementation | GitHub가 2025년 9월 공개한 Spec Kit는 코딩 에이전트 적용 사례. 2025년을 명세 작성 관행의 발명 시점으로 제시하지 않음. [M05] |
+| 34 | 65 | 완료 기준 / Acceptance Criteria | 기능의 요구사항을 관찰할 수 있는 입력·결과·확인 근거로 구체화 / Turning requirements into observable inputs, outcomes, and evidence | 게시글 거부 응답과 미저장 여부는 수업에서 정한 기준. 화면 메시지와 저장 상태의 근거를 따로 읽음. [M05, M08, X02] |
+
+챕터 연결 · 현재 저장소의 규칙과 코드를 찾고, 목표 동작과 완료 근거를 정했다. 다음 챕터에서는 그 근거를 얻을 수 있도록 작업 순서와 실행 환경을 구성한다.
+
+
+04. 에이전트가 구현하고 검증하는 환경 · 화면 35
+KO · 에이전트가 구현하고 검증하는 환경 | 2025년 말~2026년 · 작업 분해, 하네스, 장기 실행과 협업
+EN · Environments for Agent Implementation and Verification | Late 2025 to 2026 · Task decomposition, harnesses, long-running work, and collaboration
+검토 · 기존 챕터 7의 검증·하네스와 챕터 8의 재개·병렬 통합을 연결. 2025년 11월 장기 실행 사례, 2026년 1~3월 평가·하네스·협업 사례를 시점 근거로 사용. [M07, M08, M09, M10]
+
+| 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
+| --- | --- | --- | --- | --- |
+| 36 | 66~67 | 작업 분해 / Task Decomposition | 구현 계획을 결과와 검증 방법이 분명한 변경 단위로 구분 / Dividing an implementation plan into changes with clear outcomes and checks | Spec Kit의 명세→계획→작업 흐름을 참고. 제목 검사, 서버 처리, 화면 표시의 의존 관계를 사례에 적용. [M05] |
+| 37 | 68 | 자동화 테스트 / Automated Testing | 제목 검사 함수의 반환값을 기대값과 반복해서 비교 / Repeatedly comparing the title validator’s output with expected values | 범위를 함수 동작으로 한정. 기존 Node 예제는 공백·경계 길이 포함 8건. 예제의 String.length는 UTF-16 코드 단위. [X01, M08, M14] |
+| 38 | 69, 74 | 종단 간 검증 / End-to-End Verification | 게시글 등록 흐름에서 사용자 입력·서버 응답·저장 결과를 확인 / Checking user input, the server response, and persisted data in the post submission flow | 범위 설계의 예. 기존 슬라이드의 Playwright 발췌는 성공 문구를 직접 확인하며, 실제 저장 근거에는 별도의 조회나 상태 확인이 필요. [M06, M08, X02] |
+| 39 | 70, 72 | 하네스 엔지니어링 / Harness Engineering | 모델이 도구를 쓰고 결과를 검사하며 실패를 처리할 실행 환경 설계 / Designing the environment for tool use, verification, and failure handling | 에이전트 하네스는 실행 루프·도구·상태를 관리하는 시스템. 저장소 수준의 하네스 설계는 테스트·앱 실행·로그 같은 관찰 수단까지 포함할 수 있음. [M07, M09] |
+| 40 | 60, 82~83 | 장기 작업의 재개 / Resuming Long-Running Work | 진행 기록을 현재 환경과 대조해 남은 작업부터 이어가는 방식 / Resuming unfinished work after checking saved progress against the current environment | 2025년 11월 26일 사례는 세션 경계를 넘기 위해 작업 목록·진행 기록·커밋을 활용. 재시작 후 현재 상태를 다시 확인하는 흐름. [M07] |
+| 41 | 신규 · 69쪽과 연계 | 에이전트 평가(Evals) / Agent Evals | 정해진 과제와 채점 기준으로 에이전트의 수행을 여러 실행에서 측정 / Measuring agent performance across runs using defined tasks and grading criteria | 2026년 1월 9일 공개 글의 과제·시도·채점 구조. 제품 테스트를 평가의 채점에 쓸 수 있으며, 평가 대상은 에이전트의 수행. [M08] |
+| 42 | 76~78 | 에이전트 오케스트레이션 / Agent Orchestration | 과제에 따라 여러 에이전트의 역할과 결과 전달을 조정 / Coordinating multiple agents’ roles and handoffs for a task | 2026년 3월 24일 공개된 계획·구현·평가 에이전트 실험이 근거. 역할 분담은 병렬 실행과 별개의 설계 선택. [M10] |
+| 43 | 76, 81 | 병렬 변경의 통합 / Integrating Parallel Changes | 합의한 요청·응답 형식에 맞춰 변경을 합치고 등록 흐름을 재검증 / Combining changes under a shared API contract and retesting the submission flow | 화면·서버 병렬 작업은 강의 사례. 개별 통과와 통합 통과의 검증 범위를 구분. [M06, M09, X02] |
+
+챕터 연결 · 테스트를 통과한 변경을 얻었으면, 이제 팀이 그 변경을 수용할 근거와 저장소에 반복 적용할 절차가 필요하다. 한 세션의 실행 루프에서 공동 개발 절차로 시야를 넓힌다.
+
+
+05. 저장소 개발 흐름으로 들어온 에이전트 · 화면 44
+KO · 저장소 개발 흐름으로 들어온 에이전트 | 2026년 하반기 · 변경 리뷰, 저장소 자동화, 개발자의 판단
+EN · Agents in Repository Workflows | Late 2026 · Change review, repository automation, and developer judgment
+검토 · 기존 챕터 7·8의 변경 검토와 수용 판단을 결합하고, 2026년 10~11월 공식 공개 사례를 연결. 산업 전체의 보편화 여부는 이 사례들로 판단할 수 없음. [M11, M12, M13]
+
+| 새 화면 | 기존 화면 | 타이틀 KO / EN | 부제 KO / EN | 문장 검토 및 근거 |
+| --- | --- | --- | --- | --- |
+| 45 | 73, 85 | 변경 리뷰 / Change Review | 코드 차이와 검증 결과를 요구사항에 대조해 수용 여부 판단 / Comparing the diff and verification evidence with requirements before accepting a change | PR 리뷰의 피드백·승인·수정 요청에 대응. 수업 사례는 완료 기준에서 확인할 근거를 함께 검토. [M11, X02] |
+| 46 | 68, 70, 72 | 지속적 통합(CI) / Continuous Integration (CI) | 코드 변경을 자주 통합하며 빌드와 테스트로 변경을 확인 / Integrating changes frequently and checking them through builds and tests | GitHub Actions는 구현 사례. 자동 검사와 통합을 설명하며 자동 배포는 범위 밖. [M11] |
+| 47 | 84와 부분 대응 · 공개 사례 신규 | 에이전트 기반 워크플로 / Agentic Workflows | 저장소의 이벤트에 연결된 절차에서 에이전트가 조사하고 결과를 제안 / Using agents to investigate events and propose outcomes in repository workflows | GitHub의 동명 프로젝트는 2026년 10월 28일 정식 공개. CI 실패 분석은 공식 예시. 실행 방식과 결과 적용 권한은 워크플로 설정에 의존. [M12] |
+| 48 | 85와 부분 대응 · 용어 신규 | 에이전틱 엔지니어링 / Agentic Engineering | 계획·구현·검토에 에이전트를 연결하고 개발자가 위임과 수용을 판단 / Incorporating agents into planning, implementation, and review while retaining developer judgment | 2026년 11월 6일 GitHub 안내서에서 사용한 포괄 용어. 용어의 창안 날짜나 단일 표준 방법론으로 제시하지 않음. [M13] |
+| 49 | 85와 부분 대응 · 전망 신규 | 에이전트 위임의 다음 과제 / What Comes Next for Agent Delegation | 더 긴 작업을 맡길 때 필요한 상태 기록·검증 근거·승인 지점 / Progress records, verification evidence, and approval points for longer delegated work | 공개 사례에서 뽑은 전망과 설계 질문. 채택 속도나 보급 범위에 대한 예측 수치 없이, 위임 범위가 커지는 경우의 조건으로 서술. [M07, M09, M12, M13] |
+
+강의 마무리 · 튜링이 기계 지능의 문제를 관찰할 수 있는 행동으로 바꿨듯, 수업의 마지막에서는 에이전트가 완성했다고 보고한 일을 관찰할 수 있는 소프트웨어의 동작으로 묻는다. 이 연결은 강의의 비유이며, 역사적 인과관계에 관한 주장이 아니다.
+
+
+전체 흐름과 사실 검토의 결론
+
+1. 기술의 계보와 강의 순서를 구분한다. 기호 기반과 학습 기반은 함께 발전했다. 2012년과 2016년 사례는 성과의 시점이고, 2025~2026년 사례는 개념이 실제 개발에 적용되어 공개된 시점이다.
+2. 정보가 부족해서 생기는 문제, 목표가 모호해서 생기는 문제, 실행 결과를 관찰할 수 없어서 생기는 문제를 각각 30쪽 컨텍스트 엔지니어링, 33쪽 명세 주도 개발, 39쪽 하네스 엔지니어링으로 이어 붙인다.
+3. 게시글 사례는 24쪽 공백 오류 → 26쪽 재현·수정 → 34쪽 완료 기준 → 37~38쪽 함수·전체 등록 검증 → 43쪽 합친 코드의 재확인 → 45쪽 리뷰 순서로 발전한다. 같은 사례가 장마다 다른 판단을 보여준다.
+4. 38쪽 검증 범위는 저장을 포함한다. 본문 작성 단계에서 기존 성공 문구 발췌를 재사용하면 저장 확인 근거를 별도로 제시해야 한다. 강의용 전체 앱 사례는 현재 예시 설계로 취급한다.
+5. 긴 실행을 이어가는 문제와 여러 역할을 조정하는 문제는 다르다. 40쪽 뒤에 42쪽을 배치하되, 41쪽에서 수행을 측정하는 기준을 먼저 확보한다. 49쪽은 확인된 2026년 사례에 근거한 조건부 전망이다.
+
+
+출처 기록
+
+[H01] A. M. Turing, Computing Machinery and Intelligence, Mind, 1950, §§1–2
+https://academic.oup.com/mind/article/LIX/236/433/986238
+[H02] 다트머스 제안서 원문과 Dartmouth의 1956년 모임 기록
+https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html
+https://ai.dartmouth.edu/our-story
+[H03] Stanford AI100 연구위원회 역사 보고서, AI 연구의 주요 갈래와 AI 겨울
+https://ai100.stanford.edu/2016-report/appendix-i-short-history-ai/with-2021-annotations
+[H04] F. Rosenblatt, The Perceptron, 1958, 원 논문
+https://doi.org/10.1037/h0042519
+[H05] Goodfellow·Bengio·Courville, Deep Learning, 제5장 Machine Learning Basics
+https://www.deeplearningbook.org/contents/ml.html
+[H06] Google ML Crash Course, Production ML Systems의 정적·동적 추론 설명
+https://developers.google.com/machine-learning/crash-course/production-ml-systems/static-vs-dynamic-inference
+[H07] Goodfellow·Bengio·Courville, Deep Learning, 제1장 Introduction
+https://www.deeplearningbook.org/contents/intro.html
+[H08] Krizhevsky·Sutskever·Hinton, ImageNet Classification with Deep Convolutional Neural Networks, NeurIPS, 2012
+https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf
+[H09] Google DeepMind, AlphaGo 개발과 대국 기록
+https://deepmind.google/research/alphago/
+[H10] Buchanan·Shortliffe 편, Rule-Based Expert Systems, 1984, 4장 §4.1.2 그림 4-3과 §4.1.3
+https://people.dbmi.columbia.edu/shortliffe/Buchanan-Shortliffe-1984/Chapter-04.pdf
+[H11] J. McDermott, R1: A Rule-Based Configurer of Computer Systems, 1982
+https://web.cs.wpi.edu/Research/aidg/CS540/papers/McDermott-R1-XCON.pdf
+[H12] E. Soloway·J. Bachant·K. Jensen, Assessing the Maintainability of XCON-in-RIME, 1987, 서론과 §II
+https://cdn.aaai.org/AAAI/1987/AAAI87-148.pdf
+[H13] 영국 상원 AI 특별위원회, AI in the UK, 2018, 1장 §22–27
+https://publications.parliament.uk/pa/ld201719/ldselect/ldai/100/10005.htm
+[H14] C. Cortes·V. Vapnik, Support-Vector Networks, 1995, SVM 이진 분류 원리
+https://doi.org/10.1007/BF00994018
+[H15] D. E. Rumelhart·G. E. Hinton·R. J. Williams, Learning Representations by Back-Propagating Errors, 1986
+https://doi.org/10.1038/323533a0
+[H16] G. E. Hinton·S. Osindero·Y.-W. Teh, A Fast Learning Algorithm for Deep Belief Nets, 2006
+https://doi.org/10.1162/neco.2006.18.7.1527
+[H17] Goodfellow·Bengio·Courville, Deep Learning, 제6장 Deep Feedforward Networks
+https://www.deeplearningbook.org/contents/mlp.html
+[H18] ImageNet Large Scale Visual Recognition Challenge 2012, Task 1 공식 규정
+https://www.image-net.org/challenges/LSVRC/2012/index.php
+[H19] Silver 외, Mastering the game of Go with deep neural networks and tree search, 2016
+https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf
+
+[L01] Brown 외, Language Models are Few-Shot Learners, 2020
+https://arxiv.org/abs/2005.14165
+[L02] OpenAI 공식 프롬프트 문서, 토큰과 컨텍스트 윈도 설명
+https://developers.openai.com/api/docs/guides/prompt-engineering
+[L03] Vaswani 외, Attention Is All You Need, 2017, §3
+https://arxiv.org/abs/1706.03762
+[L04] GitHub, 2021년 6월 29일 Copilot 기술 프리뷰 공개 글
+https://github.blog/news-insights/product-news/introducing-github-copilot-ai-pair-programmer/
+[L05] OpenAI, 2022년 11월 30일 ChatGPT 공개와 GitHub의 2023년 Copilot Chat 소개
+https://openai.com/index/chatgpt/
+https://github.blog/news-insights/product-news/github-copilot-x-the-ai-powered-developer-experience/
+[L06] OpenAI 공식 프롬프트 설계 문서, 지시와 입력·출력 예시
+https://developers.openai.com/api/docs/guides/prompt-engineering
+[L07] Anthropic, Building Effective Agents, 2024년 12월 19일, 환경의 피드백과 도구 사용
+https://www.anthropic.com/research/building-effective-agents
+[L08] OpenAI, Why Language Models Hallucinate, 2025년 9월, 그럴듯한 사실 오류의 범위
+https://openai.com/index/why-language-models-hallucinate/
+[L09] OpenAI Cookbook, tiktoken의 인코딩과 토큰별 숫자 ID
+https://developers.openai.com/cookbook/examples/how_to_count_tokens_with_tiktoken
+[L10] Sennrich·Haddow·Birch, Neural Machine Translation of Rare Words with Subword Units, 2016
+https://aclanthology.org/P16-1162/
+[L11] OpenAI API 가격 문서, 입력·출력 토큰 단가
+https://developers.openai.com/api/docs/pricing
+[L12] OpenAI API, Function calling의 도구 요청·애플리케이션 실행·결과 반환 흐름
+https://developers.openai.com/api/docs/guides/function-calling#the-tool-calling-flow
+
+[M01] Anthropic, MCP 공개 글, 2024년 11월 25일
+https://www.anthropic.com/news/model-context-protocol
+[M02] Anthropic, Effective Context Engineering for AI Agents, 2025년 9월 29일
+https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
+[M03] OpenAI, 2026년 2월 하네스 사례의 저장소 지침 설명과 9월 11일 지침·스킬 설명
+https://openai.com/index/harness-engineering/
+https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
+[M04] Anthropic, Agent Skills 소개 및 12월 표준 공개 업데이트, Agent Skills 규격
+https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
+https://agentskills.io/specification
+[M05] GitHub, Spec Kit 공개 글, 2025년 9월 2일, 및 프로젝트 문서
+https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/
+https://github.com/github/spec-kit
+[M06] Playwright 공식 문서, 화면 텍스트·응답 확인
+https://playwright.dev/docs/test-assertions
+https://playwright.dev/docs/network
+[M07] Anthropic, Effective Harnesses for Long-Running Agents, 2025년 11월 26일
+https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
+[M08] Anthropic, Demystifying Evals for AI Agents, 2026년 1월 9일, 코딩·브라우저 에이전트 평가
+https://www.anthropic.com/research/demystifying-evals-for-ai-agents
+[M09] OpenAI, 2026년 2월 11일 하네스 적용 사례와 8월 19일 하네스 구조 설명
+https://openai.com/index/harness-engineering/
+https://developers.openai.com/blog/codex-as-a-platform
+[M10] Anthropic, Harness Design for Long-Running Application Development, 2026년 3월 24일
+https://www.anthropic.com/research/harness-design-long-running-apps
+[M11] GitHub 공식 문서, PR 리뷰 및 지속적 통합
+https://docs.github.com/en/pull-requests/reference/pull-request-reviews
+https://docs.github.com/en/actions/get-started/continuous-integration
+[M12] GitHub, GitHub Agentic Workflows 정식 공개, 2026년 10월 28일
+https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/
+[M13] GitHub, Beyond Code Generation · A Developer’s Guide to Agentic Engineering, 2026년 11월 6일
+https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/
+[M14] TC39, ECMAScript 문자열 명세, String 값과 길이
+https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type
+[M15] MCP 공식 Architecture overview, 참여자와 도구 실행 요청·응답
+https://modelcontextprotocol.io/docs/learn/architecture
+
+[X01] 교육용 제목 검사 함수와 실행 가능한 기존 확인 스크립트
+new-resource-research/examples/title-validation.mjs
+new-resource-research/examples/check-title.mjs
+[X02] 기존 9주차 요구사항·완료 기준과 브라우저 코드 발췌
+week-09-body.ko.txt · 기존 64~65, 69, 74, 76, 81쪽
+new-resource-research/examples/browser-check.fragment.txt
+../scripts/new_resources.py · specification, acceptance-criteria, browser-verification

@@ -13,12 +13,12 @@
       "connection": "기존 프로그래밍에서 사람이 작성하던 판단을 기계가 수행하게 하려는 연구의 출발점.",
       "scope": "지능의 평가와 초기 구현 접근. 퍼셉트론은 입력·가중치·출력만 소개하고 학습 알고리즘은 2장에서 설명.",
       "title": [
-        "인공지능의 출발",
-        "The Origins of Artificial Intelligence"
+        "인공지능 연구의 출발",
+        "The Beginnings of AI Research"
       ],
       "lead": [
-        "1950~1970년대 · 지능의 정의와 규칙 기반 추론 · 초기 신경망",
-        "1950s–1970s · Defining intelligence, reasoning with rules, and early neural networks"
+        "1950~1970년대 · 기계 지능의 평가와 규칙·신경망을 이용한 초기 구현",
+        "1950s–1970s · Evaluating machine intelligence and early approaches using rules and neural networks"
       ],
       "concepts": [
         {
@@ -30,8 +30,8 @@
             "Artificial Intelligence"
           ],
           "lead": [
-            "인간의 지능적 과제를 기계로 수행하려는 연구 분야",
-            "The study of machines that perform tasks associated with human intelligence"
+            "인식·언어 이해·문제 해결을 기계로 수행하는 방법의 연구",
+            "The study of how machines can perceive, understand language, and solve problems"
           ],
           "requires": [],
           "from_previous": "강의의 출발점으로 인공지능이 다루는 과제의 범위 설정",
@@ -46,8 +46,8 @@
             "The Turing Test"
           ],
           "lead": [
-            "대화에서 관찰되는 행동으로 기계의 지능을 평가하는 관점",
-            "Evaluating machine intelligence through observable conversational behavior"
+            "문자 대화에서 사람과 기계를 구별할 수 있는지 평가",
+            "Testing whether a judge can distinguish a machine from a person in text conversation"
           ],
           "requires": [
             "artificial-intelligence"
@@ -60,12 +60,12 @@
           "previous_concept_id": "turing-test",
           "id": "dartmouth",
           "title": [
-            "다트머스 연구 모임",
-            "The Dartmouth Research Project"
+            "다트머스 인공지능 연구 모임",
+            "The Dartmouth AI Research Project"
           ],
           "lead": [
-            "지능의 구현을 공동의 연구 과제로 정립한 출발점",
-            "Establishing the implementation of intelligence as a shared research agenda"
+            "1955년 제안과 1956년 모임에서 공유한 기계 지능 연구 의제",
+            "The shared research agenda proposed in 1955 and pursued at Dartmouth in 1956"
           ],
           "requires": [
             "turing-test",
@@ -83,8 +83,8 @@
             "Symbolic AI"
           ],
           "lead": [
-            "지식을 기호와 규칙으로 표현해 결론을 도출하는 접근",
-            "Representing knowledge with symbols and rules to derive conclusions"
+            "기호로 표현한 사실에 규칙을 적용해 결론 도출",
+            "Drawing conclusions by applying rules to facts represented as symbols"
           ],
           "requires": [
             "dartmouth"
@@ -101,8 +101,8 @@
             "The Perceptron"
           ],
           "lead": [
-            "입력값의 가중합으로 결과를 판단하는 초기 계산 모형",
-            "An early computational model that decides from a weighted sum of inputs"
+            "입력의 가중합을 임곗값과 비교해 두 결과 중 하나를 선택",
+            "Choosing between two outputs by comparing a weighted sum with a threshold"
           ],
           "requires": [
             "symbolic-ai"
@@ -119,8 +119,8 @@
             "Expert Systems"
           ],
           "lead": [
-            "전문가의 지식과 규칙을 적용해 특정 분야의 판단을 도출하는 구조",
-            "Applying expert knowledge and rules to decisions in a specific domain"
+            "분야별 지식 기반과 추론 엔진을 이용한 판단",
+            "Making domain-specific judgments with a knowledge base and an inference engine"
           ],
           "requires": [
             "symbolic-ai",
@@ -136,12 +136,12 @@
       "connection": "사람이 지식을 모두 규칙으로 작성하는 접근의 한계에서, 초기부터 병행되어 온 데이터 학습 방식의 발전과 확산으로 이동.",
       "scope": "학습과 추론을 구분한 뒤 학습 방식·신경망 구조·대표 사례 순서로 설명. AI 겨울은 앞 시기의 배경까지 회고.",
       "title": [
-        "데이터로 학습하는 인공지능",
-        "AI That Learns from Data"
+        "데이터 학습과 신경망",
+        "Data-Driven Learning and Neural Networks"
       ],
       "lead": [
-        "1980년대~2016년 · 머신러닝과 딥러닝을 통한 학습 방식의 발전",
-        "1980s–2016 · The development of machine learning and deep learning"
+        "1980년대~2016년 · 모델을 학습시키는 방법과 이미지 분류·바둑 적용 사례",
+        "1980s–2016 · How models learn, with examples from image classification and Go"
       ],
       "concepts": [
         {
@@ -153,8 +153,8 @@
             "AI Winters"
           ],
           "lead": [
-            "기대와 구현 성과의 차이로 나타난 연구지원 위축",
-            "Declining research support when expectations exceeded practical results"
+            "기대에 못 미친 성과가 연구 지원 위축으로 이어진 시기",
+            "Periods when disappointing results led to declining research support"
           ],
           "requires": [
             "expert-system",
@@ -172,8 +172,8 @@
             "Machine Learning"
           ],
           "lead": [
-            "데이터에서 과제 수행에 필요한 판단 기준을 얻는 방법",
-            "Learning decision patterns for a task from data"
+            "데이터에서 모델의 판단 기준을 얻는 방법",
+            "Learning a model’s decision patterns from data"
           ],
           "requires": [
             "ai-winter",
@@ -187,12 +187,12 @@
           "previous_concept_id": "machine-learning",
           "id": "training",
           "title": [
-            "모델의 학습",
+            "모델 학습",
             "Model Training"
           ],
           "lead": [
-            "학습 목표에 따라 모델의 내부 값을 조정하는 과정",
-            "Adjusting a model’s internal values toward a learning objective"
+            "모델의 예측을 평가하고 내부 값을 반복 조정",
+            "Evaluating predictions and repeatedly adjusting model parameters"
           ],
           "requires": [
             "machine-learning",
@@ -206,12 +206,12 @@
           "previous_concept_id": "training",
           "id": "inference",
           "title": [
-            "모델의 추론",
+            "모델 추론",
             "Model Inference"
           ],
           "lead": [
-            "학습한 모델에 새 입력을 넣어 결과를 얻는 과정",
-            "Applying a trained model to a new input"
+            "학습한 내부 값으로 새 입력의 결과를 계산",
+            "Using learned parameters to compute a result for a new input"
           ],
           "requires": [
             "training"
@@ -228,8 +228,8 @@
             "Supervised Learning"
           ],
           "lead": [
-            "입력과 정답의 대응 관계를 학습하는 방식",
-            "Learning from paired inputs and target outputs"
+            "입력과 정답을 짝지어 예측의 기준으로 사용",
+            "Using paired inputs and labels to guide predictions"
           ],
           "requires": [
             "training",
@@ -247,8 +247,8 @@
             "Unsupervised Learning"
           ],
           "lead": [
-            "정답 표시 없이 데이터의 구조와 유사성을 찾는 방식",
-            "Discovering structure and similarity without target labels"
+            "정답 표시가 없는 데이터에서 유사성과 구조를 탐색",
+            "Finding similarities and structure in unlabeled data"
           ],
           "requires": [
             "supervised-learning"
@@ -265,8 +265,8 @@
             "Reinforcement Learning"
           ],
           "lead": [
-            "행동의 결과로 얻는 보상을 바탕으로 행동 방식을 개선하는 과정",
-            "Improving behavior using rewards from its consequences"
+            "행동의 결과를 바탕으로 장기 보상을 높이는 방법 학습",
+            "Learning to choose actions that improve long-term reward"
           ],
           "requires": [
             "training",
@@ -285,8 +285,8 @@
             "Artificial Neural Networks"
           ],
           "lead": [
-            "여러 계산 단위를 층으로 연결한 모델 구조",
-            "A model built from layers of connected computational units"
+            "한 층의 출력을 다음 층의 입력으로 전달하는 계산 구조",
+            "A layered structure that passes each layer’s output to the next"
           ],
           "requires": [
             "perceptron",
@@ -305,8 +305,8 @@
             "Backpropagation"
           ],
           "lead": [
-            "출력 오차에 대한 각 가중치의 영향을 계산하는 방법",
-            "Computing how each weight contributes to the output error"
+            "출력 쪽에서 계산을 거슬러 가중치 변화가 오차에 미치는 영향 파악",
+            "Tracing backward from the output to measure how weight changes affect error"
           ],
           "requires": [
             "neural-network",
@@ -324,8 +324,8 @@
             "Deep Learning"
           ],
           "lead": [
-            "여러 층의 신경망으로 데이터의 표현을 학습하는 접근",
-            "Learning data representations with multilayer neural networks"
+            "여러 층의 신경망에서 과제에 유용한 특징을 학습",
+            "Learning task-relevant features across multiple neural network layers"
           ],
           "requires": [
             "neural-network",
@@ -343,8 +343,8 @@
             "Image Classification with AlexNet"
           ],
           "lead": [
-            "대규모 이미지 학습에서 나타난 딥러닝의 성과",
-            "A landmark application of deep learning to large-scale image classification"
+            "2012년 대규모 이미지 분류 대회에서 확인한 딥러닝의 성과",
+            "Demonstrating deep learning’s performance in the 2012 image classification competition"
           ],
           "requires": [
             "deep-learning",
@@ -359,12 +359,12 @@
           "previous_concept_id": "alexnet",
           "id": "alphago",
           "title": [
-            "AlphaGo의 바둑 판단",
-            "Go Decisions with AlphaGo"
+            "AlphaGo의 바둑 수 선택",
+            "Move Selection in AlphaGo"
           ],
           "lead": [
-            "학습한 신경망으로 바둑의 수와 형세를 평가한 사례",
-            "Using trained neural networks to evaluate Go moves and positions"
+            "신경망의 수·형세 평가와 탐색을 결합한 다음 수 선택",
+            "Selecting a move by combining neural network evaluations with search"
           ],
           "requires": [
             "alexnet",
@@ -381,12 +381,12 @@
       "connection": "이미지·게임에서 확인한 신경망의 활용을 언어로 확장하고, 텍스트를 표현하는 단위부터 설명.",
       "scope": "토큰 → 수치 표현 → 관계 계산 → 모델 구조 → 학습 → 생성 → 한계와 보완. Transformer를 구성 요소보다 먼저 설명하지 않음.",
       "title": [
-        "대규모 언어 모델의 등장",
-        "The Rise of Large Language Models"
+        "대규모 언어 모델의 학습과 생성",
+        "Training and Generation in Large Language Models"
       ],
       "lead": [
-        "2017~2020년 · Transformer와 사전 학습을 통한 언어 모델의 확장",
-        "2017–2020 · Scaling language models through Transformers and pretraining"
+        "2017~2020년 · 텍스트의 표현부터 Transformer의 사전 학습과 생성까지",
+        "2017–2020 · From representing text to pretraining Transformers and generating output"
       ],
       "concepts": [
         {
@@ -398,8 +398,8 @@
             "Language Models"
           ],
           "lead": [
-            "주어진 문맥에서 가능한 텍스트를 예측하는 모델",
-            "Models that predict possible text given a context"
+            "주어진 문맥에서 빈 곳이나 다음에 올 표현을 예측",
+            "Predicting what fits a gap or follows a given context"
           ],
           "requires": [
             "deep-learning",
@@ -418,8 +418,8 @@
             "Tokens"
           ],
           "lead": [
-            "모델이 텍스트를 처리하기 위해 나누는 기본 단위",
-            "The units into which a model divides text for processing"
+            "텍스트를 처리 단위로 나누고 각 조각을 번호에 대응",
+            "Splitting text into units and mapping each unit to an ID"
           ],
           "requires": [
             "language-model"
@@ -432,12 +432,12 @@
           "previous_concept_id": "tokens",
           "id": "embeddings",
           "title": [
-            "임베딩",
-            "Embeddings"
+            "토큰 임베딩",
+            "Token Embeddings"
           ],
           "lead": [
-            "텍스트 단위를 모델이 계산할 수 있는 수치 배열로 표현하는 방법",
-            "Representing text units as numerical arrays a model can process"
+            "토큰 ID를 모델이 계산에 사용할 벡터로 변환",
+            "Mapping token IDs to vectors that a model can use in computation"
           ],
           "requires": [
             "tokens",
@@ -455,8 +455,8 @@
             "Attention"
           ],
           "lead": [
-            "문맥에 필요한 다른 위치의 정보를 선택적으로 반영하는 계산",
-            "Selectively incorporating information from other positions in a context"
+            "위치 간 관련도를 계산해 다른 토큰의 정보를 가중 반영",
+            "Weighting information from other tokens according to relevance"
           ],
           "requires": [
             "embeddings",
@@ -474,8 +474,8 @@
             "Transformers"
           ],
           "lead": [
-            "어텐션을 중심으로 문맥 정보를 처리하는 신경망 구조",
-            "A neural architecture centered on attention for processing contextual information"
+            "어텐션과 위치별 표현 변환을 여러 층에서 반복하는 구조",
+            "Repeating attention and per-position transformations across layers"
           ],
           "requires": [
             "attention",
@@ -494,8 +494,8 @@
             "Self-Supervised Learning"
           ],
           "lead": [
-            "데이터 자체에서 예측 목표를 만들어 학습하는 방식",
-            "Creating learning targets from the data itself"
+            "가린 부분이나 뒤에 이어지는 표현을 원문에서 학습 목표로 구성",
+            "Deriving training targets from masked or following text"
           ],
           "requires": [
             "transformer",
@@ -515,8 +515,8 @@
             "Pretraining"
           ],
           "lead": [
-            "개별 과제에 적용하기 전에 폭넓은 데이터로 기본 능력을 학습하는 단계",
-            "Learning general capabilities from broad data before task-specific adaptation"
+            "폭넓은 텍스트로 여러 과제에 활용할 기반 모델을 학습",
+            "Training a base model on broad text for use across tasks"
           ],
           "requires": [
             "self-supervision",
@@ -534,8 +534,8 @@
             "Large Language Models"
           ],
           "lead": [
-            "대규모 학습을 통해 여러 언어 과제에 활용되는 모델",
-            "Models trained at scale for a range of language tasks"
+            "데이터·모델·계산 규모를 늘려 여러 언어 과제에 활용",
+            "Scaling data, model size, and compute for a range of language tasks"
           ],
           "requires": [
             "pretraining",
@@ -550,12 +550,12 @@
           "previous_concept_id": "large-language-model",
           "id": "text-generation",
           "title": [
-            "언어 모델의 문장 생성",
-            "Text Generation by Language Models"
+            "다음 토큰을 이용한 텍스트 생성",
+            "Next-Token Text Generation"
           ],
           "lead": [
-            "다음 토큰을 반복해 선택하며 출력 문장을 구성하는 과정",
-            "Constructing output by repeatedly selecting the next token"
+            "선택한 토큰을 문맥에 추가하며 출력을 순서대로 생성",
+            "Generating output in sequence by appending each chosen token to the context"
           ],
           "requires": [
             "large-language-model",
@@ -574,8 +574,8 @@
             "Context Windows"
           ],
           "lead": [
-            "한 번의 처리에서 모델이 참조할 수 있는 토큰 범위",
-            "The span of tokens available to a model in one processing context"
+            "한 요청에서 지침·대화·자료와 출력에 사용할 수 있는 토큰 범위",
+            "The token budget for instructions, history, source material, and output in one request"
           ],
           "requires": [
             "text-generation",
@@ -593,8 +593,8 @@
             "Language Model Hallucinations"
           ],
           "lead": [
-            "그럴듯한 생성 결과와 사실의 불일치",
-            "Plausible generated output that does not match the facts"
+            "사실과 다르거나 근거가 부족한 내용을 그럴듯하게 생성",
+            "Generating plausible claims that are false or unsupported"
           ],
           "requires": [
             "context-window",
@@ -609,12 +609,12 @@
           "previous_concept_id": "hallucinations",
           "id": "rag",
           "title": [
-            "검색 증강 생성",
-            "Retrieval-Augmented Generation"
+            "검색 증강 생성(RAG)",
+            "Retrieval-Augmented Generation (RAG)"
           ],
           "lead": [
-            "관련 자료를 찾아 입력에 추가한 뒤 답변을 생성하는 방식",
-            "Retrieving relevant material and adding it to the input before generation"
+            "질문과 관련된 외부 문서를 찾아 답변을 생성할 때 참조",
+            "Retrieving external documents relevant to a question and using them to generate an answer"
           ],
           "requires": [
             "hallucinations",
@@ -635,8 +635,8 @@
         "Code Generation and Conversational Assistance"
       ],
       "lead": [
-        "2021~2023년 · 코드 자동 완성에서 대화를 통한 개발 지원으로의 확장",
-        "2021–2023 · From code completion to conversational development assistance"
+        "2021~2023년 · 코드 자동 완성에서 자연어 요청과 실행 결과를 통한 수정으로",
+        "2021–2023 · From code completion to requesting and revising code in conversation"
       ],
       "concepts": [
         {
@@ -648,8 +648,8 @@
             "Code Generation Models"
           ],
           "lead": [
-            "코드의 패턴을 학습해 주어진 문맥에 맞는 코드를 생성하는 모델",
-            "Models that learn code patterns and generate code for a given context"
+            "함수 설명과 주변 코드에 맞춰 구현 후보를 생성",
+            "Generating implementation candidates from descriptions and surrounding code"
           ],
           "requires": [
             "rag",
@@ -669,8 +669,8 @@
             "Code Completion"
           ],
           "lead": [
-            "편집 중인 코드의 주변 문맥을 바탕으로 이어질 코드를 제안하는 기능",
-            "Suggesting code from the surrounding context in an editor"
+            "편집기에서 커서 주변을 바탕으로 다음 코드를 제안",
+            "Suggesting the next code from context around the editor cursor"
           ],
           "requires": [
             "code-model",
@@ -688,8 +688,8 @@
             "Instruction Tuning"
           ],
           "lead": [
-            "요청과 적절한 응답의 예시로 지시 수행 능력을 조정하는 학습",
-            "Training on instruction-response examples to improve instruction following"
+            "요청과 응답 예시로 모델을 추가 학습해 지시 수행 능력을 높이는 방법",
+            "Further training on request-response examples to improve instruction following"
           ],
           "requires": [
             "code-completion",
@@ -704,12 +704,12 @@
           "previous_concept_id": "instruction-tuning",
           "id": "human-feedback",
           "title": [
-            "사람의 피드백을 통한 학습",
+            "사람의 피드백을 활용한 학습",
             "Learning from Human Feedback"
           ],
           "lead": [
-            "사람의 평가와 선호를 반영해 응답 방식을 조정하는 과정",
-            "Adjusting model responses using human evaluations and preferences"
+            "같은 요청에 대한 여러 응답의 평가를 학습에 반영",
+            "Using human evaluations of multiple answers to the same request"
           ],
           "requires": [
             "instruction-tuning",
@@ -728,8 +728,8 @@
             "Conversational Development Assistance"
           ],
           "lead": [
-            "자연어 대화로 코드의 작성과 설명을 요청하는 방식",
-            "Requesting code and explanations through natural-language conversation"
+            "코드 작성을 요청하고 추가 조건과 실행 결과를 대화로 전달",
+            "Requesting code and refining it with additional constraints and observed results"
           ],
           "requires": [
             "human-feedback",
@@ -748,8 +748,8 @@
             "Development Prompts"
           ],
           "lead": [
-            "구현할 동작과 제약을 명확하게 전달하는 요청",
-            "A request that clearly communicates intended behavior and constraints"
+            "목표·입력·제약·출력을 명시해 구현할 동작을 전달",
+            "Specifying the goal, inputs, constraints, and output of an implementation"
           ],
           "requires": [
             "conversational-development",
@@ -767,8 +767,8 @@
             "Few-Shot Prompting"
           ],
           "lead": [
-            "소수의 입력·출력 예시로 원하는 처리 방식을 전달하는 방법",
-            "Communicating the intended behavior with a few input-output examples"
+            "요청에 입력·출력 예시를 넣어 조건의 해석을 구체화",
+            "Clarifying requirements with input-output examples in the prompt"
           ],
           "requires": [
             "development-prompt",
@@ -787,8 +787,8 @@
             "A Post Title Validation Function"
           ],
           "lead": [
-            "조건과 예시를 제공해 작은 기능의 생성을 요청하는 사례",
-            "Requesting a small function using conditions and examples"
+            "앞뒤 공백을 제거한 제목의 길이로 유효 여부를 판정",
+            "Returning title validity based on length after trimming outer whitespace"
           ],
           "requires": [
             "development-prompt",
@@ -803,12 +803,12 @@
           "previous_concept_id": "title-validation-case",
           "id": "code-revision",
           "title": [
-            "생성 코드의 수정",
-            "Revising Generated Code"
+            "실행 결과에 근거한 코드 수정",
+            "Revising Code from Execution Feedback"
           ],
           "lead": [
-            "직접 확인한 실행 결과를 대화에 돌려주어 코드를 개선하는 과정",
-            "Improving code by returning observed execution results to the conversation"
+            "공백 입력의 실제 결과와 기대 결과를 비교해 수정 요청",
+            "Requesting a fix by comparing actual and expected results for whitespace input"
           ],
           "requires": [
             "title-validation-case",
@@ -825,12 +825,12 @@
       "connection": "사람이 코드와 실행 결과를 복사하던 왕복 과정을 도구 호출로 연결하고, 결과를 관찰하며 작업을 이어가는 구조 설명.",
       "scope": "도구 호출과 권한을 먼저 정의한 뒤 에이전트 반복과 개발 사례 제시. 멀티모달 입력 뒤 컴퓨터 사용, 개별 도구 연결 뒤 MCP.",
       "title": [
-        "도구를 사용하는 AI 에이전트",
-        "AI Agents That Use Tools"
+        "AI 에이전트의 도구 사용",
+        "Tool Use in AI Agents"
       ],
       "lead": [
-        "2022~2024년 · 도구 호출과 실행 결과를 활용하는 에이전트 구조",
-        "2022–2024 · Agent loops that combine tool calls with feedback from execution"
+        "2022~2024년 · 도구를 호출하고 실행 결과를 바탕으로 다음 행동을 결정하는 구조",
+        "2022–2024 · Calling tools and using their results to decide what to do next"
       ],
       "concepts": [
         {
@@ -842,8 +842,8 @@
             "Tool Calling"
           ],
           "lead": [
-            "모델의 요청을 외부 기능의 실행과 결과 반환으로 연결하는 방식",
-            "Connecting a model’s request to an external action and its returned result"
+            "모델의 호출 요청을 받아 외부에서 실행하고 결과를 되돌려주는 방식",
+            "Executing a model’s tool request externally and returning the result"
           ],
           "requires": [
             "code-revision",
@@ -862,8 +862,8 @@
             "Tool Execution Permissions"
           ],
           "lead": [
-            "외부 기능이 접근하고 변경할 수 있는 범위를 제한하는 기준",
-            "Rules that constrain what external tools may access or change"
+            "실행 환경이 적용하는 파일 접근·수정·외부 전송 범위",
+            "Runtime limits on file access, modification, and external transmission"
           ],
           "requires": [
             "tool-calling",
@@ -877,12 +877,12 @@
           "previous_concept_id": "tool-permissions",
           "id": "agent-loop",
           "title": [
-            "AI 에이전트의 작업 반복",
-            "The AI Agent Loop"
+            "에이전트의 실행 루프",
+            "The Agent Loop"
           ],
           "lead": [
-            "목표에 따라 도구를 선택하고 결과를 관찰하며 다음 행동을 결정하는 구조",
-            "Choosing tools, observing results, and deciding the next action toward a goal"
+            "도구 실행 결과를 관찰해 다음 행동이나 종료를 결정하는 반복 구조",
+            "Using tool results to choose the next action or decide when to stop"
           ],
           "requires": [
             "tool-calling",
@@ -897,12 +897,12 @@
           "previous_concept_id": "agent-loop",
           "id": "development-tools",
           "title": [
-            "개발 환경의 도구",
-            "Tools in the Development Environment"
+            "에이전트의 개발 도구",
+            "Development Tools for Agents"
           ],
           "lead": [
-            "파일과 실행 환경을 에이전트의 작업 대상으로 연결하는 수단",
-            "Connecting files and execution environments to an agent’s work"
+            "파일 읽기·편집과 터미널 실행을 에이전트에 연결",
+            "Giving an agent tools to read and edit files and run terminal commands"
           ],
           "requires": [
             "agent-loop",
@@ -917,12 +917,12 @@
           "previous_concept_id": "development-tools",
           "id": "agent-repair-case",
           "title": [
-            "제목 검사 함수의 자동 수정",
-            "Agent-Assisted Repair of Title Validation"
+            "에이전트의 제목 검사 함수 수정",
+            "Agent Repair of the Title Validation Function"
           ],
           "lead": [
-            "에이전트가 코드를 실행하고 관찰한 오류를 수정하는 사례",
-            "An agent running code and repairing an observed error"
+            "에이전트가 파일을 읽고 공백 오류를 재현·수정한 뒤 다시 실행",
+            "An agent reads the file, reproduces and fixes the whitespace bug, then reruns the check"
           ],
           "requires": [
             "development-tools",
@@ -942,8 +942,8 @@
             "Reasoning Models"
           ],
           "lead": [
-            "응답 과정에 추가 계산을 사용해 문제 해결을 수행하는 모델",
-            "Models that spend additional computation during response generation to solve problems"
+            "여러 조건을 검토하거나 해법을 찾는 데 응답 계산을 추가로 사용",
+            "Using additional computation to evaluate conditions or find solutions"
           ],
           "requires": [
             "agent-repair-case",
@@ -962,8 +962,8 @@
             "Multimodal Models"
           ],
           "lead": [
-            "텍스트 외의 입력 형식도 함께 처리하는 모델",
-            "Models that process input modalities beyond text"
+            "텍스트와 화면 이미지의 정보를 함께 처리하고 관계를 파악",
+            "Processing text and screenshots together to relate code to what appears on screen"
           ],
           "requires": [
             "reasoning-models",
@@ -978,12 +978,12 @@
           "previous_concept_id": "multimodal-models",
           "id": "computer-use",
           "title": [
-            "컴퓨터 사용",
-            "Computer Use"
+            "에이전트의 화면 조작",
+            "Agent Computer Use"
           ],
           "lead": [
-            "화면을 관찰하고 입력 도구로 사용자 인터페이스를 조작하는 방식",
-            "Observing a screen and controlling its interface through input tools"
+            "화면을 관찰하고 조작한 뒤 바뀐 상태를 다시 확인",
+            "Observing a screen, interacting with it, and checking the resulting state"
           ],
           "requires": [
             "multimodal-models",
@@ -998,12 +998,12 @@
           "previous_concept_id": "computer-use",
           "id": "mcp",
           "title": [
-            "Model Context Protocol",
-            "Model Context Protocol"
+            "Model Context Protocol(MCP)",
+            "Model Context Protocol (MCP)"
           ],
           "lead": [
-            "AI 애플리케이션과 외부 도구·자료의 연결 방식을 맞추는 공통 규약",
-            "A common protocol connecting AI applications with external tools and resources"
+            "AI 앱의 클라이언트가 외부 도구와 자료를 제공하는 서버와 연결되는 규약",
+            "A protocol for AI app clients to connect to servers that provide tools and resources"
           ],
           "requires": [
             "computer-use",
@@ -1021,12 +1021,12 @@
       "connection": "도구를 연결한 뒤 실제 프로젝트에서 올바르게 작업하려면 어떤 정보를 제공하고 유지해야 하는지 설명.",
       "scope": "프로젝트 정보 → 제한된 입력의 설계 → 공통 지침 → 재사용 절차 → 진행 기록 → 압축 → 통합 사례. MCP·Skills·지침 파일의 역할 구분.",
       "title": [
-        "프로젝트 맥락과 작업 절차의 관리",
-        "Managing Project Context and Workflows"
+        "에이전트의 프로젝트 맥락 관리",
+        "Managing Project Context for Agents"
       ],
       "lead": [
-        "2025년 · 저장소 맥락과 지침 · 스킬을 통한 작업 지식의 관리",
-        "2025 · Managing project knowledge through repository context, instructions, and skills"
+        "2025년 · 저장소 정보와 작업 지침을 선별하고 진행 상태를 이어가는 방법",
+        "2025 · Selecting repository context and instructions and carrying work state forward"
       ],
       "concepts": [
         {
@@ -1038,8 +1038,8 @@
             "Project Context"
           ],
           "lead": [
-            "현재 코드의 구조와 작업 조건을 이해하는 데 필요한 정보",
-            "Information needed to understand the codebase and its working constraints"
+            "파일 역할과 호출 관계를 파악해 수정 범위를 결정",
+            "Identifying file roles and call relationships to determine the scope of a change"
           ],
           "requires": [
             "mcp",
@@ -1060,8 +1060,8 @@
             "Context Engineering"
           ],
           "lead": [
-            "한정된 입력 범위에 작업에 필요한 정보를 선별하고 유지하는 방법",
-            "Selecting and maintaining useful task information within a limited context"
+            "현재 작업에 필요한 정보를 먼저 제공하고 상세 자료는 필요할 때 조회",
+            "Providing relevant context up front and retrieving details as needed"
           ],
           "requires": [
             "project-context",
@@ -1080,8 +1080,8 @@
             "Project Instruction Files"
           ],
           "lead": [
-            "프로젝트에서 반복해 적용할 규칙을 기록한 문서",
-            "Documents that record recurring project rules"
+            "저장소에서 공통으로 적용할 실행 방법과 작업 규칙의 기록",
+            "Documenting shared commands and working conventions for a repository"
           ],
           "requires": [
             "context-engineering",
@@ -1099,8 +1099,8 @@
             "Agent Skills"
           ],
           "lead": [
-            "특정 작업의 수행 절차와 참고 자료를 묶어 재사용하는 단위",
-            "Reusable packages of procedures and resources for specific tasks"
+            "반복 작업의 지침에 필요한 참고 자료와 스크립트를 묶어 재사용",
+            "Reusing task instructions with supporting references and scripts"
           ],
           "requires": [
             "project-instructions",
@@ -1119,8 +1119,8 @@
             "Work Progress Notes"
           ],
           "lead": [
-            "완료한 일과 남은 일의 상태를 작업 밖에 보존하는 기록",
-            "External records of completed work and remaining tasks"
+            "완료 여부를 판단할 변경·실행 결과와 남은 작업을 기록",
+            "Recording changes, verification results, and remaining work"
           ],
           "requires": [
             "agent-skills",
@@ -1139,8 +1139,8 @@
             "Context Compaction"
           ],
           "lead": [
-            "긴 작업 이력을 필요한 정보 중심으로 줄여 이어가는 방식",
-            "Continuing work by condensing a long history into essential information"
+            "긴 작업 이력에서 목표·결정·현재 상태를 추려 문맥으로 유지",
+            "Condensing a long history into goals, decisions, and current state"
           ],
           "requires": [
             "progress-notes",
@@ -1155,12 +1155,12 @@
           "previous_concept_id": "context-compaction",
           "id": "project-context-case",
           "title": [
-            "게시글 프로젝트의 작업 맥락",
-            "Context for the Post Project"
+            "제목 검사 수정의 프로젝트 맥락",
+            "Project Context for Changing Title Validation"
           ],
           "lead": [
-            "검사 함수가 연결될 프로젝트의 규칙과 관련 파일을 제공하는 사례",
-            "Providing project rules and relevant files around a validation function"
+            "제목 수정에 필요한 지침·코드·작업 절차·검증 기록을 연결",
+            "Connecting the guidance, code, procedure, and evidence needed to change title validation"
           ],
           "requires": [
             "context-compaction",
@@ -1180,12 +1180,12 @@
       "connection": "프로젝트를 이해하고 작업을 이어가는 방법에서, 무엇을 완성해야 하며 결과를 어떻게 확인할지 명시하는 개발 절차로 이동.",
       "scope": "명세·완료 기준 → 계획·작업 단위 → 검증 수단 → 구현·검증 반복 → 실행 제어 → 리뷰 → 통합 사례. 기존 소프트웨어 공학 기법을 AI 도구의 발명으로 설명하지 않음.",
       "title": [
-        "구현과 검증의 자동화",
-        "Automating Implementation and Verification"
+        "명세에 따른 구현과 검증",
+        "Specification-Driven Implementation and Verification"
       ],
       "lead": [
-        "2025년 후반~2026년 · 명세와 계획을 바탕으로 반복하는 구현 · 실행 · 검증",
-        "Late 2025–2026 · Specifications and plans guiding build, run, and verify cycles"
+        "2025년 후반~2026년 · 명세를 작업으로 나누고 실행 결과로 완료 여부를 판단하는 과정",
+        "Late 2025–2026 · Breaking specifications into tasks and using evidence to judge completion"
       ],
       "concepts": [
         {
@@ -1197,8 +1197,8 @@
             "Requirements Specifications"
           ],
           "lead": [
-            "구현할 기능의 동작과 제약을 명확하게 기록한 기준",
-            "An explicit description of intended behavior and constraints"
+            "입력 조건과 저장 성공·실패 시의 동작을 정의",
+            "Defining valid input and behavior on successful or failed storage"
           ],
           "requires": [
             "project-context-case",
@@ -1218,8 +1218,8 @@
             "Acceptance Criteria"
           ],
           "lead": [
-            "작업이 끝났다고 판단할 수 있는 관찰 가능한 조건",
-            "Observable conditions for deciding that a task is complete"
+            "예상 동작을 입력·결과·확인 근거로 구체화",
+            "Turning expected behavior into observable inputs, outcomes, and evidence"
           ],
           "requires": [
             "specification",
@@ -1237,8 +1237,8 @@
             "Implementation Plans"
           ],
           "lead": [
-            "완료 기준을 만족시키기 위한 변경 대상과 작업 순서",
-            "The changes and sequence needed to satisfy acceptance criteria"
+            "파일과 기능의 의존 관계를 바탕으로 변경 순서를 결정",
+            "Ordering changes by dependencies between files and features"
           ],
           "requires": [
             "acceptance-criteria",
@@ -1256,8 +1256,8 @@
             "Task Decomposition"
           ],
           "lead": [
-            "계획을 결과를 확인할 수 있는 작은 작업 단위로 나누는 방법",
-            "Dividing a plan into small units with verifiable outcomes"
+            "계획을 산출물과 확인 방법이 명확한 단위로 나누기",
+            "Breaking a plan into tasks with clear deliverables and checks"
           ],
           "requires": [
             "implementation-plan",
@@ -1275,8 +1275,8 @@
             "Automated Tests"
           ],
           "lead": [
-            "입력에 대한 실제 결과를 기대 결과와 반복해서 비교하는 검사",
-            "Repeatable checks that compare actual and expected results for an input"
+            "같은 입력을 반복 실행해 실제 결과와 고정된 기대값을 비교",
+            "Rerunning inputs and comparing actual results with fixed expected values"
           ],
           "requires": [
             "task-decomposition",
@@ -1295,8 +1295,8 @@
             "Browser Verification"
           ],
           "lead": [
-            "실제 화면의 입력과 응답으로 사용자 동작을 확인하는 방법",
-            "Checking user behavior through inputs and responses in a real browser"
+            "사용자 입력을 재현하고 화면·응답·저장 결과를 각각 확인",
+            "Reproducing user actions and checking UI feedback, responses, and saved data"
           ],
           "requires": [
             "automated-tests",
@@ -1317,8 +1317,8 @@
             "The Implementation and Verification Loop"
           ],
           "lead": [
-            "실행 결과를 완료 기준과 비교하며 변경을 반복하는 개발 과정",
-            "Iterating on changes by comparing execution results with acceptance criteria"
+            "작은 변경을 검사한 결과에 따라 수정·다음 작업·종료를 결정",
+            "Using checks on each change to decide whether to revise, proceed, or stop"
           ],
           "requires": [
             "browser-verification",
@@ -1334,12 +1334,12 @@
           "previous_concept_id": "implementation-verification-loop",
           "id": "agent-hooks",
           "title": [
-            "에이전트 Hooks",
+            "에이전트 훅(Hooks)",
             "Agent Hooks"
           ],
           "lead": [
-            "작업 중 특정 사건이 발생했을 때 정해진 동작을 연결하는 장치",
-            "Mechanisms that attach specified actions to lifecycle events"
+            "도구 실행 전이나 편집 후 같은 사건에 검사 등 정해진 동작을 연결",
+            "Attaching checks or other actions to events such as tool calls and edits"
           ],
           "requires": [
             "implementation-verification-loop",
@@ -1358,8 +1358,8 @@
             "Execution Harnesses"
           ],
           "lead": [
-            "도구·작업 상태·검사를 연결해 에이전트 실행을 관리하는 구조",
-            "Infrastructure coordinating tools, task state, and checks around an agent"
+            "모델과 도구·상태·검사 결과를 연결해 실행부터 종료까지 관리",
+            "Connecting the model, tools, state, and checks to manage work through completion"
           ],
           "requires": [
             "agent-hooks",
@@ -1375,12 +1375,12 @@
           "previous_concept_id": "execution-harness",
           "id": "change-review",
           "title": [
-            "변경사항 리뷰",
-            "Reviewing Changes"
+            "변경 사항 리뷰",
+            "Reviewing Code Changes"
           ],
           "lead": [
-            "변경 전후의 차이와 검증 결과로 의도에 맞는 수정을 판단하는 과정",
-            "Judging changes against intent using diffs and verification evidence"
+            "코드 차이와 검증 근거를 요구사항 및 변경 범위와 대조",
+            "Comparing the diff and verification evidence against requirements and scope"
           ],
           "requires": [
             "execution-harness",
@@ -1396,12 +1396,12 @@
           "previous_concept_id": "change-review",
           "id": "post-feature-case",
           "title": [
-            "게시글 등록 기능의 개발",
-            "Developing a Post Creation Feature"
+            "게시글 등록 기능의 순차 개발",
+            "Developing Post Submission in Sequence"
           ],
           "lead": [
-            "명세부터 검증과 리뷰까지 연결하는 개발 사례",
-            "A development example connecting specification, verification, and review"
+            "제목 검사·서버 저장·화면 표시를 차례로 구현하고 전체 등록을 검증",
+            "Building validation, storage, and UI feedback in sequence, then verifying the full submission flow"
           ],
           "requires": [
             "change-review",
@@ -1420,12 +1420,12 @@
       "connection": "검증 가능한 단일 작업 과정을 확보한 뒤, 작업을 나누어 동시에 수행하거나 여러 실행에 걸쳐 이어가는 방법 설명.",
       "scope": "작업 독립성 → 위임·협업 → 변경 공간 분리 → 통합 → 지속 목표·재개·예약 → 개발자의 판단. Git과 장기 작업 자체가 2026년에 처음 생긴 기법이라는 설명 제외.",
       "title": [
-        "개발 작업의 병렬화와 지속 실행",
-        "Parallel and Persistent Development Work"
+        "병렬 개발과 장기 작업 관리",
+        "Parallel Development and Long-Running Work"
       ],
       "lead": [
-        "2026년 · 여러 에이전트의 협업과 장기 작업의 실행 · 통합 · 중단 기준",
-        "2026 · Agent collaboration, long-running work, integration, and stopping criteria"
+        "2026년 · 분리한 변경을 통합하고 여러 실행에 걸쳐 목표와 진행 상태를 관리",
+        "2026 · Integrating separate changes and managing goals and progress across runs"
       ],
       "concepts": [
         {
@@ -1433,12 +1433,12 @@
           "previous_concept_id": "post-feature-case",
           "id": "independent-tasks",
           "title": [
-            "독립적인 작업 범위",
-            "Independent Task Boundaries"
+            "병렬 개발을 위한 작업 분리",
+            "Separating Work for Parallel Development"
           ],
           "lead": [
-            "동시에 진행할 수 있도록 변경 대상과 합의할 경계를 나누는 기준",
-            "Defining change boundaries and agreements for concurrent work"
+            "변경 범위를 나누고 화면과 서버 사이의 요청·응답을 먼저 합의",
+            "Separating changes and agreeing on the UI-server request and response contract"
           ],
           "requires": [
             "post-feature-case",
@@ -1457,8 +1457,8 @@
             "Subagents"
           ],
           "lead": [
-            "주 작업의 일부를 별도 맥락에서 수행하고 결과를 반환하는 에이전트",
-            "Agents that handle delegated subtasks in separate contexts and return results"
+            "목표와 자료를 전달해 하위 작업을 맡기고 별도 맥락에서 나온 결과를 회수",
+            "Delegating a bounded task with its own context and collecting its results"
           ],
           "requires": [
             "independent-tasks",
@@ -1477,8 +1477,8 @@
             "Agent Teams"
           ],
           "lead": [
-            "여러 에이전트가 역할과 진행 상태를 조정하며 협업하는 구조",
-            "Multiple agents collaborating through coordinated roles and progress"
+            "역할과 진행 상태를 공유해 여러 에이전트의 작업을 조정",
+            "Coordinating multiple agents through shared roles and progress"
           ],
           "requires": [
             "subagents",
@@ -1497,8 +1497,8 @@
             "Git Branches"
           ],
           "lead": [
-            "하나의 저장소에서 변경 이력을 서로 다른 흐름으로 이어가는 방법",
-            "Maintaining separate lines of change history in a repository"
+            "화면과 서버의 변경을 별도 커밋 이력으로 관리",
+            "Tracking UI and server changes on separate lines of commits"
           ],
           "requires": [
             "agent-teams",
@@ -1517,8 +1517,8 @@
             "Git Worktrees"
           ],
           "lead": [
-            "같은 저장소의 서로 다른 브랜치를 별도 작업 디렉터리에서 다루는 방법",
-            "Working with different branches of one repository in separate directories"
+            "한 저장소의 서로 다른 브랜치를 별도 디렉터리에서 편집",
+            "Editing different branches of one repository in separate directories"
           ],
           "requires": [
             "git-branches",
@@ -1536,8 +1536,8 @@
             "Integrating Parallel Changes"
           ],
           "lead": [
-            "따로 만든 변경을 합치고 함께 동작하는지 다시 검증하는 과정",
-            "Combining separate changes and verifying that they work together"
+            "화면과 서버 변경을 합친 상태에서 전체 게시글 등록을 다시 검증",
+            "Retesting the full post submission flow after merging UI and server changes"
           ],
           "requires": [
             "git-worktrees",
@@ -1557,8 +1557,8 @@
             "Persistent Goals"
           ],
           "lead": [
-            "여러 작업 단계에 걸쳐 유지할 완료 조건과 실행 한도",
-            "Completion conditions and execution limits maintained across multiple work steps"
+            "여러 단계에 걸쳐 완료 근거와 허용 범위·실행 한도를 유지",
+            "Keeping completion evidence, scope, and execution limits in view across steps"
           ],
           "requires": [
             "parallel-integration",
@@ -1577,8 +1577,8 @@
             "Pausing and Resuming Long-Running Work"
           ],
           "lead": [
-            "저장된 진행 상태를 현재 환경과 대조하며 작업을 이어가는 방법",
-            "Resuming from saved progress after checking the current environment"
+            "진행 기록을 현재 파일·환경과 대조해 남은 작업부터 이어가기",
+            "Checking saved progress against current files and environment before resuming"
           ],
           "requires": [
             "persistent-goals",
@@ -1598,8 +1598,8 @@
             "Scheduled Automation"
           ],
           "lead": [
-            "정해진 조건이나 시간에 작업을 시작하고 결과를 확인하는 방식",
-            "Starting work at specified times or conditions and checking the results"
+            "정해진 시점에 작업을 시작하고 실행 결과를 기록",
+            "Starting work on a schedule and recording the outcome"
           ],
           "requires": [
             "pause-and-resume",
@@ -1615,12 +1615,12 @@
           "previous_concept_id": "scheduled-automation",
           "id": "developer-judgment",
           "title": [
-            "AI 개발에서의 개발자 판단",
+            "AI 활용 개발에서의 개발자 판단",
             "Developer Judgment in AI-Assisted Development"
           ],
           "lead": [
-            "위임할 범위와 결과의 수용 여부를 결정하는 역할",
-            "Deciding what to delegate and whether to accept the result"
+            "요구와 의존성에 맞춰 위임하고 변경과 검증 근거를 보고 수용 여부 판단",
+            "Deciding what to delegate and accepting results based on changes and verification evidence"
           ],
           "requires": [
             "scheduled-automation",
@@ -1734,7 +1734,7 @@
     ],
     [
       "원본 PDF",
-      "[PWD Week10] 인공지능과 웹 서비스 개발.pdf"
+      "[PWD Week10] 인공지능과 웹 서비스 개발.pdf"
     ],
     [
       "Dartmouth의 역사",

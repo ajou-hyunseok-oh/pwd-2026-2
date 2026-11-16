@@ -24,9 +24,18 @@ def render_resource(item, key, tr):
     if kind == 'figure':
         alt_key=key+'_alt'
         tr(alt_key,item['alt'])
+        if 'caption_links' in item:
+            groups=[]
+            for i,links in enumerate(item['caption_links']):
+                anchors=[tr(f'{key}_link_{i}_{j}',label,'a',attrs=f' href="{escape(url,quote=True)}"')
+                         for j,(label,url) in enumerate(links)]
+                groups.append('<div class="w9-figure-links">'+' · '.join(anchors)+'</div>')
+            figcaption='<figcaption>'+''.join(groups)+'</figcaption>'
+        else:
+            figcaption=tr(key+'_caption',item['caption'],'figcaption')
         return ('<figure class="wd-lesson-figure"><img src="'+escape(item['src'],quote=True)+'" alt="'+
                 escape(item['alt'][0],quote=True)+'" data-wd-i18n-alt="'+alt_key+'">'+
-                tr(key+'_caption',item['caption'],'figcaption')+'</figure>')
+                figcaption+'</figure>')
     if kind == 'code':
         language=item['language']; width=item.get('width',64)
         return (tr(key+'_label',item['label'],cls='wd-lesson-code-label')+
@@ -56,7 +65,8 @@ def render_resource(item, key, tr):
         parts += [tr(f'{key}_{i}',part,'li') for i,part in enumerate(item['items'])]
         return '\n'.join(parts+['</ol>',caption(),'</figure>'])
     if kind == 'resource-editor':
-        parts = ['<figure class="w9-editor"><div class="w9-editor-code">']
+        editor_class = 'w9-editor-code w9-editor-code--cursor' if item.get('cursor') else 'w9-editor-code'
+        parts = [f'<figure class="w9-editor"><div class="{editor_class}">']
         for part in ['prefix','suggestion','suffix']:
             parts.append(tr(key+'_'+part,item[part],'div','w9-editor-'+part))
         return '\n'.join(parts+['</div>',caption(),'</figure>'])
@@ -89,8 +99,18 @@ def render_resource(item, key, tr):
     if kind == 'resource-flow':
         parts = [f'<figure class="w9-flow" data-steps="{len(item["items"])}"><ol>']
         for i, step in enumerate(item['items']):
-            parts += ['<li>', tr(f'{key}_{i}_title', step['title'], 'strong'),
-                      tr(f'{key}_{i}_body', step['body']), '</li>']
+            if 'code' in step:
+                code = step['code']
+                if added := step.get('added'):
+                    before, match, after = code.partition(added)
+                    assert match, added
+                    code = f'{escape(before)}<mark>{escape(match)}</mark>{escape(after)}'
+                else:
+                    code = escape(code)
+                body = f'<p><code>{code}</code></p>'
+            else:
+                body = tr(f'{key}_{i}_body', step['body'])
+            parts += ['<li>', tr(f'{key}_{i}_title', step['title'], 'strong'), body, '</li>']
         parts.append('</ol>')
         if item.get('repeat'):
             parts.append(tr(key+'_repeat', item['repeat'], 'p', 'w9-return'))
@@ -101,6 +121,8 @@ def render_resource(item, key, tr):
         for i, level in enumerate(item['levels']):
             parts += ['<div class="w9-set">', tr(f'{key}_{i}_title', level['title'], 'strong'),
                       tr(f'{key}_{i}_body', level['body'])]
+        if illustration := item.get('illustration'):
+            parts.append(render_resource(illustration, key+'_illustration', tr))
         parts += ['</div>'] * len(item['levels'])
         return '\n'.join(parts + [caption(), '</figure>'])
     if kind != 'resource-diagram':
@@ -120,7 +142,8 @@ def render_resource(item, key, tr):
         arrows = f' marker-end="url(#{key}_arrow)"' if edge.get('arrow',True) else ''
         if edge.get('both'):
             arrows += f' marker-start="url(#{key}_arrow)"'
-        parts.append(f'<path d="{path}" class="w9-edge"{arrows}/>')
+        edge_class = 'w9-edge w9-edge--emphasized' if edge.get('emphasized') else 'w9-edge'
+        parts.append(f'<path d="{path}" class="{edge_class}"{arrows}/>')
     for i, box in enumerate(item.get('boxes', [])):
         x,y,w,h = box['rect']
         parts.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" class="w9-box"/>')

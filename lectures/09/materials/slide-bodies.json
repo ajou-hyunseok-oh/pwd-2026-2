@@ -128,8 +128,8 @@
       "outline_number": "1.3",
       "id": "dartmouth",
       "title": [
-        "다트머스 연구 모임",
-        "The Dartmouth Research Project"
+        "다트머스 인공지능 연구 모임",
+        "The Dartmouth AI Research Project"
       ],
       "requires": [
         "turing-test",
@@ -452,7 +452,7 @@
       "outline_number": "2.3",
       "id": "training",
       "title": [
-        "모델의 학습",
+        "모델 학습",
         "Model Training"
       ],
       "requires": [
@@ -506,7 +506,7 @@
       "outline_number": "2.4",
       "id": "inference",
       "title": [
-        "모델의 추론",
+        "모델 추론",
         "Model Inference"
       ],
       "requires": [
@@ -942,8 +942,8 @@
       "outline_number": "2.12",
       "id": "alphago",
       "title": [
-        "AlphaGo의 바둑 판단",
-        "Go Decisions with AlphaGo"
+        "AlphaGo의 바둑 수 선택",
+        "Move Selection in AlphaGo"
       ],
       "requires": [
         "alexnet",
@@ -1108,8 +1108,8 @@
       "outline_number": "3.3",
       "id": "embeddings",
       "title": [
-        "임베딩",
-        "Embeddings"
+        "토큰 임베딩",
+        "Token Embeddings"
       ],
       "requires": [
         "tokens",
@@ -1436,8 +1436,8 @@
       "outline_number": "3.9",
       "id": "text-generation",
       "title": [
-        "언어 모델의 문장 생성",
-        "Text Generation by Language Models"
+        "다음 토큰을 이용한 텍스트 생성",
+        "Next-Token Text Generation"
       ],
       "requires": [
         "large-language-model",
@@ -1602,8 +1602,8 @@
       "outline_number": "3.12",
       "id": "rag",
       "title": [
-        "검색 증강 생성",
-        "Retrieval-Augmented Generation"
+        "검색 증강 생성(RAG)",
+        "Retrieval-Augmented Generation (RAG)"
       ],
       "requires": [
         "hallucinations",
@@ -1825,7 +1825,7 @@
       "outline_number": "4.4",
       "id": "human-feedback",
       "title": [
-        "사람의 피드백을 통한 학습",
+        "사람의 피드백을 활용한 학습",
         "Learning from Human Feedback"
       ],
       "requires": [
@@ -2100,8 +2100,8 @@
       "outline_number": "4.9",
       "id": "code-revision",
       "title": [
-        "생성 코드의 수정",
-        "Revising Generated Code"
+        "실행 결과에 근거한 코드 수정",
+        "Revising Code from Execution Feedback"
       ],
       "requires": [
         "title-validation-case",
@@ -2266,8 +2266,8 @@
       "outline_number": "5.3",
       "id": "agent-loop",
       "title": [
-        "AI 에이전트의 작업 반복",
-        "The AI Agent Loop"
+        "에이전트의 실행 루프",
+        "The Agent Loop"
       ],
       "requires": [
         "tool-calling",
@@ -2321,8 +2321,8 @@
       "outline_number": "5.4",
       "id": "development-tools",
       "title": [
-        "개발 환경의 도구",
-        "Tools in the Development Environment"
+        "에이전트의 개발 도구",
+        "Development Tools for Agents"
       ],
       "requires": [
         "agent-loop",
@@ -2376,8 +2376,8 @@
       "outline_number": "5.5",
       "id": "agent-repair-case",
       "title": [
-        "제목 검사 함수의 자동 수정",
-        "Agent-Assisted Repair of Title Validation"
+        "에이전트의 제목 검사 함수 수정",
+        "Agent Repair of the Title Validation Function"
       ],
       "requires": [
         "development-tools",
@@ -2543,8 +2543,8 @@
       "outline_number": "5.8",
       "id": "computer-use",
       "title": [
-        "컴퓨터 사용",
-        "Computer Use"
+        "에이전트의 화면 조작",
+        "Agent Computer Use"
       ],
       "requires": [
         "multimodal-models",
@@ -2598,8 +2598,8 @@
       "outline_number": "5.9",
       "id": "mcp",
       "title": [
-        "Model Context Protocol",
-        "Model Context Protocol"
+        "Model Context Protocol(MCP)",
+        "Model Context Protocol (MCP)"
       ],
       "requires": [
         "computer-use",
@@ -2986,8 +2986,8 @@
       "outline_number": "6.7",
       "id": "project-context-case",
       "title": [
-        "게시글 프로젝트의 작업 맥락",
-        "Context for the Post Project"
+        "제목 검사 수정의 프로젝트 맥락",
+        "Project Context for Changing Title Validation"
       ],
       "requires": [
         "context-compaction",
@@ -3424,7 +3424,7 @@
       "outline_number": "7.8",
       "id": "agent-hooks",
       "title": [
-        "에이전트 Hooks",
+        "에이전트 훅(Hooks)",
         "Agent Hooks"
       ],
       "requires": [
@@ -3528,8 +3528,8 @@
       "outline_number": "7.10",
       "id": "change-review",
       "title": [
-        "변경사항 리뷰",
-        "Reviewing Changes"
+        "변경 사항 리뷰",
+        "Reviewing Code Changes"
       ],
       "requires": [
         "execution-harness",
@@ -3584,8 +3584,8 @@
       "outline_number": "7.11",
       "id": "post-feature-case",
       "title": [
-        "게시글 등록 기능의 개발",
-        "Developing a Post Creation Feature"
+        "게시글 등록 기능의 순차 개발",
+        "Developing Post Submission in Sequence"
       ],
       "requires": [
         "change-review",
@@ -3641,8 +3641,8 @@
       "outline_number": "8.1",
       "id": "independent-tasks",
       "title": [
-        "독립적인 작업 범위",
-        "Independent Task Boundaries"
+        "병렬 개발을 위한 작업 분리",
+        "Separating Work for Parallel Development"
       ],
       "requires": [
         "post-feature-case",
@@ -4130,7 +4130,7 @@
       "outline_number": "8.10",
       "id": "developer-judgment",
       "title": [
-        "AI 개발에서의 개발자 판단",
+        "AI 활용 개발에서의 개발자 판단",
         "Developer Judgment in AI-Assisted Development"
       ],
       "requires": [

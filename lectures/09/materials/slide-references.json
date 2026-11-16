@@ -23,7 +23,7 @@
       "slide_number": 2,
       "id": "chapter-01",
       "kind": "chapter",
-      "title": "인공지능의 출발",
+      "title": "인공지능 연구의 출발",
       "slide_link": "../index.html#/2",
       "outline_number": null,
       "origin": "외부 자료 없음",
@@ -68,7 +68,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 4쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=4",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=4",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "역할 표를 편집형 한영 표로 변환. 판정 범위를 문자 대화에서 관찰한 행동으로 한정. 그림 I04-test는 같은 관계의 대안으로 보관."
@@ -84,7 +84,7 @@
       "slide_number": 5,
       "id": "dartmouth",
       "kind": "content",
-      "title": "다트머스 연구 모임",
+      "title": "다트머스 인공지능 연구 모임",
       "slide_link": "../index.html#/5",
       "outline_number": "1.3",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -173,7 +173,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 5쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=5",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=5",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "오른쪽 입력·가중치·합산·판단 구조를 편집형 도식으로 재구성. 두 입력으로 단순화하고 임곗값 비교를 명시. 생물학 용어·일반 활성 함수 표기·XOR 보조 그림 제외."
@@ -197,7 +197,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 6쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=6",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=6",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "사용자·인터페이스·추론 엔진·지식 베이스·결과의 구성과 모든 연결을 유지한 편집형 도식. 한국어 비트맵의 영문 전용 문제를 해소."
@@ -213,7 +213,7 @@
       "slide_number": 9,
       "id": "chapter-02",
       "kind": "chapter",
-      "title": "데이터로 학습하는 인공지능",
+      "title": "데이터 학습과 신경망",
       "slide_link": "../index.html#/9",
       "outline_number": null,
       "origin": "외부 자료 없음",
@@ -233,7 +233,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 3쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=3",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=3",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "실측값처럼 보이는 곡선을 시기별 개략 시간선으로 정리. 1990년 머신러닝 최초 등장 표기와 미학습 딥러닝·생성형 AI 구간 제거."
@@ -282,7 +282,7 @@
       "slide_number": 12,
       "id": "training",
       "kind": "content",
-      "title": "모델의 학습",
+      "title": "모델 학습",
       "slide_link": "../index.html#/12",
       "outline_number": "2.3",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -307,7 +307,7 @@
       "slide_number": 13,
       "id": "inference",
       "kind": "content",
-      "title": "모델의 추론",
+      "title": "모델 추론",
       "slide_link": "../index.html#/13",
       "outline_number": "2.4",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -415,7 +415,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 8쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=8",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=8",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "단일 퍼셉트론과 2입력·2은닉·1출력 연결 구조를 보존한 편집형 도식. 한영 라벨을 분리하고 역전파·손실 용어는 추가하지 않음."
@@ -464,7 +464,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 7쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=7",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=7",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "AI⊃ML⊃DL 포함 관계를 편집형 중첩 도식으로 유지. 뇌 유사성 대신 데이터 학습·여러 층 표현 학습으로 정의 교정. I09의 미학습 손실·함수·RNN 오기 자료는 대안에서 제외."
@@ -528,7 +528,7 @@
       "slide_number": 21,
       "id": "alphago",
       "kind": "content",
-      "title": "AlphaGo의 바둑 판단",
+      "title": "AlphaGo의 바둑 수 선택",
       "slide_link": "../index.html#/21",
       "outline_number": "2.12",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -553,7 +553,7 @@
       "slide_number": 22,
       "id": "chapter-03",
       "kind": "chapter",
-      "title": "대규모 언어 모델의 등장",
+      "title": "대규모 언어 모델의 학습과 생성",
       "slide_link": "../index.html#/22",
       "outline_number": null,
       "origin": "외부 자료 없음",
@@ -629,7 +629,7 @@
       "slide_number": 25,
       "id": "embeddings",
       "kind": "content",
-      "title": "임베딩",
+      "title": "토큰 임베딩",
       "slide_link": "../index.html#/25",
       "outline_number": "3.3",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -687,7 +687,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 10쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=10",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=10",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "토큰·임베딩·어텐션·표현 변환 구도를 유지. 순서 정보와 층 반복을 보완하고 FFN을 역할로 풀어 표기. 원본 수식과 토큰 생성 반복은 넣지 않음."
@@ -802,7 +802,7 @@
       "slide_number": 31,
       "id": "text-generation",
       "kind": "content",
-      "title": "언어 모델의 문장 생성",
+      "title": "다음 토큰을 이용한 텍스트 생성",
       "slide_link": "../index.html#/31",
       "outline_number": "3.9",
       "origin": "기존 PDF 자료 재사용·수정",
@@ -810,14 +810,14 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 11쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=11",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=11",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외."
         },
         {
           "label": "PWD Week10 원본 PDF · 12쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=12",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=12",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외."
@@ -891,7 +891,7 @@
       "slide_number": 34,
       "id": "rag",
       "kind": "content",
-      "title": "검색 증강 생성",
+      "title": "검색 증강 생성(RAG)",
       "slide_link": "../index.html#/34",
       "outline_number": "3.12",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1003,7 +1003,7 @@
       "slide_number": 39,
       "id": "human-feedback",
       "kind": "content",
-      "title": "사람의 피드백을 통한 학습",
+      "title": "사람의 피드백을 활용한 학습",
       "slide_link": "../index.html#/39",
       "outline_number": "4.4",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1061,7 +1061,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 17쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=17",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=17",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "요소·설명·예시 3열을 재사용. 서비스 기획 예시를 문자열 제목 검사로 통일. 역할 지정은 선택임을 표시하고 반환 형식·공백·길이 조건 명시."
@@ -1085,7 +1085,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 19쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=19",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=19",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "원본 비교표의 예시 유무 구도 재사용. 두 조건의 과제와 요청을 동일하게 유지하고 제목 입출력 예시만 추가. 높은 정확도 보장 표현 제거."
@@ -1140,7 +1140,7 @@
       "slide_number": 44,
       "id": "code-revision",
       "kind": "content",
-      "title": "생성 코드의 수정",
+      "title": "실행 결과에 근거한 코드 수정",
       "slide_link": "../index.html#/44",
       "outline_number": "4.9",
       "origin": "기존 PDF 자료 재사용·수정",
@@ -1148,7 +1148,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 22쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=22",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "원본 단계표의 순서에 맞춰 결과 확인부터 시작. 요약 길이 사례를 공백 제목의 실제값·기대값 및 수정 후 재실행으로 교체. 사람이 실행·결과 전달하는 범위 유지."
@@ -1165,7 +1165,7 @@
       "slide_number": 45,
       "id": "chapter-05",
       "kind": "chapter",
-      "title": "도구를 사용하는 AI 에이전트",
+      "title": "AI 에이전트의 도구 사용",
       "slide_link": "../index.html#/45",
       "outline_number": null,
       "origin": "외부 자료 없음",
@@ -1234,7 +1234,7 @@
       "slide_number": 48,
       "id": "agent-loop",
       "kind": "content",
-      "title": "AI 에이전트의 작업 반복",
+      "title": "에이전트의 실행 루프",
       "slide_link": "../index.html#/48",
       "outline_number": "5.3",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1259,7 +1259,7 @@
       "slide_number": 49,
       "id": "development-tools",
       "kind": "content",
-      "title": "개발 환경의 도구",
+      "title": "에이전트의 개발 도구",
       "slide_link": "../index.html#/49",
       "outline_number": "5.4",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1292,7 +1292,7 @@
       "slide_number": 50,
       "id": "agent-repair-case",
       "kind": "content",
-      "title": "제목 검사 함수의 자동 수정",
+      "title": "에이전트의 제목 검사 함수 수정",
       "slide_link": "../index.html#/50",
       "outline_number": "5.5",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1397,7 +1397,7 @@
       "slide_number": 53,
       "id": "computer-use",
       "kind": "content",
-      "title": "컴퓨터 사용",
+      "title": "에이전트의 화면 조작",
       "slide_link": "../index.html#/53",
       "outline_number": "5.8",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1422,7 +1422,7 @@
       "slide_number": 54,
       "id": "mcp",
       "kind": "content",
-      "title": "Model Context Protocol",
+      "title": "Model Context Protocol(MCP)",
       "slide_link": "../index.html#/54",
       "outline_number": "5.9",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1447,7 +1447,7 @@
       "slide_number": 55,
       "id": "chapter-06",
       "kind": "chapter",
-      "title": "프로젝트 맥락과 작업 절차의 관리",
+      "title": "에이전트의 프로젝트 맥락 관리",
       "slide_link": "../index.html#/55",
       "outline_number": null,
       "origin": "외부 자료 없음",
@@ -1517,7 +1517,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 21쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=21",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=21",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "시스템 프롬프트 표의 반복 규칙 구성만 참고. 실제 프로젝트 지침 예시로 새로 구체화하고 시스템 메시지 우선순위와 실행 권한을 동일시하지 않음."
@@ -1623,7 +1623,7 @@
       "slide_number": 62,
       "id": "project-context-case",
       "kind": "content",
-      "title": "게시글 프로젝트의 작업 맥락",
+      "title": "제목 검사 수정의 프로젝트 맥락",
       "slide_link": "../index.html#/62",
       "outline_number": "6.7",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1672,7 +1672,7 @@
       "slide_number": 63,
       "id": "chapter-07",
       "kind": "chapter",
-      "title": "구현과 검증의 자동화",
+      "title": "명세에 따른 구현과 검증",
       "slide_link": "../index.html#/63",
       "outline_number": null,
       "origin": "외부 자료 없음",
@@ -1750,7 +1750,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 24쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=24",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "PRD에서 작업 순서를 만드는 발상 참고. TaskMaster 제품·CLI 대신 현재 게시글 사례의 선후 의존 관계로 구체화. MCP 오기와 제품 설정은 옮기지 않음."
@@ -1774,7 +1774,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 24쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=24",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "작업 목록을 생성·관리한다는 발상을 현재 사례의 입력·완료 결과·확인 방법 표로 구체화. 작업 분해 전에 병렬화나 자동 테스트를 전제하지 않음."
@@ -1901,7 +1901,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 22쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=22",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "4.9의 반복 구도를 에이전트 구현·테스트·브라우저 검증으로 확장. 남은 작업 진행·실패 수정 후 재검증·전체 완료의 분기를 구분. 아직 미학습인 Hooks·하네스는 넣지 않음."
@@ -1918,7 +1918,7 @@
       "slide_number": 71,
       "id": "agent-hooks",
       "kind": "content",
-      "title": "에이전트 Hooks",
+      "title": "에이전트 훅(Hooks)",
       "slide_link": "../index.html#/71",
       "outline_number": "7.8",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -1976,7 +1976,7 @@
       "slide_number": 73,
       "id": "change-review",
       "kind": "content",
-      "title": "변경사항 리뷰",
+      "title": "변경 사항 리뷰",
       "slide_link": "../index.html#/73",
       "outline_number": "7.10",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -2023,7 +2023,7 @@
       "slide_number": 74,
       "id": "post-feature-case",
       "kind": "content",
-      "title": "게시글 등록 기능의 개발",
+      "title": "게시글 등록 기능의 순차 개발",
       "slide_link": "../index.html#/74",
       "outline_number": "7.11",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -2048,7 +2048,7 @@
       "slide_number": 75,
       "id": "chapter-08",
       "kind": "chapter",
-      "title": "개발 작업의 병렬화와 지속 실행",
+      "title": "병렬 개발과 장기 작업 관리",
       "slide_link": "../index.html#/75",
       "outline_number": null,
       "origin": "외부 자료 없음",
@@ -2060,7 +2060,7 @@
       "slide_number": 76,
       "id": "independent-tasks",
       "kind": "content",
-      "title": "독립적인 작업 범위",
+      "title": "병렬 개발을 위한 작업 분리",
       "slide_link": "../index.html#/76",
       "outline_number": "8.1",
       "origin": "공식 자료를 참고한 강의용 재구성",
@@ -2349,7 +2349,7 @@
       "slide_number": 85,
       "id": "developer-judgment",
       "kind": "content",
-      "title": "AI 개발에서의 개발자 판단",
+      "title": "AI 활용 개발에서의 개발자 판단",
       "slide_link": "../index.html#/85",
       "outline_number": "8.10",
       "origin": "기존 PDF 자료 재사용·수정",
@@ -2357,7 +2357,7 @@
       "references": [
         {
           "label": "PWD Week10 원본 PDF · 14쪽",
-          "url": "%5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=14",
+          "url": "%5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=14",
           "type": "local-pdf",
           "section": "원본 요소 재사용·수정",
           "use": "과거/현재/미래라는 단정적 전망을 자동화 범위와 개발자의 판단 비교로 재구성. 프롬프트 디자이너로의 대체 주장을 제거하고 현재 원고의 범위·검증·통합 판단 반영."

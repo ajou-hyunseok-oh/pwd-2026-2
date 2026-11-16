@@ -9,7 +9,7 @@
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
-2페이지 · 인공지능의 출발
+2페이지 · 인공지능 연구의 출발
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
@@ -22,10 +22,10 @@
 4페이지 · 1.2 · 튜링 테스트
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 역할 표를 편집형 한영 표로 변환. 판정 범위를 문자 대화에서 관찰한 행동으로 한정. 그림 I04-test는 같은 관계의 대안으로 보관.
-- PWD Week10 원본 PDF · 4쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=4
+- PWD Week10 원본 PDF · 4쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=4
   확인 위치: 원본 요소 재사용·수정
 
-5페이지 · 1.3 · 다트머스 연구 모임
+5페이지 · 1.3 · 다트머스 인공지능 연구 모임
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: PDF 1쪽 제목·작성자·날짜 부분만 발췌. 1955년 제안과 1956년 모임을 네이티브 흐름으로 구분. 페이지 전체는 사용하지 않음. 제안서 발행과 모임 연도를 합치지 않음. 2006 재회 사진·현재 캠퍼스 사진을 1956 당시 기록으로 쓰지 않음.
 - McCarthy 외 · Dartmouth proposal (1955): https://www-formal.stanford.edu/jmc/history/dartmouth.pdf
@@ -44,23 +44,23 @@
 7페이지 · 1.5 · 퍼셉트론
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 오른쪽 입력·가중치·합산·판단 구조를 편집형 도식으로 재구성. 두 입력으로 단순화하고 임곗값 비교를 명시. 생물학 용어·일반 활성 함수 표기·XOR 보조 그림 제외.
-- PWD Week10 원본 PDF · 5쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=5
+- PWD Week10 원본 PDF · 5쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=5
   확인 위치: 원본 요소 재사용·수정
 
 8페이지 · 1.6 · 전문가 시스템
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 사용자·인터페이스·추론 엔진·지식 베이스·결과의 구성과 모든 연결을 유지한 편집형 도식. 한국어 비트맵의 영문 전용 문제를 해소.
-- PWD Week10 원본 PDF · 6쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=6
+- PWD Week10 원본 PDF · 6쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=6
   확인 위치: 원본 요소 재사용·수정
 
-9페이지 · 데이터로 학습하는 인공지능
+9페이지 · 데이터 학습과 신경망
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
 10페이지 · 2.1 · AI 겨울
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 실측값처럼 보이는 곡선을 시기별 개략 시간선으로 정리. 1990년 머신러닝 최초 등장 표기와 미학습 딥러닝·생성형 AI 구간 제거.
-- PWD Week10 원본 PDF · 3쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=3
+- PWD Week10 원본 PDF · 3쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=3
   확인 위치: 원본 요소 재사용·수정
 
 11페이지 · 2.2 · 머신러닝
@@ -71,13 +71,13 @@
 - Google · Supervised Learning: https://developers.google.com/machine-learning/intro-to-ml/supervised
   확인 위치: Model / Training / Inference; Figures 1~3
 
-12페이지 · 2.3 · 모델의 학습
+12페이지 · 2.3 · 모델 학습
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 단계도 — 학습 데이터의 반복 처리 · 처음 보는 데이터에서의 성능은 별도 확인. 정확도가 매번 단조 증가한다는 가짜 그래프·역전파 수식·구체 학습률 제외.
 - Google · Supervised Learning: https://developers.google.com/machine-learning/intro-to-ml/supervised
   확인 위치: Model / Training / Inference; Figures 1~3
 
-13페이지 · 2.4 · 모델의 추론
+13페이지 · 2.4 · 모델 추론
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 단계도 — 한 번의 추론 요청은 학습한 값의 갱신과 구분. 추론(inference)을 5.6의 추론 모델(reasoning model)과 같은 뜻으로 설명하지 않음.
 - Google · Supervised Learning: https://developers.google.com/machine-learning/intro-to-ml/supervised
@@ -104,7 +104,7 @@
 17페이지 · 2.8 · 인공 신경망
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 단일 퍼셉트론과 2입력·2은닉·1출력 연결 구조를 보존한 편집형 도식. 한영 라벨을 분리하고 역전파·손실 용어는 추가하지 않음.
-- PWD Week10 원본 PDF · 8쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=8
+- PWD Week10 원본 PDF · 8쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=8
   확인 위치: 원본 요소 재사용·수정
 
 18페이지 · 2.9 · 역전파
@@ -116,7 +116,7 @@
 19페이지 · 2.10 · 딥러닝
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: AI⊃ML⊃DL 포함 관계를 편집형 중첩 도식으로 유지. 뇌 유사성 대신 데이터 학습·여러 층 표현 학습으로 정의 교정. I09의 미학습 손실·함수·RNN 오기 자료는 대안에서 제외.
-- PWD Week10 원본 PDF · 7쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=7
+- PWD Week10 원본 PDF · 7쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=7
   확인 위치: 원본 요소 재사용·수정
 
 20페이지 · 2.11 · AlexNet의 이미지 분류
@@ -127,13 +127,13 @@
 - 슬라이드에 배치한 개별 발췌 이미지: ../assets/new/alexnet-leopard-predictions.png
   확인 위치: PDF 8쪽의 지정 영역 발췌
 
-21페이지 · 2.12 · AlphaGo의 바둑 판단
+21페이지 · 2.12 · AlphaGo의 바둑 수 선택
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 역할·사례 비교 — 바둑판 상태를 신경망과 탐색으로 처리. 2016 AlphaGo를 사람 기보 없이 학습한 AlphaGo Zero로 묘사하지 않음. 정답 수·승률을 임의 생성한 바둑판은 쓰지 않음.
 - Google DeepMind · AlphaGo: https://deepmind.google/research/alphago/
   확인 위치: Our approach / The matches
 
-22페이지 · 대규모 언어 모델의 등장
+22페이지 · 대규모 언어 모델의 학습과 생성
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
@@ -153,7 +153,7 @@
 - 공통 예제 · token-results.json: new-resource-research/examples/token-results.json
   확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
 
-25페이지 · 3.3 · 임베딩
+25페이지 · 3.3 · 토큰 임베딩
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 단계도 — 벡터는 차원을 줄인 임의 예시 · 토큰 ID의 크기가 의미의 크기는 아님. 임의 벡터를 실제 모델에서 추출했다고 쓰지 않음. 축에 성별·감정 같은 고정 의미를 부여하지 않음.
 - Vaswani 외 · Attention Is All You Need (2017): https://arxiv.org/html/1706.03762v7
@@ -168,7 +168,7 @@
 27페이지 · 3.5 · Transformer
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 토큰·임베딩·어텐션·표현 변환 구도를 유지. 순서 정보와 층 반복을 보완하고 FFN을 역할로 풀어 표기. 원본 수식과 토큰 생성 반복은 넣지 않음.
-- PWD Week10 원본 PDF · 10쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=10
+- PWD Week10 원본 PDF · 10쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=10
   확인 위치: 원본 요소 재사용·수정
 
 28페이지 · 3.6 · 자기지도학습
@@ -195,12 +195,12 @@
 - Brown 외 · Language Models are Few-Shot Learners (2020): https://arxiv.org/abs/2005.14165
   확인 위치: Abstract
 
-31페이지 · 3.9 · 언어 모델의 문장 생성
+31페이지 · 3.9 · 다음 토큰을 이용한 텍스트 생성
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 중복 원본은 한 번만 사용. 다음 단어를 다음 토큰으로 교정하고 선택한 토큰을 입력에 추가하는 되돌림 명시. 확률 수식·최댓값 고정 선택 설명 제외.
-- PWD Week10 원본 PDF · 11쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=11
+- PWD Week10 원본 PDF · 11쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=11
   확인 위치: 원본 요소 재사용·수정
-- PWD Week10 원본 PDF · 12쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=12
+- PWD Week10 원본 PDF · 12쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=12
   확인 위치: 원본 요소 재사용·수정
 
 32페이지 · 3.10 · 컨텍스트 윈도
@@ -217,7 +217,7 @@
 - Lewis 외 · Retrieval-Augmented Generation (2020): https://arxiv.org/html/2005.11401v4
   확인 위치: Figure 1 / 2 Methods
 
-34페이지 · 3.12 · 검색 증강 생성
+34페이지 · 3.12 · 검색 증강 생성(RAG)
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 단계도 — 창작 문서의 설명용 흐름 · 잘못 검색한 문서나 해석 오류는 여전히 확인 필요. 원 논문 Figure 1은 참고만 하고 학습 구조·MIPS 수식은 생략. MCP·도구 호출 API·에이전트의 자율 검색은 아직 넣지 않음.
 - Lewis 외 · Retrieval-Augmented Generation (2020): https://arxiv.org/html/2005.11401v4
@@ -245,7 +245,7 @@
 - Ouyang 외 · Training language models to follow instructions (2022): https://arxiv.org/abs/2203.02155
   확인 위치: 논문 PDF 3쪽 Figure 2; 렌더 육안 확인
 
-39페이지 · 4.4 · 사람의 피드백을 통한 학습
+39페이지 · 4.4 · 사람의 피드백을 활용한 학습
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 단계도 — 시범 답안의 모방과 선호 비교는 서로 다른 학습 자료. 현재 사용자의 좋아요 클릭이 즉시 해당 모델 가중치를 갱신한다고 쓰지 않음. 모든 최신 모델이 동일 RLHF 구현이라는 주장 제외.
 - Ouyang 외 · Training language models to follow instructions (2022): https://arxiv.org/abs/2203.02155
@@ -260,13 +260,13 @@
 41페이지 · 4.6 · 개발 프롬프트
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 요소·설명·예시 3열을 재사용. 서비스 기획 예시를 문자열 제목 검사로 통일. 역할 지정은 선택임을 표시하고 반환 형식·공백·길이 조건 명시.
-- PWD Week10 원본 PDF · 17쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=17
+- PWD Week10 원본 PDF · 17쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=17
   확인 위치: 원본 요소 재사용·수정
 
 42페이지 · 4.7 · 퓨샷 프롬프팅
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 원본 비교표의 예시 유무 구도 재사용. 두 조건의 과제와 요청을 동일하게 유지하고 제목 입출력 예시만 추가. 높은 정확도 보장 표현 제거.
-- PWD Week10 원본 PDF · 19쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=19
+- PWD Week10 원본 PDF · 19쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=19
   확인 위치: 원본 요소 재사용·수정
 
 43페이지 · 4.8 · 게시글 제목 검사 함수
@@ -279,13 +279,13 @@
 - 공통 예제 · title-results.json: new-resource-research/examples/title-results.json
   확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
 
-44페이지 · 4.9 · 생성 코드의 수정
+44페이지 · 4.9 · 실행 결과에 근거한 코드 수정
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 원본 단계표의 순서에 맞춰 결과 확인부터 시작. 요약 길이 사례를 공백 제목의 실제값·기대값 및 수정 후 재실행으로 교체. 사람이 실행·결과 전달하는 범위 유지.
-- PWD Week10 원본 PDF · 22쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22
+- PWD Week10 원본 PDF · 22쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=22
   확인 위치: 원본 요소 재사용·수정
 
-45페이지 · 도구를 사용하는 AI 에이전트
+45페이지 · AI 에이전트의 도구 사용
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
@@ -303,13 +303,13 @@
 - OpenAI · Sandbox: https://learn.chatgpt.com/docs/sandboxing
   확인 위치: What the sandbox does / Sandboxing and approvals
 
-48페이지 · 5.3 · AI 에이전트의 작업 반복
+48페이지 · 5.3 · 에이전트의 실행 루프
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 관계도 — 결과에 따른 작업 반복 · 모델 가중치의 학습과는 별도. 반복을 모델 가중치 학습으로 표시하지 않음. 테스트·Hooks·장기 목표 기능의 내부 구조를 미리 넣지 않음.
 - Anthropic · Building effective agents (2024-12-19): https://www.anthropic.com/research/building-effective-agents
   확인 위치: What are agents? / Agents
 
-49페이지 · 5.4 · 개발 환경의 도구
+49페이지 · 5.4 · 에이전트의 개발 도구
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 표 — 개발 작업 / 도구 범주 / 얻는 결과. 제품마다 다른 도구 이름·UI를 공통 API로 쓰지 않음. 최신 전체 대시보드 이미지는 학습 목적 대비 정보가 많아 제외.
 - OpenAI · Codex CLI: https://developers.openai.com/codex/cli
@@ -317,7 +317,7 @@
 - Anthropic · Claude Code overview: https://code.claude.com/docs/en/overview
   확인 위치: Overview / Choose your environment
 
-50페이지 · 5.5 · 제목 검사 함수의 자동 수정
+50페이지 · 5.5 · 에이전트의 제목 검사 함수 수정
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 코드 발췌 — 수정 전 · 공백 처리 누락; 코드 발췌 — 수정 후; 표 — 입력 / 수정 전 / 수정 후. 실제 Claude/Codex 세션을 실행한 로그로 꾸미지 않음. node:assert 문법은 7.5까지 보류하고 단일 호출의 결과만 표시.
 - ECMA-262 · String.prototype.trim / String length: https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim
@@ -343,19 +343,19 @@
 - OpenAI · Computer use: https://developers.openai.com/api/docs/guides/tools-computer-use
   확인 위치: Get started with computer use / runtime loop
 
-53페이지 · 5.8 · 컴퓨터 사용
+53페이지 · 5.8 · 에이전트의 화면 조작
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 게시글 화면의 편집 가능한 모식도와 관찰·행동·확인 절차. 실제 제품 화면이나 실행 기록이 아님. 고정 좌표만 있으면 항상 성공하는 것처럼 표현하지 않음. 브라우저 자동 검증은 7.6에서 완료 기준과 연결해 설명.
 - OpenAI · Computer use: https://developers.openai.com/api/docs/guides/tools-computer-use
   확인 위치: Get started with computer use / runtime loop
 
-54페이지 · 5.9 · Model Context Protocol
+54페이지 · 5.9 · Model Context Protocol(MCP)
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 관계도 — Model Context Protocol · 도구·문맥의 통신 규약이며 실행 권한 자체는 별도. Model Context Protocol 정확한 명칭 사용. 프로토콜 자체가 권한·자율성·정확성을 보장한다고 쓰지 않음.
 - MCP · Architecture overview: https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture
   확인 위치: Participants / Layers / Data layer
 
-55페이지 · 프로젝트 맥락과 작업 절차의 관리
+55페이지 · 에이전트의 프로젝트 맥락 관리
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
@@ -374,7 +374,7 @@
 58페이지 · 6.3 · 프로젝트 지침 파일
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 시스템 프롬프트 표의 반복 규칙 구성만 참고. 실제 프로젝트 지침 예시로 새로 구체화하고 시스템 메시지 우선순위와 실행 권한을 동일시하지 않음.
-- PWD Week10 원본 PDF · 21쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=21
+- PWD Week10 원본 PDF · 21쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=21
   확인 위치: 원본 요소 재사용·수정
 
 59페이지 · 6.4 · 에이전트 스킬
@@ -399,7 +399,7 @@
 - Anthropic · Effective context engineering for AI agents (2025-09-29): https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
   확인 위치: Context retrieval / Compaction / Structured note-taking
 
-62페이지 · 6.7 · 게시글 프로젝트의 작업 맥락
+62페이지 · 6.7 · 제목 검사 수정의 프로젝트 맥락
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 표 — 자료 / 역할 / 제목 수정 작업에서의 용도. CLAUDE.md·AGENTS.md·SKILL.md를 모든 도구가 동일하게 자동 적용한다고 쓰지 않음. 파일 이름은 제품별 예시.
 - OpenAI · Custom instructions with AGENTS.md: https://developers.openai.com/codex/guides/agents-md
@@ -411,7 +411,7 @@
 - Anthropic · Effective context engineering for AI agents (2025-09-29): https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
   확인 위치: Context retrieval / Compaction / Structured note-taking
 
-63페이지 · 구현과 검증의 자동화
+63페이지 · 명세에 따른 구현과 검증
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
@@ -432,13 +432,13 @@
 66페이지 · 7.3 · 구현 계획
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: PRD에서 작업 순서를 만드는 발상 참고. TaskMaster 제품·CLI 대신 현재 게시글 사례의 선후 의존 관계로 구체화. MCP 오기와 제품 설정은 옮기지 않음.
-- PWD Week10 원본 PDF · 24쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24
+- PWD Week10 원본 PDF · 24쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=24
   확인 위치: 원본 요소 재사용·수정
 
 67페이지 · 7.4 · 작업 분해
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 작업 목록을 생성·관리한다는 발상을 현재 사례의 입력·완료 결과·확인 방법 표로 구체화. 작업 분해 전에 병렬화나 자동 테스트를 전제하지 않음.
-- PWD Week10 원본 PDF · 24쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=24
+- PWD Week10 원본 PDF · 24쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=24
   확인 위치: 원본 요소 재사용·수정
 
 68페이지 · 7.5 · 자동화 테스트
@@ -470,10 +470,10 @@
 70페이지 · 7.7 · 구현과 검증의 반복
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 4.9의 반복 구도를 에이전트 구현·테스트·브라우저 검증으로 확장. 남은 작업 진행·실패 수정 후 재검증·전체 완료의 분기를 구분. 아직 미학습인 Hooks·하네스는 넣지 않음.
-- PWD Week10 원본 PDF · 22쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=22
+- PWD Week10 원본 PDF · 22쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=22
   확인 위치: 원본 요소 재사용·수정
 
-71페이지 · 7.8 · 에이전트 Hooks
+71페이지 · 7.8 · 에이전트 훅(Hooks)
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 단계도 — Claude Code 예: PostToolUse의 Edit/Write 이후 검사 · 차단 여부는 이벤트·설정에 따름. React Hooks와 무관함을 한 번 명시. 검사를 실행하는 것과 종료/도구 실행을 막는 것은 별도; 모든 hook이 차단하지 않음.
 - Anthropic · Automate actions with hooks: https://code.claude.com/docs/en/hooks-guide
@@ -487,7 +487,7 @@
 - Anthropic · Building effective agents (2024-12-19): https://www.anthropic.com/research/building-effective-agents
   확인 위치: What are agents? / Agents
 
-73페이지 · 7.10 · 변경사항 리뷰
+73페이지 · 7.10 · 변경 사항 리뷰
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 코드 발췌 — 변경 전; 코드 발췌 — 변경 후; 표 — 리뷰 기준 / 확인 근거. 8.4의 브랜치/병합 전제 없이 파일 차이 개념만 사용. 실제 PR 리뷰 화면처럼 꾸미지 않음.
 - ECMA-262 · String.prototype.trim / String length: https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.trim
@@ -499,17 +499,17 @@
 - 공통 예제 · title-results.json: new-resource-research/examples/title-results.json
   확인 위치: 실행 가능한 코드·실측 출력 또는 명시된 설명용 발췌
 
-74페이지 · 7.11 · 게시글 등록 기능의 개발
+74페이지 · 7.11 · 게시글 등록 기능의 순차 개발
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 단계도 — 같은 게시글 기능을 조건·구현·검증·리뷰로 연결한 개발 절차. 현재 구현 완료 화면이나 실제 검증 로그가 아님. 앱 제작 전에는 설명용 절차로 라벨링.
 - Anthropic · Effective harnesses for long-running agents (2025-11-26): https://www.anthropic.com/research/effective-harnesses-for-long-running-agents
   확인 위치: Environment management / Feature list / Testing / Getting up to speed
 
-75페이지 · 개발 작업의 병렬화와 지속 실행
+75페이지 · 병렬 개발과 장기 작업 관리
 자료 유형: 외부 자료 없음
 수정·적용: 주차·챕터의 제목과 범위
 
-76페이지 · 8.1 · 독립적인 작업 범위
+76페이지 · 8.1 · 병렬 개발을 위한 작업 분리
 자료 유형: 공식 자료를 참고한 강의용 재구성
 수정·적용: 실제 배치 자료: 코드 발췌 — 먼저 합의하는 요청·응답 계약 예; 역할·사례 비교 — 공유 계약을 유지하면서 나눌 수 있는 작업 범위. 계약 합의 없이 완전 독립이라고 하지 않음. 브랜치·worktree 폴더는 8.4~8.5까지 보류.
 - OpenAI · Subagents: https://learn.chatgpt.com/docs/agent-configuration/subagents
@@ -579,9 +579,9 @@
 - Anthropic · Automate actions with hooks: https://code.claude.com/docs/en/hooks-guide
   확인 위치: How hooks work / Auto-format code after edits
 
-85페이지 · 8.10 · AI 개발에서의 개발자 판단
+85페이지 · 8.10 · AI 활용 개발에서의 개발자 판단
 자료 유형: 기존 PDF 자료 재사용·수정
 수정·적용: 과거/현재/미래라는 단정적 전망을 자동화 범위와 개발자의 판단 비교로 재구성. 프롬프트 디자이너로의 대체 주장을 제거하고 현재 원고의 범위·검증·통합 판단 반영.
-- PWD Week10 원본 PDF · 14쪽: %5BPWD%20Week10%5D%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%80%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%80%E1%85%AA%20%E1%84%8B%E1%85%B0%E1%86%B8%20%E1%84%89%E1%85%A5%E1%84%87%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%80%E1%85%A2%E1%84%87%E1%85%A1%E1%86%AF.pdf#page=14
+- PWD Week10 원본 PDF · 14쪽: %5BPWD%20Week10%5D%20%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EA%B3%BC%20%EC%9B%B9%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EA%B0%9C%EB%B0%9C.pdf#page=14
   확인 위치: 원본 요소 재사용·수정
 
