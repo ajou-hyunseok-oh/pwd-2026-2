@@ -1,0 +1,83 @@
+[
+  {
+    "number": 1,
+    "id": "cover",
+    "kind": "cover",
+    "title": "실전 웹서비스개발 – 10주차",
+    "subtitle": "9주차 학습내용 리뷰 · 푸드맵 개발 사례"
+  },
+  {
+    "number": 2,
+    "id": "review",
+    "kind": "chapter",
+    "title": "9주차 학습내용 리뷰",
+    "subtitle": "푸드맵을 통한 개발 작업 체계",
+    "sources": []
+  },
+  {
+    "number": 3,
+    "id": "baseline",
+    "kind": "content",
+    "title": "기존 푸드맵 구조",
+    "subtitle": "7주차 구현 기준",
+    "sources": [
+      "lectures/09/index.html",
+      "lectures/08/lab-review/materials/code-excerpts.json"
+    ]
+  },
+  {
+    "number": 4,
+    "id": "instructions",
+    "kind": "content",
+    "title": "지침",
+    "subtitle": "작업 전반에 적용하는 규칙",
+    "sources": [
+      "lectures/09/index.html",
+      "lectures/08/lab-review/materials/code-excerpts.json"
+    ]
+  },
+  {
+    "number": 5,
+    "id": "skills",
+    "kind": "content",
+    "title": "스킬",
+    "subtitle": "반복 작업을 위한 절차와 자료",
+    "sources": [
+      "lectures/09/index.html",
+      "lectures/08/lab-review/materials/code-excerpts.json"
+    ]
+  },
+  {
+    "number": 6,
+    "id": "spec",
+    "kind": "content",
+    "title": "스펙 드리븐 개발",
+    "subtitle": "행동과 수용 조건을 먼저 정의",
+    "sources": [
+      "lectures/09/index.html",
+      "lectures/08/lab-review/materials/code-excerpts.json"
+    ]
+  },
+  {
+    "number": 7,
+    "id": "harness",
+    "kind": "content",
+    "title": "하네스 설계",
+    "subtitle": "실행 환경과 검증의 연결",
+    "sources": [
+      "lectures/09/index.html",
+      "lectures/08/lab-review/materials/code-excerpts.json"
+    ]
+  },
+  {
+    "number": 8,
+    "id": "relationship",
+    "kind": "content",
+    "title": "개발 요소의 관계",
+    "subtitle": "규칙 · 절차 · 성공 기준 · 피드백",
+    "sources": [
+      "lectures/09/index.html",
+      "lectures/08/lab-review/materials/code-excerpts.json"
+    ]
+  }
+]
