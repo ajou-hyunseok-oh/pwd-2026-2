@@ -7,6 +7,8 @@
 <title data-wd-i18n="page_title">10 | AI 시대의 웹 서비스 보안</title>
 <link rel="stylesheet" href="../../packages/web-deck/web-deck.css">
 <link rel="stylesheet" href="../../packages/web-deck/authoring.css">
+<link rel="stylesheet" href="resources.css">
+<link rel="stylesheet" href="body.css">
 </head>
 <body class="wd-page-body" data-lecture="10">
 <main class="wd-deck" data-web-deck data-wd-authoring="v1" data-wd-format="week-05">
@@ -14,407 +16,547 @@
 <section class="wd-slide wd-lesson-slide wd-lesson-cover is-active" data-wd-slide="cover" data-wd-cover="weekly" role="region">
 <div class="wd-lesson-cover__content"><p class="wd-lesson-cover__eyebrow" data-wd-i18n="cover_eyebrow">2026학년도 2학기 실전웹서비스개발</p><h1 class="wd-lesson-title" data-wd-i18n="cover_title">실전 웹서비스개발 – 10주차</h1><p class="wd-lesson-cover__subtitle" data-wd-i18n="cover_subtitle">AI 시대의 웹 서비스 보안</p></div><p class="wd-lesson-source">LECTURE 10</p></section>
 
-<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="ai-security" role="region">
-<p class="wd-lesson-eyebrow" data-wd-i18n="ai_security_number">01</p>
-<h2 class="wd-slide-heading" data-wd-i18n="ai_security_title">AI 시대의 웹 서비스 보안</h2>
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="reality" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="reality_number">01</p>
+<h2 class="wd-slide-heading" data-wd-i18n="reality_title">웹 서비스 보안의 현실과 패러다임 전환</h2>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="boundaries" data-wd-concept="boundaries" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="boundaries_title">AI가 바꾸는 보안 경계</h2>
-<p class="wd-slide-lead" data-wd-i18n="boundaries_lead">공격자의 자동화와 서비스의 AI 기능</p>
-<div class="wd-lesson-body wd-lesson-body--single">
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="abandoned-sites" data-wd-concept="abandoned-sites" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="abandoned_sites_title">방치된 웹사이트와 공격 표면</h2>
+<p class="wd-slide-lead" data-wd-i18n="abandoned_sites_lead">국내 50만 개 웹 서비스의 관리 부재와 최초 침투 경로</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="boundaries_b0_0_0_term">공격 표면 - 공격자가 영향을 줄 수 있는 입력과 기능</strong></dt>
-<dd><ul><li data-wd-i18n="boundaries_b0_0_0_detail0">기존 웹 API · 계정 · 데이터에 AI 모델과 도구 연결 추가</li><li data-wd-i18n="boundaries_b0_0_0_detail1">외부 문서 · 검색 결과 · 로그가 에이전트의 입력이 될 수 있음</li></ul></dd>
+<div><dt><strong data-wd-i18n="abandoned_sites_b0_0_0_term">공격 표면 - 외부에 노출되어 공격자가 접근할 수 있는 모든 경로</strong></dt>
+<dd><ul><li data-wd-i18n="abandoned_sites_b0_0_0_detail0">관리 주체와 보안 업데이트가 끊긴 웹사이트 약 50만 개 방치</li><li data-wd-i18n="abandoned_sites_b0_0_0_detail1">공식 자산 목록에서 누락된 Shadow IT가 최초 침투 경로로 악용</li></ul></dd>
 </div>
 </dl></div>
+<div class="wd-lesson-block"><table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="abandoned_sites_b1_0_h0">방치 자산 유형</th><th scope="col" data-wd-i18n="abandoned_sites_b1_0_h1">발생 배경</th><th scope="col" data-wd-i18n="abandoned_sites_b1_0_h2">보안 위험</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="abandoned_sites_b1_0_r0_0">테스트·임시 서버</th><td data-wd-i18n="abandoned_sites_b1_0_r0_1">개발 종료 후 미회수</td><td data-wd-i18n="abandoned_sites_b1_0_r0_2">초기 계정 · 디버그 정보 노출</td></tr><tr><th scope="row" data-wd-i18n="abandoned_sites_b1_0_r1_0">방치된 서브도메인</th><td data-wd-i18n="abandoned_sites_b1_0_r1_1">행사·과제 종료 후 방치</td><td data-wd-i18n="abandoned_sites_b1_0_r1_2">미패치 프레임워크 · 구형 API</td></tr><tr><th scope="row" data-wd-i18n="abandoned_sites_b1_0_r2_0">관리·연동 도구</th><td data-wd-i18n="abandoned_sites_b1_0_r2_1">자산 전수조사 누락</td><td data-wd-i18n="abandoned_sites_b1_0_r2_2">외부 직접 접속 및 내부 진입</td></tr></tbody></table></div>
+</div>
+<aside hidden class="wd-lesson-notes">김승주 교수(고려대 정보보호대학원) 방송 핵심: 관리되지 않는 웹 자산의 규모와 위험.
+[Sources]
+https://www.youtube.com/watch?v=DfhLUqZfGTo
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="ai-attack-automation" data-wd-concept="ai-attack-automation" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="ai_attack_automation_title">AI 기반 공격 자동화와 상시 위협</h2>
+<p class="wd-slide-lead" data-wd-i18n="ai_attack_automation_lead">취약점 탐색 비용 감소로 모든 공개 엔드포인트가 무차별 공격 대상</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="ai_attack_automation_b0_0_0_term">공격 자동화 - AI와 봇이 취약점 탐색과 침투를 자동 수행하는 환경</strong></dt>
+<dd><ul><li data-wd-i18n="ai_attack_automation_b0_0_0_detail0">생성형 AI 보편화로 정찰 · 취약점 분석 · 공격 코드 생성 비용 급감</li><li data-wd-i18n="ai_attack_automation_b0_0_0_detail1">주요 기업뿐 아니라 소규모 웹 프로젝트까지 인터넷 전체 상시 스캔 대상</li></ul></dd>
+</div>
+</dl></div>
+<div class="wd-lesson-block"><figure class="w10-flow"><ol>
+<li>
+<strong data-wd-i18n="ai_attack_automation_b1_0_0_title">자동 정찰</strong>
+<p data-wd-i18n="ai_attack_automation_b1_0_0_body">공개 도메인 · API 경로 상시 수집</p>
+</li>
+<li>
+<strong data-wd-i18n="ai_attack_automation_b1_0_1_title">취약점 판별</strong>
+<p data-wd-i18n="ai_attack_automation_b1_0_1_body">AI 기반 설정 오류 · 알려진 결함 식별</p>
+</li>
+<li>
+<strong data-wd-i18n="ai_attack_automation_b1_0_2_title">무차별 시도</strong>
+<p data-wd-i18n="ai_attack_automation_b1_0_2_body">자동 생성 페이로드로 즉각 침투 시도</p>
+</li>
+</ol>
+<figcaption class="w10-caption" data-wd-i18n="ai_attack_automation_b1_0_caption">공격 대상의 규모와 무관하게 공개 즉시 자동화 도구의 탐색 범위 포함</figcaption>
+</figure></div>
 </div>
 <aside hidden class="wd-lesson-notes">
 [Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
+https://www.youtube.com/watch?v=DfhLUqZfGTo
 [/Sources]</aside>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="campaign" data-wd-concept="campaign" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="campaign_title">사례: AI를 활용한 사이버 첩보</h2>
-<p class="wd-slide-lead" data-wd-i18n="campaign_lead">2025년 9월 탐지 · Anthropic 공개 보고</p>
-<div class="wd-lesson-body wd-lesson-body--single">
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="solution-limits" data-wd-concept="solution-limits" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="solution_limits_title">보안 장비의 한계와 코드 취약점</h2>
+<p class="wd-slide-lead" data-wd-i18n="solution_limits_lead">외부 방화벽이 대신 막아주지 못하는 애플리케이션 구현 결함</p>
+<div class="wd-lesson-body wd-lesson-body--split">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="campaign_b0_0_0_term">공격 자동화 - AI를 공격 과정에 사용하는 방식</strong></dt>
-<dd><ul><li data-wd-i18n="campaign_b0_0_0_detail0">보고에 따르면 정찰 · 취약점 탐색 · 데이터 분석 등에 AI 활용</li><li data-wd-i18n="campaign_b0_0_0_detail1">사람의 목표 설정과 도구 권한이 공격 흐름에 결합</li><li data-wd-i18n="campaign_b0_0_0_detail2">시사점: 계정 · 로그 · 네트워크 감시와 기본 취약점 관리</li></ul></dd>
+<div><dt><strong data-wd-i18n="solution_limits_b0_0_0_term">형식적 보안 - 인증 획득과 외부 장비 도입에만 의존하는 운영 방식</strong></dt>
+<dd><ul><li data-wd-i18n="solution_limits_b0_0_0_detail0">방화벽 · 백신 · 망분리 설치만으로 웹 애플리케이션 내부 결함 차단 불가</li><li data-wd-i18n="solution_limits_b0_0_0_detail1">정상 HTTP 요청 경로를 통해 전달되는 인증 우회 · 권한 결함이 주요 침투 원인</li></ul></dd>
 </div>
 </dl></div>
+<div class="wd-lesson-block"><table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="solution_limits_b1_0_h0">영역</th><th scope="col" data-wd-i18n="solution_limits_b1_0_h1">방어 대상</th><th scope="col" data-wd-i18n="solution_limits_b1_0_h2">보안 한계</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="solution_limits_b1_0_r0_0">네트워크 방화벽 · WAF</th><td data-wd-i18n="solution_limits_b1_0_r0_1">비정상 포트 차단 · 알려진 패턴 탐지</td><td data-wd-i18n="solution_limits_b1_0_r0_2">요청자 권한 검증 누락 판별 불가</td></tr><tr><th scope="row" data-wd-i18n="solution_limits_b1_0_r1_0">애플리케이션 코드</th><td data-wd-i18n="solution_limits_b1_0_r1_1">신원 확인 · 객체 소유권 검사 · 입력 처리</td><td data-wd-i18n="solution_limits_b1_0_r1_2">설계 결함 시 정상 경로를 통한 정보 유출</td></tr></tbody></table></div>
 </div>
-<aside hidden class="wd-lesson-notes">제공자의 사건 분석이며 탐지된 공격과 연구 시연을 구분한다.
+<aside hidden class="wd-lesson-notes">
 [Sources]
-https://www.anthropic.com/news/disrupting-AI-espionage
+https://www.youtube.com/watch?v=DfhLUqZfGTo
 [/Sources]</aside>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="comment-control" data-wd-concept="comment-control" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="comment_control_title">사례: Comment and Control</h2>
-<p class="wd-slide-lead" data-wd-i18n="comment_control_lead">2026년 4월 공개 · 연구 환경의 재현</p>
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="security-by-design" data-wd-concept="security-by-design" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="security_by_design_title">설계 단계의 보안과 개발자의 책임</h2>
+<p class="wd-slide-lead" data-wd-i18n="security_by_design_lead">기능 구현과 동시에 내재화하는 인증·인가와 비밀정보 보호</p>
 <div class="wd-lesson-body wd-lesson-body--single">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="comment_control_b0_0_0_term">간접 주입 - 외부 데이터의 지시가 에이전트 행동에 영향</strong></dt>
-<dd><ul><li data-wd-i18n="comment_control_b0_0_0_detail0">PR 제목 · 이슈 · 댓글의 지시를 에이전트가 읽는 경로</li><li data-wd-i18n="comment_control_b0_0_0_detail1">실행 권한과 비밀정보가 함께 있을 때 자격증명 노출을 시연</li><li data-wd-i18n="comment_control_b0_0_0_detail2">실제 피해 규모가 확인된 침해 사건이 아닌 연구 시연</li></ul></dd>
+<div><dt><strong data-wd-i18n="security_by_design_b0_0_0_term">설계 단계 보안 - 기능 완성 후 보완하지 않고 초기 설계부터 보안을 내재화하는 원칙</strong></dt>
+<dd><ul><li data-wd-i18n="security_by_design_b0_0_0_detail0">보안은 별도 팀의 사후 점검이 아닌 웹 서비스 개발자의 핵심 설계 책무</li><li data-wd-i18n="security_by_design_b0_0_0_detail1">클라이언트 화면 제어와 별개로 서버 측 인증 · 인가 · 입력 처리 · 키 격리를 기본 구조로 설계</li></ul></dd>
 </div>
-</dl></div>
+</dl>
+<figure class="w10-flow"><ol>
+<li>
+<strong data-wd-i18n="security_by_design_b0_1_0_title">인증과 상태</strong>
+<p data-wd-i18n="security_by_design_b0_1_0_body">신원 확인과 세션·토큰 유지</p>
+</li>
+<li>
+<strong data-wd-i18n="security_by_design_b0_1_1_title">서버 인가 검증</strong>
+<p data-wd-i18n="security_by_design_b0_1_1_body">요청마다 역할·소유권 검증</p>
+</li>
+<li>
+<strong data-wd-i18n="security_by_design_b0_1_2_title">입력·출력 분리</strong>
+<p data-wd-i18n="security_by_design_b0_1_2_body">명령·코드 해석 경로 차단</p>
+</li>
+<li>
+<strong data-wd-i18n="security_by_design_b0_1_3_title">비밀정보 격리</strong>
+<p data-wd-i18n="security_by_design_b0_1_3_body">키 노출 방지와 환경 분리</p>
+</li>
+</ol>
+<figcaption class="w10-caption" data-wd-i18n="security_by_design_b0_1_caption">웹 서비스 개발 전 과정에 내재화해야 하는 4대 핵심 설계 축</figcaption>
+</figure></div>
 </div>
-<aside hidden class="wd-lesson-notes">연구자가 공개한 조건과 결과. 모든 제품과 환경에서 동일한 결과라는 뜻이 아니다.
+<aside hidden class="wd-lesson-notes">
 [Sources]
+https://www.youtube.com/watch?v=DfhLUqZfGTo
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="vulnerabilities" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="vulnerabilities_number">02</p>
+<h2 class="wd-slide-heading" data-wd-i18n="vulnerabilities_title">주요 웹 취약점과 방어 원리</h2>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="broken-object-auth" data-wd-concept="broken-object-auth" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="broken_object_auth_title">객체 수준 인가 결함과 접근 통제</h2>
+<p class="wd-slide-lead" data-wd-i18n="broken_object_auth_lead">요청 파라미터 변조로 타인의 자원에 접근하는 취약점 방어</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="broken_object_auth_b0_0_0_term">객체 수준 인가 결함 (BOLA/IDOR) - 로그인 여부와 무관하게 대상 자원의 소유권을 누락하는 결함</strong></dt>
+<dd><ul><li data-wd-i18n="broken_object_auth_b0_0_0_detail0">확정 사례: 한국파파존스(2025 개보위 조사 · URL 주문번호 변조) · 호주 Optus(2022 · 미인증 API ID 순차 변조)</li><li data-wd-i18n="broken_object_auth_b0_0_0_detail1">프록시 도구로 요청 ID 변조 가능 — UI 버튼 숨김이나 예측 불가 ID에 의존 금지</li></ul></dd>
+</div>
+</dl>
+<figure class="w10-evidence-card"><div class="w10-evidence-thumb"><img src="assets/cases/case-08-papajohns.jpg" alt=""></div><figcaption class="w10-evidence-body"><p class="w10-evidence-meta" data-wd-i18n="broken_object_auth_b0_1_meta">사례 보도 · 데일리시큐 (2025-06-27)</p><a class="w10-evidence-link" href="https://www.dailysecu.com/news/articleView.html?idxno=167409" target="_blank" rel="noopener noreferrer" data-wd-i18n="broken_object_auth_b0_1_link">개인정보위, 한국파파존스 고객정보 유출 조사…파라미터 변조 취약점 ‘경고’ ↗</a><p class="w10-evidence-summary" data-wd-i18n="broken_object_auth_b0_1_summary">주문 조회 URL 번호 변조만으로 비로그인 타인 주문·주소·카드정보 노출 확인</p></figcaption></figure></div>
+<div class="wd-lesson-block"><figure class="w10-sequence" data-actors="3">
+<div class="w10-actors">
+<p class="w10-actor" style="left:12%" data-wd-i18n="broken_object_auth_b1_0_actor0">공격자 (프록시)</p>
+<p class="w10-actor" style="left:50%" data-wd-i18n="broken_object_auth_b1_0_actor1">API 서버</p>
+<p class="w10-actor" style="left:88%" data-wd-i18n="broken_object_auth_b1_0_actor2">DB</p>
+</div><div class="w10-sequence-track">
+<div class="w10-lifeline" style="left:12%" aria-hidden="true"></div>
+<div class="w10-lifeline" style="left:50%" aria-hidden="true"></div>
+<div class="w10-lifeline" style="left:88%" aria-hidden="true"></div>
+<ol class="w10-messages">
+<li>
+<p class="w10-mobile-route" data-wd-i18n="broken_object_auth_b1_0_route0">공격자 (프록시) → API 서버</p>
+<div class="w10-message w10-message--right" style="left:12%;width:38%">
+<p class="w10-message-text" data-wd-i18n="broken_object_auth_b1_0_row0">GET /orders/1004 (본인)</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="broken_object_auth_b1_0_route1">공격자 (프록시) → API 서버</p>
+<div class="w10-message w10-message--right w10-message--focus" style="left:12%;width:38%">
+<p class="w10-message-text" data-wd-i18n="broken_object_auth_b1_0_row1">GET /orders/1005 (ID 변조)</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="broken_object_auth_b1_0_route2">API 서버</p>
+<p class="w10-local" style="left:30%;width:38%" data-wd-i18n="broken_object_auth_b1_0_row2">소유권 검증 누락 시 타인 노출</p>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="broken_object_auth_b1_0_route3">API 서버 → DB</p>
+<div class="w10-message w10-message--right w10-message--focus" style="left:50%;width:38%">
+<p class="w10-message-text" data-wd-i18n="broken_object_auth_b1_0_row3">요청자 === 소유자 검증 적용</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="broken_object_auth_b1_0_route4">API 서버 → 공격자 (프록시)</p>
+<div class="w10-message w10-message--left w10-message--focus w10-message--reply" style="left:12%;width:38%">
+<p class="w10-message-text" data-wd-i18n="broken_object_auth_b1_0_row4">권한 불일치 → 403 Forbidden</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+</ol></div>
+<figcaption class="w10-caption" data-wd-i18n="broken_object_auth_b1_0_caption">파파존스(개보위 조사, 2025)·Optus(2022) 사례 근거: 모든 조회·변경 API에서 서버 소유권 검증 필수</figcaption>
+</figure></div>
+</div>
+<aside hidden class="wd-lesson-notes">근거: 2025-06 개보위 한국파파존스 현장 조사 보도(URL 파라미터 변조) 및 2022 Optus API IDOR 사고.
+[Sources]
+https://www.dailysecu.com/news/articleView.html?idxno=167409
+https://www.bleepingcomputer.com/news/security/optus-hacker-apologizes-and-allegedly-deletes-all-stolen-data/
+https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/
+lectures/10/materials/case-evidence-sources.md
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="input-and-sqli" data-wd-concept="input-and-sqli" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="input_and_sqli_title">입력 검증과 SQL 인젝션</h2>
+<p class="wd-slide-lead" data-wd-i18n="input_and_sqli_lead">사용자 입력이 데이터베이스 명령 구조로 해석되는 경로 차단</p>
+<div class="wd-lesson-body wd-lesson-body--split">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="input_and_sqli_b0_0_0_term">입력 검증 - 서버가 수신한 데이터의 형식·자료형·범위를 확인하는 1차 방어</strong></dt>
+<dd><ul><li data-wd-i18n="input_and_sqli_b0_0_0_detail0">클라이언트 입력 제한은 우회 가능하므로 서버 측 재검증 필수</li></ul></dd>
+</div>
+<div><dt><strong data-wd-i18n="input_and_sqli_b0_0_1_term">SQL 인젝션 - 입력 문자열이 SQL 구문에 섞여 명령 구조 자체를 바꾸는 공격</strong></dt>
+<dd><ul><li data-wd-i18n="input_and_sqli_b0_0_1_detail0">확정 사례: 여기어때(2017 민관합동조사단 · SQLi로 관리자 세션 탈취) · MOVEit(2023 CVE-2023-34362)</li><li data-wd-i18n="input_and_sqli_b0_0_1_detail1">문자열 결합 대신 SQL 구조와 값을 분리하는 매개변수화 쿼리 적용</li></ul></dd>
+</div>
+</dl>
+<figure class="w10-evidence-card"><div class="w10-evidence-thumb"><img src="assets/cases/case-09-moveit.jpg" alt=""></div><figcaption class="w10-evidence-body"><p class="w10-evidence-meta" data-wd-i18n="input_and_sqli_b0_1_meta">사례 보도 · SecurityWeek (2023-06-05)</p><a class="w10-evidence-link" href="https://www.securityweek.com/ransomware-group-used-moveit-exploit-to-steal-data-from-dozens-of-organizations/" target="_blank" rel="noopener noreferrer" data-wd-i18n="input_and_sqli_b0_1_link">Ransomware Group Used MOVEit Exploit to Steal Data From Dozens of Organizations ↗</a><p class="w10-evidence-summary" data-wd-i18n="input_and_sqli_b0_1_summary">MOVEit Transfer SQL 인젝션(CVE-2023-34362) 악용으로 다수 기관 데이터 탈취</p></figcaption></figure></div>
+<div class="wd-lesson-block"><p class="wd-lesson-code-label" data-wd-i18n="input_and_sqli_b1_0_label">취약한 문자열 결합 vs 안전한 매개변수화 쿼리 (일반 예시)</p><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="72" data-wd-i18n="input_and_sqli_b1_0_code">// Vulnerable: user input changes query structure
+const bad = `SELECT * FROM orders WHERE id = &#x27;${orderId}&#x27;`;
+
+// Safe: structure fixed, input bound as parameter
+const result = await client.query(
+  &#x27;SELECT id, status FROM orders WHERE id = $1 AND user_id = $2&#x27;,
+  [orderId, req.userId]
+);</pre>
+<p class="w10-caption w10-resource-note" data-wd-i18n="input_and_sqli_b1_1">$1·$2 매개변수는 값 전달 전용 — 테이블명·열명 치환 용도로 사용 불가</p></div>
+</div>
+<aside hidden class="wd-lesson-notes">근거: 2017 여기어때 침해사고 민관합동조사단 발표(SQL 인젝션) 및 2023 MOVEit CVE-2023-34362 CISA 권고.
+[Sources]
+https://www.securityweek.com/ransomware-group-used-moveit-exploit-to-steal-data-from-dozens-of-organizations/
+https://nvd.nist.gov/vuln/detail/CVE-2023-34362
+lectures/10/materials/case-evidence-sources.md
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="xss-and-script-control" data-wd-concept="xss-and-script-control" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="xss_and_script_control_title">XSS와 스크립트 실행 통제</h2>
+<p class="wd-slide-lead" data-wd-i18n="xss_and_script_control_lead">외부 입력과 제3자 스크립트가 브라우저에서 실행되는 위험 차단</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="xss_and_script_control_b0_0_0_term">브라우저 스크립트 위협 - 저장형 XSS와 제3자 스크립트 변조로 브라우저 코드 실행</strong></dt>
+<dd><ul><li data-wd-i18n="xss_and_script_control_b0_0_0_detail0">확정 사례: TweetDeck XSS 웜(2014 · 트윗 입력 필터링 누락) · Optimizely(2026-11 · 프로젝트 JS 변조)</li><li data-wd-i18n="xss_and_script_control_b0_0_0_detail1">일반 텍스트는 출력 문맥 이스케이프 · HTML 허용 시 정제(Sanitize) 필수</li><li data-wd-i18n="xss_and_script_control_b0_0_0_detail2">CSP(script-src · connect-src)와 스크립트 변경 감시로 실행·외부 전송 통제</li></ul></dd>
+</div>
+</dl>
+<figure class="w10-evidence-card"><div class="w10-evidence-thumb"><img src="assets/cases/case-10-optimizely.webp" alt=""></div><figcaption class="w10-evidence-body"><p class="w10-evidence-meta" data-wd-i18n="xss_and_script_control_b0_1_meta">사례 보도 · Help Net Security (2026-11-17)</p><a class="w10-evidence-link" href="https://www.helpnetsecurity.com/2026/11/17/optimizely-vulnerability-malicious-javascript/" target="_blank" rel="noopener noreferrer" data-wd-i18n="xss_and_script_control_b0_1_link">Malware spread through Optimizely hits 178 organizations, including BBC, CNN and Zoom ↗</a><p class="w10-evidence-summary" data-wd-i18n="xss_and_script_control_b0_1_summary">고객 계정 사칭으로 프로젝트 JS에 악성 스크립트 삽입 · 178개 사이트 방문자 실행</p></figcaption></figure></div>
+<div class="wd-lesson-block"><figure class="w10-branches"><div class="w10-branch-root">
+<strong data-wd-i18n="xss_and_script_control_b1_0_title">브라우저로 전달되는 콘텐츠</strong>
+<p data-wd-i18n="xss_and_script_control_b1_0_body">입력 XSS와 외부 스크립트 공급망 경계를 구분해 통제</p>
+</div><div class="w10-branch-children">
+<div class="w10-branch-child">
+<strong data-wd-i18n="xss_and_script_control_b1_0_0_title">사용자 입력 출력 (이스케이프)</strong>
+<p data-wd-i18n="xss_and_script_control_b1_0_0_body">HTML 태그를 문자로 표시
+저장형 XSS 실행 차단</p>
+</div>
+<div class="w10-branch-child">
+<strong data-wd-i18n="xss_and_script_control_b1_0_1_title">HTML · 제3자 스크립트</strong>
+<p data-wd-i18n="xss_and_script_control_b1_0_1_body">허용 목록 정제(Sanitize)
+CSP · 무결성·변경 감시 적용</p>
+</div>
+</div>
+<figcaption class="w10-caption" data-wd-i18n="xss_and_script_control_b1_0_caption">허용된 외부 공급자 스크립트 자체가 변조되면 도메인 허용만으로는 부족 — 변경 감시 병행</figcaption>
+</figure></div>
+</div>
+<aside hidden class="wd-lesson-notes">TweetDeck(입력 필터링 누락 XSS)과 Optimizely(가입 흐름 결함으로 프로젝트 JS 변조)의 원인을 구분해 설명.
+[Sources]
+https://www.helpnetsecurity.com/2026/11/17/optimizely-vulnerability-malicious-javascript/
+https://support.optimizely.com/hc/en-us/articles/50521849710605-Security-Advisory-Web-Experimentation-Security-Incident-Updated-November-19-2026
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP
+lectures/10/materials/case-evidence-sources.md
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="origin-sop-cors" data-wd-concept="origin-sop-cors" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="origin_sop_cors_title">웹 출처 · 동일 출처 정책과 CORS</h2>
+<p class="wd-slide-lead" data-wd-i18n="origin_sop_cors_lead">브라우저의 교차 출처 접근 경계와 허용 범위 오설정 방어</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="origin_sop_cors_b0_0_0_term">출처 (Origin)와 동일 출처 정책 (SOP) - 프로토콜·호스트·포트가 다르면 응답 읽기를 막는 원칙</strong></dt>
+<dd><ul><li data-wd-i18n="origin_sop_cors_b0_0_0_detail0">요청의 서버 도달 여부와 브라우저 스크립트의 응답 읽기 가능 여부는 별개 판단</li></ul></dd>
+</div>
+<div><dt><strong data-wd-i18n="origin_sop_cors_b0_0_1_term">CORS 오설정 - 임의 Origin 반사나 과도한 허용으로 민감 API 응답이 노출되는 결함</strong></dt>
+<dd><ul><li data-wd-i18n="origin_sop_cors_b0_0_1_detail0">확정 사례: StackStorm(2019 CVE-2019-9580 · null Origin CORS 우회) · 미 국방부(DoD) HackerOne 리포트</li><li data-wd-i18n="origin_sop_cors_b0_0_1_detail1">CORS는 브라우저 접근 규칙일 뿐 서버 API의 인증·인가를 대신하지 않음</li></ul></dd>
+</div>
+</dl>
+<figure class="w10-evidence-card"><div class="w10-evidence-thumb"><img src="assets/cases/case-11-stackstorm.jpg" alt=""></div><figcaption class="w10-evidence-body"><p class="w10-evidence-meta" data-wd-i18n="origin_sop_cors_b0_1_meta">사례 보도 · The Hacker News (2019-03)</p><a class="w10-evidence-link" href="https://thehackernews.com/2019/03/stackstorm-security-vulnerability.html" target="_blank" rel="noopener noreferrer" data-wd-i18n="origin_sop_cors_b0_1_link">Severe Flaw Disclosed In StackStorm DevOps Automation Software ↗</a><p class="w10-evidence-summary" data-wd-i18n="origin_sop_cors_b0_1_summary">CVE-2019-9580: null Origin 허용으로 CORS 보호 우회 및 교차 출처 API 요청 노출</p></figcaption></figure></div>
+<div class="wd-lesson-block"><figure class="w10-sequence" data-actors="2">
+<div class="w10-actors">
+<p class="w10-actor" style="left:12%" data-wd-i18n="origin_sop_cors_b1_0_actor0">브라우저 (app)</p>
+<p class="w10-actor" style="left:88%" data-wd-i18n="origin_sop_cors_b1_0_actor1">API 서버 (api)</p>
+</div><div class="w10-sequence-track">
+<div class="w10-lifeline" style="left:12%" aria-hidden="true"></div>
+<div class="w10-lifeline" style="left:88%" aria-hidden="true"></div>
+<ol class="w10-messages">
+<li>
+<p class="w10-mobile-route" data-wd-i18n="origin_sop_cors_b1_0_route0">브라우저 (app) → API 서버 (api)</p>
+<div class="w10-message w10-message--right" style="left:12%;width:76%">
+<p class="w10-message-text" data-wd-i18n="origin_sop_cors_b1_0_row0">Origin: https://app.example.com</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="origin_sop_cors_b1_0_route1">API 서버 (api) → 브라우저 (app)</p>
+<div class="w10-message w10-message--left w10-message--focus w10-message--reply" style="left:12%;width:76%">
+<p class="w10-message-text" data-wd-i18n="origin_sop_cors_b1_0_row1">Access-Control-Allow-Origin:
+https://app.example.com</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="origin_sop_cors_b1_0_route2">브라우저 (app)</p>
+<p class="w10-local w10-message--focus" style="left:0;width:46%" data-wd-i18n="origin_sop_cors_b1_0_row2">허용 조건 확인 후 응답 읽기 허용</p>
+</li>
+</ol></div>
+<figcaption class="w10-caption" data-wd-i18n="origin_sop_cors_b1_0_caption">출처 = 프로토콜 + 호스트 + 포트 · 자격정보 포함 요청은 명시적 출처 화이트리스트 필수</figcaption>
+</figure>
+<table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="origin_sop_cors_b1_1_h0">비교 대상</th><th scope="col" data-wd-i18n="origin_sop_cors_b1_1_h1">기준: https://app.example.com</th><th scope="col" data-wd-i18n="origin_sop_cors_b1_1_h2">출처 판정</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="origin_sop_cors_b1_1_r0_0">경로 변경</th><td data-wd-i18n="origin_sop_cors_b1_1_r0_1">https://app.example.com/list</td><td data-wd-i18n="origin_sop_cors_b1_1_r0_2">같음</td></tr><tr><th scope="row" data-wd-i18n="origin_sop_cors_b1_1_r1_0">호스트 변경</th><td data-wd-i18n="origin_sop_cors_b1_1_r1_1">https://api.example.com</td><td data-wd-i18n="origin_sop_cors_b1_1_r1_2">다름 (CORS)</td></tr><tr><th scope="row" data-wd-i18n="origin_sop_cors_b1_1_r2_0">프로토콜 변경</th><td data-wd-i18n="origin_sop_cors_b1_1_r2_1">http://app.example.com</td><td data-wd-i18n="origin_sop_cors_b1_1_r2_2">다름</td></tr></tbody></table></div>
+</div>
+<aside hidden class="wd-lesson-notes">
+[Sources]
+https://thehackernews.com/2019/03/stackstorm-security-vulnerability.html
+https://nvd.nist.gov/vuln/detail/CVE-2019-9580
+https://hackerone.com/reports/733017
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
+lectures/10/materials/case-evidence-sources.md
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="csrf-and-cookie-attrs" data-wd-concept="csrf-and-cookie-attrs" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="csrf_and_cookie_attrs_title">CSRF와 쿠키 보호 속성의 한계</h2>
+<p class="wd-slide-lead" data-wd-i18n="csrf_and_cookie_attrs_lead">자동 첨부되는 로그인 쿠키 악용과 서버 측 요청 의도 검증</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="csrf_and_cookie_attrs_b0_0_0_term">크로스 사이트 요청 위조 (CSRF) - 다른 사이트가 로그인 브라우저로 의도치 않은 요청을 보내는 공격</strong></dt>
+<dd><ul><li data-wd-i18n="csrf_and_cookie_attrs_b0_0_0_detail0">확정 사례: Facebook CSRF 버그바운티(2019 · 계정 탈취 가능) · 옥션 관리자 세션 악용(2008)</li><li data-wd-i18n="csrf_and_cookie_attrs_b0_0_0_detail1">상태 변경 요청에 요청 출처(Origin) 및 공격자가 알 수 없는 CSRF 토큰 검증</li></ul></dd>
+</div>
+<div><dt><strong data-wd-i18n="csrf_and_cookie_attrs_b0_0_1_term">쿠키 보호 속성 - Secure · HttpOnly · SameSite의 방어 범위와 한계</strong></dt>
+<dd><ul><li data-wd-i18n="csrf_and_cookie_attrs_b0_0_1_detail0">HttpOnly는 스크립트 쿠키 읽기를 막으나 XSS를 통한 요청 전송까지 막지는 못함</li></ul></dd>
+</div>
+</dl>
+<figure class="w10-evidence-card"><div class="w10-evidence-thumb"><img src="assets/cases/case-12-fb-csrf.jpg" alt=""></div><figcaption class="w10-evidence-body"><p class="w10-evidence-meta" data-wd-i18n="csrf_and_cookie_attrs_b0_1_meta">사례 보도 · SecurityWeek (2019-02-15)</p><a class="w10-evidence-link" href="https://www.securityweek.com/csrf-vulnerability-facebook-earns-researcher-25000" target="_blank" rel="noopener noreferrer" data-wd-i18n="csrf_and_cookie_attrs_b0_1_link">CSRF Vulnerability in Facebook Earns Researcher $25,000 ↗</a><p class="w10-evidence-summary" data-wd-i18n="csrf_and_cookie_attrs_b0_1_summary">엔드포인트 CSRF 검증 우회로 피해자 링크 열람 시 계정 설정 변경·탈취 가능</p></figcaption></figure></div>
+<div class="wd-lesson-block"><figure class="w10-sequence" data-actors="3">
+<div class="w10-actors">
+<p class="w10-actor" style="left:12%" data-wd-i18n="csrf_and_cookie_attrs_b1_0_actor0">다른 사이트</p>
+<p class="w10-actor" style="left:50%" data-wd-i18n="csrf_and_cookie_attrs_b1_0_actor1">로그인 브라우저</p>
+<p class="w10-actor" style="left:88%" data-wd-i18n="csrf_and_cookie_attrs_b1_0_actor2">서버</p>
+</div><div class="w10-sequence-track">
+<div class="w10-lifeline" style="left:12%" aria-hidden="true"></div>
+<div class="w10-lifeline" style="left:50%" aria-hidden="true"></div>
+<div class="w10-lifeline" style="left:88%" aria-hidden="true"></div>
+<ol class="w10-messages">
+<li>
+<p class="w10-mobile-route" data-wd-i18n="csrf_and_cookie_attrs_b1_0_route0">다른 사이트 → 로그인 브라우저</p>
+<div class="w10-message w10-message--right" style="left:12%;width:38%">
+<p class="w10-message-text" data-wd-i18n="csrf_and_cookie_attrs_b1_0_row0">의도와 다른 요청 유발</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="csrf_and_cookie_attrs_b1_0_route1">로그인 브라우저 → 서버</p>
+<div class="w10-message w10-message--right" style="left:50%;width:38%">
+<p class="w10-message-text" data-wd-i18n="csrf_and_cookie_attrs_b1_0_row1">상태 변경 요청 + 쿠키 자동 첨부</p>
+<span class="w10-message-line" aria-hidden="true"></span></div>
+</li>
+<li>
+<p class="w10-mobile-route" data-wd-i18n="csrf_and_cookie_attrs_b1_0_route2">서버</p>
+<p class="w10-local w10-message--focus" style="right:0;width:38%" data-wd-i18n="csrf_and_cookie_attrs_b1_0_row2">CSRF 토큰 · 출처 검증
+실패 시 변경 거부</p>
+</li>
+</ol></div>
+<figcaption class="w10-caption" data-wd-i18n="csrf_and_cookie_attrs_b1_0_caption">쿠키 보호 속성 설정과 함께 서버에서 상태 변경 요청의 정당성 확인</figcaption>
+</figure>
+<table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="csrf_and_cookie_attrs_b1_1_h0">쿠키 속성</th><th scope="col" data-wd-i18n="csrf_and_cookie_attrs_b1_1_h1">보호 범위</th><th scope="col" data-wd-i18n="csrf_and_cookie_attrs_b1_1_h2">주의할 한계</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="csrf_and_cookie_attrs_b1_1_r0_0">Secure</th><td data-wd-i18n="csrf_and_cookie_attrs_b1_1_r0_1">HTTPS에서만 전송</td><td data-wd-i18n="csrf_and_cookie_attrs_b1_1_r0_2">전송만 보호</td></tr><tr><th scope="row" data-wd-i18n="csrf_and_cookie_attrs_b1_1_r1_0">HttpOnly</th><td data-wd-i18n="csrf_and_cookie_attrs_b1_1_r1_1">JS 읽기 차단</td><td data-wd-i18n="csrf_and_cookie_attrs_b1_1_r1_2">XSS 요청 허용</td></tr><tr><th scope="row" data-wd-i18n="csrf_and_cookie_attrs_b1_1_r2_0">SameSite=Lax</th><td data-wd-i18n="csrf_and_cookie_attrs_b1_1_r2_1">교차 POST 제한</td><td data-wd-i18n="csrf_and_cookie_attrs_b1_1_r2_2">동일 사이트 허용</td></tr></tbody></table></div>
+</div>
+<aside hidden class="wd-lesson-notes">
+[Sources]
+https://www.securityweek.com/csrf-vulnerability-facebook-earns-researcher-25000
+https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
+lectures/10/materials/case-evidence-sources.md
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="secrets-and-supply-chain" data-wd-concept="secrets-and-supply-chain" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="secrets_and_supply_chain_title">비밀정보 유출과 외부 경계 관리</h2>
+<p class="wd-slide-lead" data-wd-i18n="secrets_and_supply_chain_lead">개발자 키 탈취·하드코딩 및 외부 업체·백업 경로 침해 대응</p>
+<div class="wd-lesson-body wd-lesson-body--split">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="secrets_and_supply_chain_b0_0_0_term">비밀정보 유출 - 접속키 탈취와 소스코드 평문 하드코딩으로 서비스 전체가 노출되는 위험</strong></dt>
+<dd><ul><li data-wd-i18n="secrets_and_supply_chain_b0_0_0_detail0">확정 사례: 티빙(2026-09 과기정통부 발표 · 개발자 접속키 탈취 + 소스코드 운영키 43개 하드코딩)</li><li data-wd-i18n="secrets_and_supply_chain_b0_0_0_detail1">확정 사례: PLAID KARTE(2026-11 공시 · 서버 취약점 통한 DB 연결 자격증명 탈취)</li></ul></dd>
+</div>
+</dl>
+<figure class="w10-evidence-card"><div class="w10-evidence-thumb"><img src="assets/cases/case-13-tving-etnews.png" alt=""></div><figcaption class="w10-evidence-body"><p class="w10-evidence-meta" data-wd-i18n="secrets_and_supply_chain_b0_1_meta">사례 보도 · 전자신문 (2026-09-03)</p><a class="w10-evidence-link" href="https://www.etnews.com/20260903000283" target="_blank" rel="noopener noreferrer" data-wd-i18n="secrets_and_supply_chain_b0_1_link">티빙 해킹, 접속키 하나에서 시작됐다…드러난 보안 허점 ↗</a><p class="w10-evidence-summary" data-wd-i18n="secrets_and_supply_chain_b0_1_summary">개발환경 접속키 탈취 후 소스코드 하드코딩 운영키 43개 악용 · 3,954만 계정 유출</p></figcaption></figure></div>
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="secrets_and_supply_chain_b1_0_0_term">외부 경계 확장 - 위탁 업체와 백업 솔루션까지 포함된 공격 표면</strong></dt>
+<dd><ul><li data-wd-i18n="secrets_and_supply_chain_b1_0_0_detail0">확정 사례: JPMorgan·Visa·Mastercard 위탁사 침해(2026-11) · 더존비즈온 백업 침해(2026-10)</li></ul></dd>
+</div>
+</dl>
+<table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="secrets_and_supply_chain_b1_1_h0">경계 영역</th><th scope="col" data-wd-i18n="secrets_and_supply_chain_b1_1_h1">핵심 방어 조치</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="secrets_and_supply_chain_b1_1_r0_0">개발자 키 · 소스코드</th><td data-wd-i18n="secrets_and_supply_chain_b1_1_r0_1">하드코딩 금지 · 환경별 분리 · 단기 키 및 즉시 폐기</td></tr><tr><th scope="row" data-wd-i18n="secrets_and_supply_chain_b1_1_r1_0">외부 위탁사 · SaaS</th><td data-wd-i18n="secrets_and_supply_chain_b1_1_r1_1">제공 데이터 최소화 · 계약 종료 시 토큰 회수</td></tr><tr><th scope="row" data-wd-i18n="secrets_and_supply_chain_b1_1_r2_0">백업 · 관리 도구</th><td data-wd-i18n="secrets_and_supply_chain_b1_1_r2_1">네트워크 격리 · 관리자 MFA · 암호화 키 분리</td></tr></tbody></table></div>
+</div>
+<aside hidden class="wd-lesson-notes">
+[Sources]
+https://www.etnews.com/20260903000283
+https://m.korea.kr/briefing/pressReleaseView.do?gubun=pressRelease&amp;newsId=156780136&amp;pageIndex=3&amp;repCode=
+https://tdnet-pdf.kabutan.jp/20261116/140120261116581662.pdf
+https://apnews.com/article/8470d475450721b66858bdace47091c0
+https://www.douzone.com/board/read.jsp?code=notice&amp;id=3508
+lectures/10/materials/case-evidence-sources.md
+[/Sources]</aside>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="prompt-injection-ai" data-wd-concept="prompt-injection-ai" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="prompt_injection_ai_title">AI 시대의 경계: 간접 프롬프트 인젝션</h2>
+<p class="wd-slide-lead" data-wd-i18n="prompt_injection_ai_lead">외부 입력이 에이전트의 실행 지시로 승격되는 위험 통제</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
+<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
+<div><dt><strong data-wd-i18n="prompt_injection_ai_b0_0_0_term">간접 프롬프트 인젝션 - 외부 이메일·문서·댓글의 숨은 지시가 AI 행동을 바꾸는 취약점</strong></dt>
+<dd><ul><li data-wd-i18n="prompt_injection_ai_b0_0_0_detail0">확정 사례: Microsoft 365 Copilot EchoLeak(2025 CVE-2025-32711 · 이메일 기반 제로클릭 유출)</li><li data-wd-i18n="prompt_injection_ai_b0_0_0_detail1">연구 시연: Comment and Control(2026-04 · PR/이슈 통한 자격증명 노출) · Slack AI 주입 연구</li></ul></dd>
+</div>
+</dl>
+<figure class="w10-evidence-card"><div class="w10-evidence-thumb"><img src="assets/cases/case-14-echoleak.jpg" alt=""></div><figcaption class="w10-evidence-body"><p class="w10-evidence-meta" data-wd-i18n="prompt_injection_ai_b0_1_meta">사례 보도 · BleepingComputer (2025-06-11)</p><a class="w10-evidence-link" href="https://www.bleepingcomputer.com/news/security/zero-click-ai-data-leak-flaw-uncovered-in-microsoft-365-copilot/" target="_blank" rel="noopener noreferrer" data-wd-i18n="prompt_injection_ai_b0_1_link">Zero-click AI data leak flaw uncovered in Microsoft 365 Copilot ↗</a><p class="w10-evidence-summary" data-wd-i18n="prompt_injection_ai_b0_1_summary">외부 이메일 속 숨은 지시로 EchoLeak(CVE-2025-32711) 발생 · M365 내부 데이터 유출</p></figcaption></figure></div>
+<div class="wd-lesson-block"><figure class="w10-flow"><ol>
+<li>
+<strong data-wd-i18n="prompt_injection_ai_b1_0_0_title">비신뢰 입력 격리</strong>
+<p data-wd-i18n="prompt_injection_ai_b1_0_0_body">외부 이메일 · 댓글 · 문서를
+작업 지시와 명확히 분리</p>
+</li>
+<li>
+<strong data-wd-i18n="prompt_injection_ai_b1_0_1_title">에이전트 최소 권한</strong>
+<p data-wd-i18n="prompt_injection_ai_b1_0_1_body">읽기·승인·실행 권한 분리
+모델 밖에서 정책·승인 검사</p>
+</li>
+<li>
+<strong data-wd-i18n="prompt_injection_ai_b1_0_2_title">AI 출력·전송 통제</strong>
+<p data-wd-i18n="prompt_injection_ai_b1_0_2_body">생성 HTML · SQL 직접 실행 금지
+외부 URL 요청·도구 호출 제한</p>
+</li>
+</ol>
+<figcaption class="w10-caption" data-wd-i18n="prompt_injection_ai_b1_0_caption">OWASP LLM Top 10 (2025) 및 EchoLeak 대응 원칙(입력 격리·출력 외부 전송 차단) 반영</figcaption>
+</figure></div>
+</div>
+<aside hidden class="wd-lesson-notes">실제 패치된 취약점(EchoLeak CVE-2025-32711)과 통제된 연구 시연(Comment and Control)을 구분.
+[Sources]
+https://www.bleepingcomputer.com/news/security/zero-click-ai-data-leak-flaw-uncovered-in-microsoft-365-copilot/
+https://nvd.nist.gov/vuln/detail/CVE-2025-32711
 https://oddguan.com/blog/comment-and-control/
+https://genai.owasp.org/llm-top-10/
+lectures/10/materials/case-evidence-sources.md
 [/Sources]</aside>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="prompt-injection" data-wd-concept="prompt-injection" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="prompt_injection_title">프롬프트 인젝션</h2>
-<p class="wd-slide-lead" data-wd-i18n="prompt_injection_lead">데이터가 지시로 취급되는 경계</p>
-<div class="wd-lesson-body wd-lesson-body--single">
+<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="foodmap-apply" role="region">
+<p class="wd-lesson-eyebrow" data-wd-i18n="foodmap_apply_number">03</p>
+<h2 class="wd-slide-heading" data-wd-i18n="foodmap_apply_title">실전 적용: 푸드맵 인증·인가 및 보안 설계</h2>
+</section>
+
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="foodmap-security-gap" data-wd-concept="foodmap-security-gap" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="foodmap_security_gap_title">현재 푸드맵의 보안 공백 진단</h2>
+<p class="wd-slide-lead" data-wd-i18n="foodmap_security_gap_lead">인증 없는 API와 브라우저 localStorage 의존 구조 점검</p>
+<div class="wd-lesson-body wd-lesson-body--split">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="prompt_injection_b0_0_0_term">프롬프트 인젝션 - 입력이 모델의 의도된 동작을 바꾸도록 유도</strong></dt>
-<dd><ul><li data-wd-i18n="prompt_injection_b0_0_0_detail0">직접 입력뿐 아니라 검색 문서 · 제보 · 로그에도 지시 삽입 가능</li><li data-wd-i18n="prompt_injection_b0_0_0_detail1">내용의 출처와 신뢰 수준을 보존 · 외부 내용은 작업 권한이 아님</li></ul></dd>
+<div><dt><strong data-wd-i18n="foodmap_security_gap_b0_0_0_term">현재 구현 범위 (7~9주차) - React 클라이언트 · Express API · Supabase DB 구조</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_security_gap_b0_0_0_detail0">맛집 목록 조회는 동작하나 제보·좋아요가 localStorage에 남거나 비인증 요청 허용</li><li data-wd-i18n="foodmap_security_gap_b0_0_0_detail1">누구나 가짜 제보를 대량 등록하거나 타인 데이터를 조작할 수 있는 무방비 상태</li></ul></dd>
 </div>
 </dl></div>
+<div class="wd-lesson-block"><table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="foodmap_security_gap_b1_0_h0">점검 항목</th><th scope="col" data-wd-i18n="foodmap_security_gap_b1_0_h1">현재 상태 (적용 전)</th><th scope="col" data-wd-i18n="foodmap_security_gap_b1_0_h2">보안 적용 목표</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="foodmap_security_gap_b1_0_r0_0">맛집 제보 저장</th><td data-wd-i18n="foodmap_security_gap_b1_0_r0_1">localStorage · 비인증 저장</td><td data-wd-i18n="foodmap_security_gap_b1_0_r0_2">로그인 사용자 식별 후 DB 저장</td></tr><tr><th scope="row" data-wd-i18n="foodmap_security_gap_b1_0_r1_0">제보 승인 · 거절</th><td data-wd-i18n="foodmap_security_gap_b1_0_r1_1">역할 구분 · 관리자 검증 없음</td><td data-wd-i18n="foodmap_security_gap_b1_0_r1_2">서버 관리자 권한 검사 필수</td></tr><tr><th scope="row" data-wd-i18n="foodmap_security_gap_b1_0_r2_0">통신 및 비밀키</th><td data-wd-i18n="foodmap_security_gap_b1_0_r2_1">로컬 환경 위주 연결</td><td data-wd-i18n="foodmap_security_gap_b1_0_r2_2">엄격한 CORS · 쿠키 · 키 분리</td></tr></tbody></table></div>
 </div>
-<aside hidden class="wd-lesson-notes">
+<aside hidden class="wd-lesson-notes">7~9주차 구현 사실과 10주차 신규 보안 적용 설계 과제를 구분.
 [Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
+lectures/08/lab-review/index.html
+lectures/10/materials/lecture-plan.md
 [/Sources]</aside>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="permissions" data-wd-concept="permissions" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="permissions_title">에이전트 권한</h2>
-<p class="wd-slide-lead" data-wd-i18n="permissions_lead">모델 판단과 실제 실행 권한의 분리</p>
-<div class="wd-lesson-body wd-lesson-body--single">
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="foodmap-role-matrix" data-wd-concept="foodmap-role-matrix" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="foodmap_role_matrix_title">역할별 권한 매트릭스와 데이터 모델</h2>
+<p class="wd-slide-lead" data-wd-i18n="foodmap_role_matrix_lead">비로그인·일반 사용자·관리자 정책과 사용자 스키마 확장</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="permissions_b0_0_0_term">최소 권한 - 작업에 필요한 기능과 데이터만 허용</strong></dt>
-<dd><ul><li data-wd-i18n="permissions_b0_0_0_detail0">읽기 · 수정 · 삭제 · 전송 권한을 분리</li><li data-wd-i18n="permissions_b0_0_0_detail1">민감한 실행은 모델 밖의 승인 · 정책 검사 적용</li><li data-wd-i18n="permissions_b0_0_0_detail2">외부 입력 처리 환경에서 운영 비밀정보 분리</li></ul></dd>
+<div><dt><strong data-wd-i18n="foodmap_role_matrix_b0_0_0_term">권한 명세 - 비로그인·일반 사용자·관리자별 API 허용과 거부 계약</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_role_matrix_b0_0_0_detail0">화면에서 승인 버튼을 숨기는 것은 보안이 아니며 서버 응답(401·403)으로 강제</li></ul></dd>
+</div>
+<div><dt><strong data-wd-i18n="foodmap_role_matrix_b0_0_1_term">데이터 모델 확장 - 사용자 신원과 제보 소유권 연결</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_role_matrix_b0_0_1_detail0">users 테이블에 단방향 해시 비밀번호(bcrypt/argon2)와 role 저장 · submissions에 user_id 연결</li></ul></dd>
 </div>
 </dl></div>
+<div class="wd-lesson-block"><table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="foodmap_role_matrix_b1_0_h0">요청 (API)</th><th scope="col" data-wd-i18n="foodmap_role_matrix_b1_0_h1">비로그인</th><th scope="col" data-wd-i18n="foodmap_role_matrix_b1_0_h2">일반 사용자</th><th scope="col" data-wd-i18n="foodmap_role_matrix_b1_0_h3">관리자</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="foodmap_role_matrix_b1_0_r0_0">맛집 목록 조회</th><td data-wd-i18n="foodmap_role_matrix_b1_0_r0_1">허용</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r0_2">허용</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r0_3">허용</td></tr><tr><th scope="row" data-wd-i18n="foodmap_role_matrix_b1_0_r1_0">맛집 제보 등록</th><td data-wd-i18n="foodmap_role_matrix_b1_0_r1_1">거부 (401)</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r1_2">허용</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r1_3">허용</td></tr><tr><th scope="row" data-wd-i18n="foodmap_role_matrix_b1_0_r2_0">본인 제보 수정</th><td data-wd-i18n="foodmap_role_matrix_b1_0_r2_1">거부 (401)</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r2_2">본인만 허용</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r2_3">허용</td></tr><tr><th scope="row" data-wd-i18n="foodmap_role_matrix_b1_0_r3_0">제보 승인 · 거절</th><td data-wd-i18n="foodmap_role_matrix_b1_0_r3_1">거부 (401)</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r3_2">거부 (403)</td><td data-wd-i18n="foodmap_role_matrix_b1_0_r3_3">허용</td></tr></tbody></table></div>
 </div>
 <aside hidden class="wd-lesson-notes">
 [Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
+https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
 [/Sources]</aside>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="output-validation" data-wd-concept="output-validation" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="output_validation_title">AI 출력 검증</h2>
-<p class="wd-slide-lead" data-wd-i18n="output_validation_lead">모델 출력을 신뢰하지 않는 입력으로 취급</p>
-<div class="wd-lesson-body wd-lesson-body--single">
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="foodmap-auth-cors" data-wd-concept="foodmap-auth-cors" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="foodmap_auth_cors_title">인증 흐름과 교차 출처(CORS·쿠키) 설정</h2>
+<p class="wd-slide-lead" data-wd-i18n="foodmap_auth_cors_lead">안전한 로그인·세션 전달과 Vercel–Render 간 출처 허용</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="output_validation_b0_0_0_term">출력 검증 - 다른 시스템으로 전달하기 전 형식과 권한 확인</strong></dt>
-<dd><ul><li data-wd-i18n="output_validation_b0_0_0_detail0">생성된 HTML · SQL · 명령을 그대로 실행하지 않음</li><li data-wd-i18n="output_validation_b0_0_0_detail1">허용 목록 · 매개변수화 · 서버 권한 검사 적용</li></ul></dd>
+<div><dt><strong data-wd-i18n="foodmap_auth_cors_b0_0_0_term">로그인 파이프라인 - 해시 비교 검증 후 보호 속성이 적용된 세션 쿠키 발급</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_auth_cors_b0_0_0_detail0">HttpOnly · Secure · 적절한 SameSite 속성 적용 · 로그아웃 시 서버 저장소 무효화</li><li data-wd-i18n="foodmap_auth_cors_b0_0_0_detail1">로그인 비밀번호와 세션 식별자 원문은 서버 로그에 기록 금지</li></ul></dd>
+</div>
+<div><dt><strong data-wd-i18n="foodmap_auth_cors_b0_0_1_term">교차 출처 허용 설정 - 배포된 프론트엔드 주소(CLIENT_URL)만 API 읽기 허용</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_auth_cors_b0_0_1_detail0">Vercel(UI)과 Render(API) 출처가 다르므로 와일드카드(*) 대신 명시적 출처 지정</li></ul></dd>
 </div>
 </dl></div>
+<div class="wd-lesson-block"><p class="wd-lesson-code-label" data-wd-i18n="foodmap_auth_cors_b1_0_label">Express · 명시적 출처 CORS와 보호 쿠키 설정 예시</p><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="64" data-wd-i18n="foodmap_auth_cors_b1_0_code">app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true
+  })
+);
+
+res.cookie(&#x27;sid&#x27;, sessionId, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === &#x27;production&#x27;,
+  sameSite: &#x27;lax&#x27;
+});</pre></div>
 </div>
 <aside hidden class="wd-lesson-notes">
 [Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
+lectures/08/materials/chapter06-supplement.ko.txt
 [/Sources]</aside>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="data-exposure" data-wd-concept="data-exposure" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="data_exposure_title">데이터와 비밀정보</h2>
-<p class="wd-slide-lead" data-wd-i18n="data_exposure_lead">AI에 전달되는 정보의 범위</p>
-<div class="wd-lesson-body wd-lesson-body--single">
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="foodmap-server-defenses" data-wd-concept="foodmap-server-defenses" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="foodmap_server_defenses_title">서버 인가 및 입력·쿼리·출력 방어 구현</h2>
+<p class="wd-slide-lead" data-wd-i18n="foodmap_server_defenses_lead">Express 미들웨어 권한 검사와 3대 취약점 코드 수준 방어</p>
+<div class="wd-lesson-body wd-lesson-body--code">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="data_exposure_b0_0_0_term">정보 보호 - 필요한 데이터만 제공하고 접근을 제한</strong></dt>
-<dd><ul><li data-wd-i18n="data_exposure_b0_0_0_detail0">개인정보 · 토큰 · 운영 로그를 프롬프트와 도구 결과에서 최소화</li><li data-wd-i18n="data_exposure_b0_0_0_detail1">사용자별 검색 권한과 데이터 범위 확인</li></ul></dd>
+<div><dt><strong data-wd-i18n="foodmap_server_defenses_b0_0_0_term">서버 인가 미들웨어 - 라우트 실행 전 인증(401)·역할(403)·소유권 확인</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_server_defenses_b0_0_0_detail0">isAuthenticated → requireAdmin 순서로 관리자 라우트 보호</li></ul></dd>
+</div>
+<div><dt><strong data-wd-i18n="foodmap_server_defenses_b0_0_1_term">코드 수준 3대 방어 - 입력 범위 검증 · 매개변수화 쿼리 · React 텍스트 출력</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_server_defenses_b0_0_1_detail0">파싱된 name·latitude 검증으로 비정상 입력 차단 · $1 쿼리로 SQL 인젝션 방어</li><li data-wd-i18n="foodmap_server_defenses_b0_0_1_detail1">제보 설명을 JSX 문자열 자식으로 출력해 스크립트 실행(XSS) 차단</li></ul></dd>
 </div>
 </dl></div>
+<div class="wd-lesson-block"><p class="wd-lesson-code-label" data-wd-i18n="foodmap_server_defenses_b1_0_label">서버 JS · 입력 검증 및 매개변수화 쿼리</p><pre class="wd-code" data-wd-code="javascript" data-wd-code-width="66" data-wd-i18n="foodmap_server_defenses_b1_0_code">const nameOK = typeof name === &#x27;string&#x27; &amp;&amp; name.trim().length &gt; 0;
+const latOK =
+  Number.isFinite(latitude) &amp;&amp; latitude &gt;= -90 &amp;&amp; latitude &lt;= 90;
+if (!nameOK || !latOK) {
+  return res.status(400).json({ error: &#x27;Invalid input&#x27; });
+}
+
+await client.query(
+  &#x27;SELECT name FROM restaurants WHERE name = $1&#x27;,
+  [searchTerm]
+);</pre>
+<p class="wd-lesson-code-label" data-wd-i18n="foodmap_server_defenses_b1_1_label">React JSX · 안전한 텍스트 출력</p><pre class="wd-code" data-wd-code="jsx" data-wd-code-width="52" data-wd-i18n="foodmap_server_defenses_b1_1_code">function ReportText({ report }) {
+  return &lt;p&gt;{report.description}&lt;/p&gt;;
+}</pre></div>
 </div>
-<aside hidden class="wd-lesson-notes">
+<aside hidden class="wd-lesson-notes">8주차에서 분리된 푸드맵 입력 검증 · SQL 인젝션 · XSS 방어 예제를 실전 적용 장으로 통합.
 [Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
+lectures/08/scripts/new_resources.py
 [/Sources]</aside>
 </section>
 
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="supply-chain" data-wd-concept="supply-chain" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="supply_chain_title">AI 개발과 공급망</h2>
-<p class="wd-slide-lead" data-wd-i18n="supply_chain_lead">생성 코드 · 패키지 · 도구 연결의 검증</p>
-<div class="wd-lesson-body wd-lesson-body--single">
+<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="foodmap-secrets-verify" data-wd-concept="foodmap-secrets-verify" role="region">
+<h2 class="wd-slide-heading" data-wd-i18n="foodmap_secrets_verify_title">비밀정보 격리 · AI 경계 · 보안 검증</h2>
+<p class="wd-slide-lead" data-wd-i18n="foodmap_secrets_verify_lead">환경변수 번들 분리와 가상 AI 요약·권한 우회 테스트 계획</p>
+<div class="wd-lesson-body wd-lesson-body--visual">
 <div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="supply_chain_b0_0_0_term">공급망 - 서비스가 의존하는 코드와 구성 요소의 연결</strong></dt>
-<dd><ul><li data-wd-i18n="supply_chain_b0_0_0_detail0">생성 코드의 인증 · 입력 처리 · 의존성을 검토</li><li data-wd-i18n="supply_chain_b0_0_0_detail1">외부 도구의 출처 · 권한 · 업데이트 이력 확인</li></ul></dd>
+<div><dt><strong data-wd-i18n="foodmap_secrets_verify_b0_0_0_term">환경변수 분리 - 브라우저 번들(VITE_*)과 서버 전용 키(SERVER_SECRET) 엄격 격리</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_secrets_verify_b0_0_0_detail0">Supabase Service Role Key와 세션 비밀키는 Express 서버 환경에서만 로드</li></ul></dd>
+</div>
+<div><dt><strong data-wd-i18n="foodmap_secrets_verify_b0_0_1_term">가상 AI 제보 요약 경계 - 외부 제보 텍스트와 관리자 승인 도구의 권한 분리</strong></dt>
+<dd><ul><li data-wd-i18n="foodmap_secrets_verify_b0_0_1_detail0">요약기는 읽기 전용으로 동작하며 제보 승인·삭제나 DB 직접 변경 권한 부여 금지</li></ul></dd>
 </div>
 </dl></div>
+<div class="wd-lesson-block"><table class="wd-lesson-table"><thead><tr><th scope="col" data-wd-i18n="foodmap_secrets_verify_b1_0_h0">환경 설정</th><th scope="col" data-wd-i18n="foodmap_secrets_verify_b1_0_h1">전달 경로</th><th scope="col" data-wd-i18n="foodmap_secrets_verify_b1_0_h2">노출 범위</th></tr></thead><tbody><tr><th scope="row" data-wd-i18n="foodmap_secrets_verify_b1_0_r0_0">SUPABASE_SERVICE_ROLE_KEY</th><td data-wd-i18n="foodmap_secrets_verify_b1_0_r0_1">환경 → Express 프로세스</td><td data-wd-i18n="foodmap_secrets_verify_b1_0_r0_2">서버 전용 (절대 노출 금지)</td></tr><tr><th scope="row" data-wd-i18n="foodmap_secrets_verify_b1_0_r1_0">VITE_API_BASE_URL</th><td data-wd-i18n="foodmap_secrets_verify_b1_0_r1_1">환경 → 빌드 → 브라우저 번들</td><td data-wd-i18n="foodmap_secrets_verify_b1_0_r1_2">사용자 열람 가능 (공개 주소만)</td></tr></tbody></table>
+<p class="w10-caption w10-resource-note" data-wd-i18n="foodmap_secrets_verify_b1_1">보안 수용 조건 검증 (하네스): 비로그인 제보(401) · 일반 사용자 승인(403) · 타인 수정(403) · 로그아웃 후 재요청 거부 확인</p></div>
 </div>
-<aside hidden class="wd-lesson-notes">
+<aside hidden class="wd-lesson-notes">가상 AI 제보 요약은 수업용 위협 모델링 시나리오이며 현재 푸드맵 구현 사실이 아니다.
 [Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="monitoring-ai" data-wd-concept="monitoring-ai" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="monitoring_ai_title">AI 서비스 운영과 대응</h2>
-<p class="wd-slide-lead" data-wd-i18n="monitoring_ai_lead">행동 추적과 사용량 제한</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="monitoring_ai_b0_0_0_term">운영 통제 - 이상 행동을 발견하고 피해를 제한</strong></dt>
-<dd><ul><li data-wd-i18n="monitoring_ai_b0_0_0_detail0">도구 호출 · 승인 · 결과의 추적 기록 · 민감정보 제외</li><li data-wd-i18n="monitoring_ai_b0_0_0_detail1">요청 제한 · 비용 한도 · 권한 회수 · 사고 대응 절차</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="foodmap-ai" data-wd-concept="foodmap-ai" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="foodmap_ai_title">푸드맵 AI 기능의 위협 모델</h2>
-<p class="wd-slide-lead" data-wd-i18n="foodmap_ai_lead">맛집 제보 요약 기능을 가정한 설계</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="foodmap_ai_b0_0_0_term">위협 모델 - 자산 · 입력 · 권한 · 공격 경로를 확인</strong></dt>
-<dd><ul><li data-wd-i18n="foodmap_ai_b0_0_0_detail0">공격자 제보 → AI 요약 → 관리자 화면 · 외부 제보는 비신뢰 데이터</li><li data-wd-i18n="foodmap_ai_b0_0_0_detail1">요약기는 읽기 전용 · 승인과 삭제는 서버 권한 검사</li><li data-wd-i18n="foodmap_ai_b0_0_0_detail2">악성 지시가 포함된 제보로 격리 환경에서 검증</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="auth" role="region">
-<p class="wd-lesson-eyebrow" data-wd-i18n="auth_number">02</p>
-<h2 class="wd-slide-heading" data-wd-i18n="auth_title">웹 서비스 인증과 권한</h2>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="need" data-wd-concept="need" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="need_title">인증의 필요성</h2>
-<p class="wd-slide-lead" data-wd-i18n="need_lead">HTTP 요청과 사용자 식별</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="need_b0_0_0_term">인증 - 요청 주체의 신원을 확인하는 과정</strong></dt>
-<dd><ul><li data-wd-i18n="need_b0_0_0_detail0">독립적인 요청 사이에서 사용자를 식별할 수단 필요</li><li data-wd-i18n="need_b0_0_0_detail1">개인화 · 권한 제어 · 감사 기록의 출발점</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="authorization" data-wd-concept="authorization" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="authorization_title">인증과 인가의 구분</h2>
-<p class="wd-slide-lead" data-wd-i18n="authorization_lead">사용자 확인과 작업 권한의 구분</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="authorization_b0_0_0_term">인가 - 주체의 작업 권한을 판단하는 과정</strong></dt>
-<dd><ul><li data-wd-i18n="authorization_b0_0_0_detail0">일반 사용자는 맛집 제보 · 관리자는 제보 승인</li><li data-wd-i18n="authorization_b0_0_0_detail1">서버에서 요청마다 권한 확인</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="flow" data-wd-concept="flow" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="flow_title">로그인 흐름</h2>
-<p class="wd-slide-lead" data-wd-i18n="flow_lead">자격 증명 검증과 후속 요청</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="flow_b0_0_0_term">로그인 - 신원 확인 후 인증 상태를 연결하는 과정</strong></dt>
-<dd><ul><li data-wd-i18n="flow_b0_0_0_detail0">자격 증명 제출 → 서버 검증 → 세션 또는 토큰 발급</li><li data-wd-i18n="flow_b0_0_0_detail1">후속 요청 검증 · 로그아웃 또는 만료</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="cookie" data-wd-concept="cookie" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="cookie_title">쿠키</h2>
-<p class="wd-slide-lead" data-wd-i18n="cookie_lead">브라우저의 값 저장과 요청 전달</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="cookie_b0_0_0_term">쿠키 - 범위와 속성에 따라 브라우저가 저장·전송하는 값</strong></dt>
-<dd><ul><li data-wd-i18n="cookie_b0_0_0_detail0">서버의 Set-Cookie 응답 · 조건에 맞는 요청에 Cookie 전송</li><li data-wd-i18n="cookie_b0_0_0_detail1">쿠키는 전달 수단 · 세션은 서버의 상태</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="session" data-wd-concept="session" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="session_title">세션 기반 인증</h2>
-<p class="wd-slide-lead" data-wd-i18n="session_lead">서버 상태와 세션 식별자</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="session_b0_0_0_term">세션 - 서버에 보관한 사용자 상태</strong></dt>
-<dd><ul><li data-wd-i18n="session_b0_0_0_detail0">브라우저의 세션 ID로 서버 저장소의 상태 조회</li><li data-wd-i18n="session_b0_0_0_detail1">공유 저장소 · 서버 만료 · 로그아웃 시 무효화</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="jwt" data-wd-concept="jwt" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="jwt_title">JWT</h2>
-<p class="wd-slide-lead" data-wd-i18n="jwt_lead">서명된 토큰의 구조와 검증</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="jwt_b0_0_0_term">JWT - 클레임을 전달하는 토큰 형식</strong></dt>
-<dd><ul><li data-wd-i18n="jwt_b0_0_0_detail0">헤더 · 페이로드 · 서명으로 구성 가능</li><li data-wd-i18n="jwt_b0_0_0_detail1">서명 · 발급자 · 대상 · 만료 등 필요한 조건 검증</li><li data-wd-i18n="jwt_b0_0_0_detail2">인코딩은 암호화가 아니며 토큰 탈취 시 재사용 위험</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="oauth" data-wd-concept="oauth" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="oauth_title">OAuth와 OpenID Connect</h2>
-<p class="wd-slide-lead" data-wd-i18n="oauth_lead">권한 위임과 사용자 인증</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="oauth_b0_0_0_term">OAuth 2.0 - 자원 접근 권한을 위임하는 프레임워크</strong></dt>
-<dd><ul><li data-wd-i18n="oauth_b0_0_0_detail0">OpenID Connect는 OAuth 위의 인증 계층</li><li data-wd-i18n="oauth_b0_0_0_detail1">제공자별 로그인 흐름과 검증 절차 확인</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="security" role="region">
-<p class="wd-lesson-eyebrow" data-wd-i18n="security_number">03</p>
-<h2 class="wd-slide-heading" data-wd-i18n="security_title">웹 보안과 운영</h2>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="xss" data-wd-concept="xss" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="xss_title">XSS</h2>
-<p class="wd-slide-lead" data-wd-i18n="xss_lead">신뢰하지 않는 내용과 브라우저 실행</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="xss_b0_0_0_term">XSS - 악성 스크립트가 사용자 브라우저에서 실행되는 공격</strong></dt>
-<dd><ul><li data-wd-i18n="xss_b0_0_0_detail0">출력 문맥에 맞는 이스케이프 · HTML 처리 제한</li><li data-wd-i18n="xss_b0_0_0_detail1">HttpOnly는 쿠키 직접 읽기를 제한하나 악성 요청을 막지는 않음</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="csrf" data-wd-concept="csrf" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="csrf_title">CSRF</h2>
-<p class="wd-slide-lead" data-wd-i18n="csrf_lead">로그인 상태를 이용한 의도하지 않은 요청</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="csrf_b0_0_0_term">CSRF - 사용자의 브라우저가 공격자의 요청을 전송하도록 유도하는 공격</strong></dt>
-<dd><ul><li data-wd-i18n="csrf_b0_0_0_detail0">상태 변경 요청에 CSRF 방어와 Origin 검사 적용</li><li data-wd-i18n="csrf_b0_0_0_detail1">SameSite는 추가 방어 수단</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="injection" data-wd-concept="injection" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="injection_title">SQL 인젝션</h2>
-<p class="wd-slide-lead" data-wd-i18n="injection_lead">입력값과 쿼리 구조의 분리</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="injection_b0_0_0_term">SQL 인젝션 - 입력으로 데이터베이스 쿼리를 조작하는 공격</strong></dt>
-<dd><ul><li data-wd-i18n="injection_b0_0_0_detail0">매개변수화된 쿼리 · 최소 권한 · 입력 검증</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="other-attacks" data-wd-concept="other-attacks" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="other_attacks_title">로그인과 파일 접근 공격</h2>
-<p class="wd-slide-lead" data-wd-i18n="other_attacks_lead">반복 시도와 경로 조작</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="other_attacks_b0_0_0_term">공격 경로 - 인증 시도 또는 파일 경로를 악용</strong></dt>
-<dd><ul><li data-wd-i18n="other_attacks_b0_0_0_detail0">무차별 대입: 시도 제한 · 이상 패턴 감시</li><li data-wd-i18n="other_attacks_b0_0_0_detail1">경로 탐색: 허용 범위 검사 · 최소 권한</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="secrets" data-wd-concept="secrets" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="secrets_title">비밀정보 관리</h2>
-<p class="wd-slide-lead" data-wd-i18n="secrets_lead">환경별 분리와 유출 대응</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="secrets_b0_0_0_term">비밀정보 - 접근 권한을 제공하는 키와 자격 증명</strong></dt>
-<dd><ul><li data-wd-i18n="secrets_b0_0_0_detail0">저장소에 포함하지 않고 환경별로 분리</li><li data-wd-i18n="secrets_b0_0_0_detail1">유출 시 폐기 · 교체 · 영향 범위 확인</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="operations" data-wd-concept="operations" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="operations_title">세션과 로그 운영</h2>
-<p class="wd-slide-lead" data-wd-i18n="operations_lead">안전한 전달 · 만료 · 사건 기록</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="operations_b0_0_0_term">운영 관리 - 인증 상태와 보안 사건의 지속적 관리</strong></dt>
-<dd><ul><li data-wd-i18n="operations_b0_0_0_detail0">HTTPS · Secure · HttpOnly · 적절한 SameSite 적용</li><li data-wd-i18n="operations_b0_0_0_detail1">서버에서 세션 만료와 로그아웃 무효화</li><li data-wd-i18n="operations_b0_0_0_detail2">비밀번호와 토큰을 로그에 기록하지 않음</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
-[/Sources]</aside>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-lesson-chapter" data-wd-slide="practice" role="region">
-<p class="wd-lesson-eyebrow" data-wd-i18n="practice_number">04</p>
-<h2 class="wd-slide-heading" data-wd-i18n="practice_title">푸드맵 인증 설계 실습</h2>
-</section>
-
-<section class="wd-slide wd-lesson-slide wd-slide--content" data-wd-slide="exercise" data-wd-concept="exercise" role="region">
-<h2 class="wd-slide-heading" data-wd-i18n="exercise_title">역할별 권한 설계</h2>
-<p class="wd-slide-lead" data-wd-i18n="exercise_lead">기존 푸드맵에 인증 추가</p>
-<div class="wd-lesson-body wd-lesson-body--single">
-<div class="wd-lesson-block"><dl class="wd-lesson-concepts wd-lesson-concepts--bulleted">
-<div><dt><strong data-wd-i18n="exercise_b0_0_0_term">설계 실습 - 역할별 요청 결과와 검증 조건 작성</strong></dt>
-<dd><ul><li data-wd-i18n="exercise_b0_0_0_detail0">목록 공개 · 로그인 사용자 제보 · 관리자 승인</li><li data-wd-i18n="exercise_b0_0_0_detail1">비로그인 · 권한 부족 · 로그아웃 후 요청 검사</li><li data-wd-i18n="exercise_b0_0_0_detail2">데이터 모델 · API 계약 · 비밀정보 관리 방안 명세</li></ul></dd>
-</div>
-</dl></div>
-</div>
-<aside hidden class="wd-lesson-notes">
-[Sources]
-lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf
+lectures/08/scripts/new_resources.py
+lectures/10/materials/incident-vulnerability-analysis.md
 [/Sources]</aside>
 </section>
 </div></div></main>

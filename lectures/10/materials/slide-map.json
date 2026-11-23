@@ -8,274 +8,211 @@
   },
   {
     "number": 2,
-    "id": "ai-security",
+    "id": "reality",
     "kind": "chapter",
-    "title": "AI 시대의 웹 서비스 보안",
+    "title": "웹 서비스 보안의 현실과 패러다임 전환",
     "subtitle": "",
     "sources": []
   },
   {
     "number": 3,
-    "id": "boundaries",
+    "id": "abandoned-sites",
     "kind": "content",
-    "title": "AI가 바꾸는 보안 경계",
-    "subtitle": "공격자의 자동화와 서비스의 AI 기능",
+    "title": "방치된 웹사이트와 공격 표면",
+    "subtitle": "국내 50만 개 웹 서비스의 관리 부재와 최초 침투 경로",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://www.youtube.com/watch?v=DfhLUqZfGTo"
     ]
   },
   {
     "number": 4,
-    "id": "campaign",
+    "id": "ai-attack-automation",
     "kind": "content",
-    "title": "사례: AI를 활용한 사이버 첩보",
-    "subtitle": "2025년 9월 탐지 · Anthropic 공개 보고",
+    "title": "AI 기반 공격 자동화와 상시 위협",
+    "subtitle": "취약점 탐색 비용 감소로 모든 공개 엔드포인트가 무차별 공격 대상",
     "sources": [
-      "https://www.anthropic.com/news/disrupting-AI-espionage"
+      "https://www.youtube.com/watch?v=DfhLUqZfGTo"
     ]
   },
   {
     "number": 5,
-    "id": "comment-control",
+    "id": "solution-limits",
     "kind": "content",
-    "title": "사례: Comment and Control",
-    "subtitle": "2026년 4월 공개 · 연구 환경의 재현",
+    "title": "보안 장비의 한계와 코드 취약점",
+    "subtitle": "외부 방화벽이 대신 막아주지 못하는 애플리케이션 구현 결함",
     "sources": [
-      "https://oddguan.com/blog/comment-and-control/"
+      "https://www.youtube.com/watch?v=DfhLUqZfGTo"
     ]
   },
   {
     "number": 6,
-    "id": "prompt-injection",
+    "id": "security-by-design",
     "kind": "content",
-    "title": "프롬프트 인젝션",
-    "subtitle": "데이터가 지시로 취급되는 경계",
+    "title": "설계 단계의 보안과 개발자의 책임",
+    "subtitle": "기능 구현과 동시에 내재화하는 인증·인가와 비밀정보 보호",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://www.youtube.com/watch?v=DfhLUqZfGTo"
     ]
   },
   {
     "number": 7,
-    "id": "permissions",
-    "kind": "content",
-    "title": "에이전트 권한",
-    "subtitle": "모델 판단과 실제 실행 권한의 분리",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
+    "id": "vulnerabilities",
+    "kind": "chapter",
+    "title": "주요 웹 취약점과 방어 원리",
+    "subtitle": "",
+    "sources": []
   },
   {
     "number": 8,
-    "id": "output-validation",
+    "id": "broken-object-auth",
     "kind": "content",
-    "title": "AI 출력 검증",
-    "subtitle": "모델 출력을 신뢰하지 않는 입력으로 취급",
+    "title": "객체 수준 인가 결함과 접근 통제",
+    "subtitle": "요청 파라미터 변조로 타인의 자원에 접근하는 취약점 방어",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://www.dailysecu.com/news/articleView.html?idxno=167409",
+      "https://www.bleepingcomputer.com/news/security/optus-hacker-apologizes-and-allegedly-deletes-all-stolen-data/",
+      "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/",
+      "lectures/10/materials/case-evidence-sources.md"
     ]
   },
   {
     "number": 9,
-    "id": "data-exposure",
+    "id": "input-and-sqli",
     "kind": "content",
-    "title": "데이터와 비밀정보",
-    "subtitle": "AI에 전달되는 정보의 범위",
+    "title": "입력 검증과 SQL 인젝션",
+    "subtitle": "사용자 입력이 데이터베이스 명령 구조로 해석되는 경로 차단",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://www.securityweek.com/ransomware-group-used-moveit-exploit-to-steal-data-from-dozens-of-organizations/",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-34362",
+      "lectures/10/materials/case-evidence-sources.md"
     ]
   },
   {
     "number": 10,
-    "id": "supply-chain",
+    "id": "xss-and-script-control",
     "kind": "content",
-    "title": "AI 개발과 공급망",
-    "subtitle": "생성 코드 · 패키지 · 도구 연결의 검증",
+    "title": "XSS와 스크립트 실행 통제",
+    "subtitle": "외부 입력과 제3자 스크립트가 브라우저에서 실행되는 위험 차단",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://www.helpnetsecurity.com/2026/11/17/optimizely-vulnerability-malicious-javascript/",
+      "https://support.optimizely.com/hc/en-us/articles/50521849710605-Security-Advisory-Web-Experimentation-Security-Incident-Updated-November-19-2026",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+      "lectures/10/materials/case-evidence-sources.md"
     ]
   },
   {
     "number": 11,
-    "id": "monitoring-ai",
+    "id": "origin-sop-cors",
     "kind": "content",
-    "title": "AI 서비스 운영과 대응",
-    "subtitle": "행동 추적과 사용량 제한",
+    "title": "웹 출처 · 동일 출처 정책과 CORS",
+    "subtitle": "브라우저의 교차 출처 접근 경계와 허용 범위 오설정 방어",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://thehackernews.com/2019/03/stackstorm-security-vulnerability.html",
+      "https://nvd.nist.gov/vuln/detail/CVE-2019-9580",
+      "https://hackerone.com/reports/733017",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+      "lectures/10/materials/case-evidence-sources.md"
     ]
   },
   {
     "number": 12,
-    "id": "foodmap-ai",
+    "id": "csrf-and-cookie-attrs",
     "kind": "content",
-    "title": "푸드맵 AI 기능의 위협 모델",
-    "subtitle": "맛집 제보 요약 기능을 가정한 설계",
+    "title": "CSRF와 쿠키 보호 속성의 한계",
+    "subtitle": "자동 첨부되는 로그인 쿠키 악용과 서버 측 요청 의도 검증",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://www.securityweek.com/csrf-vulnerability-facebook-earns-researcher-25000",
+      "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+      "lectures/10/materials/case-evidence-sources.md"
     ]
   },
   {
     "number": 13,
-    "id": "auth",
-    "kind": "chapter",
-    "title": "웹 서비스 인증과 권한",
-    "subtitle": "",
-    "sources": []
+    "id": "secrets-and-supply-chain",
+    "kind": "content",
+    "title": "비밀정보 유출과 외부 경계 관리",
+    "subtitle": "개발자 키 탈취·하드코딩 및 외부 업체·백업 경로 침해 대응",
+    "sources": [
+      "https://www.etnews.com/20260903000283",
+      "https://m.korea.kr/briefing/pressReleaseView.do?gubun=pressRelease&newsId=156780136&pageIndex=3&repCode=",
+      "https://tdnet-pdf.kabutan.jp/20261116/140120261116581662.pdf",
+      "https://apnews.com/article/8470d475450721b66858bdace47091c0",
+      "https://www.douzone.com/board/read.jsp?code=notice&id=3508",
+      "lectures/10/materials/case-evidence-sources.md"
+    ]
   },
   {
     "number": 14,
-    "id": "need",
+    "id": "prompt-injection-ai",
     "kind": "content",
-    "title": "인증의 필요성",
-    "subtitle": "HTTP 요청과 사용자 식별",
+    "title": "AI 시대의 경계: 간접 프롬프트 인젝션",
+    "subtitle": "외부 입력이 에이전트의 실행 지시로 승격되는 위험 통제",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://www.bleepingcomputer.com/news/security/zero-click-ai-data-leak-flaw-uncovered-in-microsoft-365-copilot/",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-32711",
+      "https://oddguan.com/blog/comment-and-control/",
+      "https://genai.owasp.org/llm-top-10/",
+      "lectures/10/materials/case-evidence-sources.md"
     ]
   },
   {
     "number": 15,
-    "id": "authorization",
-    "kind": "content",
-    "title": "인증과 인가의 구분",
-    "subtitle": "사용자 확인과 작업 권한의 구분",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
+    "id": "foodmap-apply",
+    "kind": "chapter",
+    "title": "실전 적용: 푸드맵 인증·인가 및 보안 설계",
+    "subtitle": "",
+    "sources": []
   },
   {
     "number": 16,
-    "id": "flow",
+    "id": "foodmap-security-gap",
     "kind": "content",
-    "title": "로그인 흐름",
-    "subtitle": "자격 증명 검증과 후속 요청",
+    "title": "현재 푸드맵의 보안 공백 진단",
+    "subtitle": "인증 없는 API와 브라우저 localStorage 의존 구조 점검",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "lectures/08/lab-review/index.html",
+      "lectures/10/materials/lecture-plan.md"
     ]
   },
   {
     "number": 17,
-    "id": "cookie",
+    "id": "foodmap-role-matrix",
     "kind": "content",
-    "title": "쿠키",
-    "subtitle": "브라우저의 값 저장과 요청 전달",
+    "title": "역할별 권한 매트릭스와 데이터 모델",
+    "subtitle": "비로그인·일반 사용자·관리자 정책과 사용자 스키마 확장",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html"
     ]
   },
   {
     "number": 18,
-    "id": "session",
+    "id": "foodmap-auth-cors",
     "kind": "content",
-    "title": "세션 기반 인증",
-    "subtitle": "서버 상태와 세션 식별자",
+    "title": "인증 흐름과 교차 출처(CORS·쿠키) 설정",
+    "subtitle": "안전한 로그인·세션 전달과 Vercel–Render 간 출처 허용",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "lectures/08/materials/chapter06-supplement.ko.txt"
     ]
   },
   {
     "number": 19,
-    "id": "jwt",
+    "id": "foodmap-server-defenses",
     "kind": "content",
-    "title": "JWT",
-    "subtitle": "서명된 토큰의 구조와 검증",
+    "title": "서버 인가 및 입력·쿼리·출력 방어 구현",
+    "subtitle": "Express 미들웨어 권한 검사와 3대 취약점 코드 수준 방어",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "lectures/08/scripts/new_resources.py"
     ]
   },
   {
     "number": 20,
-    "id": "oauth",
+    "id": "foodmap-secrets-verify",
     "kind": "content",
-    "title": "OAuth와 OpenID Connect",
-    "subtitle": "권한 위임과 사용자 인증",
+    "title": "비밀정보 격리 · AI 경계 · 보안 검증",
+    "subtitle": "환경변수 번들 분리와 가상 AI 요약·권한 우회 테스트 계획",
     "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
-  },
-  {
-    "number": 21,
-    "id": "security",
-    "kind": "chapter",
-    "title": "웹 보안과 운영",
-    "subtitle": "",
-    "sources": []
-  },
-  {
-    "number": 22,
-    "id": "xss",
-    "kind": "content",
-    "title": "XSS",
-    "subtitle": "신뢰하지 않는 내용과 브라우저 실행",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
-  },
-  {
-    "number": 23,
-    "id": "csrf",
-    "kind": "content",
-    "title": "CSRF",
-    "subtitle": "로그인 상태를 이용한 의도하지 않은 요청",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
-  },
-  {
-    "number": 24,
-    "id": "injection",
-    "kind": "content",
-    "title": "SQL 인젝션",
-    "subtitle": "입력값과 쿼리 구조의 분리",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
-  },
-  {
-    "number": 25,
-    "id": "other-attacks",
-    "kind": "content",
-    "title": "로그인과 파일 접근 공격",
-    "subtitle": "반복 시도와 경로 조작",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
-  },
-  {
-    "number": 26,
-    "id": "secrets",
-    "kind": "content",
-    "title": "비밀정보 관리",
-    "subtitle": "환경별 분리와 유출 대응",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
-  },
-  {
-    "number": 27,
-    "id": "operations",
-    "kind": "content",
-    "title": "세션과 로그 운영",
-    "subtitle": "안전한 전달 · 만료 · 사건 기록",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
-    ]
-  },
-  {
-    "number": 28,
-    "id": "practice",
-    "kind": "chapter",
-    "title": "푸드맵 인증 설계 실습",
-    "subtitle": "",
-    "sources": []
-  },
-  {
-    "number": 29,
-    "id": "exercise",
-    "kind": "content",
-    "title": "역할별 권한 설계",
-    "subtitle": "기존 푸드맵에 인증 추가",
-    "sources": [
-      "lectures/08/materials/[PWD Week6] 웹 서비스 인증과 보안.pdf"
+      "lectures/08/scripts/new_resources.py",
+      "lectures/10/materials/incident-vulnerability-analysis.md"
     ]
   }
 ]

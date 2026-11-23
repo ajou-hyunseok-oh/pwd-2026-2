@@ -4,80 +4,145 @@
     "id": "cover",
     "kind": "cover",
     "title": "실전 웹서비스개발 – 10주차",
-    "subtitle": "9주차 학습내용 리뷰 · 푸드맵 개발 사례"
+    "subtitle": "AI 모델 평가 · 지침과 스킬"
   },
   {
     "number": 2,
-    "id": "review",
+    "id": "supplement",
     "kind": "chapter",
-    "title": "9주차 학습내용 리뷰",
-    "subtitle": "푸드맵을 통한 개발 작업 체계",
+    "title": "AI 모델 평가와 지침·스킬 설계",
+    "subtitle": "모델 성능 검증 방법 · 주요 벤치마크 · 지침과 스킬",
     "sources": []
   },
   {
     "number": 3,
-    "id": "baseline",
+    "id": "how-to-evaluate",
     "kind": "content",
-    "title": "기존 푸드맵 구조",
-    "subtitle": "7주차 구현 기준",
+    "title": "AI 모델 성능 평가 방법",
+    "subtitle": "AI 모델의 품질·비용·신뢰성을 함께 판단하는 일반 기준",
     "sources": [
-      "lectures/09/index.html",
-      "lectures/08/lab-review/materials/code-excerpts.json"
+      "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "https://arxiv.org/abs/2211.09110",
+      "https://arxiv.org/abs/2406.19314",
+      "https://arxiv.org/abs/2403.04132",
+      "https://arxiv.org/abs/2504.20879",
+      "https://arxiv.org/abs/2411.12990",
+      "https://artificialanalysis.ai/methodology",
+      "https://platform.openai.com/docs/guides/reasoning"
     ]
   },
   {
     "number": 4,
-    "id": "instructions",
+    "id": "benchmark-sites",
     "kind": "content",
-    "title": "지침",
-    "subtitle": "작업 전반에 적용하는 규칙",
+    "title": "주요 AI 벤치마크 사이트",
+    "subtitle": "전 세계 개발자·연구자가 모델 비교 시 가장 많이 참고하는 3대 기준 사이트",
     "sources": [
-      "lectures/09/index.html",
-      "lectures/08/lab-review/materials/code-excerpts.json"
+      "https://arena.ai/leaderboard",
+      "https://artificialanalysis.ai/",
+      "https://livebench.ai/"
     ]
   },
   {
     "number": 5,
-    "id": "skills",
+    "id": "model-eval-visual",
     "kind": "content",
-    "title": "스킬",
-    "subtitle": "반복 작업을 위한 절차와 자료",
+    "title": "주요 AI 모델별 평가 비교",
+    "subtitle": "3대 벤치마크(Artificial Analysis · LiveBench 2.0 · LMArena Text) 각 사 최고 모델 비교",
     "sources": [
-      "lectures/09/index.html",
-      "lectures/08/lab-review/materials/code-excerpts.json"
+      "https://artificialanalysis.ai/leaderboards/models",
+      "https://livebench.ai/",
+      "https://arena.ai/leaderboard/chat/text",
+      "https://openai.com",
+      "https://www.anthropic.com",
+      "https://deepmind.google"
     ]
   },
   {
     "number": 6,
-    "id": "spec",
+    "id": "model-selection",
     "kind": "content",
-    "title": "스펙 드리븐 개발",
-    "subtitle": "행동과 수용 조건을 먼저 정의",
+    "title": "상황별 AI 모델 선택 가이드",
+    "subtitle": "웹서비스 개발 중 Claude · ChatGPT · Gemini를 어떤 상황에 쓰면 좋은지 정리",
     "sources": [
-      "lectures/09/index.html",
-      "lectures/08/lab-review/materials/code-excerpts.json"
+      "https://www.anthropic.com",
+      "https://openai.com",
+      "https://deepmind.google"
     ]
   },
   {
     "number": 7,
-    "id": "harness",
+    "id": "instructions-structure",
     "kind": "content",
-    "title": "하네스 설계",
-    "subtitle": "실행 환경과 검증의 연결",
+    "title": "저장소 지침 작성 구조",
+    "subtitle": "OpenAI · Claude · Gemini의 지침 파일 탐색 계층과 조건부 규칙",
     "sources": [
-      "lectures/09/index.html",
-      "lectures/08/lab-review/materials/code-excerpts.json"
+      "https://agents.md/",
+      "https://developers.openai.com/codex/guides/agents-md/",
+      "https://code.claude.com/docs/en/memory",
+      "https://geminicli.com/docs/cli/gemini-md/",
+      "https://antigravity.google/docs/rules"
     ]
   },
   {
     "number": 8,
-    "id": "relationship",
+    "id": "instructions-authoring",
     "kind": "content",
-    "title": "개발 요소의 관계",
-    "subtitle": "규칙 · 절차 · 성공 기준 · 피드백",
+    "title": "지침 작성 모범 사례",
+    "subtitle": "문맥 비대화를 막고 규칙 준수율과 안전성을 높이는 작성 기준",
     "sources": [
-      "lectures/09/index.html",
-      "lectures/08/lab-review/materials/code-excerpts.json"
+      "https://code.claude.com",
+      "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "https://antigravity.google"
+    ]
+  },
+  {
+    "number": 9,
+    "id": "skills-structure",
+    "kind": "content",
+    "title": "에이전트 스킬 작성 표준",
+    "subtitle": "agentskills.io 오픈 규격과 점진적 공개 3단계 구조",
+    "sources": [
+      "https://agentskills.io/",
+      "https://developers.openai.com/codex/skills",
+      "https://code.claude.com",
+      "https://geminicli.com/docs/skills/"
+    ]
+  },
+  {
+    "number": 10,
+    "id": "skills-best-practices",
+    "kind": "content",
+    "title": "좋은 스킬 설계 원칙",
+    "subtitle": "발견 정확도 · 문맥 효율 · 반복 검증을 높이는 작성법",
+    "sources": [
+      "https://agentskills.io/",
+      "https://code.claude.com",
+      "https://antigravity.google"
+    ]
+  },
+  {
+    "number": 11,
+    "id": "foodmap-instructions",
+    "kind": "content",
+    "title": "푸드맵 서버의 지침 (AGENTS.md)",
+    "subtitle": "ajou-foodmap-server의 구조·검증 명령·인증/DB 제약을 고정하는 실제 적용 예시",
+    "sources": [
+      "https://agents.md/",
+      "https://code.claude.com/docs/en/memory",
+      "https://geminicli.com/docs/cli/gemini-md/"
+    ]
+  },
+  {
+    "number": 12,
+    "id": "foodmap-skills",
+    "kind": "content",
+    "title": "푸드맵 서버의 스킬 (SKILL.md)",
+    "subtitle": "ajou-foodmap-server의 라우트 권한 검증 절차를 패키징한 실제 스킬 예시",
+    "sources": [
+      "https://agentskills.io/",
+      "https://developers.openai.com/codex/skills",
+      "https://code.claude.com"
     ]
   }
 ]

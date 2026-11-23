@@ -1,0 +1,66 @@
+/* Week 10 editable teaching resources. Base typography, code and tables remain shared. */
+.w10-resource-note { border-left: 3px solid #a8b8ae; padding-left: .65rem; }
+.wd-lesson-block > .w10-flow + .wd-lesson-table,
+.wd-lesson-block > .w10-branches + .wd-lesson-table,
+.wd-lesson-block > pre + .wd-lesson-table { margin-top: 1.2rem; }
+.w10-branches { margin: 0; }
+.w10-branch-root { border-bottom: 2px solid #47725b; padding: .6rem 0 1rem; text-align: center; }
+.w10-branch-root strong, .w10-branch-child strong { font-size: 1.05rem; }
+.w10-branch-root p, .w10-branch-child p { margin-top: .5rem; font-size: .9rem; line-height: 1.55; white-space: pre-line; }
+.w10-branch-children { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.w10-branch-child { padding: 1.9rem .5rem .8rem; position: relative; text-align: center; }
+.w10-branch-child::before { content: '↓'; position: absolute; top: .3rem; left: calc(50% - .35rem); color: #47725b; }
+.w10-caption { margin-top: .65rem !important; color: #536159; font-size: .73rem; line-height: 1.45; }
+.w10-flow { margin: 1.2rem 0 0; }
+.w10-flow ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2.5rem; counter-reset: phase; }
+.w10-flow li { position: relative; padding: 1rem 0; border-top: 3px solid #47725b; font-size: 1.05rem; line-height: 1.5; counter-increment: phase; word-break: keep-all; }
+.w10-flow li::before { content: counter(phase,decimal-leading-zero); display: block; margin-bottom: .6rem; font-size: .8rem; font-weight: 750; color: #47725b; }
+.w10-flow li + li::after { content: '→'; position: absolute; left: -1.9rem; top: 3.15rem; color: #47725b; }
+.w10-flow li p { margin-top: .7rem; font-size: .9rem; color: #43564a; white-space: pre-line; }
+.w10-sequence { margin: 0; }
+.w10-actors { position: relative; height: 2.45rem; }
+.w10-actor { position: absolute; transform: translateX(-50%); width: 22%; text-align: center; font-weight: 750; font-size: .85rem; line-height: 1.3; padding-bottom: .45rem; border-bottom: 2px solid #47725b; }
+.w10-sequence-track { position: relative; }
+.w10-lifeline { position: absolute; top: 0; bottom: 0; border-left: 1px dashed #a8b8ae; }
+.w10-messages { list-style: none; padding: 0; margin: 0; }
+.w10-messages > li { position: relative; height: 2.55rem; }
+.w10-message { position: absolute; top: 0; height: 2.05rem; }
+.w10-message-text { text-align: center; font-size: .8rem; line-height: 1.3; padding: 0 .4rem; position: relative; z-index: 1; white-space: pre-line; }
+.w10-message-line { position: absolute; bottom: 0; left: 0; right: 0; border-top: 1.5px solid #66766b; }
+.w10-message--reply .w10-message-line { border-top-style: dashed; }
+.w10-message-line::after { content: ''; position: absolute; top: -.25rem; width: .4rem; height: .4rem; border-top: 1.5px solid #66766b; border-right: 1.5px solid #66766b; }
+.w10-message--right .w10-message-line::after { right: 0; transform: rotate(45deg); }
+.w10-message--left .w10-message-line::after { left: 0; transform: rotate(-135deg); }
+.w10-local { position: absolute; top: 0; padding: .3rem .5rem; border-left: 3px solid #718a7a; background: #edf3ef; color: #263e30; font-size: .76rem; line-height: 1.35; text-align: center; white-space: pre-line; }
+.w10-message--focus .w10-message-text, .w10-local.w10-message--focus { font-weight: 750; color: #205c3b; }
+.w10-message--focus .w10-message-line { border-color: #205c3b; border-top-width: 2px; }
+.w10-mobile-route { display: none; }
+.w10-resource-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem; }
+.w10-resource-column { min-width: 0; }
+.w10-evidence-card { margin: 0; display: grid; grid-template-columns: 8.8rem minmax(0,1fr); gap: .75rem; align-items: center; padding: .6rem .75rem; border: 1px solid #c6d3cb; border-left: 3px solid #256747; border-radius: .35rem; background: #f5f8f6; }
+.w10-evidence-thumb { width: 8.8rem; height: 5.2rem; display: flex; align-items: center; justify-content: center; border: 1px solid #d5e0d9; border-radius: .25rem; background: #fff; overflow: hidden; }
+.w10-evidence-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.w10-evidence-body { min-width: 0; display: grid; gap: .24rem; }
+.w10-evidence-meta { margin: 0; font-size: .68rem; font-weight: 700; color: #256747; line-height: 1.3; }
+.w10-evidence-link { display: block; font-size: .77rem; font-weight: 750; color: #173525; text-decoration: underline; text-decoration-color: #84a592; text-underline-offset: .16rem; line-height: 1.35; overflow-wrap: anywhere; }
+.w10-evidence-link:hover { color: #256747; text-decoration-color: #256747; }
+.w10-evidence-summary { margin: 0; font-size: .72rem; color: #43564a; line-height: 1.4; }
+@media screen and (max-width:767px) {
+  .w10-branch-children, .w10-resource-row { grid-template-columns: 1fr; }
+  .w10-evidence-card { grid-template-columns: 1fr; padding: .75rem; }
+  .w10-evidence-thumb { width: 100%; height: 10.5rem; }
+  .w10-evidence-meta { font-size: .78rem; }
+  .w10-evidence-link { font-size: .95rem; }
+  .w10-evidence-summary { font-size: .84rem; }
+  .w10-branch-root strong, .w10-branch-child strong { font-size: 1.1rem; }
+  .w10-branches p { font-size: 1rem; }
+  .w10-flow ol { grid-template-columns: 1fr; gap: 1.4rem; }
+  .w10-flow li + li::after { content: '↓'; left: 50%; top: -1.7rem; }
+  .w10-actors, .w10-lifeline, .w10-message-line { display: none; }
+  .w10-sequence-track { border-left: 2px solid #a8b8ae; padding-left: .9rem; }
+  .w10-messages > li { height: auto; margin-bottom: .75rem; }
+  .w10-mobile-route { display: block; font-size: .78rem; font-weight: 750; color: #47725b; margin-bottom: .2rem !important; }
+  .w10-message { position: static; width: auto !important; height: auto; }
+  .w10-message-text { text-align: left; padding: 0; font-size: .95rem; }
+  .w10-local { position: static; width: auto !important; text-align: left; font-size: .92rem; }
+}

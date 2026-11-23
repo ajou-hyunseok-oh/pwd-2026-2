@@ -1,0 +1,159 @@
+/* Week 10 review supplement visual charts and model cards. */
+.r10-visual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+.r10-chart-panel {
+  display: grid;
+  gap: .72rem;
+}
+.r10-chart-group {
+  border-top: 2px solid #47725b;
+  padding-top: .45rem;
+}
+.r10-chart-heading {
+  font-size: .85rem;
+  font-weight: 750;
+  color: #205c3b;
+  margin-bottom: .42rem !important;
+}
+.r10-bars {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .32rem;
+}
+.r10-bar-row {
+  display: grid;
+  grid-template-columns: 11.2rem minmax(0, 1fr) 4.8rem;
+  gap: .55rem;
+  align-items: center;
+  font-size: .8rem;
+}
+.r10-bar-model {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  min-width: 0;
+}
+.r10-bar-icon {
+  width: .95rem;
+  height: .95rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+.r10-bar-label {
+  font-weight: 650;
+  color: #263e30;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.r10-bar-track {
+  height: .92rem;
+  background: #e9efeb;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.r10-bar-fill {
+  height: 100%;
+  background: #718a7a;
+}
+.r10-bar-fill--top {
+  background: #256747;
+}
+.r10-bar-value {
+  font-weight: 700;
+  color: #263e30;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.r10-cards {
+  display: grid;
+  gap: .62rem;
+}
+.r10-card {
+  background: #fff;
+  border: 1px solid #c9d4cd;
+  border-left: 4px solid #47725b;
+  padding: .56rem .88rem;
+}
+.r10-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid #e2e7e3;
+}
+.r10-card-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+.r10-card-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+.r10-card-provider {
+  font-size: 1rem;
+  font-weight: 760;
+  color: #205c3b;
+}
+.r10-card-tier {
+  font-size: .78rem;
+  font-weight: 650;
+  color: #536159;
+}
+.r10-card-models {
+  margin-top: .45rem !important;
+  font-size: .83rem;
+  font-weight: 650;
+  color: #263e30;
+  line-height: 1.4;
+}
+.r10-card-strength {
+  margin-top: .25rem !important;
+  font-size: .8rem;
+  color: #43564a;
+  line-height: 1.45;
+}
+.r10-chart-caption {
+  margin-top: .35rem !important;
+  font-size: .74rem;
+  color: #536159;
+}
+.r10-table-link {
+  color: #205c3b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.r10-table-link:hover {
+  color: #164029;
+}
+
+@media screen and (max-width: 767px) {
+  .r10-visual-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+  .r10-bar-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "label value"
+      "track track";
+    gap: .25rem .5rem;
+  }
+  .r10-bar-model { grid-area: label; }
+  .r10-bar-label { font-size: .92rem; }
+  .r10-bar-value { grid-area: value; font-size: .92rem; }
+  .r10-bar-track { grid-area: track; height: .95rem; }
+  .r10-card-models, .r10-card-strength { font-size: .95rem; }
+}
